@@ -20,44 +20,116 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
-		private final Assignment cRigidBodiesAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cRigidBodiesRigidBodyParserRuleCall_0 = (RuleCall)cRigidBodiesAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDefsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDefsInitialDefinitionParserRuleCall_0_0 = (RuleCall)cDefsAssignment_0.eContents().get(0);
+		private final Assignment cWorldAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cWorldEnvironmentParserRuleCall_1_0 = (RuleCall)cWorldAssignment_1.eContents().get(0);
+		private final Assignment cBodiesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBodiesSystemParserRuleCall_2_0 = (RuleCall)cBodiesAssignment_2.eContents().get(0);
 		
 		//Model:
-		//	rigidBodies+=RigidBody+;
+		//	defs+=InitialDefinition* world=Environment bodies+=System+;
 		@Override public ParserRule getRule() { return rule; }
 
-		//rigidBodies+=RigidBody+
-		public Assignment getRigidBodiesAssignment() { return cRigidBodiesAssignment; }
+		//defs+=InitialDefinition* world=Environment bodies+=System+
+		public Group getGroup() { return cGroup; }
 
-		//RigidBody
-		public RuleCall getRigidBodiesRigidBodyParserRuleCall_0() { return cRigidBodiesRigidBodyParserRuleCall_0; }
+		//defs+=InitialDefinition*
+		public Assignment getDefsAssignment_0() { return cDefsAssignment_0; }
+
+		//InitialDefinition
+		public RuleCall getDefsInitialDefinitionParserRuleCall_0_0() { return cDefsInitialDefinitionParserRuleCall_0_0; }
+
+		//world=Environment
+		public Assignment getWorldAssignment_1() { return cWorldAssignment_1; }
+
+		//Environment
+		public RuleCall getWorldEnvironmentParserRuleCall_1_0() { return cWorldEnvironmentParserRuleCall_1_0; }
+
+		//bodies+=System+
+		public Assignment getBodiesAssignment_2() { return cBodiesAssignment_2; }
+
+		//System
+		public RuleCall getBodiesSystemParserRuleCall_2_0() { return cBodiesSystemParserRuleCall_2_0; }
 	}
 
-	public class RigidBodyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RigidBody");
+	public class InitialDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InitialDefinition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMatrixDefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBaseVector3ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//InitialDefinition:
+		//	MatrixDef | BaseVector3;
+		@Override public ParserRule getRule() { return rule; }
+
+		//MatrixDef | BaseVector3
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//MatrixDef
+		public RuleCall getMatrixDefParserRuleCall_0() { return cMatrixDefParserRuleCall_0; }
+
+		//BaseVector3
+		public RuleCall getBaseVector3ParserRuleCall_1() { return cBaseVector3ParserRuleCall_1; }
+	}
+
+	public class EnvironmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Environment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRigid_bodyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cWorldKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cGravityKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGravityAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGravityVector3ParserRuleCall_3_0 = (RuleCall)cGravityAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Environment:
+		//	"world" "{" "gravity" gravity=Vector3 "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"world" "{" "gravity" gravity=Vector3 "}"
+		public Group getGroup() { return cGroup; }
+
+		//"world"
+		public Keyword getWorldKeyword_0() { return cWorldKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//"gravity"
+		public Keyword getGravityKeyword_2() { return cGravityKeyword_2; }
+
+		//gravity=Vector3
+		public Assignment getGravityAssignment_3() { return cGravityAssignment_3; }
+
+		//Vector3
+		public RuleCall getGravityVector3ParserRuleCall_3_0() { return cGravityVector3ParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class SystemElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "System");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cJointsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cJointsJointParserRuleCall_3_0 = (RuleCall)cJointsAssignment_3.eContents().get(0);
-		private final Assignment cMassesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cMassesMassParserRuleCall_4_0 = (RuleCall)cMassesAssignment_4.eContents().get(0);
-		private final Assignment cConstraintsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cConstraintsConstraintParserRuleCall_5_0 = (RuleCall)cConstraintsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cElementsSystemElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//RigidBody:
-		//	"rigid_body" name=ID "{" joints+=Joint+ masses+=Mass+ constraints+=Constraint* "}";
+		//System:
+		//	"system" name=ID "{" elements+=SystemElement+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"rigid_body" name=ID "{" joints+=Joint+ masses+=Mass+ constraints+=Constraint* "}"
+		//"system" name=ID "{" elements+=SystemElement+ "}"
 		public Group getGroup() { return cGroup; }
 
-		//"rigid_body"
-		public Keyword getRigid_bodyKeyword_0() { return cRigid_bodyKeyword_0; }
+		//"system"
+		public Keyword getSystemKeyword_0() { return cSystemKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -68,26 +140,198 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//joints+=Joint+
-		public Assignment getJointsAssignment_3() { return cJointsAssignment_3; }
+		//elements+=SystemElement+
+		public Assignment getElementsAssignment_3() { return cElementsAssignment_3; }
 
-		//Joint
-		public RuleCall getJointsJointParserRuleCall_3_0() { return cJointsJointParserRuleCall_3_0; }
-
-		//masses+=Mass+
-		public Assignment getMassesAssignment_4() { return cMassesAssignment_4; }
-
-		//Mass
-		public RuleCall getMassesMassParserRuleCall_4_0() { return cMassesMassParserRuleCall_4_0; }
-
-		//constraints+=Constraint*
-		public Assignment getConstraintsAssignment_5() { return cConstraintsAssignment_5; }
-
-		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_5_0() { return cConstraintsConstraintParserRuleCall_5_0; }
+		//SystemElement
+		public RuleCall getElementsSystemElementParserRuleCall_3_0() { return cElementsSystemElementParserRuleCall_3_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class SystemElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SystemElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBodyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cJointParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cConstraintParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//SystemElement:
+		//	Body | Joint | Constraint;
+		@Override public ParserRule getRule() { return rule; }
+
+		//Body | Joint | Constraint
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Body
+		public RuleCall getBodyParserRuleCall_0() { return cBodyParserRuleCall_0; }
+
+		//Joint
+		public RuleCall getJointParserRuleCall_1() { return cJointParserRuleCall_1; }
+
+		//Constraint
+		public RuleCall getConstraintParserRuleCall_2() { return cConstraintParserRuleCall_2; }
+	}
+
+	public class BodyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Body");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBodyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cFrameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cFrameLocalFrameParserRuleCall_3_0 = (RuleCall)cFrameAssignment_3.eContents().get(0);
+		private final Assignment cMassAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMassMassParserRuleCall_4_0 = (RuleCall)cMassAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Body:
+		//	"body" name=ID "{" frame=LocalFrame mass=Mass "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"body" name=ID "{" frame=LocalFrame mass=Mass "}"
+		public Group getGroup() { return cGroup; }
+
+		//"body"
+		public Keyword getBodyKeyword_0() { return cBodyKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//frame=LocalFrame
+		public Assignment getFrameAssignment_3() { return cFrameAssignment_3; }
+
+		//LocalFrame
+		public RuleCall getFrameLocalFrameParserRuleCall_3_0() { return cFrameLocalFrameParserRuleCall_3_0; }
+
+		//mass=Mass
+		public Assignment getMassAssignment_4() { return cMassAssignment_4; }
+
+		//Mass
+		public RuleCall getMassMassParserRuleCall_4_0() { return cMassMassParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class LocalFrameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LocalFrame");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLocalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFrameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cOrientationKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cOrientationAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cOrientationMatrix3X3ParserRuleCall_4_0 = (RuleCall)cOrientationAssignment_4.eContents().get(0);
+		private final Keyword cPositionKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPositionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPositionVector3ParserRuleCall_6_0 = (RuleCall)cPositionAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//LocalFrame:
+		//	"local" "frame" "{" "orientation" orientation=Matrix3X3 "position" position=Vector3 "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"local" "frame" "{" "orientation" orientation=Matrix3X3 "position" position=Vector3 "}"
+		public Group getGroup() { return cGroup; }
+
+		//"local"
+		public Keyword getLocalKeyword_0() { return cLocalKeyword_0; }
+
+		//"frame"
+		public Keyword getFrameKeyword_1() { return cFrameKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//"orientation"
+		public Keyword getOrientationKeyword_3() { return cOrientationKeyword_3; }
+
+		//orientation=Matrix3X3
+		public Assignment getOrientationAssignment_4() { return cOrientationAssignment_4; }
+
+		//Matrix3X3
+		public RuleCall getOrientationMatrix3X3ParserRuleCall_4_0() { return cOrientationMatrix3X3ParserRuleCall_4_0; }
+
+		//"position"
+		public Keyword getPositionKeyword_5() { return cPositionKeyword_5; }
+
+		//position=Vector3
+		public Assignment getPositionAssignment_6() { return cPositionAssignment_6; }
+
+		//Vector3
+		public RuleCall getPositionVector3ParserRuleCall_6_0() { return cPositionVector3ParserRuleCall_6_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+
+	public class MassElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Mass");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueREALTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Keyword cPositionKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cPositionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPositionVector3ParserRuleCall_5_0 = (RuleCall)cPositionAssignment_5.eContents().get(0);
+		private final Keyword cInertiaKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cInertiaAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cInertiaMatrix3X3ParserRuleCall_7_0 = (RuleCall)cInertiaAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//Mass:
+		//	"mass" "{" "value" value=REAL "position" position=Vector3 "inertia" inertia=Matrix3X3 "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"mass" "{" "value" value=REAL "position" position=Vector3 "inertia" inertia=Matrix3X3 "}"
+		public Group getGroup() { return cGroup; }
+
+		//"mass"
+		public Keyword getMassKeyword_0() { return cMassKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//"value"
+		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
+
+		//value=REAL
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+
+		//REAL
+		public RuleCall getValueREALTerminalRuleCall_3_0() { return cValueREALTerminalRuleCall_3_0; }
+
+		//"position"
+		public Keyword getPositionKeyword_4() { return cPositionKeyword_4; }
+
+		//position=Vector3
+		public Assignment getPositionAssignment_5() { return cPositionAssignment_5; }
+
+		//Vector3
+		public RuleCall getPositionVector3ParserRuleCall_5_0() { return cPositionVector3ParserRuleCall_5_0; }
+
+		//"inertia"
+		public Keyword getInertiaKeyword_6() { return cInertiaKeyword_6; }
+
+		//inertia=Matrix3X3
+		public Assignment getInertiaAssignment_7() { return cInertiaAssignment_7; }
+
+		//Matrix3X3
+		public RuleCall getInertiaMatrix3X3ParserRuleCall_7_0() { return cInertiaMatrix3X3ParserRuleCall_7_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class JointElements extends AbstractParserRuleElementFinder {
@@ -96,12 +340,41 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cJointKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeMatrix4X4ParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Keyword cBetweenKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cBody1Assignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cBody1BodyCrossReference_5_0 = (CrossReference)cBody1Assignment_5.eContents().get(0);
+		private final RuleCall cBody1BodyIDTerminalRuleCall_5_0_1 = (RuleCall)cBody1BodyCrossReference_5_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cWithKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cRelativeKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cTransformationKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cRelTransformation1Assignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cRelTransformation1Matrix4X4ParserRuleCall_10_0 = (RuleCall)cRelTransformation1Assignment_10.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cAndKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cBody2Assignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final CrossReference cBody2BodyCrossReference_13_0 = (CrossReference)cBody2Assignment_13.eContents().get(0);
+		private final RuleCall cBody2BodyIDTerminalRuleCall_13_0_1 = (RuleCall)cBody2BodyCrossReference_13_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cWithKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cRelativeKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Keyword cTransformationKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Assignment cRelTransformation2Assignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final RuleCall cRelTransformation2Matrix4X4ParserRuleCall_18_0 = (RuleCall)cRelTransformation2Assignment_18.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//Joint:
-		//	"joint" name=ID;
+		//	"joint" name=ID ":" type=Matrix4X4 "between" body1=[Body] "(" "with" "relative" "transformation"
+		//	relTransformation1=Matrix4X4 ")" "and" body2=[Body] "(" "with" "relative" "transformation"
+		//	relTransformation2=Matrix4X4 ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"joint" name=ID
+		//"joint" name=ID ":" type=Matrix4X4 "between" body1=[Body] "(" "with" "relative" "transformation"
+		//relTransformation1=Matrix4X4 ")" "and" body2=[Body] "(" "with" "relative" "transformation"
+		//relTransformation2=Matrix4X4 ")"
 		public Group getGroup() { return cGroup; }
 
 		//"joint"
@@ -112,172 +385,81 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-	}
 
-	public class MassElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Mass");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMassKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueREALTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
-		private final Keyword cKgKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTransformationsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTransformationsTransformationParserRuleCall_5_0 = (RuleCall)cTransformationsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		
-		//Mass:
-		//	"mass" name=ID value=REAL "kg" "{" transformations+=Transformation+ "}";
-		@Override public ParserRule getRule() { return rule; }
+		//":"
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
-		//"mass" name=ID value=REAL "kg" "{" transformations+=Transformation+ "}"
-		public Group getGroup() { return cGroup; }
+		//type=Matrix4X4
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
-		//"mass"
-		public Keyword getMassKeyword_0() { return cMassKeyword_0; }
+		//Matrix4X4
+		public RuleCall getTypeMatrix4X4ParserRuleCall_3_0() { return cTypeMatrix4X4ParserRuleCall_3_0; }
 
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//"between"
+		public Keyword getBetweenKeyword_4() { return cBetweenKeyword_4; }
+
+		//body1=[Body]
+		public Assignment getBody1Assignment_5() { return cBody1Assignment_5; }
+
+		//[Body]
+		public CrossReference getBody1BodyCrossReference_5_0() { return cBody1BodyCrossReference_5_0; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//value=REAL
-		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
-
-		//REAL
-		public RuleCall getValueREALTerminalRuleCall_2_0() { return cValueREALTerminalRuleCall_2_0; }
-
-		//"kg"
-		public Keyword getKgKeyword_3() { return cKgKeyword_3; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
-
-		//transformations+=Transformation+
-		public Assignment getTransformationsAssignment_5() { return cTransformationsAssignment_5; }
-
-		//Transformation
-		public RuleCall getTransformationsTransformationParserRuleCall_5_0() { return cTransformationsTransformationParserRuleCall_5_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-
-	public class TransformationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Transformation");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTransformationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cRelativeKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cToKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cJointAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cJointJointCrossReference_3_0 = (CrossReference)cJointAssignment_3.eContents().get(0);
-		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final RuleCall cREALTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final Keyword cCommaKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final RuleCall cREALTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final RuleCall cREALTerminalRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
-		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final RuleCall cREALTerminalRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
-		private final Keyword cCommaKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final RuleCall cREALTerminalRuleCall_13 = (RuleCall)cGroup.eContents().get(13);
-		private final Keyword cCommaKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final RuleCall cREALTerminalRuleCall_15 = (RuleCall)cGroup.eContents().get(15);
-		private final Keyword cSemicolonKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final RuleCall cREALTerminalRuleCall_17 = (RuleCall)cGroup.eContents().get(17);
-		private final Keyword cCommaKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final RuleCall cREALTerminalRuleCall_19 = (RuleCall)cGroup.eContents().get(19);
-		private final Keyword cCommaKeyword_20 = (Keyword)cGroup.eContents().get(20);
-		private final RuleCall cREALTerminalRuleCall_21 = (RuleCall)cGroup.eContents().get(21);
-		private final Keyword cRightParenthesisKeyword_22 = (Keyword)cGroup.eContents().get(22);
-		
-		//Transformation:
-		//	"transformation" "relative" "to" joint=[Joint] "(" REAL "," REAL "," REAL ";" REAL "," REAL "," REAL ";" REAL ","
-		//	REAL "," REAL ")";
-		@Override public ParserRule getRule() { return rule; }
-
-		//"transformation" "relative" "to" joint=[Joint] "(" REAL "," REAL "," REAL ";" REAL "," REAL "," REAL ";" REAL "," REAL
-		//"," REAL ")"
-		public Group getGroup() { return cGroup; }
-
-		//"transformation"
-		public Keyword getTransformationKeyword_0() { return cTransformationKeyword_0; }
-
-		//"relative"
-		public Keyword getRelativeKeyword_1() { return cRelativeKeyword_1; }
-
-		//"to"
-		public Keyword getToKeyword_2() { return cToKeyword_2; }
-
-		//joint=[Joint]
-		public Assignment getJointAssignment_3() { return cJointAssignment_3; }
-
-		//[Joint]
-		public CrossReference getJointJointCrossReference_3_0() { return cJointJointCrossReference_3_0; }
-
-		//ID
-		public RuleCall getJointJointIDTerminalRuleCall_3_0_1() { return cJointJointIDTerminalRuleCall_3_0_1; }
+		public RuleCall getBody1BodyIDTerminalRuleCall_5_0_1() { return cBody1BodyIDTerminalRuleCall_5_0_1; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
+		public Keyword getLeftParenthesisKeyword_6() { return cLeftParenthesisKeyword_6; }
 
-		//REAL
-		public RuleCall getREALTerminalRuleCall_5() { return cREALTerminalRuleCall_5; }
+		//"with"
+		public Keyword getWithKeyword_7() { return cWithKeyword_7; }
 
-		//","
-		public Keyword getCommaKeyword_6() { return cCommaKeyword_6; }
+		//"relative"
+		public Keyword getRelativeKeyword_8() { return cRelativeKeyword_8; }
 
-		//REAL
-		public RuleCall getREALTerminalRuleCall_7() { return cREALTerminalRuleCall_7; }
+		//"transformation"
+		public Keyword getTransformationKeyword_9() { return cTransformationKeyword_9; }
 
-		//","
-		public Keyword getCommaKeyword_8() { return cCommaKeyword_8; }
+		//relTransformation1=Matrix4X4
+		public Assignment getRelTransformation1Assignment_10() { return cRelTransformation1Assignment_10; }
 
-		//REAL
-		public RuleCall getREALTerminalRuleCall_9() { return cREALTerminalRuleCall_9; }
-
-		//";"
-		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
-
-		//REAL
-		public RuleCall getREALTerminalRuleCall_11() { return cREALTerminalRuleCall_11; }
-
-		//","
-		public Keyword getCommaKeyword_12() { return cCommaKeyword_12; }
-
-		//REAL
-		public RuleCall getREALTerminalRuleCall_13() { return cREALTerminalRuleCall_13; }
-
-		//","
-		public Keyword getCommaKeyword_14() { return cCommaKeyword_14; }
-
-		//REAL
-		public RuleCall getREALTerminalRuleCall_15() { return cREALTerminalRuleCall_15; }
-
-		//";"
-		public Keyword getSemicolonKeyword_16() { return cSemicolonKeyword_16; }
-
-		//REAL
-		public RuleCall getREALTerminalRuleCall_17() { return cREALTerminalRuleCall_17; }
-
-		//","
-		public Keyword getCommaKeyword_18() { return cCommaKeyword_18; }
-
-		//REAL
-		public RuleCall getREALTerminalRuleCall_19() { return cREALTerminalRuleCall_19; }
-
-		//","
-		public Keyword getCommaKeyword_20() { return cCommaKeyword_20; }
-
-		//REAL
-		public RuleCall getREALTerminalRuleCall_21() { return cREALTerminalRuleCall_21; }
+		//Matrix4X4
+		public RuleCall getRelTransformation1Matrix4X4ParserRuleCall_10_0() { return cRelTransformation1Matrix4X4ParserRuleCall_10_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_22() { return cRightParenthesisKeyword_22; }
+		public Keyword getRightParenthesisKeyword_11() { return cRightParenthesisKeyword_11; }
+
+		//"and"
+		public Keyword getAndKeyword_12() { return cAndKeyword_12; }
+
+		//body2=[Body]
+		public Assignment getBody2Assignment_13() { return cBody2Assignment_13; }
+
+		//[Body]
+		public CrossReference getBody2BodyCrossReference_13_0() { return cBody2BodyCrossReference_13_0; }
+
+		//ID
+		public RuleCall getBody2BodyIDTerminalRuleCall_13_0_1() { return cBody2BodyIDTerminalRuleCall_13_0_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_14() { return cLeftParenthesisKeyword_14; }
+
+		//"with"
+		public Keyword getWithKeyword_15() { return cWithKeyword_15; }
+
+		//"relative"
+		public Keyword getRelativeKeyword_16() { return cRelativeKeyword_16; }
+
+		//"transformation"
+		public Keyword getTransformationKeyword_17() { return cTransformationKeyword_17; }
+
+		//relTransformation2=Matrix4X4
+		public Assignment getRelTransformation2Assignment_18() { return cRelTransformation2Assignment_18; }
+
+		//Matrix4X4
+		public RuleCall getRelTransformation2Matrix4X4ParserRuleCall_18_0() { return cRelTransformation2Matrix4X4ParserRuleCall_18_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_19() { return cRightParenthesisKeyword_19; }
 	}
 
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
@@ -335,15 +517,410 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getJoint2JointIDTerminalRuleCall_3_0_1() { return cJoint2JointIDTerminalRuleCall_3_0_1; }
 	}
+
+	public class Vector3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Vector3");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBaseVector3ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cVector3RefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Vector3:
+		//	BaseVector3 | Vector3Ref;
+		@Override public ParserRule getRule() { return rule; }
+
+		//BaseVector3 | Vector3Ref
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//BaseVector3
+		public RuleCall getBaseVector3ParserRuleCall_0() { return cBaseVector3ParserRuleCall_0; }
+
+		//Vector3Ref
+		public RuleCall getVector3RefParserRuleCall_1() { return cVector3RefParserRuleCall_1; }
+	}
+
+	public class BaseVector3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseVector3");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cVectorKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cREALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cREALTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cREALTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Action cBaseVector3Action_8 = (Action)cGroup.eContents().get(8);
+		
+		//BaseVector3:
+		//	("vector" name=ID)? "(" REAL "," REAL "," REAL ")" {BaseVector3};
+		@Override public ParserRule getRule() { return rule; }
+
+		//("vector" name=ID)? "(" REAL "," REAL "," REAL ")" {BaseVector3}
+		public Group getGroup() { return cGroup; }
+
+		//("vector" name=ID)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"vector"
+		public Keyword getVectorKeyword_0_0() { return cVectorKeyword_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_2() { return cREALTerminalRuleCall_2; }
+
+		//","
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_4() { return cREALTerminalRuleCall_4; }
+
+		//","
+		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_6() { return cREALTerminalRuleCall_6; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+
+		//{BaseVector3}
+		public Action getBaseVector3Action_8() { return cBaseVector3Action_8; }
+	}
+
+	public class Vector3RefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Vector3Ref");
+		private final Assignment cVectorAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cVectorBaseVector3CrossReference_0 = (CrossReference)cVectorAssignment.eContents().get(0);
+		private final RuleCall cVectorBaseVector3IDTerminalRuleCall_0_1 = (RuleCall)cVectorBaseVector3CrossReference_0.eContents().get(1);
+		
+		//Vector3Ref:
+		//	vector=[BaseVector3];
+		@Override public ParserRule getRule() { return rule; }
+
+		//vector=[BaseVector3]
+		public Assignment getVectorAssignment() { return cVectorAssignment; }
+
+		//[BaseVector3]
+		public CrossReference getVectorBaseVector3CrossReference_0() { return cVectorBaseVector3CrossReference_0; }
+
+		//ID
+		public RuleCall getVectorBaseVector3IDTerminalRuleCall_0_1() { return cVectorBaseVector3IDTerminalRuleCall_0_1; }
+	}
+
+	public class Matrix3X3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Matrix3X3");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBaseMatrix3X3ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMatrix3X3RefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Matrix3X3:
+		//	BaseMatrix3X3 | Matrix3X3Ref;
+		@Override public ParserRule getRule() { return rule; }
+
+		//BaseMatrix3X3 | Matrix3X3Ref
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//BaseMatrix3X3
+		public RuleCall getBaseMatrix3X3ParserRuleCall_0() { return cBaseMatrix3X3ParserRuleCall_0; }
+
+		//Matrix3X3Ref
+		public RuleCall getMatrix3X3RefParserRuleCall_1() { return cMatrix3X3RefParserRuleCall_1; }
+	}
+
+	public class BaseMatrix3X3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseMatrix3X3");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cM3Keyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cREALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cREALTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cREALTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cREALTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cREALTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final RuleCall cREALTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final RuleCall cREALTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final RuleCall cREALTerminalRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
+		private final RuleCall cREALTerminalRuleCall_10 = (RuleCall)cGroup.eContents().get(10);
+		private final Keyword cRightSquareBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Action cBaseMatrix3X3Action_12 = (Action)cGroup.eContents().get(12);
+		
+		//BaseMatrix3X3:
+		//	("m3" name=ID)? "[" REAL REAL REAL REAL REAL REAL REAL REAL REAL "]" {BaseMatrix3X3};
+		@Override public ParserRule getRule() { return rule; }
+
+		//("m3" name=ID)? "[" REAL REAL REAL REAL REAL REAL REAL REAL REAL "]" {BaseMatrix3X3}
+		public Group getGroup() { return cGroup; }
+
+		//("m3" name=ID)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"m3"
+		public Keyword getM3Keyword_0_0() { return cM3Keyword_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_2() { return cREALTerminalRuleCall_2; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_3() { return cREALTerminalRuleCall_3; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_4() { return cREALTerminalRuleCall_4; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_5() { return cREALTerminalRuleCall_5; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_6() { return cREALTerminalRuleCall_6; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_7() { return cREALTerminalRuleCall_7; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_8() { return cREALTerminalRuleCall_8; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_9() { return cREALTerminalRuleCall_9; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_10() { return cREALTerminalRuleCall_10; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_11() { return cRightSquareBracketKeyword_11; }
+
+		//{BaseMatrix3X3}
+		public Action getBaseMatrix3X3Action_12() { return cBaseMatrix3X3Action_12; }
+	}
+
+	public class Matrix3X3RefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Matrix3X3Ref");
+		private final Assignment cMatrixAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cMatrixBaseMatrix3X3CrossReference_0 = (CrossReference)cMatrixAssignment.eContents().get(0);
+		private final RuleCall cMatrixBaseMatrix3X3IDTerminalRuleCall_0_1 = (RuleCall)cMatrixBaseMatrix3X3CrossReference_0.eContents().get(1);
+		
+		//Matrix3X3Ref:
+		//	matrix=[BaseMatrix3X3];
+		@Override public ParserRule getRule() { return rule; }
+
+		//matrix=[BaseMatrix3X3]
+		public Assignment getMatrixAssignment() { return cMatrixAssignment; }
+
+		//[BaseMatrix3X3]
+		public CrossReference getMatrixBaseMatrix3X3CrossReference_0() { return cMatrixBaseMatrix3X3CrossReference_0; }
+
+		//ID
+		public RuleCall getMatrixBaseMatrix3X3IDTerminalRuleCall_0_1() { return cMatrixBaseMatrix3X3IDTerminalRuleCall_0_1; }
+	}
+
+	public class Matrix4X4Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Matrix4X4");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBaseMatrix4X4ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMatrix4X4RefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Matrix4X4:
+		//	BaseMatrix4X4 | Matrix4X4Ref;
+		@Override public ParserRule getRule() { return rule; }
+
+		//BaseMatrix4X4 | Matrix4X4Ref
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//BaseMatrix4X4
+		public RuleCall getBaseMatrix4X4ParserRuleCall_0() { return cBaseMatrix4X4ParserRuleCall_0; }
+
+		//Matrix4X4Ref
+		public RuleCall getMatrix4X4RefParserRuleCall_1() { return cMatrix4X4RefParserRuleCall_1; }
+	}
+
+	public class BaseMatrix4X4Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseMatrix4X4");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cM4Keyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cREALTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cREALTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cREALTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cREALTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cREALTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final RuleCall cREALTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final RuleCall cREALTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final RuleCall cREALTerminalRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
+		private final RuleCall cREALTerminalRuleCall_10 = (RuleCall)cGroup.eContents().get(10);
+		private final RuleCall cREALTerminalRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
+		private final RuleCall cREALTerminalRuleCall_12 = (RuleCall)cGroup.eContents().get(12);
+		private final RuleCall cREALTerminalRuleCall_13 = (RuleCall)cGroup.eContents().get(13);
+		private final RuleCall cREALTerminalRuleCall_14 = (RuleCall)cGroup.eContents().get(14);
+		private final RuleCall cREALTerminalRuleCall_15 = (RuleCall)cGroup.eContents().get(15);
+		private final RuleCall cREALTerminalRuleCall_16 = (RuleCall)cGroup.eContents().get(16);
+		private final RuleCall cREALTerminalRuleCall_17 = (RuleCall)cGroup.eContents().get(17);
+		private final Keyword cRightSquareBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Action cBaseMatrix4X4Action_19 = (Action)cGroup.eContents().get(19);
+		
+		//BaseMatrix4X4:
+		//	("m4" name=ID)? "[" REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL "]"
+		//	{BaseMatrix4X4};
+		@Override public ParserRule getRule() { return rule; }
+
+		//("m4" name=ID)? "[" REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL "]" {BaseMatrix4X4}
+		public Group getGroup() { return cGroup; }
+
+		//("m4" name=ID)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"m4"
+		public Keyword getM4Keyword_0_0() { return cM4Keyword_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_2() { return cREALTerminalRuleCall_2; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_3() { return cREALTerminalRuleCall_3; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_4() { return cREALTerminalRuleCall_4; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_5() { return cREALTerminalRuleCall_5; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_6() { return cREALTerminalRuleCall_6; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_7() { return cREALTerminalRuleCall_7; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_8() { return cREALTerminalRuleCall_8; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_9() { return cREALTerminalRuleCall_9; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_10() { return cREALTerminalRuleCall_10; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_11() { return cREALTerminalRuleCall_11; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_12() { return cREALTerminalRuleCall_12; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_13() { return cREALTerminalRuleCall_13; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_14() { return cREALTerminalRuleCall_14; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_15() { return cREALTerminalRuleCall_15; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_16() { return cREALTerminalRuleCall_16; }
+
+		//REAL
+		public RuleCall getREALTerminalRuleCall_17() { return cREALTerminalRuleCall_17; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_18() { return cRightSquareBracketKeyword_18; }
+
+		//{BaseMatrix4X4}
+		public Action getBaseMatrix4X4Action_19() { return cBaseMatrix4X4Action_19; }
+	}
+
+	public class Matrix4X4RefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Matrix4X4Ref");
+		private final Assignment cMatrixAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cMatrixBaseMatrix4X4CrossReference_0 = (CrossReference)cMatrixAssignment.eContents().get(0);
+		private final RuleCall cMatrixBaseMatrix4X4IDTerminalRuleCall_0_1 = (RuleCall)cMatrixBaseMatrix4X4CrossReference_0.eContents().get(1);
+		
+		//Matrix4X4Ref:
+		//	matrix=[BaseMatrix4X4];
+		@Override public ParserRule getRule() { return rule; }
+
+		//matrix=[BaseMatrix4X4]
+		public Assignment getMatrixAssignment() { return cMatrixAssignment; }
+
+		//[BaseMatrix4X4]
+		public CrossReference getMatrixBaseMatrix4X4CrossReference_0() { return cMatrixBaseMatrix4X4CrossReference_0; }
+
+		//ID
+		public RuleCall getMatrixBaseMatrix4X4IDTerminalRuleCall_0_1() { return cMatrixBaseMatrix4X4IDTerminalRuleCall_0_1; }
+	}
+
+	public class MatrixDefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MatrixDef");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBaseMatrix3X3ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBaseMatrix4X4ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//MatrixDef:
+		//	BaseMatrix3X3 | BaseMatrix4X4;
+		@Override public ParserRule getRule() { return rule; }
+
+		//BaseMatrix3X3 | BaseMatrix4X4
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//BaseMatrix3X3
+		public RuleCall getBaseMatrix3X3ParserRuleCall_0() { return cBaseMatrix3X3ParserRuleCall_0; }
+
+		//BaseMatrix4X4
+		public RuleCall getBaseMatrix4X4ParserRuleCall_1() { return cBaseMatrix4X4ParserRuleCall_1; }
+	}
 	
 	
 	private final ModelElements pModel;
-	private final RigidBodyElements pRigidBody;
-	private final JointElements pJoint;
+	private final InitialDefinitionElements pInitialDefinition;
+	private final EnvironmentElements pEnvironment;
+	private final SystemElements pSystem;
+	private final SystemElementElements pSystemElement;
+	private final BodyElements pBody;
+	private final LocalFrameElements pLocalFrame;
 	private final MassElements pMass;
-	private final TransformationElements pTransformation;
+	private final JointElements pJoint;
 	private final ConstraintElements pConstraint;
 	private final ColocationConstraintElements pColocationConstraint;
+	private final Vector3Elements pVector3;
+	private final BaseVector3Elements pBaseVector3;
+	private final Vector3RefElements pVector3Ref;
+	private final Matrix3X3Elements pMatrix3X3;
+	private final BaseMatrix3X3Elements pBaseMatrix3X3;
+	private final Matrix3X3RefElements pMatrix3X3Ref;
+	private final Matrix4X4Elements pMatrix4X4;
+	private final BaseMatrix4X4Elements pBaseMatrix4X4;
+	private final Matrix4X4RefElements pMatrix4X4Ref;
+	private final MatrixDefElements pMatrixDef;
 	private final TerminalRule tREAL;
 	
 	private final Grammar grammar;
@@ -356,12 +933,26 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pRigidBody = new RigidBodyElements();
-		this.pJoint = new JointElements();
+		this.pInitialDefinition = new InitialDefinitionElements();
+		this.pEnvironment = new EnvironmentElements();
+		this.pSystem = new SystemElements();
+		this.pSystemElement = new SystemElementElements();
+		this.pBody = new BodyElements();
+		this.pLocalFrame = new LocalFrameElements();
 		this.pMass = new MassElements();
-		this.pTransformation = new TransformationElements();
+		this.pJoint = new JointElements();
 		this.pConstraint = new ConstraintElements();
 		this.pColocationConstraint = new ColocationConstraintElements();
+		this.pVector3 = new Vector3Elements();
+		this.pBaseVector3 = new BaseVector3Elements();
+		this.pVector3Ref = new Vector3RefElements();
+		this.pMatrix3X3 = new Matrix3X3Elements();
+		this.pBaseMatrix3X3 = new BaseMatrix3X3Elements();
+		this.pMatrix3X3Ref = new Matrix3X3RefElements();
+		this.pMatrix4X4 = new Matrix4X4Elements();
+		this.pBaseMatrix4X4 = new BaseMatrix4X4Elements();
+		this.pMatrix4X4Ref = new Matrix4X4RefElements();
+		this.pMatrixDef = new MatrixDefElements();
 		this.tREAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "REAL");
 	}
 	
@@ -393,7 +984,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	rigidBodies+=RigidBody+;
+	//	defs+=InitialDefinition* world=Environment bodies+=System+;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -402,28 +993,68 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 
-	//RigidBody:
-	//	"rigid_body" name=ID "{" joints+=Joint+ masses+=Mass+ constraints+=Constraint* "}";
-	public RigidBodyElements getRigidBodyAccess() {
-		return pRigidBody;
+	//InitialDefinition:
+	//	MatrixDef | BaseVector3;
+	public InitialDefinitionElements getInitialDefinitionAccess() {
+		return pInitialDefinition;
 	}
 	
-	public ParserRule getRigidBodyRule() {
-		return getRigidBodyAccess().getRule();
+	public ParserRule getInitialDefinitionRule() {
+		return getInitialDefinitionAccess().getRule();
 	}
 
-	//Joint:
-	//	"joint" name=ID;
-	public JointElements getJointAccess() {
-		return pJoint;
+	//Environment:
+	//	"world" "{" "gravity" gravity=Vector3 "}";
+	public EnvironmentElements getEnvironmentAccess() {
+		return pEnvironment;
 	}
 	
-	public ParserRule getJointRule() {
-		return getJointAccess().getRule();
+	public ParserRule getEnvironmentRule() {
+		return getEnvironmentAccess().getRule();
+	}
+
+	//System:
+	//	"system" name=ID "{" elements+=SystemElement+ "}";
+	public SystemElements getSystemAccess() {
+		return pSystem;
+	}
+	
+	public ParserRule getSystemRule() {
+		return getSystemAccess().getRule();
+	}
+
+	//SystemElement:
+	//	Body | Joint | Constraint;
+	public SystemElementElements getSystemElementAccess() {
+		return pSystemElement;
+	}
+	
+	public ParserRule getSystemElementRule() {
+		return getSystemElementAccess().getRule();
+	}
+
+	//Body:
+	//	"body" name=ID "{" frame=LocalFrame mass=Mass "}";
+	public BodyElements getBodyAccess() {
+		return pBody;
+	}
+	
+	public ParserRule getBodyRule() {
+		return getBodyAccess().getRule();
+	}
+
+	//LocalFrame:
+	//	"local" "frame" "{" "orientation" orientation=Matrix3X3 "position" position=Vector3 "}";
+	public LocalFrameElements getLocalFrameAccess() {
+		return pLocalFrame;
+	}
+	
+	public ParserRule getLocalFrameRule() {
+		return getLocalFrameAccess().getRule();
 	}
 
 	//Mass:
-	//	"mass" name=ID value=REAL "kg" "{" transformations+=Transformation+ "}";
+	//	"mass" "{" "value" value=REAL "position" position=Vector3 "inertia" inertia=Matrix3X3 "}";
 	public MassElements getMassAccess() {
 		return pMass;
 	}
@@ -432,15 +1063,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getMassAccess().getRule();
 	}
 
-	//Transformation:
-	//	"transformation" "relative" "to" joint=[Joint] "(" REAL "," REAL "," REAL ";" REAL "," REAL "," REAL ";" REAL ","
-	//	REAL "," REAL ")";
-	public TransformationElements getTransformationAccess() {
-		return pTransformation;
+	//Joint:
+	//	"joint" name=ID ":" type=Matrix4X4 "between" body1=[Body] "(" "with" "relative" "transformation"
+	//	relTransformation1=Matrix4X4 ")" "and" body2=[Body] "(" "with" "relative" "transformation"
+	//	relTransformation2=Matrix4X4 ")";
+	public JointElements getJointAccess() {
+		return pJoint;
 	}
 	
-	public ParserRule getTransformationRule() {
-		return getTransformationAccess().getRule();
+	public ParserRule getJointRule() {
+		return getJointAccess().getRule();
 	}
 
 	//Constraint:
@@ -461,6 +1093,107 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getColocationConstraintRule() {
 		return getColocationConstraintAccess().getRule();
+	}
+
+	//Vector3:
+	//	BaseVector3 | Vector3Ref;
+	public Vector3Elements getVector3Access() {
+		return pVector3;
+	}
+	
+	public ParserRule getVector3Rule() {
+		return getVector3Access().getRule();
+	}
+
+	//BaseVector3:
+	//	("vector" name=ID)? "(" REAL "," REAL "," REAL ")" {BaseVector3};
+	public BaseVector3Elements getBaseVector3Access() {
+		return pBaseVector3;
+	}
+	
+	public ParserRule getBaseVector3Rule() {
+		return getBaseVector3Access().getRule();
+	}
+
+	//Vector3Ref:
+	//	vector=[BaseVector3];
+	public Vector3RefElements getVector3RefAccess() {
+		return pVector3Ref;
+	}
+	
+	public ParserRule getVector3RefRule() {
+		return getVector3RefAccess().getRule();
+	}
+
+	//Matrix3X3:
+	//	BaseMatrix3X3 | Matrix3X3Ref;
+	public Matrix3X3Elements getMatrix3X3Access() {
+		return pMatrix3X3;
+	}
+	
+	public ParserRule getMatrix3X3Rule() {
+		return getMatrix3X3Access().getRule();
+	}
+
+	//BaseMatrix3X3:
+	//	("m3" name=ID)? "[" REAL REAL REAL REAL REAL REAL REAL REAL REAL "]" {BaseMatrix3X3};
+	public BaseMatrix3X3Elements getBaseMatrix3X3Access() {
+		return pBaseMatrix3X3;
+	}
+	
+	public ParserRule getBaseMatrix3X3Rule() {
+		return getBaseMatrix3X3Access().getRule();
+	}
+
+	//Matrix3X3Ref:
+	//	matrix=[BaseMatrix3X3];
+	public Matrix3X3RefElements getMatrix3X3RefAccess() {
+		return pMatrix3X3Ref;
+	}
+	
+	public ParserRule getMatrix3X3RefRule() {
+		return getMatrix3X3RefAccess().getRule();
+	}
+
+	//Matrix4X4:
+	//	BaseMatrix4X4 | Matrix4X4Ref;
+	public Matrix4X4Elements getMatrix4X4Access() {
+		return pMatrix4X4;
+	}
+	
+	public ParserRule getMatrix4X4Rule() {
+		return getMatrix4X4Access().getRule();
+	}
+
+	//BaseMatrix4X4:
+	//	("m4" name=ID)? "[" REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL REAL "]"
+	//	{BaseMatrix4X4};
+	public BaseMatrix4X4Elements getBaseMatrix4X4Access() {
+		return pBaseMatrix4X4;
+	}
+	
+	public ParserRule getBaseMatrix4X4Rule() {
+		return getBaseMatrix4X4Access().getRule();
+	}
+
+	//Matrix4X4Ref:
+	//	matrix=[BaseMatrix4X4];
+	public Matrix4X4RefElements getMatrix4X4RefAccess() {
+		return pMatrix4X4Ref;
+	}
+	
+	public ParserRule getMatrix4X4RefRule() {
+		return getMatrix4X4RefAccess().getRule();
+	}
+
+	//MatrixDef:
+	//	BaseMatrix3X3 | BaseMatrix4X4;
+	public MatrixDefElements getMatrixDefAccess() {
+		return pMatrixDef;
+	}
+	
+	public ParserRule getMatrixDefRule() {
+		return getMatrixDefAccess().getRule();
 	}
 
 	//terminal REAL returns ecore::EDouble:

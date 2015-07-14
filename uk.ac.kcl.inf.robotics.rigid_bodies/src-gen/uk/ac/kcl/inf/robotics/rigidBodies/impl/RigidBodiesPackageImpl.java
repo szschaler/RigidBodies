@@ -9,15 +9,28 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.RigidBody;
-import uk.ac.kcl.inf.robotics.rigidBodies.Transformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
+import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,14 +52,42 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass rigidBodyEClass = null;
+  private EClass initialDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass jointEClass = null;
+  private EClass environmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass systemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass systemElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bodyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass localFrameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -60,7 +101,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass transformationEClass = null;
+  private EClass jointEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,6 +116,76 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass colocationConstraintEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass vector3EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass baseVector3EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass vector3RefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass matrix3X3EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass baseMatrix3X3EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass matrix3X3RefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass matrix4X4EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass baseMatrix4X4EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass matrix4X4RefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass matrixDefEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -154,7 +265,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_RigidBodies()
+  public EReference getModel_Defs()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -164,9 +275,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRigidBody()
+  public EReference getModel_World()
   {
-    return rigidBodyEClass;
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -174,9 +285,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRigidBody_Name()
+  public EReference getModel_Bodies()
   {
-    return (EAttribute)rigidBodyEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -184,9 +295,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRigidBody_Joints()
+  public EClass getInitialDefinition()
   {
-    return (EReference)rigidBodyEClass.getEStructuralFeatures().get(1);
+    return initialDefinitionEClass;
   }
 
   /**
@@ -194,9 +305,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRigidBody_Masses()
+  public EAttribute getInitialDefinition_Name()
   {
-    return (EReference)rigidBodyEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)initialDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -204,9 +315,169 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRigidBody_Constraints()
+  public EClass getEnvironment()
   {
-    return (EReference)rigidBodyEClass.getEStructuralFeatures().get(3);
+    return environmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnvironment_Gravity()
+  {
+    return (EReference)environmentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSystem()
+  {
+    return systemEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSystem_Name()
+  {
+    return (EAttribute)systemEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSystem_Elements()
+  {
+    return (EReference)systemEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSystemElement()
+  {
+    return systemElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBody()
+  {
+    return bodyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBody_Name()
+  {
+    return (EAttribute)bodyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBody_Frame()
+  {
+    return (EReference)bodyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBody_Mass()
+  {
+    return (EReference)bodyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLocalFrame()
+  {
+    return localFrameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLocalFrame_Orientation()
+  {
+    return (EReference)localFrameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLocalFrame_Position()
+  {
+    return (EReference)localFrameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMass()
+  {
+    return massEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMass_Value()
+  {
+    return (EAttribute)massEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMass_Position()
+  {
+    return (EReference)massEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMass_Inertia()
+  {
+    return (EReference)massEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -234,9 +505,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMass()
+  public EReference getJoint_Type()
   {
-    return massEClass;
+    return (EReference)jointEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -244,9 +515,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMass_Name()
+  public EReference getJoint_Body1()
   {
-    return (EAttribute)massEClass.getEStructuralFeatures().get(0);
+    return (EReference)jointEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -254,9 +525,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMass_Value()
+  public EReference getJoint_RelTransformation1()
   {
-    return (EAttribute)massEClass.getEStructuralFeatures().get(1);
+    return (EReference)jointEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -264,9 +535,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMass_Transformations()
+  public EReference getJoint_Body2()
   {
-    return (EReference)massEClass.getEStructuralFeatures().get(2);
+    return (EReference)jointEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -274,19 +545,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTransformation()
+  public EReference getJoint_RelTransformation2()
   {
-    return transformationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTransformation_Joint()
-  {
-    return (EReference)transformationEClass.getEStructuralFeatures().get(0);
+    return (EReference)jointEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -334,6 +595,136 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getVector3()
+  {
+    return vector3EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBaseVector3()
+  {
+    return baseVector3EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVector3Ref()
+  {
+    return vector3RefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVector3Ref_Vector()
+  {
+    return (EReference)vector3RefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMatrix3X3()
+  {
+    return matrix3X3EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBaseMatrix3X3()
+  {
+    return baseMatrix3X3EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMatrix3X3Ref()
+  {
+    return matrix3X3RefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMatrix3X3Ref_Matrix()
+  {
+    return (EReference)matrix3X3RefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMatrix4X4()
+  {
+    return matrix4X4EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBaseMatrix4X4()
+  {
+    return baseMatrix4X4EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMatrix4X4Ref()
+  {
+    return matrix4X4RefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMatrix4X4Ref_Matrix()
+  {
+    return (EReference)matrix4X4RefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMatrixDef()
+  {
+    return matrixDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RigidBodiesFactory getRigidBodiesFactory()
   {
     return (RigidBodiesFactory)getEFactoryInstance();
@@ -360,30 +751,72 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__RIGID_BODIES);
+    createEReference(modelEClass, MODEL__DEFS);
+    createEReference(modelEClass, MODEL__WORLD);
+    createEReference(modelEClass, MODEL__BODIES);
 
-    rigidBodyEClass = createEClass(RIGID_BODY);
-    createEAttribute(rigidBodyEClass, RIGID_BODY__NAME);
-    createEReference(rigidBodyEClass, RIGID_BODY__JOINTS);
-    createEReference(rigidBodyEClass, RIGID_BODY__MASSES);
-    createEReference(rigidBodyEClass, RIGID_BODY__CONSTRAINTS);
+    initialDefinitionEClass = createEClass(INITIAL_DEFINITION);
+    createEAttribute(initialDefinitionEClass, INITIAL_DEFINITION__NAME);
+
+    environmentEClass = createEClass(ENVIRONMENT);
+    createEReference(environmentEClass, ENVIRONMENT__GRAVITY);
+
+    systemEClass = createEClass(SYSTEM);
+    createEAttribute(systemEClass, SYSTEM__NAME);
+    createEReference(systemEClass, SYSTEM__ELEMENTS);
+
+    systemElementEClass = createEClass(SYSTEM_ELEMENT);
+
+    bodyEClass = createEClass(BODY);
+    createEAttribute(bodyEClass, BODY__NAME);
+    createEReference(bodyEClass, BODY__FRAME);
+    createEReference(bodyEClass, BODY__MASS);
+
+    localFrameEClass = createEClass(LOCAL_FRAME);
+    createEReference(localFrameEClass, LOCAL_FRAME__ORIENTATION);
+    createEReference(localFrameEClass, LOCAL_FRAME__POSITION);
+
+    massEClass = createEClass(MASS);
+    createEAttribute(massEClass, MASS__VALUE);
+    createEReference(massEClass, MASS__POSITION);
+    createEReference(massEClass, MASS__INERTIA);
 
     jointEClass = createEClass(JOINT);
     createEAttribute(jointEClass, JOINT__NAME);
-
-    massEClass = createEClass(MASS);
-    createEAttribute(massEClass, MASS__NAME);
-    createEAttribute(massEClass, MASS__VALUE);
-    createEReference(massEClass, MASS__TRANSFORMATIONS);
-
-    transformationEClass = createEClass(TRANSFORMATION);
-    createEReference(transformationEClass, TRANSFORMATION__JOINT);
+    createEReference(jointEClass, JOINT__TYPE);
+    createEReference(jointEClass, JOINT__BODY1);
+    createEReference(jointEClass, JOINT__REL_TRANSFORMATION1);
+    createEReference(jointEClass, JOINT__BODY2);
+    createEReference(jointEClass, JOINT__REL_TRANSFORMATION2);
 
     constraintEClass = createEClass(CONSTRAINT);
 
     colocationConstraintEClass = createEClass(COLOCATION_CONSTRAINT);
     createEReference(colocationConstraintEClass, COLOCATION_CONSTRAINT__JOINT1);
     createEReference(colocationConstraintEClass, COLOCATION_CONSTRAINT__JOINT2);
+
+    vector3EClass = createEClass(VECTOR3);
+
+    baseVector3EClass = createEClass(BASE_VECTOR3);
+
+    vector3RefEClass = createEClass(VECTOR3_REF);
+    createEReference(vector3RefEClass, VECTOR3_REF__VECTOR);
+
+    matrix3X3EClass = createEClass(MATRIX3_X3);
+
+    baseMatrix3X3EClass = createEClass(BASE_MATRIX3_X3);
+
+    matrix3X3RefEClass = createEClass(MATRIX3_X3_REF);
+    createEReference(matrix3X3RefEClass, MATRIX3_X3_REF__MATRIX);
+
+    matrix4X4EClass = createEClass(MATRIX4_X4);
+
+    baseMatrix4X4EClass = createEClass(BASE_MATRIX4_X4);
+
+    matrix4X4RefEClass = createEClass(MATRIX4_X4_REF);
+    createEReference(matrix4X4RefEClass, MATRIX4_X4_REF__MATRIX);
+
+    matrixDefEClass = createEClass(MATRIX_DEF);
   }
 
   /**
@@ -415,34 +848,89 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    bodyEClass.getESuperTypes().add(this.getSystemElement());
+    jointEClass.getESuperTypes().add(this.getSystemElement());
+    constraintEClass.getESuperTypes().add(this.getSystemElement());
     colocationConstraintEClass.getESuperTypes().add(this.getConstraint());
+    baseVector3EClass.getESuperTypes().add(this.getInitialDefinition());
+    baseVector3EClass.getESuperTypes().add(this.getVector3());
+    vector3RefEClass.getESuperTypes().add(this.getVector3());
+    baseMatrix3X3EClass.getESuperTypes().add(this.getMatrix3X3());
+    baseMatrix3X3EClass.getESuperTypes().add(this.getMatrixDef());
+    matrix3X3RefEClass.getESuperTypes().add(this.getMatrix3X3());
+    baseMatrix4X4EClass.getESuperTypes().add(this.getMatrix4X4());
+    baseMatrix4X4EClass.getESuperTypes().add(this.getMatrixDef());
+    matrix4X4RefEClass.getESuperTypes().add(this.getMatrix4X4());
+    matrixDefEClass.getESuperTypes().add(this.getInitialDefinition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_RigidBodies(), this.getRigidBody(), null, "rigidBodies", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Defs(), this.getInitialDefinition(), null, "defs", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_World(), this.getEnvironment(), null, "world", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Bodies(), this.getSystem(), null, "bodies", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(rigidBodyEClass, RigidBody.class, "RigidBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRigidBody_Name(), ecorePackage.getEString(), "name", null, 0, 1, RigidBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRigidBody_Joints(), this.getJoint(), null, "joints", null, 0, -1, RigidBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRigidBody_Masses(), this.getMass(), null, "masses", null, 0, -1, RigidBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRigidBody_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, RigidBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(initialDefinitionEClass, InitialDefinition.class, "InitialDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInitialDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, InitialDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnvironment_Gravity(), this.getVector3(), null, "gravity", null, 0, 1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(systemEClass, uk.ac.kcl.inf.robotics.rigidBodies.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, uk.ac.kcl.inf.robotics.rigidBodies.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystem_Elements(), this.getSystemElement(), null, "elements", null, 0, -1, uk.ac.kcl.inf.robotics.rigidBodies.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(systemElementEClass, SystemElement.class, "SystemElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBody_Name(), ecorePackage.getEString(), "name", null, 0, 1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBody_Frame(), this.getLocalFrame(), null, "frame", null, 0, 1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBody_Mass(), this.getMass(), null, "mass", null, 0, 1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(localFrameEClass, LocalFrame.class, "LocalFrame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLocalFrame_Orientation(), this.getMatrix3X3(), null, "orientation", null, 0, 1, LocalFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLocalFrame_Position(), this.getVector3(), null, "position", null, 0, 1, LocalFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(massEClass, Mass.class, "Mass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMass_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMass_Position(), this.getVector3(), null, "position", null, 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMass_Inertia(), this.getMatrix3X3(), null, "inertia", null, 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getJoint_Name(), ecorePackage.getEString(), "name", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(massEClass, Mass.class, "Mass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMass_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMass_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMass_Transformations(), this.getTransformation(), null, "transformations", null, 0, -1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(transformationEClass, Transformation.class, "Transformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransformation_Joint(), this.getJoint(), null, "joint", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJoint_Type(), this.getMatrix4X4(), null, "type", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJoint_Body1(), this.getBody(), null, "body1", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJoint_RelTransformation1(), this.getMatrix4X4(), null, "relTransformation1", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJoint_Body2(), this.getBody(), null, "body2", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJoint_RelTransformation2(), this.getMatrix4X4(), null, "relTransformation2", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(colocationConstraintEClass, ColocationConstraint.class, "ColocationConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getColocationConstraint_Joint1(), this.getJoint(), null, "joint1", null, 0, 1, ColocationConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getColocationConstraint_Joint2(), this.getJoint(), null, "joint2", null, 0, 1, ColocationConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(vector3EClass, Vector3.class, "Vector3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(baseVector3EClass, BaseVector3.class, "BaseVector3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(vector3RefEClass, Vector3Ref.class, "Vector3Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVector3Ref_Vector(), this.getBaseVector3(), null, "vector", null, 0, 1, Vector3Ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(matrix3X3EClass, Matrix3X3.class, "Matrix3X3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(baseMatrix3X3EClass, BaseMatrix3X3.class, "BaseMatrix3X3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(matrix3X3RefEClass, Matrix3X3Ref.class, "Matrix3X3Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMatrix3X3Ref_Matrix(), this.getBaseMatrix3X3(), null, "matrix", null, 0, 1, Matrix3X3Ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(matrix4X4EClass, Matrix4X4.class, "Matrix4X4", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(baseMatrix4X4EClass, BaseMatrix4X4.class, "BaseMatrix4X4", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(matrix4X4RefEClass, Matrix4X4Ref.class, "Matrix4X4Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMatrix4X4Ref_Matrix(), this.getBaseMatrix4X4(), null, "matrix", null, 0, 1, Matrix4X4Ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(matrixDefEClass, MatrixDef.class, "MatrixDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

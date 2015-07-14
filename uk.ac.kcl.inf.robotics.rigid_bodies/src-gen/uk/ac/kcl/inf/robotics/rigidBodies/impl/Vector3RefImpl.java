@@ -8,43 +8,42 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.Transformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Transformation</b></em>'.
+ * An implementation of the model object '<em><b>Vector3 Ref</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.TransformationImpl#getJoint <em>Joint</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.Vector3RefImpl#getVector <em>Vector</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TransformationImpl extends MinimalEObjectImpl.Container implements Transformation
+public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
 {
   /**
-   * The cached value of the '{@link #getJoint() <em>Joint</em>}' reference.
+   * The cached value of the '{@link #getVector() <em>Vector</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getJoint()
+   * @see #getVector()
    * @generated
    * @ordered
    */
-  protected Joint joint;
+  protected BaseVector3 vector;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TransformationImpl()
+  protected Vector3RefImpl()
   {
     super();
   }
@@ -57,7 +56,7 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.TRANSFORMATION;
+    return RigidBodiesPackage.Literals.VECTOR3_REF;
   }
 
   /**
@@ -65,19 +64,19 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Joint getJoint()
+  public BaseVector3 getVector()
   {
-    if (joint != null && joint.eIsProxy())
+    if (vector != null && vector.eIsProxy())
     {
-      InternalEObject oldJoint = (InternalEObject)joint;
-      joint = (Joint)eResolveProxy(oldJoint);
-      if (joint != oldJoint)
+      InternalEObject oldVector = (InternalEObject)vector;
+      vector = (BaseVector3)eResolveProxy(oldVector);
+      if (vector != oldVector)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.TRANSFORMATION__JOINT, oldJoint, joint));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.VECTOR3_REF__VECTOR, oldVector, vector));
       }
     }
-    return joint;
+    return vector;
   }
 
   /**
@@ -85,9 +84,9 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Joint basicGetJoint()
+  public BaseVector3 basicGetVector()
   {
-    return joint;
+    return vector;
   }
 
   /**
@@ -95,12 +94,12 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setJoint(Joint newJoint)
+  public void setVector(BaseVector3 newVector)
   {
-    Joint oldJoint = joint;
-    joint = newJoint;
+    BaseVector3 oldVector = vector;
+    vector = newVector;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.TRANSFORMATION__JOINT, oldJoint, joint));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.VECTOR3_REF__VECTOR, oldVector, vector));
   }
 
   /**
@@ -113,9 +112,9 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.TRANSFORMATION__JOINT:
-        if (resolve) return getJoint();
-        return basicGetJoint();
+      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
+        if (resolve) return getVector();
+        return basicGetVector();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -130,8 +129,8 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.TRANSFORMATION__JOINT:
-        setJoint((Joint)newValue);
+      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
+        setVector((BaseVector3)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,8 +146,8 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.TRANSFORMATION__JOINT:
-        setJoint((Joint)null);
+      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
+        setVector((BaseVector3)null);
         return;
     }
     super.eUnset(featureID);
@@ -164,10 +163,10 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.TRANSFORMATION__JOINT:
-        return joint != null;
+      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
+        return vector != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //TransformationImpl
+} //Vector3RefImpl

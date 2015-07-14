@@ -5,32 +5,60 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate rigidBodies "http://www.ac.uk/kcl/inf/robotics/RigidBodies"
 
 Model:
-	rigidBodies += RigidBody+
+	defs += InitialDefinition*
+	world = Environment
+	bodies += System+
 ;
 	
-RigidBody:
-	'rigid_body' name=ID '{'
-		joints += Joint+
-		masses += Mass+
-		constraints += Constraint* 
+InitialDefinition:
+	MatrixDef |
+	BaseVector3
+;	
+	
+Environment:
+	'world' '{'
+		'gravity' gravity=Vector3 
+	'}'
+;
+
+System:
+	'system' name=ID '{'
+		elements += SystemElement+
+	'}'
+;
+
+SystemElement:
+	Body |
+	Joint |
+	Constraint
+;
+
+Body:
+	'body' name=ID '{'
+		frame = LocalFrame
+		mass  = Mass 
+	'}'
+;
+
+LocalFrame:
+	'local' 'frame' '{'
+		'orientation' orientation = Matrix3X3
+		'position' position = Vector3
+	'}'
+;
+
+Mass:
+	'mass' '{' 
+		'value' value = REAL
+		'position' position = Vector3
+		'inertia' inertia = Matrix3X3
 	'}'
 ;
 
 Joint:
-	'joint' name=ID
-;
-
-Mass:
-	'mass' name=ID value=REAL 'kg' '{'
-		transformations += Transformation+
-	'}'
-;
-
-Transformation:
-	'transformation' 'relative' 'to' joint=[Joint] 
-	'(' REAL ',' REAL ',' REAL ';'
-	    REAL ',' REAL ',' REAL ';'
-	    REAL ',' REAL ',' REAL ')'
+	'joint' name=ID ':' type=Matrix4X4 
+		'between' body1 = [Body] '(' 'with' 'relative' 'transformation' relTransformation1 = Matrix4X4 ')'
+		'and' body2 = [Body] '(' 'with' 'relative' 'transformation' relTransformation2 = Matrix4X4 ')'
 ;
 
 Constraint:
@@ -39,6 +67,55 @@ Constraint:
 
 ColocationConstraint:
 	'colocate' joint1=[Joint] 'with' joint2=[Joint] 
+;
+
+Vector3:
+	BaseVector3 | 
+	Vector3Ref
+;
+
+BaseVector3:
+	('vector' name=ID)? '(' REAL ',' REAL ',' REAL ')' {BaseVector3}
+;
+
+Vector3Ref:
+	vector=[BaseVector3]
+;
+
+Matrix3X3:
+	BaseMatrix3X3 |
+	Matrix3X3Ref
+;
+
+BaseMatrix3X3:
+	('m3' name=ID)? '[' REAL REAL REAL 
+	                    REAL REAL REAL 
+	                    REAL REAL REAL ']' {BaseMatrix3X3}
+;
+
+Matrix3X3Ref:
+	matrix=[BaseMatrix3X3]
+;
+
+Matrix4X4:
+	BaseMatrix4X4 |
+	Matrix4X4Ref
+;
+
+BaseMatrix4X4:
+	('m4' name=ID)? '[' REAL REAL REAL REAL 
+	                    REAL REAL REAL REAL 
+                        REAL REAL REAL REAL 
+	                    REAL REAL REAL REAL ']' {BaseMatrix4X4}
+;
+
+Matrix4X4Ref:
+	matrix=[BaseMatrix4X4]
+;
+
+MatrixDef:
+	BaseMatrix3X3 |
+	BaseMatrix4X4
 ;
 
 terminal REAL returns ecore::EDouble: ('0'..'9')+ '.' ('0'..'9')*;

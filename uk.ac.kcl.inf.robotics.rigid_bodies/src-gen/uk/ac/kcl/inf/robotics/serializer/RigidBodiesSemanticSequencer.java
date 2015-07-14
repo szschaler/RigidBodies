@@ -16,13 +16,20 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.RigidBody;
-import uk.ac.kcl.inf.robotics.rigidBodies.Transformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 import uk.ac.kcl.inf.robotics.services.RigidBodiesGrammarAccess;
 
 @SuppressWarnings("all")
@@ -34,27 +41,100 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == RigidBodiesPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case RigidBodiesPackage.BASE_MATRIX3_X3:
+				sequence_BaseMatrix3X3(context, (BaseMatrix3X3) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BASE_MATRIX4_X4:
+				sequence_BaseMatrix4X4(context, (BaseMatrix4X4) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BASE_VECTOR3:
+				sequence_BaseVector3(context, (BaseVector3) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BODY:
+				sequence_Body(context, (Body) semanticObject); 
+				return; 
 			case RigidBodiesPackage.COLOCATION_CONSTRAINT:
 				sequence_ColocationConstraint(context, (ColocationConstraint) semanticObject); 
+				return; 
+			case RigidBodiesPackage.ENVIRONMENT:
+				sequence_Environment(context, (Environment) semanticObject); 
 				return; 
 			case RigidBodiesPackage.JOINT:
 				sequence_Joint(context, (Joint) semanticObject); 
 				return; 
+			case RigidBodiesPackage.LOCAL_FRAME:
+				sequence_LocalFrame(context, (LocalFrame) semanticObject); 
+				return; 
 			case RigidBodiesPackage.MASS:
 				sequence_Mass(context, (Mass) semanticObject); 
+				return; 
+			case RigidBodiesPackage.MATRIX3_X3_REF:
+				sequence_Matrix3X3Ref(context, (Matrix3X3Ref) semanticObject); 
+				return; 
+			case RigidBodiesPackage.MATRIX4_X4_REF:
+				sequence_Matrix4X4Ref(context, (Matrix4X4Ref) semanticObject); 
 				return; 
 			case RigidBodiesPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case RigidBodiesPackage.RIGID_BODY:
-				sequence_RigidBody(context, (RigidBody) semanticObject); 
+			case RigidBodiesPackage.SYSTEM:
+				sequence_System(context, (uk.ac.kcl.inf.robotics.rigidBodies.System) semanticObject); 
 				return; 
-			case RigidBodiesPackage.TRANSFORMATION:
-				sequence_Transformation(context, (Transformation) semanticObject); 
+			case RigidBodiesPackage.VECTOR3_REF:
+				sequence_Vector3Ref(context, (Vector3Ref) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (name=ID?)
+	 */
+	protected void sequence_BaseMatrix3X3(EObject context, BaseMatrix3X3 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID?)
+	 */
+	protected void sequence_BaseMatrix4X4(EObject context, BaseMatrix4X4 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID?)
+	 */
+	protected void sequence_BaseVector3(EObject context, BaseVector3 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID frame=LocalFrame mass=Mass)
+	 */
+	protected void sequence_Body(EObject context, Body semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY__FRAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY__FRAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY__MASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY__MASS));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBodyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBodyAccess().getFrameLocalFrameParserRuleCall_3_0(), semanticObject.getFrame());
+		feeder.accept(grammarAccess.getBodyAccess().getMassMassParserRuleCall_4_0(), semanticObject.getMass());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -77,32 +157,134 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     gravity=Vector3
 	 */
-	protected void sequence_Joint(EObject context, Joint semanticObject) {
+	protected void sequence_Environment(EObject context, Environment semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getJointAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getEnvironmentAccess().getGravityVector3ParserRuleCall_3_0(), semanticObject.getGravity());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID value=REAL transformations+=Transformation+)
+	 *     (
+	 *         name=ID 
+	 *         type=Matrix4X4 
+	 *         body1=[Body|ID] 
+	 *         relTransformation1=Matrix4X4 
+	 *         body2=[Body|ID] 
+	 *         relTransformation2=Matrix4X4
+	 *     )
 	 */
-	protected void sequence_Mass(EObject context, Mass semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Joint(EObject context, Joint semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__TYPE));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY1));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANSFORMATION1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANSFORMATION1));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY2));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANSFORMATION2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANSFORMATION2));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getJointAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getJointAccess().getTypeMatrix4X4ParserRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getJointAccess().getBody1BodyIDTerminalRuleCall_5_0_1(), semanticObject.getBody1());
+		feeder.accept(grammarAccess.getJointAccess().getRelTransformation1Matrix4X4ParserRuleCall_10_0(), semanticObject.getRelTransformation1());
+		feeder.accept(grammarAccess.getJointAccess().getBody2BodyIDTerminalRuleCall_13_0_1(), semanticObject.getBody2());
+		feeder.accept(grammarAccess.getJointAccess().getRelTransformation2Matrix4X4ParserRuleCall_18_0(), semanticObject.getRelTransformation2());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     rigidBodies+=RigidBody+
+	 *     (orientation=Matrix3X3 position=Vector3)
+	 */
+	protected void sequence_LocalFrame(EObject context, LocalFrame semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCAL_FRAME__ORIENTATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCAL_FRAME__ORIENTATION));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCAL_FRAME__POSITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCAL_FRAME__POSITION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLocalFrameAccess().getOrientationMatrix3X3ParserRuleCall_4_0(), semanticObject.getOrientation());
+		feeder.accept(grammarAccess.getLocalFrameAccess().getPositionVector3ParserRuleCall_6_0(), semanticObject.getPosition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=REAL position=Vector3 inertia=Matrix3X3)
+	 */
+	protected void sequence_Mass(EObject context, Mass semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.MASS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.MASS__VALUE));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.MASS__POSITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.MASS__POSITION));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.MASS__INERTIA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.MASS__INERTIA));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getMassAccess().getValueREALTerminalRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMassAccess().getPositionVector3ParserRuleCall_5_0(), semanticObject.getPosition());
+		feeder.accept(grammarAccess.getMassAccess().getInertiaMatrix3X3ParserRuleCall_7_0(), semanticObject.getInertia());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     matrix=[BaseMatrix3X3|ID]
+	 */
+	protected void sequence_Matrix3X3Ref(EObject context, Matrix3X3Ref semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.MATRIX3_X3_REF__MATRIX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.MATRIX3_X3_REF__MATRIX));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getMatrix3X3RefAccess().getMatrixBaseMatrix3X3IDTerminalRuleCall_0_1(), semanticObject.getMatrix());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     matrix=[BaseMatrix4X4|ID]
+	 */
+	protected void sequence_Matrix4X4Ref(EObject context, Matrix4X4Ref semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.MATRIX4_X4_REF__MATRIX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.MATRIX4_X4_REF__MATRIX));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getMatrix4X4RefAccess().getMatrixBaseMatrix4X4IDTerminalRuleCall_0_1(), semanticObject.getMatrix());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (defs+=InitialDefinition* world=Environment bodies+=System+)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -111,25 +293,25 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID joints+=Joint+ masses+=Mass+ constraints+=Constraint*)
+	 *     (name=ID elements+=SystemElement+)
 	 */
-	protected void sequence_RigidBody(EObject context, RigidBody semanticObject) {
+	protected void sequence_System(EObject context, uk.ac.kcl.inf.robotics.rigidBodies.System semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     joint=[Joint|ID]
+	 *     vector=[BaseVector3|ID]
 	 */
-	protected void sequence_Transformation(EObject context, Transformation semanticObject) {
+	protected void sequence_Vector3Ref(EObject context, Vector3Ref semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.TRANSFORMATION__JOINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.TRANSFORMATION__JOINT));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.VECTOR3_REF__VECTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.VECTOR3_REF__VECTOR));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTransformationAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
+		feeder.accept(grammarAccess.getVector3RefAccess().getVectorBaseVector3IDTerminalRuleCall_0_1(), semanticObject.getVector());
 		feeder.finish();
 	}
 }

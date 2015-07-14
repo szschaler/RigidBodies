@@ -1,34 +1,91 @@
-rigid_body MyFirstRobotArm {
-	joint shoulder
-	joint elbow
-	joint wrist
-	
-	mass upperArm 1.5kg {
-		transformation relative to shoulder (
-			3.0,  4.0,  5.0;
-			6.0,  7.0,  8.0;
-			9.0, 10.0, 11.0
-		)
-		transformation relative to elbow (
-			3.0,  4.0,  5.0;
-			6.0,  7.0,  8.0;
-			9.0, 10.0, 11.0
-		)
+// Any data used below is completely meaningless. Correct vectors and matrices would need to be provided.
+
+vector DefaultFramePosition (1.0, 2.0, 3.0)
+
+m3 Point [1.0 2.0 3.0
+          4.0 5.0 6.0
+          7.0 8.0 9.0]
+       
+m4 PlanarMove [ 1.0  2.0  3.0  4.0
+	            5.0  6.0  7.0  8.0
+	            9.0 10.0 11.0 12.0
+	           13.0 14.0 15.0 16.0]
+
+m4 FullMove [ 1.0  2.0  3.0  4.0
+	          5.0  6.0  7.0  8.0
+	          9.0 10.0 11.0 12.0
+	         13.0 14.0 15.0 16.0]
+
+world {
+	gravity (1.5, 1.3, 2.0)
+}
+
+system MyFirstRobotArm {
+	body upperArm {
+		local frame {
+			orientation [1.0 2.0 3.0
+				         4.0 5.0 6.0
+				         7.0 8.0 9.0]
+			position DefaultFramePosition
+		}
+		
+		mass {
+			value 1.5
+			position (0.0, 0.0, 0.0)
+			inertia Point
+		}
 	}
 	
-	mass lowerArm 1.0kg {
-		transformation relative to shoulder (
-			3.0,  4.0,  5.0;
-			6.0,  7.0,  8.0;
-			9.0, 10.0, 11.0
-		)
-		transformation relative to elbow (
-			3.0,  4.0,  5.0;
-			6.0,  7.0,  8.0;
-			9.0, 10.0, 11.0
-		)
+	body lowerArm {
+		local frame {
+			orientation [1.0 2.0 3.0
+				         4.0 5.0 6.0
+				         7.0 8.0 9.0]
+			position DefaultFramePosition
+		}
+		
+		mass {
+			value 1.0
+			position (0.0, 0.0, 0.0)
+			inertia Point
+		}
 	}
 	
+	body hand {
+		local frame {
+			orientation [1.0 2.0 3.0
+				         4.0 5.0 6.0
+				         7.0 8.0 9.0]
+			position DefaultFramePosition
+		}
+		
+		mass {
+			value 0.5
+			position (0.0, 0.0, 0.0)
+			inertia Point
+		}
+	}
+	
+	joint elbow : PlanarMove 
+		between upperArm (with relative transformation [ 1.0  2.0  3.0  4.0
+			                                             5.0  6.0  7.0  8.0
+			                                             9.0 10.0 11.0 12.0
+			                                            13.0 14.0 15.0 16.0])
+		and lowerArm (with relative transformation [ 1.0  2.0  3.0  4.0
+			                                             5.0  6.0  7.0  8.0
+			                                             9.0 10.0 11.0 12.0
+			                                            13.0 14.0 15.0 16.0])
+			                                            
+    joint wrist : FullMove
+    	between lowerArm (with relative transformation [ 1.0  2.0  3.0  4.0
+			                                             5.0  6.0  7.0  8.0
+			                                             9.0 10.0 11.0 12.0
+			                                            13.0 14.0 15.0 16.0])
+    	and hand (with relative transformation [ 1.0  2.0  3.0  4.0
+			                                     5.0  6.0  7.0  8.0
+			                                     9.0 10.0 11.0 12.0
+			                                    13.0 14.0 15.0 16.0])	
+
 	// Because we can :-)
-	colocate wrist with shoulder
+	colocate wrist with elbow
 }

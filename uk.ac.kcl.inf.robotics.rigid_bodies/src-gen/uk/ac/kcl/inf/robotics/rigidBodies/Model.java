@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getRigidBodies <em>Rigid Bodies</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getDefs <em>Defs</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getWorld <em>World</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getBodies <em>Bodies</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,19 +27,61 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Rigid Bodies</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.RigidBody}.
+   * Returns the value of the '<em><b>Defs</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Rigid Bodies</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Defs</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Rigid Bodies</em>' containment reference list.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_RigidBodies()
+   * @return the value of the '<em>Defs</em>' containment reference list.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_Defs()
    * @model containment="true"
    * @generated
    */
-  EList<RigidBody> getRigidBodies();
+  EList<InitialDefinition> getDefs();
+
+  /**
+   * Returns the value of the '<em><b>World</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>World</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>World</em>' containment reference.
+   * @see #setWorld(Environment)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_World()
+   * @model containment="true"
+   * @generated
+   */
+  Environment getWorld();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getWorld <em>World</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>World</em>' containment reference.
+   * @see #getWorld()
+   * @generated
+   */
+  void setWorld(Environment value);
+
+  /**
+   * Returns the value of the '<em><b>Bodies</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.System}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bodies</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bodies</em>' containment reference list.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_Bodies()
+   * @model containment="true"
+   * @generated
+   */
+  EList<uk.ac.kcl.inf.robotics.rigidBodies.System> getBodies();
 
 } // Model

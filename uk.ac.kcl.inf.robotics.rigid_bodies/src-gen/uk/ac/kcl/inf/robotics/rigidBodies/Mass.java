@@ -2,8 +2,6 @@
  */
 package uk.ac.kcl.inf.robotics.rigidBodies;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,9 +12,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getName <em>Name</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getValue <em>Value</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getTransformations <em>Transformations</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getPosition <em>Position</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getInertia <em>Inertia</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,32 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Mass extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -79,19 +51,55 @@ public interface Mass extends EObject
   void setValue(double value);
 
   /**
-   * Returns the value of the '<em><b>Transformations</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.Transformation}.
+   * Returns the value of the '<em><b>Position</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Transformations</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Position</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Transformations</em>' containment reference list.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Transformations()
+   * @return the value of the '<em>Position</em>' containment reference.
+   * @see #setPosition(Vector3)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Position()
    * @model containment="true"
    * @generated
    */
-  EList<Transformation> getTransformations();
+  Vector3 getPosition();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getPosition <em>Position</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Position</em>' containment reference.
+   * @see #getPosition()
+   * @generated
+   */
+  void setPosition(Vector3 value);
+
+  /**
+   * Returns the value of the '<em><b>Inertia</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inertia</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inertia</em>' containment reference.
+   * @see #setInertia(Matrix3X3)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Inertia()
+   * @model containment="true"
+   * @generated
+   */
+  Matrix3X3 getInertia();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getInertia <em>Inertia</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inertia</em>' containment reference.
+   * @see #getInertia()
+   * @generated
+   */
+  void setInertia(Matrix3X3 value);
 
 } // Mass

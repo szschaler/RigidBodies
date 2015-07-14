@@ -4,8 +4,6 @@ package uk.ac.kcl.inf.robotics.rigidBodies.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
@@ -18,7 +16,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *
  * @generated
  */
-public class ConstraintImpl extends MinimalEObjectImpl.Container implements Constraint
+public class ConstraintImpl extends SystemElementImpl implements Constraint
 {
   /**
    * <!-- begin-user-doc -->
