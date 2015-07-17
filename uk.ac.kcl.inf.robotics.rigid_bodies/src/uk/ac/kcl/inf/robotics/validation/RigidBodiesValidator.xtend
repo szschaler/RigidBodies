@@ -3,11 +3,14 @@
  */
 package uk.ac.kcl.inf.robotics.validation
 
-//import org.eclipse.xtext.validation.Check
+import org.eclipse.xtext.validation.Check
+import uk.ac.kcl.inf.robotics.rigidBodies.Joint
+import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
+import org.eclipse.xtext.validation.ValidationMessageAcceptor
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class RigidBodiesValidator extends AbstractRigidBodiesValidator {
@@ -22,4 +25,19 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 //					INVALID_NAME)
 //		}
 //	}
+	public static val TOO_MANY_START_JOINTS = "tooManyStartJoints"
+
+	@Check
+	def checkOnlyOneStartJoint(uk.ac.kcl.inf.robotics.rigidBodies.System s) {
+		var startJoints = s.elements.filter(Joint).filter[j|j.isIsStart]
+		if (startJoints.size > 1) {
+			startJoints.forEach [j |
+				warning('There can only be one start joint for each system', j,
+					RigidBodiesPackage.Literals.JOINT__IS_START, ValidationMessageAcceptor.INSIGNIFICANT_INDEX,
+					TOO_MANY_START_JOINTS)
+				]
+		}
+	}
+	
+	// TODO Check for multiple base references without an explicit start hint
 }

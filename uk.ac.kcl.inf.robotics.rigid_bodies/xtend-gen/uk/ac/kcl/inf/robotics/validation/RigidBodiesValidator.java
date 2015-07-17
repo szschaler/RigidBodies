@@ -3,6 +3,16 @@
  */
 package uk.ac.kcl.inf.robotics.validation;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.ValidationMessageAcceptor;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 import uk.ac.kcl.inf.robotics.validation.AbstractRigidBodiesValidator;
 
 /**
@@ -12,4 +22,31 @@ import uk.ac.kcl.inf.robotics.validation.AbstractRigidBodiesValidator;
  */
 @SuppressWarnings("all")
 public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
+  public final static String TOO_MANY_START_JOINTS = "tooManyStartJoints";
+  
+  @Check
+  public void checkOnlyOneStartJoint(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
+    EList<SystemElement> _elements = s.getElements();
+    Iterable<Joint> _filter = Iterables.<Joint>filter(_elements, Joint.class);
+    final Function1<Joint, Boolean> _function = new Function1<Joint, Boolean>() {
+      @Override
+      public Boolean apply(final Joint j) {
+        return Boolean.valueOf(j.isIsStart());
+      }
+    };
+    Iterable<Joint> startJoints = IterableExtensions.<Joint>filter(_filter, _function);
+    int _size = IterableExtensions.size(startJoints);
+    boolean _greaterThan = (_size > 1);
+    if (_greaterThan) {
+      final Procedure1<Joint> _function_1 = new Procedure1<Joint>() {
+        @Override
+        public void apply(final Joint j) {
+          RigidBodiesValidator.this.warning("There can only be one start joint for each system", j, 
+            RigidBodiesPackage.Literals.JOINT__IS_START, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, 
+            RigidBodiesValidator.TOO_MANY_START_JOINTS);
+        }
+      };
+      IterableExtensions.<Joint>forEach(startJoints, _function_1);
+    }
+  }
 }
