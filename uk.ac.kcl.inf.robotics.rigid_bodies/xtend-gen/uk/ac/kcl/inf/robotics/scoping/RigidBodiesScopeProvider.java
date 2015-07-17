@@ -3,7 +3,18 @@
  */
 package uk.ac.kcl.inf.robotics.scoping;
 
+import com.google.common.base.Objects;
+import java.util.List;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
+import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +24,30 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 @SuppressWarnings("all")
 public class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    Class<? extends EObject> class_ = null;
+    boolean _equals = Objects.equal(reference, RigidBodiesPackage.Literals.MATRIX_REF__MATRIX);
+    if (_equals) {
+      class_ = BaseMatrix.class;
+    } else {
+      boolean _equals_1 = Objects.equal(reference, RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION__REF);
+      if (_equals_1) {
+        class_ = JointType.class;
+      } else {
+        boolean _equals_2 = Objects.equal(reference, RigidBodiesPackage.Literals.REORIENT_EXPRESSION__REF);
+        if (_equals_2) {
+          class_ = Reorientation.class;
+        }
+      }
+    }
+    boolean _notEquals = (!Objects.equal(class_, null));
+    if (_notEquals) {
+      EObject rootElement = EcoreUtil2.getRootContainer(context);
+      List<? extends EObject> candidates = EcoreUtil2.getAllContentsOfType(rootElement, class_);
+      return Scopes.scopeFor(candidates);
+    } else {
+      return super.getScope(context, reference);
+    }
+  }
 }

@@ -1,4 +1,3 @@
-// TODO Fix scope providers so that the various references actually work as if the names were global
 grammar uk.ac.kcl.inf.robotics.RigidBodies with org.eclipse.xtext.common.Terminals
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
