@@ -25,6 +25,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody1 <em>Body1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody2 <em>Body2</em>}</li>
@@ -49,6 +50,26 @@ public class JointImpl extends SystemElementImpl implements Joint
    * @ordered
    */
   protected JointType type;
+
+  /**
+   * The default value of the '{@link #isIsStart() <em>Is Start</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsStart()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_START_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsStart() <em>Is Start</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsStart()
+   * @generated
+   * @ordered
+   */
+  protected boolean isStart = IS_START_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getBody1() <em>Body1</em>}' reference.
@@ -197,6 +218,29 @@ public class JointImpl extends SystemElementImpl implements Joint
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__TYPE, newType, newType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsStart()
+  {
+    return isStart;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsStart(boolean newIsStart)
+  {
+    boolean oldIsStart = isStart;
+    isStart = newIsStart;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__IS_START, oldIsStart, isStart));
   }
 
   /**
@@ -613,6 +657,8 @@ public class JointImpl extends SystemElementImpl implements Joint
     {
       case RigidBodiesPackage.JOINT__TYPE:
         return getType();
+      case RigidBodiesPackage.JOINT__IS_START:
+        return isIsStart();
       case RigidBodiesPackage.JOINT__BODY1:
         if (resolve) return getBody1();
         return basicGetBody1();
@@ -647,6 +693,9 @@ public class JointImpl extends SystemElementImpl implements Joint
     {
       case RigidBodiesPackage.JOINT__TYPE:
         setType((JointType)newValue);
+        return;
+      case RigidBodiesPackage.JOINT__IS_START:
+        setIsStart((Boolean)newValue);
         return;
       case RigidBodiesPackage.JOINT__BODY1:
         setBody1((Body)newValue);
@@ -689,6 +738,9 @@ public class JointImpl extends SystemElementImpl implements Joint
       case RigidBodiesPackage.JOINT__TYPE:
         setType((JointType)null);
         return;
+      case RigidBodiesPackage.JOINT__IS_START:
+        setIsStart(IS_START_EDEFAULT);
+        return;
       case RigidBodiesPackage.JOINT__BODY1:
         setBody1((Body)null);
         return;
@@ -729,6 +781,8 @@ public class JointImpl extends SystemElementImpl implements Joint
     {
       case RigidBodiesPackage.JOINT__TYPE:
         return type != null;
+      case RigidBodiesPackage.JOINT__IS_START:
+        return isStart != IS_START_EDEFAULT;
       case RigidBodiesPackage.JOINT__BODY1:
         return body1 != null;
       case RigidBodiesPackage.JOINT__REL_TRANS1:
@@ -747,6 +801,23 @@ public class JointImpl extends SystemElementImpl implements Joint
         return dampCoulomb != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (isStart: ");
+    result.append(isStart);
+    result.append(')');
+    return result.toString();
   }
 
 } //JointImpl

@@ -39,6 +39,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//SystemElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//JointType"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//Body"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
         containment="true"/>

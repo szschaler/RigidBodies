@@ -70,7 +70,7 @@ system DynamicWalker {
 		}
 	}
 	
-	joint ankle : YRevolve
+	joint ankle : YRevolve start
 		between base (with relative transformation matrix Origin [0.0, 0.0, 0.0], reorient DefaultReorient ((x, 0.0)))
 		and shank1 (with relative transformation Origin, DefaultReorient)
 		stiffness {

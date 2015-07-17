@@ -51,7 +51,7 @@ Mass:
 ;
 
 Joint:
-	'joint' name=ID ':' type=JointType 
+	'joint' name=ID ':' type=JointType isStart?='start'?
 		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
 		'and' body2 = [Body] relTrans2 = RelativeTransformation
 		// TODO We probably want to make types more complex to allow them to make stiffness reusable

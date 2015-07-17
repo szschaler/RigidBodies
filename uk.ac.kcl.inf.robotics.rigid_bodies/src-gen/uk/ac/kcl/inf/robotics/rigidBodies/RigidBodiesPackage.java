@@ -336,13 +336,22 @@ public interface RigidBodiesPackage extends EPackage
   int JOINT__TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Is Start</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JOINT__IS_START = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Body1</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JOINT__BODY1 = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
+  int JOINT__BODY1 = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Rel Trans1</b></em>' containment reference.
@@ -351,7 +360,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__REL_TRANS1 = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
+  int JOINT__REL_TRANS1 = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Body2</b></em>' reference.
@@ -360,7 +369,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__BODY2 = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
+  int JOINT__BODY2 = SYSTEM_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Rel Trans2</b></em>' containment reference.
@@ -369,7 +378,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__REL_TRANS2 = SYSTEM_ELEMENT_FEATURE_COUNT + 4;
+  int JOINT__REL_TRANS2 = SYSTEM_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Spring Coeff</b></em>' containment reference.
@@ -378,7 +387,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__SPRING_COEFF = SYSTEM_ELEMENT_FEATURE_COUNT + 5;
+  int JOINT__SPRING_COEFF = SYSTEM_ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Spring Init</b></em>' containment reference.
@@ -387,7 +396,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__SPRING_INIT = SYSTEM_ELEMENT_FEATURE_COUNT + 6;
+  int JOINT__SPRING_INIT = SYSTEM_ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Damp Viscous</b></em>' containment reference.
@@ -396,7 +405,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__DAMP_VISCOUS = SYSTEM_ELEMENT_FEATURE_COUNT + 7;
+  int JOINT__DAMP_VISCOUS = SYSTEM_ELEMENT_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Damp Coulomb</b></em>' containment reference.
@@ -405,7 +414,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__DAMP_COULOMB = SYSTEM_ELEMENT_FEATURE_COUNT + 8;
+  int JOINT__DAMP_COULOMB = SYSTEM_ELEMENT_FEATURE_COUNT + 9;
 
   /**
    * The number of structural features of the '<em>Joint</em>' class.
@@ -414,7 +423,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 9;
+  int JOINT_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 10;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointTypeImpl <em>Joint Type</em>}' class.
@@ -1280,6 +1289,17 @@ public interface RigidBodiesPackage extends EPackage
   EReference getJoint_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#isIsStart <em>Is Start</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Start</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Joint#isIsStart()
+   * @see #getJoint()
+   * @generated
+   */
+  EAttribute getJoint_IsStart();
+
+  /**
    * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody1 <em>Body1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2105,6 +2125,14 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EReference JOINT__TYPE = eINSTANCE.getJoint_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Is Start</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JOINT__IS_START = eINSTANCE.getJoint_IsStart();
 
     /**
      * The meta object literal for the '<em><b>Body1</b></em>' reference feature.

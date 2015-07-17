@@ -268,6 +268,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         type=JointType 
+	 *         isStart?='start'? 
 	 *         body1=[Body|ID] 
 	 *         relTrans1=RelativeTransformation 
 	 *         body2=[Body|ID] 
@@ -279,41 +280,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     )
 	 */
 	protected void sequence_Joint(EObject context, Joint semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__TYPE));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY1));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANS1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANS1));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__BODY2));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANS2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__REL_TRANS2));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__SPRING_COEFF) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__SPRING_COEFF));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__SPRING_INIT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__SPRING_INIT));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__DAMP_VISCOUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__DAMP_VISCOUS));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT__DAMP_COULOMB) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT__DAMP_COULOMB));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getJointAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getJointAccess().getTypeJointTypeParserRuleCall_3_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getJointAccess().getBody1BodyIDTerminalRuleCall_5_0_1(), semanticObject.getBody1());
-		feeder.accept(grammarAccess.getJointAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0(), semanticObject.getRelTrans1());
-		feeder.accept(grammarAccess.getJointAccess().getBody2BodyIDTerminalRuleCall_8_0_1(), semanticObject.getBody2());
-		feeder.accept(grammarAccess.getJointAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0(), semanticObject.getRelTrans2());
-		feeder.accept(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_13_0(), semanticObject.getSpringCoeff());
-		feeder.accept(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_15_0(), semanticObject.getSpringInit());
-		feeder.accept(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_17_0(), semanticObject.getDampViscous());
-		feeder.accept(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_19_0(), semanticObject.getDampCoulomb());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

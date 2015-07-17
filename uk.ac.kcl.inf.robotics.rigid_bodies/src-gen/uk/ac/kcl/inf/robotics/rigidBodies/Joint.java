@@ -12,6 +12,7 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * The following features are supported:
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getType <em>Type</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody1 <em>Body1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody2 <em>Body2</em>}</li>
@@ -54,6 +55,32 @@ public interface Joint extends SystemElement
    * @generated
    */
   void setType(JointType value);
+
+  /**
+   * Returns the value of the '<em><b>Is Start</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Start</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Start</em>' attribute.
+   * @see #setIsStart(boolean)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJoint_IsStart()
+   * @model
+   * @generated
+   */
+  boolean isIsStart();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#isIsStart <em>Is Start</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Start</em>' attribute.
+   * @see #isIsStart()
+   * @generated
+   */
+  void setIsStart(boolean value);
 
   /**
    * Returns the value of the '<em><b>Body1</b></em>' reference.
