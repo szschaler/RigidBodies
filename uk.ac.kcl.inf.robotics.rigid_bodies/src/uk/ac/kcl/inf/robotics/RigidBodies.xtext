@@ -41,6 +41,11 @@ Body:
 	'}'
 ;
 
+BodyReference:
+	base?='base' |
+	ref=[Body]
+;
+
 Mass:
 	'mass' '{' 
 		'value' value = AddExp
@@ -51,8 +56,8 @@ Mass:
 
 Joint:
 	'joint' name=ID ':' type=JointType isStart?='start'?
-		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
-		'and' body2 = [Body] relTrans2 = RelativeTransformation
+		'between' body1 = BodyReference relTrans1 = RelativeTransformation
+		'and' body2 = BodyReference relTrans2 = RelativeTransformation
 		// TODO We probably want to make types more complex to allow them to make stiffness reusable
 		'stiffness' '{'
 			// TODO Provide better labels for these in the concrete syntax
@@ -92,8 +97,8 @@ ReorientExpression:
 
 Constraint:
 	'constraint' name=ID ':' type = ConstraintType
-		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
-		'and' body2 = [Body] relTrans2 = RelativeTransformation
+		'between' body1 = BodyReference relTrans1 = RelativeTransformation
+		'and' body2 = BodyReference relTrans2 = RelativeTransformation
 ;
 
 enum ConstraintType:
@@ -103,8 +108,8 @@ enum ConstraintType:
 
 ExternalLoad:
 	'external' 'load' name=ID ':' type = LoadType
-		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
-		'and' body2 = [Body] relTrans2 = RelativeTransformation	
+		'between' body1 = BodyReference relTrans1 = RelativeTransformation
+		'and' body2 = BodyReference relTrans2 = RelativeTransformation	
 ;
 
 enum LoadType:

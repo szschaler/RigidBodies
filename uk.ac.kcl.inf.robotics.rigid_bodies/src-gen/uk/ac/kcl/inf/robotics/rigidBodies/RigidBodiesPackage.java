@@ -262,6 +262,43 @@ public interface RigidBodiesPackage extends EPackage
   int BODY_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl <em>Body Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBodyReference()
+   * @generated
+   */
+  int BODY_REFERENCE = 6;
+
+  /**
+   * The feature id for the '<em><b>Base</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_REFERENCE__BASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_REFERENCE__REF = 1;
+
+  /**
+   * The number of structural features of the '<em>Body Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_REFERENCE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.MassImpl <em>Mass</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -269,7 +306,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMass()
    * @generated
    */
-  int MASS = 6;
+  int MASS = 7;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -315,7 +352,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJoint()
    * @generated
    */
-  int JOINT = 7;
+  int JOINT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -345,7 +382,7 @@ public interface RigidBodiesPackage extends EPackage
   int JOINT__IS_START = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Body1</b></em>' reference.
+   * The feature id for the '<em><b>Body1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -363,7 +400,7 @@ public interface RigidBodiesPackage extends EPackage
   int JOINT__REL_TRANS1 = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Body2</b></em>' reference.
+   * The feature id for the '<em><b>Body2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -433,7 +470,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointType()
    * @generated
    */
-  int JOINT_TYPE = 8;
+  int JOINT_TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -470,7 +507,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointTypeExpression()
    * @generated
    */
-  int JOINT_TYPE_EXPRESSION = 9;
+  int JOINT_TYPE_EXPRESSION = 10;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -507,7 +544,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getRelativeTransformation()
    * @generated
    */
-  int RELATIVE_TRANSFORMATION = 10;
+  int RELATIVE_TRANSFORMATION = 11;
 
   /**
    * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -544,7 +581,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientation()
    * @generated
    */
-  int REORIENTATION = 11;
+  int REORIENTATION = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -581,7 +618,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientExpression()
    * @generated
    */
-  int REORIENT_EXPRESSION = 12;
+  int REORIENT_EXPRESSION = 13;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -627,7 +664,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 13;
+  int CONSTRAINT = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -648,7 +685,7 @@ public interface RigidBodiesPackage extends EPackage
   int CONSTRAINT__TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Body1</b></em>' reference.
+   * The feature id for the '<em><b>Body1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -666,7 +703,7 @@ public interface RigidBodiesPackage extends EPackage
   int CONSTRAINT__REL_TRANS1 = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Body2</b></em>' reference.
+   * The feature id for the '<em><b>Body2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -700,7 +737,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getExternalLoad()
    * @generated
    */
-  int EXTERNAL_LOAD = 14;
+  int EXTERNAL_LOAD = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -721,7 +758,7 @@ public interface RigidBodiesPackage extends EPackage
   int EXTERNAL_LOAD__TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Body1</b></em>' reference.
+   * The feature id for the '<em><b>Body1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -739,7 +776,7 @@ public interface RigidBodiesPackage extends EPackage
   int EXTERNAL_LOAD__REL_TRANS1 = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Body2</b></em>' reference.
+   * The feature id for the '<em><b>Body2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -773,7 +810,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMatrix()
    * @generated
    */
-  int MATRIX = 15;
+  int MATRIX = 16;
 
   /**
    * The number of structural features of the '<em>Matrix</em>' class.
@@ -792,7 +829,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBaseMatrix()
    * @generated
    */
-  int BASE_MATRIX = 16;
+  int BASE_MATRIX = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -829,7 +866,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMatrixRef()
    * @generated
    */
-  int MATRIX_REF = 17;
+  int MATRIX_REF = 18;
 
   /**
    * The feature id for the '<em><b>Matrix</b></em>' reference.
@@ -857,7 +894,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 18;
+  int EXPRESSION = 19;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -876,7 +913,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstantOrFunctionCallExp()
    * @generated
    */
-  int CONSTANT_OR_FUNCTION_CALL_EXP = 19;
+  int CONSTANT_OR_FUNCTION_CALL_EXP = 20;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -913,7 +950,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 20;
+  int NUMBER_LITERAL = 21;
 
   /**
    * The feature id for the '<em><b>Neg</b></em>' attribute.
@@ -950,7 +987,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAddExp()
    * @generated
    */
-  int ADD_EXP = 21;
+  int ADD_EXP = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -996,7 +1033,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMultExp()
    * @generated
    */
-  int MULT_EXP = 22;
+  int MULT_EXP = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1042,7 +1079,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAXIS()
    * @generated
    */
-  int AXIS = 23;
+  int AXIS = 24;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType <em>Constraint Type</em>}' enum.
@@ -1052,7 +1089,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraintType()
    * @generated
    */
-  int CONSTRAINT_TYPE = 24;
+  int CONSTRAINT_TYPE = 25;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LoadType <em>Load Type</em>}' enum.
@@ -1062,7 +1099,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLoadType()
    * @generated
    */
-  int LOAD_TYPE = 25;
+  int LOAD_TYPE = 26;
 
 
   /**
@@ -1225,6 +1262,38 @@ public interface RigidBodiesPackage extends EPackage
   EReference getBody_Mass();
 
   /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference <em>Body Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Body Reference</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference
+   * @generated
+   */
+  EClass getBodyReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isBase <em>Base</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Base</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isBase()
+   * @see #getBodyReference()
+   * @generated
+   */
+  EAttribute getBodyReference_Base();
+
+  /**
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getRef()
+   * @see #getBodyReference()
+   * @generated
+   */
+  EReference getBodyReference_Ref();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass <em>Mass</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1300,10 +1369,10 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getJoint_IsStart();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody1 <em>Body1</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody1 <em>Body1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Body1</em>'.
+   * @return the meta object for the containment reference '<em>Body1</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody1()
    * @see #getJoint()
    * @generated
@@ -1322,10 +1391,10 @@ public interface RigidBodiesPackage extends EPackage
   EReference getJoint_RelTrans1();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody2 <em>Body2</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody2 <em>Body2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Body2</em>'.
+   * @return the meta object for the containment reference '<em>Body2</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody2()
    * @see #getJoint()
    * @generated
@@ -1569,10 +1638,10 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getConstraint_Type();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody1 <em>Body1</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody1 <em>Body1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Body1</em>'.
+   * @return the meta object for the containment reference '<em>Body1</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody1()
    * @see #getConstraint()
    * @generated
@@ -1591,10 +1660,10 @@ public interface RigidBodiesPackage extends EPackage
   EReference getConstraint_RelTrans1();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody2 <em>Body2</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody2 <em>Body2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Body2</em>'.
+   * @return the meta object for the containment reference '<em>Body2</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody2()
    * @see #getConstraint()
    * @generated
@@ -1634,10 +1703,10 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getExternalLoad_Type();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1 <em>Body1</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1 <em>Body1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Body1</em>'.
+   * @return the meta object for the containment reference '<em>Body1</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1()
    * @see #getExternalLoad()
    * @generated
@@ -1656,10 +1725,10 @@ public interface RigidBodiesPackage extends EPackage
   EReference getExternalLoad_RelTrans1();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2 <em>Body2</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2 <em>Body2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Body2</em>'.
+   * @return the meta object for the containment reference '<em>Body2</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2()
    * @see #getExternalLoad()
    * @generated
@@ -2075,6 +2144,32 @@ public interface RigidBodiesPackage extends EPackage
     EReference BODY__MASS = eINSTANCE.getBody_Mass();
 
     /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl <em>Body Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBodyReference()
+     * @generated
+     */
+    EClass BODY_REFERENCE = eINSTANCE.getBodyReference();
+
+    /**
+     * The meta object literal for the '<em><b>Base</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BODY_REFERENCE__BASE = eINSTANCE.getBodyReference_Base();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BODY_REFERENCE__REF = eINSTANCE.getBodyReference_Ref();
+
+    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.MassImpl <em>Mass</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2135,7 +2230,7 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute JOINT__IS_START = eINSTANCE.getJoint_IsStart();
 
     /**
-     * The meta object literal for the '<em><b>Body1</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Body1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2151,7 +2246,7 @@ public interface RigidBodiesPackage extends EPackage
     EReference JOINT__REL_TRANS1 = eINSTANCE.getJoint_RelTrans1();
 
     /**
-     * The meta object literal for the '<em><b>Body2</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Body2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2347,7 +2442,7 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute CONSTRAINT__TYPE = eINSTANCE.getConstraint_Type();
 
     /**
-     * The meta object literal for the '<em><b>Body1</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Body1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2363,7 +2458,7 @@ public interface RigidBodiesPackage extends EPackage
     EReference CONSTRAINT__REL_TRANS1 = eINSTANCE.getConstraint_RelTrans1();
 
     /**
-     * The meta object literal for the '<em><b>Body2</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Body2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2397,7 +2492,7 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute EXTERNAL_LOAD__TYPE = eINSTANCE.getExternalLoad_Type();
 
     /**
-     * The meta object literal for the '<em><b>Body1</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Body1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2413,7 +2508,7 @@ public interface RigidBodiesPackage extends EPackage
     EReference EXTERNAL_LOAD__REL_TRANS1 = eINSTANCE.getExternalLoad_RelTrans1();
 
     /**
-     * The meta object literal for the '<em><b>Body2</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Body2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

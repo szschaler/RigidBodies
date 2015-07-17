@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -125,6 +126,11 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBody(Body object)
       {
         return createBodyAdapter();
+      }
+      @Override
+      public Adapter caseBodyReference(BodyReference object)
+      {
+        return createBodyReferenceAdapter();
       }
       @Override
       public Adapter caseMass(Mass object)
@@ -319,6 +325,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBodyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference <em>Body Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference
+   * @generated
+   */
+  public Adapter createBodyReferenceAdapter()
   {
     return null;
   }

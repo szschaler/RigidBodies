@@ -225,6 +225,38 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
+	public class BodyReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BodyReference");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cBaseAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cBaseBaseKeyword_0_0 = (Keyword)cBaseAssignment_0.eContents().get(0);
+		private final Assignment cRefAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final CrossReference cRefBodyCrossReference_1_0 = (CrossReference)cRefAssignment_1.eContents().get(0);
+		private final RuleCall cRefBodyIDTerminalRuleCall_1_0_1 = (RuleCall)cRefBodyCrossReference_1_0.eContents().get(1);
+		
+		//BodyReference:
+		//	base?="base" | ref=[Body];
+		@Override public ParserRule getRule() { return rule; }
+
+		//base?="base" | ref=[Body]
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//base?="base"
+		public Assignment getBaseAssignment_0() { return cBaseAssignment_0; }
+
+		//"base"
+		public Keyword getBaseBaseKeyword_0_0() { return cBaseBaseKeyword_0_0; }
+
+		//ref=[Body]
+		public Assignment getRefAssignment_1() { return cRefAssignment_1; }
+
+		//[Body]
+		public CrossReference getRefBodyCrossReference_1_0() { return cRefBodyCrossReference_1_0; }
+
+		//ID
+		public RuleCall getRefBodyIDTerminalRuleCall_1_0_1() { return cRefBodyIDTerminalRuleCall_1_0_1; }
+	}
+
 	public class MassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Mass");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -306,14 +338,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIsStartStartKeyword_4_0 = (Keyword)cIsStartAssignment_4.eContents().get(0);
 		private final Keyword cBetweenKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cBody1Assignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cBody1BodyCrossReference_6_0 = (CrossReference)cBody1Assignment_6.eContents().get(0);
-		private final RuleCall cBody1BodyIDTerminalRuleCall_6_0_1 = (RuleCall)cBody1BodyCrossReference_6_0.eContents().get(1);
+		private final RuleCall cBody1BodyReferenceParserRuleCall_6_0 = (RuleCall)cBody1Assignment_6.eContents().get(0);
 		private final Assignment cRelTrans1Assignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cRelTrans1RelativeTransformationParserRuleCall_7_0 = (RuleCall)cRelTrans1Assignment_7.eContents().get(0);
 		private final Keyword cAndKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cBody2Assignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cBody2BodyCrossReference_9_0 = (CrossReference)cBody2Assignment_9.eContents().get(0);
-		private final RuleCall cBody2BodyIDTerminalRuleCall_9_0_1 = (RuleCall)cBody2BodyCrossReference_9_0.eContents().get(1);
+		private final RuleCall cBody2BodyReferenceParserRuleCall_9_0 = (RuleCall)cBody2Assignment_9.eContents().get(0);
 		private final Assignment cRelTrans2Assignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_10_0 = (RuleCall)cRelTrans2Assignment_10.eContents().get(0);
 		private final Keyword cStiffnessKeyword_11 = (Keyword)cGroup.eContents().get(11);
@@ -333,15 +363,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
 		
 		//Joint:
-		//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=[Body] / * TODO Add support for 'base' * /
-		//	relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
+		//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
+		//	"and" body2=BodyReference relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
 		//	"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
 		//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
 		//	dampCoulomb=AddExp "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=[Body] / * TODO Add support for 'base' * /
-		//relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
+		//"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
+		//"and" body2=BodyReference relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
 		//"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
 		//"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
 		//dampCoulomb=AddExp "}"
@@ -374,16 +404,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"
 		public Keyword getBetweenKeyword_5() { return cBetweenKeyword_5; }
 
-		//body1=[Body]
+		//body1=BodyReference
 		public Assignment getBody1Assignment_6() { return cBody1Assignment_6; }
 
-		//[Body]
-		public CrossReference getBody1BodyCrossReference_6_0() { return cBody1BodyCrossReference_6_0; }
+		//BodyReference
+		public RuleCall getBody1BodyReferenceParserRuleCall_6_0() { return cBody1BodyReferenceParserRuleCall_6_0; }
 
-		//ID
-		public RuleCall getBody1BodyIDTerminalRuleCall_6_0_1() { return cBody1BodyIDTerminalRuleCall_6_0_1; }
-
-		/// * TODO Add support for 'base' * / relTrans1=RelativeTransformation
+		//relTrans1=RelativeTransformation
 		public Assignment getRelTrans1Assignment_7() { return cRelTrans1Assignment_7; }
 
 		//RelativeTransformation
@@ -392,14 +419,11 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"
 		public Keyword getAndKeyword_8() { return cAndKeyword_8; }
 
-		//body2=[Body]
+		//body2=BodyReference
 		public Assignment getBody2Assignment_9() { return cBody2Assignment_9; }
 
-		//[Body]
-		public CrossReference getBody2BodyCrossReference_9_0() { return cBody2BodyCrossReference_9_0; }
-
-		//ID
-		public RuleCall getBody2BodyIDTerminalRuleCall_9_0_1() { return cBody2BodyIDTerminalRuleCall_9_0_1; }
+		//BodyReference
+		public RuleCall getBody2BodyReferenceParserRuleCall_9_0() { return cBody2BodyReferenceParserRuleCall_9_0; }
 
 		//relTrans2=RelativeTransformation
 		public Assignment getRelTrans2Assignment_10() { return cRelTrans2Assignment_10; }
@@ -798,24 +822,22 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeConstraintTypeEnumRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		private final Keyword cBetweenKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cBody1Assignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cBody1BodyCrossReference_5_0 = (CrossReference)cBody1Assignment_5.eContents().get(0);
-		private final RuleCall cBody1BodyIDTerminalRuleCall_5_0_1 = (RuleCall)cBody1BodyCrossReference_5_0.eContents().get(1);
+		private final RuleCall cBody1BodyReferenceParserRuleCall_5_0 = (RuleCall)cBody1Assignment_5.eContents().get(0);
 		private final Assignment cRelTrans1Assignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cRelTrans1RelativeTransformationParserRuleCall_6_0 = (RuleCall)cRelTrans1Assignment_6.eContents().get(0);
 		private final Keyword cAndKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cBody2Assignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cBody2BodyCrossReference_8_0 = (CrossReference)cBody2Assignment_8.eContents().get(0);
-		private final RuleCall cBody2BodyIDTerminalRuleCall_8_0_1 = (RuleCall)cBody2BodyCrossReference_8_0.eContents().get(1);
+		private final RuleCall cBody2BodyReferenceParserRuleCall_8_0 = (RuleCall)cBody2Assignment_8.eContents().get(0);
 		private final Assignment cRelTrans2Assignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_9_0 = (RuleCall)cRelTrans2Assignment_9.eContents().get(0);
 		
 		//Constraint:
-		//	"constraint" name=ID ":" type=ConstraintType "between" body1=[Body] / * TODO Add support for 'base' * /
-		//	relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation;
+		//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+		//	body2=BodyReference relTrans2=RelativeTransformation;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"constraint" name=ID ":" type=ConstraintType "between" body1=[Body] / * TODO Add support for 'base' * /
-		//relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation
+		//"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+		//body2=BodyReference relTrans2=RelativeTransformation
 		public Group getGroup() { return cGroup; }
 
 		//"constraint"
@@ -839,16 +861,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"
 		public Keyword getBetweenKeyword_4() { return cBetweenKeyword_4; }
 
-		//body1=[Body]
+		//body1=BodyReference
 		public Assignment getBody1Assignment_5() { return cBody1Assignment_5; }
 
-		//[Body]
-		public CrossReference getBody1BodyCrossReference_5_0() { return cBody1BodyCrossReference_5_0; }
+		//BodyReference
+		public RuleCall getBody1BodyReferenceParserRuleCall_5_0() { return cBody1BodyReferenceParserRuleCall_5_0; }
 
-		//ID
-		public RuleCall getBody1BodyIDTerminalRuleCall_5_0_1() { return cBody1BodyIDTerminalRuleCall_5_0_1; }
-
-		/// * TODO Add support for 'base' * / relTrans1=RelativeTransformation
+		//relTrans1=RelativeTransformation
 		public Assignment getRelTrans1Assignment_6() { return cRelTrans1Assignment_6; }
 
 		//RelativeTransformation
@@ -857,14 +876,11 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"
 		public Keyword getAndKeyword_7() { return cAndKeyword_7; }
 
-		//body2=[Body]
+		//body2=BodyReference
 		public Assignment getBody2Assignment_8() { return cBody2Assignment_8; }
 
-		//[Body]
-		public CrossReference getBody2BodyCrossReference_8_0() { return cBody2BodyCrossReference_8_0; }
-
-		//ID
-		public RuleCall getBody2BodyIDTerminalRuleCall_8_0_1() { return cBody2BodyIDTerminalRuleCall_8_0_1; }
+		//BodyReference
+		public RuleCall getBody2BodyReferenceParserRuleCall_8_0() { return cBody2BodyReferenceParserRuleCall_8_0; }
 
 		//relTrans2=RelativeTransformation
 		public Assignment getRelTrans2Assignment_9() { return cRelTrans2Assignment_9; }
@@ -885,24 +901,22 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeLoadTypeEnumRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
 		private final Keyword cBetweenKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cBody1Assignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cBody1BodyCrossReference_6_0 = (CrossReference)cBody1Assignment_6.eContents().get(0);
-		private final RuleCall cBody1BodyIDTerminalRuleCall_6_0_1 = (RuleCall)cBody1BodyCrossReference_6_0.eContents().get(1);
+		private final RuleCall cBody1BodyReferenceParserRuleCall_6_0 = (RuleCall)cBody1Assignment_6.eContents().get(0);
 		private final Assignment cRelTrans1Assignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cRelTrans1RelativeTransformationParserRuleCall_7_0 = (RuleCall)cRelTrans1Assignment_7.eContents().get(0);
 		private final Keyword cAndKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cBody2Assignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cBody2BodyCrossReference_9_0 = (CrossReference)cBody2Assignment_9.eContents().get(0);
-		private final RuleCall cBody2BodyIDTerminalRuleCall_9_0_1 = (RuleCall)cBody2BodyCrossReference_9_0.eContents().get(1);
+		private final RuleCall cBody2BodyReferenceParserRuleCall_9_0 = (RuleCall)cBody2Assignment_9.eContents().get(0);
 		private final Assignment cRelTrans2Assignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_10_0 = (RuleCall)cRelTrans2Assignment_10.eContents().get(0);
 		
 		//ExternalLoad:
-		//	"external" "load" name=ID ":" type=LoadType "between" body1=[Body] / * TODO Add support for 'base' * /
-		//	relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation;
+		//	"external" "load" name=ID ":" type=LoadType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+		//	body2=BodyReference relTrans2=RelativeTransformation;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"external" "load" name=ID ":" type=LoadType "between" body1=[Body] / * TODO Add support for 'base' * /
-		//relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation
+		//"external" "load" name=ID ":" type=LoadType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+		//body2=BodyReference relTrans2=RelativeTransformation
 		public Group getGroup() { return cGroup; }
 
 		//"external"
@@ -929,16 +943,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"
 		public Keyword getBetweenKeyword_5() { return cBetweenKeyword_5; }
 
-		//body1=[Body]
+		//body1=BodyReference
 		public Assignment getBody1Assignment_6() { return cBody1Assignment_6; }
 
-		//[Body]
-		public CrossReference getBody1BodyCrossReference_6_0() { return cBody1BodyCrossReference_6_0; }
+		//BodyReference
+		public RuleCall getBody1BodyReferenceParserRuleCall_6_0() { return cBody1BodyReferenceParserRuleCall_6_0; }
 
-		//ID
-		public RuleCall getBody1BodyIDTerminalRuleCall_6_0_1() { return cBody1BodyIDTerminalRuleCall_6_0_1; }
-
-		/// * TODO Add support for 'base' * / relTrans1=RelativeTransformation
+		//relTrans1=RelativeTransformation
 		public Assignment getRelTrans1Assignment_7() { return cRelTrans1Assignment_7; }
 
 		//RelativeTransformation
@@ -947,14 +958,11 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"
 		public Keyword getAndKeyword_8() { return cAndKeyword_8; }
 
-		//body2=[Body]
+		//body2=BodyReference
 		public Assignment getBody2Assignment_9() { return cBody2Assignment_9; }
 
-		//[Body]
-		public CrossReference getBody2BodyCrossReference_9_0() { return cBody2BodyCrossReference_9_0; }
-
-		//ID
-		public RuleCall getBody2BodyIDTerminalRuleCall_9_0_1() { return cBody2BodyIDTerminalRuleCall_9_0_1; }
+		//BodyReference
+		public RuleCall getBody2BodyReferenceParserRuleCall_9_0() { return cBody2BodyReferenceParserRuleCall_9_0; }
 
 		//relTrans2=RelativeTransformation
 		public Assignment getRelTrans2Assignment_10() { return cRelTrans2Assignment_10; }
@@ -1378,6 +1386,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final SystemElements pSystem;
 	private final SystemElementElements pSystemElement;
 	private final BodyElements pBody;
+	private final BodyReferenceElements pBodyReference;
 	private final MassElements pMass;
 	private final JointElements pJoint;
 	private final JointTypeElements pJointType;
@@ -1415,6 +1424,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSystem = new SystemElements();
 		this.pSystemElement = new SystemElementElements();
 		this.pBody = new BodyElements();
+		this.pBodyReference = new BodyReferenceElements();
 		this.pMass = new MassElements();
 		this.pJoint = new JointElements();
 		this.pJointType = new JointTypeElements();
@@ -1527,6 +1537,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getBodyAccess().getRule();
 	}
 
+	//BodyReference:
+	//	base?="base" | ref=[Body];
+	public BodyReferenceElements getBodyReferenceAccess() {
+		return pBodyReference;
+	}
+	
+	public ParserRule getBodyReferenceRule() {
+		return getBodyReferenceAccess().getRule();
+	}
+
 	//Mass:
 	//	"mass" "{" "value" value=AddExp "position" position= // TODO Check it's actually a three-element vector
 	//	Matrix "inertia" inertia= // TODO Check it's actually a three-by-four matrix
@@ -1540,8 +1560,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Joint:
-	//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=[Body] / * TODO Add support for 'base' * /
-	//	relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
+	//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
+	//	"and" body2=BodyReference relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
 	//	"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
 	//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
 	//	dampCoulomb=AddExp "}";
@@ -1614,8 +1634,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Constraint:
-	//	"constraint" name=ID ":" type=ConstraintType "between" body1=[Body] / * TODO Add support for 'base' * /
-	//	relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation;
+	//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+	//	body2=BodyReference relTrans2=RelativeTransformation;
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
 	}
@@ -1635,8 +1655,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExternalLoad:
-	//	"external" "load" name=ID ":" type=LoadType "between" body1=[Body] / * TODO Add support for 'base' * /
-	//	relTrans1=RelativeTransformation "and" body2=[Body] relTrans2=RelativeTransformation;
+	//	"external" "load" name=ID ":" type=LoadType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+	//	body2=BodyReference relTrans2=RelativeTransformation;
 	public ExternalLoadElements getExternalLoadAccess() {
 		return pExternalLoad;
 	}

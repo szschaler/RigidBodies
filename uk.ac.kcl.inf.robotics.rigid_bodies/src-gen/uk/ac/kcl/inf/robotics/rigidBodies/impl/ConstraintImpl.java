@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
@@ -56,14 +56,14 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
   protected ConstraintType type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getBody1() <em>Body1</em>}' reference.
+   * The cached value of the '{@link #getBody1() <em>Body1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBody1()
    * @generated
    * @ordered
    */
-  protected Body body1;
+  protected BodyReference body1;
 
   /**
    * The cached value of the '{@link #getRelTrans1() <em>Rel Trans1</em>}' containment reference.
@@ -76,14 +76,14 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
   protected RelativeTransformation relTrans1;
 
   /**
-   * The cached value of the '{@link #getBody2() <em>Body2</em>}' reference.
+   * The cached value of the '{@link #getBody2() <em>Body2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBody2()
    * @generated
    * @ordered
    */
-  protected Body body2;
+  protected BodyReference body2;
 
   /**
    * The cached value of the '{@link #getRelTrans2() <em>Rel Trans2</em>}' containment reference.
@@ -144,27 +144,7 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
    * <!-- end-user-doc -->
    * @generated
    */
-  public Body getBody1()
-  {
-    if (body1 != null && body1.eIsProxy())
-    {
-      InternalEObject oldBody1 = (InternalEObject)body1;
-      body1 = (Body)eResolveProxy(oldBody1);
-      if (body1 != oldBody1)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.CONSTRAINT__BODY1, oldBody1, body1));
-      }
-    }
-    return body1;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Body basicGetBody1()
+  public BodyReference getBody1()
   {
     return body1;
   }
@@ -174,12 +154,37 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody1(Body newBody1)
+  public NotificationChain basicSetBody1(BodyReference newBody1, NotificationChain msgs)
   {
-    Body oldBody1 = body1;
+    BodyReference oldBody1 = body1;
     body1 = newBody1;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__BODY1, oldBody1, body1));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__BODY1, oldBody1, newBody1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBody1(BodyReference newBody1)
+  {
+    if (newBody1 != body1)
+    {
+      NotificationChain msgs = null;
+      if (body1 != null)
+        msgs = ((InternalEObject)body1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.CONSTRAINT__BODY1, null, msgs);
+      if (newBody1 != null)
+        msgs = ((InternalEObject)newBody1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.CONSTRAINT__BODY1, null, msgs);
+      msgs = basicSetBody1(newBody1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__BODY1, newBody1, newBody1));
   }
 
   /**
@@ -235,27 +240,7 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
    * <!-- end-user-doc -->
    * @generated
    */
-  public Body getBody2()
-  {
-    if (body2 != null && body2.eIsProxy())
-    {
-      InternalEObject oldBody2 = (InternalEObject)body2;
-      body2 = (Body)eResolveProxy(oldBody2);
-      if (body2 != oldBody2)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.CONSTRAINT__BODY2, oldBody2, body2));
-      }
-    }
-    return body2;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Body basicGetBody2()
+  public BodyReference getBody2()
   {
     return body2;
   }
@@ -265,12 +250,37 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody2(Body newBody2)
+  public NotificationChain basicSetBody2(BodyReference newBody2, NotificationChain msgs)
   {
-    Body oldBody2 = body2;
+    BodyReference oldBody2 = body2;
     body2 = newBody2;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__BODY2, oldBody2, body2));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__BODY2, oldBody2, newBody2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBody2(BodyReference newBody2)
+  {
+    if (newBody2 != body2)
+    {
+      NotificationChain msgs = null;
+      if (body2 != null)
+        msgs = ((InternalEObject)body2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.CONSTRAINT__BODY2, null, msgs);
+      if (newBody2 != null)
+        msgs = ((InternalEObject)newBody2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.CONSTRAINT__BODY2, null, msgs);
+      msgs = basicSetBody2(newBody2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__BODY2, newBody2, newBody2));
   }
 
   /**
@@ -331,8 +341,12 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.CONSTRAINT__BODY1:
+        return basicSetBody1(null, msgs);
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
         return basicSetRelTrans1(null, msgs);
+      case RigidBodiesPackage.CONSTRAINT__BODY2:
+        return basicSetBody2(null, msgs);
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:
         return basicSetRelTrans2(null, msgs);
     }
@@ -352,13 +366,11 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
       case RigidBodiesPackage.CONSTRAINT__TYPE:
         return getType();
       case RigidBodiesPackage.CONSTRAINT__BODY1:
-        if (resolve) return getBody1();
-        return basicGetBody1();
+        return getBody1();
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
         return getRelTrans1();
       case RigidBodiesPackage.CONSTRAINT__BODY2:
-        if (resolve) return getBody2();
-        return basicGetBody2();
+        return getBody2();
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:
         return getRelTrans2();
     }
@@ -379,13 +391,13 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
         setType((ConstraintType)newValue);
         return;
       case RigidBodiesPackage.CONSTRAINT__BODY1:
-        setBody1((Body)newValue);
+        setBody1((BodyReference)newValue);
         return;
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
         setRelTrans1((RelativeTransformation)newValue);
         return;
       case RigidBodiesPackage.CONSTRAINT__BODY2:
-        setBody2((Body)newValue);
+        setBody2((BodyReference)newValue);
         return;
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:
         setRelTrans2((RelativeTransformation)newValue);
@@ -408,13 +420,13 @@ public class ConstraintImpl extends SystemElementImpl implements Constraint
         setType(TYPE_EDEFAULT);
         return;
       case RigidBodiesPackage.CONSTRAINT__BODY1:
-        setBody1((Body)null);
+        setBody1((BodyReference)null);
         return;
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
         setRelTrans1((RelativeTransformation)null);
         return;
       case RigidBodiesPackage.CONSTRAINT__BODY2:
-        setBody2((Body)null);
+        setBody2((BodyReference)null);
         return;
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:
         setRelTrans2((RelativeTransformation)null);

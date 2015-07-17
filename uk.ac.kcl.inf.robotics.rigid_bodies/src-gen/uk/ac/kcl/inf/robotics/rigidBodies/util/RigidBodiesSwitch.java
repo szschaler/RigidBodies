@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -134,6 +135,13 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         Body body = (Body)theEObject;
         T result = caseBody(body);
         if (result == null) result = caseSystemElement(body);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.BODY_REFERENCE:
+      {
+        BodyReference bodyReference = (BodyReference)theEObject;
+        T result = caseBodyReference(bodyReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -363,6 +371,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBody(Body object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Body Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Body Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBodyReference(BodyReference object)
   {
     return null;
   }

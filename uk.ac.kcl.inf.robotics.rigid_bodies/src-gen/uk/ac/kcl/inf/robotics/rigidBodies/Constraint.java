@@ -55,30 +55,30 @@ public interface Constraint extends SystemElement
   void setType(ConstraintType value);
 
   /**
-   * Returns the value of the '<em><b>Body1</b></em>' reference.
+   * Returns the value of the '<em><b>Body1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Body1</em>' reference isn't clear,
+   * If the meaning of the '<em>Body1</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Body1</em>' reference.
-   * @see #setBody1(Body)
+   * @return the value of the '<em>Body1</em>' containment reference.
+   * @see #setBody1(BodyReference)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConstraint_Body1()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Body getBody1();
+  BodyReference getBody1();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody1 <em>Body1</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody1 <em>Body1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Body1</em>' reference.
+   * @param value the new value of the '<em>Body1</em>' containment reference.
    * @see #getBody1()
    * @generated
    */
-  void setBody1(Body value);
+  void setBody1(BodyReference value);
 
   /**
    * Returns the value of the '<em><b>Rel Trans1</b></em>' containment reference.
@@ -107,30 +107,30 @@ public interface Constraint extends SystemElement
   void setRelTrans1(RelativeTransformation value);
 
   /**
-   * Returns the value of the '<em><b>Body2</b></em>' reference.
+   * Returns the value of the '<em><b>Body2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Body2</em>' reference isn't clear,
+   * If the meaning of the '<em>Body2</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Body2</em>' reference.
-   * @see #setBody2(Body)
+   * @return the value of the '<em>Body2</em>' containment reference.
+   * @see #setBody2(BodyReference)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConstraint_Body2()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Body getBody2();
+  BodyReference getBody2();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody2 <em>Body2</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint#getBody2 <em>Body2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Body2</em>' reference.
+   * @param value the new value of the '<em>Body2</em>' containment reference.
    * @see #getBody2()
    * @generated
    */
-  void setBody2(Body value);
+  void setBody2(BodyReference value);
 
   /**
    * Returns the value of the '<em><b>Rel Trans2</b></em>' containment reference.

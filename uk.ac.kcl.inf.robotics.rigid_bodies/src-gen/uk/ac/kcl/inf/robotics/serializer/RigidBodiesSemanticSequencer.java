@@ -19,6 +19,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -54,6 +55,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.BODY:
 				sequence_Body(context, (Body) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BODY_REFERENCE:
+				sequence_BodyReference(context, (BodyReference) semanticObject); 
 				return; 
 			case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP:
 				sequence_ConstantOrFunctionCallExp(context, (ConstantOrFunctionCallExp) semanticObject); 
@@ -127,6 +131,15 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (base?='base' | ref=[Body|ID])
+	 */
+	protected void sequence_BodyReference(EObject context, BodyReference semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID mass=Mass)
 	 */
 	protected void sequence_Body(EObject context, Body semanticObject) {
@@ -158,9 +171,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         type=ConstraintType 
-	 *         body1=[Body|ID] 
+	 *         body1=BodyReference 
 	 *         relTrans1=RelativeTransformation 
-	 *         body2=[Body|ID] 
+	 *         body2=BodyReference 
 	 *         relTrans2=RelativeTransformation
 	 *     )
 	 */
@@ -183,9 +196,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getConstraintAccess().getBody1BodyIDTerminalRuleCall_5_0_1(), semanticObject.getBody1());
+		feeder.accept(grammarAccess.getConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0(), semanticObject.getBody1());
 		feeder.accept(grammarAccess.getConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0(), semanticObject.getRelTrans1());
-		feeder.accept(grammarAccess.getConstraintAccess().getBody2BodyIDTerminalRuleCall_8_0_1(), semanticObject.getBody2());
+		feeder.accept(grammarAccess.getConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0(), semanticObject.getBody2());
 		feeder.accept(grammarAccess.getConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0(), semanticObject.getRelTrans2());
 		feeder.finish();
 	}
@@ -212,9 +225,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         type=LoadType 
-	 *         body1=[Body|ID] 
+	 *         body1=BodyReference 
 	 *         relTrans1=RelativeTransformation 
-	 *         body2=[Body|ID] 
+	 *         body2=BodyReference 
 	 *         relTrans2=RelativeTransformation
 	 *     )
 	 */
@@ -237,9 +250,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getExternalLoadAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getExternalLoadAccess().getTypeLoadTypeEnumRuleCall_4_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getExternalLoadAccess().getBody1BodyIDTerminalRuleCall_6_0_1(), semanticObject.getBody1());
+		feeder.accept(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0(), semanticObject.getBody1());
 		feeder.accept(grammarAccess.getExternalLoadAccess().getRelTrans1RelativeTransformationParserRuleCall_7_0(), semanticObject.getRelTrans1());
-		feeder.accept(grammarAccess.getExternalLoadAccess().getBody2BodyIDTerminalRuleCall_9_0_1(), semanticObject.getBody2());
+		feeder.accept(grammarAccess.getExternalLoadAccess().getBody2BodyReferenceParserRuleCall_9_0(), semanticObject.getBody2());
 		feeder.accept(grammarAccess.getExternalLoadAccess().getRelTrans2RelativeTransformationParserRuleCall_10_0(), semanticObject.getRelTrans2());
 		feeder.finish();
 	}
@@ -269,9 +282,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         name=ID 
 	 *         type=JointType 
 	 *         isStart?='start'? 
-	 *         body1=[Body|ID] 
+	 *         body1=BodyReference 
 	 *         relTrans1=RelativeTransformation 
-	 *         body2=[Body|ID] 
+	 *         body2=BodyReference 
 	 *         relTrans2=RelativeTransformation 
 	 *         springCoeff=AddExp 
 	 *         springInit=AddExp 
