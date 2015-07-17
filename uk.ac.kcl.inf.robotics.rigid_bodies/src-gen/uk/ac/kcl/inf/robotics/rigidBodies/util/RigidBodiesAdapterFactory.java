@@ -9,27 +9,29 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3;
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4;
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
-import uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref;
-import uk.ac.kcl.inf.robotics.rigidBodies.MatrixDef;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
+import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -125,11 +127,6 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createBodyAdapter();
       }
       @Override
-      public Adapter caseLocalFrame(LocalFrame object)
-      {
-        return createLocalFrameAdapter();
-      }
-      @Override
       public Adapter caseMass(Mass object)
       {
         return createMassAdapter();
@@ -140,64 +137,79 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createJointAdapter();
       }
       @Override
+      public Adapter caseJointType(JointType object)
+      {
+        return createJointTypeAdapter();
+      }
+      @Override
+      public Adapter caseJointTypeExpression(JointTypeExpression object)
+      {
+        return createJointTypeExpressionAdapter();
+      }
+      @Override
+      public Adapter caseRelativeTransformation(RelativeTransformation object)
+      {
+        return createRelativeTransformationAdapter();
+      }
+      @Override
+      public Adapter caseReorientation(Reorientation object)
+      {
+        return createReorientationAdapter();
+      }
+      @Override
+      public Adapter caseReorientExpression(ReorientExpression object)
+      {
+        return createReorientExpressionAdapter();
+      }
+      @Override
       public Adapter caseConstraint(Constraint object)
       {
         return createConstraintAdapter();
       }
       @Override
-      public Adapter caseColocationConstraint(ColocationConstraint object)
+      public Adapter caseExternalLoad(ExternalLoad object)
       {
-        return createColocationConstraintAdapter();
+        return createExternalLoadAdapter();
       }
       @Override
-      public Adapter caseVector3(Vector3 object)
+      public Adapter caseMatrix(Matrix object)
       {
-        return createVector3Adapter();
+        return createMatrixAdapter();
       }
       @Override
-      public Adapter caseBaseVector3(BaseVector3 object)
+      public Adapter caseBaseMatrix(BaseMatrix object)
       {
-        return createBaseVector3Adapter();
+        return createBaseMatrixAdapter();
       }
       @Override
-      public Adapter caseVector3Ref(Vector3Ref object)
+      public Adapter caseMatrixRef(MatrixRef object)
       {
-        return createVector3RefAdapter();
+        return createMatrixRefAdapter();
       }
       @Override
-      public Adapter caseMatrix3X3(Matrix3X3 object)
+      public Adapter caseExpression(Expression object)
       {
-        return createMatrix3X3Adapter();
+        return createExpressionAdapter();
       }
       @Override
-      public Adapter caseBaseMatrix3X3(BaseMatrix3X3 object)
+      public Adapter caseConstantOrFunctionCallExp(ConstantOrFunctionCallExp object)
       {
-        return createBaseMatrix3X3Adapter();
+        return createConstantOrFunctionCallExpAdapter();
       }
       @Override
-      public Adapter caseMatrix3X3Ref(Matrix3X3Ref object)
+      public Adapter caseNumberLiteral(NumberLiteral object)
       {
-        return createMatrix3X3RefAdapter();
+        return createNumberLiteralAdapter();
       }
       @Override
-      public Adapter caseMatrix4X4(Matrix4X4 object)
+      public Adapter caseAddExp(AddExp object)
       {
-        return createMatrix4X4Adapter();
+        return createAddExpAdapter();
       }
       @Override
-      public Adapter caseBaseMatrix4X4(BaseMatrix4X4 object)
+      public Adapter caseMultExp(MultExp object)
       {
-        return createBaseMatrix4X4Adapter();
-      }
-      @Override
-      public Adapter caseMatrix4X4Ref(Matrix4X4Ref object)
-      {
-        return createMatrix4X4RefAdapter();
-      }
-      @Override
-      public Adapter caseMatrixDef(MatrixDef object)
-      {
-        return createMatrixDefAdapter();
+        return createMultExpAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -312,21 +324,6 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame <em>Local Frame</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame
-   * @generated
-   */
-  public Adapter createLocalFrameAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass <em>Mass</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -357,6 +354,81 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.JointType <em>Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.JointType
+   * @generated
+   */
+  public Adapter createJointTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression <em>Joint Type Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression
+   * @generated
+   */
+  public Adapter createJointTypeExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation <em>Relative Transformation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
+   * @generated
+   */
+  public Adapter createRelativeTransformationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Reorientation <em>Reorientation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Reorientation
+   * @generated
+   */
+  public Adapter createReorientationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression <em>Reorient Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression
+   * @generated
+   */
+  public Adapter createReorientExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint <em>Constraint</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -372,166 +444,136 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint <em>Colocation Constraint</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad <em>External Load</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad
    * @generated
    */
-  public Adapter createColocationConstraintAdapter()
+  public Adapter createExternalLoadAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Vector3 <em>Vector3</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Matrix <em>Matrix</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Vector3
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Matrix
    * @generated
    */
-  public Adapter createVector3Adapter()
+  public Adapter createMatrixAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3 <em>Base Vector3</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix <em>Base Matrix</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
    * @generated
    */
-  public Adapter createBaseVector3Adapter()
+  public Adapter createBaseMatrixAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref <em>Vector3 Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef <em>Matrix Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
    * @generated
    */
-  public Adapter createVector3RefAdapter()
+  public Adapter createMatrixRefAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3 <em>Matrix3 X3</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Expression
    * @generated
    */
-  public Adapter createMatrix3X3Adapter()
+  public Adapter createExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3 <em>Base Matrix3 X3</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp <em>Constant Or Function Call Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp
    * @generated
    */
-  public Adapter createBaseMatrix3X3Adapter()
+  public Adapter createConstantOrFunctionCallExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref <em>Matrix3 X3 Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral <em>Number Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral
    * @generated
    */
-  public Adapter createMatrix3X3RefAdapter()
+  public Adapter createNumberLiteralAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4 <em>Matrix4 X4</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp <em>Add Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.AddExp
    * @generated
    */
-  public Adapter createMatrix4X4Adapter()
+  public Adapter createAddExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4 <em>Base Matrix4 X4</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.MultExp <em>Mult Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.MultExp
    * @generated
    */
-  public Adapter createBaseMatrix4X4Adapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref <em>Matrix4 X4 Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref
-   * @generated
-   */
-  public Adapter createMatrix4X4RefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.MatrixDef <em>Matrix Def</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.MatrixDef
-   * @generated
-   */
-  public Adapter createMatrixDefAdapter()
+  public Adapter createMultExpAdapter()
   {
     return null;
   }

@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,24 +34,14 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
 public class MassImpl extends MinimalEObjectImpl.Container implements Mass
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final double VALUE_EDEFAULT = 0.0;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected double value = VALUE_EDEFAULT;
+  protected Expression value;
 
   /**
    * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
@@ -61,7 +51,7 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * @generated
    * @ordered
    */
-  protected Vector3 position;
+  protected Matrix position;
 
   /**
    * The cached value of the '{@link #getInertia() <em>Inertia</em>}' containment reference.
@@ -71,7 +61,7 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * @generated
    * @ordered
    */
-  protected Matrix3X3 inertia;
+  protected Matrix inertia;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,7 +89,7 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public double getValue()
+  public Expression getValue()
   {
     return value;
   }
@@ -109,12 +99,16 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(double newValue)
+  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
   {
-    double oldValue = value;
+    Expression oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.MASS__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.MASS__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -122,7 +116,28 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public Vector3 getPosition()
+  public void setValue(Expression newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.MASS__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.MASS__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.MASS__VALUE, newValue, newValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Matrix getPosition()
   {
     return position;
   }
@@ -132,9 +147,9 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPosition(Vector3 newPosition, NotificationChain msgs)
+  public NotificationChain basicSetPosition(Matrix newPosition, NotificationChain msgs)
   {
-    Vector3 oldPosition = position;
+    Matrix oldPosition = position;
     position = newPosition;
     if (eNotificationRequired())
     {
@@ -149,7 +164,7 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPosition(Vector3 newPosition)
+  public void setPosition(Matrix newPosition)
   {
     if (newPosition != position)
     {
@@ -170,7 +185,7 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public Matrix3X3 getInertia()
+  public Matrix getInertia()
   {
     return inertia;
   }
@@ -180,9 +195,9 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInertia(Matrix3X3 newInertia, NotificationChain msgs)
+  public NotificationChain basicSetInertia(Matrix newInertia, NotificationChain msgs)
   {
-    Matrix3X3 oldInertia = inertia;
+    Matrix oldInertia = inertia;
     inertia = newInertia;
     if (eNotificationRequired())
     {
@@ -197,7 +212,7 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInertia(Matrix3X3 newInertia)
+  public void setInertia(Matrix newInertia)
   {
     if (newInertia != inertia)
     {
@@ -223,6 +238,8 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.MASS__VALUE:
+        return basicSetValue(null, msgs);
       case RigidBodiesPackage.MASS__POSITION:
         return basicSetPosition(null, msgs);
       case RigidBodiesPackage.MASS__INERTIA:
@@ -262,13 +279,13 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
     switch (featureID)
     {
       case RigidBodiesPackage.MASS__VALUE:
-        setValue((Double)newValue);
+        setValue((Expression)newValue);
         return;
       case RigidBodiesPackage.MASS__POSITION:
-        setPosition((Vector3)newValue);
+        setPosition((Matrix)newValue);
         return;
       case RigidBodiesPackage.MASS__INERTIA:
-        setInertia((Matrix3X3)newValue);
+        setInertia((Matrix)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -285,13 +302,13 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
     switch (featureID)
     {
       case RigidBodiesPackage.MASS__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((Expression)null);
         return;
       case RigidBodiesPackage.MASS__POSITION:
-        setPosition((Vector3)null);
+        setPosition((Matrix)null);
         return;
       case RigidBodiesPackage.MASS__INERTIA:
-        setInertia((Matrix3X3)null);
+        setInertia((Matrix)null);
         return;
     }
     super.eUnset(featureID);
@@ -308,30 +325,13 @@ public class MassImpl extends MinimalEObjectImpl.Container implements Mass
     switch (featureID)
     {
       case RigidBodiesPackage.MASS__VALUE:
-        return value != VALUE_EDEFAULT;
+        return value != null;
       case RigidBodiesPackage.MASS__POSITION:
         return position != null;
       case RigidBodiesPackage.MASS__INERTIA:
         return inertia != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
   }
 
 } //MassImpl

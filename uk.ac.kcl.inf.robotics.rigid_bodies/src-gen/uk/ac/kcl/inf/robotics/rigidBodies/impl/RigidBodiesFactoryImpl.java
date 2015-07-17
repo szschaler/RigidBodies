@@ -3,6 +3,7 @@
 package uk.ac.kcl.inf.robotics.rigidBodies.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -10,28 +11,33 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3;
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4;
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
+import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
-import uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref;
-import uk.ac.kcl.inf.robotics.rigidBodies.MatrixDef;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
+import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,23 +97,67 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.SYSTEM: return createSystem();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
       case RigidBodiesPackage.BODY: return createBody();
-      case RigidBodiesPackage.LOCAL_FRAME: return createLocalFrame();
       case RigidBodiesPackage.MASS: return createMass();
       case RigidBodiesPackage.JOINT: return createJoint();
+      case RigidBodiesPackage.JOINT_TYPE: return createJointType();
+      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION: return createJointTypeExpression();
+      case RigidBodiesPackage.RELATIVE_TRANSFORMATION: return createRelativeTransformation();
+      case RigidBodiesPackage.REORIENTATION: return createReorientation();
+      case RigidBodiesPackage.REORIENT_EXPRESSION: return createReorientExpression();
       case RigidBodiesPackage.CONSTRAINT: return createConstraint();
-      case RigidBodiesPackage.COLOCATION_CONSTRAINT: return createColocationConstraint();
-      case RigidBodiesPackage.VECTOR3: return createVector3();
-      case RigidBodiesPackage.BASE_VECTOR3: return createBaseVector3();
-      case RigidBodiesPackage.VECTOR3_REF: return createVector3Ref();
-      case RigidBodiesPackage.MATRIX3_X3: return createMatrix3X3();
-      case RigidBodiesPackage.BASE_MATRIX3_X3: return createBaseMatrix3X3();
-      case RigidBodiesPackage.MATRIX3_X3_REF: return createMatrix3X3Ref();
-      case RigidBodiesPackage.MATRIX4_X4: return createMatrix4X4();
-      case RigidBodiesPackage.BASE_MATRIX4_X4: return createBaseMatrix4X4();
-      case RigidBodiesPackage.MATRIX4_X4_REF: return createMatrix4X4Ref();
-      case RigidBodiesPackage.MATRIX_DEF: return createMatrixDef();
+      case RigidBodiesPackage.EXTERNAL_LOAD: return createExternalLoad();
+      case RigidBodiesPackage.MATRIX: return createMatrix();
+      case RigidBodiesPackage.BASE_MATRIX: return createBaseMatrix();
+      case RigidBodiesPackage.MATRIX_REF: return createMatrixRef();
+      case RigidBodiesPackage.EXPRESSION: return createExpression();
+      case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP: return createConstantOrFunctionCallExp();
+      case RigidBodiesPackage.NUMBER_LITERAL: return createNumberLiteral();
+      case RigidBodiesPackage.ADD_EXP: return createAddExp();
+      case RigidBodiesPackage.MULT_EXP: return createMultExp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case RigidBodiesPackage.AXIS:
+        return createAXISFromString(eDataType, initialValue);
+      case RigidBodiesPackage.CONSTRAINT_TYPE:
+        return createConstraintTypeFromString(eDataType, initialValue);
+      case RigidBodiesPackage.LOAD_TYPE:
+        return createLoadTypeFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case RigidBodiesPackage.AXIS:
+        return convertAXISToString(eDataType, instanceValue);
+      case RigidBodiesPackage.CONSTRAINT_TYPE:
+        return convertConstraintTypeToString(eDataType, instanceValue);
+      case RigidBodiesPackage.LOAD_TYPE:
+        return convertLoadTypeToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -182,17 +232,6 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public LocalFrame createLocalFrame()
-  {
-    LocalFrameImpl localFrame = new LocalFrameImpl();
-    return localFrame;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Mass createMass()
   {
     MassImpl mass = new MassImpl();
@@ -215,6 +254,61 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
+  public JointType createJointType()
+  {
+    JointTypeImpl jointType = new JointTypeImpl();
+    return jointType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JointTypeExpression createJointTypeExpression()
+  {
+    JointTypeExpressionImpl jointTypeExpression = new JointTypeExpressionImpl();
+    return jointTypeExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RelativeTransformation createRelativeTransformation()
+  {
+    RelativeTransformationImpl relativeTransformation = new RelativeTransformationImpl();
+    return relativeTransformation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Reorientation createReorientation()
+  {
+    ReorientationImpl reorientation = new ReorientationImpl();
+    return reorientation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReorientExpression createReorientExpression()
+  {
+    ReorientExpressionImpl reorientExpression = new ReorientExpressionImpl();
+    return reorientExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Constraint createConstraint()
   {
     ConstraintImpl constraint = new ConstraintImpl();
@@ -226,10 +320,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ColocationConstraint createColocationConstraint()
+  public ExternalLoad createExternalLoad()
   {
-    ColocationConstraintImpl colocationConstraint = new ColocationConstraintImpl();
-    return colocationConstraint;
+    ExternalLoadImpl externalLoad = new ExternalLoadImpl();
+    return externalLoad;
   }
 
   /**
@@ -237,10 +331,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Vector3 createVector3()
+  public Matrix createMatrix()
   {
-    Vector3Impl vector3 = new Vector3Impl();
-    return vector3;
+    MatrixImpl matrix = new MatrixImpl();
+    return matrix;
   }
 
   /**
@@ -248,10 +342,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public BaseVector3 createBaseVector3()
+  public BaseMatrix createBaseMatrix()
   {
-    BaseVector3Impl baseVector3 = new BaseVector3Impl();
-    return baseVector3;
+    BaseMatrixImpl baseMatrix = new BaseMatrixImpl();
+    return baseMatrix;
   }
 
   /**
@@ -259,10 +353,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Vector3Ref createVector3Ref()
+  public MatrixRef createMatrixRef()
   {
-    Vector3RefImpl vector3Ref = new Vector3RefImpl();
-    return vector3Ref;
+    MatrixRefImpl matrixRef = new MatrixRefImpl();
+    return matrixRef;
   }
 
   /**
@@ -270,10 +364,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Matrix3X3 createMatrix3X3()
+  public Expression createExpression()
   {
-    Matrix3X3Impl matrix3X3 = new Matrix3X3Impl();
-    return matrix3X3;
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**
@@ -281,10 +375,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public BaseMatrix3X3 createBaseMatrix3X3()
+  public ConstantOrFunctionCallExp createConstantOrFunctionCallExp()
   {
-    BaseMatrix3X3Impl baseMatrix3X3 = new BaseMatrix3X3Impl();
-    return baseMatrix3X3;
+    ConstantOrFunctionCallExpImpl constantOrFunctionCallExp = new ConstantOrFunctionCallExpImpl();
+    return constantOrFunctionCallExp;
   }
 
   /**
@@ -292,10 +386,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Matrix3X3Ref createMatrix3X3Ref()
+  public NumberLiteral createNumberLiteral()
   {
-    Matrix3X3RefImpl matrix3X3Ref = new Matrix3X3RefImpl();
-    return matrix3X3Ref;
+    NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
+    return numberLiteral;
   }
 
   /**
@@ -303,10 +397,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Matrix4X4 createMatrix4X4()
+  public AddExp createAddExp()
   {
-    Matrix4X4Impl matrix4X4 = new Matrix4X4Impl();
-    return matrix4X4;
+    AddExpImpl addExp = new AddExpImpl();
+    return addExp;
   }
 
   /**
@@ -314,10 +408,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public BaseMatrix4X4 createBaseMatrix4X4()
+  public MultExp createMultExp()
   {
-    BaseMatrix4X4Impl baseMatrix4X4 = new BaseMatrix4X4Impl();
-    return baseMatrix4X4;
+    MultExpImpl multExp = new MultExpImpl();
+    return multExp;
   }
 
   /**
@@ -325,10 +419,11 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Matrix4X4Ref createMatrix4X4Ref()
+  public AXIS createAXISFromString(EDataType eDataType, String initialValue)
   {
-    Matrix4X4RefImpl matrix4X4Ref = new Matrix4X4RefImpl();
-    return matrix4X4Ref;
+    AXIS result = AXIS.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
   }
 
   /**
@@ -336,10 +431,53 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public MatrixDef createMatrixDef()
+  public String convertAXISToString(EDataType eDataType, Object instanceValue)
   {
-    MatrixDefImpl matrixDef = new MatrixDefImpl();
-    return matrixDef;
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstraintType createConstraintTypeFromString(EDataType eDataType, String initialValue)
+  {
+    ConstraintType result = ConstraintType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertConstraintTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LoadType createLoadTypeFromString(EDataType eDataType, String initialValue)
+  {
+    LoadType result = LoadType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertLoadTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

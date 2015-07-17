@@ -1,3 +1,4 @@
+// TODO Fix scope providers so that the various references actually work as if the names were global
 grammar uk.ac.kcl.inf.robotics.RigidBodies with org.eclipse.xtext.common.Terminals
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
@@ -11,13 +12,13 @@ Model:
 ;
 	
 InitialDefinition:
-	MatrixDef |
-	BaseVector3
+	BaseMatrix |
+	JointType 
 ;	
 	
 Environment:
 	'world' '{'
-		'gravity' gravity=Vector3 
+		'gravity' gravity=Matrix // TODO Check it's actually a three-element vector 
 	'}'
 ;
 
@@ -30,92 +31,122 @@ System:
 SystemElement:
 	Body |
 	Joint |
-	Constraint
+	Constraint |
+	ExternalLoad
 ;
 
 Body:
 	'body' name=ID '{'
-		frame = LocalFrame
+		// frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
 		mass  = Mass 
-	'}'
-;
-
-LocalFrame:
-	'local' 'frame' '{'
-		'orientation' orientation = Matrix3X3
-		'position' position = Vector3
 	'}'
 ;
 
 Mass:
 	'mass' '{' 
-		'value' value = REAL
-		'position' position = Vector3
-		'inertia' inertia = Matrix3X3
+		'value' value = AddExp
+		'position' position = Matrix // TODO Check it's actually a three-element vector
+		'inertia' inertia = Matrix // TODO Check it's actually a three-by-four matrix
 	'}'
 ;
 
 Joint:
-	'joint' name=ID ':' type=Matrix4X4 
-		'between' body1 = [Body] '(' 'with' 'relative' 'transformation' relTransformation1 = Matrix4X4 ')'
-		'and' body2 = [Body] '(' 'with' 'relative' 'transformation' relTransformation2 = Matrix4X4 ')'
+	'joint' name=ID ':' type=JointType 
+		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
+		'and' body2 = [Body] relTrans2 = RelativeTransformation
+		// TODO We probably want to make types more complex to allow them to make stiffness reusable
+		'stiffness' '{'
+			// TODO Provide better labels for these in the concrete syntax
+			'springCoeff' springCoeff = AddExp
+			'springInit' springInit = AddExp
+			'dampViscous' dampViscous = AddExp
+			'dampCoulomb' dampCoulomb = AddExp
+		 '}'
+;
+
+JointType:
+	('joint' 'type' name=ID)? exp=JointTypeExpression
+;
+
+JointTypeExpression:
+	ref=[JointType] |
+	'revolute' '(' axis+=AXIS (',' axis+=AXIS)* ')' |
+	'planar' '(' axis+=AXIS (',' axis+=AXIS)* ')'
+;
+
+enum AXIS: 
+	X = 'x' | Y = 'y' | Z = 'z'
+;
+
+RelativeTransformation:
+	'(' 'with' 'relative' 'transformation' position=Matrix /* TODO This is a 3D vector */ ',' reorient=Reorientation ')'
+;
+
+Reorientation:
+	('reorient' name=ID)? exp=ReorientExpression
+;
+
+ReorientExpression:
+	ref=[Reorientation] |
+	'(' '(' axis+=AXIS ',' value += AddExp ')' (',' '(' axis+=AXIS ',' value += AddExp ')')* ')'
 ;
 
 Constraint:
-	ColocationConstraint
+	'constraint' name=ID ':' type = ConstraintType
+		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
+		'and' body2 = [Body] relTrans2 = RelativeTransformation
 ;
 
-ColocationConstraint:
-	'colocate' joint1=[Joint] 'with' joint2=[Joint] 
+enum ConstraintType:
+	GEOMETRICAL = 'geometrical' |
+	VELOCITY = 'velocity'
 ;
 
-Vector3:
-	BaseVector3 | 
-	Vector3Ref
+ExternalLoad:
+	'external' 'load' name=ID ':' type = LoadType
+		'between' body1 = [Body] /* TODO Add support for 'base' */ relTrans1 = RelativeTransformation
+		'and' body2 = [Body] relTrans2 = RelativeTransformation	
 ;
 
-BaseVector3:
-	('vector' name=ID)? '(' REAL ',' REAL ',' REAL ')' {BaseVector3}
+enum LoadType:
+	FORCE = 'force' |
+	TORQUE = 'torque'
 ;
 
-Vector3Ref:
-	vector=[BaseVector3]
+Matrix:
+	BaseMatrix |
+	MatrixRef
 ;
 
-Matrix3X3:
-	BaseMatrix3X3 |
-	Matrix3X3Ref
+BaseMatrix:
+	('matrix' name=ID)? '[' values+=AddExp (',' values+=AddExp)* ']'
 ;
 
-BaseMatrix3X3:
-	('m3' name=ID)? '[' REAL REAL REAL 
-	                    REAL REAL REAL 
-	                    REAL REAL REAL ']' {BaseMatrix3X3}
+MatrixRef:
+	matrix=[BaseMatrix]
 ;
 
-Matrix3X3Ref:
-	matrix=[BaseMatrix3X3]
+AddExp returns Expression:
+	MultExp ({AddExp.left=current} op += ('+'|'-') right=MultExp)*
 ;
 
-Matrix4X4:
-	BaseMatrix4X4 |
-	Matrix4X4Ref
+MultExp returns Expression:
+	Primary ({MultExp.left=current} op += ('*'|'/') right=Primary)*
 ;
 
-BaseMatrix4X4:
-	('m4' name=ID)? '[' REAL REAL REAL REAL 
-	                    REAL REAL REAL REAL 
-                        REAL REAL REAL REAL 
-	                    REAL REAL REAL REAL ']' {BaseMatrix4X4}
+Primary returns Expression:
+	NumberLiteral |
+	'(' AddExp ')' |
+	ConstantOrFunctionCallExp
 ;
 
-Matrix4X4Ref:
-	matrix=[BaseMatrix4X4]
+ConstantOrFunctionCallExp:
+	label=ID ('(' param += AddExp (',' param += AddExp)* ')')?
 ;
 
-MatrixDef:
-	BaseMatrix3X3 |
-	BaseMatrix4X4
+NumberLiteral:
+	neg?='-'? value=REAL
 ;
 
-terminal REAL returns ecore::EDouble: ('0'..'9')+ '.' ('0'..'9')*;
+// TODO Simplify format, possibly turn into a DataType rule...
+terminal REAL /*returns ecore::EDouble*/: ('0'..'9')+ '.' ('0'..'9')+ (('e'|'E') ('+'|'-') ('0'..'9')* '.' ('0'..'9')+)?;

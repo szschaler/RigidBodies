@@ -9,41 +9,41 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Vector3 Ref</b></em>'.
+ * An implementation of the model object '<em><b>Matrix Ref</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.Vector3RefImpl#getVector <em>Vector</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.MatrixRefImpl#getMatrix <em>Matrix</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
+public class MatrixRefImpl extends MatrixImpl implements MatrixRef
 {
   /**
-   * The cached value of the '{@link #getVector() <em>Vector</em>}' reference.
+   * The cached value of the '{@link #getMatrix() <em>Matrix</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVector()
+   * @see #getMatrix()
    * @generated
    * @ordered
    */
-  protected BaseVector3 vector;
+  protected BaseMatrix matrix;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Vector3RefImpl()
+  protected MatrixRefImpl()
   {
     super();
   }
@@ -56,7 +56,7 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.VECTOR3_REF;
+    return RigidBodiesPackage.Literals.MATRIX_REF;
   }
 
   /**
@@ -64,19 +64,19 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
    * <!-- end-user-doc -->
    * @generated
    */
-  public BaseVector3 getVector()
+  public BaseMatrix getMatrix()
   {
-    if (vector != null && vector.eIsProxy())
+    if (matrix != null && matrix.eIsProxy())
     {
-      InternalEObject oldVector = (InternalEObject)vector;
-      vector = (BaseVector3)eResolveProxy(oldVector);
-      if (vector != oldVector)
+      InternalEObject oldMatrix = (InternalEObject)matrix;
+      matrix = (BaseMatrix)eResolveProxy(oldMatrix);
+      if (matrix != oldMatrix)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.VECTOR3_REF__VECTOR, oldVector, vector));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.MATRIX_REF__MATRIX, oldMatrix, matrix));
       }
     }
-    return vector;
+    return matrix;
   }
 
   /**
@@ -84,9 +84,9 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
    * <!-- end-user-doc -->
    * @generated
    */
-  public BaseVector3 basicGetVector()
+  public BaseMatrix basicGetMatrix()
   {
-    return vector;
+    return matrix;
   }
 
   /**
@@ -94,12 +94,12 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVector(BaseVector3 newVector)
+  public void setMatrix(BaseMatrix newMatrix)
   {
-    BaseVector3 oldVector = vector;
-    vector = newVector;
+    BaseMatrix oldMatrix = matrix;
+    matrix = newMatrix;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.VECTOR3_REF__VECTOR, oldVector, vector));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.MATRIX_REF__MATRIX, oldMatrix, matrix));
   }
 
   /**
@@ -112,9 +112,9 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
-        if (resolve) return getVector();
-        return basicGetVector();
+      case RigidBodiesPackage.MATRIX_REF__MATRIX:
+        if (resolve) return getMatrix();
+        return basicGetMatrix();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +129,8 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
-        setVector((BaseVector3)newValue);
+      case RigidBodiesPackage.MATRIX_REF__MATRIX:
+        setMatrix((BaseMatrix)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +146,8 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
-        setVector((BaseVector3)null);
+      case RigidBodiesPackage.MATRIX_REF__MATRIX:
+        setMatrix((BaseMatrix)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,10 +163,10 @@ public class Vector3RefImpl extends Vector3Impl implements Vector3Ref
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.VECTOR3_REF__VECTOR:
-        return vector != null;
+      case RigidBodiesPackage.MATRIX_REF__MATRIX:
+        return matrix != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //Vector3RefImpl
+} //MatrixRefImpl

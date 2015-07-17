@@ -6,26 +6,26 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Vector3</b></em>'.
+ * An implementation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class Vector3Impl extends MinimalEObjectImpl.Container implements Vector3
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Vector3Impl()
+  protected ExpressionImpl()
   {
     super();
   }
@@ -38,7 +38,7 @@ public class Vector3Impl extends MinimalEObjectImpl.Container implements Vector3
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.VECTOR3;
+    return RigidBodiesPackage.Literals.EXPRESSION;
   }
 
-} //Vector3Impl
+} //ExpressionImpl

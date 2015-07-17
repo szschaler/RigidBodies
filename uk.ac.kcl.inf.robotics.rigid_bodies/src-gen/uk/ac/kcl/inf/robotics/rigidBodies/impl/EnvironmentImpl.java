@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public class EnvironmentImpl extends MinimalEObjectImpl.Container implements Env
    * @generated
    * @ordered
    */
-  protected Vector3 gravity;
+  protected Matrix gravity;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class EnvironmentImpl extends MinimalEObjectImpl.Container implements Env
    * <!-- end-user-doc -->
    * @generated
    */
-  public Vector3 getGravity()
+  public Matrix getGravity()
   {
     return gravity;
   }
@@ -76,9 +76,9 @@ public class EnvironmentImpl extends MinimalEObjectImpl.Container implements Env
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetGravity(Vector3 newGravity, NotificationChain msgs)
+  public NotificationChain basicSetGravity(Matrix newGravity, NotificationChain msgs)
   {
-    Vector3 oldGravity = gravity;
+    Matrix oldGravity = gravity;
     gravity = newGravity;
     if (eNotificationRequired())
     {
@@ -93,7 +93,7 @@ public class EnvironmentImpl extends MinimalEObjectImpl.Container implements Env
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setGravity(Vector3 newGravity)
+  public void setGravity(Matrix newGravity)
   {
     if (newGravity != gravity)
     {
@@ -152,7 +152,7 @@ public class EnvironmentImpl extends MinimalEObjectImpl.Container implements Env
     switch (featureID)
     {
       case RigidBodiesPackage.ENVIRONMENT__GRAVITY:
-        setGravity((Vector3)newValue);
+        setGravity((Matrix)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +169,7 @@ public class EnvironmentImpl extends MinimalEObjectImpl.Container implements Env
     switch (featureID)
     {
       case RigidBodiesPackage.ENVIRONMENT__GRAVITY:
-        setGravity((Vector3)null);
+        setGravity((Matrix)null);
         return;
     }
     super.eUnset(featureID);

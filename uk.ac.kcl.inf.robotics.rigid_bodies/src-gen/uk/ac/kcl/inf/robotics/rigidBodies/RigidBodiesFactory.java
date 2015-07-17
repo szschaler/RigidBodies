@@ -77,15 +77,6 @@ public interface RigidBodiesFactory extends EFactory
   Body createBody();
 
   /**
-   * Returns a new object of class '<em>Local Frame</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Local Frame</em>'.
-   * @generated
-   */
-  LocalFrame createLocalFrame();
-
-  /**
    * Returns a new object of class '<em>Mass</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -104,6 +95,51 @@ public interface RigidBodiesFactory extends EFactory
   Joint createJoint();
 
   /**
+   * Returns a new object of class '<em>Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Joint Type</em>'.
+   * @generated
+   */
+  JointType createJointType();
+
+  /**
+   * Returns a new object of class '<em>Joint Type Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Joint Type Expression</em>'.
+   * @generated
+   */
+  JointTypeExpression createJointTypeExpression();
+
+  /**
+   * Returns a new object of class '<em>Relative Transformation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relative Transformation</em>'.
+   * @generated
+   */
+  RelativeTransformation createRelativeTransformation();
+
+  /**
+   * Returns a new object of class '<em>Reorientation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reorientation</em>'.
+   * @generated
+   */
+  Reorientation createReorientation();
+
+  /**
+   * Returns a new object of class '<em>Reorient Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reorient Expression</em>'.
+   * @generated
+   */
+  ReorientExpression createReorientExpression();
+
+  /**
    * Returns a new object of class '<em>Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -113,103 +149,85 @@ public interface RigidBodiesFactory extends EFactory
   Constraint createConstraint();
 
   /**
-   * Returns a new object of class '<em>Colocation Constraint</em>'.
+   * Returns a new object of class '<em>External Load</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Colocation Constraint</em>'.
+   * @return a new object of class '<em>External Load</em>'.
    * @generated
    */
-  ColocationConstraint createColocationConstraint();
+  ExternalLoad createExternalLoad();
 
   /**
-   * Returns a new object of class '<em>Vector3</em>'.
+   * Returns a new object of class '<em>Matrix</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vector3</em>'.
+   * @return a new object of class '<em>Matrix</em>'.
    * @generated
    */
-  Vector3 createVector3();
+  Matrix createMatrix();
 
   /**
-   * Returns a new object of class '<em>Base Vector3</em>'.
+   * Returns a new object of class '<em>Base Matrix</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Base Vector3</em>'.
+   * @return a new object of class '<em>Base Matrix</em>'.
    * @generated
    */
-  BaseVector3 createBaseVector3();
+  BaseMatrix createBaseMatrix();
 
   /**
-   * Returns a new object of class '<em>Vector3 Ref</em>'.
+   * Returns a new object of class '<em>Matrix Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vector3 Ref</em>'.
+   * @return a new object of class '<em>Matrix Ref</em>'.
    * @generated
    */
-  Vector3Ref createVector3Ref();
+  MatrixRef createMatrixRef();
 
   /**
-   * Returns a new object of class '<em>Matrix3 X3</em>'.
+   * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Matrix3 X3</em>'.
+   * @return a new object of class '<em>Expression</em>'.
    * @generated
    */
-  Matrix3X3 createMatrix3X3();
+  Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Base Matrix3 X3</em>'.
+   * Returns a new object of class '<em>Constant Or Function Call Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Base Matrix3 X3</em>'.
+   * @return a new object of class '<em>Constant Or Function Call Exp</em>'.
    * @generated
    */
-  BaseMatrix3X3 createBaseMatrix3X3();
+  ConstantOrFunctionCallExp createConstantOrFunctionCallExp();
 
   /**
-   * Returns a new object of class '<em>Matrix3 X3 Ref</em>'.
+   * Returns a new object of class '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Matrix3 X3 Ref</em>'.
+   * @return a new object of class '<em>Number Literal</em>'.
    * @generated
    */
-  Matrix3X3Ref createMatrix3X3Ref();
+  NumberLiteral createNumberLiteral();
 
   /**
-   * Returns a new object of class '<em>Matrix4 X4</em>'.
+   * Returns a new object of class '<em>Add Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Matrix4 X4</em>'.
+   * @return a new object of class '<em>Add Exp</em>'.
    * @generated
    */
-  Matrix4X4 createMatrix4X4();
+  AddExp createAddExp();
 
   /**
-   * Returns a new object of class '<em>Base Matrix4 X4</em>'.
+   * Returns a new object of class '<em>Mult Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Base Matrix4 X4</em>'.
+   * @return a new object of class '<em>Mult Exp</em>'.
    * @generated
    */
-  BaseMatrix4X4 createBaseMatrix4X4();
-
-  /**
-   * Returns a new object of class '<em>Matrix4 X4 Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Matrix4 X4 Ref</em>'.
-   * @generated
-   */
-  Matrix4X4Ref createMatrix4X4Ref();
-
-  /**
-   * Returns a new object of class '<em>Matrix Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Matrix Def</em>'.
-   * @generated
-   */
-  MatrixDef createMatrixDef();
+  MultExp createMultExp();
 
   /**
    * Returns the package supported by this factory.

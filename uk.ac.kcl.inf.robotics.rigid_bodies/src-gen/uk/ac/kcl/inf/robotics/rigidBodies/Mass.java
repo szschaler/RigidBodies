@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Mass extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(double)
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(Expression)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Value()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  double getValue();
+  Expression getValue();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
+   * @param value the new value of the '<em>Value</em>' containment reference.
    * @see #getValue()
    * @generated
    */
-  void setValue(double value);
+  void setValue(Expression value);
 
   /**
    * Returns the value of the '<em><b>Position</b></em>' containment reference.
@@ -59,12 +59,12 @@ public interface Mass extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Position</em>' containment reference.
-   * @see #setPosition(Vector3)
+   * @see #setPosition(Matrix)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Position()
    * @model containment="true"
    * @generated
    */
-  Vector3 getPosition();
+  Matrix getPosition();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getPosition <em>Position</em>}' containment reference.
@@ -74,7 +74,7 @@ public interface Mass extends EObject
    * @see #getPosition()
    * @generated
    */
-  void setPosition(Vector3 value);
+  void setPosition(Matrix value);
 
   /**
    * Returns the value of the '<em><b>Inertia</b></em>' containment reference.
@@ -85,12 +85,12 @@ public interface Mass extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Inertia</em>' containment reference.
-   * @see #setInertia(Matrix3X3)
+   * @see #setInertia(Matrix)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass_Inertia()
    * @model containment="true"
    * @generated
    */
-  Matrix3X3 getInertia();
+  Matrix getInertia();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getInertia <em>Inertia</em>}' containment reference.
@@ -100,6 +100,6 @@ public interface Mass extends EObject
    * @see #getInertia()
    * @generated
    */
-  void setInertia(Matrix3X3 value);
+  void setInertia(Matrix value);
 
 } // Mass

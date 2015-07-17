@@ -14,7 +14,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Environment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="gravity" eType="#//Vector3"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gravity" eType="#//Matrix"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System">
@@ -22,56 +22,128 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//SystemElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Body" eSuperTypes="#//SystemElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SystemElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="frame" eType="#//LocalFrame"
-        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Body" eSuperTypes="#//SystemElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mass" eType="#//Mass" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LocalFrame">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="orientation" eType="#//Matrix3X3"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Vector3"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mass">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Vector3"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inertia" eType="#//Matrix3X3"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Matrix"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inertia" eType="#//Matrix"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//SystemElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Matrix4X4"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//JointType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//Body"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relTransformation1" eType="#//Matrix4X4"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//Body"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relTransformation2" eType="#//Matrix4X4"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans2" eType="#//RelativeTransformation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="springCoeff" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="springInit" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dampViscous" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dampCoulomb" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//SystemElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ColocationConstraint" eSuperTypes="#//Constraint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="joint1" eType="#//Joint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="joint2" eType="#//Joint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JointType" eSuperTypes="#//InitialDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//JointTypeExpression"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vector3"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BaseVector3" eSuperTypes="#//InitialDefinition #//Vector3"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Vector3Ref" eSuperTypes="#//Vector3">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vector" eType="#//BaseVector3"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JointTypeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//JointType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" unique="false" upperBound="-1"
+        eType="#//AXIS"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Matrix3X3"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BaseMatrix3X3" eSuperTypes="#//Matrix3X3 #//MatrixDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Matrix3X3Ref" eSuperTypes="#//Matrix3X3">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="matrix" eType="#//BaseMatrix3X3"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="AXIS">
+    <eLiterals name="X" literal="x"/>
+    <eLiterals name="Y" value="1" literal="y"/>
+    <eLiterals name="Z" value="2" literal="z"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Matrix4X4"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BaseMatrix4X4" eSuperTypes="#//Matrix4X4 #//MatrixDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Matrix4X4Ref" eSuperTypes="#//Matrix4X4">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="matrix" eType="#//BaseMatrix4X4"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativeTransformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Matrix"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reorient" eType="#//Reorientation"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MatrixDef" eSuperTypes="#//InitialDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reorientation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//ReorientExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReorientExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Reorientation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" unique="false" upperBound="-1"
+        eType="#//AXIS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//SystemElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConstraintType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//Body"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//Body"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans2" eType="#//RelativeTransformation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintType">
+    <eLiterals name="GEOMETRICAL" literal="geometrical"/>
+    <eLiterals name="VELOCITY" value="1" literal="velocity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalLoad" eSuperTypes="#//SystemElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LoadType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//Body"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//Body"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans2" eType="#//RelativeTransformation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LoadType">
+    <eLiterals name="FORCE" literal="force"/>
+    <eLiterals name="TORQUE" value="1" literal="torque"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Matrix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseMatrix" eSuperTypes="#//InitialDefinition #//Matrix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MatrixRef" eSuperTypes="#//Matrix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matrix" eType="#//BaseMatrix"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantOrFunctionCallExp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberLiteral" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="neg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddExp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultExp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

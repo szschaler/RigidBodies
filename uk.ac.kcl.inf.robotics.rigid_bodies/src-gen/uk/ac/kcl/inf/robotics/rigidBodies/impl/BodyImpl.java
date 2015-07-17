@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
-import uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
@@ -22,8 +21,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyImpl#getName <em>Name</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyImpl#getFrame <em>Frame</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyImpl#getMass <em>Mass</em>}</li>
  * </ul>
  * </p>
@@ -32,36 +29,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  */
 public class BodyImpl extends SystemElementImpl implements Body
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getFrame() <em>Frame</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFrame()
-   * @generated
-   * @ordered
-   */
-  protected LocalFrame frame;
-
   /**
    * The cached value of the '{@link #getMass() <em>Mass</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -91,77 +58,6 @@ public class BodyImpl extends SystemElementImpl implements Body
   protected EClass eStaticClass()
   {
     return RigidBodiesPackage.Literals.BODY;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LocalFrame getFrame()
-  {
-    return frame;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFrame(LocalFrame newFrame, NotificationChain msgs)
-  {
-    LocalFrame oldFrame = frame;
-    frame = newFrame;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY__FRAME, oldFrame, newFrame);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFrame(LocalFrame newFrame)
-  {
-    if (newFrame != frame)
-    {
-      NotificationChain msgs = null;
-      if (frame != null)
-        msgs = ((InternalEObject)frame).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY__FRAME, null, msgs);
-      if (newFrame != null)
-        msgs = ((InternalEObject)newFrame).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY__FRAME, null, msgs);
-      msgs = basicSetFrame(newFrame, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY__FRAME, newFrame, newFrame));
   }
 
   /**
@@ -222,8 +118,6 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.BODY__FRAME:
-        return basicSetFrame(null, msgs);
       case RigidBodiesPackage.BODY__MASS:
         return basicSetMass(null, msgs);
     }
@@ -240,10 +134,6 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.BODY__NAME:
-        return getName();
-      case RigidBodiesPackage.BODY__FRAME:
-        return getFrame();
       case RigidBodiesPackage.BODY__MASS:
         return getMass();
     }
@@ -260,12 +150,6 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.BODY__NAME:
-        setName((String)newValue);
-        return;
-      case RigidBodiesPackage.BODY__FRAME:
-        setFrame((LocalFrame)newValue);
-        return;
       case RigidBodiesPackage.BODY__MASS:
         setMass((Mass)newValue);
         return;
@@ -283,12 +167,6 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.BODY__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case RigidBodiesPackage.BODY__FRAME:
-        setFrame((LocalFrame)null);
-        return;
       case RigidBodiesPackage.BODY__MASS:
         setMass((Mass)null);
         return;
@@ -306,31 +184,10 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.BODY__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RigidBodiesPackage.BODY__FRAME:
-        return frame != null;
       case RigidBodiesPackage.BODY__MASS:
         return mass != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //BodyImpl

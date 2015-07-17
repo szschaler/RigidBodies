@@ -31,12 +31,12 @@ public interface Environment extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Gravity</em>' containment reference.
-   * @see #setGravity(Vector3)
+   * @see #setGravity(Matrix)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getEnvironment_Gravity()
    * @model containment="true"
    * @generated
    */
-  Vector3 getGravity();
+  Matrix getGravity();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Environment#getGravity <em>Gravity</em>}' containment reference.
@@ -46,6 +46,6 @@ public interface Environment extends EObject
    * @see #getGravity()
    * @generated
    */
-  void setGravity(Vector3 value);
+  void setGravity(Matrix value);
 
 } // Environment

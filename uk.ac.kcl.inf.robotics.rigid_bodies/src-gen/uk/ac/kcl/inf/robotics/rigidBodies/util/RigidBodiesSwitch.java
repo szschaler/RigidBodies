@@ -7,27 +7,29 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix3X3;
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix4X4;
-import uk.ac.kcl.inf.robotics.rigidBodies.BaseVector3;
+import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
-import uk.ac.kcl.inf.robotics.rigidBodies.ColocationConstraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.LocalFrame;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix3X3Ref;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4;
-import uk.ac.kcl.inf.robotics.rigidBodies.Matrix4X4Ref;
-import uk.ac.kcl.inf.robotics.rigidBodies.MatrixDef;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
+import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3;
-import uk.ac.kcl.inf.robotics.rigidBodies.Vector3Ref;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,13 +137,6 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.LOCAL_FRAME:
-      {
-        LocalFrame localFrame = (LocalFrame)theEObject;
-        T result = caseLocalFrame(localFrame);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RigidBodiesPackage.MASS:
       {
         Mass mass = (Mass)theEObject;
@@ -157,6 +152,42 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RigidBodiesPackage.JOINT_TYPE:
+      {
+        JointType jointType = (JointType)theEObject;
+        T result = caseJointType(jointType);
+        if (result == null) result = caseInitialDefinition(jointType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION:
+      {
+        JointTypeExpression jointTypeExpression = (JointTypeExpression)theEObject;
+        T result = caseJointTypeExpression(jointTypeExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.RELATIVE_TRANSFORMATION:
+      {
+        RelativeTransformation relativeTransformation = (RelativeTransformation)theEObject;
+        T result = caseRelativeTransformation(relativeTransformation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.REORIENTATION:
+      {
+        Reorientation reorientation = (Reorientation)theEObject;
+        T result = caseReorientation(reorientation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.REORIENT_EXPRESSION:
+      {
+        ReorientExpression reorientExpression = (ReorientExpression)theEObject;
+        T result = caseReorientExpression(reorientExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RigidBodiesPackage.CONSTRAINT:
       {
         Constraint constraint = (Constraint)theEObject;
@@ -165,94 +196,74 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.COLOCATION_CONSTRAINT:
+      case RigidBodiesPackage.EXTERNAL_LOAD:
       {
-        ColocationConstraint colocationConstraint = (ColocationConstraint)theEObject;
-        T result = caseColocationConstraint(colocationConstraint);
-        if (result == null) result = caseConstraint(colocationConstraint);
-        if (result == null) result = caseSystemElement(colocationConstraint);
+        ExternalLoad externalLoad = (ExternalLoad)theEObject;
+        T result = caseExternalLoad(externalLoad);
+        if (result == null) result = caseSystemElement(externalLoad);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.VECTOR3:
+      case RigidBodiesPackage.MATRIX:
       {
-        Vector3 vector3 = (Vector3)theEObject;
-        T result = caseVector3(vector3);
+        Matrix matrix = (Matrix)theEObject;
+        T result = caseMatrix(matrix);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.BASE_VECTOR3:
+      case RigidBodiesPackage.BASE_MATRIX:
       {
-        BaseVector3 baseVector3 = (BaseVector3)theEObject;
-        T result = caseBaseVector3(baseVector3);
-        if (result == null) result = caseInitialDefinition(baseVector3);
-        if (result == null) result = caseVector3(baseVector3);
+        BaseMatrix baseMatrix = (BaseMatrix)theEObject;
+        T result = caseBaseMatrix(baseMatrix);
+        if (result == null) result = caseInitialDefinition(baseMatrix);
+        if (result == null) result = caseMatrix(baseMatrix);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.VECTOR3_REF:
+      case RigidBodiesPackage.MATRIX_REF:
       {
-        Vector3Ref vector3Ref = (Vector3Ref)theEObject;
-        T result = caseVector3Ref(vector3Ref);
-        if (result == null) result = caseVector3(vector3Ref);
+        MatrixRef matrixRef = (MatrixRef)theEObject;
+        T result = caseMatrixRef(matrixRef);
+        if (result == null) result = caseMatrix(matrixRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.MATRIX3_X3:
+      case RigidBodiesPackage.EXPRESSION:
       {
-        Matrix3X3 matrix3X3 = (Matrix3X3)theEObject;
-        T result = caseMatrix3X3(matrix3X3);
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.BASE_MATRIX3_X3:
+      case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP:
       {
-        BaseMatrix3X3 baseMatrix3X3 = (BaseMatrix3X3)theEObject;
-        T result = caseBaseMatrix3X3(baseMatrix3X3);
-        if (result == null) result = caseMatrix3X3(baseMatrix3X3);
-        if (result == null) result = caseMatrixDef(baseMatrix3X3);
-        if (result == null) result = caseInitialDefinition(baseMatrix3X3);
+        ConstantOrFunctionCallExp constantOrFunctionCallExp = (ConstantOrFunctionCallExp)theEObject;
+        T result = caseConstantOrFunctionCallExp(constantOrFunctionCallExp);
+        if (result == null) result = caseExpression(constantOrFunctionCallExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.MATRIX3_X3_REF:
+      case RigidBodiesPackage.NUMBER_LITERAL:
       {
-        Matrix3X3Ref matrix3X3Ref = (Matrix3X3Ref)theEObject;
-        T result = caseMatrix3X3Ref(matrix3X3Ref);
-        if (result == null) result = caseMatrix3X3(matrix3X3Ref);
+        NumberLiteral numberLiteral = (NumberLiteral)theEObject;
+        T result = caseNumberLiteral(numberLiteral);
+        if (result == null) result = caseExpression(numberLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.MATRIX4_X4:
+      case RigidBodiesPackage.ADD_EXP:
       {
-        Matrix4X4 matrix4X4 = (Matrix4X4)theEObject;
-        T result = caseMatrix4X4(matrix4X4);
+        AddExp addExp = (AddExp)theEObject;
+        T result = caseAddExp(addExp);
+        if (result == null) result = caseExpression(addExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.BASE_MATRIX4_X4:
+      case RigidBodiesPackage.MULT_EXP:
       {
-        BaseMatrix4X4 baseMatrix4X4 = (BaseMatrix4X4)theEObject;
-        T result = caseBaseMatrix4X4(baseMatrix4X4);
-        if (result == null) result = caseMatrix4X4(baseMatrix4X4);
-        if (result == null) result = caseMatrixDef(baseMatrix4X4);
-        if (result == null) result = caseInitialDefinition(baseMatrix4X4);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RigidBodiesPackage.MATRIX4_X4_REF:
-      {
-        Matrix4X4Ref matrix4X4Ref = (Matrix4X4Ref)theEObject;
-        T result = caseMatrix4X4Ref(matrix4X4Ref);
-        if (result == null) result = caseMatrix4X4(matrix4X4Ref);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RigidBodiesPackage.MATRIX_DEF:
-      {
-        MatrixDef matrixDef = (MatrixDef)theEObject;
-        T result = caseMatrixDef(matrixDef);
-        if (result == null) result = caseInitialDefinition(matrixDef);
+        MultExp multExp = (MultExp)theEObject;
+        T result = caseMultExp(multExp);
+        if (result == null) result = caseExpression(multExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -357,22 +368,6 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Local Frame</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Local Frame</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLocalFrame(LocalFrame object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Mass</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -405,6 +400,86 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Joint Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJointType(JointType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Joint Type Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Joint Type Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJointTypeExpression(JointTypeExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relative Transformation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relative Transformation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelativeTransformation(RelativeTransformation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reorientation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reorientation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReorientation(Reorientation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reorient Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reorient Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReorientExpression(ReorientExpression object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -421,177 +496,145 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Colocation Constraint</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>External Load</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Colocation Constraint</em>'.
+   * @return the result of interpreting the object as an instance of '<em>External Load</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseColocationConstraint(ColocationConstraint object)
+  public T caseExternalLoad(ExternalLoad object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Vector3</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Matrix</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vector3</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Matrix</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVector3(Vector3 object)
+  public T caseMatrix(Matrix object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Base Vector3</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Base Matrix</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Base Vector3</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Base Matrix</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBaseVector3(BaseVector3 object)
+  public T caseBaseMatrix(BaseMatrix object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Vector3 Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Matrix Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vector3 Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Matrix Ref</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVector3Ref(Vector3Ref object)
+  public T caseMatrixRef(MatrixRef object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Matrix3 X3</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Matrix3 X3</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMatrix3X3(Matrix3X3 object)
+  public T caseExpression(Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Base Matrix3 X3</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Constant Or Function Call Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Base Matrix3 X3</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Constant Or Function Call Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBaseMatrix3X3(BaseMatrix3X3 object)
+  public T caseConstantOrFunctionCallExp(ConstantOrFunctionCallExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Matrix3 X3 Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Matrix3 X3 Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Number Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMatrix3X3Ref(Matrix3X3Ref object)
+  public T caseNumberLiteral(NumberLiteral object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Matrix4 X4</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Add Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Matrix4 X4</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Add Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMatrix4X4(Matrix4X4 object)
+  public T caseAddExp(AddExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Base Matrix4 X4</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Mult Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Base Matrix4 X4</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Mult Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBaseMatrix4X4(BaseMatrix4X4 object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Matrix4 X4 Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Matrix4 X4 Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMatrix4X4Ref(Matrix4X4Ref object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Matrix Def</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Matrix Def</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMatrixDef(MatrixDef object)
+  public T caseMultExp(MultExp object)
   {
     return null;
   }
