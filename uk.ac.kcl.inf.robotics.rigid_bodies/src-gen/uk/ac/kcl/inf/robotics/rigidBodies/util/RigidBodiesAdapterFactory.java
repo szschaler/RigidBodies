@@ -28,6 +28,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
@@ -196,6 +197,11 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseParenthesisedExp(ParenthesisedExp object)
+      {
+        return createParenthesisedExpAdapter();
       }
       @Override
       public Adapter caseConstantOrFunctionCallExp(ConstantOrFunctionCallExp object)
@@ -535,6 +541,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp <em>Parenthesised Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp
+   * @generated
+   */
+  public Adapter createParenthesisedExpAdapter()
   {
     return null;
   }

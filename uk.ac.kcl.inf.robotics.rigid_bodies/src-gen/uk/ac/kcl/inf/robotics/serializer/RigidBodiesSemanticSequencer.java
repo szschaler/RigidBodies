@@ -32,6 +32,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
@@ -95,6 +96,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.NUMBER_LITERAL:
 				sequence_NumberLiteral(context, (NumberLiteral) semanticObject); 
 				return; 
+			case RigidBodiesPackage.PARENTHESISED_EXP:
+				sequence_ParenthesisedExp(context, (ParenthesisedExp) semanticObject); 
+				return; 
 			case RigidBodiesPackage.RELATIVE_TRANSFORMATION:
 				sequence_RelativeTransformation(context, (RelativeTransformation) semanticObject); 
 				return; 
@@ -113,7 +117,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (left=AddExp_AddExp_1_0 (op+='+' | op+='-') right=MultExp)
+	 *     (left=AddExp_AddExp_1_0 (op+='+' | op+='-') right+=MultExp)
 	 */
 	protected void sequence_AddExp(EObject context, AddExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -346,7 +350,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (left=MultExp_MultExp_1_0 (op+='*' | op+='/') right=Primary)
+	 *     (left=MultExp_MultExp_1_0 (op+='*' | op+='/') right+=Primary)
 	 */
 	protected void sequence_MultExp(EObject context, MultExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -359,6 +363,22 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_NumberLiteral(EObject context, NumberLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     exp=AddExp
+	 */
+	protected void sequence_ParenthesisedExp(EObject context, ParenthesisedExp semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.PARENTHESISED_EXP__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.PARENTHESISED_EXP__EXP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getParenthesisedExpAccess().getExpAddExpParserRuleCall_1_0(), semanticObject.getExp());
+		feeder.finish();
 	}
 	
 	

@@ -31,6 +31,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
@@ -185,6 +186,13 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parenthesisedExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -963,6 +971,26 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getParenthesisedExp()
+  {
+    return parenthesisedExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParenthesisedExp_Exp()
+  {
+    return (EReference)parenthesisedExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConstantOrFunctionCallExp()
   {
     return constantOrFunctionCallExpEClass;
@@ -1244,6 +1272,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     expressionEClass = createEClass(EXPRESSION);
 
+    parenthesisedExpEClass = createEClass(PARENTHESISED_EXP);
+    createEReference(parenthesisedExpEClass, PARENTHESISED_EXP__EXP);
+
     constantOrFunctionCallExpEClass = createEClass(CONSTANT_OR_FUNCTION_CALL_EXP);
     createEAttribute(constantOrFunctionCallExpEClass, CONSTANT_OR_FUNCTION_CALL_EXP__LABEL);
     createEReference(constantOrFunctionCallExpEClass, CONSTANT_OR_FUNCTION_CALL_EXP__PARAM);
@@ -1305,6 +1336,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     baseMatrixEClass.getESuperTypes().add(this.getInitialDefinition());
     baseMatrixEClass.getESuperTypes().add(this.getMatrix());
     matrixRefEClass.getESuperTypes().add(this.getMatrix());
+    parenthesisedExpEClass.getESuperTypes().add(this.getExpression());
     constantOrFunctionCallExpEClass.getESuperTypes().add(this.getExpression());
     numberLiteralEClass.getESuperTypes().add(this.getExpression());
     addExpEClass.getESuperTypes().add(this.getExpression());
@@ -1397,6 +1429,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(parenthesisedExpEClass, ParenthesisedExp.class, "ParenthesisedExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParenthesisedExp_Exp(), this.getExpression(), null, "exp", null, 0, 1, ParenthesisedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(constantOrFunctionCallExpEClass, ConstantOrFunctionCallExp.class, "ConstantOrFunctionCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstantOrFunctionCallExp_Label(), ecorePackage.getEString(), "label", null, 0, 1, ConstantOrFunctionCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstantOrFunctionCallExp_Param(), this.getExpression(), null, "param", null, 0, -1, ConstantOrFunctionCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1408,12 +1443,12 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEClass(addExpEClass, AddExp.class, "AddExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAddExp_Left(), this.getExpression(), null, "left", null, 0, 1, AddExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAddExp_Op(), ecorePackage.getEString(), "op", null, 0, -1, AddExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAddExp_Right(), this.getExpression(), null, "right", null, 0, 1, AddExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddExp_Right(), this.getExpression(), null, "right", null, 0, -1, AddExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multExpEClass, MultExp.class, "MultExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMultExp_Left(), this.getExpression(), null, "left", null, 0, 1, MultExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMultExp_Op(), ecorePackage.getEString(), "op", null, 0, -1, MultExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMultExp_Right(), this.getExpression(), null, "right", null, 0, 1, MultExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultExp_Right(), this.getExpression(), null, "right", null, 0, -1, MultExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(axisEEnum, uk.ac.kcl.inf.robotics.rigidBodies.AXIS.class, "AXIS");

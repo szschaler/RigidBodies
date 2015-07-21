@@ -3,9 +3,32 @@
  */
 package uk.ac.kcl.inf.robotics.generator;
 
+import com.google.common.collect.Iterators;
+import java.util.Arrays;
+import java.util.Iterator;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.Model;
+import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 
 /**
  * Generates code from your model files on save.
@@ -16,5 +39,201 @@ import org.eclipse.xtext.generator.IGenerator;
 public class RigidBodiesGenerator implements IGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterator<Model> _filter = Iterators.<Model>filter(_allContents, Model.class);
+    final Model model = IteratorExtensions.<Model>head(_filter);
+    TreeIterator<EObject> _allContents_1 = resource.getAllContents();
+    Iterator<uk.ac.kcl.inf.robotics.rigidBodies.System> _filter_1 = Iterators.<uk.ac.kcl.inf.robotics.rigidBodies.System>filter(_allContents_1, uk.ac.kcl.inf.robotics.rigidBodies.System.class);
+    final Procedure1<uk.ac.kcl.inf.robotics.rigidBodies.System> _function = new Procedure1<uk.ac.kcl.inf.robotics.rigidBodies.System>() {
+      @Override
+      public void apply(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
+        StringConcatenation _builder = new StringConcatenation();
+        String _name = s.getName();
+        _builder.append(_name, "");
+        _builder.append(".m");
+        String _string = _builder.toString();
+        Environment _world = model.getWorld();
+        CharSequence _generate = RigidBodiesGenerator.this.generate(s, _world);
+        fsa.generateFile(_string, _generate);
+      }
+    };
+    IteratorExtensions.<uk.ac.kcl.inf.robotics.rigidBodies.System>forEach(_filter_1, _function);
+  }
+  
+  public CharSequence generate(final uk.ac.kcl.inf.robotics.rigidBodies.System system, final Environment world) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("% EOM Simulation:");
+    _builder.newLine();
+    _builder.append("clc");
+    _builder.newLine();
+    _builder.append("clear all");
+    _builder.newLine();
+    _builder.append("close all");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("% Gravity vector");
+    _builder.newLine();
+    _builder.append("g = [");
+    Matrix _gravity = world.getGravity();
+    CharSequence _renderValues = this.renderValues(_gravity);
+    _builder.append(_renderValues, "");
+    _builder.append("]");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _renderValues(final MatrixRef mr) {
+    BaseMatrix _matrix = mr.getMatrix();
+    return this.renderValues(_matrix);
+  }
+  
+  protected CharSequence _renderValues(final BaseMatrix bm) {
+    EList<Expression> _values = bm.getValues();
+    final Function1<Expression, CharSequence> _function = new Function1<Expression, CharSequence>() {
+      @Override
+      public CharSequence apply(final Expression v) {
+        return RigidBodiesGenerator.this.render(v);
+      }
+    };
+    return IterableExtensions.<Expression>join(_values, ", ", _function);
+  }
+  
+  protected CharSequence _render(final AddExp e) {
+    StringConcatenation _builder = new StringConcatenation();
+    Expression _left = e.getLeft();
+    CharSequence _render = this.render(_left);
+    _builder.append(_render, "");
+    _builder.append(" ");
+    EList<String> _op = e.getOp();
+    int _size = _op.size();
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+    final Function1<Integer, CharSequence> _function = new Function1<Integer, CharSequence>() {
+      @Override
+      public CharSequence apply(final Integer idx) {
+        StringConcatenation _builder = new StringConcatenation();
+        EList<String> _op = e.getOp();
+        String _get = _op.get((idx).intValue());
+        _builder.append(_get, "");
+        _builder.append(" ");
+        EList<Expression> _right = e.getRight();
+        Expression _get_1 = _right.get((idx).intValue());
+        CharSequence _render = RigidBodiesGenerator.this.render(_get_1);
+        _builder.append(_render, "");
+        return _builder.toString();
+      }
+    };
+    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, " ", _function);
+    _builder.append(_join, "");
+    return _builder;
+  }
+  
+  protected CharSequence _render(final MultExp e) {
+    StringConcatenation _builder = new StringConcatenation();
+    Expression _left = e.getLeft();
+    CharSequence _render = this.render(_left);
+    _builder.append(_render, "");
+    _builder.append(" ");
+    EList<String> _op = e.getOp();
+    int _size = _op.size();
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+    final Function1<Integer, CharSequence> _function = new Function1<Integer, CharSequence>() {
+      @Override
+      public CharSequence apply(final Integer idx) {
+        StringConcatenation _builder = new StringConcatenation();
+        EList<String> _op = e.getOp();
+        String _get = _op.get((idx).intValue());
+        _builder.append(_get, "");
+        _builder.append(" ");
+        EList<Expression> _right = e.getRight();
+        Expression _get_1 = _right.get((idx).intValue());
+        CharSequence _render = RigidBodiesGenerator.this.render(_get_1);
+        _builder.append(_render, "");
+        return _builder.toString();
+      }
+    };
+    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, " ", _function);
+    _builder.append(_join, "");
+    return _builder;
+  }
+  
+  protected CharSequence _render(final ParenthesisedExp pe) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    Expression _exp = pe.getExp();
+    CharSequence _render = this.render(_exp);
+    _builder.append(_render, "");
+    _builder.append(")");
+    return _builder;
+  }
+  
+  protected CharSequence _render(final NumberLiteral literal) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _xifexpression = null;
+    boolean _isNeg = literal.isNeg();
+    if (_isNeg) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("-");
+      _xifexpression = _builder_1;
+    }
+    _builder.append(_xifexpression, "");
+    String _value = literal.getValue();
+    _builder.append(_value, "");
+    return _builder;
+  }
+  
+  protected CharSequence _render(final ConstantOrFunctionCallExp cofce) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _label = cofce.getLabel();
+    _builder.append(_label, "");
+    _builder.append(" ");
+    CharSequence _xifexpression = null;
+    EList<Expression> _param = cofce.getParam();
+    int _size = _param.size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("(");
+      EList<Expression> _param_1 = cofce.getParam();
+      final Function1<Expression, CharSequence> _function = new Function1<Expression, CharSequence>() {
+        @Override
+        public CharSequence apply(final Expression p) {
+          return RigidBodiesGenerator.this.render(p);
+        }
+      };
+      String _join = IterableExtensions.<Expression>join(_param_1, ", ", _function);
+      _builder_1.append(_join, "");
+      _builder_1.append(")");
+      _xifexpression = _builder_1;
+    }
+    _builder.append(_xifexpression, "");
+    return _builder;
+  }
+  
+  public CharSequence renderValues(final Matrix bm) {
+    if (bm instanceof BaseMatrix) {
+      return _renderValues((BaseMatrix)bm);
+    } else if (bm instanceof MatrixRef) {
+      return _renderValues((MatrixRef)bm);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(bm).toString());
+    }
+  }
+  
+  public CharSequence render(final Expression e) {
+    if (e instanceof AddExp) {
+      return _render((AddExp)e);
+    } else if (e instanceof ConstantOrFunctionCallExp) {
+      return _render((ConstantOrFunctionCallExp)e);
+    } else if (e instanceof MultExp) {
+      return _render((MultExp)e);
+    } else if (e instanceof NumberLiteral) {
+      return _render((NumberLiteral)e);
+    } else if (e instanceof ParenthesisedExp) {
+      return _render((ParenthesisedExp)e);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(e).toString());
+    }
   }
 }

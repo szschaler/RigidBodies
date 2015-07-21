@@ -1085,16 +1085,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightMultExpParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//AddExp returns Expression:
-		//	MultExp ({AddExp.left=current} op+=("+" | "-") right=MultExp)*;
+		//	MultExp ({AddExp.left=current} op+=("+" | "-") right+=MultExp)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//MultExp ({AddExp.left=current} op+=("+" | "-") right=MultExp)*
+		//MultExp ({AddExp.left=current} op+=("+" | "-") right+=MultExp)*
 		public Group getGroup() { return cGroup; }
 
 		//MultExp
 		public RuleCall getMultExpParserRuleCall_0() { return cMultExpParserRuleCall_0; }
 
-		//({AddExp.left=current} op+=("+" | "-") right=MultExp)*
+		//({AddExp.left=current} op+=("+" | "-") right+=MultExp)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{AddExp.left=current}
@@ -1112,7 +1112,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"-"
 		public Keyword getOpHyphenMinusKeyword_1_1_0_1() { return cOpHyphenMinusKeyword_1_1_0_1; }
 
-		//right=MultExp
+		//right+=MultExp
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 
 		//MultExp
@@ -1133,16 +1133,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightPrimaryParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//MultExp returns Expression:
-		//	Primary ({MultExp.left=current} op+=("*" | "/") right=Primary)*;
+		//	Primary ({MultExp.left=current} op+=("*" | "/") right+=Primary)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Primary ({MultExp.left=current} op+=("*" | "/") right=Primary)*
+		//Primary ({MultExp.left=current} op+=("*" | "/") right+=Primary)*
 		public Group getGroup() { return cGroup; }
 
 		//Primary
 		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
 
-		//({MultExp.left=current} op+=("*" | "/") right=Primary)*
+		//({MultExp.left=current} op+=("*" | "/") right+=Primary)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{MultExp.left=current}
@@ -1160,7 +1160,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"/"
 		public Keyword getOpSolidusKeyword_1_1_0_1() { return cOpSolidusKeyword_1_1_0_1; }
 
-		//right=Primary
+		//right+=Primary
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 
 		//Primary
@@ -1171,36 +1171,53 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cNumberLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cAddExpParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final RuleCall cParenthesisedExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cConstantOrFunctionCallExpParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Primary returns Expression:
-		//	NumberLiteral | "(" AddExp ")" | ConstantOrFunctionCallExp;
+		//	NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp;
 		@Override public ParserRule getRule() { return rule; }
 
-		//NumberLiteral | "(" AddExp ")" | ConstantOrFunctionCallExp
+		//NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//NumberLiteral
 		public RuleCall getNumberLiteralParserRuleCall_0() { return cNumberLiteralParserRuleCall_0; }
 
-		//"(" AddExp ")"
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"("
-		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
-
-		//AddExp
-		public RuleCall getAddExpParserRuleCall_1_1() { return cAddExpParserRuleCall_1_1; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
+		//ParenthesisedExp
+		public RuleCall getParenthesisedExpParserRuleCall_1() { return cParenthesisedExpParserRuleCall_1; }
 
 		//ConstantOrFunctionCallExp
 		public RuleCall getConstantOrFunctionCallExpParserRuleCall_2() { return cConstantOrFunctionCallExpParserRuleCall_2; }
+	}
+
+	public class ParenthesisedExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParenthesisedExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpAddExpParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//// Need to keep this so that we can regenerate parentheses correctly
+		//ParenthesisedExp:
+		//	"(" exp=AddExp ")";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"(" exp=AddExp ")"
+		public Group getGroup() { return cGroup; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+
+		//exp=AddExp
+		public Assignment getExpAssignment_1() { return cExpAssignment_1; }
+
+		//AddExp
+		public RuleCall getExpAddExpParserRuleCall_1_0() { return cExpAddExpParserRuleCall_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
 
 	public class ConstantOrFunctionCallExpElements extends AbstractParserRuleElementFinder {
@@ -1405,6 +1422,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final AddExpElements pAddExp;
 	private final MultExpElements pMultExp;
 	private final PrimaryElements pPrimary;
+	private final ParenthesisedExpElements pParenthesisedExp;
 	private final ConstantOrFunctionCallExpElements pConstantOrFunctionCallExp;
 	private final NumberLiteralElements pNumberLiteral;
 	private final TerminalRule tREAL;
@@ -1443,6 +1461,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAddExp = new AddExpElements();
 		this.pMultExp = new MultExpElements();
 		this.pPrimary = new PrimaryElements();
+		this.pParenthesisedExp = new ParenthesisedExpElements();
 		this.pConstantOrFunctionCallExp = new ConstantOrFunctionCallExpElements();
 		this.pNumberLiteral = new NumberLiteralElements();
 		this.tREAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "REAL");
@@ -1706,7 +1725,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AddExp returns Expression:
-	//	MultExp ({AddExp.left=current} op+=("+" | "-") right=MultExp)*;
+	//	MultExp ({AddExp.left=current} op+=("+" | "-") right+=MultExp)*;
 	public AddExpElements getAddExpAccess() {
 		return pAddExp;
 	}
@@ -1716,7 +1735,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MultExp returns Expression:
-	//	Primary ({MultExp.left=current} op+=("*" | "/") right=Primary)*;
+	//	Primary ({MultExp.left=current} op+=("*" | "/") right+=Primary)*;
 	public MultExpElements getMultExpAccess() {
 		return pMultExp;
 	}
@@ -1726,13 +1745,24 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Primary returns Expression:
-	//	NumberLiteral | "(" AddExp ")" | ConstantOrFunctionCallExp;
+	//	NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
 	
 	public ParserRule getPrimaryRule() {
 		return getPrimaryAccess().getRule();
+	}
+
+	//// Need to keep this so that we can regenerate parentheses correctly
+	//ParenthesisedExp:
+	//	"(" exp=AddExp ")";
+	public ParenthesisedExpElements getParenthesisedExpAccess() {
+		return pParenthesisedExp;
+	}
+	
+	public ParserRule getParenthesisedExpRule() {
+		return getParenthesisedExpAccess().getRule();
 	}
 
 	//ConstantOrFunctionCallExp:

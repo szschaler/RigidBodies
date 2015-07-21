@@ -75,7 +75,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddExpAccess().getGroup_1(), "rule__AddExp__Group_1__0");
 					put(grammarAccess.getMultExpAccess().getGroup(), "rule__MultExp__Group__0");
 					put(grammarAccess.getMultExpAccess().getGroup_1(), "rule__MultExp__Group_1__0");
-					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
+					put(grammarAccess.getParenthesisedExpAccess().getGroup(), "rule__ParenthesisedExp__Group__0");
 					put(grammarAccess.getConstantOrFunctionCallExpAccess().getGroup(), "rule__ConstantOrFunctionCallExp__Group__0");
 					put(grammarAccess.getConstantOrFunctionCallExpAccess().getGroup_1(), "rule__ConstantOrFunctionCallExp__Group_1__0");
 					put(grammarAccess.getConstantOrFunctionCallExpAccess().getGroup_1_2(), "rule__ConstantOrFunctionCallExp__Group_1_2__0");
@@ -140,6 +140,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddExpAccess().getRightAssignment_1_2(), "rule__AddExp__RightAssignment_1_2");
 					put(grammarAccess.getMultExpAccess().getOpAssignment_1_1(), "rule__MultExp__OpAssignment_1_1");
 					put(grammarAccess.getMultExpAccess().getRightAssignment_1_2(), "rule__MultExp__RightAssignment_1_2");
+					put(grammarAccess.getParenthesisedExpAccess().getExpAssignment_1(), "rule__ParenthesisedExp__ExpAssignment_1");
 					put(grammarAccess.getConstantOrFunctionCallExpAccess().getLabelAssignment_0(), "rule__ConstantOrFunctionCallExp__LabelAssignment_0");
 					put(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAssignment_1_1(), "rule__ConstantOrFunctionCallExp__ParamAssignment_1_1");
 					put(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAssignment_1_2_1(), "rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1");

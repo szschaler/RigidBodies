@@ -104,6 +104,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//MatrixRef/matrix"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//Expression"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//ParenthesisedExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ParenthesisedExp/exp"/>
+    </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//ConstantOrFunctionCallExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//ConstantOrFunctionCallExp/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ConstantOrFunctionCallExp/param"/>

@@ -26,6 +26,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
@@ -240,6 +241,14 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.PARENTHESISED_EXP:
+      {
+        ParenthesisedExp parenthesisedExp = (ParenthesisedExp)theEObject;
+        T result = caseParenthesisedExp(parenthesisedExp);
+        if (result == null) result = caseExpression(parenthesisedExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -595,6 +604,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parenthesised Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parenthesised Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParenthesisedExp(ParenthesisedExp object)
   {
     return null;
   }

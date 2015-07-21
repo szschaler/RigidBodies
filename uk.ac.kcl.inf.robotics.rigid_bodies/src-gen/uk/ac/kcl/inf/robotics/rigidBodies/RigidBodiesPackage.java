@@ -906,6 +906,34 @@ public interface RigidBodiesPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ParenthesisedExpImpl <em>Parenthesised Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ParenthesisedExpImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getParenthesisedExp()
+   * @generated
+   */
+  int PARENTHESISED_EXP = 20;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESISED_EXP__EXP = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parenthesised Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESISED_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstantOrFunctionCallExpImpl <em>Constant Or Function Call Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -913,7 +941,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstantOrFunctionCallExp()
    * @generated
    */
-  int CONSTANT_OR_FUNCTION_CALL_EXP = 20;
+  int CONSTANT_OR_FUNCTION_CALL_EXP = 21;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -950,7 +978,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 21;
+  int NUMBER_LITERAL = 22;
 
   /**
    * The feature id for the '<em><b>Neg</b></em>' attribute.
@@ -987,7 +1015,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAddExp()
    * @generated
    */
-  int ADD_EXP = 22;
+  int ADD_EXP = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1008,7 +1036,7 @@ public interface RigidBodiesPackage extends EPackage
   int ADD_EXP__OP = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The feature id for the '<em><b>Right</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1033,7 +1061,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMultExp()
    * @generated
    */
-  int MULT_EXP = 23;
+  int MULT_EXP = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1054,7 +1082,7 @@ public interface RigidBodiesPackage extends EPackage
   int MULT_EXP__OP = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The feature id for the '<em><b>Right</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1079,7 +1107,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAXIS()
    * @generated
    */
-  int AXIS = 24;
+  int AXIS = 25;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType <em>Constraint Type</em>}' enum.
@@ -1089,7 +1117,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraintType()
    * @generated
    */
-  int CONSTRAINT_TYPE = 25;
+  int CONSTRAINT_TYPE = 26;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LoadType <em>Load Type</em>}' enum.
@@ -1099,7 +1127,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLoadType()
    * @generated
    */
-  int LOAD_TYPE = 26;
+  int LOAD_TYPE = 27;
 
 
   /**
@@ -1809,6 +1837,27 @@ public interface RigidBodiesPackage extends EPackage
   EClass getExpression();
 
   /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp <em>Parenthesised Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parenthesised Exp</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp
+   * @generated
+   */
+  EClass getParenthesisedExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp#getExp()
+   * @see #getParenthesisedExp()
+   * @generated
+   */
+  EReference getParenthesisedExp_Exp();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp <em>Constant Or Function Call Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1905,10 +1954,10 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getAddExp_Op();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @return the meta object for the containment reference list '<em>Right</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getRight()
    * @see #getAddExp()
    * @generated
@@ -1948,10 +1997,10 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getMultExp_Op();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.MultExp#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.MultExp#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @return the meta object for the containment reference list '<em>Right</em>'.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.MultExp#getRight()
    * @see #getMultExp()
    * @generated
@@ -2580,6 +2629,24 @@ public interface RigidBodiesPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ParenthesisedExpImpl <em>Parenthesised Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ParenthesisedExpImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getParenthesisedExp()
+     * @generated
+     */
+    EClass PARENTHESISED_EXP = eINSTANCE.getParenthesisedExp();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENTHESISED_EXP__EXP = eINSTANCE.getParenthesisedExp_Exp();
+
+    /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstantOrFunctionCallExpImpl <em>Constant Or Function Call Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2658,7 +2725,7 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute ADD_EXP__OP = eINSTANCE.getAddExp_Op();
 
     /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2692,7 +2759,7 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute MULT_EXP__OP = eINSTANCE.getMultExp_Op();
 
     /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

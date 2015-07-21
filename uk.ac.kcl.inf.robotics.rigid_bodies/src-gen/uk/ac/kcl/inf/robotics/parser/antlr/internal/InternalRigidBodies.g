@@ -1858,7 +1858,7 @@ ruleAddExp returns [EObject current=null]
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAddExpRule());
 	        }
-       		set(
+       		add(
        			$current, 
        			"right",
         		lv_right_3_0, 
@@ -1942,7 +1942,7 @@ ruleMultExp returns [EObject current=null]
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultExpRule());
 	        }
-       		set(
+       		add(
        			$current, 
        			"right",
         		lv_right_3_0, 
@@ -1982,32 +1982,71 @@ rulePrimary returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
-    |(	otherlv_1='(' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_0());
-    }
-
+    |
     { 
-        newCompositeNode(grammarAccess.getPrimaryAccess().getAddExpParserRuleCall_1_1()); 
+        newCompositeNode(grammarAccess.getPrimaryAccess().getParenthesisedExpParserRuleCall_1()); 
     }
-    this_AddExp_2=ruleAddExp
+    this_ParenthesisedExp_1=ruleParenthesisedExp
     { 
-        $current = $this_AddExp_2.current; 
+        $current = $this_ParenthesisedExp_1.current; 
         afterParserOrEnumRuleCall();
     }
-	otherlv_3=')' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_2());
-    }
-)
+
     |
     { 
         newCompositeNode(grammarAccess.getPrimaryAccess().getConstantOrFunctionCallExpParserRuleCall_2()); 
     }
-    this_ConstantOrFunctionCallExp_4=ruleConstantOrFunctionCallExp
+    this_ConstantOrFunctionCallExp_2=ruleConstantOrFunctionCallExp
     { 
-        $current = $this_ConstantOrFunctionCallExp_4.current; 
+        $current = $this_ConstantOrFunctionCallExp_2.current; 
         afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleParenthesisedExp
+entryRuleParenthesisedExp returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getParenthesisedExpRule()); }
+	 iv_ruleParenthesisedExp=ruleParenthesisedExp 
+	 { $current=$iv_ruleParenthesisedExp.current; } 
+	 EOF 
+;
+
+// Rule ParenthesisedExp
+ruleParenthesisedExp returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='(' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getParenthesisedExpAccess().getLeftParenthesisKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getParenthesisedExpAccess().getExpAddExpParserRuleCall_1_0()); 
+	    }
+		lv_exp_1_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getParenthesisedExpRule());
+	        }
+       		set(
+       			$current, 
+       			"exp",
+        		lv_exp_1_0, 
+        		"AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2=')' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getParenthesisedExpAccess().getRightParenthesisKeyword_2());
     }
 )
 ;

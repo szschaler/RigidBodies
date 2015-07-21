@@ -67,29 +67,19 @@ public interface AddExp extends Expression
   EList<String> getOp();
 
   /**
-   * Returns the value of the '<em><b>Right</b></em>' containment reference.
+   * Returns the value of the '<em><b>Right</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.Expression}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Right</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Right</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Expression)
+   * @return the value of the '<em>Right</em>' containment reference list.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getAddExp_Right()
    * @model containment="true"
    * @generated
    */
-  Expression getRight();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getRight <em>Right</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right</em>' containment reference.
-   * @see #getRight()
-   * @generated
-   */
-  void setRight(Expression value);
+  EList<Expression> getRight();
 
 } // AddExp

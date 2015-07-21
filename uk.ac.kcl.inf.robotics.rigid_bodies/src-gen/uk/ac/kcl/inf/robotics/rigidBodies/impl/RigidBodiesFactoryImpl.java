@@ -33,6 +33,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
+import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
@@ -112,6 +113,7 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.BASE_MATRIX: return createBaseMatrix();
       case RigidBodiesPackage.MATRIX_REF: return createMatrixRef();
       case RigidBodiesPackage.EXPRESSION: return createExpression();
+      case RigidBodiesPackage.PARENTHESISED_EXP: return createParenthesisedExp();
       case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP: return createConstantOrFunctionCallExp();
       case RigidBodiesPackage.NUMBER_LITERAL: return createNumberLiteral();
       case RigidBodiesPackage.ADD_EXP: return createAddExp();
@@ -381,6 +383,17 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParenthesisedExp createParenthesisedExp()
+  {
+    ParenthesisedExpImpl parenthesisedExp = new ParenthesisedExpImpl();
+    return parenthesisedExp;
   }
 
   /**

@@ -203,6 +203,15 @@ public interface RigidBodiesFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Parenthesised Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parenthesised Exp</em>'.
+   * @generated
+   */
+  ParenthesisedExp createParenthesisedExp();
+
+  /**
    * Returns a new object of class '<em>Constant Or Function Call Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

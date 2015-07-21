@@ -131,17 +131,22 @@ MatrixRef:
 ;
 
 AddExp returns Expression:
-	MultExp ({AddExp.left=current} op += ('+'|'-') right=MultExp)*
+	MultExp ({AddExp.left=current} op += ('+'|'-') right += MultExp)*
 ;
 
 MultExp returns Expression:
-	Primary ({MultExp.left=current} op += ('*'|'/') right=Primary)*
+	Primary ({MultExp.left=current} op += ('*'|'/') right += Primary)*
 ;
 
 Primary returns Expression:
 	NumberLiteral |
-	'(' AddExp ')' |
+	ParenthesisedExp |
 	ConstantOrFunctionCallExp
+;
+
+// Need to keep this so that we can regenerate parentheses correctly
+ParenthesisedExp:
+	'(' exp=AddExp ')'
 ;
 
 ConstantOrFunctionCallExp:

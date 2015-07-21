@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
@@ -58,14 +60,14 @@ public class AddExpImpl extends ExpressionImpl implements AddExp
   protected EList<String> op;
 
   /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRight()
    * @generated
    * @ordered
    */
-  protected Expression right;
+  protected EList<Expression> right;
 
   /**
    * <!-- begin-user-doc -->
@@ -155,47 +157,13 @@ public class AddExpImpl extends ExpressionImpl implements AddExp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getRight()
+  public EList<Expression> getRight()
   {
+    if (right == null)
+    {
+      right = new EObjectContainmentEList<Expression>(Expression.class, this, RigidBodiesPackage.ADD_EXP__RIGHT);
+    }
     return right;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRight(Expression newRight, NotificationChain msgs)
-  {
-    Expression oldRight = right;
-    right = newRight;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.ADD_EXP__RIGHT, oldRight, newRight);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRight(Expression newRight)
-  {
-    if (newRight != right)
-    {
-      NotificationChain msgs = null;
-      if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.ADD_EXP__RIGHT, null, msgs);
-      if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.ADD_EXP__RIGHT, null, msgs);
-      msgs = basicSetRight(newRight, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.ADD_EXP__RIGHT, newRight, newRight));
   }
 
   /**
@@ -211,7 +179,7 @@ public class AddExpImpl extends ExpressionImpl implements AddExp
       case RigidBodiesPackage.ADD_EXP__LEFT:
         return basicSetLeft(null, msgs);
       case RigidBodiesPackage.ADD_EXP__RIGHT:
-        return basicSetRight(null, msgs);
+        return ((InternalEList<?>)getRight()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -255,7 +223,8 @@ public class AddExpImpl extends ExpressionImpl implements AddExp
         getOp().addAll((Collection<? extends String>)newValue);
         return;
       case RigidBodiesPackage.ADD_EXP__RIGHT:
-        setRight((Expression)newValue);
+        getRight().clear();
+        getRight().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -278,7 +247,7 @@ public class AddExpImpl extends ExpressionImpl implements AddExp
         getOp().clear();
         return;
       case RigidBodiesPackage.ADD_EXP__RIGHT:
-        setRight((Expression)null);
+        getRight().clear();
         return;
     }
     super.eUnset(featureID);
@@ -299,7 +268,7 @@ public class AddExpImpl extends ExpressionImpl implements AddExp
       case RigidBodiesPackage.ADD_EXP__OP:
         return op != null && !op.isEmpty();
       case RigidBodiesPackage.ADD_EXP__RIGHT:
-        return right != null;
+        return right != null && !right.isEmpty();
     }
     return super.eIsSet(featureID);
   }
