@@ -79,6 +79,34 @@ public class RigidBodiesGenerator implements IGenerator {
     _builder.append(_renderValues, "");
     _builder.append("]");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("% Inputs");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("% Run program -- Should this really be generated?");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("% EOM:");
+    _builder.newLine();
+    _builder.append("[ M , T , Dd , fg , fj , rj , rc , vc , wc , ref , rcn ,  Tef , Tcn , Dcn , qf , uf ] = ...");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("TMTEoM ( lc , m , I , j , jkd , g );");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("% numerical simulation");
+    _builder.newLine();
+    _builder.append("[ t , z , tfinal ] = SimEoM ( M , T , Dd , fg , fj , qf , uf , 1 );");
+    _builder.newLine();
+    _builder.append("plot ( t , z );");
+    _builder.newLine();
+    _builder.append("pause;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("% animation");
+    _builder.newLine();
+    _builder.append("AnimEOM ( t , z , rj , qf , uf );");
+    _builder.newLine();
     return _builder;
   }
   
