@@ -91,10 +91,8 @@
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//ExternalLoad">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//ExternalLoad/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/body1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/relTrans1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/body2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/relTrans2"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//Matrix"/>
     <genClasses ecoreClass="RigidBodies.ecore#//BaseMatrix">

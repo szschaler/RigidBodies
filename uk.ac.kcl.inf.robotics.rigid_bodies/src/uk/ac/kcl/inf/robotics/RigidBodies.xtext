@@ -92,7 +92,7 @@ Reorientation:
 
 ReorientExpression:
 	ref=[Reorientation] |
-	'(' '(' axis+=AXIS ',' value += AddExp ')' (',' '(' axis+=AXIS ',' value += AddExp ')')* ')'
+	'(' {ReorientExpression} ('(' axis+=AXIS ',' value += AddExp ')' (',' '(' axis+=AXIS ',' value += AddExp ')')*)? ')' 
 ;
 
 Constraint:
@@ -108,8 +108,7 @@ enum ConstraintType:
 
 ExternalLoad:
 	'external' 'load' name=ID ':' type = LoadType
-		'between' body1 = BodyReference relTrans1 = RelativeTransformation
-		'and' body2 = BodyReference relTrans2 = RelativeTransformation	
+		'at' body = BodyReference relTrans1 = RelativeTransformation	
 ;
 
 enum LoadType:

@@ -758,13 +758,13 @@ public interface RigidBodiesPackage extends EPackage
   int EXTERNAL_LOAD__TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Body1</b></em>' containment reference.
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTERNAL_LOAD__BODY1 = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
+  int EXTERNAL_LOAD__BODY = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Rel Trans1</b></em>' containment reference.
@@ -776,31 +776,13 @@ public interface RigidBodiesPackage extends EPackage
   int EXTERNAL_LOAD__REL_TRANS1 = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Body2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL_LOAD__BODY2 = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Rel Trans2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL_LOAD__REL_TRANS2 = SYSTEM_ELEMENT_FEATURE_COUNT + 4;
-
-  /**
    * The number of structural features of the '<em>External Load</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTERNAL_LOAD_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 5;
+  int EXTERNAL_LOAD_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.MatrixImpl <em>Matrix</em>}' class.
@@ -1731,15 +1713,15 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getExternalLoad_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1 <em>Body1</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody <em>Body</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body1</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1()
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody()
    * @see #getExternalLoad()
    * @generated
    */
-  EReference getExternalLoad_Body1();
+  EReference getExternalLoad_Body();
 
   /**
    * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans1 <em>Rel Trans1</em>}'.
@@ -1751,28 +1733,6 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    */
   EReference getExternalLoad_RelTrans1();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2 <em>Body2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body2</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2()
-   * @see #getExternalLoad()
-   * @generated
-   */
-  EReference getExternalLoad_Body2();
-
-  /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans2 <em>Rel Trans2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Rel Trans2</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans2()
-   * @see #getExternalLoad()
-   * @generated
-   */
-  EReference getExternalLoad_RelTrans2();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Matrix <em>Matrix</em>}'.
@@ -2541,12 +2501,12 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute EXTERNAL_LOAD__TYPE = eINSTANCE.getExternalLoad_Type();
 
     /**
-     * The meta object literal for the '<em><b>Body1</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXTERNAL_LOAD__BODY1 = eINSTANCE.getExternalLoad_Body1();
+    EReference EXTERNAL_LOAD__BODY = eINSTANCE.getExternalLoad_Body();
 
     /**
      * The meta object literal for the '<em><b>Rel Trans1</b></em>' containment reference feature.
@@ -2555,22 +2515,6 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EReference EXTERNAL_LOAD__REL_TRANS1 = eINSTANCE.getExternalLoad_RelTrans1();
-
-    /**
-     * The meta object literal for the '<em><b>Body2</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXTERNAL_LOAD__BODY2 = eINSTANCE.getExternalLoad_Body2();
-
-    /**
-     * The meta object literal for the '<em><b>Rel Trans2</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXTERNAL_LOAD__REL_TRANS2 = eINSTANCE.getExternalLoad_RelTrans2();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.MatrixImpl <em>Matrix</em>}' class.

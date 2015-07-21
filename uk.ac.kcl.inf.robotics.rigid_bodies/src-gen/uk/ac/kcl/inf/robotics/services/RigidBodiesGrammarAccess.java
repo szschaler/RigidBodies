@@ -719,29 +719,33 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRefReorientationIDTerminalRuleCall_0_0_1 = (RuleCall)cRefReorientationCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cAxisAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cAxisAXISEnumRuleCall_1_2_0 = (RuleCall)cAxisAssignment_1_2.eContents().get(0);
-		private final Keyword cCommaKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cValueAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cValueAddExpParserRuleCall_1_4_0 = (RuleCall)cValueAssignment_1_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Group cGroup_1_6 = (Group)cGroup_1.eContents().get(6);
-		private final Keyword cCommaKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
-		private final Assignment cAxisAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
-		private final RuleCall cAxisAXISEnumRuleCall_1_6_2_0 = (RuleCall)cAxisAssignment_1_6_2.eContents().get(0);
-		private final Keyword cCommaKeyword_1_6_3 = (Keyword)cGroup_1_6.eContents().get(3);
-		private final Assignment cValueAssignment_1_6_4 = (Assignment)cGroup_1_6.eContents().get(4);
-		private final RuleCall cValueAddExpParserRuleCall_1_6_4_0 = (RuleCall)cValueAssignment_1_6_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_6_5 = (Keyword)cGroup_1_6.eContents().get(5);
-		private final Keyword cRightParenthesisKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
+		private final Action cReorientExpressionAction_1_1 = (Action)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cAxisAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cAxisAXISEnumRuleCall_1_2_1_0 = (RuleCall)cAxisAssignment_1_2_1.eContents().get(0);
+		private final Keyword cCommaKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
+		private final Assignment cValueAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
+		private final RuleCall cValueAddExpParserRuleCall_1_2_3_0 = (RuleCall)cValueAssignment_1_2_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_2_4 = (Keyword)cGroup_1_2.eContents().get(4);
+		private final Group cGroup_1_2_5 = (Group)cGroup_1_2.eContents().get(5);
+		private final Keyword cCommaKeyword_1_2_5_0 = (Keyword)cGroup_1_2_5.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1_2_5_1 = (Keyword)cGroup_1_2_5.eContents().get(1);
+		private final Assignment cAxisAssignment_1_2_5_2 = (Assignment)cGroup_1_2_5.eContents().get(2);
+		private final RuleCall cAxisAXISEnumRuleCall_1_2_5_2_0 = (RuleCall)cAxisAssignment_1_2_5_2.eContents().get(0);
+		private final Keyword cCommaKeyword_1_2_5_3 = (Keyword)cGroup_1_2_5.eContents().get(3);
+		private final Assignment cValueAssignment_1_2_5_4 = (Assignment)cGroup_1_2_5.eContents().get(4);
+		private final RuleCall cValueAddExpParserRuleCall_1_2_5_4_0 = (RuleCall)cValueAssignment_1_2_5_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_2_5_5 = (Keyword)cGroup_1_2_5.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
 		//ReorientExpression:
-		//	ref=[Reorientation] | "(" "(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")* ")";
+		//	ref=[Reorientation] | "(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS ","
+		//	value+=AddExp ")")*)? ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//ref=[Reorientation] | "(" "(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")* ")"
+		//ref=[Reorientation] | "(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS ","
+		//value+=AddExp ")")*)? ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ref=[Reorientation]
@@ -753,62 +757,68 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRefReorientationIDTerminalRuleCall_0_0_1() { return cRefReorientationIDTerminalRuleCall_0_0_1; }
 
-		//"(" "(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")* ")"
+		//"(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)? ")"
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
 
+		//{ReorientExpression}
+		public Action getReorientExpressionAction_1_1() { return cReorientExpressionAction_1_1; }
+
+		//("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
+		public Group getGroup_1_2() { return cGroup_1_2; }
+
 		//"("
-		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
+		public Keyword getLeftParenthesisKeyword_1_2_0() { return cLeftParenthesisKeyword_1_2_0; }
 
 		//axis+=AXIS
-		public Assignment getAxisAssignment_1_2() { return cAxisAssignment_1_2; }
+		public Assignment getAxisAssignment_1_2_1() { return cAxisAssignment_1_2_1; }
 
 		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_1_2_0() { return cAxisAXISEnumRuleCall_1_2_0; }
+		public RuleCall getAxisAXISEnumRuleCall_1_2_1_0() { return cAxisAXISEnumRuleCall_1_2_1_0; }
 
 		//","
-		public Keyword getCommaKeyword_1_3() { return cCommaKeyword_1_3; }
+		public Keyword getCommaKeyword_1_2_2() { return cCommaKeyword_1_2_2; }
 
 		//value+=AddExp
-		public Assignment getValueAssignment_1_4() { return cValueAssignment_1_4; }
+		public Assignment getValueAssignment_1_2_3() { return cValueAssignment_1_2_3; }
 
 		//AddExp
-		public RuleCall getValueAddExpParserRuleCall_1_4_0() { return cValueAddExpParserRuleCall_1_4_0; }
+		public RuleCall getValueAddExpParserRuleCall_1_2_3_0() { return cValueAddExpParserRuleCall_1_2_3_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_1_5() { return cRightParenthesisKeyword_1_5; }
+		public Keyword getRightParenthesisKeyword_1_2_4() { return cRightParenthesisKeyword_1_2_4; }
 
 		//("," "(" axis+=AXIS "," value+=AddExp ")")*
-		public Group getGroup_1_6() { return cGroup_1_6; }
+		public Group getGroup_1_2_5() { return cGroup_1_2_5; }
 
 		//","
-		public Keyword getCommaKeyword_1_6_0() { return cCommaKeyword_1_6_0; }
+		public Keyword getCommaKeyword_1_2_5_0() { return cCommaKeyword_1_2_5_0; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_1_6_1() { return cLeftParenthesisKeyword_1_6_1; }
+		public Keyword getLeftParenthesisKeyword_1_2_5_1() { return cLeftParenthesisKeyword_1_2_5_1; }
 
 		//axis+=AXIS
-		public Assignment getAxisAssignment_1_6_2() { return cAxisAssignment_1_6_2; }
+		public Assignment getAxisAssignment_1_2_5_2() { return cAxisAssignment_1_2_5_2; }
 
 		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_1_6_2_0() { return cAxisAXISEnumRuleCall_1_6_2_0; }
+		public RuleCall getAxisAXISEnumRuleCall_1_2_5_2_0() { return cAxisAXISEnumRuleCall_1_2_5_2_0; }
 
 		//","
-		public Keyword getCommaKeyword_1_6_3() { return cCommaKeyword_1_6_3; }
+		public Keyword getCommaKeyword_1_2_5_3() { return cCommaKeyword_1_2_5_3; }
 
 		//value+=AddExp
-		public Assignment getValueAssignment_1_6_4() { return cValueAssignment_1_6_4; }
+		public Assignment getValueAssignment_1_2_5_4() { return cValueAssignment_1_2_5_4; }
 
 		//AddExp
-		public RuleCall getValueAddExpParserRuleCall_1_6_4_0() { return cValueAddExpParserRuleCall_1_6_4_0; }
+		public RuleCall getValueAddExpParserRuleCall_1_2_5_4_0() { return cValueAddExpParserRuleCall_1_2_5_4_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_1_6_5() { return cRightParenthesisKeyword_1_6_5; }
+		public Keyword getRightParenthesisKeyword_1_2_5_5() { return cRightParenthesisKeyword_1_2_5_5; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_1_7() { return cRightParenthesisKeyword_1_7; }
+		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 	}
 
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
@@ -899,24 +909,17 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cTypeLoadTypeEnumRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
-		private final Keyword cBetweenKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBody1Assignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBody1BodyReferenceParserRuleCall_6_0 = (RuleCall)cBody1Assignment_6.eContents().get(0);
+		private final Keyword cAtKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cBodyAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cBodyBodyReferenceParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
 		private final Assignment cRelTrans1Assignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cRelTrans1RelativeTransformationParserRuleCall_7_0 = (RuleCall)cRelTrans1Assignment_7.eContents().get(0);
-		private final Keyword cAndKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cBody2Assignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cBody2BodyReferenceParserRuleCall_9_0 = (RuleCall)cBody2Assignment_9.eContents().get(0);
-		private final Assignment cRelTrans2Assignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_10_0 = (RuleCall)cRelTrans2Assignment_10.eContents().get(0);
 		
 		//ExternalLoad:
-		//	"external" "load" name=ID ":" type=LoadType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
-		//	body2=BodyReference relTrans2=RelativeTransformation;
+		//	"external" "load" name=ID ":" type=LoadType "at" body=BodyReference relTrans1=RelativeTransformation;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"external" "load" name=ID ":" type=LoadType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
-		//body2=BodyReference relTrans2=RelativeTransformation
+		//"external" "load" name=ID ":" type=LoadType "at" body=BodyReference relTrans1=RelativeTransformation
 		public Group getGroup() { return cGroup; }
 
 		//"external"
@@ -940,35 +943,20 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//LoadType
 		public RuleCall getTypeLoadTypeEnumRuleCall_4_0() { return cTypeLoadTypeEnumRuleCall_4_0; }
 
-		//"between"
-		public Keyword getBetweenKeyword_5() { return cBetweenKeyword_5; }
+		//"at"
+		public Keyword getAtKeyword_5() { return cAtKeyword_5; }
 
-		//body1=BodyReference
-		public Assignment getBody1Assignment_6() { return cBody1Assignment_6; }
+		//body=BodyReference
+		public Assignment getBodyAssignment_6() { return cBodyAssignment_6; }
 
 		//BodyReference
-		public RuleCall getBody1BodyReferenceParserRuleCall_6_0() { return cBody1BodyReferenceParserRuleCall_6_0; }
+		public RuleCall getBodyBodyReferenceParserRuleCall_6_0() { return cBodyBodyReferenceParserRuleCall_6_0; }
 
 		//relTrans1=RelativeTransformation
 		public Assignment getRelTrans1Assignment_7() { return cRelTrans1Assignment_7; }
 
 		//RelativeTransformation
 		public RuleCall getRelTrans1RelativeTransformationParserRuleCall_7_0() { return cRelTrans1RelativeTransformationParserRuleCall_7_0; }
-
-		//"and"
-		public Keyword getAndKeyword_8() { return cAndKeyword_8; }
-
-		//body2=BodyReference
-		public Assignment getBody2Assignment_9() { return cBody2Assignment_9; }
-
-		//BodyReference
-		public RuleCall getBody2BodyReferenceParserRuleCall_9_0() { return cBody2BodyReferenceParserRuleCall_9_0; }
-
-		//relTrans2=RelativeTransformation
-		public Assignment getRelTrans2Assignment_10() { return cRelTrans2Assignment_10; }
-
-		//RelativeTransformation
-		public RuleCall getRelTrans2RelativeTransformationParserRuleCall_10_0() { return cRelTrans2RelativeTransformationParserRuleCall_10_0; }
 	}
 
 	public class MatrixElements extends AbstractParserRuleElementFinder {
@@ -1643,7 +1631,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ReorientExpression:
-	//	ref=[Reorientation] | "(" "(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")* ")";
+	//	ref=[Reorientation] | "(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS ","
+	//	value+=AddExp ")")*)? ")";
 	public ReorientExpressionElements getReorientExpressionAccess() {
 		return pReorientExpression;
 	}
@@ -1674,8 +1663,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExternalLoad:
-	//	"external" "load" name=ID ":" type=LoadType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
-	//	body2=BodyReference relTrans2=RelativeTransformation;
+	//	"external" "load" name=ID ":" type=LoadType "at" body=BodyReference relTrans1=RelativeTransformation;
 	public ExternalLoadElements getExternalLoadAccess() {
 		return pExternalLoad;
 	}

@@ -65,7 +65,8 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReorientationAccess().getGroup(), "rule__Reorientation__Group__0");
 					put(grammarAccess.getReorientationAccess().getGroup_0(), "rule__Reorientation__Group_0__0");
 					put(grammarAccess.getReorientExpressionAccess().getGroup_1(), "rule__ReorientExpression__Group_1__0");
-					put(grammarAccess.getReorientExpressionAccess().getGroup_1_6(), "rule__ReorientExpression__Group_1_6__0");
+					put(grammarAccess.getReorientExpressionAccess().getGroup_1_2(), "rule__ReorientExpression__Group_1_2__0");
+					put(grammarAccess.getReorientExpressionAccess().getGroup_1_2_5(), "rule__ReorientExpression__Group_1_2_5__0");
 					put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
 					put(grammarAccess.getExternalLoadAccess().getGroup(), "rule__ExternalLoad__Group__0");
 					put(grammarAccess.getBaseMatrixAccess().getGroup(), "rule__BaseMatrix__Group__0");
@@ -116,10 +117,10 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReorientationAccess().getNameAssignment_0_1(), "rule__Reorientation__NameAssignment_0_1");
 					put(grammarAccess.getReorientationAccess().getExpAssignment_1(), "rule__Reorientation__ExpAssignment_1");
 					put(grammarAccess.getReorientExpressionAccess().getRefAssignment_0(), "rule__ReorientExpression__RefAssignment_0");
-					put(grammarAccess.getReorientExpressionAccess().getAxisAssignment_1_2(), "rule__ReorientExpression__AxisAssignment_1_2");
-					put(grammarAccess.getReorientExpressionAccess().getValueAssignment_1_4(), "rule__ReorientExpression__ValueAssignment_1_4");
-					put(grammarAccess.getReorientExpressionAccess().getAxisAssignment_1_6_2(), "rule__ReorientExpression__AxisAssignment_1_6_2");
-					put(grammarAccess.getReorientExpressionAccess().getValueAssignment_1_6_4(), "rule__ReorientExpression__ValueAssignment_1_6_4");
+					put(grammarAccess.getReorientExpressionAccess().getAxisAssignment_1_2_1(), "rule__ReorientExpression__AxisAssignment_1_2_1");
+					put(grammarAccess.getReorientExpressionAccess().getValueAssignment_1_2_3(), "rule__ReorientExpression__ValueAssignment_1_2_3");
+					put(grammarAccess.getReorientExpressionAccess().getAxisAssignment_1_2_5_2(), "rule__ReorientExpression__AxisAssignment_1_2_5_2");
+					put(grammarAccess.getReorientExpressionAccess().getValueAssignment_1_2_5_4(), "rule__ReorientExpression__ValueAssignment_1_2_5_4");
 					put(grammarAccess.getConstraintAccess().getNameAssignment_1(), "rule__Constraint__NameAssignment_1");
 					put(grammarAccess.getConstraintAccess().getTypeAssignment_3(), "rule__Constraint__TypeAssignment_3");
 					put(grammarAccess.getConstraintAccess().getBody1Assignment_5(), "rule__Constraint__Body1Assignment_5");
@@ -128,10 +129,8 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstraintAccess().getRelTrans2Assignment_9(), "rule__Constraint__RelTrans2Assignment_9");
 					put(grammarAccess.getExternalLoadAccess().getNameAssignment_2(), "rule__ExternalLoad__NameAssignment_2");
 					put(grammarAccess.getExternalLoadAccess().getTypeAssignment_4(), "rule__ExternalLoad__TypeAssignment_4");
-					put(grammarAccess.getExternalLoadAccess().getBody1Assignment_6(), "rule__ExternalLoad__Body1Assignment_6");
+					put(grammarAccess.getExternalLoadAccess().getBodyAssignment_6(), "rule__ExternalLoad__BodyAssignment_6");
 					put(grammarAccess.getExternalLoadAccess().getRelTrans1Assignment_7(), "rule__ExternalLoad__RelTrans1Assignment_7");
-					put(grammarAccess.getExternalLoadAccess().getBody2Assignment_9(), "rule__ExternalLoad__Body2Assignment_9");
-					put(grammarAccess.getExternalLoadAccess().getRelTrans2Assignment_10(), "rule__ExternalLoad__RelTrans2Assignment_10");
 					put(grammarAccess.getBaseMatrixAccess().getNameAssignment_0_1(), "rule__BaseMatrix__NameAssignment_0_1");
 					put(grammarAccess.getBaseMatrixAccess().getValuesAssignment_2(), "rule__BaseMatrix__ValuesAssignment_2");
 					put(grammarAccess.getBaseMatrixAccess().getValuesAssignment_3_1(), "rule__BaseMatrix__ValuesAssignment_3_1");

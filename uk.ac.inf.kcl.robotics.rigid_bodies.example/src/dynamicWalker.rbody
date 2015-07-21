@@ -71,8 +71,8 @@ system DynamicWalker {
 	}
 	
 	joint ankle : YRevolve start
-		between base (with relative transformation matrix Origin [0.0, 0.0, 0.0], reorient DefaultReorient ((x, 0.0)))
-		and shank1 (with relative transformation Origin, DefaultReorient)
+		between base (with relative transformation matrix Origin [0.0, 0.0, 0.0], reorient NoReorient ())
+		and shank1 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -81,8 +81,8 @@ system DynamicWalker {
 		}
 			                                            
 	joint knee1 : YRevolve
-		between shank1 (with relative transformation matrix OO1 [0.0, 0.0, 1.0], DefaultReorient)
-		and thigh1 (with relative transformation Origin, DefaultReorient)
+		between shank1 (with relative transformation matrix OO1 [0.0, 0.0, 1.0], NoReorient)
+		and thigh1 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -91,8 +91,8 @@ system DynamicWalker {
 		}
 		
 	joint hip1 : YRevolve
-		between thigh1 (with relative transformation OO1, DefaultReorient)
-		and thigh2 (with relative transformation Origin, DefaultReorient)
+		between thigh1 (with relative transformation matrix O11 [0.0, 1.0, 1.0], NoReorient)
+		and thigh2 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -101,8 +101,8 @@ system DynamicWalker {
 		}
 		
 	joint knee2 : YRevolve
-		between thigh2 (with relative transformation matrix OOM1 [0.0, 0.0, -1.0], DefaultReorient)
-		and shank2 (with relative transformation Origin, DefaultReorient)
+		between thigh2 (with relative transformation matrix OOM1 [0.0, 0.0, -1.0], NoReorient)
+		and shank2 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -111,8 +111,8 @@ system DynamicWalker {
 		}
 		
 	joint hip2 : revolute(y, x, z)
-		between thigh1 (with relative transformation Origin, DefaultReorient)
-		and torso (with relative transformation Origin, DefaultReorient)
+		between thigh1 (with relative transformation matrix OP51 [0.0, 0.5, -1.0], NoReorient)
+		and torso (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -121,8 +121,8 @@ system DynamicWalker {
 		}
 		
 	joint shoulder1 : joint type XRevolve revolute(x)
-		between torso (with relative transformation OO1, DefaultReorient)
-		and hand1 (with relative transformation Origin, DefaultReorient)
+		between torso (with relative transformation matrix OP251 [0.0, -0.25, 1.0], NoReorient)
+		and hand1 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -130,9 +130,9 @@ system DynamicWalker {
 			dampCoulomb 5.0
 		}
 		
-	joint shoulder2 : XRevolve
-		between torso (with relative transformation OO1, DefaultReorient)
-		and hand2 (with relative transformation Origin, DefaultReorient)
+	joint shoulder1 : joint type XRevolve revolute(x)
+		between torso (with relative transformation matrix OMP251 [0.0, 0.25, 1.0], NoReorient)
+		and hand1 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -140,17 +140,20 @@ system DynamicWalker {
 			dampCoulomb 5.0
 		}
 		
-		
-	constraint foot2 : geometrical
-		between shank2 (with relative transformation OOM1, DefaultReorient)
-		and base (with relative transformation matrix O1O [0.0, 1.0, 0.0], DefaultReorient)	
+	joint foot2 : YRevolve // it is a constraint because it makes a loop
+		between shank2 (with relative transformation OOM1, NoReorient)
+		and base (with relative transformation matrix O1O [0.0, 1.0, 0.0], NoReorient)
+		stiffness {
+			springCoeff 5.0 
+			springInit 5.0
+			dampViscous 5.0
+			dampCoulomb 5.0
+		}
 
 	external load foot2 : force
-		between shank1 (with relative transformation Origin, DefaultReorient)
-		and base (with relative transformation Origin, DefaultReorient)	
+		at shank1 (with relative transformation Origin, NoReorient)	
 		
 	external load foot2 : force
-		between shank2 (with relative transformation OOM1, DefaultReorient)
-		and base (with relative transformation O1O, DefaultReorient)
+		at shank2 (with relative transformation OOM1, NoReorient)
 		
 }

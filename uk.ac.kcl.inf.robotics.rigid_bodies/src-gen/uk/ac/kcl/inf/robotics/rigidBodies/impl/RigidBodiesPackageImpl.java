@@ -871,7 +871,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExternalLoad_Body1()
+  public EReference getExternalLoad_Body()
   {
     return (EReference)externalLoadEClass.getEStructuralFeatures().get(1);
   }
@@ -884,26 +884,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
   public EReference getExternalLoad_RelTrans1()
   {
     return (EReference)externalLoadEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getExternalLoad_Body2()
-  {
-    return (EReference)externalLoadEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getExternalLoad_RelTrans2()
-  {
-    return (EReference)externalLoadEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1257,10 +1237,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     externalLoadEClass = createEClass(EXTERNAL_LOAD);
     createEAttribute(externalLoadEClass, EXTERNAL_LOAD__TYPE);
-    createEReference(externalLoadEClass, EXTERNAL_LOAD__BODY1);
+    createEReference(externalLoadEClass, EXTERNAL_LOAD__BODY);
     createEReference(externalLoadEClass, EXTERNAL_LOAD__REL_TRANS1);
-    createEReference(externalLoadEClass, EXTERNAL_LOAD__BODY2);
-    createEReference(externalLoadEClass, EXTERNAL_LOAD__REL_TRANS2);
 
     matrixEClass = createEClass(MATRIX);
 
@@ -1414,10 +1392,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(externalLoadEClass, ExternalLoad.class, "ExternalLoad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExternalLoad_Type(), this.getLoadType(), "type", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExternalLoad_Body1(), this.getBodyReference(), null, "body1", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalLoad_Body(), this.getBodyReference(), null, "body", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExternalLoad_RelTrans1(), this.getRelativeTransformation(), null, "relTrans1", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExternalLoad_Body2(), this.getBodyReference(), null, "body2", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExternalLoad_RelTrans2(), this.getRelativeTransformation(), null, "relTrans2", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(matrixEClass, Matrix.class, "Matrix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

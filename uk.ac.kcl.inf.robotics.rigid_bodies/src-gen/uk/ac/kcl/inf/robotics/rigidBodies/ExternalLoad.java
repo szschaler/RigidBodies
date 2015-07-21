@@ -12,10 +12,8 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * The following features are supported:
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getType <em>Type</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1 <em>Body1</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody <em>Body</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans1 <em>Rel Trans1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2 <em>Body2</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans2 <em>Rel Trans2</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,30 +53,30 @@ public interface ExternalLoad extends SystemElement
   void setType(LoadType value);
 
   /**
-   * Returns the value of the '<em><b>Body1</b></em>' containment reference.
+   * Returns the value of the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Body1</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Body</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Body1</em>' containment reference.
-   * @see #setBody1(BodyReference)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getExternalLoad_Body1()
+   * @return the value of the '<em>Body</em>' containment reference.
+   * @see #setBody(BodyReference)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getExternalLoad_Body()
    * @model containment="true"
    * @generated
    */
-  BodyReference getBody1();
+  BodyReference getBody();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody1 <em>Body1</em>}' containment reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody <em>Body</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Body1</em>' containment reference.
-   * @see #getBody1()
+   * @param value the new value of the '<em>Body</em>' containment reference.
+   * @see #getBody()
    * @generated
    */
-  void setBody1(BodyReference value);
+  void setBody(BodyReference value);
 
   /**
    * Returns the value of the '<em><b>Rel Trans1</b></em>' containment reference.
@@ -105,57 +103,5 @@ public interface ExternalLoad extends SystemElement
    * @generated
    */
   void setRelTrans1(RelativeTransformation value);
-
-  /**
-   * Returns the value of the '<em><b>Body2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Body2</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Body2</em>' containment reference.
-   * @see #setBody2(BodyReference)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getExternalLoad_Body2()
-   * @model containment="true"
-   * @generated
-   */
-  BodyReference getBody2();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody2 <em>Body2</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Body2</em>' containment reference.
-   * @see #getBody2()
-   * @generated
-   */
-  void setBody2(BodyReference value);
-
-  /**
-   * Returns the value of the '<em><b>Rel Trans2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Rel Trans2</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Rel Trans2</em>' containment reference.
-   * @see #setRelTrans2(RelativeTransformation)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getExternalLoad_RelTrans2()
-   * @model containment="true"
-   * @generated
-   */
-  RelativeTransformation getRelTrans2();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans2 <em>Rel Trans2</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rel Trans2</em>' containment reference.
-   * @see #getRelTrans2()
-   * @generated
-   */
-  void setRelTrans2(RelativeTransformation value);
 
 } // ExternalLoad
