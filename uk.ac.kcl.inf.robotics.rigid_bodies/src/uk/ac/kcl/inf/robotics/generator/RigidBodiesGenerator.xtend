@@ -3,13 +3,19 @@
  */
 package uk.ac.kcl.inf.robotics.generator
 
+import java.util.HashMap
+import java.util.LinkedList
+import java.util.List
+import java.util.Map
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
+import uk.ac.kcl.inf.robotics.rigidBodies.Body
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment
+import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.Model
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp
@@ -23,16 +29,67 @@ import uk.ac.kcl.inf.robotics.rigidBodies.System
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class RigidBodiesGenerator implements IGenerator {
-	
+
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.allContents.filter(Model).head
-		resource.allContents.filter(System)
-			.forEach [s | 
-				fsa.generateFile ('''«s.name».m'''.toString(), s.generate(model.world))
-			]
+		val bodyLists = new HashMap
+		val jointLists = new HashMap
+		resource.allContents.filter(System).forEach [ s |
+			s.buildJointList(jointLists, bodyLists)
+			fsa.generateFile('''«s.name».m'''.toString(), s.generate(model.world, bodyLists, jointLists))
+		]
 	}
-	
-	def generate(System system, Environment world) '''
+
+	def buildJointList(System s, Map<System, List<Joint>> jointLists, Map<System, List<Body>> bodyLists) {
+		var jointList = new LinkedList
+		var bodyList = new LinkedList
+		var jointsRemaining = new LinkedList
+
+		jointsRemaining.add(s.getStartJoint)
+
+		while (jointsRemaining.size > 0) {
+			val currentJoint = jointsRemaining.remove(0)
+
+			// If we haven't processed this joint yet, do so now
+			if (! jointList.contains(currentJoint)) {
+				// Check it's not a constraint masquerading as a joint
+				if (!currentJoint.body2.base) {
+					// All is well, actually process the joint
+					jointList.add(currentJoint)
+
+					val tgtBody = currentJoint.body2.ref
+
+					if (!bodyList.contains(tgtBody)) {
+						bodyList.add(tgtBody)
+
+						jointsRemaining.addAll(s.getJointFanOut(tgtBody))
+					}
+				}
+			}
+		}
+
+		bodyLists.put(s, bodyList)
+		jointLists.put(s, jointList)
+	}
+
+	// TODO Support start flag or remove it from the language
+	def getStartJoint(System s) {
+		s.elements.filter(Joint).findFirst[j|j.body1.base]
+	}
+
+	/**
+	 * Find all Joints that connect from the given body in the given system.
+	 */
+	def getJointFanOut(System s, Body b) {
+		s.elements.filter(Joint).filter[j|j.body1.ref == b]
+	}
+
+	def generate(System system, 
+		         Environment world, 
+		         Map<System, List<Body>> bodyLists, 
+		         Map<System, List<Joint>> jointLists) '''
+		«val bodyList = bodyLists.get (system)»
+		«val jointList = jointLists.get (system)»
 		% EOM Simulation:
 		clc
 		clear all
@@ -42,13 +99,19 @@ class RigidBodiesGenerator implements IGenerator {
 		g = [«world.gravity.renderValues»]
 		
 		% Inputs
+		lc = [« // TODO Generate location matrix
+				
+			»]
+		
+		m = [« // Generate masses vector
+		bodyList.join (', ', [b | b.mass.value.render])»]
 		
 		% Run program -- Should this really be generated?
 		
 		% EOM:
 		[ M , T , Dd , fg , fj , rj , rc , vc , wc , ref , rcn ,  Tef , Tcn , Dcn , qf , uf ] = ...
 			TMTEoM ( lc , m , I , j , jkd , g );
-
+		
 		% numerical simulation
 		[ t , z , tfinal ] = SimEoM ( M , T , Dd , fg , fj , qf , uf , 1 );
 		plot ( t , z );
@@ -57,28 +120,28 @@ class RigidBodiesGenerator implements IGenerator {
 		% animation
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
-	
-	def dispatch CharSequence renderValues (MatrixRef mr) {
+
+	def dispatch CharSequence renderValues(MatrixRef mr) {
 		mr.matrix.renderValues
 	}
-	
-	def dispatch CharSequence renderValues (BaseMatrix bm) {
-		bm.values.join(', ', [v | v.render])
+
+	def dispatch CharSequence renderValues(BaseMatrix bm) {
+		bm.values.join(', ', [v|v.render])
 	}
-	
-	def dispatch CharSequence render (AddExp e) {
-		'''«e.left.render» «(0..<e.op.size).join (' ', [idx | '''«e.op.get (idx)» «e.right.get(idx).render»'''])»'''	
+
+	def dispatch CharSequence render(AddExp e) {
+		'''«e.left.render» «(0..<e.op.size).join (' ', [idx | '''«e.op.get (idx)» «e.right.get(idx).render»'''])»'''
 	}
-	
-	def dispatch CharSequence render (MultExp e) 
-		'''«e.left.render» «(0..<e.op.size).join (' ', [idx | '''«e.op.get (idx)» «e.right.get(idx).render»'''])»'''	
-		
-	def dispatch CharSequence render (ParenthesisedExp pe) 
-		'''(«pe.exp.render»)'''
-	
-	def dispatch CharSequence render (NumberLiteral literal) 
-		'''«if (literal.isNeg) {'''-'''}»«literal.value»'''
-	
-	def dispatch CharSequence render (ConstantOrFunctionCallExp cofce) 
-		'''«cofce.label» «if (cofce.param.size > 0) {'''(«cofce.param.join (', ', [p | p.render])»)'''}»'''
+
+	def dispatch CharSequence render(
+		MultExp e
+	) '''«e.left.render» «(0..<e.op.size).join (' ', [idx | '''«e.op.get (idx)» «e.right.get(idx).render»'''])»'''
+
+	def dispatch CharSequence render(ParenthesisedExp pe) '''(«pe.exp.render»)'''
+
+	def dispatch CharSequence render(NumberLiteral literal) '''«if (literal.isNeg) {'''-'''}»«literal.value»'''
+
+	def dispatch CharSequence render(
+		ConstantOrFunctionCallExp cofce
+	) '''«cofce.label» «if (cofce.param.size > 0) {'''(«cofce.param.join (', ', [p | p.render])»)'''}»'''
 }

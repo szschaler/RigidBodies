@@ -7,6 +7,7 @@ close all
 g = [9.81 * cos (pi  / 3.0), 0.0, 9.81 * sin (pi  / 3.0)]
 
 % Inputs
+m = [1.0, 1.0, 1.0, 1.5, 1.0, 1.0]
 
 % Run program -- Should this really be generated?
 
