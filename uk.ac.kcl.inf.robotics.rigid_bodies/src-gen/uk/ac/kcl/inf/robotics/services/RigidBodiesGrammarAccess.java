@@ -474,16 +474,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightPrimaryJointTypeParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//AdditiveJointType returns JointTypeExpression:
-		//	PrimaryJointType ("+" {AdditiveJointType.left=current} right=PrimaryJointType)*;
+		//	PrimaryJointType ("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//PrimaryJointType ("+" {AdditiveJointType.left=current} right=PrimaryJointType)*
+		//PrimaryJointType ("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*
 		public Group getGroup() { return cGroup; }
 
 		//PrimaryJointType
 		public RuleCall getPrimaryJointTypeParserRuleCall_0() { return cPrimaryJointTypeParserRuleCall_0; }
 
-		//("+" {AdditiveJointType.left=current} right=PrimaryJointType)*
+		//("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"+"
@@ -492,7 +492,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//{AdditiveJointType.left=current}
 		public Action getAdditiveJointTypeLeftAction_1_1() { return cAdditiveJointTypeLeftAction_1_1; }
 
-		//right=PrimaryJointType
+		//right+=PrimaryJointType
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 
 		//PrimaryJointType
@@ -502,60 +502,64 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	public class PrimaryJointTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrimaryJointType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cRefAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final CrossReference cRefJointTypeCrossReference_0_0 = (CrossReference)cRefAssignment_0.eContents().get(0);
-		private final RuleCall cRefJointTypeIDTerminalRuleCall_0_0_1 = (RuleCall)cRefJointTypeCrossReference_0_0.eContents().get(1);
+		private final RuleCall cJointTypeReferenceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBasicJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//PrimaryJointType returns JointTypeExpression:
-		//	ref=[JointType] | BasicJointType;
+		//	JointTypeReference | BasicJointType;
 		@Override public ParserRule getRule() { return rule; }
 
-		//ref=[JointType] | BasicJointType
+		//JointTypeReference | BasicJointType
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//ref=[JointType]
-		public Assignment getRefAssignment_0() { return cRefAssignment_0; }
-
-		//[JointType]
-		public CrossReference getRefJointTypeCrossReference_0_0() { return cRefJointTypeCrossReference_0_0; }
-
-		//ID
-		public RuleCall getRefJointTypeIDTerminalRuleCall_0_0_1() { return cRefJointTypeIDTerminalRuleCall_0_0_1; }
+		//JointTypeReference
+		public RuleCall getJointTypeReferenceParserRuleCall_0() { return cJointTypeReferenceParserRuleCall_0; }
 
 		//BasicJointType
 		public RuleCall getBasicJointTypeParserRuleCall_1() { return cBasicJointTypeParserRuleCall_1; }
+	}
+
+	public class JointTypeReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointTypeReference");
+		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cRefJointTypeCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
+		private final RuleCall cRefJointTypeIDTerminalRuleCall_0_1 = (RuleCall)cRefJointTypeCrossReference_0.eContents().get(1);
+		
+		//JointTypeReference:
+		//	ref=[JointType];
+		@Override public ParserRule getRule() { return rule; }
+
+		//ref=[JointType]
+		public Assignment getRefAssignment() { return cRefAssignment; }
+
+		//[JointType]
+		public CrossReference getRefJointTypeCrossReference_0() { return cRefJointTypeCrossReference_0; }
+
+		//ID
+		public RuleCall getRefJointTypeIDTerminalRuleCall_0_1() { return cRefJointTypeIDTerminalRuleCall_0_1; }
 	}
 
 	public class BasicJointTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicJointType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cTypeAlternatives_0_0 = (Alternatives)cTypeAssignment_0.eContents().get(0);
-		private final RuleCall cTypeRevoluteParserRuleCall_0_0_0 = (RuleCall)cTypeAlternatives_0_0.eContents().get(0);
-		private final RuleCall cTypePlanarParserRuleCall_0_0_1 = (RuleCall)cTypeAlternatives_0_0.eContents().get(1);
+		private final RuleCall cTypeJointMovementParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cStiffnessAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cStiffnessStiffnessExpParserRuleCall_2_0 = (RuleCall)cStiffnessAssignment_2.eContents().get(0);
 		
 		//BasicJointType:
-		//	type=(Revolute | Planar) "with" stiffness=StiffnessExp;
+		//	type=JointMovement "with" stiffness=StiffnessExp;
 		@Override public ParserRule getRule() { return rule; }
 
-		//type=(Revolute | Planar) "with" stiffness=StiffnessExp
+		//type=JointMovement "with" stiffness=StiffnessExp
 		public Group getGroup() { return cGroup; }
 
-		//type=(Revolute | Planar)
+		//type=JointMovement
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//Revolute | Planar
-		public Alternatives getTypeAlternatives_0_0() { return cTypeAlternatives_0_0; }
-
-		//Revolute
-		public RuleCall getTypeRevoluteParserRuleCall_0_0_0() { return cTypeRevoluteParserRuleCall_0_0_0; }
-
-		//Planar
-		public RuleCall getTypePlanarParserRuleCall_0_0_1() { return cTypePlanarParserRuleCall_0_0_1; }
+		//JointMovement
+		public RuleCall getTypeJointMovementParserRuleCall_0_0() { return cTypeJointMovementParserRuleCall_0_0; }
 
 		//"with"
 		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
@@ -565,6 +569,26 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//StiffnessExp
 		public RuleCall getStiffnessStiffnessExpParserRuleCall_2_0() { return cStiffnessStiffnessExpParserRuleCall_2_0; }
+	}
+
+	public class JointMovementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointMovement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cRevoluteParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPlanarParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//JointMovement:
+		//	Revolute | Planar;
+		@Override public ParserRule getRule() { return rule; }
+
+		//Revolute | Planar
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Revolute
+		public RuleCall getRevoluteParserRuleCall_0() { return cRevoluteParserRuleCall_0; }
+
+		//Planar
+		public RuleCall getPlanarParserRuleCall_1() { return cPlanarParserRuleCall_1; }
 	}
 
 	public class RevoluteElements extends AbstractParserRuleElementFinder {
@@ -1541,7 +1565,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final JointTypeElements pJointType;
 	private final AdditiveJointTypeElements pAdditiveJointType;
 	private final PrimaryJointTypeElements pPrimaryJointType;
+	private final JointTypeReferenceElements pJointTypeReference;
 	private final BasicJointTypeElements pBasicJointType;
+	private final JointMovementElements pJointMovement;
 	private final RevoluteElements pRevolute;
 	private final PlanarElements pPlanar;
 	private final StiffnessExpElements pStiffnessExp;
@@ -1588,7 +1614,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pJointType = new JointTypeElements();
 		this.pAdditiveJointType = new AdditiveJointTypeElements();
 		this.pPrimaryJointType = new PrimaryJointTypeElements();
+		this.pJointTypeReference = new JointTypeReferenceElements();
 		this.pBasicJointType = new BasicJointTypeElements();
+		this.pJointMovement = new JointMovementElements();
 		this.pRevolute = new RevoluteElements();
 		this.pPlanar = new PlanarElements();
 		this.pStiffnessExp = new StiffnessExpElements();
@@ -1757,7 +1785,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AdditiveJointType returns JointTypeExpression:
-	//	PrimaryJointType ("+" {AdditiveJointType.left=current} right=PrimaryJointType)*;
+	//	PrimaryJointType ("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*;
 	public AdditiveJointTypeElements getAdditiveJointTypeAccess() {
 		return pAdditiveJointType;
 	}
@@ -1767,7 +1795,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PrimaryJointType returns JointTypeExpression:
-	//	ref=[JointType] | BasicJointType;
+	//	JointTypeReference | BasicJointType;
 	public PrimaryJointTypeElements getPrimaryJointTypeAccess() {
 		return pPrimaryJointType;
 	}
@@ -1776,14 +1804,34 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getPrimaryJointTypeAccess().getRule();
 	}
 
+	//JointTypeReference:
+	//	ref=[JointType];
+	public JointTypeReferenceElements getJointTypeReferenceAccess() {
+		return pJointTypeReference;
+	}
+	
+	public ParserRule getJointTypeReferenceRule() {
+		return getJointTypeReferenceAccess().getRule();
+	}
+
 	//BasicJointType:
-	//	type=(Revolute | Planar) "with" stiffness=StiffnessExp;
+	//	type=JointMovement "with" stiffness=StiffnessExp;
 	public BasicJointTypeElements getBasicJointTypeAccess() {
 		return pBasicJointType;
 	}
 	
 	public ParserRule getBasicJointTypeRule() {
 		return getBasicJointTypeAccess().getRule();
+	}
+
+	//JointMovement:
+	//	Revolute | Planar;
+	public JointMovementElements getJointMovementAccess() {
+		return pJointMovement;
+	}
+	
+	public ParserRule getJointMovementRule() {
+		return getJointMovementAccess().getRule();
 	}
 
 	//Revolute:

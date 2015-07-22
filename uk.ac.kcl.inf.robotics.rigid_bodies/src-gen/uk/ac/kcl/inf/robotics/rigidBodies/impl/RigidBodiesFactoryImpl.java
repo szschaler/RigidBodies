@@ -28,8 +28,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
@@ -113,7 +115,9 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.JOINT: return createJoint();
       case RigidBodiesPackage.JOINT_TYPE: return createJointType();
       case RigidBodiesPackage.JOINT_TYPE_EXPRESSION: return createJointTypeExpression();
+      case RigidBodiesPackage.JOINT_TYPE_REFERENCE: return createJointTypeReference();
       case RigidBodiesPackage.BASIC_JOINT_TYPE: return createBasicJointType();
+      case RigidBodiesPackage.JOINT_MOVEMENT: return createJointMovement();
       case RigidBodiesPackage.REVOLUTE: return createRevolute();
       case RigidBodiesPackage.PLANAR: return createPlanar();
       case RigidBodiesPackage.STIFFNESS_EXP: return createStiffnessExp();
@@ -318,10 +322,32 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
+  public JointTypeReference createJointTypeReference()
+  {
+    JointTypeReferenceImpl jointTypeReference = new JointTypeReferenceImpl();
+    return jointTypeReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public BasicJointType createBasicJointType()
   {
     BasicJointTypeImpl basicJointType = new BasicJointTypeImpl();
     return basicJointType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JointMovement createJointMovement()
+  {
+    JointMovementImpl jointMovement = new JointMovementImpl();
+    return jointMovement;
   }
 
   /**

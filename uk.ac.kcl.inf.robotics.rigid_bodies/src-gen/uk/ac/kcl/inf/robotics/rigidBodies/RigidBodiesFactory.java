@@ -131,6 +131,15 @@ public interface RigidBodiesFactory extends EFactory
   JointTypeExpression createJointTypeExpression();
 
   /**
+   * Returns a new object of class '<em>Joint Type Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Joint Type Reference</em>'.
+   * @generated
+   */
+  JointTypeReference createJointTypeReference();
+
+  /**
    * Returns a new object of class '<em>Basic Joint Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,6 +147,15 @@ public interface RigidBodiesFactory extends EFactory
    * @generated
    */
   BasicJointType createBasicJointType();
+
+  /**
+   * Returns a new object of class '<em>Joint Movement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Joint Movement</em>'.
+   * @generated
+   */
+  JointMovement createJointMovement();
 
   /**
    * Returns a new object of class '<em>Revolute</em>'.

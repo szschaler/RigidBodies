@@ -62,19 +62,19 @@
     <genClasses ecoreClass="RigidBodies.ecore#//JointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//JointType/exp"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//JointTypeExpression">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//JointTypeExpression/ref"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//JointTypeExpression"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//JointTypeReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//JointTypeReference/ref"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//BasicJointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BasicJointType/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BasicJointType/stiffness"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//Revolute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Revolute/axis"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//JointMovement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//JointMovement/axis"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//Planar">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Planar/axis"/>
-    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//Revolute"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//Planar"/>
     <genClasses ecoreClass="RigidBodies.ecore#//StiffnessExp"/>
     <genClasses ecoreClass="RigidBodies.ecore#//StiffnessRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//StiffnessRef/ref"/>

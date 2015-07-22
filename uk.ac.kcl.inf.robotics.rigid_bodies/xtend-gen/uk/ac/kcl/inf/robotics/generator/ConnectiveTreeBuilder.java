@@ -11,13 +11,19 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -113,6 +119,12 @@ public class ConnectiveTreeBuilder {
   private List<Pair<String, BaseMatrix>> loadPositions = new LinkedList<Pair<String, BaseMatrix>>();
   
   private List<Pair<Integer, Pair<String, Integer>>> loadLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>();
+  
+  private List<Pair<String, List<JointMovement>>> jointStates = new LinkedList<Pair<String, List<JointMovement>>>();
+  
+  private List<Pair<String, List<JointMovement>>> constraintStates = new LinkedList<Pair<String, List<JointMovement>>>();
+  
+  private List<Pair<String, List<JointMovement>>> loadStates = new LinkedList<Pair<String, List<JointMovement>>>();
   
   public ConnectiveTreeBuilder(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
     this.system = s;
@@ -254,7 +266,8 @@ public class ConnectiveTreeBuilder {
       if (_isJoint) {
         boolean _xblockexpression_1 = false;
         {
-          BodyReference _body2 = ((Joint) ct.connective).getBody2();
+          final Joint joint = ((Joint) ct.connective);
+          BodyReference _body2 = joint.getBody2();
           final Body bTgt = _body2.getRef();
           final Mass mTgt = bTgt.getMass();
           String _name_3 = bTgt.getName();
@@ -273,7 +286,14 @@ public class ConnectiveTreeBuilder {
           Pair<String, BaseMatrix> _pair_4 = new Pair<String, BaseMatrix>(_plus_3, _matrix_1);
           this.positions.add(_pair_4);
           Pair<Integer, Pair<String, Integer>> _pair_5 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
-          _xblockexpression_1 = this.lcCodeColumns.add(_pair_5);
+          this.lcCodeColumns.add(_pair_5);
+          String _name_6 = joint.getName();
+          String _plus_4 = ("joint " + _name_6);
+          JointType _type = joint.getType();
+          JointTypeExpression _exp = _type.getExp();
+          List<JointMovement> _stateList = this.toStateList(_exp);
+          Pair<String, List<JointMovement>> _pair_6 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
+          _xblockexpression_1 = this.jointStates.add(_pair_6);
         }
         _xifexpression = _xblockexpression_1;
       } else {
@@ -281,7 +301,8 @@ public class ConnectiveTreeBuilder {
         if (ct.isConstraint) {
           boolean _xblockexpression_2 = false;
           {
-            BodyReference _body1 = ((Joint) ct.connective).getBody1();
+            final Joint joint = ((Joint) ct.connective);
+            BodyReference _body1 = joint.getBody1();
             final Body bTgt = _body1.getRef();
             final Mass mTgt = bTgt.getMass();
             String _name_3 = bTgt.getName();
@@ -291,7 +312,14 @@ public class ConnectiveTreeBuilder {
             Pair<String, BaseMatrix> _pair_2 = new Pair<String, BaseMatrix>(_plus_3, _matrix);
             this.constraintPositions.add(_pair_2);
             Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(1), parentDesc);
-            _xblockexpression_2 = this.constraintLcCodeColumns.add(_pair_3);
+            this.constraintLcCodeColumns.add(_pair_3);
+            String _name_4 = joint.getName();
+            String _plus_4 = ("constraint joint " + _name_4);
+            JointType _type = joint.getType();
+            JointTypeExpression _exp = _type.getExp();
+            List<JointMovement> _stateList = this.toStateList(_exp);
+            Pair<String, List<JointMovement>> _pair_4 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
+            _xblockexpression_2 = this.constraintStates.add(_pair_4);
           }
           _xifexpression_1 = _xblockexpression_2;
         } else {
@@ -305,7 +333,11 @@ public class ConnectiveTreeBuilder {
             Pair<String, BaseMatrix> _pair_2 = new Pair<String, BaseMatrix>(_plus_3, _matrix);
             this.loadPositions.add(_pair_2);
             Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(2), parentDesc);
-            _xblockexpression_3 = this.loadLcCodeColumns.add(_pair_3);
+            this.loadLcCodeColumns.add(_pair_3);
+            String _name_4 = load.getName();
+            String _plus_4 = ("load " + _name_4);
+            Pair<String, List<JointMovement>> _pair_4 = new Pair<String, List<JointMovement>>(_plus_4, null);
+            _xblockexpression_3 = this.loadStates.add(_pair_4);
           }
           _xifexpression_1 = _xblockexpression_3;
         }
@@ -314,6 +346,39 @@ public class ConnectiveTreeBuilder {
       _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
+  }
+  
+  private List<JointMovement> _toStateList(final AdditiveJointType ajt) {
+    final List<JointMovement> lResult = new LinkedList<JointMovement>();
+    JointTypeExpression _left = ajt.getLeft();
+    List<JointMovement> _stateList = this.toStateList(_left);
+    lResult.addAll(_stateList);
+    EList<JointTypeExpression> _right = ajt.getRight();
+    final Procedure1<JointTypeExpression> _function = new Procedure1<JointTypeExpression>() {
+      @Override
+      public void apply(final JointTypeExpression jte) {
+        List<JointMovement> _stateList = ConnectiveTreeBuilder.this.toStateList(jte);
+        lResult.addAll(_stateList);
+      }
+    };
+    IterableExtensions.<JointTypeExpression>forEach(_right, _function);
+    return lResult;
+  }
+  
+  private List<JointMovement> _toStateList(final JointTypeReference jtr) {
+    final List<JointMovement> lResult = new LinkedList<JointMovement>();
+    JointType _ref = jtr.getRef();
+    JointTypeExpression _exp = _ref.getExp();
+    List<JointMovement> _stateList = this.toStateList(_exp);
+    lResult.addAll(_stateList);
+    return lResult;
+  }
+  
+  private List<JointMovement> _toStateList(final BasicJointType bjt) {
+    final List<JointMovement> lResult = new LinkedList<JointMovement>();
+    JointMovement _type = bjt.getType();
+    lResult.add(_type);
+    return lResult;
   }
   
   private BaseMatrix _getMatrix(final BaseMatrix m) {
@@ -358,6 +423,32 @@ public class ConnectiveTreeBuilder {
   
   public List<Pair<Integer, Pair<String, Integer>>> getLoadLcCodeColumns() {
     return this.loadLcCodeColumns;
+  }
+  
+  private List<Pair<String, List<JointMovement>>> allStates = null;
+  
+  public List<Pair<String, List<JointMovement>>> getStates() {
+    boolean _equals = Objects.equal(this.allStates, null);
+    if (_equals) {
+      LinkedList<Pair<String, List<JointMovement>>> _linkedList = new LinkedList<Pair<String, List<JointMovement>>>(this.jointStates);
+      this.allStates = _linkedList;
+      this.allStates.addAll(this.constraintStates);
+      this.allStates.addAll(this.loadStates);
+    }
+    return this.allStates;
+  }
+  
+  private List<JointMovement> toStateList(final JointTypeExpression ajt) {
+    if (ajt instanceof AdditiveJointType) {
+      return _toStateList((AdditiveJointType)ajt);
+    } else if (ajt instanceof BasicJointType) {
+      return _toStateList((BasicJointType)ajt);
+    } else if (ajt instanceof JointTypeReference) {
+      return _toStateList((JointTypeReference)ajt);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(ajt).toString());
+    }
   }
   
   private BaseMatrix getMatrix(final Matrix m) {

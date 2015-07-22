@@ -2,6 +2,7 @@
  */
 package uk.ac.kcl.inf.robotics.rigidBodies;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,29 +50,19 @@ public interface AdditiveJointType extends JointTypeExpression
   void setLeft(JointTypeExpression value);
 
   /**
-   * Returns the value of the '<em><b>Right</b></em>' containment reference.
+   * Returns the value of the '<em><b>Right</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Right</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Right</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(JointTypeExpression)
+   * @return the value of the '<em>Right</em>' containment reference list.
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getAdditiveJointType_Right()
    * @model containment="true"
    * @generated
    */
-  JointTypeExpression getRight();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType#getRight <em>Right</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right</em>' containment reference.
-   * @see #getRight()
-   * @generated
-   */
-  void setRight(JointTypeExpression value);
+  EList<JointTypeExpression> getRight();
 
 } // AdditiveJointType

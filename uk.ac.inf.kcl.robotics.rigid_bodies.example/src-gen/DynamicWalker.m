@@ -94,6 +94,41 @@ I (:, :, 6) = [
 	0.0 1.0e-3.0 0.0;
 	0.0 0.0 1.0e-3.0];
 
+% Joint specifications
+j = sym (zeros (3, 5, 10))
+% Joint rotations for joint ankle
+j (:, :, 1) = [
+	2 inf 0 0 0];
+% Joint rotations for joint knee1
+j (:, :, 2) = [
+	2 inf 0 0 0];
+% Joint rotations for joint hip1
+j (:, :, 3) = [
+	2 inf 0 0 0];
+% Joint rotations for joint knee2
+j (:, :, 4) = [
+	2 inf 0 0 0];
+% Joint rotations for joint hip2
+j (:, :, 5) = [
+	2 inf 0 0 0;
+	1 inf 0 0 0;
+	3 inf 0 0 0];
+% Joint rotations for joint shoulder1
+j (:, :, 6) = [
+	1 inf 0 0 0];
+% Joint rotations for joint shoulder2
+j (:, :, 7) = [
+	1 inf 0 0 0];
+% Joint rotations for constraint joint foot2J
+j (:, :, 8) = [
+	2 inf 0 0 0];
+% Joint rotations for load foot2L
+j (:, :, 9) = [
+	0 0 0 0 0];
+% Joint rotations for load foot1L
+j (:, :, 10) = [
+	0 0 0 0 0];
+
 % Run program -- Should this really be generated?
 
 % EOM:

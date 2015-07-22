@@ -2,7 +2,6 @@
  */
 package uk.ac.kcl.inf.robotics.rigidBodies;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,12 +31,12 @@ public interface BasicJointType extends JointTypeExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(EObject)
+   * @see #setType(JointMovement)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBasicJointType_Type()
    * @model containment="true"
    * @generated
    */
-  EObject getType();
+  JointMovement getType();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType#getType <em>Type</em>}' containment reference.
@@ -47,7 +46,7 @@ public interface BasicJointType extends JointTypeExpression
    * @see #getType()
    * @generated
    */
-  void setType(EObject value);
+  void setType(JointMovement value);
 
   /**
    * Returns the value of the '<em><b>Stiffness</b></em>' containment reference.

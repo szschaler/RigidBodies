@@ -6,12 +6,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 
@@ -39,7 +39,7 @@ public class BasicJointTypeImpl extends JointTypeExpressionImpl implements Basic
    * @generated
    * @ordered
    */
-  protected EObject type;
+  protected JointMovement type;
 
   /**
    * The cached value of the '{@link #getStiffness() <em>Stiffness</em>}' containment reference.
@@ -77,7 +77,7 @@ public class BasicJointTypeImpl extends JointTypeExpressionImpl implements Basic
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getType()
+  public JointMovement getType()
   {
     return type;
   }
@@ -87,9 +87,9 @@ public class BasicJointTypeImpl extends JointTypeExpressionImpl implements Basic
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(EObject newType, NotificationChain msgs)
+  public NotificationChain basicSetType(JointMovement newType, NotificationChain msgs)
   {
-    EObject oldType = type;
+    JointMovement oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -104,7 +104,7 @@ public class BasicJointTypeImpl extends JointTypeExpressionImpl implements Basic
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(EObject newType)
+  public void setType(JointMovement newType)
   {
     if (newType != type)
     {
@@ -215,7 +215,7 @@ public class BasicJointTypeImpl extends JointTypeExpressionImpl implements Basic
     switch (featureID)
     {
       case RigidBodiesPackage.BASIC_JOINT_TYPE__TYPE:
-        setType((EObject)newValue);
+        setType((JointMovement)newValue);
         return;
       case RigidBodiesPackage.BASIC_JOINT_TYPE__STIFFNESS:
         setStiffness((StiffnessExp)newValue);
@@ -235,7 +235,7 @@ public class BasicJointTypeImpl extends JointTypeExpressionImpl implements Basic
     switch (featureID)
     {
       case RigidBodiesPackage.BASIC_JOINT_TYPE__TYPE:
-        setType((EObject)null);
+        setType((JointMovement)null);
         return;
       case RigidBodiesPackage.BASIC_JOINT_TYPE__STIFFNESS:
         setStiffness((StiffnessExp)null);

@@ -42,7 +42,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConnectiveAccess().getAlternatives(), "rule__Connective__Alternatives");
 					put(grammarAccess.getBodyReferenceAccess().getAlternatives(), "rule__BodyReference__Alternatives");
 					put(grammarAccess.getPrimaryJointTypeAccess().getAlternatives(), "rule__PrimaryJointType__Alternatives");
-					put(grammarAccess.getBasicJointTypeAccess().getTypeAlternatives_0_0(), "rule__BasicJointType__TypeAlternatives_0_0");
+					put(grammarAccess.getJointMovementAccess().getAlternatives(), "rule__JointMovement__Alternatives");
 					put(grammarAccess.getStiffnessExpAccess().getAlternatives(), "rule__StiffnessExp__Alternatives");
 					put(grammarAccess.getReorientExpressionAccess().getAlternatives(), "rule__ReorientExpression__Alternatives");
 					put(grammarAccess.getMatrixAccess().getAlternatives(), "rule__Matrix__Alternatives");
@@ -109,7 +109,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJointTypeAccess().getNameAssignment_0_2(), "rule__JointType__NameAssignment_0_2");
 					put(grammarAccess.getJointTypeAccess().getExpAssignment_1(), "rule__JointType__ExpAssignment_1");
 					put(grammarAccess.getAdditiveJointTypeAccess().getRightAssignment_1_2(), "rule__AdditiveJointType__RightAssignment_1_2");
-					put(grammarAccess.getPrimaryJointTypeAccess().getRefAssignment_0(), "rule__PrimaryJointType__RefAssignment_0");
+					put(grammarAccess.getJointTypeReferenceAccess().getRefAssignment(), "rule__JointTypeReference__RefAssignment");
 					put(grammarAccess.getBasicJointTypeAccess().getTypeAssignment_0(), "rule__BasicJointType__TypeAssignment_0");
 					put(grammarAccess.getBasicJointTypeAccess().getStiffnessAssignment_2(), "rule__BasicJointType__StiffnessAssignment_2");
 					put(grammarAccess.getRevoluteAccess().getAxisAssignment_1(), "rule__Revolute__AxisAssignment_1");

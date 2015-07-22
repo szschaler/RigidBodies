@@ -6,6 +6,7 @@ package uk.ac.kcl.inf.robotics.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import uk.ac.kcl.inf.robotics.rigidBodies.AXIS
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp
@@ -15,6 +16,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Model
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp
+import uk.ac.kcl.inf.robotics.rigidBodies.Planar
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute
 import uk.ac.kcl.inf.robotics.rigidBodies.System
 
 /**
@@ -72,6 +75,17 @@ class RigidBodiesGenerator implements IGenerator {
 					«ctb.inertias.get(idx).value.renderValues (3)»];
 			'''])»
 		
+		% Joint specifications
+		j = sym (zeros («ctb.states.fold(0, [acc, l | if (l.value != null) { Math.max (acc, l.value.size) } else { acc }])», 5, «ctb.states.size»))
+		«(0..<ctb.states.size).join ('\n', [ i | '''
+				% Joint rotations for «ctb.states.get(i).key»
+				j (:, :, «i + 1») = [
+					«if (ctb.states.get(i).value != null) {
+						ctb.states.get(i).value.join (';\n', [jm | jm.render ])
+					 } else {
+					 	'''0 0 0 0 0'''
+					 }»];'''])»
+		
 		% Run program -- Should this really be generated?
 		
 		% EOM:
@@ -87,6 +101,16 @@ class RigidBodiesGenerator implements IGenerator {
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
 	
+	def dispatch CharSequence render (Planar p) '''0 0 «if (p.axis == AXIS.X) 'inf' else '0'» «if (p.axis == AXIS.Y) 'inf' else '0'» «if (p.axis == AXIS.Z) 'inf'else '0'»'''
+	
+	def dispatch CharSequence render (Revolute r) 
+		'''«switch (r.axis) {
+				case AXIS.X: '1'
+				case AXIS.Y: '2'
+				case AXIS.Z: '3'
+			}
+			» inf 0 0 0'''
+
 	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
 		mr.matrix.renderValues (sep)
 	}

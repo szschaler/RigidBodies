@@ -3,15 +3,20 @@ package uk.ac.kcl.inf.robotics.generator
 import java.util.ArrayList
 import java.util.LinkedList
 import java.util.List
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.Body
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression
+import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.System
-import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad
+import uk.ac.kcl.inf.robotics.services.RigidBodiesGrammarAccess.PrimaryJointTypeElements
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType
 
 /**
  * Build up a joint tree representation of a given connective
@@ -79,12 +84,19 @@ class ConnectiveTreeBuilder {
 	
 	List<Pair<String, Expression>> massValues = new LinkedList<Pair<String, Expression>>
 	List<Pair<String, BaseMatrix>> inertias = new LinkedList<Pair<String, BaseMatrix>>
+	
 	List<Pair<String, BaseMatrix>> positions = new LinkedList<Pair<String, BaseMatrix>>
 	List<Pair<Integer, Pair<String, Integer>>> lcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>
+	
 	List<Pair<String, BaseMatrix>> constraintPositions = new LinkedList<Pair<String, BaseMatrix>>
 	List<Pair<Integer, Pair<String, Integer>>> constraintLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>
+	
 	List<Pair<String, BaseMatrix>> loadPositions = new LinkedList<Pair<String, BaseMatrix>>
 	List<Pair<Integer, Pair<String, Integer>>> loadLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>
+	
+	List<Pair<String, List<JointMovement>>> jointStates = new LinkedList<Pair<String, List<JointMovement>>>
+	List<Pair<String, List<JointMovement>>> constraintStates = new LinkedList<Pair<String, List<JointMovement>>>
+	List<Pair<String, List<JointMovement>>> loadStates = new LinkedList<Pair<String, List<JointMovement>>>
 	
 	new (System s) {
 		this.system = s
@@ -164,25 +176,63 @@ class ConnectiveTreeBuilder {
 		}
 		
 		if (ct.isJoint) {
-			val Body bTgt = (ct.connective as Joint).body2.ref
+			val joint = (ct.connective as Joint)
+			val Body bTgt = joint.body2.ref
 			val Mass mTgt = bTgt.mass
+			
 			massValues.add (new Pair (bTgt.name, mTgt.value))
 			inertias.add (new Pair(bTgt.name, mTgt.inertia.matrix))
+			
 			positions.add (new Pair("body " + bTgt.name, mTgt.position.matrix))
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
+			
+			jointStates.add (new Pair ("joint " + joint.name, joint.type.exp.toStateList))
 		} else if (ct.isConstraint) {
+			val joint = (ct.connective as Joint)
 			// TODO: This seems wrong: How is the position of a constraint joint determined?
-			val Body bTgt = (ct.connective as Joint).body1.ref
+			val Body bTgt = joint.body1.ref
 			val Mass mTgt = bTgt.mass
+
 			constraintPositions.add (new Pair("body " + bTgt.name, mTgt.position.matrix))
 			constraintLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (1, parentDesc))
+
+			constraintStates.add (new Pair ("constraint joint " + joint.name, joint.type.exp.toStateList))
 		} else {
 			val load = ct.connective as ExternalLoad
+			
 			loadPositions.add (new Pair ("load " + load.name, load.position.matrix))			
 			loadLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (2, parentDesc))
+			
+			// TODO: Not sure I shouldn't be doing something else here...
+			loadStates.add (new Pair ("load " + load.name, null))
 		}
 	}
 	
+	private def dispatch List<JointMovement> toStateList (AdditiveJointType ajt) {
+		val List<JointMovement> lResult = new LinkedList<JointMovement>
+		
+		lResult.addAll (ajt.left.toStateList)
+		ajt.right.forEach[jte | lResult.addAll(jte.toStateList)]
+		
+		return lResult
+	}
+	
+	private def dispatch List<JointMovement> toStateList (JointTypeReference jtr) {
+		val List<JointMovement> lResult = new LinkedList<JointMovement>
+		
+		lResult.addAll (jtr.ref.exp.toStateList)
+		
+		return lResult
+	}
+
+	private def dispatch List<JointMovement> toStateList (BasicJointType bjt) {
+		val List<JointMovement> lResult = new LinkedList<JointMovement>
+		
+		lResult.add (bjt.type)
+		
+		return lResult
+	}
+
 	private def dispatch getMatrix (BaseMatrix m) { m }
 	
 	private def dispatch getMatrix (MatrixRef mr) { mr.matrix }
@@ -204,4 +254,16 @@ class ConnectiveTreeBuilder {
 	def getLoadPositions() { loadPositions }
 	
 	def getLoadLcCodeColumns() { loadLcCodeColumns }
+
+	List<Pair<String, List<JointMovement>>> allStates = null	
+	
+	def getStates() {
+		if (allStates == null) {
+			allStates = new LinkedList<Pair<String, List<JointMovement>>>(jointStates)
+			allStates.addAll (constraintStates)
+			allStates.addAll (loadStates) 
+		}
+		
+		return allStates	
+	}
 }

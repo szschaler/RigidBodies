@@ -420,6 +420,34 @@ finally {
 
 
 
+// Entry rule entryRuleJointTypeReference
+entryRuleJointTypeReference 
+:
+{ before(grammarAccess.getJointTypeReferenceRule()); }
+	 ruleJointTypeReference
+{ after(grammarAccess.getJointTypeReferenceRule()); } 
+	 EOF 
+;
+
+// Rule JointTypeReference
+ruleJointTypeReference
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getJointTypeReferenceAccess().getRefAssignment()); }
+(rule__JointTypeReference__RefAssignment)
+{ after(grammarAccess.getJointTypeReferenceAccess().getRefAssignment()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleBasicJointType
 entryRuleBasicJointType 
 :
@@ -439,6 +467,34 @@ ruleBasicJointType
 { before(grammarAccess.getBasicJointTypeAccess().getGroup()); }
 (rule__BasicJointType__Group__0)
 { after(grammarAccess.getBasicJointTypeAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleJointMovement
+entryRuleJointMovement 
+:
+{ before(grammarAccess.getJointMovementRule()); }
+	 ruleJointMovement
+{ after(grammarAccess.getJointMovementRule()); } 
+	 EOF 
+;
+
+// Rule JointMovement
+ruleJointMovement
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getJointMovementAccess().getAlternatives()); }
+(rule__JointMovement__Alternatives)
+{ after(grammarAccess.getJointMovementAccess().getAlternatives()); }
 )
 
 ;
@@ -1144,9 +1200,9 @@ rule__PrimaryJointType__Alternatives
     }
 :
 (
-{ before(grammarAccess.getPrimaryJointTypeAccess().getRefAssignment_0()); }
-(rule__PrimaryJointType__RefAssignment_0)
-{ after(grammarAccess.getPrimaryJointTypeAccess().getRefAssignment_0()); }
+{ before(grammarAccess.getPrimaryJointTypeAccess().getJointTypeReferenceParserRuleCall_0()); }
+	ruleJointTypeReference
+{ after(grammarAccess.getPrimaryJointTypeAccess().getJointTypeReferenceParserRuleCall_0()); }
 )
 
     |(
@@ -1160,21 +1216,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BasicJointType__TypeAlternatives_0_0
+rule__JointMovement__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBasicJointTypeAccess().getTypeRevoluteParserRuleCall_0_0_0()); }
+{ before(grammarAccess.getJointMovementAccess().getRevoluteParserRuleCall_0()); }
 	ruleRevolute
-{ after(grammarAccess.getBasicJointTypeAccess().getTypeRevoluteParserRuleCall_0_0_0()); }
+{ after(grammarAccess.getJointMovementAccess().getRevoluteParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getBasicJointTypeAccess().getTypePlanarParserRuleCall_0_0_1()); }
+{ before(grammarAccess.getJointMovementAccess().getPlanarParserRuleCall_1()); }
 	rulePlanar
-{ after(grammarAccess.getBasicJointTypeAccess().getTypePlanarParserRuleCall_0_0_1()); }
+{ after(grammarAccess.getJointMovementAccess().getPlanarParserRuleCall_1()); }
 )
 
 ;
@@ -6539,18 +6595,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PrimaryJointType__RefAssignment_0
+rule__JointTypeReference__RefAssignment
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeCrossReference_0_0()); }
+{ before(grammarAccess.getJointTypeReferenceAccess().getRefJointTypeCrossReference_0()); }
 (
-{ before(grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeIDTerminalRuleCall_0_0_1()); }
-	RULE_ID{ after(grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeIDTerminalRuleCall_0_0_1()); }
+{ before(grammarAccess.getJointTypeReferenceAccess().getRefJointTypeIDTerminalRuleCall_0_1()); }
+	RULE_ID{ after(grammarAccess.getJointTypeReferenceAccess().getRefJointTypeIDTerminalRuleCall_0_1()); }
 )
-{ after(grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeCrossReference_0_0()); }
+{ after(grammarAccess.getJointTypeReferenceAccess().getRefJointTypeCrossReference_0()); }
 )
 
 ;
@@ -6564,9 +6620,8 @@ rule__BasicJointType__TypeAssignment_0
     }
 :
 (
-{ before(grammarAccess.getBasicJointTypeAccess().getTypeAlternatives_0_0()); }
-(rule__BasicJointType__TypeAlternatives_0_0)
-{ after(grammarAccess.getBasicJointTypeAccess().getTypeAlternatives_0_0()); }
+{ before(grammarAccess.getBasicJointTypeAccess().getTypeJointMovementParserRuleCall_0_0()); }
+	ruleJointMovement{ after(grammarAccess.getBasicJointTypeAccess().getTypeJointMovementParserRuleCall_0_0()); }
 )
 
 ;

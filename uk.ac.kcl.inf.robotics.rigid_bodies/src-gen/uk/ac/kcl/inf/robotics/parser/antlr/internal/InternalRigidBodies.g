@@ -870,7 +870,7 @@ ruleAdditiveJointType returns [EObject current=null]
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAdditiveJointTypeRule());
 	        }
-       		set(
+       		add(
        			$current, 
        			"right",
         		lv_right_3_0, 
@@ -900,20 +900,16 @@ rulePrimaryJointType returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPrimaryJointTypeRule());
-	        }
-        }
-	otherlv_0=RULE_ID
-	{
-		newLeafNode(otherlv_0, grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeCrossReference_0_0()); 
-	}
+    { 
+        newCompositeNode(grammarAccess.getPrimaryJointTypeAccess().getJointTypeReferenceParserRuleCall_0()); 
+    }
+    this_JointTypeReference_0=ruleJointTypeReference
+    { 
+        $current = $this_JointTypeReference_0.current; 
+        afterParserOrEnumRuleCall();
+    }
 
-)
-)
     |
     { 
         newCompositeNode(grammarAccess.getPrimaryJointTypeAccess().getBasicJointTypeParserRuleCall_1()); 
@@ -923,6 +919,40 @@ rulePrimaryJointType returns [EObject current=null]
         $current = $this_BasicJointType_1.current; 
         afterParserOrEnumRuleCall();
     }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleJointTypeReference
+entryRuleJointTypeReference returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getJointTypeReferenceRule()); }
+	 iv_ruleJointTypeReference=ruleJointTypeReference 
+	 { $current=$iv_ruleJointTypeReference.current; } 
+	 EOF 
+;
+
+// Rule JointTypeReference
+ruleJointTypeReference returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getJointTypeReferenceRule());
+	        }
+        }
+	otherlv_0=RULE_ID
+	{
+		newLeafNode(otherlv_0, grammarAccess.getJointTypeReferenceAccess().getRefJointTypeCrossReference_0()); 
+	}
+
+)
 )
 ;
 
@@ -946,38 +976,20 @@ ruleBasicJointType returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-(
 		{ 
-	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getTypeRevoluteParserRuleCall_0_0_0()); 
+	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getTypeJointMovementParserRuleCall_0_0()); 
 	    }
-		lv_type_0_1=ruleRevolute		{
+		lv_type_0_0=ruleJointMovement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBasicJointTypeRule());
 	        }
        		set(
        			$current, 
        			"type",
-        		lv_type_0_1, 
-        		"Revolute");
+        		lv_type_0_0, 
+        		"JointMovement");
 	        afterParserOrEnumRuleCall();
 	    }
-
-    |		{ 
-	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getTypePlanarParserRuleCall_0_0_1()); 
-	    }
-		lv_type_0_2=rulePlanar		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBasicJointTypeRule());
-	        }
-       		set(
-       			$current, 
-       			"type",
-        		lv_type_0_2, 
-        		"Planar");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
 
 )
 )	otherlv_1='with' 
@@ -1003,6 +1015,46 @@ ruleBasicJointType returns [EObject current=null]
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleJointMovement
+entryRuleJointMovement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getJointMovementRule()); }
+	 iv_ruleJointMovement=ruleJointMovement 
+	 { $current=$iv_ruleJointMovement.current; } 
+	 EOF 
+;
+
+// Rule JointMovement
+ruleJointMovement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getJointMovementAccess().getRevoluteParserRuleCall_0()); 
+    }
+    this_Revolute_0=ruleRevolute
+    { 
+        $current = $this_Revolute_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getJointMovementAccess().getPlanarParserRuleCall_1()); 
+    }
+    this_Planar_1=rulePlanar
+    { 
+        $current = $this_Planar_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 

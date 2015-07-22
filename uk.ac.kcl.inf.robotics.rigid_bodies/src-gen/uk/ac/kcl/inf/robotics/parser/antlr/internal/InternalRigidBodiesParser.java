@@ -2109,7 +2109,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             	    	        if (current==null) {
             	    	            current = createModelElementForParent(grammarAccess.getAdditiveJointTypeRule());
             	    	        }
-            	           		set(
+            	           		add(
             	           			current, 
             	           			"right",
             	            		lv_right_3_0, 
@@ -2188,21 +2188,22 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimaryJointType"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:899:1: rulePrimaryJointType returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) | this_BasicJointType_1= ruleBasicJointType ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:899:1: rulePrimaryJointType returns [EObject current=null] : (this_JointTypeReference_0= ruleJointTypeReference | this_BasicJointType_1= ruleBasicJointType ) ;
     public final EObject rulePrimaryJointType() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
+        EObject this_JointTypeReference_0 = null;
+
         EObject this_BasicJointType_1 = null;
 
 
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:902:28: ( ( ( (otherlv_0= RULE_ID ) ) | this_BasicJointType_1= ruleBasicJointType ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:903:1: ( ( (otherlv_0= RULE_ID ) ) | this_BasicJointType_1= ruleBasicJointType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:902:28: ( (this_JointTypeReference_0= ruleJointTypeReference | this_BasicJointType_1= ruleBasicJointType ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:903:1: (this_JointTypeReference_0= ruleJointTypeReference | this_BasicJointType_1= ruleBasicJointType )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:903:1: ( ( (otherlv_0= RULE_ID ) ) | this_BasicJointType_1= ruleBasicJointType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:903:1: (this_JointTypeReference_0= ruleJointTypeReference | this_BasicJointType_1= ruleBasicJointType )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2220,39 +2221,30 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:903:2: ( (otherlv_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:904:5: this_JointTypeReference_0= ruleJointTypeReference
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:903:2: ( (otherlv_0= RULE_ID ) )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:904:1: (otherlv_0= RULE_ID )
-                    {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:904:1: (otherlv_0= RULE_ID )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:905:3: otherlv_0= RULE_ID
-                    {
+                     
+                            newCompositeNode(grammarAccess.getPrimaryJointTypeAccess().getJointTypeReferenceParserRuleCall_0()); 
+                        
+                    pushFollow(FOLLOW_ruleJointTypeReference_in_rulePrimaryJointType1989);
+                    this_JointTypeReference_0=ruleJointTypeReference();
 
-                    			if (current==null) {
-                    	            current = createModelElement(grammarAccess.getPrimaryJointTypeRule());
-                    	        }
-                            
-                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePrimaryJointType1987); 
+                    state._fsp--;
 
-                    		newLeafNode(otherlv_0, grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeCrossReference_0_0()); 
-                    	
-
-                    }
-
-
-                    }
-
+                     
+                            current = this_JointTypeReference_0; 
+                            afterParserOrEnumRuleCall();
+                        
 
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:918:5: this_BasicJointType_1= ruleBasicJointType
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:914:5: this_BasicJointType_1= ruleBasicJointType
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryJointTypeAccess().getBasicJointTypeParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleBasicJointType_in_rulePrimaryJointType2015);
+                    pushFollow(FOLLOW_ruleBasicJointType_in_rulePrimaryJointType2016);
                     this_BasicJointType_1=ruleBasicJointType();
 
                     state._fsp--;
@@ -2284,8 +2276,95 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulePrimaryJointType"
 
 
+    // $ANTLR start "entryRuleJointTypeReference"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:930:1: entryRuleJointTypeReference returns [EObject current=null] : iv_ruleJointTypeReference= ruleJointTypeReference EOF ;
+    public final EObject entryRuleJointTypeReference() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleJointTypeReference = null;
+
+
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:931:2: (iv_ruleJointTypeReference= ruleJointTypeReference EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:932:2: iv_ruleJointTypeReference= ruleJointTypeReference EOF
+            {
+             newCompositeNode(grammarAccess.getJointTypeReferenceRule()); 
+            pushFollow(FOLLOW_ruleJointTypeReference_in_entryRuleJointTypeReference2051);
+            iv_ruleJointTypeReference=ruleJointTypeReference();
+
+            state._fsp--;
+
+             current =iv_ruleJointTypeReference; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleJointTypeReference2061); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleJointTypeReference"
+
+
+    // $ANTLR start "ruleJointTypeReference"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:939:1: ruleJointTypeReference returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    public final EObject ruleJointTypeReference() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+
+         enterRule(); 
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:942:28: ( ( (otherlv_0= RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:943:1: ( (otherlv_0= RULE_ID ) )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:943:1: ( (otherlv_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:944:1: (otherlv_0= RULE_ID )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:944:1: (otherlv_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:945:3: otherlv_0= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getJointTypeReferenceRule());
+            	        }
+                    
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleJointTypeReference2105); 
+
+            		newLeafNode(otherlv_0, grammarAccess.getJointTypeReferenceAccess().getRefJointTypeCrossReference_0()); 
+            	
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleJointTypeReference"
+
+
     // $ANTLR start "entryRuleBasicJointType"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:934:1: entryRuleBasicJointType returns [EObject current=null] : iv_ruleBasicJointType= ruleBasicJointType EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:964:1: entryRuleBasicJointType returns [EObject current=null] : iv_ruleBasicJointType= ruleBasicJointType EOF ;
     public final EObject entryRuleBasicJointType() throws RecognitionException {
         EObject current = null;
 
@@ -2293,17 +2372,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:935:2: (iv_ruleBasicJointType= ruleBasicJointType EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:936:2: iv_ruleBasicJointType= ruleBasicJointType EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:965:2: (iv_ruleBasicJointType= ruleBasicJointType EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:966:2: iv_ruleBasicJointType= ruleBasicJointType EOF
             {
              newCompositeNode(grammarAccess.getBasicJointTypeRule()); 
-            pushFollow(FOLLOW_ruleBasicJointType_in_entryRuleBasicJointType2050);
+            pushFollow(FOLLOW_ruleBasicJointType_in_entryRuleBasicJointType2140);
             iv_ruleBasicJointType=ruleBasicJointType();
 
             state._fsp--;
 
              current =iv_ruleBasicJointType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBasicJointType2060); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBasicJointType2150); 
 
             }
 
@@ -2321,14 +2400,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBasicJointType"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:943:1: ruleBasicJointType returns [EObject current=null] : ( ( ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:973:1: ruleBasicJointType returns [EObject current=null] : ( ( (lv_type_0_0= ruleJointMovement ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) ) ;
     public final EObject ruleBasicJointType() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        EObject lv_type_0_1 = null;
-
-        EObject lv_type_0_2 = null;
+        EObject lv_type_0_0 = null;
 
         EObject lv_stiffness_2_0 = null;
 
@@ -2336,108 +2413,57 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:946:28: ( ( ( ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:947:1: ( ( ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:976:28: ( ( ( (lv_type_0_0= ruleJointMovement ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:977:1: ( ( (lv_type_0_0= ruleJointMovement ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:947:1: ( ( ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:947:2: ( ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:977:1: ( ( (lv_type_0_0= ruleJointMovement ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:977:2: ( (lv_type_0_0= ruleJointMovement ) ) otherlv_1= 'with' ( (lv_stiffness_2_0= ruleStiffnessExp ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:947:2: ( ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:948:1: ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:977:2: ( (lv_type_0_0= ruleJointMovement ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:978:1: (lv_type_0_0= ruleJointMovement )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:948:1: ( (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:949:1: (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:978:1: (lv_type_0_0= ruleJointMovement )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:979:3: lv_type_0_0= ruleJointMovement
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:949:1: (lv_type_0_1= ruleRevolute | lv_type_0_2= rulePlanar )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+             
+            	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getTypeJointMovementParserRuleCall_0_0()); 
+            	    
+            pushFollow(FOLLOW_ruleJointMovement_in_ruleBasicJointType2196);
+            lv_type_0_0=ruleJointMovement();
 
-            if ( (LA12_0==31) ) {
-                alt12=1;
-            }
-            else if ( (LA12_0==32) ) {
-                alt12=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
-
-                throw nvae;
-            }
-            switch (alt12) {
-                case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:950:3: lv_type_0_1= ruleRevolute
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getTypeRevoluteParserRuleCall_0_0_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleRevolute_in_ruleBasicJointType2108);
-                    lv_type_0_1=ruleRevolute();
-
-                    state._fsp--;
+            state._fsp--;
 
 
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getBasicJointTypeRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"type",
-                            		lv_type_0_1, 
-                            		"Revolute");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-                    break;
-                case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:965:8: lv_type_0_2= rulePlanar
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getTypePlanarParserRuleCall_0_0_1()); 
-                    	    
-                    pushFollow(FOLLOW_rulePlanar_in_ruleBasicJointType2127);
-                    lv_type_0_2=rulePlanar();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getBasicJointTypeRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"type",
-                            		lv_type_0_2, 
-                            		"Planar");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-                    break;
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getBasicJointTypeRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"type",
+                    		lv_type_0_0, 
+                    		"JointMovement");
+            	        afterParserOrEnumRuleCall();
+            	    
 
             }
 
 
             }
 
-
-            }
-
-            otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleBasicJointType2142); 
+            otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleBasicJointType2208); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getBasicJointTypeAccess().getWithKeyword_1());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:987:1: ( (lv_stiffness_2_0= ruleStiffnessExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:988:1: (lv_stiffness_2_0= ruleStiffnessExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:999:1: ( (lv_stiffness_2_0= ruleStiffnessExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1000:1: (lv_stiffness_2_0= ruleStiffnessExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:988:1: (lv_stiffness_2_0= ruleStiffnessExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:989:3: lv_stiffness_2_0= ruleStiffnessExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1000:1: (lv_stiffness_2_0= ruleStiffnessExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1001:3: lv_stiffness_2_0= ruleStiffnessExp
             {
              
             	        newCompositeNode(grammarAccess.getBasicJointTypeAccess().getStiffnessStiffnessExpParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleStiffnessExp_in_ruleBasicJointType2163);
+            pushFollow(FOLLOW_ruleStiffnessExp_in_ruleBasicJointType2229);
             lv_stiffness_2_0=ruleStiffnessExp();
 
             state._fsp--;
@@ -2479,8 +2505,133 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBasicJointType"
 
 
+    // $ANTLR start "entryRuleJointMovement"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1025:1: entryRuleJointMovement returns [EObject current=null] : iv_ruleJointMovement= ruleJointMovement EOF ;
+    public final EObject entryRuleJointMovement() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleJointMovement = null;
+
+
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1026:2: (iv_ruleJointMovement= ruleJointMovement EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1027:2: iv_ruleJointMovement= ruleJointMovement EOF
+            {
+             newCompositeNode(grammarAccess.getJointMovementRule()); 
+            pushFollow(FOLLOW_ruleJointMovement_in_entryRuleJointMovement2265);
+            iv_ruleJointMovement=ruleJointMovement();
+
+            state._fsp--;
+
+             current =iv_ruleJointMovement; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleJointMovement2275); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleJointMovement"
+
+
+    // $ANTLR start "ruleJointMovement"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1034:1: ruleJointMovement returns [EObject current=null] : (this_Revolute_0= ruleRevolute | this_Planar_1= rulePlanar ) ;
+    public final EObject ruleJointMovement() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Revolute_0 = null;
+
+        EObject this_Planar_1 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1037:28: ( (this_Revolute_0= ruleRevolute | this_Planar_1= rulePlanar ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1038:1: (this_Revolute_0= ruleRevolute | this_Planar_1= rulePlanar )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1038:1: (this_Revolute_0= ruleRevolute | this_Planar_1= rulePlanar )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==31) ) {
+                alt12=1;
+            }
+            else if ( (LA12_0==32) ) {
+                alt12=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 12, 0, input);
+
+                throw nvae;
+            }
+            switch (alt12) {
+                case 1 :
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1039:5: this_Revolute_0= ruleRevolute
+                    {
+                     
+                            newCompositeNode(grammarAccess.getJointMovementAccess().getRevoluteParserRuleCall_0()); 
+                        
+                    pushFollow(FOLLOW_ruleRevolute_in_ruleJointMovement2322);
+                    this_Revolute_0=ruleRevolute();
+
+                    state._fsp--;
+
+                     
+                            current = this_Revolute_0; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1049:5: this_Planar_1= rulePlanar
+                    {
+                     
+                            newCompositeNode(grammarAccess.getJointMovementAccess().getPlanarParserRuleCall_1()); 
+                        
+                    pushFollow(FOLLOW_rulePlanar_in_ruleJointMovement2349);
+                    this_Planar_1=rulePlanar();
+
+                    state._fsp--;
+
+                     
+                            current = this_Planar_1; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleJointMovement"
+
+
     // $ANTLR start "entryRuleRevolute"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1013:1: entryRuleRevolute returns [EObject current=null] : iv_ruleRevolute= ruleRevolute EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1065:1: entryRuleRevolute returns [EObject current=null] : iv_ruleRevolute= ruleRevolute EOF ;
     public final EObject entryRuleRevolute() throws RecognitionException {
         EObject current = null;
 
@@ -2488,17 +2639,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1014:2: (iv_ruleRevolute= ruleRevolute EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1015:2: iv_ruleRevolute= ruleRevolute EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1066:2: (iv_ruleRevolute= ruleRevolute EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1067:2: iv_ruleRevolute= ruleRevolute EOF
             {
              newCompositeNode(grammarAccess.getRevoluteRule()); 
-            pushFollow(FOLLOW_ruleRevolute_in_entryRuleRevolute2199);
+            pushFollow(FOLLOW_ruleRevolute_in_entryRuleRevolute2384);
             iv_ruleRevolute=ruleRevolute();
 
             state._fsp--;
 
              current =iv_ruleRevolute; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRevolute2209); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRevolute2394); 
 
             }
 
@@ -2516,7 +2667,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRevolute"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1022:1: ruleRevolute returns [EObject current=null] : (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1074:1: ruleRevolute returns [EObject current=null] : (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) ) ;
     public final EObject ruleRevolute() throws RecognitionException {
         EObject current = null;
 
@@ -2527,26 +2678,26 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1025:28: ( (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1026:1: (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1077:28: ( (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1078:1: (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1026:1: (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1026:3: otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1078:1: (otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1078:3: otherlv_0= 'revolute' ( (lv_axis_1_0= ruleAXIS ) )
             {
-            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleRevolute2246); 
+            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleRevolute2431); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRevoluteAccess().getRevoluteKeyword_0());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1030:1: ( (lv_axis_1_0= ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1031:1: (lv_axis_1_0= ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1082:1: ( (lv_axis_1_0= ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1083:1: (lv_axis_1_0= ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1031:1: (lv_axis_1_0= ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1032:3: lv_axis_1_0= ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1083:1: (lv_axis_1_0= ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1084:3: lv_axis_1_0= ruleAXIS
             {
              
             	        newCompositeNode(grammarAccess.getRevoluteAccess().getAxisAXISEnumRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleAXIS_in_ruleRevolute2267);
+            pushFollow(FOLLOW_ruleAXIS_in_ruleRevolute2452);
             lv_axis_1_0=ruleAXIS();
 
             state._fsp--;
@@ -2589,7 +2740,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePlanar"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1056:1: entryRulePlanar returns [EObject current=null] : iv_rulePlanar= rulePlanar EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1108:1: entryRulePlanar returns [EObject current=null] : iv_rulePlanar= rulePlanar EOF ;
     public final EObject entryRulePlanar() throws RecognitionException {
         EObject current = null;
 
@@ -2597,17 +2748,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1057:2: (iv_rulePlanar= rulePlanar EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1058:2: iv_rulePlanar= rulePlanar EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1109:2: (iv_rulePlanar= rulePlanar EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1110:2: iv_rulePlanar= rulePlanar EOF
             {
              newCompositeNode(grammarAccess.getPlanarRule()); 
-            pushFollow(FOLLOW_rulePlanar_in_entryRulePlanar2303);
+            pushFollow(FOLLOW_rulePlanar_in_entryRulePlanar2488);
             iv_rulePlanar=rulePlanar();
 
             state._fsp--;
 
              current =iv_rulePlanar; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePlanar2313); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePlanar2498); 
 
             }
 
@@ -2625,7 +2776,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePlanar"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1065:1: rulePlanar returns [EObject current=null] : (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1117:1: rulePlanar returns [EObject current=null] : (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) ) ;
     public final EObject rulePlanar() throws RecognitionException {
         EObject current = null;
 
@@ -2636,26 +2787,26 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1068:28: ( (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1069:1: (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1120:28: ( (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1121:1: (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1069:1: (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1069:3: otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1121:1: (otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1121:3: otherlv_0= 'planar' ( (lv_axis_1_0= ruleAXIS ) )
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_32_in_rulePlanar2350); 
+            otherlv_0=(Token)match(input,32,FOLLOW_32_in_rulePlanar2535); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getPlanarAccess().getPlanarKeyword_0());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1073:1: ( (lv_axis_1_0= ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1074:1: (lv_axis_1_0= ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1125:1: ( (lv_axis_1_0= ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1126:1: (lv_axis_1_0= ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1074:1: (lv_axis_1_0= ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1075:3: lv_axis_1_0= ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1126:1: (lv_axis_1_0= ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1127:3: lv_axis_1_0= ruleAXIS
             {
              
             	        newCompositeNode(grammarAccess.getPlanarAccess().getAxisAXISEnumRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleAXIS_in_rulePlanar2371);
+            pushFollow(FOLLOW_ruleAXIS_in_rulePlanar2556);
             lv_axis_1_0=ruleAXIS();
 
             state._fsp--;
@@ -2698,7 +2849,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStiffnessExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1099:1: entryRuleStiffnessExp returns [EObject current=null] : iv_ruleStiffnessExp= ruleStiffnessExp EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1151:1: entryRuleStiffnessExp returns [EObject current=null] : iv_ruleStiffnessExp= ruleStiffnessExp EOF ;
     public final EObject entryRuleStiffnessExp() throws RecognitionException {
         EObject current = null;
 
@@ -2706,17 +2857,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1100:2: (iv_ruleStiffnessExp= ruleStiffnessExp EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1101:2: iv_ruleStiffnessExp= ruleStiffnessExp EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1152:2: (iv_ruleStiffnessExp= ruleStiffnessExp EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1153:2: iv_ruleStiffnessExp= ruleStiffnessExp EOF
             {
              newCompositeNode(grammarAccess.getStiffnessExpRule()); 
-            pushFollow(FOLLOW_ruleStiffnessExp_in_entryRuleStiffnessExp2407);
+            pushFollow(FOLLOW_ruleStiffnessExp_in_entryRuleStiffnessExp2592);
             iv_ruleStiffnessExp=ruleStiffnessExp();
 
             state._fsp--;
 
              current =iv_ruleStiffnessExp; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStiffnessExp2417); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStiffnessExp2602); 
 
             }
 
@@ -2734,7 +2885,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStiffnessExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1108:1: ruleStiffnessExp returns [EObject current=null] : (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1160:1: ruleStiffnessExp returns [EObject current=null] : (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp ) ;
     public final EObject ruleStiffnessExp() throws RecognitionException {
         EObject current = null;
 
@@ -2746,10 +2897,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1111:28: ( (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1112:1: (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1163:28: ( (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1164:1: (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1112:1: (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1164:1: (this_StiffnessRef_0= ruleStiffnessRef | this_BaseStiffnessExp_1= ruleBaseStiffnessExp )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2767,12 +2918,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1113:5: this_StiffnessRef_0= ruleStiffnessRef
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1165:5: this_StiffnessRef_0= ruleStiffnessRef
                     {
                      
                             newCompositeNode(grammarAccess.getStiffnessExpAccess().getStiffnessRefParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleStiffnessRef_in_ruleStiffnessExp2464);
+                    pushFollow(FOLLOW_ruleStiffnessRef_in_ruleStiffnessExp2649);
                     this_StiffnessRef_0=ruleStiffnessRef();
 
                     state._fsp--;
@@ -2785,12 +2936,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1123:5: this_BaseStiffnessExp_1= ruleBaseStiffnessExp
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1175:5: this_BaseStiffnessExp_1= ruleBaseStiffnessExp
                     {
                      
                             newCompositeNode(grammarAccess.getStiffnessExpAccess().getBaseStiffnessExpParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleBaseStiffnessExp_in_ruleStiffnessExp2491);
+                    pushFollow(FOLLOW_ruleBaseStiffnessExp_in_ruleStiffnessExp2676);
                     this_BaseStiffnessExp_1=ruleBaseStiffnessExp();
 
                     state._fsp--;
@@ -2823,7 +2974,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStiffnessRef"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1139:1: entryRuleStiffnessRef returns [EObject current=null] : iv_ruleStiffnessRef= ruleStiffnessRef EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1191:1: entryRuleStiffnessRef returns [EObject current=null] : iv_ruleStiffnessRef= ruleStiffnessRef EOF ;
     public final EObject entryRuleStiffnessRef() throws RecognitionException {
         EObject current = null;
 
@@ -2831,17 +2982,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1140:2: (iv_ruleStiffnessRef= ruleStiffnessRef EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1141:2: iv_ruleStiffnessRef= ruleStiffnessRef EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1192:2: (iv_ruleStiffnessRef= ruleStiffnessRef EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1193:2: iv_ruleStiffnessRef= ruleStiffnessRef EOF
             {
              newCompositeNode(grammarAccess.getStiffnessRefRule()); 
-            pushFollow(FOLLOW_ruleStiffnessRef_in_entryRuleStiffnessRef2526);
+            pushFollow(FOLLOW_ruleStiffnessRef_in_entryRuleStiffnessRef2711);
             iv_ruleStiffnessRef=ruleStiffnessRef();
 
             state._fsp--;
 
              current =iv_ruleStiffnessRef; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStiffnessRef2536); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStiffnessRef2721); 
 
             }
 
@@ -2859,7 +3010,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStiffnessRef"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1148:1: ruleStiffnessRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1200:1: ruleStiffnessRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleStiffnessRef() throws RecognitionException {
         EObject current = null;
 
@@ -2868,21 +3019,21 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1151:28: ( ( (otherlv_0= RULE_ID ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1152:1: ( (otherlv_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1203:28: ( ( (otherlv_0= RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1204:1: ( (otherlv_0= RULE_ID ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1152:1: ( (otherlv_0= RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1153:1: (otherlv_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1204:1: ( (otherlv_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1205:1: (otherlv_0= RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1153:1: (otherlv_0= RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1154:3: otherlv_0= RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1205:1: (otherlv_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1206:3: otherlv_0= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getStiffnessRefRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStiffnessRef2580); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStiffnessRef2765); 
 
             		newLeafNode(otherlv_0, grammarAccess.getStiffnessRefAccess().getRefBaseStiffnessExpCrossReference_0()); 
             	
@@ -2910,7 +3061,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBaseStiffnessExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1173:1: entryRuleBaseStiffnessExp returns [EObject current=null] : iv_ruleBaseStiffnessExp= ruleBaseStiffnessExp EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1225:1: entryRuleBaseStiffnessExp returns [EObject current=null] : iv_ruleBaseStiffnessExp= ruleBaseStiffnessExp EOF ;
     public final EObject entryRuleBaseStiffnessExp() throws RecognitionException {
         EObject current = null;
 
@@ -2918,17 +3069,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1174:2: (iv_ruleBaseStiffnessExp= ruleBaseStiffnessExp EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1175:2: iv_ruleBaseStiffnessExp= ruleBaseStiffnessExp EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1226:2: (iv_ruleBaseStiffnessExp= ruleBaseStiffnessExp EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1227:2: iv_ruleBaseStiffnessExp= ruleBaseStiffnessExp EOF
             {
              newCompositeNode(grammarAccess.getBaseStiffnessExpRule()); 
-            pushFollow(FOLLOW_ruleBaseStiffnessExp_in_entryRuleBaseStiffnessExp2615);
+            pushFollow(FOLLOW_ruleBaseStiffnessExp_in_entryRuleBaseStiffnessExp2800);
             iv_ruleBaseStiffnessExp=ruleBaseStiffnessExp();
 
             state._fsp--;
 
              current =iv_ruleBaseStiffnessExp; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBaseStiffnessExp2625); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBaseStiffnessExp2810); 
 
             }
 
@@ -2946,7 +3097,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBaseStiffnessExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1182:1: ruleBaseStiffnessExp returns [EObject current=null] : ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1234:1: ruleBaseStiffnessExp returns [EObject current=null] : ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' ) ;
     public final EObject ruleBaseStiffnessExp() throws RecognitionException {
         EObject current = null;
 
@@ -2970,13 +3121,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1185:28: ( ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1186:1: ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1237:28: ( ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1238:1: ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1186:1: ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1186:2: (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1238:1: ( (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1238:2: (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '{' otherlv_3= 'springCoeff' ( (lv_springCoeff_4_0= ruleAddExp ) ) otherlv_5= 'springInit' ( (lv_springInit_6_0= ruleAddExp ) ) otherlv_7= 'dampViscous' ( (lv_dampViscous_8_0= ruleAddExp ) ) otherlv_9= 'dampCoulomb' ( (lv_dampCoulomb_10_0= ruleAddExp ) ) otherlv_11= '}'
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1186:2: (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1238:2: (otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) ) )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -2985,19 +3136,19 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1186:4: otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1238:4: otherlv_0= 'stiffness' ( (lv_name_1_0= RULE_ID ) )
                     {
-                    otherlv_0=(Token)match(input,33,FOLLOW_33_in_ruleBaseStiffnessExp2663); 
+                    otherlv_0=(Token)match(input,33,FOLLOW_33_in_ruleBaseStiffnessExp2848); 
 
                         	newLeafNode(otherlv_0, grammarAccess.getBaseStiffnessExpAccess().getStiffnessKeyword_0_0());
                         
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1190:1: ( (lv_name_1_0= RULE_ID ) )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1191:1: (lv_name_1_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1242:1: ( (lv_name_1_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1243:1: (lv_name_1_0= RULE_ID )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1191:1: (lv_name_1_0= RULE_ID )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1192:3: lv_name_1_0= RULE_ID
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1243:1: (lv_name_1_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1244:3: lv_name_1_0= RULE_ID
                     {
-                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBaseStiffnessExp2680); 
+                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBaseStiffnessExp2865); 
 
                     			newLeafNode(lv_name_1_0, grammarAccess.getBaseStiffnessExpAccess().getNameIDTerminalRuleCall_0_1_0()); 
                     		
@@ -3023,24 +3174,24 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleBaseStiffnessExp2699); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleBaseStiffnessExp2884); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getBaseStiffnessExpAccess().getLeftCurlyBracketKeyword_1());
                 
-            otherlv_3=(Token)match(input,34,FOLLOW_34_in_ruleBaseStiffnessExp2711); 
+            otherlv_3=(Token)match(input,34,FOLLOW_34_in_ruleBaseStiffnessExp2896); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getBaseStiffnessExpAccess().getSpringCoeffKeyword_2());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1216:1: ( (lv_springCoeff_4_0= ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1217:1: (lv_springCoeff_4_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1268:1: ( (lv_springCoeff_4_0= ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1269:1: (lv_springCoeff_4_0= ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1217:1: (lv_springCoeff_4_0= ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1218:3: lv_springCoeff_4_0= ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1269:1: (lv_springCoeff_4_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1270:3: lv_springCoeff_4_0= ruleAddExp
             {
              
             	        newCompositeNode(grammarAccess.getBaseStiffnessExpAccess().getSpringCoeffAddExpParserRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2732);
+            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2917);
             lv_springCoeff_4_0=ruleAddExp();
 
             state._fsp--;
@@ -3062,20 +3213,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,35,FOLLOW_35_in_ruleBaseStiffnessExp2744); 
+            otherlv_5=(Token)match(input,35,FOLLOW_35_in_ruleBaseStiffnessExp2929); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getBaseStiffnessExpAccess().getSpringInitKeyword_4());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1238:1: ( (lv_springInit_6_0= ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1239:1: (lv_springInit_6_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1290:1: ( (lv_springInit_6_0= ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1291:1: (lv_springInit_6_0= ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1239:1: (lv_springInit_6_0= ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1240:3: lv_springInit_6_0= ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1291:1: (lv_springInit_6_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1292:3: lv_springInit_6_0= ruleAddExp
             {
              
             	        newCompositeNode(grammarAccess.getBaseStiffnessExpAccess().getSpringInitAddExpParserRuleCall_5_0()); 
             	    
-            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2765);
+            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2950);
             lv_springInit_6_0=ruleAddExp();
 
             state._fsp--;
@@ -3097,20 +3248,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,36,FOLLOW_36_in_ruleBaseStiffnessExp2777); 
+            otherlv_7=(Token)match(input,36,FOLLOW_36_in_ruleBaseStiffnessExp2962); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getBaseStiffnessExpAccess().getDampViscousKeyword_6());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1260:1: ( (lv_dampViscous_8_0= ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1261:1: (lv_dampViscous_8_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1312:1: ( (lv_dampViscous_8_0= ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1313:1: (lv_dampViscous_8_0= ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1261:1: (lv_dampViscous_8_0= ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1262:3: lv_dampViscous_8_0= ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1313:1: (lv_dampViscous_8_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1314:3: lv_dampViscous_8_0= ruleAddExp
             {
              
             	        newCompositeNode(grammarAccess.getBaseStiffnessExpAccess().getDampViscousAddExpParserRuleCall_7_0()); 
             	    
-            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2798);
+            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2983);
             lv_dampViscous_8_0=ruleAddExp();
 
             state._fsp--;
@@ -3132,20 +3283,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,37,FOLLOW_37_in_ruleBaseStiffnessExp2810); 
+            otherlv_9=(Token)match(input,37,FOLLOW_37_in_ruleBaseStiffnessExp2995); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getBaseStiffnessExpAccess().getDampCoulombKeyword_8());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1282:1: ( (lv_dampCoulomb_10_0= ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1283:1: (lv_dampCoulomb_10_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1334:1: ( (lv_dampCoulomb_10_0= ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1335:1: (lv_dampCoulomb_10_0= ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1283:1: (lv_dampCoulomb_10_0= ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1284:3: lv_dampCoulomb_10_0= ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1335:1: (lv_dampCoulomb_10_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1336:3: lv_dampCoulomb_10_0= ruleAddExp
             {
              
             	        newCompositeNode(grammarAccess.getBaseStiffnessExpAccess().getDampCoulombAddExpParserRuleCall_9_0()); 
             	    
-            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2831);
+            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp3016);
             lv_dampCoulomb_10_0=ruleAddExp();
 
             state._fsp--;
@@ -3167,7 +3318,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,15,FOLLOW_15_in_ruleBaseStiffnessExp2843); 
+            otherlv_11=(Token)match(input,15,FOLLOW_15_in_ruleBaseStiffnessExp3028); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getBaseStiffnessExpAccess().getRightCurlyBracketKeyword_10());
                 
@@ -3192,7 +3343,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRelativeTransformation"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1312:1: entryRuleRelativeTransformation returns [EObject current=null] : iv_ruleRelativeTransformation= ruleRelativeTransformation EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1364:1: entryRuleRelativeTransformation returns [EObject current=null] : iv_ruleRelativeTransformation= ruleRelativeTransformation EOF ;
     public final EObject entryRuleRelativeTransformation() throws RecognitionException {
         EObject current = null;
 
@@ -3200,17 +3351,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1313:2: (iv_ruleRelativeTransformation= ruleRelativeTransformation EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1314:2: iv_ruleRelativeTransformation= ruleRelativeTransformation EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1365:2: (iv_ruleRelativeTransformation= ruleRelativeTransformation EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1366:2: iv_ruleRelativeTransformation= ruleRelativeTransformation EOF
             {
              newCompositeNode(grammarAccess.getRelativeTransformationRule()); 
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_entryRuleRelativeTransformation2879);
+            pushFollow(FOLLOW_ruleRelativeTransformation_in_entryRuleRelativeTransformation3064);
             iv_ruleRelativeTransformation=ruleRelativeTransformation();
 
             state._fsp--;
 
              current =iv_ruleRelativeTransformation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRelativeTransformation2889); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelativeTransformation3074); 
 
             }
 
@@ -3228,7 +3379,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelativeTransformation"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1321:1: ruleRelativeTransformation returns [EObject current=null] : (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1373:1: ruleRelativeTransformation returns [EObject current=null] : (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' ) ;
     public final EObject ruleRelativeTransformation() throws RecognitionException {
         EObject current = null;
 
@@ -3246,38 +3397,38 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1324:28: ( (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1325:1: (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1376:28: ( (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1377:1: (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1325:1: (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1325:3: otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1377:1: (otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1377:3: otherlv_0= '(' otherlv_1= 'with' otherlv_2= 'relative' otherlv_3= 'transformation' ( (lv_position_4_0= ruleMatrix ) ) otherlv_5= ',' ( (lv_reorient_6_0= ruleReorientation ) ) otherlv_7= ')'
             {
-            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleRelativeTransformation2926); 
+            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleRelativeTransformation3111); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRelativeTransformationAccess().getLeftParenthesisKeyword_0());
                 
-            otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleRelativeTransformation2938); 
+            otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleRelativeTransformation3123); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRelativeTransformationAccess().getWithKeyword_1());
                 
-            otherlv_2=(Token)match(input,39,FOLLOW_39_in_ruleRelativeTransformation2950); 
+            otherlv_2=(Token)match(input,39,FOLLOW_39_in_ruleRelativeTransformation3135); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRelativeTransformationAccess().getRelativeKeyword_2());
                 
-            otherlv_3=(Token)match(input,40,FOLLOW_40_in_ruleRelativeTransformation2962); 
+            otherlv_3=(Token)match(input,40,FOLLOW_40_in_ruleRelativeTransformation3147); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRelativeTransformationAccess().getTransformationKeyword_3());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1341:1: ( (lv_position_4_0= ruleMatrix ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1342:1: (lv_position_4_0= ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1393:1: ( (lv_position_4_0= ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1394:1: (lv_position_4_0= ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1342:1: (lv_position_4_0= ruleMatrix )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1343:3: lv_position_4_0= ruleMatrix
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1394:1: (lv_position_4_0= ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1395:3: lv_position_4_0= ruleMatrix
             {
              
             	        newCompositeNode(grammarAccess.getRelativeTransformationAccess().getPositionMatrixParserRuleCall_4_0()); 
             	    
-            pushFollow(FOLLOW_ruleMatrix_in_ruleRelativeTransformation2983);
+            pushFollow(FOLLOW_ruleMatrix_in_ruleRelativeTransformation3168);
             lv_position_4_0=ruleMatrix();
 
             state._fsp--;
@@ -3299,20 +3450,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,41,FOLLOW_41_in_ruleRelativeTransformation2995); 
+            otherlv_5=(Token)match(input,41,FOLLOW_41_in_ruleRelativeTransformation3180); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRelativeTransformationAccess().getCommaKeyword_5());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1363:1: ( (lv_reorient_6_0= ruleReorientation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1364:1: (lv_reorient_6_0= ruleReorientation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1415:1: ( (lv_reorient_6_0= ruleReorientation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1416:1: (lv_reorient_6_0= ruleReorientation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1364:1: (lv_reorient_6_0= ruleReorientation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1365:3: lv_reorient_6_0= ruleReorientation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1416:1: (lv_reorient_6_0= ruleReorientation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1417:3: lv_reorient_6_0= ruleReorientation
             {
              
             	        newCompositeNode(grammarAccess.getRelativeTransformationAccess().getReorientReorientationParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_ruleReorientation_in_ruleRelativeTransformation3016);
+            pushFollow(FOLLOW_ruleReorientation_in_ruleRelativeTransformation3201);
             lv_reorient_6_0=ruleReorientation();
 
             state._fsp--;
@@ -3334,7 +3485,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,42,FOLLOW_42_in_ruleRelativeTransformation3028); 
+            otherlv_7=(Token)match(input,42,FOLLOW_42_in_ruleRelativeTransformation3213); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getRelativeTransformationAccess().getRightParenthesisKeyword_7());
                 
@@ -3359,7 +3510,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleReorientation"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1393:1: entryRuleReorientation returns [EObject current=null] : iv_ruleReorientation= ruleReorientation EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1445:1: entryRuleReorientation returns [EObject current=null] : iv_ruleReorientation= ruleReorientation EOF ;
     public final EObject entryRuleReorientation() throws RecognitionException {
         EObject current = null;
 
@@ -3367,17 +3518,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1394:2: (iv_ruleReorientation= ruleReorientation EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1395:2: iv_ruleReorientation= ruleReorientation EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1446:2: (iv_ruleReorientation= ruleReorientation EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1447:2: iv_ruleReorientation= ruleReorientation EOF
             {
              newCompositeNode(grammarAccess.getReorientationRule()); 
-            pushFollow(FOLLOW_ruleReorientation_in_entryRuleReorientation3064);
+            pushFollow(FOLLOW_ruleReorientation_in_entryRuleReorientation3249);
             iv_ruleReorientation=ruleReorientation();
 
             state._fsp--;
 
              current =iv_ruleReorientation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleReorientation3074); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleReorientation3259); 
 
             }
 
@@ -3395,7 +3546,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReorientation"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1402:1: ruleReorientation returns [EObject current=null] : ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1454:1: ruleReorientation returns [EObject current=null] : ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) ) ;
     public final EObject ruleReorientation() throws RecognitionException {
         EObject current = null;
 
@@ -3407,13 +3558,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1405:28: ( ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1406:1: ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1457:28: ( ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1458:1: ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1406:1: ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1406:2: (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1458:1: ( (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1458:2: (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )? ( (lv_exp_2_0= ruleReorientExpression ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1406:2: (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1458:2: (otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) ) )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -3422,19 +3573,19 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt15) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1406:4: otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1458:4: otherlv_0= 'reorient' ( (lv_name_1_0= RULE_ID ) )
                     {
-                    otherlv_0=(Token)match(input,43,FOLLOW_43_in_ruleReorientation3112); 
+                    otherlv_0=(Token)match(input,43,FOLLOW_43_in_ruleReorientation3297); 
 
                         	newLeafNode(otherlv_0, grammarAccess.getReorientationAccess().getReorientKeyword_0_0());
                         
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1410:1: ( (lv_name_1_0= RULE_ID ) )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1411:1: (lv_name_1_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1462:1: ( (lv_name_1_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1463:1: (lv_name_1_0= RULE_ID )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1411:1: (lv_name_1_0= RULE_ID )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1412:3: lv_name_1_0= RULE_ID
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1463:1: (lv_name_1_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1464:3: lv_name_1_0= RULE_ID
                     {
-                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleReorientation3129); 
+                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleReorientation3314); 
 
                     			newLeafNode(lv_name_1_0, grammarAccess.getReorientationAccess().getNameIDTerminalRuleCall_0_1_0()); 
                     		
@@ -3460,16 +3611,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1428:4: ( (lv_exp_2_0= ruleReorientExpression ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1429:1: (lv_exp_2_0= ruleReorientExpression )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1480:4: ( (lv_exp_2_0= ruleReorientExpression ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1481:1: (lv_exp_2_0= ruleReorientExpression )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1429:1: (lv_exp_2_0= ruleReorientExpression )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1430:3: lv_exp_2_0= ruleReorientExpression
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1481:1: (lv_exp_2_0= ruleReorientExpression )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1482:3: lv_exp_2_0= ruleReorientExpression
             {
              
             	        newCompositeNode(grammarAccess.getReorientationAccess().getExpReorientExpressionParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleReorientExpression_in_ruleReorientation3157);
+            pushFollow(FOLLOW_ruleReorientExpression_in_ruleReorientation3342);
             lv_exp_2_0=ruleReorientExpression();
 
             state._fsp--;
@@ -3512,7 +3663,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleReorientExpression"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1454:1: entryRuleReorientExpression returns [EObject current=null] : iv_ruleReorientExpression= ruleReorientExpression EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1506:1: entryRuleReorientExpression returns [EObject current=null] : iv_ruleReorientExpression= ruleReorientExpression EOF ;
     public final EObject entryRuleReorientExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3520,17 +3671,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1455:2: (iv_ruleReorientExpression= ruleReorientExpression EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1456:2: iv_ruleReorientExpression= ruleReorientExpression EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1507:2: (iv_ruleReorientExpression= ruleReorientExpression EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1508:2: iv_ruleReorientExpression= ruleReorientExpression EOF
             {
              newCompositeNode(grammarAccess.getReorientExpressionRule()); 
-            pushFollow(FOLLOW_ruleReorientExpression_in_entryRuleReorientExpression3193);
+            pushFollow(FOLLOW_ruleReorientExpression_in_entryRuleReorientExpression3378);
             iv_ruleReorientExpression=ruleReorientExpression();
 
             state._fsp--;
 
              current =iv_ruleReorientExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleReorientExpression3203); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleReorientExpression3388); 
 
             }
 
@@ -3548,7 +3699,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReorientExpression"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1463:1: ruleReorientExpression returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1515:1: ruleReorientExpression returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) ) ;
     public final EObject ruleReorientExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3574,10 +3725,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1466:28: ( ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1467:1: ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1518:28: ( ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1519:1: ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1467:1: ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1519:1: ( ( (otherlv_0= RULE_ID ) ) | (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' ) )
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -3595,20 +3746,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt18) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1467:2: ( (otherlv_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1519:2: ( (otherlv_0= RULE_ID ) )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1467:2: ( (otherlv_0= RULE_ID ) )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1468:1: (otherlv_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1519:2: ( (otherlv_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1520:1: (otherlv_0= RULE_ID )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1468:1: (otherlv_0= RULE_ID )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1469:3: otherlv_0= RULE_ID
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1520:1: (otherlv_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1521:3: otherlv_0= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getReorientExpressionRule());
                     	        }
                             
-                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleReorientExpression3248); 
+                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleReorientExpression3433); 
 
                     		newLeafNode(otherlv_0, grammarAccess.getReorientExpressionAccess().getRefReorientationCrossReference_0_0()); 
                     	
@@ -3622,17 +3773,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1481:6: (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1533:6: (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1481:6: (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1481:8: otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1533:6: (otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1533:8: otherlv_1= '(' () (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )? otherlv_14= ')'
                     {
-                    otherlv_1=(Token)match(input,38,FOLLOW_38_in_ruleReorientExpression3267); 
+                    otherlv_1=(Token)match(input,38,FOLLOW_38_in_ruleReorientExpression3452); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getReorientExpressionAccess().getLeftParenthesisKeyword_1_0());
                         
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1485:1: ()
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1486:5: 
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1537:1: ()
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1538:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -3642,7 +3793,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1491:2: (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )?
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1543:2: (otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )* )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -3651,22 +3802,22 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt17) {
                         case 1 :
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1491:4: otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )*
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1543:4: otherlv_3= '(' ( (lv_axis_4_0= ruleAXIS ) ) otherlv_5= ',' ( (lv_value_6_0= ruleAddExp ) ) otherlv_7= ')' (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )*
                             {
-                            otherlv_3=(Token)match(input,38,FOLLOW_38_in_ruleReorientExpression3289); 
+                            otherlv_3=(Token)match(input,38,FOLLOW_38_in_ruleReorientExpression3474); 
 
                                 	newLeafNode(otherlv_3, grammarAccess.getReorientExpressionAccess().getLeftParenthesisKeyword_1_2_0());
                                 
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1495:1: ( (lv_axis_4_0= ruleAXIS ) )
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1496:1: (lv_axis_4_0= ruleAXIS )
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1547:1: ( (lv_axis_4_0= ruleAXIS ) )
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1548:1: (lv_axis_4_0= ruleAXIS )
                             {
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1496:1: (lv_axis_4_0= ruleAXIS )
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1497:3: lv_axis_4_0= ruleAXIS
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1548:1: (lv_axis_4_0= ruleAXIS )
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1549:3: lv_axis_4_0= ruleAXIS
                             {
                              
                             	        newCompositeNode(grammarAccess.getReorientExpressionAccess().getAxisAXISEnumRuleCall_1_2_1_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleAXIS_in_ruleReorientExpression3310);
+                            pushFollow(FOLLOW_ruleAXIS_in_ruleReorientExpression3495);
                             lv_axis_4_0=ruleAXIS();
 
                             state._fsp--;
@@ -3688,20 +3839,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_5=(Token)match(input,41,FOLLOW_41_in_ruleReorientExpression3322); 
+                            otherlv_5=(Token)match(input,41,FOLLOW_41_in_ruleReorientExpression3507); 
 
                                 	newLeafNode(otherlv_5, grammarAccess.getReorientExpressionAccess().getCommaKeyword_1_2_2());
                                 
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1517:1: ( (lv_value_6_0= ruleAddExp ) )
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1518:1: (lv_value_6_0= ruleAddExp )
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1569:1: ( (lv_value_6_0= ruleAddExp ) )
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1570:1: (lv_value_6_0= ruleAddExp )
                             {
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1518:1: (lv_value_6_0= ruleAddExp )
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1519:3: lv_value_6_0= ruleAddExp
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1570:1: (lv_value_6_0= ruleAddExp )
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1571:3: lv_value_6_0= ruleAddExp
                             {
                              
                             	        newCompositeNode(grammarAccess.getReorientExpressionAccess().getValueAddExpParserRuleCall_1_2_3_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleAddExp_in_ruleReorientExpression3343);
+                            pushFollow(FOLLOW_ruleAddExp_in_ruleReorientExpression3528);
                             lv_value_6_0=ruleAddExp();
 
                             state._fsp--;
@@ -3723,11 +3874,11 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_7=(Token)match(input,42,FOLLOW_42_in_ruleReorientExpression3355); 
+                            otherlv_7=(Token)match(input,42,FOLLOW_42_in_ruleReorientExpression3540); 
 
                                 	newLeafNode(otherlv_7, grammarAccess.getReorientExpressionAccess().getRightParenthesisKeyword_1_2_4());
                                 
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1539:1: (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )*
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1591:1: (otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')' )*
                             loop16:
                             do {
                                 int alt16=2;
@@ -3740,26 +3891,26 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                                 switch (alt16) {
                             	case 1 :
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1539:3: otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')'
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1591:3: otherlv_8= ',' otherlv_9= '(' ( (lv_axis_10_0= ruleAXIS ) ) otherlv_11= ',' ( (lv_value_12_0= ruleAddExp ) ) otherlv_13= ')'
                             	    {
-                            	    otherlv_8=(Token)match(input,41,FOLLOW_41_in_ruleReorientExpression3368); 
+                            	    otherlv_8=(Token)match(input,41,FOLLOW_41_in_ruleReorientExpression3553); 
 
                             	        	newLeafNode(otherlv_8, grammarAccess.getReorientExpressionAccess().getCommaKeyword_1_2_5_0());
                             	        
-                            	    otherlv_9=(Token)match(input,38,FOLLOW_38_in_ruleReorientExpression3380); 
+                            	    otherlv_9=(Token)match(input,38,FOLLOW_38_in_ruleReorientExpression3565); 
 
                             	        	newLeafNode(otherlv_9, grammarAccess.getReorientExpressionAccess().getLeftParenthesisKeyword_1_2_5_1());
                             	        
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1547:1: ( (lv_axis_10_0= ruleAXIS ) )
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1548:1: (lv_axis_10_0= ruleAXIS )
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1599:1: ( (lv_axis_10_0= ruleAXIS ) )
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1600:1: (lv_axis_10_0= ruleAXIS )
                             	    {
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1548:1: (lv_axis_10_0= ruleAXIS )
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1549:3: lv_axis_10_0= ruleAXIS
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1600:1: (lv_axis_10_0= ruleAXIS )
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1601:3: lv_axis_10_0= ruleAXIS
                             	    {
                             	     
                             	    	        newCompositeNode(grammarAccess.getReorientExpressionAccess().getAxisAXISEnumRuleCall_1_2_5_2_0()); 
                             	    	    
-                            	    pushFollow(FOLLOW_ruleAXIS_in_ruleReorientExpression3401);
+                            	    pushFollow(FOLLOW_ruleAXIS_in_ruleReorientExpression3586);
                             	    lv_axis_10_0=ruleAXIS();
 
                             	    state._fsp--;
@@ -3781,20 +3932,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                             	    }
 
-                            	    otherlv_11=(Token)match(input,41,FOLLOW_41_in_ruleReorientExpression3413); 
+                            	    otherlv_11=(Token)match(input,41,FOLLOW_41_in_ruleReorientExpression3598); 
 
                             	        	newLeafNode(otherlv_11, grammarAccess.getReorientExpressionAccess().getCommaKeyword_1_2_5_3());
                             	        
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1569:1: ( (lv_value_12_0= ruleAddExp ) )
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1570:1: (lv_value_12_0= ruleAddExp )
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1621:1: ( (lv_value_12_0= ruleAddExp ) )
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1622:1: (lv_value_12_0= ruleAddExp )
                             	    {
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1570:1: (lv_value_12_0= ruleAddExp )
-                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1571:3: lv_value_12_0= ruleAddExp
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1622:1: (lv_value_12_0= ruleAddExp )
+                            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1623:3: lv_value_12_0= ruleAddExp
                             	    {
                             	     
                             	    	        newCompositeNode(grammarAccess.getReorientExpressionAccess().getValueAddExpParserRuleCall_1_2_5_4_0()); 
                             	    	    
-                            	    pushFollow(FOLLOW_ruleAddExp_in_ruleReorientExpression3434);
+                            	    pushFollow(FOLLOW_ruleAddExp_in_ruleReorientExpression3619);
                             	    lv_value_12_0=ruleAddExp();
 
                             	    state._fsp--;
@@ -3816,7 +3967,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                             	    }
 
-                            	    otherlv_13=(Token)match(input,42,FOLLOW_42_in_ruleReorientExpression3446); 
+                            	    otherlv_13=(Token)match(input,42,FOLLOW_42_in_ruleReorientExpression3631); 
 
                             	        	newLeafNode(otherlv_13, grammarAccess.getReorientExpressionAccess().getRightParenthesisKeyword_1_2_5_5());
                             	        
@@ -3835,7 +3986,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_14=(Token)match(input,42,FOLLOW_42_in_ruleReorientExpression3462); 
+                    otherlv_14=(Token)match(input,42,FOLLOW_42_in_ruleReorientExpression3647); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getReorientExpressionAccess().getRightParenthesisKeyword_1_3());
                         
@@ -3866,7 +4017,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConstraint"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1603:1: entryRuleConstraint returns [EObject current=null] : iv_ruleConstraint= ruleConstraint EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1655:1: entryRuleConstraint returns [EObject current=null] : iv_ruleConstraint= ruleConstraint EOF ;
     public final EObject entryRuleConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -3874,17 +4025,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1604:2: (iv_ruleConstraint= ruleConstraint EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1605:2: iv_ruleConstraint= ruleConstraint EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1656:2: (iv_ruleConstraint= ruleConstraint EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1657:2: iv_ruleConstraint= ruleConstraint EOF
             {
              newCompositeNode(grammarAccess.getConstraintRule()); 
-            pushFollow(FOLLOW_ruleConstraint_in_entryRuleConstraint3499);
+            pushFollow(FOLLOW_ruleConstraint_in_entryRuleConstraint3684);
             iv_ruleConstraint=ruleConstraint();
 
             state._fsp--;
 
              current =iv_ruleConstraint; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConstraint3509); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConstraint3694); 
 
             }
 
@@ -3902,7 +4053,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstraint"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1612:1: ruleConstraint returns [EObject current=null] : (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1664:1: ruleConstraint returns [EObject current=null] : (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) ) ;
     public final EObject ruleConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -3925,23 +4076,23 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1615:28: ( (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1616:1: (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1667:28: ( (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1668:1: (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1616:1: (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1616:3: otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1668:1: (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1668:3: otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_type_3_0= ruleConstraintType ) ) otherlv_4= 'between' ( (lv_body1_5_0= ruleBodyReference ) ) ( (lv_relTrans1_6_0= ruleRelativeTransformation ) ) otherlv_7= 'and' ( (lv_body2_8_0= ruleBodyReference ) ) ( (lv_relTrans2_9_0= ruleRelativeTransformation ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_44_in_ruleConstraint3546); 
+            otherlv_0=(Token)match(input,44,FOLLOW_44_in_ruleConstraint3731); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConstraintKeyword_0());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1620:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1621:1: (lv_name_1_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1672:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1673:1: (lv_name_1_0= RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1621:1: (lv_name_1_0= RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1622:3: lv_name_1_0= RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1673:1: (lv_name_1_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1674:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstraint3563); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstraint3748); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -3961,20 +4112,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleConstraint3580); 
+            otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleConstraint3765); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getColonKeyword_2());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1642:1: ( (lv_type_3_0= ruleConstraintType ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1643:1: (lv_type_3_0= ruleConstraintType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1694:1: ( (lv_type_3_0= ruleConstraintType ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1695:1: (lv_type_3_0= ruleConstraintType )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1643:1: (lv_type_3_0= ruleConstraintType )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1644:3: lv_type_3_0= ruleConstraintType
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1695:1: (lv_type_3_0= ruleConstraintType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1696:3: lv_type_3_0= ruleConstraintType
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleConstraintType_in_ruleConstraint3601);
+            pushFollow(FOLLOW_ruleConstraintType_in_ruleConstraint3786);
             lv_type_3_0=ruleConstraintType();
 
             state._fsp--;
@@ -3996,20 +4147,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,26,FOLLOW_26_in_ruleConstraint3613); 
+            otherlv_4=(Token)match(input,26,FOLLOW_26_in_ruleConstraint3798); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getBetweenKeyword_4());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1664:1: ( (lv_body1_5_0= ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1665:1: (lv_body1_5_0= ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1716:1: ( (lv_body1_5_0= ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1717:1: (lv_body1_5_0= ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1665:1: (lv_body1_5_0= ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1666:3: lv_body1_5_0= ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1717:1: (lv_body1_5_0= ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1718:3: lv_body1_5_0= ruleBodyReference
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0()); 
             	    
-            pushFollow(FOLLOW_ruleBodyReference_in_ruleConstraint3634);
+            pushFollow(FOLLOW_ruleBodyReference_in_ruleConstraint3819);
             lv_body1_5_0=ruleBodyReference();
 
             state._fsp--;
@@ -4031,16 +4182,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1682:2: ( (lv_relTrans1_6_0= ruleRelativeTransformation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1683:1: (lv_relTrans1_6_0= ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1734:2: ( (lv_relTrans1_6_0= ruleRelativeTransformation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1735:1: (lv_relTrans1_6_0= ruleRelativeTransformation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1683:1: (lv_relTrans1_6_0= ruleRelativeTransformation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1684:3: lv_relTrans1_6_0= ruleRelativeTransformation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1735:1: (lv_relTrans1_6_0= ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1736:3: lv_relTrans1_6_0= ruleRelativeTransformation
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_ruleConstraint3655);
+            pushFollow(FOLLOW_ruleRelativeTransformation_in_ruleConstraint3840);
             lv_relTrans1_6_0=ruleRelativeTransformation();
 
             state._fsp--;
@@ -4062,20 +4213,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,27,FOLLOW_27_in_ruleConstraint3667); 
+            otherlv_7=(Token)match(input,27,FOLLOW_27_in_ruleConstraint3852); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getConstraintAccess().getAndKeyword_7());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1704:1: ( (lv_body2_8_0= ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1705:1: (lv_body2_8_0= ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1756:1: ( (lv_body2_8_0= ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1757:1: (lv_body2_8_0= ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1705:1: (lv_body2_8_0= ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1706:3: lv_body2_8_0= ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1757:1: (lv_body2_8_0= ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1758:3: lv_body2_8_0= ruleBodyReference
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0()); 
             	    
-            pushFollow(FOLLOW_ruleBodyReference_in_ruleConstraint3688);
+            pushFollow(FOLLOW_ruleBodyReference_in_ruleConstraint3873);
             lv_body2_8_0=ruleBodyReference();
 
             state._fsp--;
@@ -4097,16 +4248,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1722:2: ( (lv_relTrans2_9_0= ruleRelativeTransformation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1723:1: (lv_relTrans2_9_0= ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1774:2: ( (lv_relTrans2_9_0= ruleRelativeTransformation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1775:1: (lv_relTrans2_9_0= ruleRelativeTransformation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1723:1: (lv_relTrans2_9_0= ruleRelativeTransformation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1724:3: lv_relTrans2_9_0= ruleRelativeTransformation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1775:1: (lv_relTrans2_9_0= ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1776:3: lv_relTrans2_9_0= ruleRelativeTransformation
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0()); 
             	    
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_ruleConstraint3709);
+            pushFollow(FOLLOW_ruleRelativeTransformation_in_ruleConstraint3894);
             lv_relTrans2_9_0=ruleRelativeTransformation();
 
             state._fsp--;
@@ -4149,7 +4300,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExternalLoad"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1748:1: entryRuleExternalLoad returns [EObject current=null] : iv_ruleExternalLoad= ruleExternalLoad EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1800:1: entryRuleExternalLoad returns [EObject current=null] : iv_ruleExternalLoad= ruleExternalLoad EOF ;
     public final EObject entryRuleExternalLoad() throws RecognitionException {
         EObject current = null;
 
@@ -4157,17 +4308,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1749:2: (iv_ruleExternalLoad= ruleExternalLoad EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1750:2: iv_ruleExternalLoad= ruleExternalLoad EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1801:2: (iv_ruleExternalLoad= ruleExternalLoad EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1802:2: iv_ruleExternalLoad= ruleExternalLoad EOF
             {
              newCompositeNode(grammarAccess.getExternalLoadRule()); 
-            pushFollow(FOLLOW_ruleExternalLoad_in_entryRuleExternalLoad3745);
+            pushFollow(FOLLOW_ruleExternalLoad_in_entryRuleExternalLoad3930);
             iv_ruleExternalLoad=ruleExternalLoad();
 
             state._fsp--;
 
              current =iv_ruleExternalLoad; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalLoad3755); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalLoad3940); 
 
             }
 
@@ -4185,7 +4336,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExternalLoad"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1757:1: ruleExternalLoad returns [EObject current=null] : (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1809:1: ruleExternalLoad returns [EObject current=null] : (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' ) ;
     public final EObject ruleExternalLoad() throws RecognitionException {
         EObject current = null;
 
@@ -4209,27 +4360,27 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1760:28: ( (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1761:1: (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1812:28: ( (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1813:1: (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1761:1: (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1761:3: otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1813:1: (otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1813:3: otherlv_0= 'external' otherlv_1= 'load' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleLoadType ) ) otherlv_5= 'at' ( (lv_body1_6_0= ruleBodyReference ) ) otherlv_7= '(' otherlv_8= 'with' otherlv_9= 'relative' otherlv_10= 'transformation' ( (lv_position_11_0= ruleMatrix ) ) otherlv_12= ')'
             {
-            otherlv_0=(Token)match(input,45,FOLLOW_45_in_ruleExternalLoad3792); 
+            otherlv_0=(Token)match(input,45,FOLLOW_45_in_ruleExternalLoad3977); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getExternalLoadAccess().getExternalKeyword_0());
                 
-            otherlv_1=(Token)match(input,46,FOLLOW_46_in_ruleExternalLoad3804); 
+            otherlv_1=(Token)match(input,46,FOLLOW_46_in_ruleExternalLoad3989); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getExternalLoadAccess().getLoadKeyword_1());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1769:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1770:1: (lv_name_2_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1821:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1822:1: (lv_name_2_0= RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1770:1: (lv_name_2_0= RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1771:3: lv_name_2_0= RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1822:1: (lv_name_2_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1823:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExternalLoad3821); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExternalLoad4006); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getExternalLoadAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -4249,20 +4400,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,24,FOLLOW_24_in_ruleExternalLoad3838); 
+            otherlv_3=(Token)match(input,24,FOLLOW_24_in_ruleExternalLoad4023); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getExternalLoadAccess().getColonKeyword_3());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1791:1: ( (lv_type_4_0= ruleLoadType ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1792:1: (lv_type_4_0= ruleLoadType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1843:1: ( (lv_type_4_0= ruleLoadType ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1844:1: (lv_type_4_0= ruleLoadType )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1792:1: (lv_type_4_0= ruleLoadType )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1793:3: lv_type_4_0= ruleLoadType
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1844:1: (lv_type_4_0= ruleLoadType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1845:3: lv_type_4_0= ruleLoadType
             {
              
             	        newCompositeNode(grammarAccess.getExternalLoadAccess().getTypeLoadTypeEnumRuleCall_4_0()); 
             	    
-            pushFollow(FOLLOW_ruleLoadType_in_ruleExternalLoad3859);
+            pushFollow(FOLLOW_ruleLoadType_in_ruleExternalLoad4044);
             lv_type_4_0=ruleLoadType();
 
             state._fsp--;
@@ -4284,20 +4435,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,47,FOLLOW_47_in_ruleExternalLoad3871); 
+            otherlv_5=(Token)match(input,47,FOLLOW_47_in_ruleExternalLoad4056); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getExternalLoadAccess().getAtKeyword_5());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1813:1: ( (lv_body1_6_0= ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1814:1: (lv_body1_6_0= ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1865:1: ( (lv_body1_6_0= ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1866:1: (lv_body1_6_0= ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1814:1: (lv_body1_6_0= ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1815:3: lv_body1_6_0= ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1866:1: (lv_body1_6_0= ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1867:3: lv_body1_6_0= ruleBodyReference
             {
              
             	        newCompositeNode(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_ruleBodyReference_in_ruleExternalLoad3892);
+            pushFollow(FOLLOW_ruleBodyReference_in_ruleExternalLoad4077);
             lv_body1_6_0=ruleBodyReference();
 
             state._fsp--;
@@ -4319,32 +4470,32 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,38,FOLLOW_38_in_ruleExternalLoad3904); 
+            otherlv_7=(Token)match(input,38,FOLLOW_38_in_ruleExternalLoad4089); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getExternalLoadAccess().getLeftParenthesisKeyword_7());
                 
-            otherlv_8=(Token)match(input,30,FOLLOW_30_in_ruleExternalLoad3916); 
+            otherlv_8=(Token)match(input,30,FOLLOW_30_in_ruleExternalLoad4101); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getExternalLoadAccess().getWithKeyword_8());
                 
-            otherlv_9=(Token)match(input,39,FOLLOW_39_in_ruleExternalLoad3928); 
+            otherlv_9=(Token)match(input,39,FOLLOW_39_in_ruleExternalLoad4113); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getExternalLoadAccess().getRelativeKeyword_9());
                 
-            otherlv_10=(Token)match(input,40,FOLLOW_40_in_ruleExternalLoad3940); 
+            otherlv_10=(Token)match(input,40,FOLLOW_40_in_ruleExternalLoad4125); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getExternalLoadAccess().getTransformationKeyword_10());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1847:1: ( (lv_position_11_0= ruleMatrix ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1848:1: (lv_position_11_0= ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1899:1: ( (lv_position_11_0= ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1900:1: (lv_position_11_0= ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1848:1: (lv_position_11_0= ruleMatrix )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1849:3: lv_position_11_0= ruleMatrix
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1900:1: (lv_position_11_0= ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1901:3: lv_position_11_0= ruleMatrix
             {
              
             	        newCompositeNode(grammarAccess.getExternalLoadAccess().getPositionMatrixParserRuleCall_11_0()); 
             	    
-            pushFollow(FOLLOW_ruleMatrix_in_ruleExternalLoad3961);
+            pushFollow(FOLLOW_ruleMatrix_in_ruleExternalLoad4146);
             lv_position_11_0=ruleMatrix();
 
             state._fsp--;
@@ -4366,7 +4517,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,42,FOLLOW_42_in_ruleExternalLoad3973); 
+            otherlv_12=(Token)match(input,42,FOLLOW_42_in_ruleExternalLoad4158); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getExternalLoadAccess().getRightParenthesisKeyword_12());
                 
@@ -4391,7 +4542,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMatrix"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1877:1: entryRuleMatrix returns [EObject current=null] : iv_ruleMatrix= ruleMatrix EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1929:1: entryRuleMatrix returns [EObject current=null] : iv_ruleMatrix= ruleMatrix EOF ;
     public final EObject entryRuleMatrix() throws RecognitionException {
         EObject current = null;
 
@@ -4399,17 +4550,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1878:2: (iv_ruleMatrix= ruleMatrix EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1879:2: iv_ruleMatrix= ruleMatrix EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1930:2: (iv_ruleMatrix= ruleMatrix EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1931:2: iv_ruleMatrix= ruleMatrix EOF
             {
              newCompositeNode(grammarAccess.getMatrixRule()); 
-            pushFollow(FOLLOW_ruleMatrix_in_entryRuleMatrix4009);
+            pushFollow(FOLLOW_ruleMatrix_in_entryRuleMatrix4194);
             iv_ruleMatrix=ruleMatrix();
 
             state._fsp--;
 
              current =iv_ruleMatrix; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMatrix4019); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMatrix4204); 
 
             }
 
@@ -4427,7 +4578,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMatrix"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1886:1: ruleMatrix returns [EObject current=null] : (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1938:1: ruleMatrix returns [EObject current=null] : (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef ) ;
     public final EObject ruleMatrix() throws RecognitionException {
         EObject current = null;
 
@@ -4439,10 +4590,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1889:28: ( (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1890:1: (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1941:28: ( (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1942:1: (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1890:1: (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1942:1: (this_BaseMatrix_0= ruleBaseMatrix | this_MatrixRef_1= ruleMatrixRef )
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -4460,12 +4611,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt19) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1891:5: this_BaseMatrix_0= ruleBaseMatrix
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1943:5: this_BaseMatrix_0= ruleBaseMatrix
                     {
                      
                             newCompositeNode(grammarAccess.getMatrixAccess().getBaseMatrixParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleBaseMatrix_in_ruleMatrix4066);
+                    pushFollow(FOLLOW_ruleBaseMatrix_in_ruleMatrix4251);
                     this_BaseMatrix_0=ruleBaseMatrix();
 
                     state._fsp--;
@@ -4478,12 +4629,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1901:5: this_MatrixRef_1= ruleMatrixRef
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1953:5: this_MatrixRef_1= ruleMatrixRef
                     {
                      
                             newCompositeNode(grammarAccess.getMatrixAccess().getMatrixRefParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleMatrixRef_in_ruleMatrix4093);
+                    pushFollow(FOLLOW_ruleMatrixRef_in_ruleMatrix4278);
                     this_MatrixRef_1=ruleMatrixRef();
 
                     state._fsp--;
@@ -4516,7 +4667,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBaseMatrix"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1917:1: entryRuleBaseMatrix returns [EObject current=null] : iv_ruleBaseMatrix= ruleBaseMatrix EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1969:1: entryRuleBaseMatrix returns [EObject current=null] : iv_ruleBaseMatrix= ruleBaseMatrix EOF ;
     public final EObject entryRuleBaseMatrix() throws RecognitionException {
         EObject current = null;
 
@@ -4524,17 +4675,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1918:2: (iv_ruleBaseMatrix= ruleBaseMatrix EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1919:2: iv_ruleBaseMatrix= ruleBaseMatrix EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1970:2: (iv_ruleBaseMatrix= ruleBaseMatrix EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1971:2: iv_ruleBaseMatrix= ruleBaseMatrix EOF
             {
              newCompositeNode(grammarAccess.getBaseMatrixRule()); 
-            pushFollow(FOLLOW_ruleBaseMatrix_in_entryRuleBaseMatrix4128);
+            pushFollow(FOLLOW_ruleBaseMatrix_in_entryRuleBaseMatrix4313);
             iv_ruleBaseMatrix=ruleBaseMatrix();
 
             state._fsp--;
 
              current =iv_ruleBaseMatrix; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBaseMatrix4138); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBaseMatrix4323); 
 
             }
 
@@ -4552,7 +4703,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBaseMatrix"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1926:1: ruleBaseMatrix returns [EObject current=null] : ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1978:1: ruleBaseMatrix returns [EObject current=null] : ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' ) ;
     public final EObject ruleBaseMatrix() throws RecognitionException {
         EObject current = null;
 
@@ -4569,13 +4720,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1929:28: ( ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1930:1: ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1981:28: ( ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1982:1: ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1930:1: ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1930:2: (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1982:1: ( (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1982:2: (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )? otherlv_2= '[' ( (lv_values_3_0= ruleAddExp ) ) (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )* otherlv_6= ']'
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1930:2: (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1982:2: (otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) ) )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -4584,19 +4735,19 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt20) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1930:4: otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1982:4: otherlv_0= 'matrix' ( (lv_name_1_0= RULE_ID ) )
                     {
-                    otherlv_0=(Token)match(input,48,FOLLOW_48_in_ruleBaseMatrix4176); 
+                    otherlv_0=(Token)match(input,48,FOLLOW_48_in_ruleBaseMatrix4361); 
 
                         	newLeafNode(otherlv_0, grammarAccess.getBaseMatrixAccess().getMatrixKeyword_0_0());
                         
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1934:1: ( (lv_name_1_0= RULE_ID ) )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1935:1: (lv_name_1_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1986:1: ( (lv_name_1_0= RULE_ID ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1987:1: (lv_name_1_0= RULE_ID )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1935:1: (lv_name_1_0= RULE_ID )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1936:3: lv_name_1_0= RULE_ID
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1987:1: (lv_name_1_0= RULE_ID )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1988:3: lv_name_1_0= RULE_ID
                     {
-                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBaseMatrix4193); 
+                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBaseMatrix4378); 
 
                     			newLeafNode(lv_name_1_0, grammarAccess.getBaseMatrixAccess().getNameIDTerminalRuleCall_0_1_0()); 
                     		
@@ -4622,20 +4773,20 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,49,FOLLOW_49_in_ruleBaseMatrix4212); 
+            otherlv_2=(Token)match(input,49,FOLLOW_49_in_ruleBaseMatrix4397); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getBaseMatrixAccess().getLeftSquareBracketKeyword_1());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1956:1: ( (lv_values_3_0= ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1957:1: (lv_values_3_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2008:1: ( (lv_values_3_0= ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2009:1: (lv_values_3_0= ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1957:1: (lv_values_3_0= ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1958:3: lv_values_3_0= ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2009:1: (lv_values_3_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2010:3: lv_values_3_0= ruleAddExp
             {
              
             	        newCompositeNode(grammarAccess.getBaseMatrixAccess().getValuesAddExpParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseMatrix4233);
+            pushFollow(FOLLOW_ruleAddExp_in_ruleBaseMatrix4418);
             lv_values_3_0=ruleAddExp();
 
             state._fsp--;
@@ -4657,7 +4808,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1974:2: (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2026:2: (otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) ) )*
             loop21:
             do {
                 int alt21=2;
@@ -4670,22 +4821,22 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                 switch (alt21) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1974:4: otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2026:4: otherlv_4= ',' ( (lv_values_5_0= ruleAddExp ) )
             	    {
-            	    otherlv_4=(Token)match(input,41,FOLLOW_41_in_ruleBaseMatrix4246); 
+            	    otherlv_4=(Token)match(input,41,FOLLOW_41_in_ruleBaseMatrix4431); 
 
             	        	newLeafNode(otherlv_4, grammarAccess.getBaseMatrixAccess().getCommaKeyword_3_0());
             	        
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1978:1: ( (lv_values_5_0= ruleAddExp ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1979:1: (lv_values_5_0= ruleAddExp )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2030:1: ( (lv_values_5_0= ruleAddExp ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2031:1: (lv_values_5_0= ruleAddExp )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1979:1: (lv_values_5_0= ruleAddExp )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:1980:3: lv_values_5_0= ruleAddExp
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2031:1: (lv_values_5_0= ruleAddExp )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2032:3: lv_values_5_0= ruleAddExp
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getBaseMatrixAccess().getValuesAddExpParserRuleCall_3_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleAddExp_in_ruleBaseMatrix4267);
+            	    pushFollow(FOLLOW_ruleAddExp_in_ruleBaseMatrix4452);
             	    lv_values_5_0=ruleAddExp();
 
             	    state._fsp--;
@@ -4716,7 +4867,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,50,FOLLOW_50_in_ruleBaseMatrix4281); 
+            otherlv_6=(Token)match(input,50,FOLLOW_50_in_ruleBaseMatrix4466); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getBaseMatrixAccess().getRightSquareBracketKeyword_4());
                 
@@ -4741,7 +4892,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMatrixRef"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2008:1: entryRuleMatrixRef returns [EObject current=null] : iv_ruleMatrixRef= ruleMatrixRef EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2060:1: entryRuleMatrixRef returns [EObject current=null] : iv_ruleMatrixRef= ruleMatrixRef EOF ;
     public final EObject entryRuleMatrixRef() throws RecognitionException {
         EObject current = null;
 
@@ -4749,17 +4900,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2009:2: (iv_ruleMatrixRef= ruleMatrixRef EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2010:2: iv_ruleMatrixRef= ruleMatrixRef EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2061:2: (iv_ruleMatrixRef= ruleMatrixRef EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2062:2: iv_ruleMatrixRef= ruleMatrixRef EOF
             {
              newCompositeNode(grammarAccess.getMatrixRefRule()); 
-            pushFollow(FOLLOW_ruleMatrixRef_in_entryRuleMatrixRef4317);
+            pushFollow(FOLLOW_ruleMatrixRef_in_entryRuleMatrixRef4502);
             iv_ruleMatrixRef=ruleMatrixRef();
 
             state._fsp--;
 
              current =iv_ruleMatrixRef; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMatrixRef4327); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMatrixRef4512); 
 
             }
 
@@ -4777,7 +4928,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMatrixRef"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2017:1: ruleMatrixRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2069:1: ruleMatrixRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleMatrixRef() throws RecognitionException {
         EObject current = null;
 
@@ -4786,21 +4937,21 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2020:28: ( ( (otherlv_0= RULE_ID ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2021:1: ( (otherlv_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2072:28: ( ( (otherlv_0= RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2073:1: ( (otherlv_0= RULE_ID ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2021:1: ( (otherlv_0= RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2022:1: (otherlv_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2073:1: ( (otherlv_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2074:1: (otherlv_0= RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2022:1: (otherlv_0= RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2023:3: otherlv_0= RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2074:1: (otherlv_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2075:3: otherlv_0= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getMatrixRefRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMatrixRef4371); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMatrixRef4556); 
 
             		newLeafNode(otherlv_0, grammarAccess.getMatrixRefAccess().getMatrixBaseMatrixCrossReference_0()); 
             	
@@ -4828,7 +4979,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAddExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2042:1: entryRuleAddExp returns [EObject current=null] : iv_ruleAddExp= ruleAddExp EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2094:1: entryRuleAddExp returns [EObject current=null] : iv_ruleAddExp= ruleAddExp EOF ;
     public final EObject entryRuleAddExp() throws RecognitionException {
         EObject current = null;
 
@@ -4836,17 +4987,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2043:2: (iv_ruleAddExp= ruleAddExp EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2044:2: iv_ruleAddExp= ruleAddExp EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2095:2: (iv_ruleAddExp= ruleAddExp EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2096:2: iv_ruleAddExp= ruleAddExp EOF
             {
              newCompositeNode(grammarAccess.getAddExpRule()); 
-            pushFollow(FOLLOW_ruleAddExp_in_entryRuleAddExp4406);
+            pushFollow(FOLLOW_ruleAddExp_in_entryRuleAddExp4591);
             iv_ruleAddExp=ruleAddExp();
 
             state._fsp--;
 
              current =iv_ruleAddExp; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAddExp4416); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAddExp4601); 
 
             }
 
@@ -4864,7 +5015,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAddExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2051:1: ruleAddExp returns [EObject current=null] : (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2103:1: ruleAddExp returns [EObject current=null] : (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* ) ;
     public final EObject ruleAddExp() throws RecognitionException {
         EObject current = null;
 
@@ -4878,16 +5029,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2054:28: ( (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2055:1: (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2106:28: ( (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2107:1: (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2055:1: (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2056:5: this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2107:1: (this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2108:5: this_MultExp_0= ruleMultExp ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )*
             {
              
                     newCompositeNode(grammarAccess.getAddExpAccess().getMultExpParserRuleCall_0()); 
                 
-            pushFollow(FOLLOW_ruleMultExp_in_ruleAddExp4463);
+            pushFollow(FOLLOW_ruleMultExp_in_ruleAddExp4648);
             this_MultExp_0=ruleMultExp();
 
             state._fsp--;
@@ -4896,7 +5047,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     current = this_MultExp_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2064:1: ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2116:1: ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) ) )*
             loop23:
             do {
                 int alt23=2;
@@ -4909,10 +5060,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                 switch (alt23) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2064:2: () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2116:2: () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultExp ) )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2064:2: ()
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2065:5: 
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2116:2: ()
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2117:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
@@ -4922,13 +5073,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2070:2: ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2071:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2122:2: ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2123:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2071:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2072:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2123:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2124:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2072:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2124:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
             	    int alt22=2;
             	    int LA22_0 = input.LA(1);
 
@@ -4946,9 +5097,9 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt22) {
             	        case 1 :
-            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2073:3: lv_op_2_1= '+'
+            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2125:3: lv_op_2_1= '+'
             	            {
-            	            lv_op_2_1=(Token)match(input,29,FOLLOW_29_in_ruleAddExp4492); 
+            	            lv_op_2_1=(Token)match(input,29,FOLLOW_29_in_ruleAddExp4677); 
 
             	                    newLeafNode(lv_op_2_1, grammarAccess.getAddExpAccess().getOpPlusSignKeyword_1_1_0_0());
             	                
@@ -4962,9 +5113,9 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2085:8: lv_op_2_2= '-'
+            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2137:8: lv_op_2_2= '-'
             	            {
-            	            lv_op_2_2=(Token)match(input,51,FOLLOW_51_in_ruleAddExp4521); 
+            	            lv_op_2_2=(Token)match(input,51,FOLLOW_51_in_ruleAddExp4706); 
 
             	                    newLeafNode(lv_op_2_2, grammarAccess.getAddExpAccess().getOpHyphenMinusKeyword_1_1_0_1());
             	                
@@ -4986,16 +5137,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2100:2: ( (lv_right_3_0= ruleMultExp ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2101:1: (lv_right_3_0= ruleMultExp )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2152:2: ( (lv_right_3_0= ruleMultExp ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2153:1: (lv_right_3_0= ruleMultExp )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2101:1: (lv_right_3_0= ruleMultExp )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2102:3: lv_right_3_0= ruleMultExp
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2153:1: (lv_right_3_0= ruleMultExp )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2154:3: lv_right_3_0= ruleMultExp
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getAddExpAccess().getRightMultExpParserRuleCall_1_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleMultExp_in_ruleAddExp4558);
+            	    pushFollow(FOLLOW_ruleMultExp_in_ruleAddExp4743);
             	    lv_right_3_0=ruleMultExp();
 
             	    state._fsp--;
@@ -5047,7 +5198,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMultExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2126:1: entryRuleMultExp returns [EObject current=null] : iv_ruleMultExp= ruleMultExp EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2178:1: entryRuleMultExp returns [EObject current=null] : iv_ruleMultExp= ruleMultExp EOF ;
     public final EObject entryRuleMultExp() throws RecognitionException {
         EObject current = null;
 
@@ -5055,17 +5206,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2127:2: (iv_ruleMultExp= ruleMultExp EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2128:2: iv_ruleMultExp= ruleMultExp EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2179:2: (iv_ruleMultExp= ruleMultExp EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2180:2: iv_ruleMultExp= ruleMultExp EOF
             {
              newCompositeNode(grammarAccess.getMultExpRule()); 
-            pushFollow(FOLLOW_ruleMultExp_in_entryRuleMultExp4596);
+            pushFollow(FOLLOW_ruleMultExp_in_entryRuleMultExp4781);
             iv_ruleMultExp=ruleMultExp();
 
             state._fsp--;
 
              current =iv_ruleMultExp; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMultExp4606); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMultExp4791); 
 
             }
 
@@ -5083,7 +5234,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2135:1: ruleMultExp returns [EObject current=null] : (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2187:1: ruleMultExp returns [EObject current=null] : (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) ;
     public final EObject ruleMultExp() throws RecognitionException {
         EObject current = null;
 
@@ -5097,16 +5248,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2138:28: ( (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2139:1: (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2190:28: ( (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2191:1: (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2139:1: (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2140:5: this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2191:1: (this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2192:5: this_Primary_0= rulePrimary ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
             {
              
                     newCompositeNode(grammarAccess.getMultExpAccess().getPrimaryParserRuleCall_0()); 
                 
-            pushFollow(FOLLOW_rulePrimary_in_ruleMultExp4653);
+            pushFollow(FOLLOW_rulePrimary_in_ruleMultExp4838);
             this_Primary_0=rulePrimary();
 
             state._fsp--;
@@ -5115,7 +5266,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     current = this_Primary_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2148:1: ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2200:1: ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) ) )*
             loop25:
             do {
                 int alt25=2;
@@ -5128,10 +5279,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                 switch (alt25) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2148:2: () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2200:2: () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= rulePrimary ) )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2148:2: ()
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2149:5: 
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2200:2: ()
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2201:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
@@ -5141,13 +5292,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2154:2: ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2155:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2206:2: ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2207:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2155:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2156:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2207:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2208:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2156:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2208:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
             	    int alt24=2;
             	    int LA24_0 = input.LA(1);
 
@@ -5165,9 +5316,9 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt24) {
             	        case 1 :
-            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2157:3: lv_op_2_1= '*'
+            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2209:3: lv_op_2_1= '*'
             	            {
-            	            lv_op_2_1=(Token)match(input,52,FOLLOW_52_in_ruleMultExp4682); 
+            	            lv_op_2_1=(Token)match(input,52,FOLLOW_52_in_ruleMultExp4867); 
 
             	                    newLeafNode(lv_op_2_1, grammarAccess.getMultExpAccess().getOpAsteriskKeyword_1_1_0_0());
             	                
@@ -5181,9 +5332,9 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2169:8: lv_op_2_2= '/'
+            	            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2221:8: lv_op_2_2= '/'
             	            {
-            	            lv_op_2_2=(Token)match(input,53,FOLLOW_53_in_ruleMultExp4711); 
+            	            lv_op_2_2=(Token)match(input,53,FOLLOW_53_in_ruleMultExp4896); 
 
             	                    newLeafNode(lv_op_2_2, grammarAccess.getMultExpAccess().getOpSolidusKeyword_1_1_0_1());
             	                
@@ -5205,16 +5356,16 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2184:2: ( (lv_right_3_0= rulePrimary ) )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2185:1: (lv_right_3_0= rulePrimary )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2236:2: ( (lv_right_3_0= rulePrimary ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2237:1: (lv_right_3_0= rulePrimary )
             	    {
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2185:1: (lv_right_3_0= rulePrimary )
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2186:3: lv_right_3_0= rulePrimary
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2237:1: (lv_right_3_0= rulePrimary )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2238:3: lv_right_3_0= rulePrimary
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getMultExpAccess().getRightPrimaryParserRuleCall_1_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_rulePrimary_in_ruleMultExp4748);
+            	    pushFollow(FOLLOW_rulePrimary_in_ruleMultExp4933);
             	    lv_right_3_0=rulePrimary();
 
             	    state._fsp--;
@@ -5266,7 +5417,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimary"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2210:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2262:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
     public final EObject entryRulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -5274,17 +5425,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2211:2: (iv_rulePrimary= rulePrimary EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2212:2: iv_rulePrimary= rulePrimary EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2263:2: (iv_rulePrimary= rulePrimary EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2264:2: iv_rulePrimary= rulePrimary EOF
             {
              newCompositeNode(grammarAccess.getPrimaryRule()); 
-            pushFollow(FOLLOW_rulePrimary_in_entryRulePrimary4786);
+            pushFollow(FOLLOW_rulePrimary_in_entryRulePrimary4971);
             iv_rulePrimary=rulePrimary();
 
             state._fsp--;
 
              current =iv_rulePrimary; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimary4796); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePrimary4981); 
 
             }
 
@@ -5302,7 +5453,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimary"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2219:1: rulePrimary returns [EObject current=null] : (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2271:1: rulePrimary returns [EObject current=null] : (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp ) ;
     public final EObject rulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -5316,10 +5467,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2222:28: ( (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2223:1: (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2274:28: ( (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2275:1: (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2223:1: (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2275:1: (this_NumberLiteral_0= ruleNumberLiteral | this_ParenthesisedExp_1= ruleParenthesisedExp | this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp )
             int alt26=3;
             switch ( input.LA(1) ) {
             case RULE_REAL:
@@ -5347,12 +5498,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             switch (alt26) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2224:5: this_NumberLiteral_0= ruleNumberLiteral
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2276:5: this_NumberLiteral_0= ruleNumberLiteral
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryAccess().getNumberLiteralParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleNumberLiteral_in_rulePrimary4843);
+                    pushFollow(FOLLOW_ruleNumberLiteral_in_rulePrimary5028);
                     this_NumberLiteral_0=ruleNumberLiteral();
 
                     state._fsp--;
@@ -5365,12 +5516,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2234:5: this_ParenthesisedExp_1= ruleParenthesisedExp
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2286:5: this_ParenthesisedExp_1= ruleParenthesisedExp
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryAccess().getParenthesisedExpParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleParenthesisedExp_in_rulePrimary4870);
+                    pushFollow(FOLLOW_ruleParenthesisedExp_in_rulePrimary5055);
                     this_ParenthesisedExp_1=ruleParenthesisedExp();
 
                     state._fsp--;
@@ -5383,12 +5534,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2244:5: this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2296:5: this_ConstantOrFunctionCallExp_2= ruleConstantOrFunctionCallExp
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryAccess().getConstantOrFunctionCallExpParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleConstantOrFunctionCallExp_in_rulePrimary4897);
+                    pushFollow(FOLLOW_ruleConstantOrFunctionCallExp_in_rulePrimary5082);
                     this_ConstantOrFunctionCallExp_2=ruleConstantOrFunctionCallExp();
 
                     state._fsp--;
@@ -5421,7 +5572,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParenthesisedExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2260:1: entryRuleParenthesisedExp returns [EObject current=null] : iv_ruleParenthesisedExp= ruleParenthesisedExp EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2312:1: entryRuleParenthesisedExp returns [EObject current=null] : iv_ruleParenthesisedExp= ruleParenthesisedExp EOF ;
     public final EObject entryRuleParenthesisedExp() throws RecognitionException {
         EObject current = null;
 
@@ -5429,17 +5580,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2261:2: (iv_ruleParenthesisedExp= ruleParenthesisedExp EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2262:2: iv_ruleParenthesisedExp= ruleParenthesisedExp EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2313:2: (iv_ruleParenthesisedExp= ruleParenthesisedExp EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2314:2: iv_ruleParenthesisedExp= ruleParenthesisedExp EOF
             {
              newCompositeNode(grammarAccess.getParenthesisedExpRule()); 
-            pushFollow(FOLLOW_ruleParenthesisedExp_in_entryRuleParenthesisedExp4932);
+            pushFollow(FOLLOW_ruleParenthesisedExp_in_entryRuleParenthesisedExp5117);
             iv_ruleParenthesisedExp=ruleParenthesisedExp();
 
             state._fsp--;
 
              current =iv_ruleParenthesisedExp; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParenthesisedExp4942); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParenthesisedExp5127); 
 
             }
 
@@ -5457,7 +5608,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParenthesisedExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2269:1: ruleParenthesisedExp returns [EObject current=null] : (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2321:1: ruleParenthesisedExp returns [EObject current=null] : (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' ) ;
     public final EObject ruleParenthesisedExp() throws RecognitionException {
         EObject current = null;
 
@@ -5469,26 +5620,26 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2272:28: ( (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2273:1: (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2324:28: ( (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2325:1: (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2273:1: (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2273:3: otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2325:1: (otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2325:3: otherlv_0= '(' ( (lv_exp_1_0= ruleAddExp ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleParenthesisedExp4979); 
+            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleParenthesisedExp5164); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getParenthesisedExpAccess().getLeftParenthesisKeyword_0());
                 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2277:1: ( (lv_exp_1_0= ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2278:1: (lv_exp_1_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2329:1: ( (lv_exp_1_0= ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2330:1: (lv_exp_1_0= ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2278:1: (lv_exp_1_0= ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2279:3: lv_exp_1_0= ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2330:1: (lv_exp_1_0= ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2331:3: lv_exp_1_0= ruleAddExp
             {
              
             	        newCompositeNode(grammarAccess.getParenthesisedExpAccess().getExpAddExpParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleAddExp_in_ruleParenthesisedExp5000);
+            pushFollow(FOLLOW_ruleAddExp_in_ruleParenthesisedExp5185);
             lv_exp_1_0=ruleAddExp();
 
             state._fsp--;
@@ -5510,7 +5661,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,42,FOLLOW_42_in_ruleParenthesisedExp5012); 
+            otherlv_2=(Token)match(input,42,FOLLOW_42_in_ruleParenthesisedExp5197); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getParenthesisedExpAccess().getRightParenthesisKeyword_2());
                 
@@ -5535,7 +5686,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConstantOrFunctionCallExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2307:1: entryRuleConstantOrFunctionCallExp returns [EObject current=null] : iv_ruleConstantOrFunctionCallExp= ruleConstantOrFunctionCallExp EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2359:1: entryRuleConstantOrFunctionCallExp returns [EObject current=null] : iv_ruleConstantOrFunctionCallExp= ruleConstantOrFunctionCallExp EOF ;
     public final EObject entryRuleConstantOrFunctionCallExp() throws RecognitionException {
         EObject current = null;
 
@@ -5543,17 +5694,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2308:2: (iv_ruleConstantOrFunctionCallExp= ruleConstantOrFunctionCallExp EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2309:2: iv_ruleConstantOrFunctionCallExp= ruleConstantOrFunctionCallExp EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2360:2: (iv_ruleConstantOrFunctionCallExp= ruleConstantOrFunctionCallExp EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2361:2: iv_ruleConstantOrFunctionCallExp= ruleConstantOrFunctionCallExp EOF
             {
              newCompositeNode(grammarAccess.getConstantOrFunctionCallExpRule()); 
-            pushFollow(FOLLOW_ruleConstantOrFunctionCallExp_in_entryRuleConstantOrFunctionCallExp5048);
+            pushFollow(FOLLOW_ruleConstantOrFunctionCallExp_in_entryRuleConstantOrFunctionCallExp5233);
             iv_ruleConstantOrFunctionCallExp=ruleConstantOrFunctionCallExp();
 
             state._fsp--;
 
              current =iv_ruleConstantOrFunctionCallExp; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConstantOrFunctionCallExp5058); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConstantOrFunctionCallExp5243); 
 
             }
 
@@ -5571,7 +5722,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstantOrFunctionCallExp"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2316:1: ruleConstantOrFunctionCallExp returns [EObject current=null] : ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2368:1: ruleConstantOrFunctionCallExp returns [EObject current=null] : ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? ) ;
     public final EObject ruleConstantOrFunctionCallExp() throws RecognitionException {
         EObject current = null;
 
@@ -5587,19 +5738,19 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2319:28: ( ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2320:1: ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2371:28: ( ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2372:1: ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2320:1: ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2320:2: ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2372:1: ( ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2372:2: ( (lv_label_0_0= RULE_ID ) ) (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )?
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2320:2: ( (lv_label_0_0= RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2321:1: (lv_label_0_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2372:2: ( (lv_label_0_0= RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2373:1: (lv_label_0_0= RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2321:1: (lv_label_0_0= RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2322:3: lv_label_0_0= RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2373:1: (lv_label_0_0= RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2374:3: lv_label_0_0= RULE_ID
             {
-            lv_label_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstantOrFunctionCallExp5100); 
+            lv_label_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstantOrFunctionCallExp5285); 
 
             			newLeafNode(lv_label_0_0, grammarAccess.getConstantOrFunctionCallExpAccess().getLabelIDTerminalRuleCall_0_0()); 
             		
@@ -5619,7 +5770,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2338:2: (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2390:2: (otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')' )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -5628,22 +5779,22 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt28) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2338:4: otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2390:4: otherlv_1= '(' ( (lv_param_2_0= ruleAddExp ) ) (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )* otherlv_5= ')'
                     {
-                    otherlv_1=(Token)match(input,38,FOLLOW_38_in_ruleConstantOrFunctionCallExp5118); 
+                    otherlv_1=(Token)match(input,38,FOLLOW_38_in_ruleConstantOrFunctionCallExp5303); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getConstantOrFunctionCallExpAccess().getLeftParenthesisKeyword_1_0());
                         
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2342:1: ( (lv_param_2_0= ruleAddExp ) )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2343:1: (lv_param_2_0= ruleAddExp )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2394:1: ( (lv_param_2_0= ruleAddExp ) )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2395:1: (lv_param_2_0= ruleAddExp )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2343:1: (lv_param_2_0= ruleAddExp )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2344:3: lv_param_2_0= ruleAddExp
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2395:1: (lv_param_2_0= ruleAddExp )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2396:3: lv_param_2_0= ruleAddExp
                     {
                      
                     	        newCompositeNode(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAddExpParserRuleCall_1_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5139);
+                    pushFollow(FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5324);
                     lv_param_2_0=ruleAddExp();
 
                     state._fsp--;
@@ -5665,7 +5816,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2360:2: (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )*
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2412:2: (otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) ) )*
                     loop27:
                     do {
                         int alt27=2;
@@ -5678,22 +5829,22 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
                         switch (alt27) {
                     	case 1 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2360:4: otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) )
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2412:4: otherlv_3= ',' ( (lv_param_4_0= ruleAddExp ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,41,FOLLOW_41_in_ruleConstantOrFunctionCallExp5152); 
+                    	    otherlv_3=(Token)match(input,41,FOLLOW_41_in_ruleConstantOrFunctionCallExp5337); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getConstantOrFunctionCallExpAccess().getCommaKeyword_1_2_0());
                     	        
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2364:1: ( (lv_param_4_0= ruleAddExp ) )
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2365:1: (lv_param_4_0= ruleAddExp )
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2416:1: ( (lv_param_4_0= ruleAddExp ) )
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2417:1: (lv_param_4_0= ruleAddExp )
                     	    {
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2365:1: (lv_param_4_0= ruleAddExp )
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2366:3: lv_param_4_0= ruleAddExp
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2417:1: (lv_param_4_0= ruleAddExp )
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2418:3: lv_param_4_0= ruleAddExp
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAddExpParserRuleCall_1_2_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5173);
+                    	    pushFollow(FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5358);
                     	    lv_param_4_0=ruleAddExp();
 
                     	    state._fsp--;
@@ -5724,7 +5875,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_5=(Token)match(input,42,FOLLOW_42_in_ruleConstantOrFunctionCallExp5187); 
+                    otherlv_5=(Token)match(input,42,FOLLOW_42_in_ruleConstantOrFunctionCallExp5372); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getConstantOrFunctionCallExpAccess().getRightParenthesisKeyword_1_3());
                         
@@ -5755,7 +5906,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumberLiteral"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2394:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2446:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
     public final EObject entryRuleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -5763,17 +5914,17 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2395:2: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2396:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2447:2: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2448:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
             {
              newCompositeNode(grammarAccess.getNumberLiteralRule()); 
-            pushFollow(FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral5225);
+            pushFollow(FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral5410);
             iv_ruleNumberLiteral=ruleNumberLiteral();
 
             state._fsp--;
 
              current =iv_ruleNumberLiteral; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLiteral5235); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLiteral5420); 
 
             }
 
@@ -5791,7 +5942,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberLiteral"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2403:1: ruleNumberLiteral returns [EObject current=null] : ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2455:1: ruleNumberLiteral returns [EObject current=null] : ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) ) ;
     public final EObject ruleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -5801,13 +5952,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2406:28: ( ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2407:1: ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2458:28: ( ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2459:1: ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2407:1: ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2407:2: ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2459:1: ( ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2459:2: ( (lv_neg_0_0= '-' ) )? ( (lv_value_1_0= RULE_REAL ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2407:2: ( (lv_neg_0_0= '-' ) )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2459:2: ( (lv_neg_0_0= '-' ) )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -5816,12 +5967,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt29) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2408:1: (lv_neg_0_0= '-' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2460:1: (lv_neg_0_0= '-' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2408:1: (lv_neg_0_0= '-' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2409:3: lv_neg_0_0= '-'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2460:1: (lv_neg_0_0= '-' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2461:3: lv_neg_0_0= '-'
                     {
-                    lv_neg_0_0=(Token)match(input,51,FOLLOW_51_in_ruleNumberLiteral5278); 
+                    lv_neg_0_0=(Token)match(input,51,FOLLOW_51_in_ruleNumberLiteral5463); 
 
                             newLeafNode(lv_neg_0_0, grammarAccess.getNumberLiteralAccess().getNegHyphenMinusKeyword_0_0());
                         
@@ -5840,13 +5991,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2422:3: ( (lv_value_1_0= RULE_REAL ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2423:1: (lv_value_1_0= RULE_REAL )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2474:3: ( (lv_value_1_0= RULE_REAL ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2475:1: (lv_value_1_0= RULE_REAL )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2423:1: (lv_value_1_0= RULE_REAL )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2424:3: lv_value_1_0= RULE_REAL
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2475:1: (lv_value_1_0= RULE_REAL )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2476:3: lv_value_1_0= RULE_REAL
             {
-            lv_value_1_0=(Token)match(input,RULE_REAL,FOLLOW_RULE_REAL_in_ruleNumberLiteral5309); 
+            lv_value_1_0=(Token)match(input,RULE_REAL,FOLLOW_RULE_REAL_in_ruleNumberLiteral5494); 
 
             			newLeafNode(lv_value_1_0, grammarAccess.getNumberLiteralAccess().getValueREALTerminalRuleCall_1_0()); 
             		
@@ -5887,7 +6038,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAXIS"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2448:1: ruleAXIS returns [Enumerator current=null] : ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2500:1: ruleAXIS returns [Enumerator current=null] : ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) ) ;
     public final Enumerator ruleAXIS() throws RecognitionException {
         Enumerator current = null;
 
@@ -5897,10 +6048,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2450:28: ( ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2451:1: ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2502:28: ( ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2503:1: ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2451:1: ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2503:1: ( (enumLiteral_0= 'x' ) | (enumLiteral_1= 'y' ) | (enumLiteral_2= 'z' ) )
             int alt30=3;
             switch ( input.LA(1) ) {
             case 54:
@@ -5927,12 +6078,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             switch (alt30) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2451:2: (enumLiteral_0= 'x' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2503:2: (enumLiteral_0= 'x' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2451:2: (enumLiteral_0= 'x' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2451:4: enumLiteral_0= 'x'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2503:2: (enumLiteral_0= 'x' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2503:4: enumLiteral_0= 'x'
                     {
-                    enumLiteral_0=(Token)match(input,54,FOLLOW_54_in_ruleAXIS5364); 
+                    enumLiteral_0=(Token)match(input,54,FOLLOW_54_in_ruleAXIS5549); 
 
                             current = grammarAccess.getAXISAccess().getXEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getAXISAccess().getXEnumLiteralDeclaration_0()); 
@@ -5944,12 +6095,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2457:6: (enumLiteral_1= 'y' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2509:6: (enumLiteral_1= 'y' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2457:6: (enumLiteral_1= 'y' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2457:8: enumLiteral_1= 'y'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2509:6: (enumLiteral_1= 'y' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2509:8: enumLiteral_1= 'y'
                     {
-                    enumLiteral_1=(Token)match(input,55,FOLLOW_55_in_ruleAXIS5381); 
+                    enumLiteral_1=(Token)match(input,55,FOLLOW_55_in_ruleAXIS5566); 
 
                             current = grammarAccess.getAXISAccess().getYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getAXISAccess().getYEnumLiteralDeclaration_1()); 
@@ -5961,12 +6112,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2463:6: (enumLiteral_2= 'z' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2515:6: (enumLiteral_2= 'z' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2463:6: (enumLiteral_2= 'z' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2463:8: enumLiteral_2= 'z'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2515:6: (enumLiteral_2= 'z' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2515:8: enumLiteral_2= 'z'
                     {
-                    enumLiteral_2=(Token)match(input,56,FOLLOW_56_in_ruleAXIS5398); 
+                    enumLiteral_2=(Token)match(input,56,FOLLOW_56_in_ruleAXIS5583); 
 
                             current = grammarAccess.getAXISAccess().getZEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getAXISAccess().getZEnumLiteralDeclaration_2()); 
@@ -5998,7 +6149,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstraintType"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2473:1: ruleConstraintType returns [Enumerator current=null] : ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2525:1: ruleConstraintType returns [Enumerator current=null] : ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) ) ;
     public final Enumerator ruleConstraintType() throws RecognitionException {
         Enumerator current = null;
 
@@ -6007,10 +6158,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2475:28: ( ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2476:1: ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2527:28: ( ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2528:1: ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2476:1: ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2528:1: ( (enumLiteral_0= 'geometrical' ) | (enumLiteral_1= 'velocity' ) )
             int alt31=2;
             int LA31_0 = input.LA(1);
 
@@ -6028,12 +6179,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt31) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2476:2: (enumLiteral_0= 'geometrical' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2528:2: (enumLiteral_0= 'geometrical' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2476:2: (enumLiteral_0= 'geometrical' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2476:4: enumLiteral_0= 'geometrical'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2528:2: (enumLiteral_0= 'geometrical' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2528:4: enumLiteral_0= 'geometrical'
                     {
-                    enumLiteral_0=(Token)match(input,57,FOLLOW_57_in_ruleConstraintType5443); 
+                    enumLiteral_0=(Token)match(input,57,FOLLOW_57_in_ruleConstraintType5628); 
 
                             current = grammarAccess.getConstraintTypeAccess().getGEOMETRICALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getConstraintTypeAccess().getGEOMETRICALEnumLiteralDeclaration_0()); 
@@ -6045,12 +6196,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2482:6: (enumLiteral_1= 'velocity' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2534:6: (enumLiteral_1= 'velocity' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2482:6: (enumLiteral_1= 'velocity' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2482:8: enumLiteral_1= 'velocity'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2534:6: (enumLiteral_1= 'velocity' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2534:8: enumLiteral_1= 'velocity'
                     {
-                    enumLiteral_1=(Token)match(input,58,FOLLOW_58_in_ruleConstraintType5460); 
+                    enumLiteral_1=(Token)match(input,58,FOLLOW_58_in_ruleConstraintType5645); 
 
                             current = grammarAccess.getConstraintTypeAccess().getVELOCITYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getConstraintTypeAccess().getVELOCITYEnumLiteralDeclaration_1()); 
@@ -6082,7 +6233,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLoadType"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2492:1: ruleLoadType returns [Enumerator current=null] : ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2544:1: ruleLoadType returns [Enumerator current=null] : ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) ) ;
     public final Enumerator ruleLoadType() throws RecognitionException {
         Enumerator current = null;
 
@@ -6091,10 +6242,10 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2494:28: ( ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2495:1: ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2546:28: ( ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2547:1: ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2495:1: ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2547:1: ( (enumLiteral_0= 'force' ) | (enumLiteral_1= 'torque' ) )
             int alt32=2;
             int LA32_0 = input.LA(1);
 
@@ -6112,12 +6263,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             }
             switch (alt32) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2495:2: (enumLiteral_0= 'force' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2547:2: (enumLiteral_0= 'force' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2495:2: (enumLiteral_0= 'force' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2495:4: enumLiteral_0= 'force'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2547:2: (enumLiteral_0= 'force' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2547:4: enumLiteral_0= 'force'
                     {
-                    enumLiteral_0=(Token)match(input,59,FOLLOW_59_in_ruleLoadType5505); 
+                    enumLiteral_0=(Token)match(input,59,FOLLOW_59_in_ruleLoadType5690); 
 
                             current = grammarAccess.getLoadTypeAccess().getFORCEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getLoadTypeAccess().getFORCEEnumLiteralDeclaration_0()); 
@@ -6129,12 +6280,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2501:6: (enumLiteral_1= 'torque' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2553:6: (enumLiteral_1= 'torque' )
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2501:6: (enumLiteral_1= 'torque' )
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2501:8: enumLiteral_1= 'torque'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2553:6: (enumLiteral_1= 'torque' )
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:2553:8: enumLiteral_1= 'torque'
                     {
-                    enumLiteral_1=(Token)match(input,60,FOLLOW_60_in_ruleLoadType5522); 
+                    enumLiteral_1=(Token)match(input,60,FOLLOW_60_in_ruleLoadType5707); 
 
                             current = grammarAccess.getLoadTypeAccess().getTORQUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getLoadTypeAccess().getTORQUEEnumLiteralDeclaration_1()); 
@@ -6249,157 +6400,163 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_rulePrimaryJointType_in_ruleAdditiveJointType1894 = new BitSet(new long[]{0x0000000020000002L});
     public static final BitSet FOLLOW_rulePrimaryJointType_in_entryRulePrimaryJointType1932 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePrimaryJointType1942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePrimaryJointType1987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBasicJointType_in_rulePrimaryJointType2015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBasicJointType_in_entryRuleBasicJointType2050 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBasicJointType2060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRevolute_in_ruleBasicJointType2108 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_rulePlanar_in_ruleBasicJointType2127 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleBasicJointType2142 = new BitSet(new long[]{0x0003000380803010L});
-    public static final BitSet FOLLOW_ruleStiffnessExp_in_ruleBasicJointType2163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRevolute_in_entryRuleRevolute2199 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRevolute2209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleRevolute2246 = new BitSet(new long[]{0x01C0000000000000L});
-    public static final BitSet FOLLOW_ruleAXIS_in_ruleRevolute2267 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePlanar_in_entryRulePlanar2303 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePlanar2313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_rulePlanar2350 = new BitSet(new long[]{0x01C0000000000000L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rulePlanar2371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStiffnessExp_in_entryRuleStiffnessExp2407 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStiffnessExp2417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStiffnessRef_in_ruleStiffnessExp2464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBaseStiffnessExp_in_ruleStiffnessExp2491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStiffnessRef_in_entryRuleStiffnessRef2526 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStiffnessRef2536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleStiffnessRef2580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBaseStiffnessExp_in_entryRuleBaseStiffnessExp2615 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBaseStiffnessExp2625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleBaseStiffnessExp2663 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBaseStiffnessExp2680 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleBaseStiffnessExp2699 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleBaseStiffnessExp2711 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2732 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleBaseStiffnessExp2744 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2765 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleBaseStiffnessExp2777 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2798 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleBaseStiffnessExp2810 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2831 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleBaseStiffnessExp2843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_entryRuleRelativeTransformation2879 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRelativeTransformation2889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleRelativeTransformation2926 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleRelativeTransformation2938 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleRelativeTransformation2950 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleRelativeTransformation2962 = new BitSet(new long[]{0x0003000000000010L});
-    public static final BitSet FOLLOW_ruleMatrix_in_ruleRelativeTransformation2983 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleRelativeTransformation2995 = new BitSet(new long[]{0x0000084000000010L});
-    public static final BitSet FOLLOW_ruleReorientation_in_ruleRelativeTransformation3016 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleRelativeTransformation3028 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleReorientation_in_entryRuleReorientation3064 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleReorientation3074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleReorientation3112 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleReorientation3129 = new BitSet(new long[]{0x0000084000000010L});
-    public static final BitSet FOLLOW_ruleReorientExpression_in_ruleReorientation3157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleReorientExpression_in_entryRuleReorientExpression3193 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleReorientExpression3203 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleReorientExpression3248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleReorientExpression3267 = new BitSet(new long[]{0x0000044000000000L});
-    public static final BitSet FOLLOW_38_in_ruleReorientExpression3289 = new BitSet(new long[]{0x01C0000000000000L});
-    public static final BitSet FOLLOW_ruleAXIS_in_ruleReorientExpression3310 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleReorientExpression3322 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleReorientExpression3343 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleReorientExpression3355 = new BitSet(new long[]{0x0000060000000000L});
-    public static final BitSet FOLLOW_41_in_ruleReorientExpression3368 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleReorientExpression3380 = new BitSet(new long[]{0x01C0000000000000L});
-    public static final BitSet FOLLOW_ruleAXIS_in_ruleReorientExpression3401 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleReorientExpression3413 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleReorientExpression3434 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleReorientExpression3446 = new BitSet(new long[]{0x0000060000000000L});
-    public static final BitSet FOLLOW_42_in_ruleReorientExpression3462 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstraint_in_entryRuleConstraint3499 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConstraint3509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleConstraint3546 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleConstraint3563 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleConstraint3580 = new BitSet(new long[]{0x0600000000000000L});
-    public static final BitSet FOLLOW_ruleConstraintType_in_ruleConstraint3601 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleConstraint3613 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_ruleConstraint3634 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_ruleConstraint3655 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_ruleConstraint3667 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_ruleConstraint3688 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_ruleConstraint3709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalLoad_in_entryRuleExternalLoad3745 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExternalLoad3755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleExternalLoad3792 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_ruleExternalLoad3804 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleExternalLoad3821 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleExternalLoad3838 = new BitSet(new long[]{0x1800000000000000L});
-    public static final BitSet FOLLOW_ruleLoadType_in_ruleExternalLoad3859 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleExternalLoad3871 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_ruleExternalLoad3892 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleExternalLoad3904 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleExternalLoad3916 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleExternalLoad3928 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleExternalLoad3940 = new BitSet(new long[]{0x0003000000000010L});
-    public static final BitSet FOLLOW_ruleMatrix_in_ruleExternalLoad3961 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleExternalLoad3973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrix_in_entryRuleMatrix4009 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMatrix4019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBaseMatrix_in_ruleMatrix4066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrixRef_in_ruleMatrix4093 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBaseMatrix_in_entryRuleBaseMatrix4128 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBaseMatrix4138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleBaseMatrix4176 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBaseMatrix4193 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_49_in_ruleBaseMatrix4212 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseMatrix4233 = new BitSet(new long[]{0x0004020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleBaseMatrix4246 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseMatrix4267 = new BitSet(new long[]{0x0004020000000000L});
-    public static final BitSet FOLLOW_50_in_ruleBaseMatrix4281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrixRef_in_entryRuleMatrixRef4317 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMatrixRef4327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMatrixRef4371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_entryRuleAddExp4406 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAddExp4416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultExp_in_ruleAddExp4463 = new BitSet(new long[]{0x0008000020000002L});
-    public static final BitSet FOLLOW_29_in_ruleAddExp4492 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_51_in_ruleAddExp4521 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleMultExp_in_ruleAddExp4558 = new BitSet(new long[]{0x0008000020000002L});
-    public static final BitSet FOLLOW_ruleMultExp_in_entryRuleMultExp4596 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMultExp4606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_ruleMultExp4653 = new BitSet(new long[]{0x0030000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleMultExp4682 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_53_in_ruleMultExp4711 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_rulePrimary_in_ruleMultExp4748 = new BitSet(new long[]{0x0030000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_entryRulePrimary4786 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimary4796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_rulePrimary4843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParenthesisedExp_in_rulePrimary4870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstantOrFunctionCallExp_in_rulePrimary4897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParenthesisedExp_in_entryRuleParenthesisedExp4932 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParenthesisedExp4942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleParenthesisedExp4979 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleParenthesisedExp5000 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleParenthesisedExp5012 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstantOrFunctionCallExp_in_entryRuleConstantOrFunctionCallExp5048 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConstantOrFunctionCallExp5058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleConstantOrFunctionCallExp5100 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_38_in_ruleConstantOrFunctionCallExp5118 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5139 = new BitSet(new long[]{0x0000060000000000L});
-    public static final BitSet FOLLOW_41_in_ruleConstantOrFunctionCallExp5152 = new BitSet(new long[]{0x0008004000000030L});
-    public static final BitSet FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5173 = new BitSet(new long[]{0x0000060000000000L});
-    public static final BitSet FOLLOW_42_in_ruleConstantOrFunctionCallExp5187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral5225 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLiteral5235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleNumberLiteral5278 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_REAL_in_ruleNumberLiteral5309 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleAXIS5364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleAXIS5381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleAXIS5398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleConstraintType5443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleConstraintType5460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleLoadType5505 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleLoadType5522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJointTypeReference_in_rulePrimaryJointType1989 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBasicJointType_in_rulePrimaryJointType2016 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJointTypeReference_in_entryRuleJointTypeReference2051 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleJointTypeReference2061 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleJointTypeReference2105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBasicJointType_in_entryRuleBasicJointType2140 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBasicJointType2150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJointMovement_in_ruleBasicJointType2196 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleBasicJointType2208 = new BitSet(new long[]{0x0003000380803010L});
+    public static final BitSet FOLLOW_ruleStiffnessExp_in_ruleBasicJointType2229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJointMovement_in_entryRuleJointMovement2265 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleJointMovement2275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRevolute_in_ruleJointMovement2322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlanar_in_ruleJointMovement2349 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRevolute_in_entryRuleRevolute2384 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRevolute2394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleRevolute2431 = new BitSet(new long[]{0x01C0000000000000L});
+    public static final BitSet FOLLOW_ruleAXIS_in_ruleRevolute2452 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlanar_in_entryRulePlanar2488 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePlanar2498 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_rulePlanar2535 = new BitSet(new long[]{0x01C0000000000000L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rulePlanar2556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStiffnessExp_in_entryRuleStiffnessExp2592 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStiffnessExp2602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStiffnessRef_in_ruleStiffnessExp2649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBaseStiffnessExp_in_ruleStiffnessExp2676 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStiffnessRef_in_entryRuleStiffnessRef2711 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStiffnessRef2721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleStiffnessRef2765 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBaseStiffnessExp_in_entryRuleBaseStiffnessExp2800 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBaseStiffnessExp2810 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleBaseStiffnessExp2848 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBaseStiffnessExp2865 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleBaseStiffnessExp2884 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleBaseStiffnessExp2896 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2917 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_ruleBaseStiffnessExp2929 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2950 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleBaseStiffnessExp2962 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp2983 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleBaseStiffnessExp2995 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseStiffnessExp3016 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleBaseStiffnessExp3028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelativeTransformation_in_entryRuleRelativeTransformation3064 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelativeTransformation3074 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleRelativeTransformation3111 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleRelativeTransformation3123 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_ruleRelativeTransformation3135 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ruleRelativeTransformation3147 = new BitSet(new long[]{0x0003000000000010L});
+    public static final BitSet FOLLOW_ruleMatrix_in_ruleRelativeTransformation3168 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleRelativeTransformation3180 = new BitSet(new long[]{0x0000084000000010L});
+    public static final BitSet FOLLOW_ruleReorientation_in_ruleRelativeTransformation3201 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleRelativeTransformation3213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleReorientation_in_entryRuleReorientation3249 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleReorientation3259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleReorientation3297 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleReorientation3314 = new BitSet(new long[]{0x0000084000000010L});
+    public static final BitSet FOLLOW_ruleReorientExpression_in_ruleReorientation3342 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleReorientExpression_in_entryRuleReorientExpression3378 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleReorientExpression3388 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleReorientExpression3433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleReorientExpression3452 = new BitSet(new long[]{0x0000044000000000L});
+    public static final BitSet FOLLOW_38_in_ruleReorientExpression3474 = new BitSet(new long[]{0x01C0000000000000L});
+    public static final BitSet FOLLOW_ruleAXIS_in_ruleReorientExpression3495 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleReorientExpression3507 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleReorientExpression3528 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleReorientExpression3540 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_41_in_ruleReorientExpression3553 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_ruleReorientExpression3565 = new BitSet(new long[]{0x01C0000000000000L});
+    public static final BitSet FOLLOW_ruleAXIS_in_ruleReorientExpression3586 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleReorientExpression3598 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleReorientExpression3619 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleReorientExpression3631 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_42_in_ruleReorientExpression3647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstraint_in_entryRuleConstraint3684 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConstraint3694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleConstraint3731 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleConstraint3748 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleConstraint3765 = new BitSet(new long[]{0x0600000000000000L});
+    public static final BitSet FOLLOW_ruleConstraintType_in_ruleConstraint3786 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleConstraint3798 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_ruleConstraint3819 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_ruleRelativeTransformation_in_ruleConstraint3840 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleConstraint3852 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_ruleConstraint3873 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_ruleRelativeTransformation_in_ruleConstraint3894 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalLoad_in_entryRuleExternalLoad3930 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExternalLoad3940 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleExternalLoad3977 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_46_in_ruleExternalLoad3989 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExternalLoad4006 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleExternalLoad4023 = new BitSet(new long[]{0x1800000000000000L});
+    public static final BitSet FOLLOW_ruleLoadType_in_ruleExternalLoad4044 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_47_in_ruleExternalLoad4056 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_ruleExternalLoad4077 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_ruleExternalLoad4089 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleExternalLoad4101 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_ruleExternalLoad4113 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ruleExternalLoad4125 = new BitSet(new long[]{0x0003000000000010L});
+    public static final BitSet FOLLOW_ruleMatrix_in_ruleExternalLoad4146 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleExternalLoad4158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrix_in_entryRuleMatrix4194 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMatrix4204 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBaseMatrix_in_ruleMatrix4251 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrixRef_in_ruleMatrix4278 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBaseMatrix_in_entryRuleBaseMatrix4313 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBaseMatrix4323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleBaseMatrix4361 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBaseMatrix4378 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_49_in_ruleBaseMatrix4397 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseMatrix4418 = new BitSet(new long[]{0x0004020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleBaseMatrix4431 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleBaseMatrix4452 = new BitSet(new long[]{0x0004020000000000L});
+    public static final BitSet FOLLOW_50_in_ruleBaseMatrix4466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrixRef_in_entryRuleMatrixRef4502 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMatrixRef4512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleMatrixRef4556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_entryRuleAddExp4591 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAddExp4601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultExp_in_ruleAddExp4648 = new BitSet(new long[]{0x0008000020000002L});
+    public static final BitSet FOLLOW_29_in_ruleAddExp4677 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_51_in_ruleAddExp4706 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleMultExp_in_ruleAddExp4743 = new BitSet(new long[]{0x0008000020000002L});
+    public static final BitSet FOLLOW_ruleMultExp_in_entryRuleMultExp4781 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMultExp4791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_ruleMultExp4838 = new BitSet(new long[]{0x0030000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleMultExp4867 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_53_in_ruleMultExp4896 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_rulePrimary_in_ruleMultExp4933 = new BitSet(new long[]{0x0030000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_entryRulePrimary4971 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePrimary4981 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_rulePrimary5028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParenthesisedExp_in_rulePrimary5055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstantOrFunctionCallExp_in_rulePrimary5082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParenthesisedExp_in_entryRuleParenthesisedExp5117 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParenthesisedExp5127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleParenthesisedExp5164 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleParenthesisedExp5185 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleParenthesisedExp5197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstantOrFunctionCallExp_in_entryRuleConstantOrFunctionCallExp5233 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConstantOrFunctionCallExp5243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleConstantOrFunctionCallExp5285 = new BitSet(new long[]{0x0000004000000002L});
+    public static final BitSet FOLLOW_38_in_ruleConstantOrFunctionCallExp5303 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5324 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_41_in_ruleConstantOrFunctionCallExp5337 = new BitSet(new long[]{0x0008004000000030L});
+    public static final BitSet FOLLOW_ruleAddExp_in_ruleConstantOrFunctionCallExp5358 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_42_in_ruleConstantOrFunctionCallExp5372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral5410 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLiteral5420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleNumberLiteral5463 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_REAL_in_ruleNumberLiteral5494 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleAXIS5549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleAXIS5566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleAXIS5583 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleConstraintType5628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleConstraintType5645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleLoadType5690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleLoadType5707 = new BitSet(new long[]{0x0000000000000002L});
 
 }

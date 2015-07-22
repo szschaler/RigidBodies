@@ -31,7 +31,7 @@ public class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
     if (_equals) {
       class_ = BaseMatrix.class;
     } else {
-      boolean _equals_1 = Objects.equal(reference, RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION__REF);
+      boolean _equals_1 = Objects.equal(reference, RigidBodiesPackage.Literals.JOINT_TYPE_REFERENCE__REF);
       if (_equals_1) {
         class_ = JointType.class;
       } else {

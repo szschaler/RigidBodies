@@ -70,16 +70,25 @@ JointType:
 ;
 
 AdditiveJointType returns JointTypeExpression:
-	PrimaryJointType ('+' {AdditiveJointType.left = current} right = PrimaryJointType)*
+	PrimaryJointType ('+' {AdditiveJointType.left = current} right += PrimaryJointType)*
 ;
 
 PrimaryJointType returns JointTypeExpression:
-	ref=[JointType] |
+	JointTypeReference |
 	BasicJointType
 ;
 
+JointTypeReference:
+	ref=[JointType]
+;
+
 BasicJointType:
-	type = (Revolute | Planar) 'with' stiffness = StiffnessExp 
+	type = JointMovement 'with' stiffness = StiffnessExp 
+;
+
+JointMovement:
+	Revolute | 
+	Planar
 ;
 
 Revolute:

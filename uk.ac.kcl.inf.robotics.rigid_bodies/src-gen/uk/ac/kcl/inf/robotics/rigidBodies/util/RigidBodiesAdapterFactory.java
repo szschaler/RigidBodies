@@ -24,8 +24,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -167,9 +169,19 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createJointTypeExpressionAdapter();
       }
       @Override
+      public Adapter caseJointTypeReference(JointTypeReference object)
+      {
+        return createJointTypeReferenceAdapter();
+      }
+      @Override
       public Adapter caseBasicJointType(BasicJointType object)
       {
         return createBasicJointTypeAdapter();
+      }
+      @Override
+      public Adapter caseJointMovement(JointMovement object)
+      {
+        return createJointMovementAdapter();
       }
       @Override
       public Adapter caseRevolute(Revolute object)
@@ -474,6 +486,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference <em>Joint Type Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
+   * @generated
+   */
+  public Adapter createJointTypeReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType <em>Basic Joint Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -484,6 +511,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBasicJointTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.JointMovement <em>Joint Movement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.JointMovement
+   * @generated
+   */
+  public Adapter createJointMovementAdapter()
   {
     return null;
   }

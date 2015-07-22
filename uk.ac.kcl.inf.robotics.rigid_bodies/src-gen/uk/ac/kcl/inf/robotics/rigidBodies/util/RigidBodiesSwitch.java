@@ -22,8 +22,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -193,6 +195,14 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RigidBodiesPackage.JOINT_TYPE_REFERENCE:
+      {
+        JointTypeReference jointTypeReference = (JointTypeReference)theEObject;
+        T result = caseJointTypeReference(jointTypeReference);
+        if (result == null) result = caseJointTypeExpression(jointTypeReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RigidBodiesPackage.BASIC_JOINT_TYPE:
       {
         BasicJointType basicJointType = (BasicJointType)theEObject;
@@ -201,10 +211,18 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RigidBodiesPackage.JOINT_MOVEMENT:
+      {
+        JointMovement jointMovement = (JointMovement)theEObject;
+        T result = caseJointMovement(jointMovement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RigidBodiesPackage.REVOLUTE:
       {
         Revolute revolute = (Revolute)theEObject;
         T result = caseRevolute(revolute);
+        if (result == null) result = caseJointMovement(revolute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -212,6 +230,7 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         Planar planar = (Planar)theEObject;
         T result = casePlanar(planar);
+        if (result == null) result = caseJointMovement(planar);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -554,6 +573,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Joint Type Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Joint Type Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJointTypeReference(JointTypeReference object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Basic Joint Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -565,6 +600,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBasicJointType(BasicJointType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Joint Movement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Joint Movement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJointMovement(JointMovement object)
   {
     return null;
   }

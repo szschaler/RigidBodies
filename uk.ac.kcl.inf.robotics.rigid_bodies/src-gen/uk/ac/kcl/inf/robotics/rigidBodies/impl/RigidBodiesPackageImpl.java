@@ -26,8 +26,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
@@ -144,7 +146,21 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass jointTypeReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass basicJointTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jointMovementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -695,9 +711,19 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJointTypeExpression_Ref()
+  public EClass getJointTypeReference()
   {
-    return (EReference)jointTypeExpressionEClass.getEStructuralFeatures().get(0);
+    return jointTypeReferenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getJointTypeReference_Ref()
+  {
+    return (EReference)jointTypeReferenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -735,6 +761,26 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getJointMovement()
+  {
+    return jointMovementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJointMovement_Axis()
+  {
+    return (EAttribute)jointMovementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRevolute()
   {
     return revoluteEClass;
@@ -745,29 +791,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRevolute_Axis()
-  {
-    return (EAttribute)revoluteEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getPlanar()
   {
     return planarEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPlanar_Axis()
-  {
-    return (EAttribute)planarEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1383,17 +1409,20 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEReference(jointTypeEClass, JOINT_TYPE__EXP);
 
     jointTypeExpressionEClass = createEClass(JOINT_TYPE_EXPRESSION);
-    createEReference(jointTypeExpressionEClass, JOINT_TYPE_EXPRESSION__REF);
+
+    jointTypeReferenceEClass = createEClass(JOINT_TYPE_REFERENCE);
+    createEReference(jointTypeReferenceEClass, JOINT_TYPE_REFERENCE__REF);
 
     basicJointTypeEClass = createEClass(BASIC_JOINT_TYPE);
     createEReference(basicJointTypeEClass, BASIC_JOINT_TYPE__TYPE);
     createEReference(basicJointTypeEClass, BASIC_JOINT_TYPE__STIFFNESS);
 
+    jointMovementEClass = createEClass(JOINT_MOVEMENT);
+    createEAttribute(jointMovementEClass, JOINT_MOVEMENT__AXIS);
+
     revoluteEClass = createEClass(REVOLUTE);
-    createEAttribute(revoluteEClass, REVOLUTE__AXIS);
 
     planarEClass = createEClass(PLANAR);
-    createEAttribute(planarEClass, PLANAR__AXIS);
 
     stiffnessExpEClass = createEClass(STIFFNESS_EXP);
 
@@ -1503,7 +1532,10 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     bodyEClass.getESuperTypes().add(this.getSystemElement());
     jointEClass.getESuperTypes().add(this.getConnective());
     jointTypeEClass.getESuperTypes().add(this.getInitialDefinition());
+    jointTypeReferenceEClass.getESuperTypes().add(this.getJointTypeExpression());
     basicJointTypeEClass.getESuperTypes().add(this.getJointTypeExpression());
+    revoluteEClass.getESuperTypes().add(this.getJointMovement());
+    planarEClass.getESuperTypes().add(this.getJointMovement());
     stiffnessRefEClass.getESuperTypes().add(this.getStiffnessExp());
     baseStiffnessExpEClass.getESuperTypes().add(this.getInitialDefinition());
     baseStiffnessExpEClass.getESuperTypes().add(this.getStiffnessExp());
@@ -1563,17 +1595,20 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEReference(getJointType_Exp(), this.getJointTypeExpression(), null, "exp", null, 0, 1, JointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jointTypeExpressionEClass, JointTypeExpression.class, "JointTypeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getJointTypeExpression_Ref(), this.getJointType(), null, "ref", null, 0, 1, JointTypeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(jointTypeReferenceEClass, JointTypeReference.class, "JointTypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getJointTypeReference_Ref(), this.getJointType(), null, "ref", null, 0, 1, JointTypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(basicJointTypeEClass, BasicJointType.class, "BasicJointType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBasicJointType_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, BasicJointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicJointType_Type(), this.getJointMovement(), null, "type", null, 0, 1, BasicJointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasicJointType_Stiffness(), this.getStiffnessExp(), null, "stiffness", null, 0, 1, BasicJointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(jointMovementEClass, JointMovement.class, "JointMovement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJointMovement_Axis(), this.getAXIS(), "axis", null, 0, 1, JointMovement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(revoluteEClass, Revolute.class, "Revolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRevolute_Axis(), this.getAXIS(), "axis", null, 0, 1, Revolute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(planarEClass, Planar.class, "Planar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPlanar_Axis(), this.getAXIS(), "axis", null, 0, 1, Planar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stiffnessExpEClass, StiffnessExp.class, "StiffnessExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1632,7 +1667,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(additiveJointTypeEClass, AdditiveJointType.class, "AdditiveJointType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAdditiveJointType_Left(), this.getJointTypeExpression(), null, "left", null, 0, 1, AdditiveJointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAdditiveJointType_Right(), this.getJointTypeExpression(), null, "right", null, 0, 1, AdditiveJointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdditiveJointType_Right(), this.getJointTypeExpression(), null, "right", null, 0, -1, AdditiveJointType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addExpEClass, AddExp.class, "AddExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAddExp_Left(), this.getExpression(), null, "left", null, 0, 1, AddExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

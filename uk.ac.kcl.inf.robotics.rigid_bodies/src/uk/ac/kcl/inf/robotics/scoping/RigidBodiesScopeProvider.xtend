@@ -11,9 +11,9 @@ import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
-import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation
+import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 
 /**
  * This class contains custom scoping description.
@@ -28,7 +28,7 @@ class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
 		if ((reference == RigidBodiesPackage.Literals.MATRIX_REF__MATRIX)) {
 			class = BaseMatrix
 		}
-		else if ((reference == RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION__REF)) {
+		else if ((reference == RigidBodiesPackage.Literals.JOINT_TYPE_REFERENCE__REF)) {
 			class = JointType
 		}
 		else if ((reference == RigidBodiesPackage.Literals.REORIENT_EXPRESSION__REF)) {
