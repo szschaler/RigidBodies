@@ -9,6 +9,7 @@ import org.eclipse.xtext.generator.IGenerator
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
@@ -17,6 +18,9 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MultExp
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp
 import uk.ac.kcl.inf.robotics.rigidBodies.Planar
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute
 import uk.ac.kcl.inf.robotics.rigidBodies.System
 
@@ -76,10 +80,19 @@ class RigidBodiesGenerator implements IGenerator {
 			'''])»
 		
 		% Joint specifications
-		j = sym (zeros («ctb.states.fold(0, [acc, l | if (l.value != null) { Math.max (acc, l.value.size) } else { acc }])», 5, «ctb.states.size»))
+		j = sym (zeros («(0..<ctb.states.size).fold(1, [acc, idx |
+								val statesList = ctb.states.get(idx).value
+								val transformation = ctb.jointTransformations.get(idx)
+								var curLen = 0  
+								if (statesList != null) { curLen = statesList.size }
+								if (transformation != null) { curLen += transformation.value.reorient.size } 
+								
+								Math.max (acc, curLen)
+							])», 5, «ctb.states.size»))
 		«(0..<ctb.states.size).join ('\n', [ i | '''
 				% Joint rotations for «ctb.states.get(i).key»
 				j (:, :, «i + 1») = [
+					«if (ctb.jointTransformations.get(i) != null) { ctb.jointTransformations.get(i).value.render }»
 					«if (ctb.states.get(i).value != null) {
 						ctb.states.get(i).value.join (';\n', [jm | jm.render ])
 					 } else {
@@ -101,16 +114,49 @@ class RigidBodiesGenerator implements IGenerator {
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
 	
+	def dispatch CharSequence render (RelativeTransformation rt) 
+		'''0 0 «rt.position.renderValues(' ')»;
+		   «rt.reorient.render»'''
+		   
+	def dispatch int size (ReorientRef rr) {
+		rr.ref.size
+	}
+	
+	def dispatch int size (Reorientation r) {
+		r.exp.size
+	}
+	
+	def dispatch int size (BasicReorientExpression bre) {
+		bre.axis.size + 1
+	}
+
+	def dispatch CharSequence render (ReorientRef rr) {
+		rr.ref.render
+	}
+	
+	def dispatch CharSequence render (Reorientation r) {
+		r.exp.render
+	}
+	
+	def dispatch CharSequence render (BasicReorientExpression bre) {
+		(0..<bre.axis.size).join (';\n', [idx | 
+				'''«bre.axis.get(idx).render» «bre.value.get(idx).render» 0 0 0'''
+			])
+	}
+	
 	def dispatch CharSequence render (Planar p) '''0 0 «if (p.axis == AXIS.X) 'inf' else '0'» «if (p.axis == AXIS.Y) 'inf' else '0'» «if (p.axis == AXIS.Z) 'inf'else '0'»'''
 	
 	def dispatch CharSequence render (Revolute r) 
-		'''«switch (r.axis) {
-				case AXIS.X: '1'
-				case AXIS.Y: '2'
-				case AXIS.Z: '3'
-			}
-			» inf 0 0 0'''
+		'''«r.axis.render» inf 0 0 0'''
 
+	def dispatch CharSequence render (AXIS a) {
+		switch (a) {
+			case AXIS.X: '1'
+			case AXIS.Y: '2'
+			case AXIS.Z: '3'
+		}
+	} 
+	
 	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
 		mr.matrix.renderValues (sep)
 	}

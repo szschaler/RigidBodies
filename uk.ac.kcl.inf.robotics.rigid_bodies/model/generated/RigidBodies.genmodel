@@ -93,10 +93,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Reorientation/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Reorientation/exp"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//ReorientExpression">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ReorientExpression/ref"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//ReorientExpression/axis"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ReorientExpression/value"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//ReorientExpression"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//ReorientRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ReorientRef/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//BasicReorientExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//BasicReorientExpression/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BasicReorientExpression/value"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//Constraint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Constraint/type"/>

@@ -26,6 +26,7 @@ import uk.ac.kcl.inf.robotics.generator.ConnectiveTreeBuilder;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
@@ -37,6 +38,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 
 /**
@@ -296,33 +301,48 @@ public class RigidBodiesGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("j = sym (zeros (");
     List<Pair<String, List<JointMovement>>> _states = ctb.getStates();
-    final Function2<Integer, Pair<String, List<JointMovement>>, Integer> _function_5 = new Function2<Integer, Pair<String, List<JointMovement>>, Integer>() {
+    int _size_5 = _states.size();
+    ExclusiveRange _doubleDotLessThan_4 = new ExclusiveRange(0, _size_5, true);
+    final Function2<Integer, Integer, Integer> _function_5 = new Function2<Integer, Integer, Integer>() {
       @Override
-      public Integer apply(final Integer acc, final Pair<String, List<JointMovement>> l) {
-        Integer _xifexpression = null;
-        List<JointMovement> _value = l.getValue();
-        boolean _notEquals = (!Objects.equal(_value, null));
-        if (_notEquals) {
-          List<JointMovement> _value_1 = l.getValue();
-          int _size = _value_1.size();
-          _xifexpression = Integer.valueOf(Math.max((acc).intValue(), _size));
-        } else {
-          _xifexpression = acc;
+      public Integer apply(final Integer acc, final Integer idx) {
+        int _xblockexpression = (int) 0;
+        {
+          List<Pair<String, List<JointMovement>>> _states = ctb.getStates();
+          Pair<String, List<JointMovement>> _get = _states.get((idx).intValue());
+          final List<JointMovement> statesList = _get.getValue();
+          List<Pair<String, RelativeTransformation>> _jointTransformations = ctb.getJointTransformations();
+          final Pair<String, RelativeTransformation> transformation = _jointTransformations.get((idx).intValue());
+          int curLen = 0;
+          boolean _notEquals = (!Objects.equal(statesList, null));
+          if (_notEquals) {
+            int _size = statesList.size();
+            curLen = _size;
+          }
+          boolean _notEquals_1 = (!Objects.equal(transformation, null));
+          if (_notEquals_1) {
+            int _curLen = curLen;
+            RelativeTransformation _value = transformation.getValue();
+            Reorientation _reorient = _value.getReorient();
+            int _size_1 = RigidBodiesGenerator.this.size(_reorient);
+            curLen = (_curLen + _size_1);
+          }
+          _xblockexpression = Math.max((acc).intValue(), curLen);
         }
-        return _xifexpression;
+        return Integer.valueOf(_xblockexpression);
       }
     };
-    Integer _fold = IterableExtensions.<Pair<String, List<JointMovement>>, Integer>fold(_states, Integer.valueOf(0), _function_5);
+    Integer _fold = IterableExtensions.<Integer, Integer>fold(_doubleDotLessThan_4, Integer.valueOf(1), _function_5);
     _builder.append(_fold, "");
     _builder.append(", 5, ");
     List<Pair<String, List<JointMovement>>> _states_1 = ctb.getStates();
-    int _size_5 = _states_1.size();
-    _builder.append(_size_5, "");
+    int _size_6 = _states_1.size();
+    _builder.append(_size_6, "");
     _builder.append("))");
     _builder.newLineIfNotEmpty();
     List<Pair<String, List<JointMovement>>> _states_2 = ctb.getStates();
-    int _size_6 = _states_2.size();
-    ExclusiveRange _doubleDotLessThan_4 = new ExclusiveRange(0, _size_6, true);
+    int _size_7 = _states_2.size();
+    ExclusiveRange _doubleDotLessThan_5 = new ExclusiveRange(0, _size_7, true);
     final Function1<Integer, CharSequence> _function_6 = new Function1<Integer, CharSequence>() {
       @Override
       public CharSequence apply(final Integer i) {
@@ -339,32 +359,45 @@ public class RigidBodiesGenerator implements IGenerator {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         CharSequence _xifexpression = null;
-        List<Pair<String, List<JointMovement>>> _states_1 = ctb.getStates();
-        Pair<String, List<JointMovement>> _get_1 = _states_1.get((i).intValue());
-        List<JointMovement> _value = _get_1.getValue();
-        boolean _notEquals = (!Objects.equal(_value, null));
+        List<Pair<String, RelativeTransformation>> _jointTransformations = ctb.getJointTransformations();
+        Pair<String, RelativeTransformation> _get_1 = _jointTransformations.get((i).intValue());
+        boolean _notEquals = (!Objects.equal(_get_1, null));
         if (_notEquals) {
+          List<Pair<String, RelativeTransformation>> _jointTransformations_1 = ctb.getJointTransformations();
+          Pair<String, RelativeTransformation> _get_2 = _jointTransformations_1.get((i).intValue());
+          RelativeTransformation _value = _get_2.getValue();
+          _xifexpression = RigidBodiesGenerator.this.render(_value);
+        }
+        _builder.append(_xifexpression, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        CharSequence _xifexpression_1 = null;
+        List<Pair<String, List<JointMovement>>> _states_1 = ctb.getStates();
+        Pair<String, List<JointMovement>> _get_3 = _states_1.get((i).intValue());
+        List<JointMovement> _value_1 = _get_3.getValue();
+        boolean _notEquals_1 = (!Objects.equal(_value_1, null));
+        if (_notEquals_1) {
           List<Pair<String, List<JointMovement>>> _states_2 = ctb.getStates();
-          Pair<String, List<JointMovement>> _get_2 = _states_2.get((i).intValue());
-          List<JointMovement> _value_1 = _get_2.getValue();
+          Pair<String, List<JointMovement>> _get_4 = _states_2.get((i).intValue());
+          List<JointMovement> _value_2 = _get_4.getValue();
           final Function1<JointMovement, CharSequence> _function = new Function1<JointMovement, CharSequence>() {
             @Override
             public CharSequence apply(final JointMovement jm) {
               return RigidBodiesGenerator.this.render(jm);
             }
           };
-          _xifexpression = IterableExtensions.<JointMovement>join(_value_1, ";\n", _function);
+          _xifexpression_1 = IterableExtensions.<JointMovement>join(_value_2, ";\n", _function);
         } else {
           StringConcatenation _builder_1 = new StringConcatenation();
           _builder_1.append("0 0 0 0 0");
-          _xifexpression = _builder_1;
+          _xifexpression_1 = _builder_1;
         }
-        _builder.append(_xifexpression, "\t");
+        _builder.append(_xifexpression_1, "\t");
         _builder.append("];");
         return _builder.toString();
       }
     };
-    String _join_5 = IterableExtensions.<Integer>join(_doubleDotLessThan_4, "\n", _function_6);
+    String _join_5 = IterableExtensions.<Integer>join(_doubleDotLessThan_5, "\n", _function_6);
     _builder.append(_join_5, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -393,6 +426,71 @@ public class RigidBodiesGenerator implements IGenerator {
     _builder.append("AnimEOM ( t , z , rj , qf , uf );");
     _builder.newLine();
     return _builder;
+  }
+  
+  protected CharSequence _render(final RelativeTransformation rt) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("0 0 ");
+    Matrix _position = rt.getPosition();
+    CharSequence _renderValues = this.renderValues(_position, " ");
+    _builder.append(_renderValues, "");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t   ");
+    Reorientation _reorient = rt.getReorient();
+    CharSequence _render = this.render(_reorient);
+    _builder.append(_render, "\t\t   ");
+    return _builder;
+  }
+  
+  protected int _size(final ReorientRef rr) {
+    Reorientation _ref = rr.getRef();
+    return this.size(_ref);
+  }
+  
+  protected int _size(final Reorientation r) {
+    ReorientExpression _exp = r.getExp();
+    return this.size(_exp);
+  }
+  
+  protected int _size(final BasicReorientExpression bre) {
+    EList<AXIS> _axis = bre.getAxis();
+    int _size = _axis.size();
+    return (_size + 1);
+  }
+  
+  protected CharSequence _render(final ReorientRef rr) {
+    Reorientation _ref = rr.getRef();
+    return this.render(_ref);
+  }
+  
+  protected CharSequence _render(final Reorientation r) {
+    ReorientExpression _exp = r.getExp();
+    return this.render(_exp);
+  }
+  
+  protected CharSequence _render(final BasicReorientExpression bre) {
+    EList<AXIS> _axis = bre.getAxis();
+    int _size = _axis.size();
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+    final Function1<Integer, CharSequence> _function = new Function1<Integer, CharSequence>() {
+      @Override
+      public CharSequence apply(final Integer idx) {
+        StringConcatenation _builder = new StringConcatenation();
+        EList<AXIS> _axis = bre.getAxis();
+        AXIS _get = _axis.get((idx).intValue());
+        CharSequence _render = RigidBodiesGenerator.this.render(_get);
+        _builder.append(_render, "");
+        _builder.append(" ");
+        EList<Expression> _value = bre.getValue();
+        Expression _get_1 = _value.get((idx).intValue());
+        CharSequence _render_1 = RigidBodiesGenerator.this.render(_get_1);
+        _builder.append(_render_1, "");
+        _builder.append(" 0 0 0");
+        return _builder.toString();
+      }
+    };
+    return IterableExtensions.<Integer>join(_doubleDotLessThan, ";\n", _function);
   }
   
   protected CharSequence _render(final Planar p) {
@@ -432,10 +530,17 @@ public class RigidBodiesGenerator implements IGenerator {
   
   protected CharSequence _render(final Revolute r) {
     StringConcatenation _builder = new StringConcatenation();
-    String _switchResult = null;
     AXIS _axis = r.getAxis();
-    if (_axis != null) {
-      switch (_axis) {
+    CharSequence _render = this.render(_axis);
+    _builder.append(_render, "");
+    _builder.append(" inf 0 0 0");
+    return _builder;
+  }
+  
+  protected CharSequence _render(final AXIS a) {
+    String _switchResult = null;
+    if (a != null) {
+      switch (a) {
         case X:
           _switchResult = "1";
           break;
@@ -449,9 +554,7 @@ public class RigidBodiesGenerator implements IGenerator {
           break;
       }
     }
-    _builder.append(_switchResult, "");
-    _builder.append(" inf 0 0 0");
-    return _builder;
+    return _switchResult;
   }
   
   protected CharSequence _renderValues(final MatrixRef mr, final CharSequence sep) {
@@ -604,9 +707,11 @@ public class RigidBodiesGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence render(final EObject e) {
+  public CharSequence render(final Object e) {
     if (e instanceof AddExp) {
       return _render((AddExp)e);
+    } else if (e instanceof BasicReorientExpression) {
+      return _render((BasicReorientExpression)e);
     } else if (e instanceof ConstantOrFunctionCallExp) {
       return _render((ConstantOrFunctionCallExp)e);
     } else if (e instanceof MultExp) {
@@ -617,11 +722,32 @@ public class RigidBodiesGenerator implements IGenerator {
       return _render((ParenthesisedExp)e);
     } else if (e instanceof Planar) {
       return _render((Planar)e);
+    } else if (e instanceof ReorientRef) {
+      return _render((ReorientRef)e);
     } else if (e instanceof Revolute) {
       return _render((Revolute)e);
+    } else if (e instanceof AXIS) {
+      return _render((AXIS)e);
+    } else if (e instanceof RelativeTransformation) {
+      return _render((RelativeTransformation)e);
+    } else if (e instanceof Reorientation) {
+      return _render((Reorientation)e);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(e).toString());
+    }
+  }
+  
+  public int size(final EObject bre) {
+    if (bre instanceof BasicReorientExpression) {
+      return _size((BasicReorientExpression)bre);
+    } else if (bre instanceof ReorientRef) {
+      return _size((ReorientRef)bre);
+    } else if (bre instanceof Reorientation) {
+      return _size((Reorientation)bre);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(bre).toString());
     }
   }
   

@@ -5,18 +5,18 @@ import java.util.LinkedList
 import java.util.List
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.Body
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
 import uk.ac.kcl.inf.robotics.rigidBodies.System
-import uk.ac.kcl.inf.robotics.services.RigidBodiesGrammarAccess.PrimaryJointTypeElements
-import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
-import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType
 
 /**
  * Build up a joint tree representation of a given connective
@@ -97,6 +97,9 @@ class ConnectiveTreeBuilder {
 	List<Pair<String, List<JointMovement>>> jointStates = new LinkedList<Pair<String, List<JointMovement>>>
 	List<Pair<String, List<JointMovement>>> constraintStates = new LinkedList<Pair<String, List<JointMovement>>>
 	List<Pair<String, List<JointMovement>>> loadStates = new LinkedList<Pair<String, List<JointMovement>>>
+	
+	List<Pair<String, RelativeTransformation>> jointTransformations = new LinkedList<Pair<String, RelativeTransformation>>
+	List<Pair<String, RelativeTransformation>> constraintTransformations = new LinkedList<Pair<String, RelativeTransformation>>
 	
 	new (System s) {
 		this.system = s
@@ -187,6 +190,8 @@ class ConnectiveTreeBuilder {
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
 			
 			jointStates.add (new Pair ("joint " + joint.name, joint.type.exp.toStateList))
+
+			jointTransformations.add (new Pair ("joint" + joint.name, joint.relTrans1))
 		} else if (ct.isConstraint) {
 			val joint = (ct.connective as Joint)
 			// TODO: This seems wrong: How is the position of a constraint joint determined?
@@ -197,6 +202,7 @@ class ConnectiveTreeBuilder {
 			constraintLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (1, parentDesc))
 
 			constraintStates.add (new Pair ("constraint joint " + joint.name, joint.type.exp.toStateList))
+			constraintTransformations.add (new Pair ("constraint joint" + joint.name, joint.relTrans1))
 		} else {
 			val load = ct.connective as ExternalLoad
 			
@@ -265,5 +271,19 @@ class ConnectiveTreeBuilder {
 		}
 		
 		return allStates	
+	}
+
+	List<Pair<String, RelativeTransformation>> allTransformations = null 
+		
+	def getJointTransformations() {
+		if (allTransformations == null) {
+			allTransformations = new LinkedList<Pair<String, RelativeTransformation>>(jointTransformations)
+			allTransformations.addAll(constraintTransformations)
+			
+			// Fill up with dummy values to make rendering simpler
+			(0..<(states.size - allTransformations.size)).forEach[allTransformations.add (null)]			
+		}
+		
+		return allTransformations
 	}
 }

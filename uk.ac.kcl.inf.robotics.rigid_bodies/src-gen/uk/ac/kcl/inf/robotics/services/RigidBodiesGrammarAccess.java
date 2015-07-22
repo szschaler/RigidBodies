@@ -859,111 +859,134 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	public class ReorientExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReorientExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cRefAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final CrossReference cRefReorientationCrossReference_0_0 = (CrossReference)cRefAssignment_0.eContents().get(0);
-		private final RuleCall cRefReorientationIDTerminalRuleCall_0_0_1 = (RuleCall)cRefReorientationCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cReorientExpressionAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
-		private final Assignment cAxisAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cAxisAXISEnumRuleCall_1_2_1_0 = (RuleCall)cAxisAssignment_1_2_1.eContents().get(0);
-		private final Keyword cCommaKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
-		private final Assignment cValueAssignment_1_2_3 = (Assignment)cGroup_1_2.eContents().get(3);
-		private final RuleCall cValueAddExpParserRuleCall_1_2_3_0 = (RuleCall)cValueAssignment_1_2_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_2_4 = (Keyword)cGroup_1_2.eContents().get(4);
-		private final Group cGroup_1_2_5 = (Group)cGroup_1_2.eContents().get(5);
-		private final Keyword cCommaKeyword_1_2_5_0 = (Keyword)cGroup_1_2_5.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_2_5_1 = (Keyword)cGroup_1_2_5.eContents().get(1);
-		private final Assignment cAxisAssignment_1_2_5_2 = (Assignment)cGroup_1_2_5.eContents().get(2);
-		private final RuleCall cAxisAXISEnumRuleCall_1_2_5_2_0 = (RuleCall)cAxisAssignment_1_2_5_2.eContents().get(0);
-		private final Keyword cCommaKeyword_1_2_5_3 = (Keyword)cGroup_1_2_5.eContents().get(3);
-		private final Assignment cValueAssignment_1_2_5_4 = (Assignment)cGroup_1_2_5.eContents().get(4);
-		private final RuleCall cValueAddExpParserRuleCall_1_2_5_4_0 = (RuleCall)cValueAssignment_1_2_5_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_2_5_5 = (Keyword)cGroup_1_2_5.eContents().get(5);
-		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final RuleCall cReorientRefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBasicReorientExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//ReorientExpression:
-		//	ref=[Reorientation] | "(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS ","
-		//	value+=AddExp ")")*)? ")";
+		//	ReorientRef | BasicReorientExpression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//ref=[Reorientation] | "(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS ","
-		//value+=AddExp ")")*)? ")"
+		//ReorientRef | BasicReorientExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//ReorientRef
+		public RuleCall getReorientRefParserRuleCall_0() { return cReorientRefParserRuleCall_0; }
+
+		//BasicReorientExpression
+		public RuleCall getBasicReorientExpressionParserRuleCall_1() { return cBasicReorientExpressionParserRuleCall_1; }
+	}
+
+	public class ReorientRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReorientRef");
+		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cRefReorientationCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
+		private final RuleCall cRefReorientationIDTerminalRuleCall_0_1 = (RuleCall)cRefReorientationCrossReference_0.eContents().get(1);
+		
+		//ReorientRef:
+		//	ref=[Reorientation];
+		@Override public ParserRule getRule() { return rule; }
+
 		//ref=[Reorientation]
-		public Assignment getRefAssignment_0() { return cRefAssignment_0; }
+		public Assignment getRefAssignment() { return cRefAssignment; }
 
 		//[Reorientation]
-		public CrossReference getRefReorientationCrossReference_0_0() { return cRefReorientationCrossReference_0_0; }
+		public CrossReference getRefReorientationCrossReference_0() { return cRefReorientationCrossReference_0; }
 
 		//ID
-		public RuleCall getRefReorientationIDTerminalRuleCall_0_0_1() { return cRefReorientationIDTerminalRuleCall_0_0_1; }
+		public RuleCall getRefReorientationIDTerminalRuleCall_0_1() { return cRefReorientationIDTerminalRuleCall_0_1; }
+	}
 
-		//"(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)? ")"
-		public Group getGroup_1() { return cGroup_1; }
+	public class BasicReorientExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicReorientExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cBasicReorientExpressionAction_1 = (Action)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cAxisAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cAxisAXISEnumRuleCall_2_1_0 = (RuleCall)cAxisAssignment_2_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cValueAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cValueAddExpParserRuleCall_2_3_0 = (RuleCall)cValueAssignment_2_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Group cGroup_2_5 = (Group)cGroup_2.eContents().get(5);
+		private final Keyword cCommaKeyword_2_5_0 = (Keyword)cGroup_2_5.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2_5_1 = (Keyword)cGroup_2_5.eContents().get(1);
+		private final Assignment cAxisAssignment_2_5_2 = (Assignment)cGroup_2_5.eContents().get(2);
+		private final RuleCall cAxisAXISEnumRuleCall_2_5_2_0 = (RuleCall)cAxisAssignment_2_5_2.eContents().get(0);
+		private final Keyword cCommaKeyword_2_5_3 = (Keyword)cGroup_2_5.eContents().get(3);
+		private final Assignment cValueAssignment_2_5_4 = (Assignment)cGroup_2_5.eContents().get(4);
+		private final RuleCall cValueAddExpParserRuleCall_2_5_4_0 = (RuleCall)cValueAssignment_2_5_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_5_5 = (Keyword)cGroup_2_5.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//BasicReorientExpression:
+		//	"(" {BasicReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
+		//	")";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"(" {BasicReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)? ")"
+		public Group getGroup() { return cGroup; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 
-		//{ReorientExpression}
-		public Action getReorientExpressionAction_1_1() { return cReorientExpressionAction_1_1; }
+		//{BasicReorientExpression}
+		public Action getBasicReorientExpressionAction_1() { return cBasicReorientExpressionAction_1; }
 
 		//("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
-		public Group getGroup_1_2() { return cGroup_1_2; }
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_1_2_0() { return cLeftParenthesisKeyword_1_2_0; }
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 
 		//axis+=AXIS
-		public Assignment getAxisAssignment_1_2_1() { return cAxisAssignment_1_2_1; }
+		public Assignment getAxisAssignment_2_1() { return cAxisAssignment_2_1; }
 
 		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_1_2_1_0() { return cAxisAXISEnumRuleCall_1_2_1_0; }
+		public RuleCall getAxisAXISEnumRuleCall_2_1_0() { return cAxisAXISEnumRuleCall_2_1_0; }
 
 		//","
-		public Keyword getCommaKeyword_1_2_2() { return cCommaKeyword_1_2_2; }
+		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
 
 		//value+=AddExp
-		public Assignment getValueAssignment_1_2_3() { return cValueAssignment_1_2_3; }
+		public Assignment getValueAssignment_2_3() { return cValueAssignment_2_3; }
 
 		//AddExp
-		public RuleCall getValueAddExpParserRuleCall_1_2_3_0() { return cValueAddExpParserRuleCall_1_2_3_0; }
+		public RuleCall getValueAddExpParserRuleCall_2_3_0() { return cValueAddExpParserRuleCall_2_3_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_1_2_4() { return cRightParenthesisKeyword_1_2_4; }
+		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
 
 		//("," "(" axis+=AXIS "," value+=AddExp ")")*
-		public Group getGroup_1_2_5() { return cGroup_1_2_5; }
+		public Group getGroup_2_5() { return cGroup_2_5; }
 
 		//","
-		public Keyword getCommaKeyword_1_2_5_0() { return cCommaKeyword_1_2_5_0; }
+		public Keyword getCommaKeyword_2_5_0() { return cCommaKeyword_2_5_0; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_1_2_5_1() { return cLeftParenthesisKeyword_1_2_5_1; }
+		public Keyword getLeftParenthesisKeyword_2_5_1() { return cLeftParenthesisKeyword_2_5_1; }
 
 		//axis+=AXIS
-		public Assignment getAxisAssignment_1_2_5_2() { return cAxisAssignment_1_2_5_2; }
+		public Assignment getAxisAssignment_2_5_2() { return cAxisAssignment_2_5_2; }
 
 		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_1_2_5_2_0() { return cAxisAXISEnumRuleCall_1_2_5_2_0; }
+		public RuleCall getAxisAXISEnumRuleCall_2_5_2_0() { return cAxisAXISEnumRuleCall_2_5_2_0; }
 
 		//","
-		public Keyword getCommaKeyword_1_2_5_3() { return cCommaKeyword_1_2_5_3; }
+		public Keyword getCommaKeyword_2_5_3() { return cCommaKeyword_2_5_3; }
 
 		//value+=AddExp
-		public Assignment getValueAssignment_1_2_5_4() { return cValueAssignment_1_2_5_4; }
+		public Assignment getValueAssignment_2_5_4() { return cValueAssignment_2_5_4; }
 
 		//AddExp
-		public RuleCall getValueAddExpParserRuleCall_1_2_5_4_0() { return cValueAddExpParserRuleCall_1_2_5_4_0; }
+		public RuleCall getValueAddExpParserRuleCall_2_5_4_0() { return cValueAddExpParserRuleCall_2_5_4_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_1_2_5_5() { return cRightParenthesisKeyword_1_2_5_5; }
+		public Keyword getRightParenthesisKeyword_2_5_5() { return cRightParenthesisKeyword_2_5_5; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
@@ -1577,6 +1600,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final RelativeTransformationElements pRelativeTransformation;
 	private final ReorientationElements pReorientation;
 	private final ReorientExpressionElements pReorientExpression;
+	private final ReorientRefElements pReorientRef;
+	private final BasicReorientExpressionElements pBasicReorientExpression;
 	private final ConstraintElements pConstraint;
 	private final ConstraintTypeElements unknownRuleConstraintType;
 	private final ExternalLoadElements pExternalLoad;
@@ -1626,6 +1651,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRelativeTransformation = new RelativeTransformationElements();
 		this.pReorientation = new ReorientationElements();
 		this.pReorientExpression = new ReorientExpressionElements();
+		this.pReorientRef = new ReorientRefElements();
+		this.pBasicReorientExpression = new BasicReorientExpressionElements();
 		this.pConstraint = new ConstraintElements();
 		this.unknownRuleConstraintType = new ConstraintTypeElements();
 		this.pExternalLoad = new ExternalLoadElements();
@@ -1917,14 +1944,34 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ReorientExpression:
-	//	ref=[Reorientation] | "(" {ReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS ","
-	//	value+=AddExp ")")*)? ")";
+	//	ReorientRef | BasicReorientExpression;
 	public ReorientExpressionElements getReorientExpressionAccess() {
 		return pReorientExpression;
 	}
 	
 	public ParserRule getReorientExpressionRule() {
 		return getReorientExpressionAccess().getRule();
+	}
+
+	//ReorientRef:
+	//	ref=[Reorientation];
+	public ReorientRefElements getReorientRefAccess() {
+		return pReorientRef;
+	}
+	
+	public ParserRule getReorientRefRule() {
+		return getReorientRefAccess().getRule();
+	}
+
+	//BasicReorientExpression:
+	//	"(" {BasicReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
+	//	")";
+	public BasicReorientExpressionElements getBasicReorientExpressionAccess() {
+		return pBasicReorientExpression;
+	}
+	
+	public ParserRule getBasicReorientExpressionRule() {
+		return getBasicReorientExpressionAccess().getRule();
 	}
 
 	//Constraint:

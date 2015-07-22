@@ -35,7 +35,7 @@ public class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
       if (_equals_1) {
         class_ = JointType.class;
       } else {
-        boolean _equals_2 = Objects.equal(reference, RigidBodiesPackage.Literals.REORIENT_EXPRESSION__REF);
+        boolean _equals_2 = Objects.equal(reference, RigidBodiesPackage.Literals.REORIENT_REF__REF);
         if (_equals_2) {
           class_ = Reorientation.class;
         }

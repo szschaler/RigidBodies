@@ -131,8 +131,16 @@ Reorientation:
 ;
 
 ReorientExpression:
-	ref=[Reorientation] |
-	'(' {ReorientExpression} ('(' axis+=AXIS ',' value += AddExp ')' (',' '(' axis+=AXIS ',' value += AddExp ')')*)? ')' 
+	ReorientRef |
+	BasicReorientExpression
+;
+
+ReorientRef:
+	ref=[Reorientation] 
+;
+
+BasicReorientExpression:
+	'(' {BasicReorientExpression} ('(' axis+=AXIS ',' value += AddExp ')' (',' '(' axis+=AXIS ',' value += AddExp ')')*)? ')' 
 ;
 
 Constraint:

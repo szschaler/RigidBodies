@@ -102,8 +102,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//ReorientExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReorientExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="ReorientExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReorientRef" eSuperTypes="#//ReorientExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Reorientation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicReorientExpression" eSuperTypes="#//ReorientExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" unique="false" upperBound="-1"
         eType="#//AXIS"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"

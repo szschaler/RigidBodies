@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
@@ -27,6 +28,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
@@ -125,6 +127,10 @@ public class ConnectiveTreeBuilder {
   private List<Pair<String, List<JointMovement>>> constraintStates = new LinkedList<Pair<String, List<JointMovement>>>();
   
   private List<Pair<String, List<JointMovement>>> loadStates = new LinkedList<Pair<String, List<JointMovement>>>();
+  
+  private List<Pair<String, RelativeTransformation>> jointTransformations = new LinkedList<Pair<String, RelativeTransformation>>();
+  
+  private List<Pair<String, RelativeTransformation>> constraintTransformations = new LinkedList<Pair<String, RelativeTransformation>>();
   
   public ConnectiveTreeBuilder(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
     this.system = s;
@@ -293,7 +299,12 @@ public class ConnectiveTreeBuilder {
           JointTypeExpression _exp = _type.getExp();
           List<JointMovement> _stateList = this.toStateList(_exp);
           Pair<String, List<JointMovement>> _pair_6 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
-          _xblockexpression_1 = this.jointStates.add(_pair_6);
+          this.jointStates.add(_pair_6);
+          String _name_7 = joint.getName();
+          String _plus_5 = ("joint" + _name_7);
+          RelativeTransformation _relTrans1 = joint.getRelTrans1();
+          Pair<String, RelativeTransformation> _pair_7 = new Pair<String, RelativeTransformation>(_plus_5, _relTrans1);
+          _xblockexpression_1 = this.jointTransformations.add(_pair_7);
         }
         _xifexpression = _xblockexpression_1;
       } else {
@@ -319,7 +330,12 @@ public class ConnectiveTreeBuilder {
             JointTypeExpression _exp = _type.getExp();
             List<JointMovement> _stateList = this.toStateList(_exp);
             Pair<String, List<JointMovement>> _pair_4 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
-            _xblockexpression_2 = this.constraintStates.add(_pair_4);
+            this.constraintStates.add(_pair_4);
+            String _name_5 = joint.getName();
+            String _plus_5 = ("constraint joint" + _name_5);
+            RelativeTransformation _relTrans1 = joint.getRelTrans1();
+            Pair<String, RelativeTransformation> _pair_5 = new Pair<String, RelativeTransformation>(_plus_5, _relTrans1);
+            _xblockexpression_2 = this.constraintTransformations.add(_pair_5);
           }
           _xifexpression_1 = _xblockexpression_2;
         } else {
@@ -436,6 +452,30 @@ public class ConnectiveTreeBuilder {
       this.allStates.addAll(this.loadStates);
     }
     return this.allStates;
+  }
+  
+  private List<Pair<String, RelativeTransformation>> allTransformations = null;
+  
+  public List<Pair<String, RelativeTransformation>> getJointTransformations() {
+    boolean _equals = Objects.equal(this.allTransformations, null);
+    if (_equals) {
+      LinkedList<Pair<String, RelativeTransformation>> _linkedList = new LinkedList<Pair<String, RelativeTransformation>>(this.jointTransformations);
+      this.allTransformations = _linkedList;
+      this.allTransformations.addAll(this.constraintTransformations);
+      List<Pair<String, List<JointMovement>>> _states = this.getStates();
+      int _size = _states.size();
+      int _size_1 = this.allTransformations.size();
+      int _minus = (_size - _size_1);
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _minus, true);
+      final Procedure1<Integer> _function = new Procedure1<Integer>() {
+        @Override
+        public void apply(final Integer it) {
+          ConnectiveTreeBuilder.this.allTransformations.add(null);
+        }
+      };
+      IterableExtensions.<Integer>forEach(_doubleDotLessThan, _function);
+    }
+    return this.allTransformations;
   }
   
   private List<JointMovement> toStateList(final JointTypeExpression ajt) {

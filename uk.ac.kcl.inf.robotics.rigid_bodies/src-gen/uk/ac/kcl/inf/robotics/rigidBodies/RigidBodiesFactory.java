@@ -230,6 +230,24 @@ public interface RigidBodiesFactory extends EFactory
   ReorientExpression createReorientExpression();
 
   /**
+   * Returns a new object of class '<em>Reorient Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reorient Ref</em>'.
+   * @generated
+   */
+  ReorientRef createReorientRef();
+
+  /**
+   * Returns a new object of class '<em>Basic Reorient Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic Reorient Expression</em>'.
+   * @generated
+   */
+  BasicReorientExpression createBasicReorientExpression();
+
+  /**
    * Returns a new object of class '<em>Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

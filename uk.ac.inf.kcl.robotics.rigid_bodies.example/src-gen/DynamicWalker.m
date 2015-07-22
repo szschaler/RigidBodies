@@ -95,32 +95,40 @@ I (:, :, 6) = [
 	0.0 0.0 1.0e-3.0];
 
 % Joint specifications
-j = sym (zeros (3, 5, 10))
+j = sym (zeros (4, 5, 10))
 % Joint rotations for joint ankle
 j (:, :, 1) = [
+	0 0 0.0 0.0 0.0;
 	2 inf 0 0 0];
 % Joint rotations for joint knee1
 j (:, :, 2) = [
+	0 0 0.0 0.0 1.0;
 	2 inf 0 0 0];
 % Joint rotations for joint hip1
 j (:, :, 3) = [
+	0 0 0.0 1.0 1.0;
 	2 inf 0 0 0];
 % Joint rotations for joint knee2
 j (:, :, 4) = [
+	0 0 0.0 0.0 -1.0;
 	2 inf 0 0 0];
 % Joint rotations for joint hip2
 j (:, :, 5) = [
+	0 0 0.0 0.5 -1.0;
 	2 inf 0 0 0;
 	1 inf 0 0 0;
 	3 inf 0 0 0];
 % Joint rotations for joint shoulder1
 j (:, :, 6) = [
+	0 0 0.0 -0.25 1.0;
 	1 inf 0 0 0];
 % Joint rotations for joint shoulder2
 j (:, :, 7) = [
+	0 0 0.0 0.25 1.0;
 	1 inf 0 0 0];
 % Joint rotations for constraint joint foot2J
 j (:, :, 8) = [
+	0 0 0.0 0.0 -1.0;
 	2 inf 0 0 0];
 % Joint rotations for load foot2L
 j (:, :, 9) = [

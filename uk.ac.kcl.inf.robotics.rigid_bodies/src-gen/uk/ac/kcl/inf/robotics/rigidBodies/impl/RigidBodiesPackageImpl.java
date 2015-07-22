@@ -15,6 +15,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -41,6 +42,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
@@ -217,6 +219,20 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass reorientExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reorientRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass basicReorientExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -951,9 +967,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReorientExpression_Ref()
+  public EClass getReorientRef()
   {
-    return (EReference)reorientExpressionEClass.getEStructuralFeatures().get(0);
+    return reorientRefEClass;
   }
 
   /**
@@ -961,9 +977,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReorientExpression_Axis()
+  public EReference getReorientRef_Ref()
   {
-    return (EAttribute)reorientExpressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)reorientRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -971,9 +987,29 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReorientExpression_Value()
+  public EClass getBasicReorientExpression()
   {
-    return (EReference)reorientExpressionEClass.getEStructuralFeatures().get(2);
+    return basicReorientExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicReorientExpression_Axis()
+  {
+    return (EAttribute)basicReorientExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBasicReorientExpression_Value()
+  {
+    return (EReference)basicReorientExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1444,9 +1480,13 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEReference(reorientationEClass, REORIENTATION__EXP);
 
     reorientExpressionEClass = createEClass(REORIENT_EXPRESSION);
-    createEReference(reorientExpressionEClass, REORIENT_EXPRESSION__REF);
-    createEAttribute(reorientExpressionEClass, REORIENT_EXPRESSION__AXIS);
-    createEReference(reorientExpressionEClass, REORIENT_EXPRESSION__VALUE);
+
+    reorientRefEClass = createEClass(REORIENT_REF);
+    createEReference(reorientRefEClass, REORIENT_REF__REF);
+
+    basicReorientExpressionEClass = createEClass(BASIC_REORIENT_EXPRESSION);
+    createEAttribute(basicReorientExpressionEClass, BASIC_REORIENT_EXPRESSION__AXIS);
+    createEReference(basicReorientExpressionEClass, BASIC_REORIENT_EXPRESSION__VALUE);
 
     constraintEClass = createEClass(CONSTRAINT);
     createEAttribute(constraintEClass, CONSTRAINT__TYPE);
@@ -1539,6 +1579,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     stiffnessRefEClass.getESuperTypes().add(this.getStiffnessExp());
     baseStiffnessExpEClass.getESuperTypes().add(this.getInitialDefinition());
     baseStiffnessExpEClass.getESuperTypes().add(this.getStiffnessExp());
+    reorientRefEClass.getESuperTypes().add(this.getReorientExpression());
+    basicReorientExpressionEClass.getESuperTypes().add(this.getReorientExpression());
     constraintEClass.getESuperTypes().add(this.getConnective());
     externalLoadEClass.getESuperTypes().add(this.getConnective());
     baseMatrixEClass.getESuperTypes().add(this.getInitialDefinition());
@@ -1630,9 +1672,13 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEReference(getReorientation_Exp(), this.getReorientExpression(), null, "exp", null, 0, 1, Reorientation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reorientExpressionEClass, ReorientExpression.class, "ReorientExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReorientExpression_Ref(), this.getReorientation(), null, "ref", null, 0, 1, ReorientExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getReorientExpression_Axis(), this.getAXIS(), "axis", null, 0, -1, ReorientExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getReorientExpression_Value(), this.getExpression(), null, "value", null, 0, -1, ReorientExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reorientRefEClass, ReorientRef.class, "ReorientRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReorientRef_Ref(), this.getReorientation(), null, "ref", null, 0, 1, ReorientRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(basicReorientExpressionEClass, BasicReorientExpression.class, "BasicReorientExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBasicReorientExpression_Axis(), this.getAXIS(), "axis", null, 0, -1, BasicReorientExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicReorientExpression_Value(), this.getExpression(), null, "value", null, 0, -1, BasicReorientExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstraint_Type(), this.getConstraintType(), "type", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

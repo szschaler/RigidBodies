@@ -21,6 +21,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
@@ -38,7 +39,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
-import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
@@ -68,6 +69,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.BASIC_JOINT_TYPE:
 				sequence_BasicJointType(context, (BasicJointType) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BASIC_REORIENT_EXPRESSION:
+				sequence_BasicReorientExpression(context, (BasicReorientExpression) semanticObject); 
 				return; 
 			case RigidBodiesPackage.BODY:
 				sequence_Body(context, (Body) semanticObject); 
@@ -120,8 +124,8 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.RELATIVE_TRANSFORMATION:
 				sequence_RelativeTransformation(context, (RelativeTransformation) semanticObject); 
 				return; 
-			case RigidBodiesPackage.REORIENT_EXPRESSION:
-				sequence_ReorientExpression(context, (ReorientExpression) semanticObject); 
+			case RigidBodiesPackage.REORIENT_REF:
+				sequence_ReorientRef(context, (ReorientRef) semanticObject); 
 				return; 
 			case RigidBodiesPackage.REORIENTATION:
 				sequence_Reorientation(context, (Reorientation) semanticObject); 
@@ -191,6 +195,15 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		feeder.accept(grammarAccess.getBasicJointTypeAccess().getTypeJointMovementParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getBasicJointTypeAccess().getStiffnessStiffnessExpParserRuleCall_2_0(), semanticObject.getStiffness());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((axis+=AXIS value+=AddExp (axis+=AXIS value+=AddExp)*)?)
+	 */
+	protected void sequence_BasicReorientExpression(EObject context, BasicReorientExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -469,10 +482,17 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((axis+=AXIS value+=AddExp (axis+=AXIS value+=AddExp)*)?)
+	 *     ref=[Reorientation|ID]
 	 */
-	protected void sequence_ReorientExpression(EObject context, ReorientExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_ReorientRef(EObject context, ReorientRef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.REORIENT_REF__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.REORIENT_REF__REF));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getReorientRefAccess().getRefReorientationIDTerminalRuleCall_0_1(), semanticObject.getRef());
+		feeder.finish();
 	}
 	
 	

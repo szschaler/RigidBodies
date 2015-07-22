@@ -855,13 +855,51 @@ public interface RigidBodiesPackage extends EPackage
   int REORIENT_EXPRESSION = 22;
 
   /**
+   * The number of structural features of the '<em>Reorient Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REORIENT_EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ReorientRefImpl <em>Reorient Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ReorientRefImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientRef()
+   * @generated
+   */
+  int REORIENT_REF = 23;
+
+  /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REORIENT_EXPRESSION__REF = 0;
+  int REORIENT_REF__REF = REORIENT_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Reorient Ref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REORIENT_REF_FEATURE_COUNT = REORIENT_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BasicReorientExpressionImpl <em>Basic Reorient Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.BasicReorientExpressionImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBasicReorientExpression()
+   * @generated
+   */
+  int BASIC_REORIENT_EXPRESSION = 24;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute list.
@@ -870,7 +908,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REORIENT_EXPRESSION__AXIS = 1;
+  int BASIC_REORIENT_EXPRESSION__AXIS = REORIENT_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -879,16 +917,16 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REORIENT_EXPRESSION__VALUE = 2;
+  int BASIC_REORIENT_EXPRESSION__VALUE = REORIENT_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Reorient Expression</em>' class.
+   * The number of structural features of the '<em>Basic Reorient Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REORIENT_EXPRESSION_FEATURE_COUNT = 3;
+  int BASIC_REORIENT_EXPRESSION_FEATURE_COUNT = REORIENT_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl <em>Constraint</em>}' class.
@@ -898,7 +936,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 23;
+  int CONSTRAINT = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -971,7 +1009,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getExternalLoad()
    * @generated
    */
-  int EXTERNAL_LOAD = 24;
+  int EXTERNAL_LOAD = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1026,7 +1064,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMatrix()
    * @generated
    */
-  int MATRIX = 25;
+  int MATRIX = 27;
 
   /**
    * The number of structural features of the '<em>Matrix</em>' class.
@@ -1045,7 +1083,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBaseMatrix()
    * @generated
    */
-  int BASE_MATRIX = 26;
+  int BASE_MATRIX = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1082,7 +1120,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMatrixRef()
    * @generated
    */
-  int MATRIX_REF = 27;
+  int MATRIX_REF = 29;
 
   /**
    * The feature id for the '<em><b>Matrix</b></em>' reference.
@@ -1110,7 +1148,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 28;
+  int EXPRESSION = 30;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1129,7 +1167,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getParenthesisedExp()
    * @generated
    */
-  int PARENTHESISED_EXP = 29;
+  int PARENTHESISED_EXP = 31;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1157,7 +1195,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstantOrFunctionCallExp()
    * @generated
    */
-  int CONSTANT_OR_FUNCTION_CALL_EXP = 30;
+  int CONSTANT_OR_FUNCTION_CALL_EXP = 32;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1194,7 +1232,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 31;
+  int NUMBER_LITERAL = 33;
 
   /**
    * The feature id for the '<em><b>Neg</b></em>' attribute.
@@ -1231,7 +1269,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAdditiveJointType()
    * @generated
    */
-  int ADDITIVE_JOINT_TYPE = 32;
+  int ADDITIVE_JOINT_TYPE = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1268,7 +1306,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAddExp()
    * @generated
    */
-  int ADD_EXP = 33;
+  int ADD_EXP = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1314,7 +1352,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMultExp()
    * @generated
    */
-  int MULT_EXP = 34;
+  int MULT_EXP = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1360,7 +1398,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAXIS()
    * @generated
    */
-  int AXIS = 35;
+  int AXIS = 37;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType <em>Constraint Type</em>}' enum.
@@ -1370,7 +1408,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraintType()
    * @generated
    */
-  int CONSTRAINT_TYPE = 36;
+  int CONSTRAINT_TYPE = 38;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LoadType <em>Load Type</em>}' enum.
@@ -1380,7 +1418,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLoadType()
    * @generated
    */
-  int LOAD_TYPE = 37;
+  int LOAD_TYPE = 39;
 
 
   /**
@@ -1977,37 +2015,57 @@ public interface RigidBodiesPackage extends EPackage
   EClass getReorientExpression();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression#getRef <em>Ref</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef <em>Reorient Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Reorient Ref</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef
+   * @generated
+   */
+  EClass getReorientRef();
+
+  /**
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Ref</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression#getRef()
-   * @see #getReorientExpression()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef#getRef()
+   * @see #getReorientRef()
    * @generated
    */
-  EReference getReorientExpression_Ref();
+  EReference getReorientRef_Ref();
 
   /**
-   * Returns the meta object for the attribute list '{@link uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression#getAxis <em>Axis</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression <em>Basic Reorient Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Basic Reorient Expression</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression
+   * @generated
+   */
+  EClass getBasicReorientExpression();
+
+  /**
+   * Returns the meta object for the attribute list '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression#getAxis <em>Axis</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Axis</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression#getAxis()
-   * @see #getReorientExpression()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression#getAxis()
+   * @see #getBasicReorientExpression()
    * @generated
    */
-  EAttribute getReorientExpression_Axis();
+  EAttribute getBasicReorientExpression_Axis();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Value</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression#getValue()
-   * @see #getReorientExpression()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression#getValue()
+   * @see #getBasicReorientExpression()
    * @generated
    */
-  EReference getReorientExpression_Value();
+  EReference getBasicReorientExpression_Value();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Constraint <em>Constraint</em>}'.
@@ -2908,12 +2966,32 @@ public interface RigidBodiesPackage extends EPackage
     EClass REORIENT_EXPRESSION = eINSTANCE.getReorientExpression();
 
     /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ReorientRefImpl <em>Reorient Ref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ReorientRefImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientRef()
+     * @generated
+     */
+    EClass REORIENT_REF = eINSTANCE.getReorientRef();
+
+    /**
      * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REORIENT_EXPRESSION__REF = eINSTANCE.getReorientExpression_Ref();
+    EReference REORIENT_REF__REF = eINSTANCE.getReorientRef_Ref();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BasicReorientExpressionImpl <em>Basic Reorient Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.BasicReorientExpressionImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBasicReorientExpression()
+     * @generated
+     */
+    EClass BASIC_REORIENT_EXPRESSION = eINSTANCE.getBasicReorientExpression();
 
     /**
      * The meta object literal for the '<em><b>Axis</b></em>' attribute list feature.
@@ -2921,7 +2999,7 @@ public interface RigidBodiesPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REORIENT_EXPRESSION__AXIS = eINSTANCE.getReorientExpression_Axis();
+    EAttribute BASIC_REORIENT_EXPRESSION__AXIS = eINSTANCE.getBasicReorientExpression_Axis();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
@@ -2929,7 +3007,7 @@ public interface RigidBodiesPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REORIENT_EXPRESSION__VALUE = eINSTANCE.getReorientExpression_Value();
+    EReference BASIC_REORIENT_EXPRESSION__VALUE = eINSTANCE.getBasicReorientExpression_Value();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl <em>Constraint</em>}' class.

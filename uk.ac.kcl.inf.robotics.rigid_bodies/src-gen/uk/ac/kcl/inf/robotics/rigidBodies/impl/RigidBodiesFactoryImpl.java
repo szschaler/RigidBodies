@@ -17,6 +17,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -43,6 +44,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
@@ -126,6 +128,8 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.RELATIVE_TRANSFORMATION: return createRelativeTransformation();
       case RigidBodiesPackage.REORIENTATION: return createReorientation();
       case RigidBodiesPackage.REORIENT_EXPRESSION: return createReorientExpression();
+      case RigidBodiesPackage.REORIENT_REF: return createReorientRef();
+      case RigidBodiesPackage.BASIC_REORIENT_EXPRESSION: return createBasicReorientExpression();
       case RigidBodiesPackage.CONSTRAINT: return createConstraint();
       case RigidBodiesPackage.EXTERNAL_LOAD: return createExternalLoad();
       case RigidBodiesPackage.MATRIX: return createMatrix();
@@ -436,6 +440,28 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     ReorientExpressionImpl reorientExpression = new ReorientExpressionImpl();
     return reorientExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReorientRef createReorientRef()
+  {
+    ReorientRefImpl reorientRef = new ReorientRefImpl();
+    return reorientRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BasicReorientExpression createBasicReorientExpression()
+  {
+    BasicReorientExpressionImpl basicReorientExpression = new BasicReorientExpressionImpl();
+    return basicReorientExpression;
   }
 
   /**

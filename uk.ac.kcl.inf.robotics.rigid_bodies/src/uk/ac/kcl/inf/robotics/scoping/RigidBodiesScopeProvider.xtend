@@ -31,7 +31,7 @@ class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
 		else if ((reference == RigidBodiesPackage.Literals.JOINT_TYPE_REFERENCE__REF)) {
 			class = JointType
 		}
-		else if ((reference == RigidBodiesPackage.Literals.REORIENT_EXPRESSION__REF)) {
+		else if ((reference == RigidBodiesPackage.Literals.REORIENT_REF__REF)) {
 			class = Reorientation
 		}
 		
