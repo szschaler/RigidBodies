@@ -3,19 +3,13 @@
  */
 package uk.ac.kcl.inf.robotics.generator
 
-import java.util.HashMap
-import java.util.LinkedList
-import java.util.List
-import java.util.Map
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
-import uk.ac.kcl.inf.robotics.rigidBodies.Body
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.Model
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp
@@ -32,79 +26,48 @@ class RigidBodiesGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.allContents.filter(Model).head
-		val bodyLists = new HashMap
-		val jointLists = new HashMap
 		resource.allContents.filter(System).forEach [ s |
-			s.buildJointList(jointLists, bodyLists)
-			fsa.generateFile('''«s.name».m'''.toString(), s.generate(model.world, bodyLists, jointLists))
+			fsa.generateFile ('''«s.name».m''', generate (model.world, new ConnectiveTreeBuilder (s)))
 		]
 	}
-
-	def buildJointList(System s, Map<System, List<Joint>> jointLists, Map<System, List<Body>> bodyLists) {
-		var jointList = new LinkedList
-		var bodyList = new LinkedList
-		var jointsRemaining = new LinkedList
-
-		jointsRemaining.add(s.getStartJoint)
-
-		while (jointsRemaining.size > 0) {
-			val currentJoint = jointsRemaining.remove(0)
-
-			// If we haven't processed this joint yet, do so now
-			if (! jointList.contains(currentJoint)) {
-				// Check it's not a constraint masquerading as a joint
-				if (!currentJoint.body2.base) {
-					// All is well, actually process the joint
-					jointList.add(currentJoint)
-
-					val tgtBody = currentJoint.body2.ref
-
-					if (!bodyList.contains(tgtBody)) {
-						bodyList.add(tgtBody)
-
-						jointsRemaining.addAll(s.getJointFanOut(tgtBody))
-					}
-				}
-			}
-		}
-
-		bodyLists.put(s, bodyList)
-		jointLists.put(s, jointList)
-	}
-
-	// TODO Support start flag or remove it from the language
-	def getStartJoint(System s) {
-		s.elements.filter(Joint).findFirst[j|j.body1.base]
-	}
-
-	/**
-	 * Find all Joints that connect from the given body in the given system.
-	 */
-	def getJointFanOut(System s, Body b) {
-		s.elements.filter(Joint).filter[j|j.body1.ref == b]
-	}
-
-	def generate(System system, 
-		         Environment world, 
-		         Map<System, List<Body>> bodyLists, 
-		         Map<System, List<Joint>> jointLists) '''
-		«val bodyList = bodyLists.get (system)»
-		«val jointList = jointLists.get (system)»
+	
+	def generate(Environment world, 
+		         ConnectiveTreeBuilder ctb) '''
 		% EOM Simulation:
 		clc
 		clear all
 		close all
 		
 		% Gravity vector
-		g = [«world.gravity.renderValues»]
+		g = [«world.gravity.renderValues (', ')»]
 		
 		% Inputs
-		lc = [« // TODO Generate location matrix
-				
-			»]
+
+		% Locations
+		lc = [
+			«(0..<ctb.positions.size).join (';\n', [ i | '''
+					% Position data from «ctb.positions.get(i).key» for a joint «ctb.lcCodeColumns.get(i).value.key»
+					«ctb.positions.get(i).value.renderValues (' ')» «ctb.lcCodeColumns.get(i).key» «ctb.lcCodeColumns.get(i).value.value»'''])»
+			«(0..<ctb.constraintPositions.size).join (';\n', [ i | '''
+					% Position data from «ctb.constraintPositions.get(i).key» for a constraint «ctb.constraintLcCodeColumns.get(i).value.key»
+					% TODO: Check with Hadi that we're using the correct position data here.
+					«ctb.constraintPositions.get(i).value.renderValues (' ')» «ctb.constraintLcCodeColumns.get(i).key» «ctb.constraintLcCodeColumns.get(i).value.value»'''])»
+		];
+
+		% Mass values
+		m = [
+			« // Generate masses vector
+				ctb.masses.join (',\n', [m | '''
+					% «m.key»
+					«m.value.render»'''])»];
 		
-		m = [« // Generate masses vector
-		bodyList.join (', ', [b | b.mass.value.render])»]
+		% Inertia values
+		I = sym (zeros (3, 3, «ctb.inertias.size»));
+		«(0..<ctb.inertias.size).join ('\n', [idx | '''
+				% Inertia for body «ctb.inertias.get(idx).key»
+				I (:, :, «idx») = [
+					«ctb.inertias.get(idx).value.renderValues (3)»];
+			'''])»
 		
 		% Run program -- Should this really be generated?
 		
@@ -120,13 +83,19 @@ class RigidBodiesGenerator implements IGenerator {
 		% animation
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
-
-	def dispatch CharSequence renderValues(MatrixRef mr) {
-		mr.matrix.renderValues
+	
+	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
+		mr.matrix.renderValues (sep)
 	}
-
-	def dispatch CharSequence renderValues(BaseMatrix bm) {
-		bm.values.join(', ', [v|v.render])
+	
+	def dispatch CharSequence renderValues(BaseMatrix bm, CharSequence sep) {
+		bm.values.join(sep, [v|v.render])
+	}
+	
+	def dispatch CharSequence renderValues (BaseMatrix bm, int rowLength) {
+		(0..<bm.values.size / rowLength).join (';\n', [y | 
+				(0..<rowLength).join (' ', [ x | bm.values.get(y * rowLength + x).render ])
+			])
 	}
 
 	def dispatch CharSequence render(AddExp e) {

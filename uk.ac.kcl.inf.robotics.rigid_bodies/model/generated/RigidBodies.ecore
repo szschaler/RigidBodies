@@ -25,6 +25,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SystemElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connective" eSuperTypes="#//SystemElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body" eSuperTypes="#//SystemElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mass" eType="#//Mass" containment="true"/>
   </eClassifiers>
@@ -40,13 +44,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inertia" eType="#//Matrix"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//SystemElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//Connective">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//JointType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//BodyReference"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//BodyReference"
         containment="true"/>
@@ -93,11 +95,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//SystemElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//Connective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConstraintType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//BodyReference"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//BodyReference"
         containment="true"/>
@@ -108,11 +108,9 @@
     <eLiterals name="GEOMETRICAL" literal="geometrical"/>
     <eLiterals name="VELOCITY" value="1" literal="velocity"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalLoad" eSuperTypes="#//SystemElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalLoad" eSuperTypes="#//Connective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LoadType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//BodyReference"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans1" eType="#//RelativeTransformation"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LoadType">

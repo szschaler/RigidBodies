@@ -329,31 +329,61 @@ ruleSystemElement returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getSystemElementAccess().getJointParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getSystemElementAccess().getConnectiveParserRuleCall_1()); 
     }
-    this_Joint_1=ruleJoint
+    this_Connective_1=ruleConnective
     { 
-        $current = $this_Joint_1.current; 
+        $current = $this_Connective_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleConnective
+entryRuleConnective returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConnectiveRule()); }
+	 iv_ruleConnective=ruleConnective 
+	 { $current=$iv_ruleConnective.current; } 
+	 EOF 
+;
+
+// Rule Connective
+ruleConnective returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getConnectiveAccess().getJointParserRuleCall_0()); 
+    }
+    this_Joint_0=ruleJoint
+    { 
+        $current = $this_Joint_0.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getSystemElementAccess().getConstraintParserRuleCall_2()); 
+        newCompositeNode(grammarAccess.getConnectiveAccess().getConstraintParserRuleCall_1()); 
     }
-    this_Constraint_2=ruleConstraint
+    this_Constraint_1=ruleConstraint
     { 
-        $current = $this_Constraint_2.current; 
+        $current = $this_Constraint_1.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getSystemElementAccess().getExternalLoadParserRuleCall_3()); 
+        newCompositeNode(grammarAccess.getConnectiveAccess().getExternalLoadParserRuleCall_2()); 
     }
-    this_ExternalLoad_3=ruleExternalLoad
+    this_ExternalLoad_2=ruleExternalLoad
     { 
-        $current = $this_ExternalLoad_3.current; 
+        $current = $this_ExternalLoad_2.current; 
         afterParserOrEnumRuleCall();
     }
 )

@@ -29,6 +29,10 @@ System:
 
 SystemElement:
 	Body |
+	Connective
+;
+
+Connective:
 	Joint |
 	Constraint |
 	ExternalLoad

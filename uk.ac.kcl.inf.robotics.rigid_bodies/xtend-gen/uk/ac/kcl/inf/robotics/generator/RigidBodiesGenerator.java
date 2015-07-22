@@ -3,15 +3,10 @@
  */
 package uk.ac.kcl.inf.robotics.generator;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -23,23 +18,20 @@ import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import uk.ac.kcl.inf.robotics.generator.ConnectiveTreeBuilder;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
-import uk.ac.kcl.inf.robotics.rigidBodies.Body;
-import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
-import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
  * Generates code from your model files on save.
@@ -53,101 +45,26 @@ public class RigidBodiesGenerator implements IGenerator {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterator<Model> _filter = Iterators.<Model>filter(_allContents, Model.class);
     final Model model = IteratorExtensions.<Model>head(_filter);
-    final HashMap<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Body>> bodyLists = new HashMap<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Body>>();
-    final HashMap<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Joint>> jointLists = new HashMap<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Joint>>();
     TreeIterator<EObject> _allContents_1 = resource.getAllContents();
     Iterator<uk.ac.kcl.inf.robotics.rigidBodies.System> _filter_1 = Iterators.<uk.ac.kcl.inf.robotics.rigidBodies.System>filter(_allContents_1, uk.ac.kcl.inf.robotics.rigidBodies.System.class);
     final Procedure1<uk.ac.kcl.inf.robotics.rigidBodies.System> _function = new Procedure1<uk.ac.kcl.inf.robotics.rigidBodies.System>() {
       @Override
       public void apply(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
-        RigidBodiesGenerator.this.buildJointList(s, jointLists, bodyLists);
         StringConcatenation _builder = new StringConcatenation();
         String _name = s.getName();
         _builder.append(_name, "");
         _builder.append(".m");
-        String _string = _builder.toString();
         Environment _world = model.getWorld();
-        CharSequence _generate = RigidBodiesGenerator.this.generate(s, _world, bodyLists, jointLists);
-        fsa.generateFile(_string, _generate);
+        ConnectiveTreeBuilder _connectiveTreeBuilder = new ConnectiveTreeBuilder(s);
+        CharSequence _generate = RigidBodiesGenerator.this.generate(_world, _connectiveTreeBuilder);
+        fsa.generateFile(_builder.toString(), _generate);
       }
     };
     IteratorExtensions.<uk.ac.kcl.inf.robotics.rigidBodies.System>forEach(_filter_1, _function);
   }
   
-  public List<Joint> buildJointList(final uk.ac.kcl.inf.robotics.rigidBodies.System s, final Map<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Joint>> jointLists, final Map<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Body>> bodyLists) {
-    List<Joint> _xblockexpression = null;
-    {
-      LinkedList<Joint> jointList = new LinkedList<Joint>();
-      LinkedList<Body> bodyList = new LinkedList<Body>();
-      LinkedList<Joint> jointsRemaining = new LinkedList<Joint>();
-      Joint _startJoint = this.getStartJoint(s);
-      jointsRemaining.add(_startJoint);
-      while ((jointsRemaining.size() > 0)) {
-        {
-          final Joint currentJoint = jointsRemaining.remove(0);
-          boolean _contains = jointList.contains(currentJoint);
-          boolean _not = (!_contains);
-          if (_not) {
-            BodyReference _body2 = currentJoint.getBody2();
-            boolean _isBase = _body2.isBase();
-            boolean _not_1 = (!_isBase);
-            if (_not_1) {
-              jointList.add(currentJoint);
-              BodyReference _body2_1 = currentJoint.getBody2();
-              final Body tgtBody = _body2_1.getRef();
-              boolean _contains_1 = bodyList.contains(tgtBody);
-              boolean _not_2 = (!_contains_1);
-              if (_not_2) {
-                bodyList.add(tgtBody);
-                Iterable<Joint> _jointFanOut = this.getJointFanOut(s, tgtBody);
-                Iterables.<Joint>addAll(jointsRemaining, _jointFanOut);
-              }
-            }
-          }
-        }
-      }
-      bodyLists.put(s, bodyList);
-      _xblockexpression = jointLists.put(s, jointList);
-    }
-    return _xblockexpression;
-  }
-  
-  public Joint getStartJoint(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
-    EList<SystemElement> _elements = s.getElements();
-    Iterable<Joint> _filter = Iterables.<Joint>filter(_elements, Joint.class);
-    final Function1<Joint, Boolean> _function = new Function1<Joint, Boolean>() {
-      @Override
-      public Boolean apply(final Joint j) {
-        BodyReference _body1 = j.getBody1();
-        return Boolean.valueOf(_body1.isBase());
-      }
-    };
-    return IterableExtensions.<Joint>findFirst(_filter, _function);
-  }
-  
-  /**
-   * Find all Joints that connect from the given body in the given system.
-   */
-  public Iterable<Joint> getJointFanOut(final uk.ac.kcl.inf.robotics.rigidBodies.System s, final Body b) {
-    EList<SystemElement> _elements = s.getElements();
-    Iterable<Joint> _filter = Iterables.<Joint>filter(_elements, Joint.class);
-    final Function1<Joint, Boolean> _function = new Function1<Joint, Boolean>() {
-      @Override
-      public Boolean apply(final Joint j) {
-        BodyReference _body1 = j.getBody1();
-        Body _ref = _body1.getRef();
-        return Boolean.valueOf(Objects.equal(_ref, b));
-      }
-    };
-    return IterableExtensions.<Joint>filter(_filter, _function);
-  }
-  
-  public CharSequence generate(final uk.ac.kcl.inf.robotics.rigidBodies.System system, final Environment world, final Map<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Body>> bodyLists, final Map<uk.ac.kcl.inf.robotics.rigidBodies.System, List<Joint>> jointLists) {
+  public CharSequence generate(final Environment world, final ConnectiveTreeBuilder ctb) {
     StringConcatenation _builder = new StringConcatenation();
-    final List<Body> bodyList = bodyLists.get(system);
-    _builder.newLineIfNotEmpty();
-    final List<Joint> jointList = jointLists.get(system);
-    _builder.newLineIfNotEmpty();
     _builder.append("% EOM Simulation:");
     _builder.newLine();
     _builder.append("clc");
@@ -161,29 +78,170 @@ public class RigidBodiesGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("g = [");
     Matrix _gravity = world.getGravity();
-    CharSequence _renderValues = this.renderValues(_gravity);
+    CharSequence _renderValues = this.renderValues(_gravity, ", ");
     _builder.append(_renderValues, "");
     _builder.append("]");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("% Inputs");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("% Locations");
+    _builder.newLine();
     _builder.append("lc = [");
-    _builder.append("]");
     _builder.newLine();
-    _builder.newLine();
-    _builder.append("m = [");
-    final Function1<Body, CharSequence> _function = new Function1<Body, CharSequence>() {
+    _builder.append("\t");
+    List<Pair<String, BaseMatrix>> _positions = ctb.getPositions();
+    int _size = _positions.size();
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+    final Function1<Integer, CharSequence> _function = new Function1<Integer, CharSequence>() {
       @Override
-      public CharSequence apply(final Body b) {
-        Mass _mass = b.getMass();
-        Expression _value = _mass.getValue();
-        return RigidBodiesGenerator.this.render(_value);
+      public CharSequence apply(final Integer i) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("% Position data from ");
+        List<Pair<String, BaseMatrix>> _positions = ctb.getPositions();
+        Pair<String, BaseMatrix> _get = _positions.get((i).intValue());
+        String _key = _get.getKey();
+        _builder.append(_key, "");
+        _builder.append(" for a joint ");
+        List<Pair<Integer, Pair<String, Integer>>> _lcCodeColumns = ctb.getLcCodeColumns();
+        Pair<Integer, Pair<String, Integer>> _get_1 = _lcCodeColumns.get((i).intValue());
+        Pair<String, Integer> _value = _get_1.getValue();
+        String _key_1 = _value.getKey();
+        _builder.append(_key_1, "");
+        _builder.newLineIfNotEmpty();
+        List<Pair<String, BaseMatrix>> _positions_1 = ctb.getPositions();
+        Pair<String, BaseMatrix> _get_2 = _positions_1.get((i).intValue());
+        BaseMatrix _value_1 = _get_2.getValue();
+        CharSequence _renderValues = RigidBodiesGenerator.this.renderValues(_value_1, " ");
+        _builder.append(_renderValues, "");
+        _builder.append(" ");
+        List<Pair<Integer, Pair<String, Integer>>> _lcCodeColumns_1 = ctb.getLcCodeColumns();
+        Pair<Integer, Pair<String, Integer>> _get_3 = _lcCodeColumns_1.get((i).intValue());
+        Integer _key_2 = _get_3.getKey();
+        _builder.append(_key_2, "");
+        _builder.append(" ");
+        List<Pair<Integer, Pair<String, Integer>>> _lcCodeColumns_2 = ctb.getLcCodeColumns();
+        Pair<Integer, Pair<String, Integer>> _get_4 = _lcCodeColumns_2.get((i).intValue());
+        Pair<String, Integer> _value_2 = _get_4.getValue();
+        Integer _value_3 = _value_2.getValue();
+        _builder.append(_value_3, "");
+        return _builder.toString();
       }
     };
-    String _join = IterableExtensions.<Body>join(bodyList, ", ", _function);
-    _builder.append(_join, "");
-    _builder.append("]");
+    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, ";\n", _function);
+    _builder.append(_join, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    List<Pair<String, BaseMatrix>> _constraintPositions = ctb.getConstraintPositions();
+    int _size_1 = _constraintPositions.size();
+    ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _size_1, true);
+    final Function1<Integer, CharSequence> _function_1 = new Function1<Integer, CharSequence>() {
+      @Override
+      public CharSequence apply(final Integer i) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("% Position data from ");
+        List<Pair<String, BaseMatrix>> _constraintPositions = ctb.getConstraintPositions();
+        Pair<String, BaseMatrix> _get = _constraintPositions.get((i).intValue());
+        String _key = _get.getKey();
+        _builder.append(_key, "");
+        _builder.append(" for a constraint ");
+        List<Pair<Integer, Pair<String, Integer>>> _constraintLcCodeColumns = ctb.getConstraintLcCodeColumns();
+        Pair<Integer, Pair<String, Integer>> _get_1 = _constraintLcCodeColumns.get((i).intValue());
+        Pair<String, Integer> _value = _get_1.getValue();
+        String _key_1 = _value.getKey();
+        _builder.append(_key_1, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("% TODO: Check with Hadi that we\'re using the correct position data here.");
+        _builder.newLine();
+        List<Pair<String, BaseMatrix>> _constraintPositions_1 = ctb.getConstraintPositions();
+        Pair<String, BaseMatrix> _get_2 = _constraintPositions_1.get((i).intValue());
+        BaseMatrix _value_1 = _get_2.getValue();
+        CharSequence _renderValues = RigidBodiesGenerator.this.renderValues(_value_1, " ");
+        _builder.append(_renderValues, "");
+        _builder.append(" ");
+        List<Pair<Integer, Pair<String, Integer>>> _constraintLcCodeColumns_1 = ctb.getConstraintLcCodeColumns();
+        Pair<Integer, Pair<String, Integer>> _get_3 = _constraintLcCodeColumns_1.get((i).intValue());
+        Integer _key_2 = _get_3.getKey();
+        _builder.append(_key_2, "");
+        _builder.append(" ");
+        List<Pair<Integer, Pair<String, Integer>>> _constraintLcCodeColumns_2 = ctb.getConstraintLcCodeColumns();
+        Pair<Integer, Pair<String, Integer>> _get_4 = _constraintLcCodeColumns_2.get((i).intValue());
+        Pair<String, Integer> _value_2 = _get_4.getValue();
+        Integer _value_3 = _value_2.getValue();
+        _builder.append(_value_3, "");
+        return _builder.toString();
+      }
+    };
+    String _join_1 = IterableExtensions.<Integer>join(_doubleDotLessThan_1, ";\n", _function_1);
+    _builder.append(_join_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("];");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("% Mass values");
+    _builder.newLine();
+    _builder.append("m = [");
+    _builder.newLine();
+    _builder.append("\t");
+    List<Pair<String, Expression>> _masses = ctb.getMasses();
+    final Function1<Pair<String, Expression>, CharSequence> _function_2 = new Function1<Pair<String, Expression>, CharSequence>() {
+      @Override
+      public CharSequence apply(final Pair<String, Expression> m) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("% ");
+        String _key = m.getKey();
+        _builder.append(_key, "");
+        _builder.newLineIfNotEmpty();
+        Expression _value = m.getValue();
+        CharSequence _render = RigidBodiesGenerator.this.render(_value);
+        _builder.append(_render, "");
+        return _builder.toString();
+      }
+    };
+    String _join_2 = IterableExtensions.<Pair<String, Expression>>join(_masses, ",\n", _function_2);
+    _builder.append(_join_2, "\t");
+    _builder.append("];");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("% Inertia values");
+    _builder.newLine();
+    _builder.append("I = sym (zeros (3, 3, ");
+    List<Pair<String, BaseMatrix>> _inertias = ctb.getInertias();
+    int _size_2 = _inertias.size();
+    _builder.append(_size_2, "");
+    _builder.append("));");
+    _builder.newLineIfNotEmpty();
+    List<Pair<String, BaseMatrix>> _inertias_1 = ctb.getInertias();
+    int _size_3 = _inertias_1.size();
+    ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _size_3, true);
+    final Function1<Integer, CharSequence> _function_3 = new Function1<Integer, CharSequence>() {
+      @Override
+      public CharSequence apply(final Integer idx) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("% Inertia for body ");
+        List<Pair<String, BaseMatrix>> _inertias = ctb.getInertias();
+        Pair<String, BaseMatrix> _get = _inertias.get((idx).intValue());
+        String _key = _get.getKey();
+        _builder.append(_key, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("I (:, :, ");
+        _builder.append(idx, "");
+        _builder.append(") = [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        List<Pair<String, BaseMatrix>> _inertias_1 = ctb.getInertias();
+        Pair<String, BaseMatrix> _get_1 = _inertias_1.get((idx).intValue());
+        BaseMatrix _value = _get_1.getValue();
+        CharSequence _renderValues = RigidBodiesGenerator.this.renderValues(_value, Integer.valueOf(3));
+        _builder.append(_renderValues, "\t");
+        _builder.append("];");
+        _builder.newLineIfNotEmpty();
+        return _builder.toString();
+      }
+    };
+    String _join_3 = IterableExtensions.<Integer>join(_doubleDotLessThan_2, "\n", _function_3);
+    _builder.append(_join_3, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("% Run program -- Should this really be generated?");
@@ -213,12 +271,12 @@ public class RigidBodiesGenerator implements IGenerator {
     return _builder;
   }
   
-  protected CharSequence _renderValues(final MatrixRef mr) {
+  protected CharSequence _renderValues(final MatrixRef mr, final CharSequence sep) {
     BaseMatrix _matrix = mr.getMatrix();
-    return this.renderValues(_matrix);
+    return this.renderValues(_matrix, sep);
   }
   
-  protected CharSequence _renderValues(final BaseMatrix bm) {
+  protected CharSequence _renderValues(final BaseMatrix bm, final CharSequence sep) {
     EList<Expression> _values = bm.getValues();
     final Function1<Expression, CharSequence> _function = new Function1<Expression, CharSequence>() {
       @Override
@@ -226,7 +284,30 @@ public class RigidBodiesGenerator implements IGenerator {
         return RigidBodiesGenerator.this.render(v);
       }
     };
-    return IterableExtensions.<Expression>join(_values, ", ", _function);
+    return IterableExtensions.<Expression>join(_values, sep, _function);
+  }
+  
+  protected CharSequence _renderValues(final BaseMatrix bm, final int rowLength) {
+    EList<Expression> _values = bm.getValues();
+    int _size = _values.size();
+    int _divide = (_size / rowLength);
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _divide, true);
+    final Function1<Integer, CharSequence> _function = new Function1<Integer, CharSequence>() {
+      @Override
+      public CharSequence apply(final Integer y) {
+        ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, rowLength, true);
+        final Function1<Integer, CharSequence> _function = new Function1<Integer, CharSequence>() {
+          @Override
+          public CharSequence apply(final Integer x) {
+            EList<Expression> _values = bm.getValues();
+            Expression _get = _values.get((((y).intValue() * rowLength) + (x).intValue()));
+            return RigidBodiesGenerator.this.render(_get);
+          }
+        };
+        return IterableExtensions.<Integer>join(_doubleDotLessThan, " ", _function);
+      }
+    };
+    return IterableExtensions.<Integer>join(_doubleDotLessThan, ";\n", _function);
   }
   
   protected CharSequence _render(final AddExp e) {
@@ -340,14 +421,19 @@ public class RigidBodiesGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence renderValues(final Matrix bm) {
-    if (bm instanceof BaseMatrix) {
-      return _renderValues((BaseMatrix)bm);
-    } else if (bm instanceof MatrixRef) {
-      return _renderValues((MatrixRef)bm);
+  public CharSequence renderValues(final Matrix bm, final Object rowLength) {
+    if (bm instanceof BaseMatrix
+         && rowLength instanceof Integer) {
+      return _renderValues((BaseMatrix)bm, (Integer)rowLength);
+    } else if (bm instanceof BaseMatrix
+         && rowLength instanceof CharSequence) {
+      return _renderValues((BaseMatrix)bm, (CharSequence)rowLength);
+    } else if (bm instanceof MatrixRef
+         && rowLength instanceof CharSequence) {
+      return _renderValues((MatrixRef)bm, (CharSequence)rowLength);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(bm).toString());
+        Arrays.<Object>asList(bm, rowLength).toString());
     }
   }
   

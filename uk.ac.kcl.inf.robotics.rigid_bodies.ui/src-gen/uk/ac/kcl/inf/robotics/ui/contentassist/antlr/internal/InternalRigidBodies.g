@@ -196,6 +196,34 @@ finally {
 
 
 
+// Entry rule entryRuleConnective
+entryRuleConnective 
+:
+{ before(grammarAccess.getConnectiveRule()); }
+	 ruleConnective
+{ after(grammarAccess.getConnectiveRule()); } 
+	 EOF 
+;
+
+// Rule Connective
+ruleConnective
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getConnectiveAccess().getAlternatives()); }
+(rule__Connective__Alternatives)
+{ after(grammarAccess.getConnectiveAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleBody
 entryRuleBody 
 :
@@ -848,21 +876,37 @@ rule__SystemElement__Alternatives
 )
 
     |(
-{ before(grammarAccess.getSystemElementAccess().getJointParserRuleCall_1()); }
+{ before(grammarAccess.getSystemElementAccess().getConnectiveParserRuleCall_1()); }
+	ruleConnective
+{ after(grammarAccess.getSystemElementAccess().getConnectiveParserRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Connective__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getConnectiveAccess().getJointParserRuleCall_0()); }
 	ruleJoint
-{ after(grammarAccess.getSystemElementAccess().getJointParserRuleCall_1()); }
+{ after(grammarAccess.getConnectiveAccess().getJointParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getSystemElementAccess().getConstraintParserRuleCall_2()); }
+{ before(grammarAccess.getConnectiveAccess().getConstraintParserRuleCall_1()); }
 	ruleConstraint
-{ after(grammarAccess.getSystemElementAccess().getConstraintParserRuleCall_2()); }
+{ after(grammarAccess.getConnectiveAccess().getConstraintParserRuleCall_1()); }
 )
 
     |(
-{ before(grammarAccess.getSystemElementAccess().getExternalLoadParserRuleCall_3()); }
+{ before(grammarAccess.getConnectiveAccess().getExternalLoadParserRuleCall_2()); }
 	ruleExternalLoad
-{ after(grammarAccess.getSystemElementAccess().getExternalLoadParserRuleCall_3()); }
+{ after(grammarAccess.getConnectiveAccess().getExternalLoadParserRuleCall_2()); }
 )
 
 ;

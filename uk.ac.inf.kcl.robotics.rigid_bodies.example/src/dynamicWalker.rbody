@@ -71,8 +71,9 @@ system DynamicWalker {
 	}
 	
 	joint ankle : YRevolve start
-		between base (with relative transformation matrix Origin [0.0, 0.0, 0.0], reorient NoReorient ())
-		and shank1 (with relative transformation Origin, NoReorient)
+		between base (with relative transformation matrix Origin [0.0, 0.0, 0.0], reorient NoReorient ()) // TODO relative transformation becomes the first line of j for this joint
+		                                                                                                  // TODO each element of reorient becomes a fixed rotation row in j (first element axis, second element angle, then three 0
+		and shank1 (with relative transformation Origin, NoReorient) // TODO: No relative transformation and no reorient here
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -110,6 +111,7 @@ system DynamicWalker {
 			dampCoulomb 5.0
 		}
 		
+	// TODO: stiffness actually needs to be associated with each revolute / planar movement around each axis, as they may be different
 	joint hip2 : revolute(y, x, z)
 		between thigh1 (with relative transformation matrix OP51 [0.0, 0.5, -1.0], NoReorient)
 		and torso (with relative transformation Origin, NoReorient)
@@ -130,9 +132,9 @@ system DynamicWalker {
 			dampCoulomb 5.0
 		}
 		
-	joint shoulder1 : joint type XRevolve revolute(x)
+	joint shoulder2 : joint type XRevolve revolute(x)
 		between torso (with relative transformation matrix OMP251 [0.0, 0.25, 1.0], NoReorient)
-		and hand1 (with relative transformation Origin, NoReorient)
+		and hand2 (with relative transformation Origin, NoReorient)
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -140,7 +142,7 @@ system DynamicWalker {
 			dampCoulomb 5.0
 		}
 		
-	joint foot2 : YRevolve // it is a constraint because it makes a loop
+	joint foot2J : YRevolve // it is a constraint because it makes a loop
 		between shank2 (with relative transformation OOM1, NoReorient)
 		and base (with relative transformation matrix O1O [0.0, 1.0, 0.0], NoReorient)
 		stiffness {
@@ -150,10 +152,11 @@ system DynamicWalker {
 			dampCoulomb 5.0
 		}
 
-	external load foot2 : force
-		at shank1 (with relative transformation Origin, NoReorient)	
+	// TODO For these, only the relative transformation goes to lc
+	external load foot1L : force
+		at shank1 (with relative transformation Origin, NoReorient) // TODO For now, get rid of reorientation for external load (only needed for dynamics)
 		
-	external load foot2 : force
+	external load foot2L : force
 		at shank2 (with relative transformation OOM1, NoReorient)
 		
 }

@@ -39,6 +39,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getInitialDefinitionAccess().getAlternatives(), "rule__InitialDefinition__Alternatives");
 					put(grammarAccess.getSystemElementAccess().getAlternatives(), "rule__SystemElement__Alternatives");
+					put(grammarAccess.getConnectiveAccess().getAlternatives(), "rule__Connective__Alternatives");
 					put(grammarAccess.getBodyReferenceAccess().getAlternatives(), "rule__BodyReference__Alternatives");
 					put(grammarAccess.getJointTypeExpressionAccess().getAlternatives(), "rule__JointTypeExpression__Alternatives");
 					put(grammarAccess.getReorientExpressionAccess().getAlternatives(), "rule__ReorientExpression__Alternatives");

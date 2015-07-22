@@ -16,6 +16,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType;
@@ -98,6 +99,7 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.ENVIRONMENT: return createEnvironment();
       case RigidBodiesPackage.SYSTEM: return createSystem();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
+      case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
       case RigidBodiesPackage.BODY_REFERENCE: return createBodyReference();
       case RigidBodiesPackage.MASS: return createMass();
@@ -218,6 +220,17 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     SystemElementImpl systemElement = new SystemElementImpl();
     return systemElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Connective createConnective()
+  {
+    ConnectiveImpl connective = new ConnectiveImpl();
+    return connective;
   }
 
   /**

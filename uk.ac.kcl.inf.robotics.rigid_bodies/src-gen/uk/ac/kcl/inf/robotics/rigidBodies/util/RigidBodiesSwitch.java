@@ -11,6 +11,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -131,6 +132,14 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RigidBodiesPackage.CONNECTIVE:
+      {
+        Connective connective = (Connective)theEObject;
+        T result = caseConnective(connective);
+        if (result == null) result = caseSystemElement(connective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RigidBodiesPackage.BODY:
       {
         Body body = (Body)theEObject;
@@ -157,6 +166,7 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         Joint joint = (Joint)theEObject;
         T result = caseJoint(joint);
+        if (result == null) result = caseConnective(joint);
         if (result == null) result = caseSystemElement(joint);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -201,6 +211,7 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         Constraint constraint = (Constraint)theEObject;
         T result = caseConstraint(constraint);
+        if (result == null) result = caseConnective(constraint);
         if (result == null) result = caseSystemElement(constraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -209,6 +220,7 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         ExternalLoad externalLoad = (ExternalLoad)theEObject;
         T result = caseExternalLoad(externalLoad);
+        if (result == null) result = caseConnective(externalLoad);
         if (result == null) result = caseSystemElement(externalLoad);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -364,6 +376,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSystemElement(SystemElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Connective</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Connective</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConnective(Connective object)
   {
     return null;
   }

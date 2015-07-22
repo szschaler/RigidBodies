@@ -27,7 +27,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody1 <em>Body1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody2 <em>Body2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans2 <em>Rel Trans2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getSpringCoeff <em>Spring Coeff</em>}</li>
@@ -39,7 +38,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *
  * @generated
  */
-public class JointImpl extends SystemElementImpl implements Joint
+public class JointImpl extends ConnectiveImpl implements Joint
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -80,16 +79,6 @@ public class JointImpl extends SystemElementImpl implements Joint
    * @ordered
    */
   protected BodyReference body1;
-
-  /**
-   * The cached value of the '{@link #getRelTrans1() <em>Rel Trans1</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRelTrans1()
-   * @generated
-   * @ordered
-   */
-  protected RelativeTransformation relTrans1;
 
   /**
    * The cached value of the '{@link #getBody2() <em>Body2</em>}' containment reference.
@@ -289,54 +278,6 @@ public class JointImpl extends SystemElementImpl implements Joint
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY1, newBody1, newBody1));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RelativeTransformation getRelTrans1()
-  {
-    return relTrans1;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRelTrans1(RelativeTransformation newRelTrans1, NotificationChain msgs)
-  {
-    RelativeTransformation oldRelTrans1 = relTrans1;
-    relTrans1 = newRelTrans1;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__REL_TRANS1, oldRelTrans1, newRelTrans1);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRelTrans1(RelativeTransformation newRelTrans1)
-  {
-    if (newRelTrans1 != relTrans1)
-    {
-      NotificationChain msgs = null;
-      if (relTrans1 != null)
-        msgs = ((InternalEObject)relTrans1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__REL_TRANS1, null, msgs);
-      if (newRelTrans1 != null)
-        msgs = ((InternalEObject)newRelTrans1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__REL_TRANS1, null, msgs);
-      msgs = basicSetRelTrans1(newRelTrans1, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__REL_TRANS1, newRelTrans1, newRelTrans1));
   }
 
   /**
@@ -641,8 +582,6 @@ public class JointImpl extends SystemElementImpl implements Joint
         return basicSetType(null, msgs);
       case RigidBodiesPackage.JOINT__BODY1:
         return basicSetBody1(null, msgs);
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
-        return basicSetRelTrans1(null, msgs);
       case RigidBodiesPackage.JOINT__BODY2:
         return basicSetBody2(null, msgs);
       case RigidBodiesPackage.JOINT__REL_TRANS2:
@@ -675,8 +614,6 @@ public class JointImpl extends SystemElementImpl implements Joint
         return isIsStart();
       case RigidBodiesPackage.JOINT__BODY1:
         return getBody1();
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
-        return getRelTrans1();
       case RigidBodiesPackage.JOINT__BODY2:
         return getBody2();
       case RigidBodiesPackage.JOINT__REL_TRANS2:
@@ -711,9 +648,6 @@ public class JointImpl extends SystemElementImpl implements Joint
         return;
       case RigidBodiesPackage.JOINT__BODY1:
         setBody1((BodyReference)newValue);
-        return;
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
-        setRelTrans1((RelativeTransformation)newValue);
         return;
       case RigidBodiesPackage.JOINT__BODY2:
         setBody2((BodyReference)newValue);
@@ -756,9 +690,6 @@ public class JointImpl extends SystemElementImpl implements Joint
       case RigidBodiesPackage.JOINT__BODY1:
         setBody1((BodyReference)null);
         return;
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
-        setRelTrans1((RelativeTransformation)null);
-        return;
       case RigidBodiesPackage.JOINT__BODY2:
         setBody2((BodyReference)null);
         return;
@@ -797,8 +728,6 @@ public class JointImpl extends SystemElementImpl implements Joint
         return isStart != IS_START_EDEFAULT;
       case RigidBodiesPackage.JOINT__BODY1:
         return body1 != null;
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
-        return relTrans1 != null;
       case RigidBodiesPackage.JOINT__BODY2:
         return body2 != null;
       case RigidBodiesPackage.JOINT__REL_TRANS2:

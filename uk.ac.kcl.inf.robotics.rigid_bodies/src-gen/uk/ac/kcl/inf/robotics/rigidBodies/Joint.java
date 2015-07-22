@@ -14,7 +14,6 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody1 <em>Body1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody2 <em>Body2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans2 <em>Rel Trans2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getSpringCoeff <em>Spring Coeff</em>}</li>
@@ -28,7 +27,7 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * @model
  * @generated
  */
-public interface Joint extends SystemElement
+public interface Joint extends Connective
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -107,32 +106,6 @@ public interface Joint extends SystemElement
    * @generated
    */
   void setBody1(BodyReference value);
-
-  /**
-   * Returns the value of the '<em><b>Rel Trans1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Rel Trans1</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Rel Trans1</em>' containment reference.
-   * @see #setRelTrans1(RelativeTransformation)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJoint_RelTrans1()
-   * @model containment="true"
-   * @generated
-   */
-  RelativeTransformation getRelTrans1();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans1 <em>Rel Trans1</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rel Trans1</em>' containment reference.
-   * @see #getRelTrans1()
-   * @generated
-   */
-  void setRelTrans1(RelativeTransformation value);
 
   /**
    * Returns the value of the '<em><b>Body2</b></em>' containment reference.

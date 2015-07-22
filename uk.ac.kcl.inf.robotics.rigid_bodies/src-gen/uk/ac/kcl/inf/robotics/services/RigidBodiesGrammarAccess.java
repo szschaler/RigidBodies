@@ -158,28 +158,44 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SystemElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBodyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cJointParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cConstraintParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cExternalLoadParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cConnectiveParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//SystemElement:
-		//	Body | Joint | Constraint | ExternalLoad;
+		//	Body | Connective;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Body | Joint | Constraint | ExternalLoad
+		//Body | Connective
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Body
 		public RuleCall getBodyParserRuleCall_0() { return cBodyParserRuleCall_0; }
 
+		//Connective
+		public RuleCall getConnectiveParserRuleCall_1() { return cConnectiveParserRuleCall_1; }
+	}
+
+	public class ConnectiveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Connective");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cJointParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cConstraintParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cExternalLoadParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Connective:
+		//	Joint | Constraint | ExternalLoad;
+		@Override public ParserRule getRule() { return rule; }
+
+		//Joint | Constraint | ExternalLoad
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//Joint
-		public RuleCall getJointParserRuleCall_1() { return cJointParserRuleCall_1; }
+		public RuleCall getJointParserRuleCall_0() { return cJointParserRuleCall_0; }
 
 		//Constraint
-		public RuleCall getConstraintParserRuleCall_2() { return cConstraintParserRuleCall_2; }
+		public RuleCall getConstraintParserRuleCall_1() { return cConstraintParserRuleCall_1; }
 
 		//ExternalLoad
-		public RuleCall getExternalLoadParserRuleCall_3() { return cExternalLoadParserRuleCall_3; }
+		public RuleCall getExternalLoadParserRuleCall_2() { return cExternalLoadParserRuleCall_2; }
 	}
 
 	public class BodyElements extends AbstractParserRuleElementFinder {
@@ -1390,6 +1406,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final EnvironmentElements pEnvironment;
 	private final SystemElements pSystem;
 	private final SystemElementElements pSystemElement;
+	private final ConnectiveElements pConnective;
 	private final BodyElements pBody;
 	private final BodyReferenceElements pBodyReference;
 	private final MassElements pMass;
@@ -1429,6 +1446,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEnvironment = new EnvironmentElements();
 		this.pSystem = new SystemElements();
 		this.pSystemElement = new SystemElementElements();
+		this.pConnective = new ConnectiveElements();
 		this.pBody = new BodyElements();
 		this.pBodyReference = new BodyReferenceElements();
 		this.pMass = new MassElements();
@@ -1524,13 +1542,23 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SystemElement:
-	//	Body | Joint | Constraint | ExternalLoad;
+	//	Body | Connective;
 	public SystemElementElements getSystemElementAccess() {
 		return pSystemElement;
 	}
 	
 	public ParserRule getSystemElementRule() {
 		return getSystemElementAccess().getRule();
+	}
+
+	//Connective:
+	//	Joint | Constraint | ExternalLoad;
+	public ConnectiveElements getConnectiveAccess() {
+		return pConnective;
+	}
+	
+	public ParserRule getConnectiveRule() {
+		return getConnectiveAccess().getRule();
 	}
 
 	//Body:

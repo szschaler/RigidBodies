@@ -68,6 +68,15 @@ public interface RigidBodiesFactory extends EFactory
   SystemElement createSystemElement();
 
   /**
+   * Returns a new object of class '<em>Connective</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Connective</em>'.
+   * @generated
+   */
+  Connective createConnective();
+
+  /**
    * Returns a new object of class '<em>Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

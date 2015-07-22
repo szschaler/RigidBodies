@@ -13,7 +13,6 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody <em>Body</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans1 <em>Rel Trans1</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +20,7 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * @model
  * @generated
  */
-public interface ExternalLoad extends SystemElement
+public interface ExternalLoad extends Connective
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -77,31 +76,5 @@ public interface ExternalLoad extends SystemElement
    * @generated
    */
   void setBody(BodyReference value);
-
-  /**
-   * Returns the value of the '<em><b>Rel Trans1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Rel Trans1</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Rel Trans1</em>' containment reference.
-   * @see #setRelTrans1(RelativeTransformation)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getExternalLoad_RelTrans1()
-   * @model containment="true"
-   * @generated
-   */
-  RelativeTransformation getRelTrans1();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getRelTrans1 <em>Rel Trans1</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rel Trans1</em>' containment reference.
-   * @see #getRelTrans1()
-   * @generated
-   */
-  void setRelTrans1(RelativeTransformation value);
 
 } // ExternalLoad
