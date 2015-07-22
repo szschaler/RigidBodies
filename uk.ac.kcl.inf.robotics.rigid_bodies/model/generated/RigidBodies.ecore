@@ -52,6 +52,31 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//BodyReference"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JointType" eSuperTypes="#//InitialDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//JointTypeExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JointTypeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//JointType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicJointType" eSuperTypes="#//JointTypeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stiffness" eType="#//StiffnessExp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Revolute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//AXIS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Planar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//AXIS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StiffnessExp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StiffnessRef" eSuperTypes="#//StiffnessExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//BaseStiffnessExp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseStiffnessExp" eSuperTypes="#//InitialDefinition #//StiffnessExp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="springCoeff" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="springInit" eType="#//Expression"
@@ -60,15 +85,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dampCoulomb" eType="#//Expression"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JointType" eSuperTypes="#//InitialDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//JointTypeExpression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JointTypeExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//JointType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" unique="false" upperBound="-1"
-        eType="#//AXIS"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AXIS">
     <eLiterals name="X" literal="x"/>
@@ -136,6 +152,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="NumberLiteral" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="neg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditiveJointType" eSuperTypes="#//JointTypeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//JointTypeExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//JointTypeExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddExp" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"

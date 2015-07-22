@@ -12,7 +12,8 @@ Model:
 	
 InitialDefinition:
 	BaseMatrix |
-	JointType 
+	JointType |
+	BaseStiffnessExp
 ;	
 	
 Environment:
@@ -62,24 +63,50 @@ Joint:
 	'joint' name=ID ':' type=JointType isStart?='start'?
 		'between' body1 = BodyReference relTrans1 = RelativeTransformation
 		'and' body2 = BodyReference
-		// TODO We probably want to make types more complex to allow them to make stiffness reusable
-		'stiffness' '{'
-			// TODO Provide better labels for these in the concrete syntax
-			'springCoeff' springCoeff = AddExp
-			'springInit' springInit = AddExp
-			'dampViscous' dampViscous = AddExp
-			'dampCoulomb' dampCoulomb = AddExp
-		 '}'
 ;
 
 JointType:
-	('joint' 'type' name=ID)? exp=JointTypeExpression
+	('joint' 'type' name=ID)? exp=AdditiveJointType
 ;
 
-JointTypeExpression:
+AdditiveJointType returns JointTypeExpression:
+	PrimaryJointType ('+' {AdditiveJointType.left = current} right = PrimaryJointType)*
+;
+
+PrimaryJointType returns JointTypeExpression:
 	ref=[JointType] |
-	'revolute' '(' axis+=AXIS (',' axis+=AXIS)* ')' |
-	'planar' '(' axis+=AXIS (',' axis+=AXIS)* ')'
+	BasicJointType
+;
+
+BasicJointType:
+	type = (Revolute | Planar) 'with' stiffness = StiffnessExp 
+;
+
+Revolute:
+	'revolute' axis=AXIS 
+;
+
+Planar:
+	'planar' axis=AXIS 
+;
+
+StiffnessExp:
+	StiffnessRef |
+	BaseStiffnessExp
+;
+
+StiffnessRef:
+	ref = [BaseStiffnessExp]
+;
+
+BaseStiffnessExp:
+	('stiffness' name=ID)? '{'
+		// TODO Provide better labels for these in the concrete syntax
+		'springCoeff' springCoeff = AddExp
+		'springInit' springInit = AddExp
+		'dampViscous' dampViscous = AddExp
+		'dampCoulomb' dampCoulomb = AddExp
+	 '}'	
 ;
 
 enum AXIS: 

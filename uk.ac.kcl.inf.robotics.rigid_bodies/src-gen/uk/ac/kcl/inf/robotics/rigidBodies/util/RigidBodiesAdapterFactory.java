@@ -10,7 +10,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -30,10 +33,14 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
@@ -160,6 +167,36 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createJointTypeExpressionAdapter();
       }
       @Override
+      public Adapter caseBasicJointType(BasicJointType object)
+      {
+        return createBasicJointTypeAdapter();
+      }
+      @Override
+      public Adapter caseRevolute(Revolute object)
+      {
+        return createRevoluteAdapter();
+      }
+      @Override
+      public Adapter casePlanar(Planar object)
+      {
+        return createPlanarAdapter();
+      }
+      @Override
+      public Adapter caseStiffnessExp(StiffnessExp object)
+      {
+        return createStiffnessExpAdapter();
+      }
+      @Override
+      public Adapter caseStiffnessRef(StiffnessRef object)
+      {
+        return createStiffnessRefAdapter();
+      }
+      @Override
+      public Adapter caseBaseStiffnessExp(BaseStiffnessExp object)
+      {
+        return createBaseStiffnessExpAdapter();
+      }
+      @Override
       public Adapter caseRelativeTransformation(RelativeTransformation object)
       {
         return createRelativeTransformationAdapter();
@@ -218,6 +255,11 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNumberLiteral(NumberLiteral object)
       {
         return createNumberLiteralAdapter();
+      }
+      @Override
+      public Adapter caseAdditiveJointType(AdditiveJointType object)
+      {
+        return createAdditiveJointTypeAdapter();
       }
       @Override
       public Adapter caseAddExp(AddExp object)
@@ -432,6 +474,96 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType <em>Basic Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType
+   * @generated
+   */
+  public Adapter createBasicJointTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Revolute <em>Revolute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Revolute
+   * @generated
+   */
+  public Adapter createRevoluteAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Planar <em>Planar</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Planar
+   * @generated
+   */
+  public Adapter createPlanarAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp <em>Stiffness Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp
+   * @generated
+   */
+  public Adapter createStiffnessExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef <em>Stiffness Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef
+   * @generated
+   */
+  public Adapter createStiffnessRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp <em>Base Stiffness Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp
+   * @generated
+   */
+  public Adapter createBaseStiffnessExpAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation <em>Relative Transformation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -607,6 +739,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumberLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType <em>Additive Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType
+   * @generated
+   */
+  public Adapter createAdditiveJointTypeAdapter()
   {
     return null;
   }

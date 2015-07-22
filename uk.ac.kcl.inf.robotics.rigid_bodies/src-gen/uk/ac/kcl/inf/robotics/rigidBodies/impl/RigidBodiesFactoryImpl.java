@@ -13,7 +13,10 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -35,11 +38,15 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
@@ -106,6 +113,12 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.JOINT: return createJoint();
       case RigidBodiesPackage.JOINT_TYPE: return createJointType();
       case RigidBodiesPackage.JOINT_TYPE_EXPRESSION: return createJointTypeExpression();
+      case RigidBodiesPackage.BASIC_JOINT_TYPE: return createBasicJointType();
+      case RigidBodiesPackage.REVOLUTE: return createRevolute();
+      case RigidBodiesPackage.PLANAR: return createPlanar();
+      case RigidBodiesPackage.STIFFNESS_EXP: return createStiffnessExp();
+      case RigidBodiesPackage.STIFFNESS_REF: return createStiffnessRef();
+      case RigidBodiesPackage.BASE_STIFFNESS_EXP: return createBaseStiffnessExp();
       case RigidBodiesPackage.RELATIVE_TRANSFORMATION: return createRelativeTransformation();
       case RigidBodiesPackage.REORIENTATION: return createReorientation();
       case RigidBodiesPackage.REORIENT_EXPRESSION: return createReorientExpression();
@@ -118,6 +131,7 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.PARENTHESISED_EXP: return createParenthesisedExp();
       case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP: return createConstantOrFunctionCallExp();
       case RigidBodiesPackage.NUMBER_LITERAL: return createNumberLiteral();
+      case RigidBodiesPackage.ADDITIVE_JOINT_TYPE: return createAdditiveJointType();
       case RigidBodiesPackage.ADD_EXP: return createAddExp();
       case RigidBodiesPackage.MULT_EXP: return createMultExp();
       default:
@@ -304,6 +318,72 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
+  public BasicJointType createBasicJointType()
+  {
+    BasicJointTypeImpl basicJointType = new BasicJointTypeImpl();
+    return basicJointType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Revolute createRevolute()
+  {
+    RevoluteImpl revolute = new RevoluteImpl();
+    return revolute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Planar createPlanar()
+  {
+    PlanarImpl planar = new PlanarImpl();
+    return planar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StiffnessExp createStiffnessExp()
+  {
+    StiffnessExpImpl stiffnessExp = new StiffnessExpImpl();
+    return stiffnessExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StiffnessRef createStiffnessRef()
+  {
+    StiffnessRefImpl stiffnessRef = new StiffnessRefImpl();
+    return stiffnessRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BaseStiffnessExp createBaseStiffnessExp()
+  {
+    BaseStiffnessExpImpl baseStiffnessExp = new BaseStiffnessExpImpl();
+    return baseStiffnessExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RelativeTransformation createRelativeTransformation()
   {
     RelativeTransformationImpl relativeTransformation = new RelativeTransformationImpl();
@@ -429,6 +509,17 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
     return numberLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AdditiveJointType createAdditiveJointType()
+  {
+    AdditiveJointTypeImpl additiveJointType = new AdditiveJointTypeImpl();
+    return additiveJointType;
   }
 
   /**

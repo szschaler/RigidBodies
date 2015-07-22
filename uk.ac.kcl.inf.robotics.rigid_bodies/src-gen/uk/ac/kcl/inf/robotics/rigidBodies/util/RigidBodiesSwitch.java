@@ -8,7 +8,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -28,10 +31,14 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
@@ -186,6 +193,52 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RigidBodiesPackage.BASIC_JOINT_TYPE:
+      {
+        BasicJointType basicJointType = (BasicJointType)theEObject;
+        T result = caseBasicJointType(basicJointType);
+        if (result == null) result = caseJointTypeExpression(basicJointType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.REVOLUTE:
+      {
+        Revolute revolute = (Revolute)theEObject;
+        T result = caseRevolute(revolute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.PLANAR:
+      {
+        Planar planar = (Planar)theEObject;
+        T result = casePlanar(planar);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.STIFFNESS_EXP:
+      {
+        StiffnessExp stiffnessExp = (StiffnessExp)theEObject;
+        T result = caseStiffnessExp(stiffnessExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.STIFFNESS_REF:
+      {
+        StiffnessRef stiffnessRef = (StiffnessRef)theEObject;
+        T result = caseStiffnessRef(stiffnessRef);
+        if (result == null) result = caseStiffnessExp(stiffnessRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.BASE_STIFFNESS_EXP:
+      {
+        BaseStiffnessExp baseStiffnessExp = (BaseStiffnessExp)theEObject;
+        T result = caseBaseStiffnessExp(baseStiffnessExp);
+        if (result == null) result = caseInitialDefinition(baseStiffnessExp);
+        if (result == null) result = caseStiffnessExp(baseStiffnessExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RigidBodiesPackage.RELATIVE_TRANSFORMATION:
       {
         RelativeTransformation relativeTransformation = (RelativeTransformation)theEObject;
@@ -277,6 +330,14 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         NumberLiteral numberLiteral = (NumberLiteral)theEObject;
         T result = caseNumberLiteral(numberLiteral);
         if (result == null) result = caseExpression(numberLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.ADDITIVE_JOINT_TYPE:
+      {
+        AdditiveJointType additiveJointType = (AdditiveJointType)theEObject;
+        T result = caseAdditiveJointType(additiveJointType);
+        if (result == null) result = caseJointTypeExpression(additiveJointType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -493,6 +554,102 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Basic Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Basic Joint Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBasicJointType(BasicJointType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Revolute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Revolute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRevolute(Revolute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Planar</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Planar</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlanar(Planar object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Stiffness Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stiffness Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStiffnessExp(StiffnessExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Stiffness Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stiffness Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStiffnessRef(StiffnessRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Base Stiffness Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Base Stiffness Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBaseStiffnessExp(BaseStiffnessExp object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Relative Transformation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -680,6 +837,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNumberLiteral(NumberLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Additive Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Additive Joint Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAdditiveJointType(AdditiveJointType object)
   {
     return null;
   }

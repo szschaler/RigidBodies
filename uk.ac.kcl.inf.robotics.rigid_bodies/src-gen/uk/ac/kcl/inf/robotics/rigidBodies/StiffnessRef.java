@@ -2,25 +2,24 @@
  */
 package uk.ac.kcl.inf.robotics.rigidBodies;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Joint Type Expression</b></em>'.
+ * A representation of the model object '<em><b>Stiffness Ref</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression#getRef <em>Ref</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef#getRef <em>Ref</em>}</li>
  * </ul>
  * </p>
  *
- * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJointTypeExpression()
+ * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getStiffnessRef()
  * @model
  * @generated
  */
-public interface JointTypeExpression extends EObject
+public interface StiffnessRef extends StiffnessExp
 {
   /**
    * Returns the value of the '<em><b>Ref</b></em>' reference.
@@ -31,21 +30,21 @@ public interface JointTypeExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ref</em>' reference.
-   * @see #setRef(JointType)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJointTypeExpression_Ref()
+   * @see #setRef(BaseStiffnessExp)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getStiffnessRef_Ref()
    * @model
    * @generated
    */
-  JointType getRef();
+  BaseStiffnessExp getRef();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression#getRef <em>Ref</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef#getRef <em>Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ref</em>' reference.
    * @see #getRef()
    * @generated
    */
-  void setRef(JointType value);
+  void setRef(BaseStiffnessExp value);
 
-} // JointTypeExpression
+} // StiffnessRef

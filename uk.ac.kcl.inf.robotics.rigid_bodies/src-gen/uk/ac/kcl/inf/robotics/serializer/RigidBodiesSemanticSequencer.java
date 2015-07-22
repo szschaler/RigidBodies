@@ -17,7 +17,10 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
@@ -33,10 +36,13 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.MultExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.services.RigidBodiesGrammarAccess;
 
 @SuppressWarnings("all")
@@ -51,8 +57,17 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.ADD_EXP:
 				sequence_AddExp(context, (AddExp) semanticObject); 
 				return; 
+			case RigidBodiesPackage.ADDITIVE_JOINT_TYPE:
+				sequence_AdditiveJointType(context, (AdditiveJointType) semanticObject); 
+				return; 
 			case RigidBodiesPackage.BASE_MATRIX:
 				sequence_BaseMatrix(context, (BaseMatrix) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BASE_STIFFNESS_EXP:
+				sequence_BaseStiffnessExp(context, (BaseStiffnessExp) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BASIC_JOINT_TYPE:
+				sequence_BasicJointType(context, (BasicJointType) semanticObject); 
 				return; 
 			case RigidBodiesPackage.BODY:
 				sequence_Body(context, (Body) semanticObject); 
@@ -79,7 +94,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				sequence_JointType(context, (JointType) semanticObject); 
 				return; 
 			case RigidBodiesPackage.JOINT_TYPE_EXPRESSION:
-				sequence_JointTypeExpression(context, (JointTypeExpression) semanticObject); 
+				sequence_PrimaryJointType(context, (JointTypeExpression) semanticObject); 
 				return; 
 			case RigidBodiesPackage.MASS:
 				sequence_Mass(context, (Mass) semanticObject); 
@@ -99,6 +114,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.PARENTHESISED_EXP:
 				sequence_ParenthesisedExp(context, (ParenthesisedExp) semanticObject); 
 				return; 
+			case RigidBodiesPackage.PLANAR:
+				sequence_Planar(context, (Planar) semanticObject); 
+				return; 
 			case RigidBodiesPackage.RELATIVE_TRANSFORMATION:
 				sequence_RelativeTransformation(context, (RelativeTransformation) semanticObject); 
 				return; 
@@ -107,6 +125,12 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.REORIENTATION:
 				sequence_Reorientation(context, (Reorientation) semanticObject); 
+				return; 
+			case RigidBodiesPackage.REVOLUTE:
+				sequence_Revolute(context, (Revolute) semanticObject); 
+				return; 
+			case RigidBodiesPackage.STIFFNESS_REF:
+				sequence_StiffnessRef(context, (StiffnessRef) semanticObject); 
 				return; 
 			case RigidBodiesPackage.SYSTEM:
 				sequence_System(context, (uk.ac.kcl.inf.robotics.rigidBodies.System) semanticObject); 
@@ -126,9 +150,36 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (left=AdditiveJointType_AdditiveJointType_1_1 right=PrimaryJointType)
+	 */
+	protected void sequence_AdditiveJointType(EObject context, AdditiveJointType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? values+=AddExp values+=AddExp*)
 	 */
 	protected void sequence_BaseMatrix(EObject context, BaseMatrix semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? springCoeff=AddExp springInit=AddExp dampViscous=AddExp dampCoulomb=AddExp)
+	 */
+	protected void sequence_BaseStiffnessExp(EObject context, BaseStiffnessExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((type=Revolute | type=Planar) stiffness=StiffnessExp)
+	 */
+	protected void sequence_BasicJointType(EObject context, BasicJointType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -251,16 +302,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (ref=[JointType|ID] | (axis+=AXIS axis+=AXIS*) | (axis+=AXIS axis+=AXIS*))
-	 */
-	protected void sequence_JointTypeExpression(EObject context, JointTypeExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID? exp=JointTypeExpression)
+	 *     (name=ID? exp=AdditiveJointType)
 	 */
 	protected void sequence_JointType(EObject context, JointType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -275,11 +317,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         isStart?='start'? 
 	 *         body1=BodyReference 
 	 *         relTrans1=RelativeTransformation 
-	 *         body2=BodyReference 
-	 *         springCoeff=AddExp 
-	 *         springInit=AddExp 
-	 *         dampViscous=AddExp 
-	 *         dampCoulomb=AddExp
+	 *         body2=BodyReference
 	 *     )
 	 */
 	protected void sequence_Joint(EObject context, Joint semanticObject) {
@@ -370,6 +408,38 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     axis=AXIS
+	 */
+	protected void sequence_Planar(EObject context, Planar semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.PLANAR__AXIS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.PLANAR__AXIS));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPlanarAccess().getAxisAXISEnumRuleCall_1_0(), semanticObject.getAxis());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ref=[JointType|ID]
+	 */
+	protected void sequence_PrimaryJointType(EObject context, JointTypeExpression semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION__REF));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPrimaryJointTypeAccess().getRefJointTypeIDTerminalRuleCall_0_0_1(), semanticObject.getRef());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (position=Matrix reorient=Reorientation)
 	 */
 	protected void sequence_RelativeTransformation(EObject context, RelativeTransformation semanticObject) {
@@ -402,6 +472,38 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_Reorientation(EObject context, Reorientation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     axis=AXIS
+	 */
+	protected void sequence_Revolute(EObject context, Revolute semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.REVOLUTE__AXIS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.REVOLUTE__AXIS));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRevoluteAccess().getAxisAXISEnumRuleCall_1_0(), semanticObject.getAxis());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ref=[BaseStiffnessExp|ID]
+	 */
+	protected void sequence_StiffnessRef(EObject context, StiffnessRef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.STIFFNESS_REF__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.STIFFNESS_REF__REF));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getStiffnessRefAccess().getRefBaseStiffnessExpIDTerminalRuleCall_0_1(), semanticObject.getRef());
+		feeder.finish();
 	}
 	
 	

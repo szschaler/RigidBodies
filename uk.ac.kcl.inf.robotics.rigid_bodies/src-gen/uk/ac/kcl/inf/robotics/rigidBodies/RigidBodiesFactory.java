@@ -131,6 +131,60 @@ public interface RigidBodiesFactory extends EFactory
   JointTypeExpression createJointTypeExpression();
 
   /**
+   * Returns a new object of class '<em>Basic Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic Joint Type</em>'.
+   * @generated
+   */
+  BasicJointType createBasicJointType();
+
+  /**
+   * Returns a new object of class '<em>Revolute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Revolute</em>'.
+   * @generated
+   */
+  Revolute createRevolute();
+
+  /**
+   * Returns a new object of class '<em>Planar</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Planar</em>'.
+   * @generated
+   */
+  Planar createPlanar();
+
+  /**
+   * Returns a new object of class '<em>Stiffness Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stiffness Exp</em>'.
+   * @generated
+   */
+  StiffnessExp createStiffnessExp();
+
+  /**
+   * Returns a new object of class '<em>Stiffness Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stiffness Ref</em>'.
+   * @generated
+   */
+  StiffnessRef createStiffnessRef();
+
+  /**
+   * Returns a new object of class '<em>Base Stiffness Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Base Stiffness Exp</em>'.
+   * @generated
+   */
+  BaseStiffnessExp createBaseStiffnessExp();
+
+  /**
    * Returns a new object of class '<em>Relative Transformation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -237,6 +291,15 @@ public interface RigidBodiesFactory extends EFactory
    * @generated
    */
   NumberLiteral createNumberLiteral();
+
+  /**
+   * Returns a new object of class '<em>Additive Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Additive Joint Type</em>'.
+   * @generated
+   */
+  AdditiveJointType createAdditiveJointType();
 
   /**
    * Returns a new object of class '<em>Add Exp</em>'.

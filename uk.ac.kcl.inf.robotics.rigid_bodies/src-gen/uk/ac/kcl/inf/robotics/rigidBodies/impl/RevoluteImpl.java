@@ -5,46 +5,55 @@ package uk.ac.kcl.inf.robotics.rigidBodies.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
-import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Joint Type Expression</b></em>'.
+ * An implementation of the model object '<em><b>Revolute</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointTypeExpressionImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.RevoluteImpl#getAxis <em>Axis</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implements JointTypeExpression
+public class RevoluteImpl extends MinimalEObjectImpl.Container implements Revolute
 {
   /**
-   * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
+   * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRef()
+   * @see #getAxis()
    * @generated
    * @ordered
    */
-  protected JointType ref;
+  protected static final AXIS AXIS_EDEFAULT = AXIS.X;
+
+  /**
+   * The cached value of the '{@link #getAxis() <em>Axis</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAxis()
+   * @generated
+   * @ordered
+   */
+  protected AXIS axis = AXIS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JointTypeExpressionImpl()
+  protected RevoluteImpl()
   {
     super();
   }
@@ -57,7 +66,7 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION;
+    return RigidBodiesPackage.Literals.REVOLUTE;
   }
 
   /**
@@ -65,19 +74,9 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public JointType getRef()
+  public AXIS getAxis()
   {
-    if (ref != null && ref.eIsProxy())
-    {
-      InternalEObject oldRef = (InternalEObject)ref;
-      ref = (JointType)eResolveProxy(oldRef);
-      if (ref != oldRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF, oldRef, ref));
-      }
-    }
-    return ref;
+    return axis;
   }
 
   /**
@@ -85,22 +84,12 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public JointType basicGetRef()
+  public void setAxis(AXIS newAxis)
   {
-    return ref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRef(JointType newRef)
-  {
-    JointType oldRef = ref;
-    ref = newRef;
+    AXIS oldAxis = axis;
+    axis = newAxis == null ? AXIS_EDEFAULT : newAxis;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF, oldRef, ref));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.REVOLUTE__AXIS, oldAxis, axis));
   }
 
   /**
@@ -113,9 +102,8 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
-        if (resolve) return getRef();
-        return basicGetRef();
+      case RigidBodiesPackage.REVOLUTE__AXIS:
+        return getAxis();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -130,8 +118,8 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
-        setRef((JointType)newValue);
+      case RigidBodiesPackage.REVOLUTE__AXIS:
+        setAxis((AXIS)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,8 +135,8 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
-        setRef((JointType)null);
+      case RigidBodiesPackage.REVOLUTE__AXIS:
+        setAxis(AXIS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -164,10 +152,27 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
-        return ref != null;
+      case RigidBodiesPackage.REVOLUTE__AXIS:
+        return axis != AXIS_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
 
-} //JointTypeExpressionImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (axis: ");
+    result.append(axis);
+    result.append(')');
+    return result.toString();
+  }
+
+} //RevoluteImpl

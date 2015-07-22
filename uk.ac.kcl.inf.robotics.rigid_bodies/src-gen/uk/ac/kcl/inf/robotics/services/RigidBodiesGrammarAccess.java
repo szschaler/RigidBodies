@@ -59,12 +59,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBaseMatrixParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBaseStiffnessExpParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//InitialDefinition:
-		//	BaseMatrix | JointType;
+		//	BaseMatrix | JointType | BaseStiffnessExp;
 		@Override public ParserRule getRule() { return rule; }
 
-		//BaseMatrix | JointType
+		//BaseMatrix | JointType | BaseStiffnessExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BaseMatrix
@@ -72,6 +73,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//JointType
 		public RuleCall getJointTypeParserRuleCall_1() { return cJointTypeParserRuleCall_1; }
+
+		//BaseStiffnessExp
+		public RuleCall getBaseStiffnessExpParserRuleCall_2() { return cBaseStiffnessExpParserRuleCall_2; }
 	}
 
 	public class EnvironmentElements extends AbstractParserRuleElementFinder {
@@ -360,35 +364,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAndKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cBody2Assignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cBody2BodyReferenceParserRuleCall_9_0 = (RuleCall)cBody2Assignment_9.eContents().get(0);
-		private final Keyword cStiffnessKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cLeftCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cSpringCoeffKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cSpringCoeffAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cSpringCoeffAddExpParserRuleCall_13_0 = (RuleCall)cSpringCoeffAssignment_13.eContents().get(0);
-		private final Keyword cSpringInitKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Assignment cSpringInitAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cSpringInitAddExpParserRuleCall_15_0 = (RuleCall)cSpringInitAssignment_15.eContents().get(0);
-		private final Keyword cDampViscousKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Assignment cDampViscousAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cDampViscousAddExpParserRuleCall_17_0 = (RuleCall)cDampViscousAssignment_17.eContents().get(0);
-		private final Keyword cDampCoulombKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final Assignment cDampCoulombAssignment_19 = (Assignment)cGroup.eContents().get(19);
-		private final RuleCall cDampCoulombAddExpParserRuleCall_19_0 = (RuleCall)cDampCoulombAssignment_19.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_20 = (Keyword)cGroup.eContents().get(20);
 		
 		//Joint:
 		//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-		//	"and" body2=BodyReference // TODO We probably want to make types more complex to allow them to make stiffness reusable
-		//	"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
-		//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
-		//	dampCoulomb=AddExp "}";
+		//	"and" body2=BodyReference;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-		//"and" body2=BodyReference // TODO We probably want to make types more complex to allow them to make stiffness reusable
-		//"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
-		//"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
-		//dampCoulomb=AddExp "}"
+		//"and" body2=BodyReference
 		public Group getGroup() { return cGroup; }
 
 		//"joint"
@@ -438,53 +421,6 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//BodyReference
 		public RuleCall getBody2BodyReferenceParserRuleCall_9_0() { return cBody2BodyReferenceParserRuleCall_9_0; }
-
-		//// TODO We probably want to make types more complex to allow them to make stiffness reusable
-		//"stiffness"
-		public Keyword getStiffnessKeyword_10() { return cStiffnessKeyword_10; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_11() { return cLeftCurlyBracketKeyword_11; }
-
-		//// TODO Provide better labels for these in the concrete syntax
-		//"springCoeff"
-		public Keyword getSpringCoeffKeyword_12() { return cSpringCoeffKeyword_12; }
-
-		//springCoeff=AddExp
-		public Assignment getSpringCoeffAssignment_13() { return cSpringCoeffAssignment_13; }
-
-		//AddExp
-		public RuleCall getSpringCoeffAddExpParserRuleCall_13_0() { return cSpringCoeffAddExpParserRuleCall_13_0; }
-
-		//"springInit"
-		public Keyword getSpringInitKeyword_14() { return cSpringInitKeyword_14; }
-
-		//springInit=AddExp
-		public Assignment getSpringInitAssignment_15() { return cSpringInitAssignment_15; }
-
-		//AddExp
-		public RuleCall getSpringInitAddExpParserRuleCall_15_0() { return cSpringInitAddExpParserRuleCall_15_0; }
-
-		//"dampViscous"
-		public Keyword getDampViscousKeyword_16() { return cDampViscousKeyword_16; }
-
-		//dampViscous=AddExp
-		public Assignment getDampViscousAssignment_17() { return cDampViscousAssignment_17; }
-
-		//AddExp
-		public RuleCall getDampViscousAddExpParserRuleCall_17_0() { return cDampViscousAddExpParserRuleCall_17_0; }
-
-		//"dampCoulomb"
-		public Keyword getDampCoulombKeyword_18() { return cDampCoulombKeyword_18; }
-
-		//dampCoulomb=AddExp
-		public Assignment getDampCoulombAssignment_19() { return cDampCoulombAssignment_19; }
-
-		//AddExp
-		public RuleCall getDampCoulombAddExpParserRuleCall_19_0() { return cDampCoulombAddExpParserRuleCall_19_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_20() { return cRightCurlyBracketKeyword_20; }
 	}
 
 	public class JointTypeElements extends AbstractParserRuleElementFinder {
@@ -496,13 +432,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_0_2_0 = (RuleCall)cNameAssignment_0_2.eContents().get(0);
 		private final Assignment cExpAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpJointTypeExpressionParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
+		private final RuleCall cExpAdditiveJointTypeParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
 		
 		//JointType:
-		//	("joint" "type" name=ID)? exp=JointTypeExpression;
+		//	("joint" "type" name=ID)? exp=AdditiveJointType;
 		@Override public ParserRule getRule() { return rule; }
 
-		//("joint" "type" name=ID)? exp=JointTypeExpression
+		//("joint" "type" name=ID)? exp=AdditiveJointType
 		public Group getGroup() { return cGroup; }
 
 		//("joint" "type" name=ID)?
@@ -520,45 +456,62 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_2_0() { return cNameIDTerminalRuleCall_0_2_0; }
 
-		//exp=JointTypeExpression
+		//exp=AdditiveJointType
 		public Assignment getExpAssignment_1() { return cExpAssignment_1; }
 
-		//JointTypeExpression
-		public RuleCall getExpJointTypeExpressionParserRuleCall_1_0() { return cExpJointTypeExpressionParserRuleCall_1_0; }
+		//AdditiveJointType
+		public RuleCall getExpAdditiveJointTypeParserRuleCall_1_0() { return cExpAdditiveJointTypeParserRuleCall_1_0; }
 	}
 
-	public class JointTypeExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointTypeExpression");
+	public class AdditiveJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AdditiveJointType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPrimaryJointTypeParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cPlusSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Action cAdditiveJointTypeLeftAction_1_1 = (Action)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightPrimaryJointTypeParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//AdditiveJointType returns JointTypeExpression:
+		//	PrimaryJointType ("+" {AdditiveJointType.left=current} right=PrimaryJointType)*;
+		@Override public ParserRule getRule() { return rule; }
+
+		//PrimaryJointType ("+" {AdditiveJointType.left=current} right=PrimaryJointType)*
+		public Group getGroup() { return cGroup; }
+
+		//PrimaryJointType
+		public RuleCall getPrimaryJointTypeParserRuleCall_0() { return cPrimaryJointTypeParserRuleCall_0; }
+
+		//("+" {AdditiveJointType.left=current} right=PrimaryJointType)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_1_0() { return cPlusSignKeyword_1_0; }
+
+		//{AdditiveJointType.left=current}
+		public Action getAdditiveJointTypeLeftAction_1_1() { return cAdditiveJointTypeLeftAction_1_1; }
+
+		//right=PrimaryJointType
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+
+		//PrimaryJointType
+		public RuleCall getRightPrimaryJointTypeParserRuleCall_1_2_0() { return cRightPrimaryJointTypeParserRuleCall_1_2_0; }
+	}
+
+	public class PrimaryJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrimaryJointType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cRefAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final CrossReference cRefJointTypeCrossReference_0_0 = (CrossReference)cRefAssignment_0.eContents().get(0);
 		private final RuleCall cRefJointTypeIDTerminalRuleCall_0_0_1 = (RuleCall)cRefJointTypeCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cRevoluteKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cAxisAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cAxisAXISEnumRuleCall_1_2_0 = (RuleCall)cAxisAssignment_1_2.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Keyword cCommaKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cAxisAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cAxisAXISEnumRuleCall_1_3_1_0 = (RuleCall)cAxisAssignment_1_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cPlanarKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cAxisAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cAxisAXISEnumRuleCall_2_2_0 = (RuleCall)cAxisAssignment_2_2.eContents().get(0);
-		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cAxisAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final RuleCall cAxisAXISEnumRuleCall_2_3_1_0 = (RuleCall)cAxisAssignment_2_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final RuleCall cBasicJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//JointTypeExpression:
-		//	ref=[JointType] | "revolute" "(" axis+=AXIS ("," axis+=AXIS)* ")" | "planar" "(" axis+=AXIS ("," axis+=AXIS)* ")";
+		//PrimaryJointType returns JointTypeExpression:
+		//	ref=[JointType] | BasicJointType;
 		@Override public ParserRule getRule() { return rule; }
 
-		//ref=[JointType] | "revolute" "(" axis+=AXIS ("," axis+=AXIS)* ")" | "planar" "(" axis+=AXIS ("," axis+=AXIS)* ")"
+		//ref=[JointType] | BasicJointType
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ref=[JointType]
@@ -570,65 +523,225 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRefJointTypeIDTerminalRuleCall_0_0_1() { return cRefJointTypeIDTerminalRuleCall_0_0_1; }
 
-		//"revolute" "(" axis+=AXIS ("," axis+=AXIS)* ")"
-		public Group getGroup_1() { return cGroup_1; }
+		//BasicJointType
+		public RuleCall getBasicJointTypeParserRuleCall_1() { return cBasicJointTypeParserRuleCall_1; }
+	}
+
+	public class BasicJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicJointType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cTypeAlternatives_0_0 = (Alternatives)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeRevoluteParserRuleCall_0_0_0 = (RuleCall)cTypeAlternatives_0_0.eContents().get(0);
+		private final RuleCall cTypePlanarParserRuleCall_0_0_1 = (RuleCall)cTypeAlternatives_0_0.eContents().get(1);
+		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStiffnessAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStiffnessStiffnessExpParserRuleCall_2_0 = (RuleCall)cStiffnessAssignment_2.eContents().get(0);
+		
+		//BasicJointType:
+		//	type=(Revolute | Planar) "with" stiffness=StiffnessExp;
+		@Override public ParserRule getRule() { return rule; }
+
+		//type=(Revolute | Planar) "with" stiffness=StiffnessExp
+		public Group getGroup() { return cGroup; }
+
+		//type=(Revolute | Planar)
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+
+		//Revolute | Planar
+		public Alternatives getTypeAlternatives_0_0() { return cTypeAlternatives_0_0; }
+
+		//Revolute
+		public RuleCall getTypeRevoluteParserRuleCall_0_0_0() { return cTypeRevoluteParserRuleCall_0_0_0; }
+
+		//Planar
+		public RuleCall getTypePlanarParserRuleCall_0_0_1() { return cTypePlanarParserRuleCall_0_0_1; }
+
+		//"with"
+		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
+
+		//stiffness=StiffnessExp
+		public Assignment getStiffnessAssignment_2() { return cStiffnessAssignment_2; }
+
+		//StiffnessExp
+		public RuleCall getStiffnessStiffnessExpParserRuleCall_2_0() { return cStiffnessStiffnessExpParserRuleCall_2_0; }
+	}
+
+	public class RevoluteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Revolute");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRevoluteKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAxisAXISEnumRuleCall_1_0 = (RuleCall)cAxisAssignment_1.eContents().get(0);
+		
+		//Revolute:
+		//	"revolute" axis=AXIS;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"revolute" axis=AXIS
+		public Group getGroup() { return cGroup; }
 
 		//"revolute"
-		public Keyword getRevoluteKeyword_1_0() { return cRevoluteKeyword_1_0; }
+		public Keyword getRevoluteKeyword_0() { return cRevoluteKeyword_0; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
-
-		//axis+=AXIS
-		public Assignment getAxisAssignment_1_2() { return cAxisAssignment_1_2; }
+		//axis=AXIS
+		public Assignment getAxisAssignment_1() { return cAxisAssignment_1; }
 
 		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_1_2_0() { return cAxisAXISEnumRuleCall_1_2_0; }
+		public RuleCall getAxisAXISEnumRuleCall_1_0() { return cAxisAXISEnumRuleCall_1_0; }
+	}
 
-		//("," axis+=AXIS)*
-		public Group getGroup_1_3() { return cGroup_1_3; }
+	public class PlanarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Planar");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPlanarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAxisAXISEnumRuleCall_1_0 = (RuleCall)cAxisAssignment_1.eContents().get(0);
+		
+		//Planar:
+		//	"planar" axis=AXIS;
+		@Override public ParserRule getRule() { return rule; }
 
-		//","
-		public Keyword getCommaKeyword_1_3_0() { return cCommaKeyword_1_3_0; }
-
-		//axis+=AXIS
-		public Assignment getAxisAssignment_1_3_1() { return cAxisAssignment_1_3_1; }
-
-		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_1_3_1_0() { return cAxisAXISEnumRuleCall_1_3_1_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
-
-		//"planar" "(" axis+=AXIS ("," axis+=AXIS)* ")"
-		public Group getGroup_2() { return cGroup_2; }
+		//"planar" axis=AXIS
+		public Group getGroup() { return cGroup; }
 
 		//"planar"
-		public Keyword getPlanarKeyword_2_0() { return cPlanarKeyword_2_0; }
+		public Keyword getPlanarKeyword_0() { return cPlanarKeyword_0; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_2_1() { return cLeftParenthesisKeyword_2_1; }
-
-		//axis+=AXIS
-		public Assignment getAxisAssignment_2_2() { return cAxisAssignment_2_2; }
+		//axis=AXIS
+		public Assignment getAxisAssignment_1() { return cAxisAssignment_1; }
 
 		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_2_2_0() { return cAxisAXISEnumRuleCall_2_2_0; }
+		public RuleCall getAxisAXISEnumRuleCall_1_0() { return cAxisAXISEnumRuleCall_1_0; }
+	}
 
-		//("," axis+=AXIS)*
-		public Group getGroup_2_3() { return cGroup_2_3; }
+	public class StiffnessExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StiffnessExp");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cStiffnessRefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBaseStiffnessExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//StiffnessExp:
+		//	StiffnessRef | BaseStiffnessExp;
+		@Override public ParserRule getRule() { return rule; }
 
-		//","
-		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		//StiffnessRef | BaseStiffnessExp
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//axis+=AXIS
-		public Assignment getAxisAssignment_2_3_1() { return cAxisAssignment_2_3_1; }
+		//StiffnessRef
+		public RuleCall getStiffnessRefParserRuleCall_0() { return cStiffnessRefParserRuleCall_0; }
 
-		//AXIS
-		public RuleCall getAxisAXISEnumRuleCall_2_3_1_0() { return cAxisAXISEnumRuleCall_2_3_1_0; }
+		//BaseStiffnessExp
+		public RuleCall getBaseStiffnessExpParserRuleCall_1() { return cBaseStiffnessExpParserRuleCall_1; }
+	}
 
-		//")"
-		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
+	public class StiffnessRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StiffnessRef");
+		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cRefBaseStiffnessExpCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
+		private final RuleCall cRefBaseStiffnessExpIDTerminalRuleCall_0_1 = (RuleCall)cRefBaseStiffnessExpCrossReference_0.eContents().get(1);
+		
+		//StiffnessRef:
+		//	ref=[BaseStiffnessExp];
+		@Override public ParserRule getRule() { return rule; }
+
+		//ref=[BaseStiffnessExp]
+		public Assignment getRefAssignment() { return cRefAssignment; }
+
+		//[BaseStiffnessExp]
+		public CrossReference getRefBaseStiffnessExpCrossReference_0() { return cRefBaseStiffnessExpCrossReference_0; }
+
+		//ID
+		public RuleCall getRefBaseStiffnessExpIDTerminalRuleCall_0_1() { return cRefBaseStiffnessExpIDTerminalRuleCall_0_1; }
+	}
+
+	public class BaseStiffnessExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseStiffnessExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cStiffnessKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cSpringCoeffKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSpringCoeffAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSpringCoeffAddExpParserRuleCall_3_0 = (RuleCall)cSpringCoeffAssignment_3.eContents().get(0);
+		private final Keyword cSpringInitKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cSpringInitAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSpringInitAddExpParserRuleCall_5_0 = (RuleCall)cSpringInitAssignment_5.eContents().get(0);
+		private final Keyword cDampViscousKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cDampViscousAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cDampViscousAddExpParserRuleCall_7_0 = (RuleCall)cDampViscousAssignment_7.eContents().get(0);
+		private final Keyword cDampCoulombKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDampCoulombAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDampCoulombAddExpParserRuleCall_9_0 = (RuleCall)cDampCoulombAssignment_9.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		
+		//BaseStiffnessExp:
+		//	("stiffness" name=ID)? "{" // TODO Provide better labels for these in the concrete syntax
+		//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
+		//	dampCoulomb=AddExp "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//("stiffness" name=ID)? "{" // TODO Provide better labels for these in the concrete syntax
+		//"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
+		//dampCoulomb=AddExp "}"
+		public Group getGroup() { return cGroup; }
+
+		//("stiffness" name=ID)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"stiffness"
+		public Keyword getStiffnessKeyword_0_0() { return cStiffnessKeyword_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//// TODO Provide better labels for these in the concrete syntax
+		//"springCoeff"
+		public Keyword getSpringCoeffKeyword_2() { return cSpringCoeffKeyword_2; }
+
+		//springCoeff=AddExp
+		public Assignment getSpringCoeffAssignment_3() { return cSpringCoeffAssignment_3; }
+
+		//AddExp
+		public RuleCall getSpringCoeffAddExpParserRuleCall_3_0() { return cSpringCoeffAddExpParserRuleCall_3_0; }
+
+		//"springInit"
+		public Keyword getSpringInitKeyword_4() { return cSpringInitKeyword_4; }
+
+		//springInit=AddExp
+		public Assignment getSpringInitAssignment_5() { return cSpringInitAssignment_5; }
+
+		//AddExp
+		public RuleCall getSpringInitAddExpParserRuleCall_5_0() { return cSpringInitAddExpParserRuleCall_5_0; }
+
+		//"dampViscous"
+		public Keyword getDampViscousKeyword_6() { return cDampViscousKeyword_6; }
+
+		//dampViscous=AddExp
+		public Assignment getDampViscousAssignment_7() { return cDampViscousAssignment_7; }
+
+		//AddExp
+		public RuleCall getDampViscousAddExpParserRuleCall_7_0() { return cDampViscousAddExpParserRuleCall_7_0; }
+
+		//"dampCoulomb"
+		public Keyword getDampCoulombKeyword_8() { return cDampCoulombKeyword_8; }
+
+		//dampCoulomb=AddExp
+		public Assignment getDampCoulombAssignment_9() { return cDampCoulombAssignment_9; }
+
+		//AddExp
+		public RuleCall getDampCoulombAddExpParserRuleCall_9_0() { return cDampCoulombAddExpParserRuleCall_9_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class RelativeTransformationElements extends AbstractParserRuleElementFinder {
@@ -1426,7 +1539,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final MassElements pMass;
 	private final JointElements pJoint;
 	private final JointTypeElements pJointType;
-	private final JointTypeExpressionElements pJointTypeExpression;
+	private final AdditiveJointTypeElements pAdditiveJointType;
+	private final PrimaryJointTypeElements pPrimaryJointType;
+	private final BasicJointTypeElements pBasicJointType;
+	private final RevoluteElements pRevolute;
+	private final PlanarElements pPlanar;
+	private final StiffnessExpElements pStiffnessExp;
+	private final StiffnessRefElements pStiffnessRef;
+	private final BaseStiffnessExpElements pBaseStiffnessExp;
 	private final AXISElements unknownRuleAXIS;
 	private final RelativeTransformationElements pRelativeTransformation;
 	private final ReorientationElements pReorientation;
@@ -1466,7 +1586,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMass = new MassElements();
 		this.pJoint = new JointElements();
 		this.pJointType = new JointTypeElements();
-		this.pJointTypeExpression = new JointTypeExpressionElements();
+		this.pAdditiveJointType = new AdditiveJointTypeElements();
+		this.pPrimaryJointType = new PrimaryJointTypeElements();
+		this.pBasicJointType = new BasicJointTypeElements();
+		this.pRevolute = new RevoluteElements();
+		this.pPlanar = new PlanarElements();
+		this.pStiffnessExp = new StiffnessExpElements();
+		this.pStiffnessRef = new StiffnessRefElements();
+		this.pBaseStiffnessExp = new BaseStiffnessExpElements();
 		this.unknownRuleAXIS = new AXISElements();
 		this.pRelativeTransformation = new RelativeTransformationElements();
 		this.pReorientation = new ReorientationElements();
@@ -1525,7 +1652,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InitialDefinition:
-	//	BaseMatrix | JointType;
+	//	BaseMatrix | JointType | BaseStiffnessExp;
 	public InitialDefinitionElements getInitialDefinitionAccess() {
 		return pInitialDefinition;
 	}
@@ -1610,10 +1737,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Joint:
 	//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-	//	"and" body2=BodyReference // TODO We probably want to make types more complex to allow them to make stiffness reusable
-	//	"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
-	//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
-	//	dampCoulomb=AddExp "}";
+	//	"and" body2=BodyReference;
 	public JointElements getJointAccess() {
 		return pJoint;
 	}
@@ -1623,7 +1747,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//JointType:
-	//	("joint" "type" name=ID)? exp=JointTypeExpression;
+	//	("joint" "type" name=ID)? exp=AdditiveJointType;
 	public JointTypeElements getJointTypeAccess() {
 		return pJointType;
 	}
@@ -1632,14 +1756,86 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getJointTypeAccess().getRule();
 	}
 
-	//JointTypeExpression:
-	//	ref=[JointType] | "revolute" "(" axis+=AXIS ("," axis+=AXIS)* ")" | "planar" "(" axis+=AXIS ("," axis+=AXIS)* ")";
-	public JointTypeExpressionElements getJointTypeExpressionAccess() {
-		return pJointTypeExpression;
+	//AdditiveJointType returns JointTypeExpression:
+	//	PrimaryJointType ("+" {AdditiveJointType.left=current} right=PrimaryJointType)*;
+	public AdditiveJointTypeElements getAdditiveJointTypeAccess() {
+		return pAdditiveJointType;
 	}
 	
-	public ParserRule getJointTypeExpressionRule() {
-		return getJointTypeExpressionAccess().getRule();
+	public ParserRule getAdditiveJointTypeRule() {
+		return getAdditiveJointTypeAccess().getRule();
+	}
+
+	//PrimaryJointType returns JointTypeExpression:
+	//	ref=[JointType] | BasicJointType;
+	public PrimaryJointTypeElements getPrimaryJointTypeAccess() {
+		return pPrimaryJointType;
+	}
+	
+	public ParserRule getPrimaryJointTypeRule() {
+		return getPrimaryJointTypeAccess().getRule();
+	}
+
+	//BasicJointType:
+	//	type=(Revolute | Planar) "with" stiffness=StiffnessExp;
+	public BasicJointTypeElements getBasicJointTypeAccess() {
+		return pBasicJointType;
+	}
+	
+	public ParserRule getBasicJointTypeRule() {
+		return getBasicJointTypeAccess().getRule();
+	}
+
+	//Revolute:
+	//	"revolute" axis=AXIS;
+	public RevoluteElements getRevoluteAccess() {
+		return pRevolute;
+	}
+	
+	public ParserRule getRevoluteRule() {
+		return getRevoluteAccess().getRule();
+	}
+
+	//Planar:
+	//	"planar" axis=AXIS;
+	public PlanarElements getPlanarAccess() {
+		return pPlanar;
+	}
+	
+	public ParserRule getPlanarRule() {
+		return getPlanarAccess().getRule();
+	}
+
+	//StiffnessExp:
+	//	StiffnessRef | BaseStiffnessExp;
+	public StiffnessExpElements getStiffnessExpAccess() {
+		return pStiffnessExp;
+	}
+	
+	public ParserRule getStiffnessExpRule() {
+		return getStiffnessExpAccess().getRule();
+	}
+
+	//StiffnessRef:
+	//	ref=[BaseStiffnessExp];
+	public StiffnessRefElements getStiffnessRefAccess() {
+		return pStiffnessRef;
+	}
+	
+	public ParserRule getStiffnessRefRule() {
+		return getStiffnessRefAccess().getRule();
+	}
+
+	//BaseStiffnessExp:
+	//	("stiffness" name=ID)? "{" // TODO Provide better labels for these in the concrete syntax
+	//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
+	//	dampCoulomb=AddExp "}";
+	public BaseStiffnessExpElements getBaseStiffnessExpAccess() {
+		return pBaseStiffnessExp;
+	}
+	
+	public ParserRule getBaseStiffnessExpRule() {
+		return getBaseStiffnessExpAccess().getRule();
 	}
 
 	//enum AXIS:

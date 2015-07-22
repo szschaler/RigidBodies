@@ -15,10 +15,6 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getBody2 <em>Body2</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getSpringCoeff <em>Spring Coeff</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getSpringInit <em>Spring Init</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getDampViscous <em>Damp Viscous</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getDampCoulomb <em>Damp Coulomb</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,109 +127,5 @@ public interface Joint extends Connective
    * @generated
    */
   void setBody2(BodyReference value);
-
-  /**
-   * Returns the value of the '<em><b>Spring Coeff</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Spring Coeff</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Spring Coeff</em>' containment reference.
-   * @see #setSpringCoeff(Expression)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJoint_SpringCoeff()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getSpringCoeff();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getSpringCoeff <em>Spring Coeff</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Spring Coeff</em>' containment reference.
-   * @see #getSpringCoeff()
-   * @generated
-   */
-  void setSpringCoeff(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Spring Init</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Spring Init</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Spring Init</em>' containment reference.
-   * @see #setSpringInit(Expression)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJoint_SpringInit()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getSpringInit();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getSpringInit <em>Spring Init</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Spring Init</em>' containment reference.
-   * @see #getSpringInit()
-   * @generated
-   */
-  void setSpringInit(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Damp Viscous</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Damp Viscous</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Damp Viscous</em>' containment reference.
-   * @see #setDampViscous(Expression)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJoint_DampViscous()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getDampViscous();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getDampViscous <em>Damp Viscous</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Damp Viscous</em>' containment reference.
-   * @see #getDampViscous()
-   * @generated
-   */
-  void setDampViscous(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Damp Coulomb</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Damp Coulomb</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Damp Coulomb</em>' containment reference.
-   * @see #setDampCoulomb(Expression)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getJoint_DampCoulomb()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getDampCoulomb();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getDampCoulomb <em>Damp Coulomb</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Damp Coulomb</em>' containment reference.
-   * @see #getDampCoulomb()
-   * @generated
-   */
-  void setDampCoulomb(Expression value);
 
 } // Joint

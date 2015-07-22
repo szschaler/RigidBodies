@@ -8,26 +8,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
-import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Joint Type Expression</b></em>'.
+ * An implementation of the model object '<em><b>Stiffness Ref</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointTypeExpressionImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StiffnessRefImpl#getRef <em>Ref</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implements JointTypeExpression
+public class StiffnessRefImpl extends StiffnessExpImpl implements StiffnessRef
 {
   /**
    * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
@@ -37,14 +36,14 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected JointType ref;
+  protected BaseStiffnessExp ref;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JointTypeExpressionImpl()
+  protected StiffnessRefImpl()
   {
     super();
   }
@@ -57,7 +56,7 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.JOINT_TYPE_EXPRESSION;
+    return RigidBodiesPackage.Literals.STIFFNESS_REF;
   }
 
   /**
@@ -65,16 +64,16 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public JointType getRef()
+  public BaseStiffnessExp getRef()
   {
     if (ref != null && ref.eIsProxy())
     {
       InternalEObject oldRef = (InternalEObject)ref;
-      ref = (JointType)eResolveProxy(oldRef);
+      ref = (BaseStiffnessExp)eResolveProxy(oldRef);
       if (ref != oldRef)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF, oldRef, ref));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.STIFFNESS_REF__REF, oldRef, ref));
       }
     }
     return ref;
@@ -85,7 +84,7 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public JointType basicGetRef()
+  public BaseStiffnessExp basicGetRef()
   {
     return ref;
   }
@@ -95,12 +94,12 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRef(JointType newRef)
+  public void setRef(BaseStiffnessExp newRef)
   {
-    JointType oldRef = ref;
+    BaseStiffnessExp oldRef = ref;
     ref = newRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF, oldRef, ref));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.STIFFNESS_REF__REF, oldRef, ref));
   }
 
   /**
@@ -113,7 +112,7 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
+      case RigidBodiesPackage.STIFFNESS_REF__REF:
         if (resolve) return getRef();
         return basicGetRef();
     }
@@ -130,8 +129,8 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
-        setRef((JointType)newValue);
+      case RigidBodiesPackage.STIFFNESS_REF__REF:
+        setRef((BaseStiffnessExp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,8 +146,8 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
-        setRef((JointType)null);
+      case RigidBodiesPackage.STIFFNESS_REF__REF:
+        setRef((BaseStiffnessExp)null);
         return;
     }
     super.eUnset(featureID);
@@ -164,10 +163,10 @@ public class JointTypeExpressionImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT_TYPE_EXPRESSION__REF:
+      case RigidBodiesPackage.STIFFNESS_REF__REF:
         return ref != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //JointTypeExpressionImpl
+} //StiffnessRefImpl
