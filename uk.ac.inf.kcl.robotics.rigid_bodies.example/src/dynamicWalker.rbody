@@ -73,7 +73,7 @@ system DynamicWalker {
 	joint ankle : YRevolve start
 		between base (with relative transformation matrix Origin [0.0, 0.0, 0.0], reorient NoReorient ()) // TODO relative transformation becomes the first line of j for this joint
 		                                                                                                  // TODO each element of reorient becomes a fixed rotation row in j (first element axis, second element angle, then three 0
-		and shank1 (with relative transformation Origin, NoReorient) // TODO: No relative transformation and no reorient here
+		and shank1
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -83,7 +83,7 @@ system DynamicWalker {
 			                                            
 	joint knee1 : YRevolve
 		between shank1 (with relative transformation matrix OO1 [0.0, 0.0, 1.0], NoReorient)
-		and thigh1 (with relative transformation Origin, NoReorient)
+		and thigh1
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -93,7 +93,7 @@ system DynamicWalker {
 		
 	joint hip1 : YRevolve
 		between thigh1 (with relative transformation matrix O11 [0.0, 1.0, 1.0], NoReorient)
-		and thigh2 (with relative transformation Origin, NoReorient)
+		and thigh2
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -103,7 +103,7 @@ system DynamicWalker {
 		
 	joint knee2 : YRevolve
 		between thigh2 (with relative transformation matrix OOM1 [0.0, 0.0, -1.0], NoReorient)
-		and shank2 (with relative transformation Origin, NoReorient)
+		and shank2
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -114,7 +114,7 @@ system DynamicWalker {
 	// TODO: stiffness actually needs to be associated with each revolute / planar movement around each axis, as they may be different
 	joint hip2 : revolute(y, x, z)
 		between thigh1 (with relative transformation matrix OP51 [0.0, 0.5, -1.0], NoReorient)
-		and torso (with relative transformation Origin, NoReorient)
+		and torso
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -124,7 +124,7 @@ system DynamicWalker {
 		
 	joint shoulder1 : joint type XRevolve revolute(x)
 		between torso (with relative transformation matrix OP251 [0.0, -0.25, 1.0], NoReorient)
-		and hand1 (with relative transformation Origin, NoReorient)
+		and hand1
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -134,7 +134,7 @@ system DynamicWalker {
 		
 	joint shoulder2 : joint type XRevolve revolute(x)
 		between torso (with relative transformation matrix OMP251 [0.0, 0.25, 1.0], NoReorient)
-		and hand2 (with relative transformation Origin, NoReorient)
+		and hand2
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0
@@ -144,7 +144,7 @@ system DynamicWalker {
 		
 	joint foot2J : YRevolve // it is a constraint because it makes a loop
 		between shank2 (with relative transformation OOM1, NoReorient)
-		and base (with relative transformation matrix O1O [0.0, 1.0, 0.0], NoReorient)
+		and base 
 		stiffness {
 			springCoeff 5.0 
 			springInit 5.0

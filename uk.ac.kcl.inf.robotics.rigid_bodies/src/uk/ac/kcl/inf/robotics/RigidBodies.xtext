@@ -61,7 +61,7 @@ Mass:
 Joint:
 	'joint' name=ID ':' type=JointType isStart?='start'?
 		'between' body1 = BodyReference relTrans1 = RelativeTransformation
-		'and' body2 = BodyReference relTrans2 = RelativeTransformation
+		'and' body2 = BodyReference
 		// TODO We probably want to make types more complex to allow them to make stiffness reusable
 		'stiffness' '{'
 			// TODO Provide better labels for these in the concrete syntax

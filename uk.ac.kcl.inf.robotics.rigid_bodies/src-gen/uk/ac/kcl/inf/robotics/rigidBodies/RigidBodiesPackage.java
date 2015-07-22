@@ -446,22 +446,13 @@ public interface RigidBodiesPackage extends EPackage
   int JOINT__BODY2 = CONNECTIVE_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Rel Trans2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JOINT__REL_TRANS2 = CONNECTIVE_FEATURE_COUNT + 4;
-
-  /**
    * The feature id for the '<em><b>Spring Coeff</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JOINT__SPRING_COEFF = CONNECTIVE_FEATURE_COUNT + 5;
+  int JOINT__SPRING_COEFF = CONNECTIVE_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Spring Init</b></em>' containment reference.
@@ -470,7 +461,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__SPRING_INIT = CONNECTIVE_FEATURE_COUNT + 6;
+  int JOINT__SPRING_INIT = CONNECTIVE_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Damp Viscous</b></em>' containment reference.
@@ -479,7 +470,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__DAMP_VISCOUS = CONNECTIVE_FEATURE_COUNT + 7;
+  int JOINT__DAMP_VISCOUS = CONNECTIVE_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Damp Coulomb</b></em>' containment reference.
@@ -488,7 +479,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT__DAMP_COULOMB = CONNECTIVE_FEATURE_COUNT + 8;
+  int JOINT__DAMP_COULOMB = CONNECTIVE_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Joint</em>' class.
@@ -497,7 +488,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JOINT_FEATURE_COUNT = CONNECTIVE_FEATURE_COUNT + 9;
+  int JOINT_FEATURE_COUNT = CONNECTIVE_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointTypeImpl <em>Joint Type</em>}' class.
@@ -1459,17 +1450,6 @@ public interface RigidBodiesPackage extends EPackage
   EReference getJoint_Body2();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans2 <em>Rel Trans2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Rel Trans2</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Joint#getRelTrans2()
-   * @see #getJoint()
-   * @generated
-   */
-  EReference getJoint_RelTrans2();
-
-  /**
    * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Joint#getSpringCoeff <em>Spring Coeff</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2296,14 +2276,6 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EReference JOINT__BODY2 = eINSTANCE.getJoint_Body2();
-
-    /**
-     * The meta object literal for the '<em><b>Rel Trans2</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference JOINT__REL_TRANS2 = eINSTANCE.getJoint_RelTrans2();
 
     /**
      * The meta object literal for the '<em><b>Spring Coeff</b></em>' containment reference feature.

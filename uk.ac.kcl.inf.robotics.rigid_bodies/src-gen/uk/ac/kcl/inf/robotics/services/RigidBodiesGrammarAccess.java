@@ -360,34 +360,32 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAndKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cBody2Assignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cBody2BodyReferenceParserRuleCall_9_0 = (RuleCall)cBody2Assignment_9.eContents().get(0);
-		private final Assignment cRelTrans2Assignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_10_0 = (RuleCall)cRelTrans2Assignment_10.eContents().get(0);
-		private final Keyword cStiffnessKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cLeftCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cSpringCoeffKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cSpringCoeffAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cSpringCoeffAddExpParserRuleCall_14_0 = (RuleCall)cSpringCoeffAssignment_14.eContents().get(0);
-		private final Keyword cSpringInitKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Assignment cSpringInitAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cSpringInitAddExpParserRuleCall_16_0 = (RuleCall)cSpringInitAssignment_16.eContents().get(0);
-		private final Keyword cDampViscousKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Assignment cDampViscousAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final RuleCall cDampViscousAddExpParserRuleCall_18_0 = (RuleCall)cDampViscousAssignment_18.eContents().get(0);
-		private final Keyword cDampCoulombKeyword_19 = (Keyword)cGroup.eContents().get(19);
-		private final Assignment cDampCoulombAssignment_20 = (Assignment)cGroup.eContents().get(20);
-		private final RuleCall cDampCoulombAddExpParserRuleCall_20_0 = (RuleCall)cDampCoulombAssignment_20.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
+		private final Keyword cStiffnessKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cLeftCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cSpringCoeffKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cSpringCoeffAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cSpringCoeffAddExpParserRuleCall_13_0 = (RuleCall)cSpringCoeffAssignment_13.eContents().get(0);
+		private final Keyword cSpringInitKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cSpringInitAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cSpringInitAddExpParserRuleCall_15_0 = (RuleCall)cSpringInitAssignment_15.eContents().get(0);
+		private final Keyword cDampViscousKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Assignment cDampViscousAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cDampViscousAddExpParserRuleCall_17_0 = (RuleCall)cDampViscousAssignment_17.eContents().get(0);
+		private final Keyword cDampCoulombKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Assignment cDampCoulombAssignment_19 = (Assignment)cGroup.eContents().get(19);
+		private final RuleCall cDampCoulombAddExpParserRuleCall_19_0 = (RuleCall)cDampCoulombAssignment_19.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_20 = (Keyword)cGroup.eContents().get(20);
 		
 		//Joint:
 		//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-		//	"and" body2=BodyReference relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
+		//	"and" body2=BodyReference // TODO We probably want to make types more complex to allow them to make stiffness reusable
 		//	"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
 		//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
 		//	dampCoulomb=AddExp "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-		//"and" body2=BodyReference relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
+		//"and" body2=BodyReference // TODO We probably want to make types more complex to allow them to make stiffness reusable
 		//"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
 		//"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
 		//dampCoulomb=AddExp "}"
@@ -441,58 +439,52 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//BodyReference
 		public RuleCall getBody2BodyReferenceParserRuleCall_9_0() { return cBody2BodyReferenceParserRuleCall_9_0; }
 
-		//relTrans2=RelativeTransformation
-		public Assignment getRelTrans2Assignment_10() { return cRelTrans2Assignment_10; }
-
-		//RelativeTransformation
-		public RuleCall getRelTrans2RelativeTransformationParserRuleCall_10_0() { return cRelTrans2RelativeTransformationParserRuleCall_10_0; }
-
 		//// TODO We probably want to make types more complex to allow them to make stiffness reusable
 		//"stiffness"
-		public Keyword getStiffnessKeyword_11() { return cStiffnessKeyword_11; }
+		public Keyword getStiffnessKeyword_10() { return cStiffnessKeyword_10; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_12() { return cLeftCurlyBracketKeyword_12; }
+		public Keyword getLeftCurlyBracketKeyword_11() { return cLeftCurlyBracketKeyword_11; }
 
 		//// TODO Provide better labels for these in the concrete syntax
 		//"springCoeff"
-		public Keyword getSpringCoeffKeyword_13() { return cSpringCoeffKeyword_13; }
+		public Keyword getSpringCoeffKeyword_12() { return cSpringCoeffKeyword_12; }
 
 		//springCoeff=AddExp
-		public Assignment getSpringCoeffAssignment_14() { return cSpringCoeffAssignment_14; }
+		public Assignment getSpringCoeffAssignment_13() { return cSpringCoeffAssignment_13; }
 
 		//AddExp
-		public RuleCall getSpringCoeffAddExpParserRuleCall_14_0() { return cSpringCoeffAddExpParserRuleCall_14_0; }
+		public RuleCall getSpringCoeffAddExpParserRuleCall_13_0() { return cSpringCoeffAddExpParserRuleCall_13_0; }
 
 		//"springInit"
-		public Keyword getSpringInitKeyword_15() { return cSpringInitKeyword_15; }
+		public Keyword getSpringInitKeyword_14() { return cSpringInitKeyword_14; }
 
 		//springInit=AddExp
-		public Assignment getSpringInitAssignment_16() { return cSpringInitAssignment_16; }
+		public Assignment getSpringInitAssignment_15() { return cSpringInitAssignment_15; }
 
 		//AddExp
-		public RuleCall getSpringInitAddExpParserRuleCall_16_0() { return cSpringInitAddExpParserRuleCall_16_0; }
+		public RuleCall getSpringInitAddExpParserRuleCall_15_0() { return cSpringInitAddExpParserRuleCall_15_0; }
 
 		//"dampViscous"
-		public Keyword getDampViscousKeyword_17() { return cDampViscousKeyword_17; }
+		public Keyword getDampViscousKeyword_16() { return cDampViscousKeyword_16; }
 
 		//dampViscous=AddExp
-		public Assignment getDampViscousAssignment_18() { return cDampViscousAssignment_18; }
+		public Assignment getDampViscousAssignment_17() { return cDampViscousAssignment_17; }
 
 		//AddExp
-		public RuleCall getDampViscousAddExpParserRuleCall_18_0() { return cDampViscousAddExpParserRuleCall_18_0; }
+		public RuleCall getDampViscousAddExpParserRuleCall_17_0() { return cDampViscousAddExpParserRuleCall_17_0; }
 
 		//"dampCoulomb"
-		public Keyword getDampCoulombKeyword_19() { return cDampCoulombKeyword_19; }
+		public Keyword getDampCoulombKeyword_18() { return cDampCoulombKeyword_18; }
 
 		//dampCoulomb=AddExp
-		public Assignment getDampCoulombAssignment_20() { return cDampCoulombAssignment_20; }
+		public Assignment getDampCoulombAssignment_19() { return cDampCoulombAssignment_19; }
 
 		//AddExp
-		public RuleCall getDampCoulombAddExpParserRuleCall_20_0() { return cDampCoulombAddExpParserRuleCall_20_0; }
+		public RuleCall getDampCoulombAddExpParserRuleCall_19_0() { return cDampCoulombAddExpParserRuleCall_19_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_21() { return cRightCurlyBracketKeyword_21; }
+		public Keyword getRightCurlyBracketKeyword_20() { return cRightCurlyBracketKeyword_20; }
 	}
 
 	public class JointTypeElements extends AbstractParserRuleElementFinder {
@@ -1596,7 +1588,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Joint:
 	//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-	//	"and" body2=BodyReference relTrans2=RelativeTransformation // TODO We probably want to make types more complex to allow them to make stiffness reusable
+	//	"and" body2=BodyReference // TODO We probably want to make types more complex to allow them to make stiffness reusable
 	//	"stiffness" "{" // TODO Provide better labels for these in the concrete syntax
 	//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
 	//	dampCoulomb=AddExp "}";

@@ -58,7 +58,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Joint/isStart"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/body1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/body2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/relTrans2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/springCoeff"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/springInit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/dampViscous"/>

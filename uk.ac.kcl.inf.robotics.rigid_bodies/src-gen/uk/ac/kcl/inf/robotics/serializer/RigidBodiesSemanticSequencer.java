@@ -276,7 +276,6 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         body1=BodyReference 
 	 *         relTrans1=RelativeTransformation 
 	 *         body2=BodyReference 
-	 *         relTrans2=RelativeTransformation 
 	 *         springCoeff=AddExp 
 	 *         springInit=AddExp 
 	 *         dampViscous=AddExp 

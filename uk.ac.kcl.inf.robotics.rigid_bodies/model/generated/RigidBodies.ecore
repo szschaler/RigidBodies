@@ -52,8 +52,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body2" eType="#//BodyReference"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relTrans2" eType="#//RelativeTransformation"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="springCoeff" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="springInit" eType="#//Expression"

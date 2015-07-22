@@ -14,7 +14,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
-import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
 /**
@@ -28,7 +27,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody1 <em>Body1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody2 <em>Body2</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans2 <em>Rel Trans2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getSpringCoeff <em>Spring Coeff</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getSpringInit <em>Spring Init</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getDampViscous <em>Damp Viscous</em>}</li>
@@ -89,16 +87,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
    * @ordered
    */
   protected BodyReference body2;
-
-  /**
-   * The cached value of the '{@link #getRelTrans2() <em>Rel Trans2</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRelTrans2()
-   * @generated
-   * @ordered
-   */
-  protected RelativeTransformation relTrans2;
 
   /**
    * The cached value of the '{@link #getSpringCoeff() <em>Spring Coeff</em>}' containment reference.
@@ -333,54 +321,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
    * <!-- end-user-doc -->
    * @generated
    */
-  public RelativeTransformation getRelTrans2()
-  {
-    return relTrans2;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRelTrans2(RelativeTransformation newRelTrans2, NotificationChain msgs)
-  {
-    RelativeTransformation oldRelTrans2 = relTrans2;
-    relTrans2 = newRelTrans2;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__REL_TRANS2, oldRelTrans2, newRelTrans2);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRelTrans2(RelativeTransformation newRelTrans2)
-  {
-    if (newRelTrans2 != relTrans2)
-    {
-      NotificationChain msgs = null;
-      if (relTrans2 != null)
-        msgs = ((InternalEObject)relTrans2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__REL_TRANS2, null, msgs);
-      if (newRelTrans2 != null)
-        msgs = ((InternalEObject)newRelTrans2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__REL_TRANS2, null, msgs);
-      msgs = basicSetRelTrans2(newRelTrans2, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__REL_TRANS2, newRelTrans2, newRelTrans2));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Expression getSpringCoeff()
   {
     return springCoeff;
@@ -584,8 +524,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return basicSetBody1(null, msgs);
       case RigidBodiesPackage.JOINT__BODY2:
         return basicSetBody2(null, msgs);
-      case RigidBodiesPackage.JOINT__REL_TRANS2:
-        return basicSetRelTrans2(null, msgs);
       case RigidBodiesPackage.JOINT__SPRING_COEFF:
         return basicSetSpringCoeff(null, msgs);
       case RigidBodiesPackage.JOINT__SPRING_INIT:
@@ -616,8 +554,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return getBody1();
       case RigidBodiesPackage.JOINT__BODY2:
         return getBody2();
-      case RigidBodiesPackage.JOINT__REL_TRANS2:
-        return getRelTrans2();
       case RigidBodiesPackage.JOINT__SPRING_COEFF:
         return getSpringCoeff();
       case RigidBodiesPackage.JOINT__SPRING_INIT:
@@ -651,9 +587,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return;
       case RigidBodiesPackage.JOINT__BODY2:
         setBody2((BodyReference)newValue);
-        return;
-      case RigidBodiesPackage.JOINT__REL_TRANS2:
-        setRelTrans2((RelativeTransformation)newValue);
         return;
       case RigidBodiesPackage.JOINT__SPRING_COEFF:
         setSpringCoeff((Expression)newValue);
@@ -693,9 +626,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
       case RigidBodiesPackage.JOINT__BODY2:
         setBody2((BodyReference)null);
         return;
-      case RigidBodiesPackage.JOINT__REL_TRANS2:
-        setRelTrans2((RelativeTransformation)null);
-        return;
       case RigidBodiesPackage.JOINT__SPRING_COEFF:
         setSpringCoeff((Expression)null);
         return;
@@ -730,8 +660,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return body1 != null;
       case RigidBodiesPackage.JOINT__BODY2:
         return body2 != null;
-      case RigidBodiesPackage.JOINT__REL_TRANS2:
-        return relTrans2 != null;
       case RigidBodiesPackage.JOINT__SPRING_COEFF:
         return springCoeff != null;
       case RigidBodiesPackage.JOINT__SPRING_INIT:

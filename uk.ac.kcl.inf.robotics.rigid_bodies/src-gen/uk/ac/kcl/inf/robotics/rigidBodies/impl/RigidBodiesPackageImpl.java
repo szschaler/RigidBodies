@@ -609,7 +609,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_RelTrans2()
+  public EReference getJoint_SpringCoeff()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(4);
   }
@@ -619,7 +619,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_SpringCoeff()
+  public EReference getJoint_SpringInit()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(5);
   }
@@ -629,7 +629,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_SpringInit()
+  public EReference getJoint_DampViscous()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(6);
   }
@@ -639,19 +639,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_DampViscous()
-  {
-    return (EReference)jointEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getJoint_DampCoulomb()
   {
-    return (EReference)jointEClass.getEStructuralFeatures().get(8);
+    return (EReference)jointEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1202,7 +1192,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEAttribute(jointEClass, JOINT__IS_START);
     createEReference(jointEClass, JOINT__BODY1);
     createEReference(jointEClass, JOINT__BODY2);
-    createEReference(jointEClass, JOINT__REL_TRANS2);
     createEReference(jointEClass, JOINT__SPRING_COEFF);
     createEReference(jointEClass, JOINT__SPRING_INIT);
     createEReference(jointEClass, JOINT__DAMP_VISCOUS);
@@ -1358,7 +1347,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEAttribute(getJoint_IsStart(), ecorePackage.getEBoolean(), "isStart", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_Body1(), this.getBodyReference(), null, "body1", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_Body2(), this.getBodyReference(), null, "body2", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getJoint_RelTrans2(), this.getRelativeTransformation(), null, "relTrans2", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_SpringCoeff(), this.getExpression(), null, "springCoeff", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_SpringInit(), this.getExpression(), null, "springInit", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_DampViscous(), this.getExpression(), null, "dampViscous", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

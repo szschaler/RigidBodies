@@ -2363,9 +2363,11 @@ rule__Joint__Group__10__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getRelTrans2Assignment_10()); }
-(rule__Joint__RelTrans2Assignment_10)
-{ after(grammarAccess.getJointAccess().getRelTrans2Assignment_10()); }
+{ before(grammarAccess.getJointAccess().getStiffnessKeyword_10()); }
+
+	'stiffness' 
+
+{ after(grammarAccess.getJointAccess().getStiffnessKeyword_10()); }
 )
 
 ;
@@ -2392,11 +2394,11 @@ rule__Joint__Group__11__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getStiffnessKeyword_11()); }
+{ before(grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_11()); }
 
-	'stiffness' 
+	'{' 
 
-{ after(grammarAccess.getJointAccess().getStiffnessKeyword_11()); }
+{ after(grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_11()); }
 )
 
 ;
@@ -2423,11 +2425,11 @@ rule__Joint__Group__12__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_12()); }
+{ before(grammarAccess.getJointAccess().getSpringCoeffKeyword_12()); }
 
-	'{' 
+	'springCoeff' 
 
-{ after(grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_12()); }
+{ after(grammarAccess.getJointAccess().getSpringCoeffKeyword_12()); }
 )
 
 ;
@@ -2454,11 +2456,9 @@ rule__Joint__Group__13__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getSpringCoeffKeyword_13()); }
-
-	'springCoeff' 
-
-{ after(grammarAccess.getJointAccess().getSpringCoeffKeyword_13()); }
+{ before(grammarAccess.getJointAccess().getSpringCoeffAssignment_13()); }
+(rule__Joint__SpringCoeffAssignment_13)
+{ after(grammarAccess.getJointAccess().getSpringCoeffAssignment_13()); }
 )
 
 ;
@@ -2485,9 +2485,11 @@ rule__Joint__Group__14__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getSpringCoeffAssignment_14()); }
-(rule__Joint__SpringCoeffAssignment_14)
-{ after(grammarAccess.getJointAccess().getSpringCoeffAssignment_14()); }
+{ before(grammarAccess.getJointAccess().getSpringInitKeyword_14()); }
+
+	'springInit' 
+
+{ after(grammarAccess.getJointAccess().getSpringInitKeyword_14()); }
 )
 
 ;
@@ -2514,11 +2516,9 @@ rule__Joint__Group__15__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getSpringInitKeyword_15()); }
-
-	'springInit' 
-
-{ after(grammarAccess.getJointAccess().getSpringInitKeyword_15()); }
+{ before(grammarAccess.getJointAccess().getSpringInitAssignment_15()); }
+(rule__Joint__SpringInitAssignment_15)
+{ after(grammarAccess.getJointAccess().getSpringInitAssignment_15()); }
 )
 
 ;
@@ -2545,9 +2545,11 @@ rule__Joint__Group__16__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getSpringInitAssignment_16()); }
-(rule__Joint__SpringInitAssignment_16)
-{ after(grammarAccess.getJointAccess().getSpringInitAssignment_16()); }
+{ before(grammarAccess.getJointAccess().getDampViscousKeyword_16()); }
+
+	'dampViscous' 
+
+{ after(grammarAccess.getJointAccess().getDampViscousKeyword_16()); }
 )
 
 ;
@@ -2574,11 +2576,9 @@ rule__Joint__Group__17__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getDampViscousKeyword_17()); }
-
-	'dampViscous' 
-
-{ after(grammarAccess.getJointAccess().getDampViscousKeyword_17()); }
+{ before(grammarAccess.getJointAccess().getDampViscousAssignment_17()); }
+(rule__Joint__DampViscousAssignment_17)
+{ after(grammarAccess.getJointAccess().getDampViscousAssignment_17()); }
 )
 
 ;
@@ -2605,9 +2605,11 @@ rule__Joint__Group__18__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getDampViscousAssignment_18()); }
-(rule__Joint__DampViscousAssignment_18)
-{ after(grammarAccess.getJointAccess().getDampViscousAssignment_18()); }
+{ before(grammarAccess.getJointAccess().getDampCoulombKeyword_18()); }
+
+	'dampCoulomb' 
+
+{ after(grammarAccess.getJointAccess().getDampCoulombKeyword_18()); }
 )
 
 ;
@@ -2634,11 +2636,9 @@ rule__Joint__Group__19__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getDampCoulombKeyword_19()); }
-
-	'dampCoulomb' 
-
-{ after(grammarAccess.getJointAccess().getDampCoulombKeyword_19()); }
+{ before(grammarAccess.getJointAccess().getDampCoulombAssignment_19()); }
+(rule__Joint__DampCoulombAssignment_19)
+{ after(grammarAccess.getJointAccess().getDampCoulombAssignment_19()); }
 )
 
 ;
@@ -2653,7 +2653,6 @@ rule__Joint__Group__20
     }
 :
 	rule__Joint__Group__20__Impl
-	rule__Joint__Group__21
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2665,47 +2664,17 @@ rule__Joint__Group__20__Impl
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getDampCoulombAssignment_20()); }
-(rule__Joint__DampCoulombAssignment_20)
-{ after(grammarAccess.getJointAccess().getDampCoulombAssignment_20()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Joint__Group__21
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Joint__Group__21__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Joint__Group__21__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getJointAccess().getRightCurlyBracketKeyword_21()); }
+{ before(grammarAccess.getJointAccess().getRightCurlyBracketKeyword_20()); }
 
 	'}' 
 
-{ after(grammarAccess.getJointAccess().getRightCurlyBracketKeyword_21()); }
+{ after(grammarAccess.getJointAccess().getRightCurlyBracketKeyword_20()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
 
 
 
@@ -6129,14 +6098,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Joint__RelTrans2Assignment_10
+rule__Joint__SpringCoeffAssignment_13
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getRelTrans2RelativeTransformationParserRuleCall_10_0()); }
-	ruleRelativeTransformation{ after(grammarAccess.getJointAccess().getRelTrans2RelativeTransformationParserRuleCall_10_0()); }
+{ before(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_13_0()); }
+	ruleAddExp{ after(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_13_0()); }
 )
 
 ;
@@ -6144,14 +6113,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Joint__SpringCoeffAssignment_14
+rule__Joint__SpringInitAssignment_15
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_14_0()); }
-	ruleAddExp{ after(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_14_0()); }
+{ before(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_15_0()); }
+	ruleAddExp{ after(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_15_0()); }
 )
 
 ;
@@ -6159,14 +6128,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Joint__SpringInitAssignment_16
+rule__Joint__DampViscousAssignment_17
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_16_0()); }
-	ruleAddExp{ after(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_16_0()); }
+{ before(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_17_0()); }
+	ruleAddExp{ after(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_17_0()); }
 )
 
 ;
@@ -6174,29 +6143,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Joint__DampViscousAssignment_18
+rule__Joint__DampCoulombAssignment_19
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_18_0()); }
-	ruleAddExp{ after(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_18_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Joint__DampCoulombAssignment_20
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_20_0()); }
-	ruleAddExp{ after(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_20_0()); }
+{ before(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_19_0()); }
+	ruleAddExp{ after(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_19_0()); }
 )
 
 ;

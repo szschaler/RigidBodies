@@ -746,123 +746,105 @@ ruleJoint returns [EObject current=null]
 	    }
 
 )
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getJointAccess().getRelTrans2RelativeTransformationParserRuleCall_10_0()); 
-	    }
-		lv_relTrans2_10_0=ruleRelativeTransformation		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getJointRule());
-	        }
-       		set(
-       			$current, 
-       			"relTrans2",
-        		lv_relTrans2_10_0, 
-        		"RelativeTransformation");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_11='stiffness' 
+)	otherlv_10='stiffness' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getJointAccess().getStiffnessKeyword_11());
+    	newLeafNode(otherlv_10, grammarAccess.getJointAccess().getStiffnessKeyword_10());
     }
-	otherlv_12='{' 
+	otherlv_11='{' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_12());
+    	newLeafNode(otherlv_11, grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_11());
     }
-	otherlv_13='springCoeff' 
+	otherlv_12='springCoeff' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getJointAccess().getSpringCoeffKeyword_13());
+    	newLeafNode(otherlv_12, grammarAccess.getJointAccess().getSpringCoeffKeyword_12());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_14_0()); 
+	        newCompositeNode(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_13_0()); 
 	    }
-		lv_springCoeff_14_0=ruleAddExp		{
+		lv_springCoeff_13_0=ruleAddExp		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getJointRule());
 	        }
        		set(
        			$current, 
        			"springCoeff",
-        		lv_springCoeff_14_0, 
+        		lv_springCoeff_13_0, 
         		"AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_15='springInit' 
+)	otherlv_14='springInit' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getJointAccess().getSpringInitKeyword_15());
+    	newLeafNode(otherlv_14, grammarAccess.getJointAccess().getSpringInitKeyword_14());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_16_0()); 
+	        newCompositeNode(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_15_0()); 
 	    }
-		lv_springInit_16_0=ruleAddExp		{
+		lv_springInit_15_0=ruleAddExp		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getJointRule());
 	        }
        		set(
        			$current, 
        			"springInit",
-        		lv_springInit_16_0, 
+        		lv_springInit_15_0, 
         		"AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_17='dampViscous' 
+)	otherlv_16='dampViscous' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getJointAccess().getDampViscousKeyword_17());
+    	newLeafNode(otherlv_16, grammarAccess.getJointAccess().getDampViscousKeyword_16());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_18_0()); 
+	        newCompositeNode(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_17_0()); 
 	    }
-		lv_dampViscous_18_0=ruleAddExp		{
+		lv_dampViscous_17_0=ruleAddExp		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getJointRule());
 	        }
        		set(
        			$current, 
        			"dampViscous",
-        		lv_dampViscous_18_0, 
+        		lv_dampViscous_17_0, 
         		"AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_19='dampCoulomb' 
+)	otherlv_18='dampCoulomb' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getJointAccess().getDampCoulombKeyword_19());
+    	newLeafNode(otherlv_18, grammarAccess.getJointAccess().getDampCoulombKeyword_18());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_20_0()); 
+	        newCompositeNode(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_19_0()); 
 	    }
-		lv_dampCoulomb_20_0=ruleAddExp		{
+		lv_dampCoulomb_19_0=ruleAddExp		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getJointRule());
 	        }
        		set(
        			$current, 
        			"dampCoulomb",
-        		lv_dampCoulomb_20_0, 
+        		lv_dampCoulomb_19_0, 
         		"AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_21='}' 
+)	otherlv_20='}' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getJointAccess().getRightCurlyBracketKeyword_21());
+    	newLeafNode(otherlv_20, grammarAccess.getJointAccess().getRightCurlyBracketKeyword_20());
     }
 )
 ;
