@@ -26,6 +26,7 @@ import uk.ac.kcl.inf.robotics.generator.ConnectiveTreeBuilder;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -51,6 +52,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
  */
 @SuppressWarnings("all")
 public class RigidBodiesGenerator implements IGenerator {
+  private static class IntHolder {
+    public int value = 1;
+  }
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
@@ -399,6 +404,80 @@ public class RigidBodiesGenerator implements IGenerator {
     };
     String _join_5 = IterableExtensions.<Integer>join(_doubleDotLessThan_5, "\n", _function_6);
     _builder.append(_join_5, "");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("% Stiffness data");
+    _builder.newLine();
+    _builder.append("jkd = sym (zeros (3, 2, ");
+    List<Pair<String, List<BaseStiffnessExp>>> _stiffnesses = ctb.getStiffnesses();
+    final Function2<Integer, Pair<String, List<BaseStiffnessExp>>, Integer> _function_7 = new Function2<Integer, Pair<String, List<BaseStiffnessExp>>, Integer>() {
+      @Override
+      public Integer apply(final Integer acc, final Pair<String, List<BaseStiffnessExp>> s) {
+        List<BaseStiffnessExp> _value = s.getValue();
+        int _size = _value.size();
+        return Integer.valueOf(((acc).intValue() + _size));
+      }
+    };
+    Integer _fold_1 = IterableExtensions.<Pair<String, List<BaseStiffnessExp>>, Integer>fold(_stiffnesses, Integer.valueOf(0), _function_7);
+    _builder.append(_fold_1, "");
+    _builder.append("));");
+    _builder.newLineIfNotEmpty();
+    final RigidBodiesGenerator.IntHolder i = new RigidBodiesGenerator.IntHolder();
+    _builder.newLineIfNotEmpty();
+    List<Pair<String, List<BaseStiffnessExp>>> _stiffnesses_1 = ctb.getStiffnesses();
+    final Function1<Pair<String, List<BaseStiffnessExp>>, CharSequence> _function_8 = new Function1<Pair<String, List<BaseStiffnessExp>>, CharSequence>() {
+      @Override
+      public CharSequence apply(final Pair<String, List<BaseStiffnessExp>> stiff) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("% Stiffness values for ");
+        String _key = stiff.getKey();
+        _builder.append(_key, "");
+        _builder.newLineIfNotEmpty();
+        List<BaseStiffnessExp> _value = stiff.getValue();
+        final Function1<BaseStiffnessExp, CharSequence> _function = new Function1<BaseStiffnessExp, CharSequence>() {
+          @Override
+          public CharSequence apply(final BaseStiffnessExp s) {
+            StringConcatenation _builder = new StringConcatenation();
+            _builder.append("jkd (1, :, ");
+            _builder.append(i.value, "");
+            _builder.append(") = [ ");
+            Expression _springCoeff = s.getSpringCoeff();
+            CharSequence _render = RigidBodiesGenerator.this.render(_springCoeff);
+            _builder.append(_render, "");
+            _builder.append(" ");
+            Expression _springInit = s.getSpringInit();
+            CharSequence _render_1 = RigidBodiesGenerator.this.render(_springInit);
+            _builder.append(_render_1, "");
+            _builder.append(" ];");
+            _builder.newLineIfNotEmpty();
+            _builder.append("jkd (2, 1, ");
+            _builder.append(i.value, "");
+            _builder.append(") = ");
+            Expression _dampViscous = s.getDampViscous();
+            CharSequence _render_2 = RigidBodiesGenerator.this.render(_dampViscous);
+            _builder.append(_render_2, "");
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+            _builder.append("jkd (3, 1, ");
+            int _plusPlus = i.value++;
+            _builder.append(_plusPlus, "");
+            _builder.append(") = ");
+            Expression _dampCoulomb = s.getDampCoulomb();
+            CharSequence _render_3 = RigidBodiesGenerator.this.render(_dampCoulomb);
+            _builder.append(_render_3, "");
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+            return _builder.toString();
+          }
+        };
+        String _join = IterableExtensions.<BaseStiffnessExp>join(_value, "\n", _function);
+        _builder.append(_join, "");
+        _builder.newLineIfNotEmpty();
+        return _builder.toString();
+      }
+    };
+    String _join_6 = IterableExtensions.<Pair<String, List<BaseStiffnessExp>>>join(_stiffnesses_1, "\n", _function_8);
+    _builder.append(_join_6, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("% Run program -- Should this really be generated?");

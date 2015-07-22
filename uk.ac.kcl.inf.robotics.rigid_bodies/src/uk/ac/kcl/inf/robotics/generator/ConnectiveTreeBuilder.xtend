@@ -5,6 +5,7 @@ import java.util.LinkedList
 import java.util.List
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.Body
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective
@@ -16,6 +17,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef
 import uk.ac.kcl.inf.robotics.rigidBodies.System
 
 /**
@@ -100,6 +102,9 @@ class ConnectiveTreeBuilder {
 	
 	List<Pair<String, RelativeTransformation>> jointTransformations = new LinkedList<Pair<String, RelativeTransformation>>
 	List<Pair<String, RelativeTransformation>> constraintTransformations = new LinkedList<Pair<String, RelativeTransformation>>
+	
+	List<Pair<String, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> 
+	List<Pair<String, List<BaseStiffnessExp>>> constraintStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> 
 	
 	new (System s) {
 		this.system = s
@@ -190,8 +195,9 @@ class ConnectiveTreeBuilder {
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
 			
 			jointStates.add (new Pair ("joint " + joint.name, joint.type.exp.toStateList))
+			jointStiffnesses.add (new Pair ("joint " + joint.name, joint.type.exp.toStiffnessList))
 
-			jointTransformations.add (new Pair ("joint" + joint.name, joint.relTrans1))
+			jointTransformations.add (new Pair ("joint" + joint.name, joint.relTrans1))			
 		} else if (ct.isConstraint) {
 			val joint = (ct.connective as Joint)
 			// TODO: This seems wrong: How is the position of a constraint joint determined?
@@ -202,6 +208,8 @@ class ConnectiveTreeBuilder {
 			constraintLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (1, parentDesc))
 
 			constraintStates.add (new Pair ("constraint joint " + joint.name, joint.type.exp.toStateList))
+			constraintStiffnesses.add (new Pair ("constraint joint " + joint.name, joint.type.exp.toStiffnessList))
+
 			constraintTransformations.add (new Pair ("constraint joint" + joint.name, joint.relTrans1))
 		} else {
 			val load = ct.connective as ExternalLoad
@@ -213,7 +221,40 @@ class ConnectiveTreeBuilder {
 			loadStates.add (new Pair ("load " + load.name, null))
 		}
 	}
+
+	private def dispatch List<BaseStiffnessExp> toStiffnessList (AdditiveJointType ajt) {
+		val List<BaseStiffnessExp> lResult = new LinkedList<BaseStiffnessExp>
+		
+		lResult.addAll (ajt.left.toStiffnessList)
+		ajt.right.forEach[jte | lResult.addAll(jte.toStiffnessList)]
+		
+		return lResult
+	}
 	
+	private def dispatch List<BaseStiffnessExp> toStiffnessList (JointTypeReference jtr) {
+		val List<BaseStiffnessExp> lResult = new LinkedList<BaseStiffnessExp>
+		
+		lResult.addAll (jtr.ref.exp.toStiffnessList)
+		
+		return lResult
+	}
+
+	private def dispatch List<BaseStiffnessExp> toStiffnessList (BasicJointType bjt) {
+		val List<BaseStiffnessExp> lResult = new LinkedList<BaseStiffnessExp>
+		
+		lResult.add (bjt.stiffness.resolve)
+		
+		return lResult
+	}
+	
+	private def dispatch BaseStiffnessExp resolve (StiffnessRef sr) {
+		sr.ref.resolve
+	} 
+
+	private def dispatch BaseStiffnessExp resolve (BaseStiffnessExp bse) {
+		bse
+	}
+
 	private def dispatch List<JointMovement> toStateList (AdditiveJointType ajt) {
 		val List<JointMovement> lResult = new LinkedList<JointMovement>
 		
@@ -285,5 +326,16 @@ class ConnectiveTreeBuilder {
 		}
 		
 		return allTransformations
+	}
+	
+	List<Pair<String, List<BaseStiffnessExp>>> allStiffnesses = null 
+	
+	def getStiffnesses() {
+		if (allStiffnesses == null) {
+			allStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> (jointStiffnesses)
+			allStiffnesses.addAll (constraintStiffnesses)
+		}
+		
+		return allStiffnesses
 	}
 }

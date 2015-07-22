@@ -99,6 +99,18 @@ class RigidBodiesGenerator implements IGenerator {
 					 	'''0 0 0 0 0'''
 					 }»];'''])»
 		
+		% Stiffness data
+		jkd = sym (zeros (3, 2, «ctb.stiffnesses.fold (0, [acc, s | acc + s.value.size ])»));
+		«val i = new IntHolder»
+		«ctb.stiffnesses.join('\n', [stiff | '''
+				% Stiffness values for «stiff.key»
+				«stiff.value.join ('\n', [s | '''
+					jkd (1, :, «i.value») = [ «s.springCoeff.render» «s.springInit.render» ];
+					jkd (2, 1, «i.value») = «s.dampViscous.render»;
+					jkd (3, 1, «i.value++») = «s.dampCoulomb.render»;
+					'''])»
+			'''])»
+		
 		% Run program -- Should this really be generated?
 		
 		% EOM:
@@ -186,4 +198,9 @@ class RigidBodiesGenerator implements IGenerator {
 	def dispatch CharSequence render(
 		ConstantOrFunctionCallExp cofce
 	) '''«cofce.label» «if (cofce.param.size > 0) {'''(«cofce.param.join (', ', [p | p.render])»)'''}»'''
+	
+	// I know this is silly, but Xtend is a bit too cautious when dealing with final variables...
+	private static class IntHolder {
+		public int value = 1
+	} 
 }

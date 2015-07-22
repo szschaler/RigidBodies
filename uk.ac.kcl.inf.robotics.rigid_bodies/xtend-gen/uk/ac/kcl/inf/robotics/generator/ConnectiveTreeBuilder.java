@@ -14,6 +14,7 @@ import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
@@ -29,6 +30,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
@@ -131,6 +134,10 @@ public class ConnectiveTreeBuilder {
   private List<Pair<String, RelativeTransformation>> jointTransformations = new LinkedList<Pair<String, RelativeTransformation>>();
   
   private List<Pair<String, RelativeTransformation>> constraintTransformations = new LinkedList<Pair<String, RelativeTransformation>>();
+  
+  private List<Pair<String, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>>();
+  
+  private List<Pair<String, List<BaseStiffnessExp>>> constraintStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>>();
   
   public ConnectiveTreeBuilder(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
     this.system = s;
@@ -301,10 +308,17 @@ public class ConnectiveTreeBuilder {
           Pair<String, List<JointMovement>> _pair_6 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
           this.jointStates.add(_pair_6);
           String _name_7 = joint.getName();
-          String _plus_5 = ("joint" + _name_7);
+          String _plus_5 = ("joint " + _name_7);
+          JointType _type_1 = joint.getType();
+          JointTypeExpression _exp_1 = _type_1.getExp();
+          List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_exp_1);
+          Pair<String, List<BaseStiffnessExp>> _pair_7 = new Pair<String, List<BaseStiffnessExp>>(_plus_5, _stiffnessList);
+          this.jointStiffnesses.add(_pair_7);
+          String _name_8 = joint.getName();
+          String _plus_6 = ("joint" + _name_8);
           RelativeTransformation _relTrans1 = joint.getRelTrans1();
-          Pair<String, RelativeTransformation> _pair_7 = new Pair<String, RelativeTransformation>(_plus_5, _relTrans1);
-          _xblockexpression_1 = this.jointTransformations.add(_pair_7);
+          Pair<String, RelativeTransformation> _pair_8 = new Pair<String, RelativeTransformation>(_plus_6, _relTrans1);
+          _xblockexpression_1 = this.jointTransformations.add(_pair_8);
         }
         _xifexpression = _xblockexpression_1;
       } else {
@@ -332,10 +346,17 @@ public class ConnectiveTreeBuilder {
             Pair<String, List<JointMovement>> _pair_4 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
             this.constraintStates.add(_pair_4);
             String _name_5 = joint.getName();
-            String _plus_5 = ("constraint joint" + _name_5);
+            String _plus_5 = ("constraint joint " + _name_5);
+            JointType _type_1 = joint.getType();
+            JointTypeExpression _exp_1 = _type_1.getExp();
+            List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_exp_1);
+            Pair<String, List<BaseStiffnessExp>> _pair_5 = new Pair<String, List<BaseStiffnessExp>>(_plus_5, _stiffnessList);
+            this.constraintStiffnesses.add(_pair_5);
+            String _name_6 = joint.getName();
+            String _plus_6 = ("constraint joint" + _name_6);
             RelativeTransformation _relTrans1 = joint.getRelTrans1();
-            Pair<String, RelativeTransformation> _pair_5 = new Pair<String, RelativeTransformation>(_plus_5, _relTrans1);
-            _xblockexpression_2 = this.constraintTransformations.add(_pair_5);
+            Pair<String, RelativeTransformation> _pair_6 = new Pair<String, RelativeTransformation>(_plus_6, _relTrans1);
+            _xblockexpression_2 = this.constraintTransformations.add(_pair_6);
           }
           _xifexpression_1 = _xblockexpression_2;
         } else {
@@ -362,6 +383,49 @@ public class ConnectiveTreeBuilder {
       _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
+  }
+  
+  private List<BaseStiffnessExp> _toStiffnessList(final AdditiveJointType ajt) {
+    final List<BaseStiffnessExp> lResult = new LinkedList<BaseStiffnessExp>();
+    JointTypeExpression _left = ajt.getLeft();
+    List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_left);
+    lResult.addAll(_stiffnessList);
+    EList<JointTypeExpression> _right = ajt.getRight();
+    final Procedure1<JointTypeExpression> _function = new Procedure1<JointTypeExpression>() {
+      @Override
+      public void apply(final JointTypeExpression jte) {
+        List<BaseStiffnessExp> _stiffnessList = ConnectiveTreeBuilder.this.toStiffnessList(jte);
+        lResult.addAll(_stiffnessList);
+      }
+    };
+    IterableExtensions.<JointTypeExpression>forEach(_right, _function);
+    return lResult;
+  }
+  
+  private List<BaseStiffnessExp> _toStiffnessList(final JointTypeReference jtr) {
+    final List<BaseStiffnessExp> lResult = new LinkedList<BaseStiffnessExp>();
+    JointType _ref = jtr.getRef();
+    JointTypeExpression _exp = _ref.getExp();
+    List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_exp);
+    lResult.addAll(_stiffnessList);
+    return lResult;
+  }
+  
+  private List<BaseStiffnessExp> _toStiffnessList(final BasicJointType bjt) {
+    final List<BaseStiffnessExp> lResult = new LinkedList<BaseStiffnessExp>();
+    StiffnessExp _stiffness = bjt.getStiffness();
+    BaseStiffnessExp _resolve = this.resolve(_stiffness);
+    lResult.add(_resolve);
+    return lResult;
+  }
+  
+  private BaseStiffnessExp _resolve(final StiffnessRef sr) {
+    BaseStiffnessExp _ref = sr.getRef();
+    return this.resolve(_ref);
+  }
+  
+  private BaseStiffnessExp _resolve(final BaseStiffnessExp bse) {
+    return bse;
   }
   
   private List<JointMovement> _toStateList(final AdditiveJointType ajt) {
@@ -476,6 +540,42 @@ public class ConnectiveTreeBuilder {
       IterableExtensions.<Integer>forEach(_doubleDotLessThan, _function);
     }
     return this.allTransformations;
+  }
+  
+  private List<Pair<String, List<BaseStiffnessExp>>> allStiffnesses = null;
+  
+  public List<Pair<String, List<BaseStiffnessExp>>> getStiffnesses() {
+    boolean _equals = Objects.equal(this.allStiffnesses, null);
+    if (_equals) {
+      LinkedList<Pair<String, List<BaseStiffnessExp>>> _linkedList = new LinkedList<Pair<String, List<BaseStiffnessExp>>>(this.jointStiffnesses);
+      this.allStiffnesses = _linkedList;
+      this.allStiffnesses.addAll(this.constraintStiffnesses);
+    }
+    return this.allStiffnesses;
+  }
+  
+  private List<BaseStiffnessExp> toStiffnessList(final JointTypeExpression ajt) {
+    if (ajt instanceof AdditiveJointType) {
+      return _toStiffnessList((AdditiveJointType)ajt);
+    } else if (ajt instanceof BasicJointType) {
+      return _toStiffnessList((BasicJointType)ajt);
+    } else if (ajt instanceof JointTypeReference) {
+      return _toStiffnessList((JointTypeReference)ajt);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(ajt).toString());
+    }
+  }
+  
+  private BaseStiffnessExp resolve(final StiffnessExp bse) {
+    if (bse instanceof BaseStiffnessExp) {
+      return _resolve((BaseStiffnessExp)bse);
+    } else if (bse instanceof StiffnessRef) {
+      return _resolve((StiffnessRef)bse);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(bse).toString());
+    }
   }
   
   private List<JointMovement> toStateList(final JointTypeExpression ajt) {
