@@ -920,14 +920,21 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAtKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cBodyAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cBodyBodyReferenceParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
-		private final Assignment cRelTrans1Assignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cRelTrans1RelativeTransformationParserRuleCall_7_0 = (RuleCall)cRelTrans1Assignment_7.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cWithKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cRelativeKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cTransformationKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cPositionAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cPositionMatrixParserRuleCall_11_0 = (RuleCall)cPositionAssignment_11.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//ExternalLoad:
-		//	"external" "load" name=ID ":" type=LoadType "at" body=BodyReference relTrans1=RelativeTransformation;
+		//	"external" "load" name=ID ":" type=LoadType "at" body=BodyReference "(" "with" "relative" "transformation"
+		//	position=Matrix ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"external" "load" name=ID ":" type=LoadType "at" body=BodyReference relTrans1=RelativeTransformation
+		//"external" "load" name=ID ":" type=LoadType "at" body=BodyReference "(" "with" "relative" "transformation"
+		//position=Matrix ")"
 		public Group getGroup() { return cGroup; }
 
 		//"external"
@@ -960,11 +967,26 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//BodyReference
 		public RuleCall getBodyBodyReferenceParserRuleCall_6_0() { return cBodyBodyReferenceParserRuleCall_6_0; }
 
-		//relTrans1=RelativeTransformation
-		public Assignment getRelTrans1Assignment_7() { return cRelTrans1Assignment_7; }
+		//"("
+		public Keyword getLeftParenthesisKeyword_7() { return cLeftParenthesisKeyword_7; }
 
-		//RelativeTransformation
-		public RuleCall getRelTrans1RelativeTransformationParserRuleCall_7_0() { return cRelTrans1RelativeTransformationParserRuleCall_7_0; }
+		//"with"
+		public Keyword getWithKeyword_8() { return cWithKeyword_8; }
+
+		//"relative"
+		public Keyword getRelativeKeyword_9() { return cRelativeKeyword_9; }
+
+		//"transformation"
+		public Keyword getTransformationKeyword_10() { return cTransformationKeyword_10; }
+
+		//position=Matrix
+		public Assignment getPositionAssignment_11() { return cPositionAssignment_11; }
+
+		//Matrix
+		public RuleCall getPositionMatrixParserRuleCall_11_0() { return cPositionMatrixParserRuleCall_11_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_12() { return cRightParenthesisKeyword_12; }
 	}
 
 	public class MatrixElements extends AbstractParserRuleElementFinder {
@@ -1683,7 +1705,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExternalLoad:
-	//	"external" "load" name=ID ":" type=LoadType "at" body=BodyReference relTrans1=RelativeTransformation;
+	//	"external" "load" name=ID ":" type=LoadType "at" body=BodyReference "(" "with" "relative" "transformation"
+	//	position=Matrix ")";
 	public ExternalLoadElements getExternalLoadAccess() {
 		return pExternalLoad;
 	}

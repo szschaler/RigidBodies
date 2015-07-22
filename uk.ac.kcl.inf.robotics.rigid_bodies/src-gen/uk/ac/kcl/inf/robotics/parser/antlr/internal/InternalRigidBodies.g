@@ -1578,25 +1578,45 @@ ruleExternalLoad returns [EObject current=null]
 	    }
 
 )
-)(
+)	otherlv_7='(' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getExternalLoadAccess().getLeftParenthesisKeyword_7());
+    }
+	otherlv_8='with' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getExternalLoadAccess().getWithKeyword_8());
+    }
+	otherlv_9='relative' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getExternalLoadAccess().getRelativeKeyword_9());
+    }
+	otherlv_10='transformation' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getExternalLoadAccess().getTransformationKeyword_10());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExternalLoadAccess().getRelTrans1RelativeTransformationParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getExternalLoadAccess().getPositionMatrixParserRuleCall_11_0()); 
 	    }
-		lv_relTrans1_7_0=ruleRelativeTransformation		{
+		lv_position_11_0=ruleMatrix		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExternalLoadRule());
 	        }
        		set(
        			$current, 
-       			"relTrans1",
-        		lv_relTrans1_7_0, 
-        		"RelativeTransformation");
+       			"position",
+        		lv_position_11_0, 
+        		"Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))
+)	otherlv_12=')' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getExternalLoadAccess().getRightParenthesisKeyword_12());
+    }
+)
 ;
 
 

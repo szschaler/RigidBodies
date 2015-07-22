@@ -12451,17 +12451,22 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ExternalLoad__Group__7"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4749:1: rule__ExternalLoad__Group__7 : rule__ExternalLoad__Group__7__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4749:1: rule__ExternalLoad__Group__7 : rule__ExternalLoad__Group__7__Impl rule__ExternalLoad__Group__8 ;
     public final void rule__ExternalLoad__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4753:1: ( rule__ExternalLoad__Group__7__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4754:2: rule__ExternalLoad__Group__7__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4753:1: ( rule__ExternalLoad__Group__7__Impl rule__ExternalLoad__Group__8 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4754:2: rule__ExternalLoad__Group__7__Impl rule__ExternalLoad__Group__8
             {
             pushFollow(FOLLOW_rule__ExternalLoad__Group__7__Impl_in_rule__ExternalLoad__Group__79526);
             rule__ExternalLoad__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__8_in_rule__ExternalLoad__Group__79529);
+            rule__ExternalLoad__Group__8();
 
             state._fsp--;
 
@@ -12484,31 +12489,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ExternalLoad__Group__7__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4760:1: rule__ExternalLoad__Group__7__Impl : ( ( rule__ExternalLoad__RelTrans1Assignment_7 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4761:1: rule__ExternalLoad__Group__7__Impl : ( '(' ) ;
     public final void rule__ExternalLoad__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4764:1: ( ( ( rule__ExternalLoad__RelTrans1Assignment_7 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4765:1: ( ( rule__ExternalLoad__RelTrans1Assignment_7 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4765:1: ( ( '(' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4766:1: ( '(' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4765:1: ( ( rule__ExternalLoad__RelTrans1Assignment_7 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4766:1: ( rule__ExternalLoad__RelTrans1Assignment_7 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4766:1: ( '(' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4767:1: '('
             {
-             before(grammarAccess.getExternalLoadAccess().getRelTrans1Assignment_7()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4767:1: ( rule__ExternalLoad__RelTrans1Assignment_7 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4767:2: rule__ExternalLoad__RelTrans1Assignment_7
-            {
-            pushFollow(FOLLOW_rule__ExternalLoad__RelTrans1Assignment_7_in_rule__ExternalLoad__Group__7__Impl9553);
-            rule__ExternalLoad__RelTrans1Assignment_7();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getExternalLoadAccess().getRelTrans1Assignment_7()); 
+             before(grammarAccess.getExternalLoadAccess().getLeftParenthesisKeyword_7()); 
+            match(input,44,FOLLOW_44_in_rule__ExternalLoad__Group__7__Impl9557); 
+             after(grammarAccess.getExternalLoadAccess().getLeftParenthesisKeyword_7()); 
 
             }
 
@@ -12530,22 +12525,402 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__ExternalLoad__Group__7__Impl"
 
 
+    // $ANTLR start "rule__ExternalLoad__Group__8"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4780:1: rule__ExternalLoad__Group__8 : rule__ExternalLoad__Group__8__Impl rule__ExternalLoad__Group__9 ;
+    public final void rule__ExternalLoad__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4784:1: ( rule__ExternalLoad__Group__8__Impl rule__ExternalLoad__Group__9 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4785:2: rule__ExternalLoad__Group__8__Impl rule__ExternalLoad__Group__9
+            {
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__8__Impl_in_rule__ExternalLoad__Group__89588);
+            rule__ExternalLoad__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__9_in_rule__ExternalLoad__Group__89591);
+            rule__ExternalLoad__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__8"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__8__Impl"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4792:1: rule__ExternalLoad__Group__8__Impl : ( 'with' ) ;
+    public final void rule__ExternalLoad__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4796:1: ( ( 'with' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4797:1: ( 'with' )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4797:1: ( 'with' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4798:1: 'with'
+            {
+             before(grammarAccess.getExternalLoadAccess().getWithKeyword_8()); 
+            match(input,48,FOLLOW_48_in_rule__ExternalLoad__Group__8__Impl9619); 
+             after(grammarAccess.getExternalLoadAccess().getWithKeyword_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__8__Impl"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__9"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4811:1: rule__ExternalLoad__Group__9 : rule__ExternalLoad__Group__9__Impl rule__ExternalLoad__Group__10 ;
+    public final void rule__ExternalLoad__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4815:1: ( rule__ExternalLoad__Group__9__Impl rule__ExternalLoad__Group__10 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4816:2: rule__ExternalLoad__Group__9__Impl rule__ExternalLoad__Group__10
+            {
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__9__Impl_in_rule__ExternalLoad__Group__99650);
+            rule__ExternalLoad__Group__9__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__10_in_rule__ExternalLoad__Group__99653);
+            rule__ExternalLoad__Group__10();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__9"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__9__Impl"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4823:1: rule__ExternalLoad__Group__9__Impl : ( 'relative' ) ;
+    public final void rule__ExternalLoad__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4827:1: ( ( 'relative' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4828:1: ( 'relative' )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4828:1: ( 'relative' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4829:1: 'relative'
+            {
+             before(grammarAccess.getExternalLoadAccess().getRelativeKeyword_9()); 
+            match(input,49,FOLLOW_49_in_rule__ExternalLoad__Group__9__Impl9681); 
+             after(grammarAccess.getExternalLoadAccess().getRelativeKeyword_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__9__Impl"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__10"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4842:1: rule__ExternalLoad__Group__10 : rule__ExternalLoad__Group__10__Impl rule__ExternalLoad__Group__11 ;
+    public final void rule__ExternalLoad__Group__10() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4846:1: ( rule__ExternalLoad__Group__10__Impl rule__ExternalLoad__Group__11 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4847:2: rule__ExternalLoad__Group__10__Impl rule__ExternalLoad__Group__11
+            {
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__10__Impl_in_rule__ExternalLoad__Group__109712);
+            rule__ExternalLoad__Group__10__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__11_in_rule__ExternalLoad__Group__109715);
+            rule__ExternalLoad__Group__11();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__10"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__10__Impl"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4854:1: rule__ExternalLoad__Group__10__Impl : ( 'transformation' ) ;
+    public final void rule__ExternalLoad__Group__10__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4858:1: ( ( 'transformation' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4859:1: ( 'transformation' )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4859:1: ( 'transformation' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4860:1: 'transformation'
+            {
+             before(grammarAccess.getExternalLoadAccess().getTransformationKeyword_10()); 
+            match(input,50,FOLLOW_50_in_rule__ExternalLoad__Group__10__Impl9743); 
+             after(grammarAccess.getExternalLoadAccess().getTransformationKeyword_10()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__10__Impl"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__11"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4873:1: rule__ExternalLoad__Group__11 : rule__ExternalLoad__Group__11__Impl rule__ExternalLoad__Group__12 ;
+    public final void rule__ExternalLoad__Group__11() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4877:1: ( rule__ExternalLoad__Group__11__Impl rule__ExternalLoad__Group__12 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4878:2: rule__ExternalLoad__Group__11__Impl rule__ExternalLoad__Group__12
+            {
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__11__Impl_in_rule__ExternalLoad__Group__119774);
+            rule__ExternalLoad__Group__11__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__12_in_rule__ExternalLoad__Group__119777);
+            rule__ExternalLoad__Group__12();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__11"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__11__Impl"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4885:1: rule__ExternalLoad__Group__11__Impl : ( ( rule__ExternalLoad__PositionAssignment_11 ) ) ;
+    public final void rule__ExternalLoad__Group__11__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4889:1: ( ( ( rule__ExternalLoad__PositionAssignment_11 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4890:1: ( ( rule__ExternalLoad__PositionAssignment_11 ) )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4890:1: ( ( rule__ExternalLoad__PositionAssignment_11 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4891:1: ( rule__ExternalLoad__PositionAssignment_11 )
+            {
+             before(grammarAccess.getExternalLoadAccess().getPositionAssignment_11()); 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4892:1: ( rule__ExternalLoad__PositionAssignment_11 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4892:2: rule__ExternalLoad__PositionAssignment_11
+            {
+            pushFollow(FOLLOW_rule__ExternalLoad__PositionAssignment_11_in_rule__ExternalLoad__Group__11__Impl9804);
+            rule__ExternalLoad__PositionAssignment_11();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getExternalLoadAccess().getPositionAssignment_11()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__11__Impl"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__12"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4902:1: rule__ExternalLoad__Group__12 : rule__ExternalLoad__Group__12__Impl ;
+    public final void rule__ExternalLoad__Group__12() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4906:1: ( rule__ExternalLoad__Group__12__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4907:2: rule__ExternalLoad__Group__12__Impl
+            {
+            pushFollow(FOLLOW_rule__ExternalLoad__Group__12__Impl_in_rule__ExternalLoad__Group__129834);
+            rule__ExternalLoad__Group__12__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__12"
+
+
+    // $ANTLR start "rule__ExternalLoad__Group__12__Impl"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4913:1: rule__ExternalLoad__Group__12__Impl : ( ')' ) ;
+    public final void rule__ExternalLoad__Group__12__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4917:1: ( ( ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4918:1: ( ')' )
+            {
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4918:1: ( ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4919:1: ')'
+            {
+             before(grammarAccess.getExternalLoadAccess().getRightParenthesisKeyword_12()); 
+            match(input,45,FOLLOW_45_in_rule__ExternalLoad__Group__12__Impl9862); 
+             after(grammarAccess.getExternalLoadAccess().getRightParenthesisKeyword_12()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExternalLoad__Group__12__Impl"
+
+
     // $ANTLR start "rule__BaseMatrix__Group__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4793:1: rule__BaseMatrix__Group__0 : rule__BaseMatrix__Group__0__Impl rule__BaseMatrix__Group__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4958:1: rule__BaseMatrix__Group__0 : rule__BaseMatrix__Group__0__Impl rule__BaseMatrix__Group__1 ;
     public final void rule__BaseMatrix__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4797:1: ( rule__BaseMatrix__Group__0__Impl rule__BaseMatrix__Group__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4798:2: rule__BaseMatrix__Group__0__Impl rule__BaseMatrix__Group__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4962:1: ( rule__BaseMatrix__Group__0__Impl rule__BaseMatrix__Group__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4963:2: rule__BaseMatrix__Group__0__Impl rule__BaseMatrix__Group__1
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__0__Impl_in_rule__BaseMatrix__Group__09599);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__0__Impl_in_rule__BaseMatrix__Group__09919);
             rule__BaseMatrix__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__1_in_rule__BaseMatrix__Group__09602);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__1_in_rule__BaseMatrix__Group__09922);
             rule__BaseMatrix__Group__1();
 
             state._fsp--;
@@ -12569,20 +12944,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4805:1: rule__BaseMatrix__Group__0__Impl : ( ( rule__BaseMatrix__Group_0__0 )? ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4970:1: rule__BaseMatrix__Group__0__Impl : ( ( rule__BaseMatrix__Group_0__0 )? ) ;
     public final void rule__BaseMatrix__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4809:1: ( ( ( rule__BaseMatrix__Group_0__0 )? ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4810:1: ( ( rule__BaseMatrix__Group_0__0 )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4974:1: ( ( ( rule__BaseMatrix__Group_0__0 )? ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4975:1: ( ( rule__BaseMatrix__Group_0__0 )? )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4810:1: ( ( rule__BaseMatrix__Group_0__0 )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4811:1: ( rule__BaseMatrix__Group_0__0 )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4975:1: ( ( rule__BaseMatrix__Group_0__0 )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4976:1: ( rule__BaseMatrix__Group_0__0 )?
             {
              before(grammarAccess.getBaseMatrixAccess().getGroup_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4812:1: ( rule__BaseMatrix__Group_0__0 )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4977:1: ( rule__BaseMatrix__Group_0__0 )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -12591,9 +12966,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
             }
             switch (alt24) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4812:2: rule__BaseMatrix__Group_0__0
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4977:2: rule__BaseMatrix__Group_0__0
                     {
-                    pushFollow(FOLLOW_rule__BaseMatrix__Group_0__0_in_rule__BaseMatrix__Group__0__Impl9629);
+                    pushFollow(FOLLOW_rule__BaseMatrix__Group_0__0_in_rule__BaseMatrix__Group__0__Impl9949);
                     rule__BaseMatrix__Group_0__0();
 
                     state._fsp--;
@@ -12627,21 +13002,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4822:1: rule__BaseMatrix__Group__1 : rule__BaseMatrix__Group__1__Impl rule__BaseMatrix__Group__2 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4987:1: rule__BaseMatrix__Group__1 : rule__BaseMatrix__Group__1__Impl rule__BaseMatrix__Group__2 ;
     public final void rule__BaseMatrix__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4826:1: ( rule__BaseMatrix__Group__1__Impl rule__BaseMatrix__Group__2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4827:2: rule__BaseMatrix__Group__1__Impl rule__BaseMatrix__Group__2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4991:1: ( rule__BaseMatrix__Group__1__Impl rule__BaseMatrix__Group__2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4992:2: rule__BaseMatrix__Group__1__Impl rule__BaseMatrix__Group__2
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__1__Impl_in_rule__BaseMatrix__Group__19660);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__1__Impl_in_rule__BaseMatrix__Group__19980);
             rule__BaseMatrix__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__2_in_rule__BaseMatrix__Group__19663);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__2_in_rule__BaseMatrix__Group__19983);
             rule__BaseMatrix__Group__2();
 
             state._fsp--;
@@ -12665,20 +13040,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4834:1: rule__BaseMatrix__Group__1__Impl : ( '[' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4999:1: rule__BaseMatrix__Group__1__Impl : ( '[' ) ;
     public final void rule__BaseMatrix__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4838:1: ( ( '[' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4839:1: ( '[' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5003:1: ( ( '[' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5004:1: ( '[' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4839:1: ( '[' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4840:1: '['
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5004:1: ( '[' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5005:1: '['
             {
              before(grammarAccess.getBaseMatrixAccess().getLeftSquareBracketKeyword_1()); 
-            match(input,56,FOLLOW_56_in_rule__BaseMatrix__Group__1__Impl9691); 
+            match(input,56,FOLLOW_56_in_rule__BaseMatrix__Group__1__Impl10011); 
              after(grammarAccess.getBaseMatrixAccess().getLeftSquareBracketKeyword_1()); 
 
             }
@@ -12702,21 +13077,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4853:1: rule__BaseMatrix__Group__2 : rule__BaseMatrix__Group__2__Impl rule__BaseMatrix__Group__3 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5018:1: rule__BaseMatrix__Group__2 : rule__BaseMatrix__Group__2__Impl rule__BaseMatrix__Group__3 ;
     public final void rule__BaseMatrix__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4857:1: ( rule__BaseMatrix__Group__2__Impl rule__BaseMatrix__Group__3 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4858:2: rule__BaseMatrix__Group__2__Impl rule__BaseMatrix__Group__3
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5022:1: ( rule__BaseMatrix__Group__2__Impl rule__BaseMatrix__Group__3 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5023:2: rule__BaseMatrix__Group__2__Impl rule__BaseMatrix__Group__3
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__2__Impl_in_rule__BaseMatrix__Group__29722);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__2__Impl_in_rule__BaseMatrix__Group__210042);
             rule__BaseMatrix__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__3_in_rule__BaseMatrix__Group__29725);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__3_in_rule__BaseMatrix__Group__210045);
             rule__BaseMatrix__Group__3();
 
             state._fsp--;
@@ -12740,23 +13115,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__2__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4865:1: rule__BaseMatrix__Group__2__Impl : ( ( rule__BaseMatrix__ValuesAssignment_2 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5030:1: rule__BaseMatrix__Group__2__Impl : ( ( rule__BaseMatrix__ValuesAssignment_2 ) ) ;
     public final void rule__BaseMatrix__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4869:1: ( ( ( rule__BaseMatrix__ValuesAssignment_2 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4870:1: ( ( rule__BaseMatrix__ValuesAssignment_2 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5034:1: ( ( ( rule__BaseMatrix__ValuesAssignment_2 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5035:1: ( ( rule__BaseMatrix__ValuesAssignment_2 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4870:1: ( ( rule__BaseMatrix__ValuesAssignment_2 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4871:1: ( rule__BaseMatrix__ValuesAssignment_2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5035:1: ( ( rule__BaseMatrix__ValuesAssignment_2 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5036:1: ( rule__BaseMatrix__ValuesAssignment_2 )
             {
              before(grammarAccess.getBaseMatrixAccess().getValuesAssignment_2()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4872:1: ( rule__BaseMatrix__ValuesAssignment_2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4872:2: rule__BaseMatrix__ValuesAssignment_2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5037:1: ( rule__BaseMatrix__ValuesAssignment_2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5037:2: rule__BaseMatrix__ValuesAssignment_2
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__ValuesAssignment_2_in_rule__BaseMatrix__Group__2__Impl9752);
+            pushFollow(FOLLOW_rule__BaseMatrix__ValuesAssignment_2_in_rule__BaseMatrix__Group__2__Impl10072);
             rule__BaseMatrix__ValuesAssignment_2();
 
             state._fsp--;
@@ -12787,21 +13162,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4882:1: rule__BaseMatrix__Group__3 : rule__BaseMatrix__Group__3__Impl rule__BaseMatrix__Group__4 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5047:1: rule__BaseMatrix__Group__3 : rule__BaseMatrix__Group__3__Impl rule__BaseMatrix__Group__4 ;
     public final void rule__BaseMatrix__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4886:1: ( rule__BaseMatrix__Group__3__Impl rule__BaseMatrix__Group__4 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4887:2: rule__BaseMatrix__Group__3__Impl rule__BaseMatrix__Group__4
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5051:1: ( rule__BaseMatrix__Group__3__Impl rule__BaseMatrix__Group__4 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5052:2: rule__BaseMatrix__Group__3__Impl rule__BaseMatrix__Group__4
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__3__Impl_in_rule__BaseMatrix__Group__39782);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__3__Impl_in_rule__BaseMatrix__Group__310102);
             rule__BaseMatrix__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__4_in_rule__BaseMatrix__Group__39785);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__4_in_rule__BaseMatrix__Group__310105);
             rule__BaseMatrix__Group__4();
 
             state._fsp--;
@@ -12825,20 +13200,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__3__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4894:1: rule__BaseMatrix__Group__3__Impl : ( ( rule__BaseMatrix__Group_3__0 )* ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5059:1: rule__BaseMatrix__Group__3__Impl : ( ( rule__BaseMatrix__Group_3__0 )* ) ;
     public final void rule__BaseMatrix__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4898:1: ( ( ( rule__BaseMatrix__Group_3__0 )* ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4899:1: ( ( rule__BaseMatrix__Group_3__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5063:1: ( ( ( rule__BaseMatrix__Group_3__0 )* ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5064:1: ( ( rule__BaseMatrix__Group_3__0 )* )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4899:1: ( ( rule__BaseMatrix__Group_3__0 )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4900:1: ( rule__BaseMatrix__Group_3__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5064:1: ( ( rule__BaseMatrix__Group_3__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5065:1: ( rule__BaseMatrix__Group_3__0 )*
             {
              before(grammarAccess.getBaseMatrixAccess().getGroup_3()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4901:1: ( rule__BaseMatrix__Group_3__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5066:1: ( rule__BaseMatrix__Group_3__0 )*
             loop25:
             do {
                 int alt25=2;
@@ -12851,9 +13226,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
                 switch (alt25) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4901:2: rule__BaseMatrix__Group_3__0
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5066:2: rule__BaseMatrix__Group_3__0
             	    {
-            	    pushFollow(FOLLOW_rule__BaseMatrix__Group_3__0_in_rule__BaseMatrix__Group__3__Impl9812);
+            	    pushFollow(FOLLOW_rule__BaseMatrix__Group_3__0_in_rule__BaseMatrix__Group__3__Impl10132);
             	    rule__BaseMatrix__Group_3__0();
 
             	    state._fsp--;
@@ -12890,16 +13265,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__4"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4911:1: rule__BaseMatrix__Group__4 : rule__BaseMatrix__Group__4__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5076:1: rule__BaseMatrix__Group__4 : rule__BaseMatrix__Group__4__Impl ;
     public final void rule__BaseMatrix__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4915:1: ( rule__BaseMatrix__Group__4__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4916:2: rule__BaseMatrix__Group__4__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5080:1: ( rule__BaseMatrix__Group__4__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5081:2: rule__BaseMatrix__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group__4__Impl_in_rule__BaseMatrix__Group__49843);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group__4__Impl_in_rule__BaseMatrix__Group__410163);
             rule__BaseMatrix__Group__4__Impl();
 
             state._fsp--;
@@ -12923,20 +13298,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group__4__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4922:1: rule__BaseMatrix__Group__4__Impl : ( ']' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5087:1: rule__BaseMatrix__Group__4__Impl : ( ']' ) ;
     public final void rule__BaseMatrix__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4926:1: ( ( ']' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4927:1: ( ']' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5091:1: ( ( ']' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5092:1: ( ']' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4927:1: ( ']' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4928:1: ']'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5092:1: ( ']' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5093:1: ']'
             {
              before(grammarAccess.getBaseMatrixAccess().getRightSquareBracketKeyword_4()); 
-            match(input,57,FOLLOW_57_in_rule__BaseMatrix__Group__4__Impl9871); 
+            match(input,57,FOLLOW_57_in_rule__BaseMatrix__Group__4__Impl10191); 
              after(grammarAccess.getBaseMatrixAccess().getRightSquareBracketKeyword_4()); 
 
             }
@@ -12960,21 +13335,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_0__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4951:1: rule__BaseMatrix__Group_0__0 : rule__BaseMatrix__Group_0__0__Impl rule__BaseMatrix__Group_0__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5116:1: rule__BaseMatrix__Group_0__0 : rule__BaseMatrix__Group_0__0__Impl rule__BaseMatrix__Group_0__1 ;
     public final void rule__BaseMatrix__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4955:1: ( rule__BaseMatrix__Group_0__0__Impl rule__BaseMatrix__Group_0__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4956:2: rule__BaseMatrix__Group_0__0__Impl rule__BaseMatrix__Group_0__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5120:1: ( rule__BaseMatrix__Group_0__0__Impl rule__BaseMatrix__Group_0__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5121:2: rule__BaseMatrix__Group_0__0__Impl rule__BaseMatrix__Group_0__1
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group_0__0__Impl_in_rule__BaseMatrix__Group_0__09912);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group_0__0__Impl_in_rule__BaseMatrix__Group_0__010232);
             rule__BaseMatrix__Group_0__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BaseMatrix__Group_0__1_in_rule__BaseMatrix__Group_0__09915);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group_0__1_in_rule__BaseMatrix__Group_0__010235);
             rule__BaseMatrix__Group_0__1();
 
             state._fsp--;
@@ -12998,20 +13373,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_0__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4963:1: rule__BaseMatrix__Group_0__0__Impl : ( 'matrix' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5128:1: rule__BaseMatrix__Group_0__0__Impl : ( 'matrix' ) ;
     public final void rule__BaseMatrix__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4967:1: ( ( 'matrix' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4968:1: ( 'matrix' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5132:1: ( ( 'matrix' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5133:1: ( 'matrix' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4968:1: ( 'matrix' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4969:1: 'matrix'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5133:1: ( 'matrix' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5134:1: 'matrix'
             {
              before(grammarAccess.getBaseMatrixAccess().getMatrixKeyword_0_0()); 
-            match(input,58,FOLLOW_58_in_rule__BaseMatrix__Group_0__0__Impl9943); 
+            match(input,58,FOLLOW_58_in_rule__BaseMatrix__Group_0__0__Impl10263); 
              after(grammarAccess.getBaseMatrixAccess().getMatrixKeyword_0_0()); 
 
             }
@@ -13035,16 +13410,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_0__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4982:1: rule__BaseMatrix__Group_0__1 : rule__BaseMatrix__Group_0__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5147:1: rule__BaseMatrix__Group_0__1 : rule__BaseMatrix__Group_0__1__Impl ;
     public final void rule__BaseMatrix__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4986:1: ( rule__BaseMatrix__Group_0__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4987:2: rule__BaseMatrix__Group_0__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5151:1: ( rule__BaseMatrix__Group_0__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5152:2: rule__BaseMatrix__Group_0__1__Impl
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group_0__1__Impl_in_rule__BaseMatrix__Group_0__19974);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group_0__1__Impl_in_rule__BaseMatrix__Group_0__110294);
             rule__BaseMatrix__Group_0__1__Impl();
 
             state._fsp--;
@@ -13068,23 +13443,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_0__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4993:1: rule__BaseMatrix__Group_0__1__Impl : ( ( rule__BaseMatrix__NameAssignment_0_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5158:1: rule__BaseMatrix__Group_0__1__Impl : ( ( rule__BaseMatrix__NameAssignment_0_1 ) ) ;
     public final void rule__BaseMatrix__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4997:1: ( ( ( rule__BaseMatrix__NameAssignment_0_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4998:1: ( ( rule__BaseMatrix__NameAssignment_0_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5162:1: ( ( ( rule__BaseMatrix__NameAssignment_0_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5163:1: ( ( rule__BaseMatrix__NameAssignment_0_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4998:1: ( ( rule__BaseMatrix__NameAssignment_0_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4999:1: ( rule__BaseMatrix__NameAssignment_0_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5163:1: ( ( rule__BaseMatrix__NameAssignment_0_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5164:1: ( rule__BaseMatrix__NameAssignment_0_1 )
             {
              before(grammarAccess.getBaseMatrixAccess().getNameAssignment_0_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5000:1: ( rule__BaseMatrix__NameAssignment_0_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5000:2: rule__BaseMatrix__NameAssignment_0_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5165:1: ( rule__BaseMatrix__NameAssignment_0_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5165:2: rule__BaseMatrix__NameAssignment_0_1
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__NameAssignment_0_1_in_rule__BaseMatrix__Group_0__1__Impl10001);
+            pushFollow(FOLLOW_rule__BaseMatrix__NameAssignment_0_1_in_rule__BaseMatrix__Group_0__1__Impl10321);
             rule__BaseMatrix__NameAssignment_0_1();
 
             state._fsp--;
@@ -13115,21 +13490,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_3__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5014:1: rule__BaseMatrix__Group_3__0 : rule__BaseMatrix__Group_3__0__Impl rule__BaseMatrix__Group_3__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5179:1: rule__BaseMatrix__Group_3__0 : rule__BaseMatrix__Group_3__0__Impl rule__BaseMatrix__Group_3__1 ;
     public final void rule__BaseMatrix__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5018:1: ( rule__BaseMatrix__Group_3__0__Impl rule__BaseMatrix__Group_3__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5019:2: rule__BaseMatrix__Group_3__0__Impl rule__BaseMatrix__Group_3__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5183:1: ( rule__BaseMatrix__Group_3__0__Impl rule__BaseMatrix__Group_3__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5184:2: rule__BaseMatrix__Group_3__0__Impl rule__BaseMatrix__Group_3__1
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group_3__0__Impl_in_rule__BaseMatrix__Group_3__010035);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group_3__0__Impl_in_rule__BaseMatrix__Group_3__010355);
             rule__BaseMatrix__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BaseMatrix__Group_3__1_in_rule__BaseMatrix__Group_3__010038);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group_3__1_in_rule__BaseMatrix__Group_3__010358);
             rule__BaseMatrix__Group_3__1();
 
             state._fsp--;
@@ -13153,20 +13528,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_3__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5026:1: rule__BaseMatrix__Group_3__0__Impl : ( ',' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5191:1: rule__BaseMatrix__Group_3__0__Impl : ( ',' ) ;
     public final void rule__BaseMatrix__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5030:1: ( ( ',' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5031:1: ( ',' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5195:1: ( ( ',' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5196:1: ( ',' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5031:1: ( ',' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5032:1: ','
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5196:1: ( ',' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5197:1: ','
             {
              before(grammarAccess.getBaseMatrixAccess().getCommaKeyword_3_0()); 
-            match(input,46,FOLLOW_46_in_rule__BaseMatrix__Group_3__0__Impl10066); 
+            match(input,46,FOLLOW_46_in_rule__BaseMatrix__Group_3__0__Impl10386); 
              after(grammarAccess.getBaseMatrixAccess().getCommaKeyword_3_0()); 
 
             }
@@ -13190,16 +13565,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_3__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5045:1: rule__BaseMatrix__Group_3__1 : rule__BaseMatrix__Group_3__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5210:1: rule__BaseMatrix__Group_3__1 : rule__BaseMatrix__Group_3__1__Impl ;
     public final void rule__BaseMatrix__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5049:1: ( rule__BaseMatrix__Group_3__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5050:2: rule__BaseMatrix__Group_3__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5214:1: ( rule__BaseMatrix__Group_3__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5215:2: rule__BaseMatrix__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__Group_3__1__Impl_in_rule__BaseMatrix__Group_3__110097);
+            pushFollow(FOLLOW_rule__BaseMatrix__Group_3__1__Impl_in_rule__BaseMatrix__Group_3__110417);
             rule__BaseMatrix__Group_3__1__Impl();
 
             state._fsp--;
@@ -13223,23 +13598,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__Group_3__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5056:1: rule__BaseMatrix__Group_3__1__Impl : ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5221:1: rule__BaseMatrix__Group_3__1__Impl : ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) ) ;
     public final void rule__BaseMatrix__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5060:1: ( ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5061:1: ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5225:1: ( ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5226:1: ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5061:1: ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5062:1: ( rule__BaseMatrix__ValuesAssignment_3_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5226:1: ( ( rule__BaseMatrix__ValuesAssignment_3_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5227:1: ( rule__BaseMatrix__ValuesAssignment_3_1 )
             {
              before(grammarAccess.getBaseMatrixAccess().getValuesAssignment_3_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5063:1: ( rule__BaseMatrix__ValuesAssignment_3_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5063:2: rule__BaseMatrix__ValuesAssignment_3_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5228:1: ( rule__BaseMatrix__ValuesAssignment_3_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5228:2: rule__BaseMatrix__ValuesAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__BaseMatrix__ValuesAssignment_3_1_in_rule__BaseMatrix__Group_3__1__Impl10124);
+            pushFollow(FOLLOW_rule__BaseMatrix__ValuesAssignment_3_1_in_rule__BaseMatrix__Group_3__1__Impl10444);
             rule__BaseMatrix__ValuesAssignment_3_1();
 
             state._fsp--;
@@ -13270,21 +13645,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5077:1: rule__AddExp__Group__0 : rule__AddExp__Group__0__Impl rule__AddExp__Group__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5242:1: rule__AddExp__Group__0 : rule__AddExp__Group__0__Impl rule__AddExp__Group__1 ;
     public final void rule__AddExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5081:1: ( rule__AddExp__Group__0__Impl rule__AddExp__Group__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5082:2: rule__AddExp__Group__0__Impl rule__AddExp__Group__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5246:1: ( rule__AddExp__Group__0__Impl rule__AddExp__Group__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5247:2: rule__AddExp__Group__0__Impl rule__AddExp__Group__1
             {
-            pushFollow(FOLLOW_rule__AddExp__Group__0__Impl_in_rule__AddExp__Group__010158);
+            pushFollow(FOLLOW_rule__AddExp__Group__0__Impl_in_rule__AddExp__Group__010478);
             rule__AddExp__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__AddExp__Group__1_in_rule__AddExp__Group__010161);
+            pushFollow(FOLLOW_rule__AddExp__Group__1_in_rule__AddExp__Group__010481);
             rule__AddExp__Group__1();
 
             state._fsp--;
@@ -13308,20 +13683,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5089:1: rule__AddExp__Group__0__Impl : ( ruleMultExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5254:1: rule__AddExp__Group__0__Impl : ( ruleMultExp ) ;
     public final void rule__AddExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5093:1: ( ( ruleMultExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5094:1: ( ruleMultExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5258:1: ( ( ruleMultExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5259:1: ( ruleMultExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5094:1: ( ruleMultExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5095:1: ruleMultExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5259:1: ( ruleMultExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5260:1: ruleMultExp
             {
              before(grammarAccess.getAddExpAccess().getMultExpParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleMultExp_in_rule__AddExp__Group__0__Impl10188);
+            pushFollow(FOLLOW_ruleMultExp_in_rule__AddExp__Group__0__Impl10508);
             ruleMultExp();
 
             state._fsp--;
@@ -13349,16 +13724,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5106:1: rule__AddExp__Group__1 : rule__AddExp__Group__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5271:1: rule__AddExp__Group__1 : rule__AddExp__Group__1__Impl ;
     public final void rule__AddExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5110:1: ( rule__AddExp__Group__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5111:2: rule__AddExp__Group__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5275:1: ( rule__AddExp__Group__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5276:2: rule__AddExp__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__AddExp__Group__1__Impl_in_rule__AddExp__Group__110217);
+            pushFollow(FOLLOW_rule__AddExp__Group__1__Impl_in_rule__AddExp__Group__110537);
             rule__AddExp__Group__1__Impl();
 
             state._fsp--;
@@ -13382,20 +13757,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5117:1: rule__AddExp__Group__1__Impl : ( ( rule__AddExp__Group_1__0 )* ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5282:1: rule__AddExp__Group__1__Impl : ( ( rule__AddExp__Group_1__0 )* ) ;
     public final void rule__AddExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5121:1: ( ( ( rule__AddExp__Group_1__0 )* ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5122:1: ( ( rule__AddExp__Group_1__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5286:1: ( ( ( rule__AddExp__Group_1__0 )* ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5287:1: ( ( rule__AddExp__Group_1__0 )* )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5122:1: ( ( rule__AddExp__Group_1__0 )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5123:1: ( rule__AddExp__Group_1__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5287:1: ( ( rule__AddExp__Group_1__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5288:1: ( rule__AddExp__Group_1__0 )*
             {
              before(grammarAccess.getAddExpAccess().getGroup_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5124:1: ( rule__AddExp__Group_1__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5289:1: ( rule__AddExp__Group_1__0 )*
             loop26:
             do {
                 int alt26=2;
@@ -13408,9 +13783,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
                 switch (alt26) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5124:2: rule__AddExp__Group_1__0
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5289:2: rule__AddExp__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__AddExp__Group_1__0_in_rule__AddExp__Group__1__Impl10244);
+            	    pushFollow(FOLLOW_rule__AddExp__Group_1__0_in_rule__AddExp__Group__1__Impl10564);
             	    rule__AddExp__Group_1__0();
 
             	    state._fsp--;
@@ -13447,21 +13822,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group_1__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5138:1: rule__AddExp__Group_1__0 : rule__AddExp__Group_1__0__Impl rule__AddExp__Group_1__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5303:1: rule__AddExp__Group_1__0 : rule__AddExp__Group_1__0__Impl rule__AddExp__Group_1__1 ;
     public final void rule__AddExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5142:1: ( rule__AddExp__Group_1__0__Impl rule__AddExp__Group_1__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5143:2: rule__AddExp__Group_1__0__Impl rule__AddExp__Group_1__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5307:1: ( rule__AddExp__Group_1__0__Impl rule__AddExp__Group_1__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5308:2: rule__AddExp__Group_1__0__Impl rule__AddExp__Group_1__1
             {
-            pushFollow(FOLLOW_rule__AddExp__Group_1__0__Impl_in_rule__AddExp__Group_1__010279);
+            pushFollow(FOLLOW_rule__AddExp__Group_1__0__Impl_in_rule__AddExp__Group_1__010599);
             rule__AddExp__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__AddExp__Group_1__1_in_rule__AddExp__Group_1__010282);
+            pushFollow(FOLLOW_rule__AddExp__Group_1__1_in_rule__AddExp__Group_1__010602);
             rule__AddExp__Group_1__1();
 
             state._fsp--;
@@ -13485,21 +13860,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group_1__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5150:1: rule__AddExp__Group_1__0__Impl : ( () ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5315:1: rule__AddExp__Group_1__0__Impl : ( () ) ;
     public final void rule__AddExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5154:1: ( ( () ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5155:1: ( () )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5319:1: ( ( () ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5320:1: ( () )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5155:1: ( () )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5156:1: ()
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5320:1: ( () )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5321:1: ()
             {
              before(grammarAccess.getAddExpAccess().getAddExpLeftAction_1_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5157:1: ()
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5159:1: 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5322:1: ()
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5324:1: 
             {
             }
 
@@ -13522,21 +13897,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group_1__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5169:1: rule__AddExp__Group_1__1 : rule__AddExp__Group_1__1__Impl rule__AddExp__Group_1__2 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5334:1: rule__AddExp__Group_1__1 : rule__AddExp__Group_1__1__Impl rule__AddExp__Group_1__2 ;
     public final void rule__AddExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5173:1: ( rule__AddExp__Group_1__1__Impl rule__AddExp__Group_1__2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5174:2: rule__AddExp__Group_1__1__Impl rule__AddExp__Group_1__2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5338:1: ( rule__AddExp__Group_1__1__Impl rule__AddExp__Group_1__2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5339:2: rule__AddExp__Group_1__1__Impl rule__AddExp__Group_1__2
             {
-            pushFollow(FOLLOW_rule__AddExp__Group_1__1__Impl_in_rule__AddExp__Group_1__110340);
+            pushFollow(FOLLOW_rule__AddExp__Group_1__1__Impl_in_rule__AddExp__Group_1__110660);
             rule__AddExp__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__AddExp__Group_1__2_in_rule__AddExp__Group_1__110343);
+            pushFollow(FOLLOW_rule__AddExp__Group_1__2_in_rule__AddExp__Group_1__110663);
             rule__AddExp__Group_1__2();
 
             state._fsp--;
@@ -13560,23 +13935,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group_1__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5181:1: rule__AddExp__Group_1__1__Impl : ( ( rule__AddExp__OpAssignment_1_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5346:1: rule__AddExp__Group_1__1__Impl : ( ( rule__AddExp__OpAssignment_1_1 ) ) ;
     public final void rule__AddExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5185:1: ( ( ( rule__AddExp__OpAssignment_1_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5186:1: ( ( rule__AddExp__OpAssignment_1_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5350:1: ( ( ( rule__AddExp__OpAssignment_1_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5351:1: ( ( rule__AddExp__OpAssignment_1_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5186:1: ( ( rule__AddExp__OpAssignment_1_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5187:1: ( rule__AddExp__OpAssignment_1_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5351:1: ( ( rule__AddExp__OpAssignment_1_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5352:1: ( rule__AddExp__OpAssignment_1_1 )
             {
              before(grammarAccess.getAddExpAccess().getOpAssignment_1_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5188:1: ( rule__AddExp__OpAssignment_1_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5188:2: rule__AddExp__OpAssignment_1_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5353:1: ( rule__AddExp__OpAssignment_1_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5353:2: rule__AddExp__OpAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__AddExp__OpAssignment_1_1_in_rule__AddExp__Group_1__1__Impl10370);
+            pushFollow(FOLLOW_rule__AddExp__OpAssignment_1_1_in_rule__AddExp__Group_1__1__Impl10690);
             rule__AddExp__OpAssignment_1_1();
 
             state._fsp--;
@@ -13607,16 +13982,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group_1__2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5198:1: rule__AddExp__Group_1__2 : rule__AddExp__Group_1__2__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5363:1: rule__AddExp__Group_1__2 : rule__AddExp__Group_1__2__Impl ;
     public final void rule__AddExp__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5202:1: ( rule__AddExp__Group_1__2__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5203:2: rule__AddExp__Group_1__2__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5367:1: ( rule__AddExp__Group_1__2__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5368:2: rule__AddExp__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__AddExp__Group_1__2__Impl_in_rule__AddExp__Group_1__210400);
+            pushFollow(FOLLOW_rule__AddExp__Group_1__2__Impl_in_rule__AddExp__Group_1__210720);
             rule__AddExp__Group_1__2__Impl();
 
             state._fsp--;
@@ -13640,23 +14015,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__Group_1__2__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5209:1: rule__AddExp__Group_1__2__Impl : ( ( rule__AddExp__RightAssignment_1_2 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5374:1: rule__AddExp__Group_1__2__Impl : ( ( rule__AddExp__RightAssignment_1_2 ) ) ;
     public final void rule__AddExp__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5213:1: ( ( ( rule__AddExp__RightAssignment_1_2 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5214:1: ( ( rule__AddExp__RightAssignment_1_2 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5378:1: ( ( ( rule__AddExp__RightAssignment_1_2 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5379:1: ( ( rule__AddExp__RightAssignment_1_2 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5214:1: ( ( rule__AddExp__RightAssignment_1_2 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5215:1: ( rule__AddExp__RightAssignment_1_2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5379:1: ( ( rule__AddExp__RightAssignment_1_2 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5380:1: ( rule__AddExp__RightAssignment_1_2 )
             {
              before(grammarAccess.getAddExpAccess().getRightAssignment_1_2()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5216:1: ( rule__AddExp__RightAssignment_1_2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5216:2: rule__AddExp__RightAssignment_1_2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5381:1: ( rule__AddExp__RightAssignment_1_2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5381:2: rule__AddExp__RightAssignment_1_2
             {
-            pushFollow(FOLLOW_rule__AddExp__RightAssignment_1_2_in_rule__AddExp__Group_1__2__Impl10427);
+            pushFollow(FOLLOW_rule__AddExp__RightAssignment_1_2_in_rule__AddExp__Group_1__2__Impl10747);
             rule__AddExp__RightAssignment_1_2();
 
             state._fsp--;
@@ -13687,21 +14062,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5232:1: rule__MultExp__Group__0 : rule__MultExp__Group__0__Impl rule__MultExp__Group__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5397:1: rule__MultExp__Group__0 : rule__MultExp__Group__0__Impl rule__MultExp__Group__1 ;
     public final void rule__MultExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5236:1: ( rule__MultExp__Group__0__Impl rule__MultExp__Group__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5237:2: rule__MultExp__Group__0__Impl rule__MultExp__Group__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5401:1: ( rule__MultExp__Group__0__Impl rule__MultExp__Group__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5402:2: rule__MultExp__Group__0__Impl rule__MultExp__Group__1
             {
-            pushFollow(FOLLOW_rule__MultExp__Group__0__Impl_in_rule__MultExp__Group__010463);
+            pushFollow(FOLLOW_rule__MultExp__Group__0__Impl_in_rule__MultExp__Group__010783);
             rule__MultExp__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MultExp__Group__1_in_rule__MultExp__Group__010466);
+            pushFollow(FOLLOW_rule__MultExp__Group__1_in_rule__MultExp__Group__010786);
             rule__MultExp__Group__1();
 
             state._fsp--;
@@ -13725,20 +14100,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5244:1: rule__MultExp__Group__0__Impl : ( rulePrimary ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5409:1: rule__MultExp__Group__0__Impl : ( rulePrimary ) ;
     public final void rule__MultExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5248:1: ( ( rulePrimary ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5249:1: ( rulePrimary )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5413:1: ( ( rulePrimary ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5414:1: ( rulePrimary )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5249:1: ( rulePrimary )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5250:1: rulePrimary
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5414:1: ( rulePrimary )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5415:1: rulePrimary
             {
              before(grammarAccess.getMultExpAccess().getPrimaryParserRuleCall_0()); 
-            pushFollow(FOLLOW_rulePrimary_in_rule__MultExp__Group__0__Impl10493);
+            pushFollow(FOLLOW_rulePrimary_in_rule__MultExp__Group__0__Impl10813);
             rulePrimary();
 
             state._fsp--;
@@ -13766,16 +14141,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5261:1: rule__MultExp__Group__1 : rule__MultExp__Group__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5426:1: rule__MultExp__Group__1 : rule__MultExp__Group__1__Impl ;
     public final void rule__MultExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5265:1: ( rule__MultExp__Group__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5266:2: rule__MultExp__Group__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5430:1: ( rule__MultExp__Group__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5431:2: rule__MultExp__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__MultExp__Group__1__Impl_in_rule__MultExp__Group__110522);
+            pushFollow(FOLLOW_rule__MultExp__Group__1__Impl_in_rule__MultExp__Group__110842);
             rule__MultExp__Group__1__Impl();
 
             state._fsp--;
@@ -13799,20 +14174,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5272:1: rule__MultExp__Group__1__Impl : ( ( rule__MultExp__Group_1__0 )* ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5437:1: rule__MultExp__Group__1__Impl : ( ( rule__MultExp__Group_1__0 )* ) ;
     public final void rule__MultExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5276:1: ( ( ( rule__MultExp__Group_1__0 )* ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5277:1: ( ( rule__MultExp__Group_1__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5441:1: ( ( ( rule__MultExp__Group_1__0 )* ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5442:1: ( ( rule__MultExp__Group_1__0 )* )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5277:1: ( ( rule__MultExp__Group_1__0 )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5278:1: ( rule__MultExp__Group_1__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5442:1: ( ( rule__MultExp__Group_1__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5443:1: ( rule__MultExp__Group_1__0 )*
             {
              before(grammarAccess.getMultExpAccess().getGroup_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5279:1: ( rule__MultExp__Group_1__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5444:1: ( rule__MultExp__Group_1__0 )*
             loop27:
             do {
                 int alt27=2;
@@ -13825,9 +14200,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
                 switch (alt27) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5279:2: rule__MultExp__Group_1__0
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5444:2: rule__MultExp__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__MultExp__Group_1__0_in_rule__MultExp__Group__1__Impl10549);
+            	    pushFollow(FOLLOW_rule__MultExp__Group_1__0_in_rule__MultExp__Group__1__Impl10869);
             	    rule__MultExp__Group_1__0();
 
             	    state._fsp--;
@@ -13864,21 +14239,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group_1__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5293:1: rule__MultExp__Group_1__0 : rule__MultExp__Group_1__0__Impl rule__MultExp__Group_1__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5458:1: rule__MultExp__Group_1__0 : rule__MultExp__Group_1__0__Impl rule__MultExp__Group_1__1 ;
     public final void rule__MultExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5297:1: ( rule__MultExp__Group_1__0__Impl rule__MultExp__Group_1__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5298:2: rule__MultExp__Group_1__0__Impl rule__MultExp__Group_1__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5462:1: ( rule__MultExp__Group_1__0__Impl rule__MultExp__Group_1__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5463:2: rule__MultExp__Group_1__0__Impl rule__MultExp__Group_1__1
             {
-            pushFollow(FOLLOW_rule__MultExp__Group_1__0__Impl_in_rule__MultExp__Group_1__010584);
+            pushFollow(FOLLOW_rule__MultExp__Group_1__0__Impl_in_rule__MultExp__Group_1__010904);
             rule__MultExp__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MultExp__Group_1__1_in_rule__MultExp__Group_1__010587);
+            pushFollow(FOLLOW_rule__MultExp__Group_1__1_in_rule__MultExp__Group_1__010907);
             rule__MultExp__Group_1__1();
 
             state._fsp--;
@@ -13902,21 +14277,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group_1__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5305:1: rule__MultExp__Group_1__0__Impl : ( () ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5470:1: rule__MultExp__Group_1__0__Impl : ( () ) ;
     public final void rule__MultExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5309:1: ( ( () ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5310:1: ( () )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5474:1: ( ( () ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5475:1: ( () )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5310:1: ( () )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5311:1: ()
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5475:1: ( () )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5476:1: ()
             {
              before(grammarAccess.getMultExpAccess().getMultExpLeftAction_1_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5312:1: ()
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5314:1: 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5477:1: ()
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5479:1: 
             {
             }
 
@@ -13939,21 +14314,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group_1__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5324:1: rule__MultExp__Group_1__1 : rule__MultExp__Group_1__1__Impl rule__MultExp__Group_1__2 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5489:1: rule__MultExp__Group_1__1 : rule__MultExp__Group_1__1__Impl rule__MultExp__Group_1__2 ;
     public final void rule__MultExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5328:1: ( rule__MultExp__Group_1__1__Impl rule__MultExp__Group_1__2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5329:2: rule__MultExp__Group_1__1__Impl rule__MultExp__Group_1__2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5493:1: ( rule__MultExp__Group_1__1__Impl rule__MultExp__Group_1__2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5494:2: rule__MultExp__Group_1__1__Impl rule__MultExp__Group_1__2
             {
-            pushFollow(FOLLOW_rule__MultExp__Group_1__1__Impl_in_rule__MultExp__Group_1__110645);
+            pushFollow(FOLLOW_rule__MultExp__Group_1__1__Impl_in_rule__MultExp__Group_1__110965);
             rule__MultExp__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MultExp__Group_1__2_in_rule__MultExp__Group_1__110648);
+            pushFollow(FOLLOW_rule__MultExp__Group_1__2_in_rule__MultExp__Group_1__110968);
             rule__MultExp__Group_1__2();
 
             state._fsp--;
@@ -13977,23 +14352,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group_1__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5336:1: rule__MultExp__Group_1__1__Impl : ( ( rule__MultExp__OpAssignment_1_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5501:1: rule__MultExp__Group_1__1__Impl : ( ( rule__MultExp__OpAssignment_1_1 ) ) ;
     public final void rule__MultExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5340:1: ( ( ( rule__MultExp__OpAssignment_1_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5341:1: ( ( rule__MultExp__OpAssignment_1_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5505:1: ( ( ( rule__MultExp__OpAssignment_1_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5506:1: ( ( rule__MultExp__OpAssignment_1_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5341:1: ( ( rule__MultExp__OpAssignment_1_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5342:1: ( rule__MultExp__OpAssignment_1_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5506:1: ( ( rule__MultExp__OpAssignment_1_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5507:1: ( rule__MultExp__OpAssignment_1_1 )
             {
              before(grammarAccess.getMultExpAccess().getOpAssignment_1_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5343:1: ( rule__MultExp__OpAssignment_1_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5343:2: rule__MultExp__OpAssignment_1_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5508:1: ( rule__MultExp__OpAssignment_1_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5508:2: rule__MultExp__OpAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__MultExp__OpAssignment_1_1_in_rule__MultExp__Group_1__1__Impl10675);
+            pushFollow(FOLLOW_rule__MultExp__OpAssignment_1_1_in_rule__MultExp__Group_1__1__Impl10995);
             rule__MultExp__OpAssignment_1_1();
 
             state._fsp--;
@@ -14024,16 +14399,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group_1__2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5353:1: rule__MultExp__Group_1__2 : rule__MultExp__Group_1__2__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5518:1: rule__MultExp__Group_1__2 : rule__MultExp__Group_1__2__Impl ;
     public final void rule__MultExp__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5357:1: ( rule__MultExp__Group_1__2__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5358:2: rule__MultExp__Group_1__2__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5522:1: ( rule__MultExp__Group_1__2__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5523:2: rule__MultExp__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__MultExp__Group_1__2__Impl_in_rule__MultExp__Group_1__210705);
+            pushFollow(FOLLOW_rule__MultExp__Group_1__2__Impl_in_rule__MultExp__Group_1__211025);
             rule__MultExp__Group_1__2__Impl();
 
             state._fsp--;
@@ -14057,23 +14432,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__Group_1__2__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5364:1: rule__MultExp__Group_1__2__Impl : ( ( rule__MultExp__RightAssignment_1_2 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5529:1: rule__MultExp__Group_1__2__Impl : ( ( rule__MultExp__RightAssignment_1_2 ) ) ;
     public final void rule__MultExp__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5368:1: ( ( ( rule__MultExp__RightAssignment_1_2 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5369:1: ( ( rule__MultExp__RightAssignment_1_2 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5533:1: ( ( ( rule__MultExp__RightAssignment_1_2 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5534:1: ( ( rule__MultExp__RightAssignment_1_2 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5369:1: ( ( rule__MultExp__RightAssignment_1_2 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5370:1: ( rule__MultExp__RightAssignment_1_2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5534:1: ( ( rule__MultExp__RightAssignment_1_2 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5535:1: ( rule__MultExp__RightAssignment_1_2 )
             {
              before(grammarAccess.getMultExpAccess().getRightAssignment_1_2()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5371:1: ( rule__MultExp__RightAssignment_1_2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5371:2: rule__MultExp__RightAssignment_1_2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5536:1: ( rule__MultExp__RightAssignment_1_2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5536:2: rule__MultExp__RightAssignment_1_2
             {
-            pushFollow(FOLLOW_rule__MultExp__RightAssignment_1_2_in_rule__MultExp__Group_1__2__Impl10732);
+            pushFollow(FOLLOW_rule__MultExp__RightAssignment_1_2_in_rule__MultExp__Group_1__2__Impl11052);
             rule__MultExp__RightAssignment_1_2();
 
             state._fsp--;
@@ -14104,21 +14479,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__Group__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5387:1: rule__ParenthesisedExp__Group__0 : rule__ParenthesisedExp__Group__0__Impl rule__ParenthesisedExp__Group__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5552:1: rule__ParenthesisedExp__Group__0 : rule__ParenthesisedExp__Group__0__Impl rule__ParenthesisedExp__Group__1 ;
     public final void rule__ParenthesisedExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5391:1: ( rule__ParenthesisedExp__Group__0__Impl rule__ParenthesisedExp__Group__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5392:2: rule__ParenthesisedExp__Group__0__Impl rule__ParenthesisedExp__Group__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5556:1: ( rule__ParenthesisedExp__Group__0__Impl rule__ParenthesisedExp__Group__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5557:2: rule__ParenthesisedExp__Group__0__Impl rule__ParenthesisedExp__Group__1
             {
-            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__0__Impl_in_rule__ParenthesisedExp__Group__010768);
+            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__0__Impl_in_rule__ParenthesisedExp__Group__011088);
             rule__ParenthesisedExp__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__1_in_rule__ParenthesisedExp__Group__010771);
+            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__1_in_rule__ParenthesisedExp__Group__011091);
             rule__ParenthesisedExp__Group__1();
 
             state._fsp--;
@@ -14142,20 +14517,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__Group__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5399:1: rule__ParenthesisedExp__Group__0__Impl : ( '(' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5564:1: rule__ParenthesisedExp__Group__0__Impl : ( '(' ) ;
     public final void rule__ParenthesisedExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5403:1: ( ( '(' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5404:1: ( '(' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5568:1: ( ( '(' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5569:1: ( '(' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5404:1: ( '(' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5405:1: '('
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5569:1: ( '(' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5570:1: '('
             {
              before(grammarAccess.getParenthesisedExpAccess().getLeftParenthesisKeyword_0()); 
-            match(input,44,FOLLOW_44_in_rule__ParenthesisedExp__Group__0__Impl10799); 
+            match(input,44,FOLLOW_44_in_rule__ParenthesisedExp__Group__0__Impl11119); 
              after(grammarAccess.getParenthesisedExpAccess().getLeftParenthesisKeyword_0()); 
 
             }
@@ -14179,21 +14554,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__Group__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5418:1: rule__ParenthesisedExp__Group__1 : rule__ParenthesisedExp__Group__1__Impl rule__ParenthesisedExp__Group__2 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5583:1: rule__ParenthesisedExp__Group__1 : rule__ParenthesisedExp__Group__1__Impl rule__ParenthesisedExp__Group__2 ;
     public final void rule__ParenthesisedExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5422:1: ( rule__ParenthesisedExp__Group__1__Impl rule__ParenthesisedExp__Group__2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5423:2: rule__ParenthesisedExp__Group__1__Impl rule__ParenthesisedExp__Group__2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5587:1: ( rule__ParenthesisedExp__Group__1__Impl rule__ParenthesisedExp__Group__2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5588:2: rule__ParenthesisedExp__Group__1__Impl rule__ParenthesisedExp__Group__2
             {
-            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__1__Impl_in_rule__ParenthesisedExp__Group__110830);
+            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__1__Impl_in_rule__ParenthesisedExp__Group__111150);
             rule__ParenthesisedExp__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__2_in_rule__ParenthesisedExp__Group__110833);
+            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__2_in_rule__ParenthesisedExp__Group__111153);
             rule__ParenthesisedExp__Group__2();
 
             state._fsp--;
@@ -14217,23 +14592,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5430:1: rule__ParenthesisedExp__Group__1__Impl : ( ( rule__ParenthesisedExp__ExpAssignment_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5595:1: rule__ParenthesisedExp__Group__1__Impl : ( ( rule__ParenthesisedExp__ExpAssignment_1 ) ) ;
     public final void rule__ParenthesisedExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5434:1: ( ( ( rule__ParenthesisedExp__ExpAssignment_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5435:1: ( ( rule__ParenthesisedExp__ExpAssignment_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5599:1: ( ( ( rule__ParenthesisedExp__ExpAssignment_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5600:1: ( ( rule__ParenthesisedExp__ExpAssignment_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5435:1: ( ( rule__ParenthesisedExp__ExpAssignment_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5436:1: ( rule__ParenthesisedExp__ExpAssignment_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5600:1: ( ( rule__ParenthesisedExp__ExpAssignment_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5601:1: ( rule__ParenthesisedExp__ExpAssignment_1 )
             {
              before(grammarAccess.getParenthesisedExpAccess().getExpAssignment_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5437:1: ( rule__ParenthesisedExp__ExpAssignment_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5437:2: rule__ParenthesisedExp__ExpAssignment_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5602:1: ( rule__ParenthesisedExp__ExpAssignment_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5602:2: rule__ParenthesisedExp__ExpAssignment_1
             {
-            pushFollow(FOLLOW_rule__ParenthesisedExp__ExpAssignment_1_in_rule__ParenthesisedExp__Group__1__Impl10860);
+            pushFollow(FOLLOW_rule__ParenthesisedExp__ExpAssignment_1_in_rule__ParenthesisedExp__Group__1__Impl11180);
             rule__ParenthesisedExp__ExpAssignment_1();
 
             state._fsp--;
@@ -14264,16 +14639,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__Group__2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5447:1: rule__ParenthesisedExp__Group__2 : rule__ParenthesisedExp__Group__2__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5612:1: rule__ParenthesisedExp__Group__2 : rule__ParenthesisedExp__Group__2__Impl ;
     public final void rule__ParenthesisedExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5451:1: ( rule__ParenthesisedExp__Group__2__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5452:2: rule__ParenthesisedExp__Group__2__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5616:1: ( rule__ParenthesisedExp__Group__2__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5617:2: rule__ParenthesisedExp__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__2__Impl_in_rule__ParenthesisedExp__Group__210890);
+            pushFollow(FOLLOW_rule__ParenthesisedExp__Group__2__Impl_in_rule__ParenthesisedExp__Group__211210);
             rule__ParenthesisedExp__Group__2__Impl();
 
             state._fsp--;
@@ -14297,20 +14672,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__Group__2__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5458:1: rule__ParenthesisedExp__Group__2__Impl : ( ')' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5623:1: rule__ParenthesisedExp__Group__2__Impl : ( ')' ) ;
     public final void rule__ParenthesisedExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5462:1: ( ( ')' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5463:1: ( ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5627:1: ( ( ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5628:1: ( ')' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5463:1: ( ')' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5464:1: ')'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5628:1: ( ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5629:1: ')'
             {
              before(grammarAccess.getParenthesisedExpAccess().getRightParenthesisKeyword_2()); 
-            match(input,45,FOLLOW_45_in_rule__ParenthesisedExp__Group__2__Impl10918); 
+            match(input,45,FOLLOW_45_in_rule__ParenthesisedExp__Group__2__Impl11238); 
              after(grammarAccess.getParenthesisedExpAccess().getRightParenthesisKeyword_2()); 
 
             }
@@ -14334,21 +14709,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5483:1: rule__ConstantOrFunctionCallExp__Group__0 : rule__ConstantOrFunctionCallExp__Group__0__Impl rule__ConstantOrFunctionCallExp__Group__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5648:1: rule__ConstantOrFunctionCallExp__Group__0 : rule__ConstantOrFunctionCallExp__Group__0__Impl rule__ConstantOrFunctionCallExp__Group__1 ;
     public final void rule__ConstantOrFunctionCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5487:1: ( rule__ConstantOrFunctionCallExp__Group__0__Impl rule__ConstantOrFunctionCallExp__Group__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5488:2: rule__ConstantOrFunctionCallExp__Group__0__Impl rule__ConstantOrFunctionCallExp__Group__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5652:1: ( rule__ConstantOrFunctionCallExp__Group__0__Impl rule__ConstantOrFunctionCallExp__Group__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5653:2: rule__ConstantOrFunctionCallExp__Group__0__Impl rule__ConstantOrFunctionCallExp__Group__1
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group__0__Impl_in_rule__ConstantOrFunctionCallExp__Group__010955);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group__0__Impl_in_rule__ConstantOrFunctionCallExp__Group__011275);
             rule__ConstantOrFunctionCallExp__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group__1_in_rule__ConstantOrFunctionCallExp__Group__010958);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group__1_in_rule__ConstantOrFunctionCallExp__Group__011278);
             rule__ConstantOrFunctionCallExp__Group__1();
 
             state._fsp--;
@@ -14372,23 +14747,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5495:1: rule__ConstantOrFunctionCallExp__Group__0__Impl : ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5660:1: rule__ConstantOrFunctionCallExp__Group__0__Impl : ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) ) ;
     public final void rule__ConstantOrFunctionCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5499:1: ( ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5500:1: ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5664:1: ( ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5665:1: ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5500:1: ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5501:1: ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5665:1: ( ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5666:1: ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 )
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getLabelAssignment_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5502:1: ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5502:2: rule__ConstantOrFunctionCallExp__LabelAssignment_0
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5667:1: ( rule__ConstantOrFunctionCallExp__LabelAssignment_0 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5667:2: rule__ConstantOrFunctionCallExp__LabelAssignment_0
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__LabelAssignment_0_in_rule__ConstantOrFunctionCallExp__Group__0__Impl10985);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__LabelAssignment_0_in_rule__ConstantOrFunctionCallExp__Group__0__Impl11305);
             rule__ConstantOrFunctionCallExp__LabelAssignment_0();
 
             state._fsp--;
@@ -14419,16 +14794,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5512:1: rule__ConstantOrFunctionCallExp__Group__1 : rule__ConstantOrFunctionCallExp__Group__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5677:1: rule__ConstantOrFunctionCallExp__Group__1 : rule__ConstantOrFunctionCallExp__Group__1__Impl ;
     public final void rule__ConstantOrFunctionCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5516:1: ( rule__ConstantOrFunctionCallExp__Group__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5517:2: rule__ConstantOrFunctionCallExp__Group__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5681:1: ( rule__ConstantOrFunctionCallExp__Group__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5682:2: rule__ConstantOrFunctionCallExp__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group__1__Impl_in_rule__ConstantOrFunctionCallExp__Group__111015);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group__1__Impl_in_rule__ConstantOrFunctionCallExp__Group__111335);
             rule__ConstantOrFunctionCallExp__Group__1__Impl();
 
             state._fsp--;
@@ -14452,20 +14827,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5523:1: rule__ConstantOrFunctionCallExp__Group__1__Impl : ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5688:1: rule__ConstantOrFunctionCallExp__Group__1__Impl : ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? ) ;
     public final void rule__ConstantOrFunctionCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5527:1: ( ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5528:1: ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5692:1: ( ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5693:1: ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5528:1: ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5529:1: ( rule__ConstantOrFunctionCallExp__Group_1__0 )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5693:1: ( ( rule__ConstantOrFunctionCallExp__Group_1__0 )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5694:1: ( rule__ConstantOrFunctionCallExp__Group_1__0 )?
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getGroup_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5530:1: ( rule__ConstantOrFunctionCallExp__Group_1__0 )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5695:1: ( rule__ConstantOrFunctionCallExp__Group_1__0 )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -14474,9 +14849,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
             }
             switch (alt28) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5530:2: rule__ConstantOrFunctionCallExp__Group_1__0
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5695:2: rule__ConstantOrFunctionCallExp__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0_in_rule__ConstantOrFunctionCallExp__Group__1__Impl11042);
+                    pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0_in_rule__ConstantOrFunctionCallExp__Group__1__Impl11362);
                     rule__ConstantOrFunctionCallExp__Group_1__0();
 
                     state._fsp--;
@@ -14510,21 +14885,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5544:1: rule__ConstantOrFunctionCallExp__Group_1__0 : rule__ConstantOrFunctionCallExp__Group_1__0__Impl rule__ConstantOrFunctionCallExp__Group_1__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5709:1: rule__ConstantOrFunctionCallExp__Group_1__0 : rule__ConstantOrFunctionCallExp__Group_1__0__Impl rule__ConstantOrFunctionCallExp__Group_1__1 ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5548:1: ( rule__ConstantOrFunctionCallExp__Group_1__0__Impl rule__ConstantOrFunctionCallExp__Group_1__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5549:2: rule__ConstantOrFunctionCallExp__Group_1__0__Impl rule__ConstantOrFunctionCallExp__Group_1__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5713:1: ( rule__ConstantOrFunctionCallExp__Group_1__0__Impl rule__ConstantOrFunctionCallExp__Group_1__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5714:2: rule__ConstantOrFunctionCallExp__Group_1__0__Impl rule__ConstantOrFunctionCallExp__Group_1__1
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__011077);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__011397);
             rule__ConstantOrFunctionCallExp__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1_in_rule__ConstantOrFunctionCallExp__Group_1__011080);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1_in_rule__ConstantOrFunctionCallExp__Group_1__011400);
             rule__ConstantOrFunctionCallExp__Group_1__1();
 
             state._fsp--;
@@ -14548,20 +14923,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5556:1: rule__ConstantOrFunctionCallExp__Group_1__0__Impl : ( '(' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5721:1: rule__ConstantOrFunctionCallExp__Group_1__0__Impl : ( '(' ) ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5560:1: ( ( '(' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5561:1: ( '(' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5725:1: ( ( '(' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5726:1: ( '(' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5561:1: ( '(' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5562:1: '('
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5726:1: ( '(' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5727:1: '('
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getLeftParenthesisKeyword_1_0()); 
-            match(input,44,FOLLOW_44_in_rule__ConstantOrFunctionCallExp__Group_1__0__Impl11108); 
+            match(input,44,FOLLOW_44_in_rule__ConstantOrFunctionCallExp__Group_1__0__Impl11428); 
              after(grammarAccess.getConstantOrFunctionCallExpAccess().getLeftParenthesisKeyword_1_0()); 
 
             }
@@ -14585,21 +14960,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5575:1: rule__ConstantOrFunctionCallExp__Group_1__1 : rule__ConstantOrFunctionCallExp__Group_1__1__Impl rule__ConstantOrFunctionCallExp__Group_1__2 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5740:1: rule__ConstantOrFunctionCallExp__Group_1__1 : rule__ConstantOrFunctionCallExp__Group_1__1__Impl rule__ConstantOrFunctionCallExp__Group_1__2 ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5579:1: ( rule__ConstantOrFunctionCallExp__Group_1__1__Impl rule__ConstantOrFunctionCallExp__Group_1__2 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5580:2: rule__ConstantOrFunctionCallExp__Group_1__1__Impl rule__ConstantOrFunctionCallExp__Group_1__2
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5744:1: ( rule__ConstantOrFunctionCallExp__Group_1__1__Impl rule__ConstantOrFunctionCallExp__Group_1__2 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5745:2: rule__ConstantOrFunctionCallExp__Group_1__1__Impl rule__ConstantOrFunctionCallExp__Group_1__2
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__111139);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__111459);
             rule__ConstantOrFunctionCallExp__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2_in_rule__ConstantOrFunctionCallExp__Group_1__111142);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2_in_rule__ConstantOrFunctionCallExp__Group_1__111462);
             rule__ConstantOrFunctionCallExp__Group_1__2();
 
             state._fsp--;
@@ -14623,23 +14998,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5587:1: rule__ConstantOrFunctionCallExp__Group_1__1__Impl : ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5752:1: rule__ConstantOrFunctionCallExp__Group_1__1__Impl : ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) ) ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5591:1: ( ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5592:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5756:1: ( ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5757:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5592:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5593:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5757:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5758:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 )
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAssignment_1_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5594:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5594:2: rule__ConstantOrFunctionCallExp__ParamAssignment_1_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5759:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5759:2: rule__ConstantOrFunctionCallExp__ParamAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_1_in_rule__ConstantOrFunctionCallExp__Group_1__1__Impl11169);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_1_in_rule__ConstantOrFunctionCallExp__Group_1__1__Impl11489);
             rule__ConstantOrFunctionCallExp__ParamAssignment_1_1();
 
             state._fsp--;
@@ -14670,21 +15045,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5604:1: rule__ConstantOrFunctionCallExp__Group_1__2 : rule__ConstantOrFunctionCallExp__Group_1__2__Impl rule__ConstantOrFunctionCallExp__Group_1__3 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5769:1: rule__ConstantOrFunctionCallExp__Group_1__2 : rule__ConstantOrFunctionCallExp__Group_1__2__Impl rule__ConstantOrFunctionCallExp__Group_1__3 ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5608:1: ( rule__ConstantOrFunctionCallExp__Group_1__2__Impl rule__ConstantOrFunctionCallExp__Group_1__3 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5609:2: rule__ConstantOrFunctionCallExp__Group_1__2__Impl rule__ConstantOrFunctionCallExp__Group_1__3
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5773:1: ( rule__ConstantOrFunctionCallExp__Group_1__2__Impl rule__ConstantOrFunctionCallExp__Group_1__3 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5774:2: rule__ConstantOrFunctionCallExp__Group_1__2__Impl rule__ConstantOrFunctionCallExp__Group_1__3
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__211199);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__211519);
             rule__ConstantOrFunctionCallExp__Group_1__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3_in_rule__ConstantOrFunctionCallExp__Group_1__211202);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3_in_rule__ConstantOrFunctionCallExp__Group_1__211522);
             rule__ConstantOrFunctionCallExp__Group_1__3();
 
             state._fsp--;
@@ -14708,20 +15083,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__2__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5616:1: rule__ConstantOrFunctionCallExp__Group_1__2__Impl : ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5781:1: rule__ConstantOrFunctionCallExp__Group_1__2__Impl : ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* ) ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5620:1: ( ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5621:1: ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5785:1: ( ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5786:1: ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5621:1: ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5622:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5786:1: ( ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5787:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )*
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getGroup_1_2()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5623:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5788:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__0 )*
             loop29:
             do {
                 int alt29=2;
@@ -14734,9 +15109,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
                 switch (alt29) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5623:2: rule__ConstantOrFunctionCallExp__Group_1_2__0
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5788:2: rule__ConstantOrFunctionCallExp__Group_1_2__0
             	    {
-            	    pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0_in_rule__ConstantOrFunctionCallExp__Group_1__2__Impl11229);
+            	    pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0_in_rule__ConstantOrFunctionCallExp__Group_1__2__Impl11549);
             	    rule__ConstantOrFunctionCallExp__Group_1_2__0();
 
             	    state._fsp--;
@@ -14773,16 +15148,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5633:1: rule__ConstantOrFunctionCallExp__Group_1__3 : rule__ConstantOrFunctionCallExp__Group_1__3__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5798:1: rule__ConstantOrFunctionCallExp__Group_1__3 : rule__ConstantOrFunctionCallExp__Group_1__3__Impl ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5637:1: ( rule__ConstantOrFunctionCallExp__Group_1__3__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5638:2: rule__ConstantOrFunctionCallExp__Group_1__3__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5802:1: ( rule__ConstantOrFunctionCallExp__Group_1__3__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5803:2: rule__ConstantOrFunctionCallExp__Group_1__3__Impl
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__311260);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__311580);
             rule__ConstantOrFunctionCallExp__Group_1__3__Impl();
 
             state._fsp--;
@@ -14806,20 +15181,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1__3__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5644:1: rule__ConstantOrFunctionCallExp__Group_1__3__Impl : ( ')' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5809:1: rule__ConstantOrFunctionCallExp__Group_1__3__Impl : ( ')' ) ;
     public final void rule__ConstantOrFunctionCallExp__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5648:1: ( ( ')' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5649:1: ( ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5813:1: ( ( ')' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5814:1: ( ')' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5649:1: ( ')' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5650:1: ')'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5814:1: ( ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5815:1: ')'
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getRightParenthesisKeyword_1_3()); 
-            match(input,45,FOLLOW_45_in_rule__ConstantOrFunctionCallExp__Group_1__3__Impl11288); 
+            match(input,45,FOLLOW_45_in_rule__ConstantOrFunctionCallExp__Group_1__3__Impl11608); 
              after(grammarAccess.getConstantOrFunctionCallExpAccess().getRightParenthesisKeyword_1_3()); 
 
             }
@@ -14843,21 +15218,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1_2__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5671:1: rule__ConstantOrFunctionCallExp__Group_1_2__0 : rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl rule__ConstantOrFunctionCallExp__Group_1_2__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5836:1: rule__ConstantOrFunctionCallExp__Group_1_2__0 : rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl rule__ConstantOrFunctionCallExp__Group_1_2__1 ;
     public final void rule__ConstantOrFunctionCallExp__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5675:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl rule__ConstantOrFunctionCallExp__Group_1_2__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5676:2: rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl rule__ConstantOrFunctionCallExp__Group_1_2__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5840:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl rule__ConstantOrFunctionCallExp__Group_1_2__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5841:2: rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl rule__ConstantOrFunctionCallExp__Group_1_2__1
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__011327);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__011647);
             rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1_in_rule__ConstantOrFunctionCallExp__Group_1_2__011330);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1_in_rule__ConstantOrFunctionCallExp__Group_1_2__011650);
             rule__ConstantOrFunctionCallExp__Group_1_2__1();
 
             state._fsp--;
@@ -14881,20 +15256,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5683:1: rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl : ( ',' ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5848:1: rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl : ( ',' ) ;
     public final void rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5687:1: ( ( ',' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5688:1: ( ',' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5852:1: ( ( ',' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5853:1: ( ',' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5688:1: ( ',' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5689:1: ','
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5853:1: ( ',' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5854:1: ','
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getCommaKeyword_1_2_0()); 
-            match(input,46,FOLLOW_46_in_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl11358); 
+            match(input,46,FOLLOW_46_in_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl11678); 
              after(grammarAccess.getConstantOrFunctionCallExpAccess().getCommaKeyword_1_2_0()); 
 
             }
@@ -14918,16 +15293,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1_2__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5702:1: rule__ConstantOrFunctionCallExp__Group_1_2__1 : rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5867:1: rule__ConstantOrFunctionCallExp__Group_1_2__1 : rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl ;
     public final void rule__ConstantOrFunctionCallExp__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5706:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5707:2: rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5871:1: ( rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5872:2: rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__111389);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__111709);
             rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl();
 
             state._fsp--;
@@ -14951,23 +15326,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5713:1: rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl : ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5878:1: rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl : ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) ) ;
     public final void rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5717:1: ( ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5718:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5882:1: ( ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5883:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5718:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5719:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5883:1: ( ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5884:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 )
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAssignment_1_2_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5720:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5720:2: rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5885:1: ( rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5885:2: rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1
             {
-            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1_in_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl11416);
+            pushFollow(FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1_in_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl11736);
             rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1();
 
             state._fsp--;
@@ -14998,21 +15373,21 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NumberLiteral__Group__0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5734:1: rule__NumberLiteral__Group__0 : rule__NumberLiteral__Group__0__Impl rule__NumberLiteral__Group__1 ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5899:1: rule__NumberLiteral__Group__0 : rule__NumberLiteral__Group__0__Impl rule__NumberLiteral__Group__1 ;
     public final void rule__NumberLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5738:1: ( rule__NumberLiteral__Group__0__Impl rule__NumberLiteral__Group__1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5739:2: rule__NumberLiteral__Group__0__Impl rule__NumberLiteral__Group__1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5903:1: ( rule__NumberLiteral__Group__0__Impl rule__NumberLiteral__Group__1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5904:2: rule__NumberLiteral__Group__0__Impl rule__NumberLiteral__Group__1
             {
-            pushFollow(FOLLOW_rule__NumberLiteral__Group__0__Impl_in_rule__NumberLiteral__Group__011450);
+            pushFollow(FOLLOW_rule__NumberLiteral__Group__0__Impl_in_rule__NumberLiteral__Group__011770);
             rule__NumberLiteral__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__NumberLiteral__Group__1_in_rule__NumberLiteral__Group__011453);
+            pushFollow(FOLLOW_rule__NumberLiteral__Group__1_in_rule__NumberLiteral__Group__011773);
             rule__NumberLiteral__Group__1();
 
             state._fsp--;
@@ -15036,20 +15411,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NumberLiteral__Group__0__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5746:1: rule__NumberLiteral__Group__0__Impl : ( ( rule__NumberLiteral__NegAssignment_0 )? ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5911:1: rule__NumberLiteral__Group__0__Impl : ( ( rule__NumberLiteral__NegAssignment_0 )? ) ;
     public final void rule__NumberLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5750:1: ( ( ( rule__NumberLiteral__NegAssignment_0 )? ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5751:1: ( ( rule__NumberLiteral__NegAssignment_0 )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5915:1: ( ( ( rule__NumberLiteral__NegAssignment_0 )? ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5916:1: ( ( rule__NumberLiteral__NegAssignment_0 )? )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5751:1: ( ( rule__NumberLiteral__NegAssignment_0 )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5752:1: ( rule__NumberLiteral__NegAssignment_0 )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5916:1: ( ( rule__NumberLiteral__NegAssignment_0 )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5917:1: ( rule__NumberLiteral__NegAssignment_0 )?
             {
              before(grammarAccess.getNumberLiteralAccess().getNegAssignment_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5753:1: ( rule__NumberLiteral__NegAssignment_0 )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5918:1: ( rule__NumberLiteral__NegAssignment_0 )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -15058,9 +15433,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
             }
             switch (alt30) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5753:2: rule__NumberLiteral__NegAssignment_0
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5918:2: rule__NumberLiteral__NegAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__NumberLiteral__NegAssignment_0_in_rule__NumberLiteral__Group__0__Impl11480);
+                    pushFollow(FOLLOW_rule__NumberLiteral__NegAssignment_0_in_rule__NumberLiteral__Group__0__Impl11800);
                     rule__NumberLiteral__NegAssignment_0();
 
                     state._fsp--;
@@ -15094,16 +15469,16 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NumberLiteral__Group__1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5763:1: rule__NumberLiteral__Group__1 : rule__NumberLiteral__Group__1__Impl ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5928:1: rule__NumberLiteral__Group__1 : rule__NumberLiteral__Group__1__Impl ;
     public final void rule__NumberLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5767:1: ( rule__NumberLiteral__Group__1__Impl )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5768:2: rule__NumberLiteral__Group__1__Impl
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5932:1: ( rule__NumberLiteral__Group__1__Impl )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5933:2: rule__NumberLiteral__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__NumberLiteral__Group__1__Impl_in_rule__NumberLiteral__Group__111511);
+            pushFollow(FOLLOW_rule__NumberLiteral__Group__1__Impl_in_rule__NumberLiteral__Group__111831);
             rule__NumberLiteral__Group__1__Impl();
 
             state._fsp--;
@@ -15127,23 +15502,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NumberLiteral__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5774:1: rule__NumberLiteral__Group__1__Impl : ( ( rule__NumberLiteral__ValueAssignment_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5939:1: rule__NumberLiteral__Group__1__Impl : ( ( rule__NumberLiteral__ValueAssignment_1 ) ) ;
     public final void rule__NumberLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5778:1: ( ( ( rule__NumberLiteral__ValueAssignment_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5779:1: ( ( rule__NumberLiteral__ValueAssignment_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5943:1: ( ( ( rule__NumberLiteral__ValueAssignment_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5944:1: ( ( rule__NumberLiteral__ValueAssignment_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5779:1: ( ( rule__NumberLiteral__ValueAssignment_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5780:1: ( rule__NumberLiteral__ValueAssignment_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5944:1: ( ( rule__NumberLiteral__ValueAssignment_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5945:1: ( rule__NumberLiteral__ValueAssignment_1 )
             {
              before(grammarAccess.getNumberLiteralAccess().getValueAssignment_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5781:1: ( rule__NumberLiteral__ValueAssignment_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5781:2: rule__NumberLiteral__ValueAssignment_1
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5946:1: ( rule__NumberLiteral__ValueAssignment_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5946:2: rule__NumberLiteral__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__NumberLiteral__ValueAssignment_1_in_rule__NumberLiteral__Group__1__Impl11538);
+            pushFollow(FOLLOW_rule__NumberLiteral__ValueAssignment_1_in_rule__NumberLiteral__Group__1__Impl11858);
             rule__NumberLiteral__ValueAssignment_1();
 
             state._fsp--;
@@ -15174,20 +15549,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__DefsAssignment_0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5796:1: rule__Model__DefsAssignment_0 : ( ruleInitialDefinition ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5961:1: rule__Model__DefsAssignment_0 : ( ruleInitialDefinition ) ;
     public final void rule__Model__DefsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5800:1: ( ( ruleInitialDefinition ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5801:1: ( ruleInitialDefinition )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5965:1: ( ( ruleInitialDefinition ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5966:1: ( ruleInitialDefinition )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5801:1: ( ruleInitialDefinition )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5802:1: ruleInitialDefinition
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5966:1: ( ruleInitialDefinition )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5967:1: ruleInitialDefinition
             {
              before(grammarAccess.getModelAccess().getDefsInitialDefinitionParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleInitialDefinition_in_rule__Model__DefsAssignment_011577);
+            pushFollow(FOLLOW_ruleInitialDefinition_in_rule__Model__DefsAssignment_011897);
             ruleInitialDefinition();
 
             state._fsp--;
@@ -15215,20 +15590,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__WorldAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5811:1: rule__Model__WorldAssignment_1 : ( ruleEnvironment ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5976:1: rule__Model__WorldAssignment_1 : ( ruleEnvironment ) ;
     public final void rule__Model__WorldAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5815:1: ( ( ruleEnvironment ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5816:1: ( ruleEnvironment )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5980:1: ( ( ruleEnvironment ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5981:1: ( ruleEnvironment )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5816:1: ( ruleEnvironment )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5817:1: ruleEnvironment
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5981:1: ( ruleEnvironment )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5982:1: ruleEnvironment
             {
              before(grammarAccess.getModelAccess().getWorldEnvironmentParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleEnvironment_in_rule__Model__WorldAssignment_111608);
+            pushFollow(FOLLOW_ruleEnvironment_in_rule__Model__WorldAssignment_111928);
             ruleEnvironment();
 
             state._fsp--;
@@ -15256,20 +15631,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__BodiesAssignment_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5826:1: rule__Model__BodiesAssignment_2 : ( ruleSystem ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5991:1: rule__Model__BodiesAssignment_2 : ( ruleSystem ) ;
     public final void rule__Model__BodiesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5830:1: ( ( ruleSystem ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5831:1: ( ruleSystem )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5995:1: ( ( ruleSystem ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5996:1: ( ruleSystem )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5831:1: ( ruleSystem )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5832:1: ruleSystem
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5996:1: ( ruleSystem )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5997:1: ruleSystem
             {
              before(grammarAccess.getModelAccess().getBodiesSystemParserRuleCall_2_0()); 
-            pushFollow(FOLLOW_ruleSystem_in_rule__Model__BodiesAssignment_211639);
+            pushFollow(FOLLOW_ruleSystem_in_rule__Model__BodiesAssignment_211959);
             ruleSystem();
 
             state._fsp--;
@@ -15297,20 +15672,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Environment__GravityAssignment_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5841:1: rule__Environment__GravityAssignment_3 : ( ruleMatrix ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6006:1: rule__Environment__GravityAssignment_3 : ( ruleMatrix ) ;
     public final void rule__Environment__GravityAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5845:1: ( ( ruleMatrix ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5846:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6010:1: ( ( ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6011:1: ( ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5846:1: ( ruleMatrix )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5847:1: ruleMatrix
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6011:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6012:1: ruleMatrix
             {
              before(grammarAccess.getEnvironmentAccess().getGravityMatrixParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleMatrix_in_rule__Environment__GravityAssignment_311670);
+            pushFollow(FOLLOW_ruleMatrix_in_rule__Environment__GravityAssignment_311990);
             ruleMatrix();
 
             state._fsp--;
@@ -15338,20 +15713,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__System__NameAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5856:1: rule__System__NameAssignment_1 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6021:1: rule__System__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__System__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5860:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5861:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6025:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6026:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5861:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5862:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6026:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6027:1: RULE_ID
             {
              before(grammarAccess.getSystemAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__System__NameAssignment_111701); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__System__NameAssignment_112021); 
              after(grammarAccess.getSystemAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -15375,20 +15750,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__System__ElementsAssignment_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5871:1: rule__System__ElementsAssignment_3 : ( ruleSystemElement ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6036:1: rule__System__ElementsAssignment_3 : ( ruleSystemElement ) ;
     public final void rule__System__ElementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5875:1: ( ( ruleSystemElement ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5876:1: ( ruleSystemElement )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6040:1: ( ( ruleSystemElement ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6041:1: ( ruleSystemElement )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5876:1: ( ruleSystemElement )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5877:1: ruleSystemElement
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6041:1: ( ruleSystemElement )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6042:1: ruleSystemElement
             {
              before(grammarAccess.getSystemAccess().getElementsSystemElementParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleSystemElement_in_rule__System__ElementsAssignment_311732);
+            pushFollow(FOLLOW_ruleSystemElement_in_rule__System__ElementsAssignment_312052);
             ruleSystemElement();
 
             state._fsp--;
@@ -15416,20 +15791,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Body__NameAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5886:1: rule__Body__NameAssignment_1 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6051:1: rule__Body__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Body__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5890:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5891:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6055:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6056:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5891:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5892:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6056:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6057:1: RULE_ID
             {
              before(grammarAccess.getBodyAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Body__NameAssignment_111763); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Body__NameAssignment_112083); 
              after(grammarAccess.getBodyAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -15453,20 +15828,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Body__MassAssignment_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5901:1: rule__Body__MassAssignment_3 : ( ruleMass ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6066:1: rule__Body__MassAssignment_3 : ( ruleMass ) ;
     public final void rule__Body__MassAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5905:1: ( ( ruleMass ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5906:1: ( ruleMass )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6070:1: ( ( ruleMass ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6071:1: ( ruleMass )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5906:1: ( ruleMass )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5907:1: ruleMass
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6071:1: ( ruleMass )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6072:1: ruleMass
             {
              before(grammarAccess.getBodyAccess().getMassMassParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleMass_in_rule__Body__MassAssignment_311794);
+            pushFollow(FOLLOW_ruleMass_in_rule__Body__MassAssignment_312114);
             ruleMass();
 
             state._fsp--;
@@ -15494,24 +15869,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BodyReference__BaseAssignment_0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5916:1: rule__BodyReference__BaseAssignment_0 : ( ( 'base' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6081:1: rule__BodyReference__BaseAssignment_0 : ( ( 'base' ) ) ;
     public final void rule__BodyReference__BaseAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5920:1: ( ( ( 'base' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5921:1: ( ( 'base' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6085:1: ( ( ( 'base' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6086:1: ( ( 'base' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5921:1: ( ( 'base' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5922:1: ( 'base' )
-            {
-             before(grammarAccess.getBodyReferenceAccess().getBaseBaseKeyword_0_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5923:1: ( 'base' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5924:1: 'base'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6086:1: ( ( 'base' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6087:1: ( 'base' )
             {
              before(grammarAccess.getBodyReferenceAccess().getBaseBaseKeyword_0_0()); 
-            match(input,59,FOLLOW_59_in_rule__BodyReference__BaseAssignment_011830); 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6088:1: ( 'base' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6089:1: 'base'
+            {
+             before(grammarAccess.getBodyReferenceAccess().getBaseBaseKeyword_0_0()); 
+            match(input,59,FOLLOW_59_in_rule__BodyReference__BaseAssignment_012150); 
              after(grammarAccess.getBodyReferenceAccess().getBaseBaseKeyword_0_0()); 
 
             }
@@ -15539,24 +15914,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BodyReference__RefAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5939:1: rule__BodyReference__RefAssignment_1 : ( ( RULE_ID ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6104:1: rule__BodyReference__RefAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__BodyReference__RefAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5943:1: ( ( ( RULE_ID ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5944:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6108:1: ( ( ( RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6109:1: ( ( RULE_ID ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5944:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5945:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6109:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6110:1: ( RULE_ID )
             {
              before(grammarAccess.getBodyReferenceAccess().getRefBodyCrossReference_1_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5946:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5947:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6111:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6112:1: RULE_ID
             {
              before(grammarAccess.getBodyReferenceAccess().getRefBodyIDTerminalRuleCall_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BodyReference__RefAssignment_111873); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BodyReference__RefAssignment_112193); 
              after(grammarAccess.getBodyReferenceAccess().getRefBodyIDTerminalRuleCall_1_0_1()); 
 
             }
@@ -15584,20 +15959,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Mass__ValueAssignment_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5958:1: rule__Mass__ValueAssignment_3 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6123:1: rule__Mass__ValueAssignment_3 : ( ruleAddExp ) ;
     public final void rule__Mass__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5962:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5963:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6127:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6128:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5963:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5964:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6128:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6129:1: ruleAddExp
             {
              before(grammarAccess.getMassAccess().getValueAddExpParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__Mass__ValueAssignment_311908);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__Mass__ValueAssignment_312228);
             ruleAddExp();
 
             state._fsp--;
@@ -15625,20 +16000,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Mass__PositionAssignment_5"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5973:1: rule__Mass__PositionAssignment_5 : ( ruleMatrix ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6138:1: rule__Mass__PositionAssignment_5 : ( ruleMatrix ) ;
     public final void rule__Mass__PositionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5977:1: ( ( ruleMatrix ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5978:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6142:1: ( ( ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6143:1: ( ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5978:1: ( ruleMatrix )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5979:1: ruleMatrix
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6143:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6144:1: ruleMatrix
             {
              before(grammarAccess.getMassAccess().getPositionMatrixParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleMatrix_in_rule__Mass__PositionAssignment_511939);
+            pushFollow(FOLLOW_ruleMatrix_in_rule__Mass__PositionAssignment_512259);
             ruleMatrix();
 
             state._fsp--;
@@ -15666,20 +16041,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Mass__InertiaAssignment_7"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5988:1: rule__Mass__InertiaAssignment_7 : ( ruleMatrix ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6153:1: rule__Mass__InertiaAssignment_7 : ( ruleMatrix ) ;
     public final void rule__Mass__InertiaAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5992:1: ( ( ruleMatrix ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5993:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6157:1: ( ( ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6158:1: ( ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5993:1: ( ruleMatrix )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:5994:1: ruleMatrix
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6158:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6159:1: ruleMatrix
             {
              before(grammarAccess.getMassAccess().getInertiaMatrixParserRuleCall_7_0()); 
-            pushFollow(FOLLOW_ruleMatrix_in_rule__Mass__InertiaAssignment_711970);
+            pushFollow(FOLLOW_ruleMatrix_in_rule__Mass__InertiaAssignment_712290);
             ruleMatrix();
 
             state._fsp--;
@@ -15707,20 +16082,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__NameAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6003:1: rule__Joint__NameAssignment_1 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6168:1: rule__Joint__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Joint__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6007:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6008:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6172:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6173:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6008:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6009:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6173:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6174:1: RULE_ID
             {
              before(grammarAccess.getJointAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Joint__NameAssignment_112001); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Joint__NameAssignment_112321); 
              after(grammarAccess.getJointAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -15744,20 +16119,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__TypeAssignment_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6018:1: rule__Joint__TypeAssignment_3 : ( ruleJointType ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6183:1: rule__Joint__TypeAssignment_3 : ( ruleJointType ) ;
     public final void rule__Joint__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6022:1: ( ( ruleJointType ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6023:1: ( ruleJointType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6187:1: ( ( ruleJointType ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6188:1: ( ruleJointType )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6023:1: ( ruleJointType )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6024:1: ruleJointType
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6188:1: ( ruleJointType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6189:1: ruleJointType
             {
              before(grammarAccess.getJointAccess().getTypeJointTypeParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleJointType_in_rule__Joint__TypeAssignment_312032);
+            pushFollow(FOLLOW_ruleJointType_in_rule__Joint__TypeAssignment_312352);
             ruleJointType();
 
             state._fsp--;
@@ -15785,24 +16160,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__IsStartAssignment_4"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6033:1: rule__Joint__IsStartAssignment_4 : ( ( 'start' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6198:1: rule__Joint__IsStartAssignment_4 : ( ( 'start' ) ) ;
     public final void rule__Joint__IsStartAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6037:1: ( ( ( 'start' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6038:1: ( ( 'start' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6202:1: ( ( ( 'start' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6203:1: ( ( 'start' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6038:1: ( ( 'start' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6039:1: ( 'start' )
-            {
-             before(grammarAccess.getJointAccess().getIsStartStartKeyword_4_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6040:1: ( 'start' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6041:1: 'start'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6203:1: ( ( 'start' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6204:1: ( 'start' )
             {
              before(grammarAccess.getJointAccess().getIsStartStartKeyword_4_0()); 
-            match(input,60,FOLLOW_60_in_rule__Joint__IsStartAssignment_412068); 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6205:1: ( 'start' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6206:1: 'start'
+            {
+             before(grammarAccess.getJointAccess().getIsStartStartKeyword_4_0()); 
+            match(input,60,FOLLOW_60_in_rule__Joint__IsStartAssignment_412388); 
              after(grammarAccess.getJointAccess().getIsStartStartKeyword_4_0()); 
 
             }
@@ -15830,20 +16205,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__Body1Assignment_6"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6056:1: rule__Joint__Body1Assignment_6 : ( ruleBodyReference ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6221:1: rule__Joint__Body1Assignment_6 : ( ruleBodyReference ) ;
     public final void rule__Joint__Body1Assignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6060:1: ( ( ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6061:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6225:1: ( ( ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6226:1: ( ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6061:1: ( ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6062:1: ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6226:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6227:1: ruleBodyReference
             {
              before(grammarAccess.getJointAccess().getBody1BodyReferenceParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleBodyReference_in_rule__Joint__Body1Assignment_612107);
+            pushFollow(FOLLOW_ruleBodyReference_in_rule__Joint__Body1Assignment_612427);
             ruleBodyReference();
 
             state._fsp--;
@@ -15871,20 +16246,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__RelTrans1Assignment_7"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6071:1: rule__Joint__RelTrans1Assignment_7 : ( ruleRelativeTransformation ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6236:1: rule__Joint__RelTrans1Assignment_7 : ( ruleRelativeTransformation ) ;
     public final void rule__Joint__RelTrans1Assignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6075:1: ( ( ruleRelativeTransformation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6076:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6240:1: ( ( ruleRelativeTransformation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6241:1: ( ruleRelativeTransformation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6076:1: ( ruleRelativeTransformation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6077:1: ruleRelativeTransformation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6241:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6242:1: ruleRelativeTransformation
             {
              before(grammarAccess.getJointAccess().getRelTrans1RelativeTransformationParserRuleCall_7_0()); 
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__Joint__RelTrans1Assignment_712138);
+            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__Joint__RelTrans1Assignment_712458);
             ruleRelativeTransformation();
 
             state._fsp--;
@@ -15912,20 +16287,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__Body2Assignment_9"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6086:1: rule__Joint__Body2Assignment_9 : ( ruleBodyReference ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6251:1: rule__Joint__Body2Assignment_9 : ( ruleBodyReference ) ;
     public final void rule__Joint__Body2Assignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6090:1: ( ( ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6091:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6255:1: ( ( ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6256:1: ( ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6091:1: ( ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6092:1: ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6256:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6257:1: ruleBodyReference
             {
              before(grammarAccess.getJointAccess().getBody2BodyReferenceParserRuleCall_9_0()); 
-            pushFollow(FOLLOW_ruleBodyReference_in_rule__Joint__Body2Assignment_912169);
+            pushFollow(FOLLOW_ruleBodyReference_in_rule__Joint__Body2Assignment_912489);
             ruleBodyReference();
 
             state._fsp--;
@@ -15953,20 +16328,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__SpringCoeffAssignment_13"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6101:1: rule__Joint__SpringCoeffAssignment_13 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6266:1: rule__Joint__SpringCoeffAssignment_13 : ( ruleAddExp ) ;
     public final void rule__Joint__SpringCoeffAssignment_13() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6105:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6106:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6270:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6271:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6106:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6107:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6271:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6272:1: ruleAddExp
             {
              before(grammarAccess.getJointAccess().getSpringCoeffAddExpParserRuleCall_13_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__SpringCoeffAssignment_1312200);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__SpringCoeffAssignment_1312520);
             ruleAddExp();
 
             state._fsp--;
@@ -15994,20 +16369,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__SpringInitAssignment_15"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6116:1: rule__Joint__SpringInitAssignment_15 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6281:1: rule__Joint__SpringInitAssignment_15 : ( ruleAddExp ) ;
     public final void rule__Joint__SpringInitAssignment_15() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6120:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6121:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6285:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6286:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6121:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6122:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6286:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6287:1: ruleAddExp
             {
              before(grammarAccess.getJointAccess().getSpringInitAddExpParserRuleCall_15_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__SpringInitAssignment_1512231);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__SpringInitAssignment_1512551);
             ruleAddExp();
 
             state._fsp--;
@@ -16035,20 +16410,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__DampViscousAssignment_17"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6131:1: rule__Joint__DampViscousAssignment_17 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6296:1: rule__Joint__DampViscousAssignment_17 : ( ruleAddExp ) ;
     public final void rule__Joint__DampViscousAssignment_17() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6135:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6136:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6300:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6301:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6136:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6137:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6301:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6302:1: ruleAddExp
             {
              before(grammarAccess.getJointAccess().getDampViscousAddExpParserRuleCall_17_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__DampViscousAssignment_1712262);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__DampViscousAssignment_1712582);
             ruleAddExp();
 
             state._fsp--;
@@ -16076,20 +16451,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Joint__DampCoulombAssignment_19"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6146:1: rule__Joint__DampCoulombAssignment_19 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6311:1: rule__Joint__DampCoulombAssignment_19 : ( ruleAddExp ) ;
     public final void rule__Joint__DampCoulombAssignment_19() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6150:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6151:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6315:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6316:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6151:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6152:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6316:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6317:1: ruleAddExp
             {
              before(grammarAccess.getJointAccess().getDampCoulombAddExpParserRuleCall_19_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__DampCoulombAssignment_1912293);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__Joint__DampCoulombAssignment_1912613);
             ruleAddExp();
 
             state._fsp--;
@@ -16117,20 +16492,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointType__NameAssignment_0_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6161:1: rule__JointType__NameAssignment_0_2 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6326:1: rule__JointType__NameAssignment_0_2 : ( RULE_ID ) ;
     public final void rule__JointType__NameAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6165:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6166:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6330:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6331:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6166:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6167:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6331:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6332:1: RULE_ID
             {
              before(grammarAccess.getJointTypeAccess().getNameIDTerminalRuleCall_0_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JointType__NameAssignment_0_212324); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JointType__NameAssignment_0_212644); 
              after(grammarAccess.getJointTypeAccess().getNameIDTerminalRuleCall_0_2_0()); 
 
             }
@@ -16154,20 +16529,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointType__ExpAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6176:1: rule__JointType__ExpAssignment_1 : ( ruleJointTypeExpression ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6341:1: rule__JointType__ExpAssignment_1 : ( ruleJointTypeExpression ) ;
     public final void rule__JointType__ExpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6180:1: ( ( ruleJointTypeExpression ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6181:1: ( ruleJointTypeExpression )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6345:1: ( ( ruleJointTypeExpression ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6346:1: ( ruleJointTypeExpression )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6181:1: ( ruleJointTypeExpression )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6182:1: ruleJointTypeExpression
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6346:1: ( ruleJointTypeExpression )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6347:1: ruleJointTypeExpression
             {
              before(grammarAccess.getJointTypeAccess().getExpJointTypeExpressionParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleJointTypeExpression_in_rule__JointType__ExpAssignment_112355);
+            pushFollow(FOLLOW_ruleJointTypeExpression_in_rule__JointType__ExpAssignment_112675);
             ruleJointTypeExpression();
 
             state._fsp--;
@@ -16195,24 +16570,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointTypeExpression__RefAssignment_0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6191:1: rule__JointTypeExpression__RefAssignment_0 : ( ( RULE_ID ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6356:1: rule__JointTypeExpression__RefAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__JointTypeExpression__RefAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6195:1: ( ( ( RULE_ID ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6196:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6360:1: ( ( ( RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6361:1: ( ( RULE_ID ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6196:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6197:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6361:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6362:1: ( RULE_ID )
             {
              before(grammarAccess.getJointTypeExpressionAccess().getRefJointTypeCrossReference_0_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6198:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6199:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6363:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6364:1: RULE_ID
             {
              before(grammarAccess.getJointTypeExpressionAccess().getRefJointTypeIDTerminalRuleCall_0_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JointTypeExpression__RefAssignment_012390); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JointTypeExpression__RefAssignment_012710); 
              after(grammarAccess.getJointTypeExpressionAccess().getRefJointTypeIDTerminalRuleCall_0_0_1()); 
 
             }
@@ -16240,20 +16615,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointTypeExpression__AxisAssignment_1_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6210:1: rule__JointTypeExpression__AxisAssignment_1_2 : ( ruleAXIS ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6375:1: rule__JointTypeExpression__AxisAssignment_1_2 : ( ruleAXIS ) ;
     public final void rule__JointTypeExpression__AxisAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6214:1: ( ( ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6215:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6379:1: ( ( ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6380:1: ( ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6215:1: ( ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6216:1: ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6380:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6381:1: ruleAXIS
             {
              before(grammarAccess.getJointTypeExpressionAccess().getAxisAXISEnumRuleCall_1_2_0()); 
-            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_212425);
+            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_212745);
             ruleAXIS();
 
             state._fsp--;
@@ -16281,20 +16656,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointTypeExpression__AxisAssignment_1_3_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6225:1: rule__JointTypeExpression__AxisAssignment_1_3_1 : ( ruleAXIS ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6390:1: rule__JointTypeExpression__AxisAssignment_1_3_1 : ( ruleAXIS ) ;
     public final void rule__JointTypeExpression__AxisAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6229:1: ( ( ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6230:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6394:1: ( ( ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6395:1: ( ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6230:1: ( ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6231:1: ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6395:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6396:1: ruleAXIS
             {
              before(grammarAccess.getJointTypeExpressionAccess().getAxisAXISEnumRuleCall_1_3_1_0()); 
-            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_3_112456);
+            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_3_112776);
             ruleAXIS();
 
             state._fsp--;
@@ -16322,20 +16697,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointTypeExpression__AxisAssignment_2_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6240:1: rule__JointTypeExpression__AxisAssignment_2_2 : ( ruleAXIS ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6405:1: rule__JointTypeExpression__AxisAssignment_2_2 : ( ruleAXIS ) ;
     public final void rule__JointTypeExpression__AxisAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6244:1: ( ( ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6245:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6409:1: ( ( ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6410:1: ( ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6245:1: ( ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6246:1: ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6410:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6411:1: ruleAXIS
             {
              before(grammarAccess.getJointTypeExpressionAccess().getAxisAXISEnumRuleCall_2_2_0()); 
-            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_212487);
+            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_212807);
             ruleAXIS();
 
             state._fsp--;
@@ -16363,20 +16738,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__JointTypeExpression__AxisAssignment_2_3_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6255:1: rule__JointTypeExpression__AxisAssignment_2_3_1 : ( ruleAXIS ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6420:1: rule__JointTypeExpression__AxisAssignment_2_3_1 : ( ruleAXIS ) ;
     public final void rule__JointTypeExpression__AxisAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6259:1: ( ( ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6260:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6424:1: ( ( ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6425:1: ( ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6260:1: ( ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6261:1: ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6425:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6426:1: ruleAXIS
             {
              before(grammarAccess.getJointTypeExpressionAccess().getAxisAXISEnumRuleCall_2_3_1_0()); 
-            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_3_112518);
+            pushFollow(FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_3_112838);
             ruleAXIS();
 
             state._fsp--;
@@ -16404,20 +16779,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__RelativeTransformation__PositionAssignment_4"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6270:1: rule__RelativeTransformation__PositionAssignment_4 : ( ruleMatrix ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6435:1: rule__RelativeTransformation__PositionAssignment_4 : ( ruleMatrix ) ;
     public final void rule__RelativeTransformation__PositionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6274:1: ( ( ruleMatrix ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6275:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6439:1: ( ( ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6440:1: ( ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6275:1: ( ruleMatrix )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6276:1: ruleMatrix
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6440:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6441:1: ruleMatrix
             {
              before(grammarAccess.getRelativeTransformationAccess().getPositionMatrixParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleMatrix_in_rule__RelativeTransformation__PositionAssignment_412549);
+            pushFollow(FOLLOW_ruleMatrix_in_rule__RelativeTransformation__PositionAssignment_412869);
             ruleMatrix();
 
             state._fsp--;
@@ -16445,20 +16820,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__RelativeTransformation__ReorientAssignment_6"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6285:1: rule__RelativeTransformation__ReorientAssignment_6 : ( ruleReorientation ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6450:1: rule__RelativeTransformation__ReorientAssignment_6 : ( ruleReorientation ) ;
     public final void rule__RelativeTransformation__ReorientAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6289:1: ( ( ruleReorientation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6290:1: ( ruleReorientation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6454:1: ( ( ruleReorientation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6455:1: ( ruleReorientation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6290:1: ( ruleReorientation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6291:1: ruleReorientation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6455:1: ( ruleReorientation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6456:1: ruleReorientation
             {
              before(grammarAccess.getRelativeTransformationAccess().getReorientReorientationParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleReorientation_in_rule__RelativeTransformation__ReorientAssignment_612580);
+            pushFollow(FOLLOW_ruleReorientation_in_rule__RelativeTransformation__ReorientAssignment_612900);
             ruleReorientation();
 
             state._fsp--;
@@ -16486,20 +16861,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Reorientation__NameAssignment_0_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6300:1: rule__Reorientation__NameAssignment_0_1 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6465:1: rule__Reorientation__NameAssignment_0_1 : ( RULE_ID ) ;
     public final void rule__Reorientation__NameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6304:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6305:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6469:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6470:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6305:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6306:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6470:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6471:1: RULE_ID
             {
              before(grammarAccess.getReorientationAccess().getNameIDTerminalRuleCall_0_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Reorientation__NameAssignment_0_112611); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Reorientation__NameAssignment_0_112931); 
              after(grammarAccess.getReorientationAccess().getNameIDTerminalRuleCall_0_1_0()); 
 
             }
@@ -16523,20 +16898,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Reorientation__ExpAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6315:1: rule__Reorientation__ExpAssignment_1 : ( ruleReorientExpression ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6480:1: rule__Reorientation__ExpAssignment_1 : ( ruleReorientExpression ) ;
     public final void rule__Reorientation__ExpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6319:1: ( ( ruleReorientExpression ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6320:1: ( ruleReorientExpression )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6484:1: ( ( ruleReorientExpression ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6485:1: ( ruleReorientExpression )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6320:1: ( ruleReorientExpression )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6321:1: ruleReorientExpression
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6485:1: ( ruleReorientExpression )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6486:1: ruleReorientExpression
             {
              before(grammarAccess.getReorientationAccess().getExpReorientExpressionParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleReorientExpression_in_rule__Reorientation__ExpAssignment_112642);
+            pushFollow(FOLLOW_ruleReorientExpression_in_rule__Reorientation__ExpAssignment_112962);
             ruleReorientExpression();
 
             state._fsp--;
@@ -16564,24 +16939,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ReorientExpression__RefAssignment_0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6330:1: rule__ReorientExpression__RefAssignment_0 : ( ( RULE_ID ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6495:1: rule__ReorientExpression__RefAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ReorientExpression__RefAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6334:1: ( ( ( RULE_ID ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6335:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6499:1: ( ( ( RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6500:1: ( ( RULE_ID ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6335:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6336:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6500:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6501:1: ( RULE_ID )
             {
              before(grammarAccess.getReorientExpressionAccess().getRefReorientationCrossReference_0_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6337:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6338:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6502:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6503:1: RULE_ID
             {
              before(grammarAccess.getReorientExpressionAccess().getRefReorientationIDTerminalRuleCall_0_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ReorientExpression__RefAssignment_012677); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ReorientExpression__RefAssignment_012997); 
              after(grammarAccess.getReorientExpressionAccess().getRefReorientationIDTerminalRuleCall_0_0_1()); 
 
             }
@@ -16609,20 +16984,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ReorientExpression__AxisAssignment_1_2_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6349:1: rule__ReorientExpression__AxisAssignment_1_2_1 : ( ruleAXIS ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6514:1: rule__ReorientExpression__AxisAssignment_1_2_1 : ( ruleAXIS ) ;
     public final void rule__ReorientExpression__AxisAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6353:1: ( ( ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6354:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6518:1: ( ( ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6519:1: ( ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6354:1: ( ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6355:1: ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6519:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6520:1: ruleAXIS
             {
              before(grammarAccess.getReorientExpressionAccess().getAxisAXISEnumRuleCall_1_2_1_0()); 
-            pushFollow(FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_112712);
+            pushFollow(FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_113032);
             ruleAXIS();
 
             state._fsp--;
@@ -16650,20 +17025,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ReorientExpression__ValueAssignment_1_2_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6364:1: rule__ReorientExpression__ValueAssignment_1_2_3 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6529:1: rule__ReorientExpression__ValueAssignment_1_2_3 : ( ruleAddExp ) ;
     public final void rule__ReorientExpression__ValueAssignment_1_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6368:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6369:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6533:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6534:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6369:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6370:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6534:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6535:1: ruleAddExp
             {
              before(grammarAccess.getReorientExpressionAccess().getValueAddExpParserRuleCall_1_2_3_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_312743);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_313063);
             ruleAddExp();
 
             state._fsp--;
@@ -16691,20 +17066,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ReorientExpression__AxisAssignment_1_2_5_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6379:1: rule__ReorientExpression__AxisAssignment_1_2_5_2 : ( ruleAXIS ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6544:1: rule__ReorientExpression__AxisAssignment_1_2_5_2 : ( ruleAXIS ) ;
     public final void rule__ReorientExpression__AxisAssignment_1_2_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6383:1: ( ( ruleAXIS ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6384:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6548:1: ( ( ruleAXIS ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6549:1: ( ruleAXIS )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6384:1: ( ruleAXIS )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6385:1: ruleAXIS
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6549:1: ( ruleAXIS )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6550:1: ruleAXIS
             {
              before(grammarAccess.getReorientExpressionAccess().getAxisAXISEnumRuleCall_1_2_5_2_0()); 
-            pushFollow(FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_5_212774);
+            pushFollow(FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_5_213094);
             ruleAXIS();
 
             state._fsp--;
@@ -16732,20 +17107,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ReorientExpression__ValueAssignment_1_2_5_4"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6394:1: rule__ReorientExpression__ValueAssignment_1_2_5_4 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6559:1: rule__ReorientExpression__ValueAssignment_1_2_5_4 : ( ruleAddExp ) ;
     public final void rule__ReorientExpression__ValueAssignment_1_2_5_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6398:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6399:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6563:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6564:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6399:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6400:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6564:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6565:1: ruleAddExp
             {
              before(grammarAccess.getReorientExpressionAccess().getValueAddExpParserRuleCall_1_2_5_4_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_5_412805);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_5_413125);
             ruleAddExp();
 
             state._fsp--;
@@ -16773,20 +17148,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constraint__NameAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6409:1: rule__Constraint__NameAssignment_1 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6574:1: rule__Constraint__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Constraint__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6413:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6414:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6578:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6579:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6414:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6415:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6579:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6580:1: RULE_ID
             {
              before(grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Constraint__NameAssignment_112836); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Constraint__NameAssignment_113156); 
              after(grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -16810,20 +17185,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constraint__TypeAssignment_3"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6424:1: rule__Constraint__TypeAssignment_3 : ( ruleConstraintType ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6589:1: rule__Constraint__TypeAssignment_3 : ( ruleConstraintType ) ;
     public final void rule__Constraint__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6428:1: ( ( ruleConstraintType ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6429:1: ( ruleConstraintType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6593:1: ( ( ruleConstraintType ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6594:1: ( ruleConstraintType )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6429:1: ( ruleConstraintType )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6430:1: ruleConstraintType
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6594:1: ( ruleConstraintType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6595:1: ruleConstraintType
             {
              before(grammarAccess.getConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleConstraintType_in_rule__Constraint__TypeAssignment_312867);
+            pushFollow(FOLLOW_ruleConstraintType_in_rule__Constraint__TypeAssignment_313187);
             ruleConstraintType();
 
             state._fsp--;
@@ -16851,20 +17226,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constraint__Body1Assignment_5"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6439:1: rule__Constraint__Body1Assignment_5 : ( ruleBodyReference ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6604:1: rule__Constraint__Body1Assignment_5 : ( ruleBodyReference ) ;
     public final void rule__Constraint__Body1Assignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6443:1: ( ( ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6444:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6608:1: ( ( ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6609:1: ( ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6444:1: ( ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6445:1: ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6609:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6610:1: ruleBodyReference
             {
              before(grammarAccess.getConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleBodyReference_in_rule__Constraint__Body1Assignment_512898);
+            pushFollow(FOLLOW_ruleBodyReference_in_rule__Constraint__Body1Assignment_513218);
             ruleBodyReference();
 
             state._fsp--;
@@ -16892,20 +17267,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constraint__RelTrans1Assignment_6"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6454:1: rule__Constraint__RelTrans1Assignment_6 : ( ruleRelativeTransformation ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6619:1: rule__Constraint__RelTrans1Assignment_6 : ( ruleRelativeTransformation ) ;
     public final void rule__Constraint__RelTrans1Assignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6458:1: ( ( ruleRelativeTransformation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6459:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6623:1: ( ( ruleRelativeTransformation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6624:1: ( ruleRelativeTransformation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6459:1: ( ruleRelativeTransformation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6460:1: ruleRelativeTransformation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6624:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6625:1: ruleRelativeTransformation
             {
              before(grammarAccess.getConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans1Assignment_612929);
+            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans1Assignment_613249);
             ruleRelativeTransformation();
 
             state._fsp--;
@@ -16933,20 +17308,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constraint__Body2Assignment_8"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6469:1: rule__Constraint__Body2Assignment_8 : ( ruleBodyReference ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6634:1: rule__Constraint__Body2Assignment_8 : ( ruleBodyReference ) ;
     public final void rule__Constraint__Body2Assignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6473:1: ( ( ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6474:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6638:1: ( ( ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6639:1: ( ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6474:1: ( ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6475:1: ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6639:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6640:1: ruleBodyReference
             {
              before(grammarAccess.getConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0()); 
-            pushFollow(FOLLOW_ruleBodyReference_in_rule__Constraint__Body2Assignment_812960);
+            pushFollow(FOLLOW_ruleBodyReference_in_rule__Constraint__Body2Assignment_813280);
             ruleBodyReference();
 
             state._fsp--;
@@ -16974,20 +17349,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constraint__RelTrans2Assignment_9"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6484:1: rule__Constraint__RelTrans2Assignment_9 : ( ruleRelativeTransformation ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6649:1: rule__Constraint__RelTrans2Assignment_9 : ( ruleRelativeTransformation ) ;
     public final void rule__Constraint__RelTrans2Assignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6488:1: ( ( ruleRelativeTransformation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6489:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6653:1: ( ( ruleRelativeTransformation ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6654:1: ( ruleRelativeTransformation )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6489:1: ( ruleRelativeTransformation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6490:1: ruleRelativeTransformation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6654:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6655:1: ruleRelativeTransformation
             {
              before(grammarAccess.getConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0()); 
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans2Assignment_912991);
+            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans2Assignment_913311);
             ruleRelativeTransformation();
 
             state._fsp--;
@@ -17015,20 +17390,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ExternalLoad__NameAssignment_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6499:1: rule__ExternalLoad__NameAssignment_2 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6664:1: rule__ExternalLoad__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__ExternalLoad__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6503:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6504:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6668:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6669:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6504:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6505:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6669:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6670:1: RULE_ID
             {
              before(grammarAccess.getExternalLoadAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalLoad__NameAssignment_213022); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalLoad__NameAssignment_213342); 
              after(grammarAccess.getExternalLoadAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -17052,20 +17427,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ExternalLoad__TypeAssignment_4"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6514:1: rule__ExternalLoad__TypeAssignment_4 : ( ruleLoadType ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6679:1: rule__ExternalLoad__TypeAssignment_4 : ( ruleLoadType ) ;
     public final void rule__ExternalLoad__TypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6518:1: ( ( ruleLoadType ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6519:1: ( ruleLoadType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6683:1: ( ( ruleLoadType ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6684:1: ( ruleLoadType )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6519:1: ( ruleLoadType )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6520:1: ruleLoadType
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6684:1: ( ruleLoadType )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6685:1: ruleLoadType
             {
              before(grammarAccess.getExternalLoadAccess().getTypeLoadTypeEnumRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleLoadType_in_rule__ExternalLoad__TypeAssignment_413053);
+            pushFollow(FOLLOW_ruleLoadType_in_rule__ExternalLoad__TypeAssignment_413373);
             ruleLoadType();
 
             state._fsp--;
@@ -17093,20 +17468,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ExternalLoad__BodyAssignment_6"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6529:1: rule__ExternalLoad__BodyAssignment_6 : ( ruleBodyReference ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6694:1: rule__ExternalLoad__BodyAssignment_6 : ( ruleBodyReference ) ;
     public final void rule__ExternalLoad__BodyAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6533:1: ( ( ruleBodyReference ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6534:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6698:1: ( ( ruleBodyReference ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6699:1: ( ruleBodyReference )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6534:1: ( ruleBodyReference )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6535:1: ruleBodyReference
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6699:1: ( ruleBodyReference )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6700:1: ruleBodyReference
             {
              before(grammarAccess.getExternalLoadAccess().getBodyBodyReferenceParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleBodyReference_in_rule__ExternalLoad__BodyAssignment_613084);
+            pushFollow(FOLLOW_ruleBodyReference_in_rule__ExternalLoad__BodyAssignment_613404);
             ruleBodyReference();
 
             state._fsp--;
@@ -17133,26 +17508,26 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__ExternalLoad__BodyAssignment_6"
 
 
-    // $ANTLR start "rule__ExternalLoad__RelTrans1Assignment_7"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6544:1: rule__ExternalLoad__RelTrans1Assignment_7 : ( ruleRelativeTransformation ) ;
-    public final void rule__ExternalLoad__RelTrans1Assignment_7() throws RecognitionException {
+    // $ANTLR start "rule__ExternalLoad__PositionAssignment_11"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6709:1: rule__ExternalLoad__PositionAssignment_11 : ( ruleMatrix ) ;
+    public final void rule__ExternalLoad__PositionAssignment_11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6548:1: ( ( ruleRelativeTransformation ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6549:1: ( ruleRelativeTransformation )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6713:1: ( ( ruleMatrix ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6714:1: ( ruleMatrix )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6549:1: ( ruleRelativeTransformation )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6550:1: ruleRelativeTransformation
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6714:1: ( ruleMatrix )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6715:1: ruleMatrix
             {
-             before(grammarAccess.getExternalLoadAccess().getRelTrans1RelativeTransformationParserRuleCall_7_0()); 
-            pushFollow(FOLLOW_ruleRelativeTransformation_in_rule__ExternalLoad__RelTrans1Assignment_713115);
-            ruleRelativeTransformation();
+             before(grammarAccess.getExternalLoadAccess().getPositionMatrixParserRuleCall_11_0()); 
+            pushFollow(FOLLOW_ruleMatrix_in_rule__ExternalLoad__PositionAssignment_1113435);
+            ruleMatrix();
 
             state._fsp--;
 
-             after(grammarAccess.getExternalLoadAccess().getRelTrans1RelativeTransformationParserRuleCall_7_0()); 
+             after(grammarAccess.getExternalLoadAccess().getPositionMatrixParserRuleCall_11_0()); 
 
             }
 
@@ -17171,24 +17546,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__ExternalLoad__RelTrans1Assignment_7"
+    // $ANTLR end "rule__ExternalLoad__PositionAssignment_11"
 
 
     // $ANTLR start "rule__BaseMatrix__NameAssignment_0_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6559:1: rule__BaseMatrix__NameAssignment_0_1 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6724:1: rule__BaseMatrix__NameAssignment_0_1 : ( RULE_ID ) ;
     public final void rule__BaseMatrix__NameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6563:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6564:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6728:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6729:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6564:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6565:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6729:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6730:1: RULE_ID
             {
              before(grammarAccess.getBaseMatrixAccess().getNameIDTerminalRuleCall_0_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BaseMatrix__NameAssignment_0_113146); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BaseMatrix__NameAssignment_0_113466); 
              after(grammarAccess.getBaseMatrixAccess().getNameIDTerminalRuleCall_0_1_0()); 
 
             }
@@ -17212,20 +17587,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__ValuesAssignment_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6574:1: rule__BaseMatrix__ValuesAssignment_2 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6739:1: rule__BaseMatrix__ValuesAssignment_2 : ( ruleAddExp ) ;
     public final void rule__BaseMatrix__ValuesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6578:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6579:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6743:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6744:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6579:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6580:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6744:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6745:1: ruleAddExp
             {
              before(grammarAccess.getBaseMatrixAccess().getValuesAddExpParserRuleCall_2_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_213177);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_213497);
             ruleAddExp();
 
             state._fsp--;
@@ -17253,20 +17628,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__BaseMatrix__ValuesAssignment_3_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6589:1: rule__BaseMatrix__ValuesAssignment_3_1 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6754:1: rule__BaseMatrix__ValuesAssignment_3_1 : ( ruleAddExp ) ;
     public final void rule__BaseMatrix__ValuesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6593:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6594:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6758:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6759:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6594:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6595:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6759:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6760:1: ruleAddExp
             {
              before(grammarAccess.getBaseMatrixAccess().getValuesAddExpParserRuleCall_3_1_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_3_113208);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_3_113528);
             ruleAddExp();
 
             state._fsp--;
@@ -17294,24 +17669,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MatrixRef__MatrixAssignment"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6604:1: rule__MatrixRef__MatrixAssignment : ( ( RULE_ID ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6769:1: rule__MatrixRef__MatrixAssignment : ( ( RULE_ID ) ) ;
     public final void rule__MatrixRef__MatrixAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6608:1: ( ( ( RULE_ID ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6609:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6773:1: ( ( ( RULE_ID ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6774:1: ( ( RULE_ID ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6609:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6610:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6774:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6775:1: ( RULE_ID )
             {
              before(grammarAccess.getMatrixRefAccess().getMatrixBaseMatrixCrossReference_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6611:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6612:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6776:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6777:1: RULE_ID
             {
              before(grammarAccess.getMatrixRefAccess().getMatrixBaseMatrixIDTerminalRuleCall_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__MatrixRef__MatrixAssignment13243); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__MatrixRef__MatrixAssignment13563); 
              after(grammarAccess.getMatrixRefAccess().getMatrixBaseMatrixIDTerminalRuleCall_0_1()); 
 
             }
@@ -17339,23 +17714,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__OpAssignment_1_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6623:1: rule__AddExp__OpAssignment_1_1 : ( ( rule__AddExp__OpAlternatives_1_1_0 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6788:1: rule__AddExp__OpAssignment_1_1 : ( ( rule__AddExp__OpAlternatives_1_1_0 ) ) ;
     public final void rule__AddExp__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6627:1: ( ( ( rule__AddExp__OpAlternatives_1_1_0 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6628:1: ( ( rule__AddExp__OpAlternatives_1_1_0 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6792:1: ( ( ( rule__AddExp__OpAlternatives_1_1_0 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6793:1: ( ( rule__AddExp__OpAlternatives_1_1_0 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6628:1: ( ( rule__AddExp__OpAlternatives_1_1_0 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6629:1: ( rule__AddExp__OpAlternatives_1_1_0 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6793:1: ( ( rule__AddExp__OpAlternatives_1_1_0 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6794:1: ( rule__AddExp__OpAlternatives_1_1_0 )
             {
              before(grammarAccess.getAddExpAccess().getOpAlternatives_1_1_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6630:1: ( rule__AddExp__OpAlternatives_1_1_0 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6630:2: rule__AddExp__OpAlternatives_1_1_0
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6795:1: ( rule__AddExp__OpAlternatives_1_1_0 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6795:2: rule__AddExp__OpAlternatives_1_1_0
             {
-            pushFollow(FOLLOW_rule__AddExp__OpAlternatives_1_1_0_in_rule__AddExp__OpAssignment_1_113278);
+            pushFollow(FOLLOW_rule__AddExp__OpAlternatives_1_1_0_in_rule__AddExp__OpAssignment_1_113598);
             rule__AddExp__OpAlternatives_1_1_0();
 
             state._fsp--;
@@ -17386,20 +17761,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AddExp__RightAssignment_1_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6639:1: rule__AddExp__RightAssignment_1_2 : ( ruleMultExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6804:1: rule__AddExp__RightAssignment_1_2 : ( ruleMultExp ) ;
     public final void rule__AddExp__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6643:1: ( ( ruleMultExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6644:1: ( ruleMultExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6808:1: ( ( ruleMultExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6809:1: ( ruleMultExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6644:1: ( ruleMultExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6645:1: ruleMultExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6809:1: ( ruleMultExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6810:1: ruleMultExp
             {
              before(grammarAccess.getAddExpAccess().getRightMultExpParserRuleCall_1_2_0()); 
-            pushFollow(FOLLOW_ruleMultExp_in_rule__AddExp__RightAssignment_1_213311);
+            pushFollow(FOLLOW_ruleMultExp_in_rule__AddExp__RightAssignment_1_213631);
             ruleMultExp();
 
             state._fsp--;
@@ -17427,23 +17802,23 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__OpAssignment_1_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6654:1: rule__MultExp__OpAssignment_1_1 : ( ( rule__MultExp__OpAlternatives_1_1_0 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6819:1: rule__MultExp__OpAssignment_1_1 : ( ( rule__MultExp__OpAlternatives_1_1_0 ) ) ;
     public final void rule__MultExp__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6658:1: ( ( ( rule__MultExp__OpAlternatives_1_1_0 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6659:1: ( ( rule__MultExp__OpAlternatives_1_1_0 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6823:1: ( ( ( rule__MultExp__OpAlternatives_1_1_0 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6824:1: ( ( rule__MultExp__OpAlternatives_1_1_0 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6659:1: ( ( rule__MultExp__OpAlternatives_1_1_0 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6660:1: ( rule__MultExp__OpAlternatives_1_1_0 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6824:1: ( ( rule__MultExp__OpAlternatives_1_1_0 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6825:1: ( rule__MultExp__OpAlternatives_1_1_0 )
             {
              before(grammarAccess.getMultExpAccess().getOpAlternatives_1_1_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6661:1: ( rule__MultExp__OpAlternatives_1_1_0 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6661:2: rule__MultExp__OpAlternatives_1_1_0
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6826:1: ( rule__MultExp__OpAlternatives_1_1_0 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6826:2: rule__MultExp__OpAlternatives_1_1_0
             {
-            pushFollow(FOLLOW_rule__MultExp__OpAlternatives_1_1_0_in_rule__MultExp__OpAssignment_1_113342);
+            pushFollow(FOLLOW_rule__MultExp__OpAlternatives_1_1_0_in_rule__MultExp__OpAssignment_1_113662);
             rule__MultExp__OpAlternatives_1_1_0();
 
             state._fsp--;
@@ -17474,20 +17849,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultExp__RightAssignment_1_2"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6670:1: rule__MultExp__RightAssignment_1_2 : ( rulePrimary ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6835:1: rule__MultExp__RightAssignment_1_2 : ( rulePrimary ) ;
     public final void rule__MultExp__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6674:1: ( ( rulePrimary ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6675:1: ( rulePrimary )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6839:1: ( ( rulePrimary ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6840:1: ( rulePrimary )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6675:1: ( rulePrimary )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6676:1: rulePrimary
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6840:1: ( rulePrimary )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6841:1: rulePrimary
             {
              before(grammarAccess.getMultExpAccess().getRightPrimaryParserRuleCall_1_2_0()); 
-            pushFollow(FOLLOW_rulePrimary_in_rule__MultExp__RightAssignment_1_213375);
+            pushFollow(FOLLOW_rulePrimary_in_rule__MultExp__RightAssignment_1_213695);
             rulePrimary();
 
             state._fsp--;
@@ -17515,20 +17890,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParenthesisedExp__ExpAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6685:1: rule__ParenthesisedExp__ExpAssignment_1 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6850:1: rule__ParenthesisedExp__ExpAssignment_1 : ( ruleAddExp ) ;
     public final void rule__ParenthesisedExp__ExpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6689:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6690:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6854:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6855:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6690:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6691:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6855:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6856:1: ruleAddExp
             {
              before(grammarAccess.getParenthesisedExpAccess().getExpAddExpParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__ParenthesisedExp__ExpAssignment_113406);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__ParenthesisedExp__ExpAssignment_113726);
             ruleAddExp();
 
             state._fsp--;
@@ -17556,20 +17931,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__LabelAssignment_0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6700:1: rule__ConstantOrFunctionCallExp__LabelAssignment_0 : ( RULE_ID ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6865:1: rule__ConstantOrFunctionCallExp__LabelAssignment_0 : ( RULE_ID ) ;
     public final void rule__ConstantOrFunctionCallExp__LabelAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6704:1: ( ( RULE_ID ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6705:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6869:1: ( ( RULE_ID ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6870:1: ( RULE_ID )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6705:1: ( RULE_ID )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6706:1: RULE_ID
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6870:1: ( RULE_ID )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6871:1: RULE_ID
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getLabelIDTerminalRuleCall_0_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ConstantOrFunctionCallExp__LabelAssignment_013437); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ConstantOrFunctionCallExp__LabelAssignment_013757); 
              after(grammarAccess.getConstantOrFunctionCallExpAccess().getLabelIDTerminalRuleCall_0_0()); 
 
             }
@@ -17593,20 +17968,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__ParamAssignment_1_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6715:1: rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6880:1: rule__ConstantOrFunctionCallExp__ParamAssignment_1_1 : ( ruleAddExp ) ;
     public final void rule__ConstantOrFunctionCallExp__ParamAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6719:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6720:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6884:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6885:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6720:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6721:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6885:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6886:1: ruleAddExp
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAddExpParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_113468);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_113788);
             ruleAddExp();
 
             state._fsp--;
@@ -17634,20 +18009,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6730:1: rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 : ( ruleAddExp ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6895:1: rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1 : ( ruleAddExp ) ;
     public final void rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6734:1: ( ( ruleAddExp ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6735:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6899:1: ( ( ruleAddExp ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6900:1: ( ruleAddExp )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6735:1: ( ruleAddExp )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6736:1: ruleAddExp
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6900:1: ( ruleAddExp )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6901:1: ruleAddExp
             {
              before(grammarAccess.getConstantOrFunctionCallExpAccess().getParamAddExpParserRuleCall_1_2_1_0()); 
-            pushFollow(FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_113499);
+            pushFollow(FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_113819);
             ruleAddExp();
 
             state._fsp--;
@@ -17675,24 +18050,24 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NumberLiteral__NegAssignment_0"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6745:1: rule__NumberLiteral__NegAssignment_0 : ( ( '-' ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6910:1: rule__NumberLiteral__NegAssignment_0 : ( ( '-' ) ) ;
     public final void rule__NumberLiteral__NegAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6749:1: ( ( ( '-' ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6750:1: ( ( '-' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6914:1: ( ( ( '-' ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6915:1: ( ( '-' ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6750:1: ( ( '-' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6751:1: ( '-' )
-            {
-             before(grammarAccess.getNumberLiteralAccess().getNegHyphenMinusKeyword_0_0()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6752:1: ( '-' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6753:1: '-'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6915:1: ( ( '-' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6916:1: ( '-' )
             {
              before(grammarAccess.getNumberLiteralAccess().getNegHyphenMinusKeyword_0_0()); 
-            match(input,13,FOLLOW_13_in_rule__NumberLiteral__NegAssignment_013535); 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6917:1: ( '-' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6918:1: '-'
+            {
+             before(grammarAccess.getNumberLiteralAccess().getNegHyphenMinusKeyword_0_0()); 
+            match(input,13,FOLLOW_13_in_rule__NumberLiteral__NegAssignment_013855); 
              after(grammarAccess.getNumberLiteralAccess().getNegHyphenMinusKeyword_0_0()); 
 
             }
@@ -17720,20 +18095,20 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NumberLiteral__ValueAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6768:1: rule__NumberLiteral__ValueAssignment_1 : ( RULE_REAL ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6933:1: rule__NumberLiteral__ValueAssignment_1 : ( RULE_REAL ) ;
     public final void rule__NumberLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6772:1: ( ( RULE_REAL ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6773:1: ( RULE_REAL )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6937:1: ( ( RULE_REAL ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6938:1: ( RULE_REAL )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6773:1: ( RULE_REAL )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6774:1: RULE_REAL
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6938:1: ( RULE_REAL )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6939:1: RULE_REAL
             {
              before(grammarAccess.getNumberLiteralAccess().getValueREALTerminalRuleCall_1_0()); 
-            match(input,RULE_REAL,FOLLOW_RULE_REAL_in_rule__NumberLiteral__ValueAssignment_113574); 
+            match(input,RULE_REAL,FOLLOW_RULE_REAL_in_rule__NumberLiteral__ValueAssignment_113894); 
              after(grammarAccess.getNumberLiteralAccess().getValueREALTerminalRuleCall_1_0()); 
 
             }
@@ -18189,152 +18564,167 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ExternalLoad__Group__6__Impl_in_rule__ExternalLoad__Group__69466 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_rule__ExternalLoad__Group__7_in_rule__ExternalLoad__Group__69469 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExternalLoad__BodyAssignment_6_in_rule__ExternalLoad__Group__6__Impl9496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ExternalLoad__Group__7__Impl_in_rule__ExternalLoad__Group__79526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ExternalLoad__RelTrans1Assignment_7_in_rule__ExternalLoad__Group__7__Impl9553 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__0__Impl_in_rule__BaseMatrix__Group__09599 = new BitSet(new long[]{0x0500000000000000L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__1_in_rule__BaseMatrix__Group__09602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__0_in_rule__BaseMatrix__Group__0__Impl9629 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__1__Impl_in_rule__BaseMatrix__Group__19660 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__2_in_rule__BaseMatrix__Group__19663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rule__BaseMatrix__Group__1__Impl9691 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__2__Impl_in_rule__BaseMatrix__Group__29722 = new BitSet(new long[]{0x0200400000000000L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__3_in_rule__BaseMatrix__Group__29725 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__ValuesAssignment_2_in_rule__BaseMatrix__Group__2__Impl9752 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__3__Impl_in_rule__BaseMatrix__Group__39782 = new BitSet(new long[]{0x0200400000000000L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__4_in_rule__BaseMatrix__Group__39785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__0_in_rule__BaseMatrix__Group__3__Impl9812 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group__4__Impl_in_rule__BaseMatrix__Group__49843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_rule__BaseMatrix__Group__4__Impl9871 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__0__Impl_in_rule__BaseMatrix__Group_0__09912 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__1_in_rule__BaseMatrix__Group_0__09915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_rule__BaseMatrix__Group_0__0__Impl9943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__1__Impl_in_rule__BaseMatrix__Group_0__19974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__NameAssignment_0_1_in_rule__BaseMatrix__Group_0__1__Impl10001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__0__Impl_in_rule__BaseMatrix__Group_3__010035 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__1_in_rule__BaseMatrix__Group_3__010038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_rule__BaseMatrix__Group_3__0__Impl10066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__1__Impl_in_rule__BaseMatrix__Group_3__110097 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BaseMatrix__ValuesAssignment_3_1_in_rule__BaseMatrix__Group_3__1__Impl10124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__Group__0__Impl_in_rule__AddExp__Group__010158 = new BitSet(new long[]{0x0000000000003000L});
-    public static final BitSet FOLLOW_rule__AddExp__Group__1_in_rule__AddExp__Group__010161 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultExp_in_rule__AddExp__Group__0__Impl10188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__Group__1__Impl_in_rule__AddExp__Group__110217 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__Group_1__0_in_rule__AddExp__Group__1__Impl10244 = new BitSet(new long[]{0x0000000000003002L});
-    public static final BitSet FOLLOW_rule__AddExp__Group_1__0__Impl_in_rule__AddExp__Group_1__010279 = new BitSet(new long[]{0x0000000000003000L});
-    public static final BitSet FOLLOW_rule__AddExp__Group_1__1_in_rule__AddExp__Group_1__010282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__Group_1__1__Impl_in_rule__AddExp__Group_1__110340 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__AddExp__Group_1__2_in_rule__AddExp__Group_1__110343 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__OpAssignment_1_1_in_rule__AddExp__Group_1__1__Impl10370 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__Group_1__2__Impl_in_rule__AddExp__Group_1__210400 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__RightAssignment_1_2_in_rule__AddExp__Group_1__2__Impl10427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__Group__0__Impl_in_rule__MultExp__Group__010463 = new BitSet(new long[]{0x000000000000C000L});
-    public static final BitSet FOLLOW_rule__MultExp__Group__1_in_rule__MultExp__Group__010466 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_rule__MultExp__Group__0__Impl10493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__Group__1__Impl_in_rule__MultExp__Group__110522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__Group_1__0_in_rule__MultExp__Group__1__Impl10549 = new BitSet(new long[]{0x000000000000C002L});
-    public static final BitSet FOLLOW_rule__MultExp__Group_1__0__Impl_in_rule__MultExp__Group_1__010584 = new BitSet(new long[]{0x000000000000C000L});
-    public static final BitSet FOLLOW_rule__MultExp__Group_1__1_in_rule__MultExp__Group_1__010587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__Group_1__1__Impl_in_rule__MultExp__Group_1__110645 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__MultExp__Group_1__2_in_rule__MultExp__Group_1__110648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__OpAssignment_1_1_in_rule__MultExp__Group_1__1__Impl10675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__Group_1__2__Impl_in_rule__MultExp__Group_1__210705 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__RightAssignment_1_2_in_rule__MultExp__Group_1__2__Impl10732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__0__Impl_in_rule__ParenthesisedExp__Group__010768 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__1_in_rule__ParenthesisedExp__Group__010771 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__ParenthesisedExp__Group__0__Impl10799 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__1__Impl_in_rule__ParenthesisedExp__Group__110830 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__2_in_rule__ParenthesisedExp__Group__110833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParenthesisedExp__ExpAssignment_1_in_rule__ParenthesisedExp__Group__1__Impl10860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__2__Impl_in_rule__ParenthesisedExp__Group__210890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_rule__ParenthesisedExp__Group__2__Impl10918 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group__0__Impl_in_rule__ConstantOrFunctionCallExp__Group__010955 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group__1_in_rule__ConstantOrFunctionCallExp__Group__010958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__LabelAssignment_0_in_rule__ConstantOrFunctionCallExp__Group__0__Impl10985 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group__1__Impl_in_rule__ConstantOrFunctionCallExp__Group__111015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0_in_rule__ConstantOrFunctionCallExp__Group__1__Impl11042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__011077 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1_in_rule__ConstantOrFunctionCallExp__Group_1__011080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__ConstantOrFunctionCallExp__Group_1__0__Impl11108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__111139 = new BitSet(new long[]{0x0000600000000000L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2_in_rule__ConstantOrFunctionCallExp__Group_1__111142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_1_in_rule__ConstantOrFunctionCallExp__Group_1__1__Impl11169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__211199 = new BitSet(new long[]{0x0000600000000000L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3_in_rule__ConstantOrFunctionCallExp__Group_1__211202 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0_in_rule__ConstantOrFunctionCallExp__Group_1__2__Impl11229 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__311260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_rule__ConstantOrFunctionCallExp__Group_1__3__Impl11288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__011327 = new BitSet(new long[]{0x0000100000002030L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1_in_rule__ConstantOrFunctionCallExp__Group_1_2__011330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl11358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__111389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1_in_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl11416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NumberLiteral__Group__0__Impl_in_rule__NumberLiteral__Group__011450 = new BitSet(new long[]{0x0000000000002020L});
-    public static final BitSet FOLLOW_rule__NumberLiteral__Group__1_in_rule__NumberLiteral__Group__011453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NumberLiteral__NegAssignment_0_in_rule__NumberLiteral__Group__0__Impl11480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NumberLiteral__Group__1__Impl_in_rule__NumberLiteral__Group__111511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NumberLiteral__ValueAssignment_1_in_rule__NumberLiteral__Group__1__Impl11538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInitialDefinition_in_rule__Model__DefsAssignment_011577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnvironment_in_rule__Model__WorldAssignment_111608 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSystem_in_rule__Model__BodiesAssignment_211639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrix_in_rule__Environment__GravityAssignment_311670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__System__NameAssignment_111701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSystemElement_in_rule__System__ElementsAssignment_311732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Body__NameAssignment_111763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMass_in_rule__Body__MassAssignment_311794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_rule__BodyReference__BaseAssignment_011830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BodyReference__RefAssignment_111873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__Mass__ValueAssignment_311908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrix_in_rule__Mass__PositionAssignment_511939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrix_in_rule__Mass__InertiaAssignment_711970 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Joint__NameAssignment_112001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJointType_in_rule__Joint__TypeAssignment_312032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_rule__Joint__IsStartAssignment_412068 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Joint__Body1Assignment_612107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Joint__RelTrans1Assignment_712138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Joint__Body2Assignment_912169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__SpringCoeffAssignment_1312200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__SpringInitAssignment_1512231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__DampViscousAssignment_1712262 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__DampCoulombAssignment_1912293 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__JointType__NameAssignment_0_212324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJointTypeExpression_in_rule__JointType__ExpAssignment_112355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__JointTypeExpression__RefAssignment_012390 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_212425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_3_112456 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_212487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_3_112518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMatrix_in_rule__RelativeTransformation__PositionAssignment_412549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleReorientation_in_rule__RelativeTransformation__ReorientAssignment_612580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Reorientation__NameAssignment_0_112611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleReorientExpression_in_rule__Reorientation__ExpAssignment_112642 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ReorientExpression__RefAssignment_012677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_112712 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_312743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_5_212774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_5_412805 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Constraint__NameAssignment_112836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstraintType_in_rule__Constraint__TypeAssignment_312867 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Constraint__Body1Assignment_512898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans1Assignment_612929 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Constraint__Body2Assignment_812960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans2Assignment_912991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalLoad__NameAssignment_213022 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLoadType_in_rule__ExternalLoad__TypeAssignment_413053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_rule__ExternalLoad__BodyAssignment_613084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__ExternalLoad__RelTrans1Assignment_713115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BaseMatrix__NameAssignment_0_113146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_213177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_3_113208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__MatrixRef__MatrixAssignment13243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AddExp__OpAlternatives_1_1_0_in_rule__AddExp__OpAssignment_1_113278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultExp_in_rule__AddExp__RightAssignment_1_213311 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultExp__OpAlternatives_1_1_0_in_rule__MultExp__OpAssignment_1_113342 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_rule__MultExp__RightAssignment_1_213375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__ParenthesisedExp__ExpAssignment_113406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ConstantOrFunctionCallExp__LabelAssignment_013437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_113468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_113499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__NumberLiteral__NegAssignment_013535 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_REAL_in_rule__NumberLiteral__ValueAssignment_113574 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__7__Impl_in_rule__ExternalLoad__Group__79526 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__8_in_rule__ExternalLoad__Group__79529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__ExternalLoad__Group__7__Impl9557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__8__Impl_in_rule__ExternalLoad__Group__89588 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__9_in_rule__ExternalLoad__Group__89591 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_rule__ExternalLoad__Group__8__Impl9619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__9__Impl_in_rule__ExternalLoad__Group__99650 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__10_in_rule__ExternalLoad__Group__99653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_rule__ExternalLoad__Group__9__Impl9681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__10__Impl_in_rule__ExternalLoad__Group__109712 = new BitSet(new long[]{0x0500000000000010L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__11_in_rule__ExternalLoad__Group__109715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_rule__ExternalLoad__Group__10__Impl9743 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__11__Impl_in_rule__ExternalLoad__Group__119774 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__12_in_rule__ExternalLoad__Group__119777 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__PositionAssignment_11_in_rule__ExternalLoad__Group__11__Impl9804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Group__12__Impl_in_rule__ExternalLoad__Group__129834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_rule__ExternalLoad__Group__12__Impl9862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__0__Impl_in_rule__BaseMatrix__Group__09919 = new BitSet(new long[]{0x0500000000000000L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__1_in_rule__BaseMatrix__Group__09922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__0_in_rule__BaseMatrix__Group__0__Impl9949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__1__Impl_in_rule__BaseMatrix__Group__19980 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__2_in_rule__BaseMatrix__Group__19983 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__BaseMatrix__Group__1__Impl10011 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__2__Impl_in_rule__BaseMatrix__Group__210042 = new BitSet(new long[]{0x0200400000000000L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__3_in_rule__BaseMatrix__Group__210045 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__ValuesAssignment_2_in_rule__BaseMatrix__Group__2__Impl10072 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__3__Impl_in_rule__BaseMatrix__Group__310102 = new BitSet(new long[]{0x0200400000000000L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__4_in_rule__BaseMatrix__Group__310105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__0_in_rule__BaseMatrix__Group__3__Impl10132 = new BitSet(new long[]{0x0000400000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group__4__Impl_in_rule__BaseMatrix__Group__410163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_rule__BaseMatrix__Group__4__Impl10191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__0__Impl_in_rule__BaseMatrix__Group_0__010232 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__1_in_rule__BaseMatrix__Group_0__010235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_rule__BaseMatrix__Group_0__0__Impl10263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_0__1__Impl_in_rule__BaseMatrix__Group_0__110294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__NameAssignment_0_1_in_rule__BaseMatrix__Group_0__1__Impl10321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__0__Impl_in_rule__BaseMatrix__Group_3__010355 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__1_in_rule__BaseMatrix__Group_3__010358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_rule__BaseMatrix__Group_3__0__Impl10386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__Group_3__1__Impl_in_rule__BaseMatrix__Group_3__110417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BaseMatrix__ValuesAssignment_3_1_in_rule__BaseMatrix__Group_3__1__Impl10444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__Group__0__Impl_in_rule__AddExp__Group__010478 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_rule__AddExp__Group__1_in_rule__AddExp__Group__010481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultExp_in_rule__AddExp__Group__0__Impl10508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__Group__1__Impl_in_rule__AddExp__Group__110537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__Group_1__0_in_rule__AddExp__Group__1__Impl10564 = new BitSet(new long[]{0x0000000000003002L});
+    public static final BitSet FOLLOW_rule__AddExp__Group_1__0__Impl_in_rule__AddExp__Group_1__010599 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_rule__AddExp__Group_1__1_in_rule__AddExp__Group_1__010602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__Group_1__1__Impl_in_rule__AddExp__Group_1__110660 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__AddExp__Group_1__2_in_rule__AddExp__Group_1__110663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__OpAssignment_1_1_in_rule__AddExp__Group_1__1__Impl10690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__Group_1__2__Impl_in_rule__AddExp__Group_1__210720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__RightAssignment_1_2_in_rule__AddExp__Group_1__2__Impl10747 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__Group__0__Impl_in_rule__MultExp__Group__010783 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_rule__MultExp__Group__1_in_rule__MultExp__Group__010786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_rule__MultExp__Group__0__Impl10813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__Group__1__Impl_in_rule__MultExp__Group__110842 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__Group_1__0_in_rule__MultExp__Group__1__Impl10869 = new BitSet(new long[]{0x000000000000C002L});
+    public static final BitSet FOLLOW_rule__MultExp__Group_1__0__Impl_in_rule__MultExp__Group_1__010904 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_rule__MultExp__Group_1__1_in_rule__MultExp__Group_1__010907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__Group_1__1__Impl_in_rule__MultExp__Group_1__110965 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__MultExp__Group_1__2_in_rule__MultExp__Group_1__110968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__OpAssignment_1_1_in_rule__MultExp__Group_1__1__Impl10995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__Group_1__2__Impl_in_rule__MultExp__Group_1__211025 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__RightAssignment_1_2_in_rule__MultExp__Group_1__2__Impl11052 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__0__Impl_in_rule__ParenthesisedExp__Group__011088 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__1_in_rule__ParenthesisedExp__Group__011091 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__ParenthesisedExp__Group__0__Impl11119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__1__Impl_in_rule__ParenthesisedExp__Group__111150 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__2_in_rule__ParenthesisedExp__Group__111153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParenthesisedExp__ExpAssignment_1_in_rule__ParenthesisedExp__Group__1__Impl11180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParenthesisedExp__Group__2__Impl_in_rule__ParenthesisedExp__Group__211210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_rule__ParenthesisedExp__Group__2__Impl11238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group__0__Impl_in_rule__ConstantOrFunctionCallExp__Group__011275 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group__1_in_rule__ConstantOrFunctionCallExp__Group__011278 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__LabelAssignment_0_in_rule__ConstantOrFunctionCallExp__Group__0__Impl11305 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group__1__Impl_in_rule__ConstantOrFunctionCallExp__Group__111335 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0_in_rule__ConstantOrFunctionCallExp__Group__1__Impl11362 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__011397 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1_in_rule__ConstantOrFunctionCallExp__Group_1__011400 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__ConstantOrFunctionCallExp__Group_1__0__Impl11428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__111459 = new BitSet(new long[]{0x0000600000000000L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2_in_rule__ConstantOrFunctionCallExp__Group_1__111462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_1_in_rule__ConstantOrFunctionCallExp__Group_1__1__Impl11489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__2__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__211519 = new BitSet(new long[]{0x0000600000000000L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3_in_rule__ConstantOrFunctionCallExp__Group_1__211522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0_in_rule__ConstantOrFunctionCallExp__Group_1__2__Impl11549 = new BitSet(new long[]{0x0000400000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1__3__Impl_in_rule__ConstantOrFunctionCallExp__Group_1__311580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_rule__ConstantOrFunctionCallExp__Group_1__3__Impl11608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__011647 = new BitSet(new long[]{0x0000100000002030L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1_in_rule__ConstantOrFunctionCallExp__Group_1_2__011650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_rule__ConstantOrFunctionCallExp__Group_1_2__0__Impl11678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl_in_rule__ConstantOrFunctionCallExp__Group_1_2__111709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_1_in_rule__ConstantOrFunctionCallExp__Group_1_2__1__Impl11736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NumberLiteral__Group__0__Impl_in_rule__NumberLiteral__Group__011770 = new BitSet(new long[]{0x0000000000002020L});
+    public static final BitSet FOLLOW_rule__NumberLiteral__Group__1_in_rule__NumberLiteral__Group__011773 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NumberLiteral__NegAssignment_0_in_rule__NumberLiteral__Group__0__Impl11800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NumberLiteral__Group__1__Impl_in_rule__NumberLiteral__Group__111831 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NumberLiteral__ValueAssignment_1_in_rule__NumberLiteral__Group__1__Impl11858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInitialDefinition_in_rule__Model__DefsAssignment_011897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnvironment_in_rule__Model__WorldAssignment_111928 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSystem_in_rule__Model__BodiesAssignment_211959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrix_in_rule__Environment__GravityAssignment_311990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__System__NameAssignment_112021 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSystemElement_in_rule__System__ElementsAssignment_312052 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Body__NameAssignment_112083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMass_in_rule__Body__MassAssignment_312114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_rule__BodyReference__BaseAssignment_012150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BodyReference__RefAssignment_112193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__Mass__ValueAssignment_312228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrix_in_rule__Mass__PositionAssignment_512259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrix_in_rule__Mass__InertiaAssignment_712290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Joint__NameAssignment_112321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJointType_in_rule__Joint__TypeAssignment_312352 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_rule__Joint__IsStartAssignment_412388 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Joint__Body1Assignment_612427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Joint__RelTrans1Assignment_712458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Joint__Body2Assignment_912489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__SpringCoeffAssignment_1312520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__SpringInitAssignment_1512551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__DampViscousAssignment_1712582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__Joint__DampCoulombAssignment_1912613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__JointType__NameAssignment_0_212644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJointTypeExpression_in_rule__JointType__ExpAssignment_112675 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__JointTypeExpression__RefAssignment_012710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_212745 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_1_3_112776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_212807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rule__JointTypeExpression__AxisAssignment_2_3_112838 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrix_in_rule__RelativeTransformation__PositionAssignment_412869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleReorientation_in_rule__RelativeTransformation__ReorientAssignment_612900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Reorientation__NameAssignment_0_112931 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleReorientExpression_in_rule__Reorientation__ExpAssignment_112962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ReorientExpression__RefAssignment_012997 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_113032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_313063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAXIS_in_rule__ReorientExpression__AxisAssignment_1_2_5_213094 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__ReorientExpression__ValueAssignment_1_2_5_413125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Constraint__NameAssignment_113156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstraintType_in_rule__Constraint__TypeAssignment_313187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Constraint__Body1Assignment_513218 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans1Assignment_613249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_rule__Constraint__Body2Assignment_813280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans2Assignment_913311 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalLoad__NameAssignment_213342 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLoadType_in_rule__ExternalLoad__TypeAssignment_413373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_rule__ExternalLoad__BodyAssignment_613404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMatrix_in_rule__ExternalLoad__PositionAssignment_1113435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BaseMatrix__NameAssignment_0_113466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_213497 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_3_113528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__MatrixRef__MatrixAssignment13563 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AddExp__OpAlternatives_1_1_0_in_rule__AddExp__OpAssignment_1_113598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultExp_in_rule__AddExp__RightAssignment_1_213631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultExp__OpAlternatives_1_1_0_in_rule__MultExp__OpAssignment_1_113662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_rule__MultExp__RightAssignment_1_213695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__ParenthesisedExp__ExpAssignment_113726 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ConstantOrFunctionCallExp__LabelAssignment_013757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_113788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddExp_in_rule__ConstantOrFunctionCallExp__ParamAssignment_1_2_113819 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__NumberLiteral__NegAssignment_013855 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_REAL_in_rule__NumberLiteral__ValueAssignment_113894 = new BitSet(new long[]{0x0000000000000002L});
 
 }

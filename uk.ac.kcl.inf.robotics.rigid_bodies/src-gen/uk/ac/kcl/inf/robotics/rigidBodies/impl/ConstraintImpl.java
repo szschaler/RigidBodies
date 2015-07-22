@@ -25,6 +25,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl#getBody1 <em>Body1</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl#getBody2 <em>Body2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConstraintImpl#getRelTrans2 <em>Rel Trans2</em>}</li>
  * </ul>
@@ -63,6 +64,16 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
    * @ordered
    */
   protected BodyReference body1;
+
+  /**
+   * The cached value of the '{@link #getRelTrans1() <em>Rel Trans1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRelTrans1()
+   * @generated
+   * @ordered
+   */
+  protected RelativeTransformation relTrans1;
 
   /**
    * The cached value of the '{@link #getBody2() <em>Body2</em>}' containment reference.
@@ -181,6 +192,54 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
    * <!-- end-user-doc -->
    * @generated
    */
+  public RelativeTransformation getRelTrans1()
+  {
+    return relTrans1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRelTrans1(RelativeTransformation newRelTrans1, NotificationChain msgs)
+  {
+    RelativeTransformation oldRelTrans1 = relTrans1;
+    relTrans1 = newRelTrans1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__REL_TRANS1, oldRelTrans1, newRelTrans1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRelTrans1(RelativeTransformation newRelTrans1)
+  {
+    if (newRelTrans1 != relTrans1)
+    {
+      NotificationChain msgs = null;
+      if (relTrans1 != null)
+        msgs = ((InternalEObject)relTrans1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.CONSTRAINT__REL_TRANS1, null, msgs);
+      if (newRelTrans1 != null)
+        msgs = ((InternalEObject)newRelTrans1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.CONSTRAINT__REL_TRANS1, null, msgs);
+      msgs = basicSetRelTrans1(newRelTrans1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONSTRAINT__REL_TRANS1, newRelTrans1, newRelTrans1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public BodyReference getBody2()
   {
     return body2;
@@ -284,6 +343,8 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
     {
       case RigidBodiesPackage.CONSTRAINT__BODY1:
         return basicSetBody1(null, msgs);
+      case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
+        return basicSetRelTrans1(null, msgs);
       case RigidBodiesPackage.CONSTRAINT__BODY2:
         return basicSetBody2(null, msgs);
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:
@@ -306,6 +367,8 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
         return getType();
       case RigidBodiesPackage.CONSTRAINT__BODY1:
         return getBody1();
+      case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
+        return getRelTrans1();
       case RigidBodiesPackage.CONSTRAINT__BODY2:
         return getBody2();
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:
@@ -329,6 +392,9 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
         return;
       case RigidBodiesPackage.CONSTRAINT__BODY1:
         setBody1((BodyReference)newValue);
+        return;
+      case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
+        setRelTrans1((RelativeTransformation)newValue);
         return;
       case RigidBodiesPackage.CONSTRAINT__BODY2:
         setBody2((BodyReference)newValue);
@@ -356,6 +422,9 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
       case RigidBodiesPackage.CONSTRAINT__BODY1:
         setBody1((BodyReference)null);
         return;
+      case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
+        setRelTrans1((RelativeTransformation)null);
+        return;
       case RigidBodiesPackage.CONSTRAINT__BODY2:
         setBody2((BodyReference)null);
         return;
@@ -380,6 +449,8 @@ public class ConstraintImpl extends ConnectiveImpl implements Constraint
         return type != TYPE_EDEFAULT;
       case RigidBodiesPackage.CONSTRAINT__BODY1:
         return body1 != null;
+      case RigidBodiesPackage.CONSTRAINT__REL_TRANS1:
+        return relTrans1 != null;
       case RigidBodiesPackage.CONSTRAINT__BODY2:
         return body2 != null;
       case RigidBodiesPackage.CONSTRAINT__REL_TRANS2:

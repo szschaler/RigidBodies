@@ -13,6 +13,7 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getBody <em>Body</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,31 @@ public interface ExternalLoad extends Connective
    * @generated
    */
   void setBody(BodyReference value);
+
+  /**
+   * Returns the value of the '<em><b>Position</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Position</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Position</em>' containment reference.
+   * @see #setPosition(Matrix)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getExternalLoad_Position()
+   * @model containment="true"
+   * @generated
+   */
+  Matrix getPosition();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad#getPosition <em>Position</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Position</em>' containment reference.
+   * @see #getPosition()
+   * @generated
+   */
+  void setPosition(Matrix value);
 
 } // ExternalLoad

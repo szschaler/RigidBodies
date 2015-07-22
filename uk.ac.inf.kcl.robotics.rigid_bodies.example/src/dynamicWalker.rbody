@@ -154,9 +154,8 @@ system DynamicWalker {
 
 	// TODO For these, only the relative transformation goes to lc
 	external load foot1L : force
-		at shank1 (with relative transformation Origin, NoReorient) // TODO For now, get rid of reorientation for external load (only needed for dynamics)
+		at shank1 (with relative transformation Origin)
 		
 	external load foot2L : force
-		at shank2 (with relative transformation OOM1, NoReorient)
-		
+		at shank2 (with relative transformation OOM1)
 }
