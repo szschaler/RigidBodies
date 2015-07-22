@@ -52,6 +52,9 @@ class RigidBodiesGenerator implements IGenerator {
 					% Position data from «ctb.constraintPositions.get(i).key» for a constraint «ctb.constraintLcCodeColumns.get(i).value.key»
 					% TODO: Check with Hadi that we're using the correct position data here.
 					«ctb.constraintPositions.get(i).value.renderValues (' ')» «ctb.constraintLcCodeColumns.get(i).key» «ctb.constraintLcCodeColumns.get(i).value.value»'''])»
+			«(0..<ctb.loadPositions.size).join (';\n', [ i | '''
+					% Position data from «ctb.loadPositions.get(i).key» for a load «ctb.loadLcCodeColumns.get(i).value.key»
+					«ctb.loadPositions.get(i).value.renderValues (' ')» «ctb.loadLcCodeColumns.get(i).key» «ctb.loadLcCodeColumns.get(i).value.value»'''])»
 		];
 
 		% Mass values

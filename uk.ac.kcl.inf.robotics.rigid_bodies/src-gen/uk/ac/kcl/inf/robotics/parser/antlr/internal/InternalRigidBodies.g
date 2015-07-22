@@ -1563,16 +1563,16 @@ ruleExternalLoad returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExternalLoadAccess().getBodyBodyReferenceParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0()); 
 	    }
-		lv_body_6_0=ruleBodyReference		{
+		lv_body1_6_0=ruleBodyReference		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExternalLoadRule());
 	        }
        		set(
        			$current, 
-       			"body",
-        		lv_body_6_0, 
+       			"body1",
+        		lv_body1_6_0, 
         		"BodyReference");
 	        afterParserOrEnumRuleCall();
 	    }

@@ -4735,9 +4735,9 @@ rule__ExternalLoad__Group__6__Impl
     }
 :
 (
-{ before(grammarAccess.getExternalLoadAccess().getBodyAssignment_6()); }
-(rule__ExternalLoad__BodyAssignment_6)
-{ after(grammarAccess.getExternalLoadAccess().getBodyAssignment_6()); }
+{ before(grammarAccess.getExternalLoadAccess().getBody1Assignment_6()); }
+(rule__ExternalLoad__Body1Assignment_6)
+{ after(grammarAccess.getExternalLoadAccess().getBody1Assignment_6()); }
 )
 
 ;
@@ -6691,14 +6691,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ExternalLoad__BodyAssignment_6
+rule__ExternalLoad__Body1Assignment_6
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getExternalLoadAccess().getBodyBodyReferenceParserRuleCall_6_0()); }
-	ruleBodyReference{ after(grammarAccess.getExternalLoadAccess().getBodyBodyReferenceParserRuleCall_6_0()); }
+{ before(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0()); }
+	ruleBodyReference{ after(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0()); }
 )
 
 ;

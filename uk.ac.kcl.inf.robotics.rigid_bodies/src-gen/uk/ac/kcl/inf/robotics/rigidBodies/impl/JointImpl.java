@@ -26,7 +26,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#isIsStart <em>Is Start</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody1 <em>Body1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody2 <em>Body2</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getSpringCoeff <em>Spring Coeff</em>}</li>
@@ -69,16 +68,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
    * @ordered
    */
   protected boolean isStart = IS_START_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getBody1() <em>Body1</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBody1()
-   * @generated
-   * @ordered
-   */
-  protected BodyReference body1;
 
   /**
    * The cached value of the '{@link #getRelTrans1() <em>Rel Trans1</em>}' containment reference.
@@ -230,54 +219,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
     isStart = newIsStart;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__IS_START, oldIsStart, isStart));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BodyReference getBody1()
-  {
-    return body1;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBody1(BodyReference newBody1, NotificationChain msgs)
-  {
-    BodyReference oldBody1 = body1;
-    body1 = newBody1;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY1, oldBody1, newBody1);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBody1(BodyReference newBody1)
-  {
-    if (newBody1 != body1)
-    {
-      NotificationChain msgs = null;
-      if (body1 != null)
-        msgs = ((InternalEObject)body1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__BODY1, null, msgs);
-      if (newBody1 != null)
-        msgs = ((InternalEObject)newBody1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__BODY1, null, msgs);
-      msgs = basicSetBody1(newBody1, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY1, newBody1, newBody1));
   }
 
   /**
@@ -580,8 +521,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
     {
       case RigidBodiesPackage.JOINT__TYPE:
         return basicSetType(null, msgs);
-      case RigidBodiesPackage.JOINT__BODY1:
-        return basicSetBody1(null, msgs);
       case RigidBodiesPackage.JOINT__REL_TRANS1:
         return basicSetRelTrans1(null, msgs);
       case RigidBodiesPackage.JOINT__BODY2:
@@ -612,8 +551,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return getType();
       case RigidBodiesPackage.JOINT__IS_START:
         return isIsStart();
-      case RigidBodiesPackage.JOINT__BODY1:
-        return getBody1();
       case RigidBodiesPackage.JOINT__REL_TRANS1:
         return getRelTrans1();
       case RigidBodiesPackage.JOINT__BODY2:
@@ -645,9 +582,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return;
       case RigidBodiesPackage.JOINT__IS_START:
         setIsStart((Boolean)newValue);
-        return;
-      case RigidBodiesPackage.JOINT__BODY1:
-        setBody1((BodyReference)newValue);
         return;
       case RigidBodiesPackage.JOINT__REL_TRANS1:
         setRelTrans1((RelativeTransformation)newValue);
@@ -687,9 +621,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
       case RigidBodiesPackage.JOINT__IS_START:
         setIsStart(IS_START_EDEFAULT);
         return;
-      case RigidBodiesPackage.JOINT__BODY1:
-        setBody1((BodyReference)null);
-        return;
       case RigidBodiesPackage.JOINT__REL_TRANS1:
         setRelTrans1((RelativeTransformation)null);
         return;
@@ -726,8 +657,6 @@ public class JointImpl extends ConnectiveImpl implements Joint
         return type != null;
       case RigidBodiesPackage.JOINT__IS_START:
         return isStart != IS_START_EDEFAULT;
-      case RigidBodiesPackage.JOINT__BODY1:
-        return body1 != null;
       case RigidBodiesPackage.JOINT__REL_TRANS1:
         return relTrans1 != null;
       case RigidBodiesPackage.JOINT__BODY2:

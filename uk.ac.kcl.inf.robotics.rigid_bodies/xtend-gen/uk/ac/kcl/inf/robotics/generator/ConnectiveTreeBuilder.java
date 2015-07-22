@@ -110,6 +110,10 @@ public class ConnectiveTreeBuilder {
   
   private List<Pair<Integer, Pair<String, Integer>>> constraintLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>();
   
+  private List<Pair<String, BaseMatrix>> loadPositions = new LinkedList<Pair<String, BaseMatrix>>();
+  
+  private List<Pair<Integer, Pair<String, Integer>>> loadLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>();
+  
   public ConnectiveTreeBuilder(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
     this.system = s;
     Joint _startJoint = this.getStartJoint();
@@ -156,10 +160,10 @@ public class ConnectiveTreeBuilder {
           int index = idx[0];
           BodyReference _body2_3 = curJoint.getBody2();
           Body _ref_2 = _body2_3.getRef();
-          Iterable<Joint> _jointFanOut = this.getJointFanOut(_ref_2);
-          final Procedure1<Joint> _function = new Procedure1<Joint>() {
+          Iterable<Connective> _connectiveFanOut = this.getConnectiveFanOut(_ref_2);
+          final Procedure1<Connective> _function = new Procedure1<Connective>() {
             @Override
-            public void apply(final Joint j) {
+            public void apply(final Connective j) {
               ConnectiveTreeBuilder.ConnectiveTree child = ConnectiveTreeBuilder.this.generateConnectiveTree(j, connectiveList, bodyList, idx);
               boolean _notEquals = (!Objects.equal(child, null));
               if (_notEquals) {
@@ -167,7 +171,7 @@ public class ConnectiveTreeBuilder {
               }
             }
           };
-          IterableExtensions.<Joint>forEach(_jointFanOut, _function);
+          IterableExtensions.<Connective>forEach(_connectiveFanOut, _function);
           return new ConnectiveTreeBuilder.ConnectiveTree(start, index, nextTreeLayer);
         }
       }
@@ -193,20 +197,20 @@ public class ConnectiveTreeBuilder {
   }
   
   /**
-   * Find all Joints that connect from the given body in the given system.
+   * Find all Connectives that connect from the given body in the given system.
    */
-  private Iterable<Joint> getJointFanOut(final Body b) {
+  private Iterable<Connective> getConnectiveFanOut(final Body b) {
     EList<SystemElement> _elements = this.system.getElements();
-    Iterable<Joint> _filter = Iterables.<Joint>filter(_elements, Joint.class);
-    final Function1<Joint, Boolean> _function = new Function1<Joint, Boolean>() {
+    Iterable<Connective> _filter = Iterables.<Connective>filter(_elements, Connective.class);
+    final Function1<Connective, Boolean> _function = new Function1<Connective, Boolean>() {
       @Override
-      public Boolean apply(final Joint j) {
+      public Boolean apply(final Connective j) {
         BodyReference _body1 = j.getBody1();
         Body _ref = _body1.getRef();
         return Boolean.valueOf(Objects.equal(_ref, b));
       }
     };
-    return IterableExtensions.<Joint>filter(_filter, _function);
+    return IterableExtensions.<Connective>filter(_filter, _function);
   }
   
   private void traverseTree() {
@@ -227,88 +231,89 @@ public class ConnectiveTreeBuilder {
     }
   }
   
-  private Boolean visit(final ConnectiveTreeBuilder.ConnectiveTree ct, final ConnectiveTreeBuilder.ConnectiveTree parent) {
-    Boolean _xifexpression = null;
-    boolean _isJoint = ct.isJoint();
-    if (_isJoint) {
-      boolean _xblockexpression = false;
-      {
-        BodyReference _body2 = ((Joint) ct.connective).getBody2();
-        final Body bTgt = _body2.getRef();
-        final Mass mTgt = bTgt.getMass();
-        String _name = bTgt.getName();
-        Expression _value = mTgt.getValue();
-        Pair<String, Expression> _pair = new Pair<String, Expression>(_name, _value);
-        this.massValues.add(_pair);
-        String _name_1 = bTgt.getName();
-        Matrix _inertia = mTgt.getInertia();
-        BaseMatrix _matrix = this.getMatrix(_inertia);
-        Pair<String, BaseMatrix> _pair_1 = new Pair<String, BaseMatrix>(_name_1, _matrix);
-        this.inertias.add(_pair_1);
-        String _name_2 = bTgt.getName();
-        String _plus = ("body " + _name_2);
-        Matrix _position = mTgt.getPosition();
-        BaseMatrix _matrix_1 = this.getMatrix(_position);
-        Pair<String, BaseMatrix> _pair_2 = new Pair<String, BaseMatrix>(_plus, _matrix_1);
-        this.positions.add(_pair_2);
-        Pair<String, Integer> parentDesc = null;
-        boolean _notEquals = (!Objects.equal(parent, null));
-        if (_notEquals) {
-          String _name_3 = ct.connective.getName();
-          String _plus_1 = (_name_3 + " relative to ");
-          String _name_4 = parent.connective.getName();
-          String _plus_2 = (_plus_1 + _name_4);
-          Pair<String, Integer> _pair_3 = new Pair<String, Integer>(_plus_2, Integer.valueOf(parent.idx));
-          parentDesc = _pair_3;
-        } else {
-          String _name_5 = ct.connective.getName();
-          String _plus_3 = (_name_5 + " relative to base");
-          Pair<String, Integer> _pair_4 = new Pair<String, Integer>(_plus_3, Integer.valueOf(0));
-          parentDesc = _pair_4;
-        }
-        Pair<Integer, Pair<String, Integer>> _pair_5 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
-        _xblockexpression = this.lcCodeColumns.add(_pair_5);
+  private boolean visit(final ConnectiveTreeBuilder.ConnectiveTree ct, final ConnectiveTreeBuilder.ConnectiveTree parent) {
+    boolean _xblockexpression = false;
+    {
+      Pair<String, Integer> parentDesc = null;
+      boolean _notEquals = (!Objects.equal(parent, null));
+      if (_notEquals) {
+        String _name = ct.connective.getName();
+        String _plus = (_name + " relative to ");
+        String _name_1 = parent.connective.getName();
+        String _plus_1 = (_plus + _name_1);
+        Pair<String, Integer> _pair = new Pair<String, Integer>(_plus_1, Integer.valueOf(parent.idx));
+        parentDesc = _pair;
+      } else {
+        String _name_2 = ct.connective.getName();
+        String _plus_2 = (_name_2 + " relative to base");
+        Pair<String, Integer> _pair_1 = new Pair<String, Integer>(_plus_2, Integer.valueOf(0));
+        parentDesc = _pair_1;
       }
-      _xifexpression = Boolean.valueOf(_xblockexpression);
-    } else {
-      Boolean _xifexpression_1 = null;
-      if (ct.isConstraint) {
+      boolean _xifexpression = false;
+      boolean _isJoint = ct.isJoint();
+      if (_isJoint) {
         boolean _xblockexpression_1 = false;
         {
-          BodyReference _body1 = ((Joint) ct.connective).getBody1();
-          final Body bTgt = _body1.getRef();
+          BodyReference _body2 = ((Joint) ct.connective).getBody2();
+          final Body bTgt = _body2.getRef();
           final Mass mTgt = bTgt.getMass();
-          String _name = bTgt.getName();
-          String _plus = ("body " + _name);
+          String _name_3 = bTgt.getName();
+          Expression _value = mTgt.getValue();
+          Pair<String, Expression> _pair_2 = new Pair<String, Expression>(_name_3, _value);
+          this.massValues.add(_pair_2);
+          String _name_4 = bTgt.getName();
+          Matrix _inertia = mTgt.getInertia();
+          BaseMatrix _matrix = this.getMatrix(_inertia);
+          Pair<String, BaseMatrix> _pair_3 = new Pair<String, BaseMatrix>(_name_4, _matrix);
+          this.inertias.add(_pair_3);
+          String _name_5 = bTgt.getName();
+          String _plus_3 = ("body " + _name_5);
           Matrix _position = mTgt.getPosition();
-          BaseMatrix _matrix = this.getMatrix(_position);
-          Pair<String, BaseMatrix> _pair = new Pair<String, BaseMatrix>(_plus, _matrix);
-          this.constraintPositions.add(_pair);
-          Pair<String, Integer> parentDesc = null;
-          boolean _notEquals = (!Objects.equal(parent, null));
-          if (_notEquals) {
-            String _name_1 = ct.connective.getName();
-            String _plus_1 = (_name_1 + " relative to ");
-            String _name_2 = parent.connective.getName();
-            String _plus_2 = (_plus_1 + _name_2);
-            Pair<String, Integer> _pair_1 = new Pair<String, Integer>(_plus_2, Integer.valueOf(parent.idx));
-            parentDesc = _pair_1;
-          } else {
-            String _name_3 = ct.connective.getName();
-            String _plus_3 = (_name_3 + " relative to base");
-            Pair<String, Integer> _pair_2 = new Pair<String, Integer>(_plus_3, Integer.valueOf(0));
-            parentDesc = _pair_2;
-          }
-          Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
-          _xblockexpression_1 = this.constraintLcCodeColumns.add(_pair_3);
+          BaseMatrix _matrix_1 = this.getMatrix(_position);
+          Pair<String, BaseMatrix> _pair_4 = new Pair<String, BaseMatrix>(_plus_3, _matrix_1);
+          this.positions.add(_pair_4);
+          Pair<Integer, Pair<String, Integer>> _pair_5 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
+          _xblockexpression_1 = this.lcCodeColumns.add(_pair_5);
         }
-        _xifexpression_1 = Boolean.valueOf(_xblockexpression_1);
+        _xifexpression = _xblockexpression_1;
       } else {
-        _xifexpression_1 = null;
+        boolean _xifexpression_1 = false;
+        if (ct.isConstraint) {
+          boolean _xblockexpression_2 = false;
+          {
+            BodyReference _body1 = ((Joint) ct.connective).getBody1();
+            final Body bTgt = _body1.getRef();
+            final Mass mTgt = bTgt.getMass();
+            String _name_3 = bTgt.getName();
+            String _plus_3 = ("body " + _name_3);
+            Matrix _position = mTgt.getPosition();
+            BaseMatrix _matrix = this.getMatrix(_position);
+            Pair<String, BaseMatrix> _pair_2 = new Pair<String, BaseMatrix>(_plus_3, _matrix);
+            this.constraintPositions.add(_pair_2);
+            Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(1), parentDesc);
+            _xblockexpression_2 = this.constraintLcCodeColumns.add(_pair_3);
+          }
+          _xifexpression_1 = _xblockexpression_2;
+        } else {
+          boolean _xblockexpression_3 = false;
+          {
+            final ExternalLoad load = ((ExternalLoad) ct.connective);
+            String _name_3 = load.getName();
+            String _plus_3 = ("load " + _name_3);
+            Matrix _position = load.getPosition();
+            BaseMatrix _matrix = this.getMatrix(_position);
+            Pair<String, BaseMatrix> _pair_2 = new Pair<String, BaseMatrix>(_plus_3, _matrix);
+            this.loadPositions.add(_pair_2);
+            Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(2), parentDesc);
+            _xblockexpression_3 = this.loadLcCodeColumns.add(_pair_3);
+          }
+          _xifexpression_1 = _xblockexpression_3;
+        }
+        _xifexpression = _xifexpression_1;
       }
-      _xifexpression = _xifexpression_1;
+      _xblockexpression = _xifexpression;
     }
-    return _xifexpression;
+    return _xblockexpression;
   }
   
   private BaseMatrix _getMatrix(final BaseMatrix m) {
@@ -345,6 +350,14 @@ public class ConnectiveTreeBuilder {
   
   public List<Pair<Integer, Pair<String, Integer>>> getConstraintLcCodeColumns() {
     return this.constraintLcCodeColumns;
+  }
+  
+  public List<Pair<String, BaseMatrix>> getLoadPositions() {
+    return this.loadPositions;
+  }
+  
+  public List<Pair<Integer, Pair<String, Integer>>> getLoadLcCodeColumns() {
+    return this.loadLcCodeColumns;
   }
   
   private BaseMatrix getMatrix(final Matrix m) {

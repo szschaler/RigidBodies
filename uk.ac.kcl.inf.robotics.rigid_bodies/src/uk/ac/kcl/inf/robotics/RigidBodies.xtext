@@ -112,7 +112,7 @@ enum ConstraintType:
 
 ExternalLoad:
 	'external' 'load' name=ID ':' type = LoadType
-		'at' body = BodyReference '(' 'with' 'relative' 'transformation' position=Matrix ')'	
+		'at' body1 = BodyReference '(' 'with' 'relative' 'transformation' position=Matrix ')'	
 ;
 
 enum LoadType:

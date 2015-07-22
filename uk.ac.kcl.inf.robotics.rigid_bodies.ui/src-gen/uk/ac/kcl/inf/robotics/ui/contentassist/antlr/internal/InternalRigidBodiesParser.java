@@ -12404,31 +12404,31 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ExternalLoad__Group__6__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4732:1: rule__ExternalLoad__Group__6__Impl : ( ( rule__ExternalLoad__BodyAssignment_6 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4732:1: rule__ExternalLoad__Group__6__Impl : ( ( rule__ExternalLoad__Body1Assignment_6 ) ) ;
     public final void rule__ExternalLoad__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4736:1: ( ( ( rule__ExternalLoad__BodyAssignment_6 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4737:1: ( ( rule__ExternalLoad__BodyAssignment_6 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4736:1: ( ( ( rule__ExternalLoad__Body1Assignment_6 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4737:1: ( ( rule__ExternalLoad__Body1Assignment_6 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4737:1: ( ( rule__ExternalLoad__BodyAssignment_6 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4738:1: ( rule__ExternalLoad__BodyAssignment_6 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4737:1: ( ( rule__ExternalLoad__Body1Assignment_6 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4738:1: ( rule__ExternalLoad__Body1Assignment_6 )
             {
-             before(grammarAccess.getExternalLoadAccess().getBodyAssignment_6()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4739:1: ( rule__ExternalLoad__BodyAssignment_6 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4739:2: rule__ExternalLoad__BodyAssignment_6
+             before(grammarAccess.getExternalLoadAccess().getBody1Assignment_6()); 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4739:1: ( rule__ExternalLoad__Body1Assignment_6 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:4739:2: rule__ExternalLoad__Body1Assignment_6
             {
-            pushFollow(FOLLOW_rule__ExternalLoad__BodyAssignment_6_in_rule__ExternalLoad__Group__6__Impl9496);
-            rule__ExternalLoad__BodyAssignment_6();
+            pushFollow(FOLLOW_rule__ExternalLoad__Body1Assignment_6_in_rule__ExternalLoad__Group__6__Impl9496);
+            rule__ExternalLoad__Body1Assignment_6();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getExternalLoadAccess().getBodyAssignment_6()); 
+             after(grammarAccess.getExternalLoadAccess().getBody1Assignment_6()); 
 
             }
 
@@ -17467,9 +17467,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__ExternalLoad__TypeAssignment_4"
 
 
-    // $ANTLR start "rule__ExternalLoad__BodyAssignment_6"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6694:1: rule__ExternalLoad__BodyAssignment_6 : ( ruleBodyReference ) ;
-    public final void rule__ExternalLoad__BodyAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__ExternalLoad__Body1Assignment_6"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6694:1: rule__ExternalLoad__Body1Assignment_6 : ( ruleBodyReference ) ;
+    public final void rule__ExternalLoad__Body1Assignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -17480,13 +17480,13 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6699:1: ( ruleBodyReference )
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:6700:1: ruleBodyReference
             {
-             before(grammarAccess.getExternalLoadAccess().getBodyBodyReferenceParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleBodyReference_in_rule__ExternalLoad__BodyAssignment_613404);
+             before(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_ruleBodyReference_in_rule__ExternalLoad__Body1Assignment_613404);
             ruleBodyReference();
 
             state._fsp--;
 
-             after(grammarAccess.getExternalLoadAccess().getBodyBodyReferenceParserRuleCall_6_0()); 
+             after(grammarAccess.getExternalLoadAccess().getBody1BodyReferenceParserRuleCall_6_0()); 
 
             }
 
@@ -17505,7 +17505,7 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__ExternalLoad__BodyAssignment_6"
+    // $ANTLR end "rule__ExternalLoad__Body1Assignment_6"
 
 
     // $ANTLR start "rule__ExternalLoad__PositionAssignment_11"
@@ -18563,7 +18563,7 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_55_in_rule__ExternalLoad__Group__5__Impl9435 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExternalLoad__Group__6__Impl_in_rule__ExternalLoad__Group__69466 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_rule__ExternalLoad__Group__7_in_rule__ExternalLoad__Group__69469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ExternalLoad__BodyAssignment_6_in_rule__ExternalLoad__Group__6__Impl9496 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalLoad__Body1Assignment_6_in_rule__ExternalLoad__Group__6__Impl9496 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExternalLoad__Group__7__Impl_in_rule__ExternalLoad__Group__79526 = new BitSet(new long[]{0x0001000000000000L});
     public static final BitSet FOLLOW_rule__ExternalLoad__Group__8_in_rule__ExternalLoad__Group__79529 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_44_in_rule__ExternalLoad__Group__7__Impl9557 = new BitSet(new long[]{0x0000000000000002L});
@@ -18710,7 +18710,7 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_ruleRelativeTransformation_in_rule__Constraint__RelTrans2Assignment_913311 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalLoad__NameAssignment_213342 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLoadType_in_rule__ExternalLoad__TypeAssignment_413373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBodyReference_in_rule__ExternalLoad__BodyAssignment_613404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBodyReference_in_rule__ExternalLoad__Body1Assignment_613404 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMatrix_in_rule__ExternalLoad__PositionAssignment_1113435 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__BaseMatrix__NameAssignment_0_113466 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAddExp_in_rule__BaseMatrix__ValuesAssignment_213497 = new BitSet(new long[]{0x0000000000000002L});

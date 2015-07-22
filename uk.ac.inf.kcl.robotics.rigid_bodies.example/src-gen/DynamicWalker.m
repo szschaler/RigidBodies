@@ -26,7 +26,11 @@ lc = [
 	0.0 0.0 -0.5 0 5
 	% Position data from body shank2 for a constraint foot2J relative to knee2
 	% TODO: Check with Hadi that we're using the correct position data here.
-	0.0 0.0 -0.5 0 4
+	0.0 0.0 -0.5 1 4
+	% Position data from load foot2L for a load foot2L relative to knee2
+	0.0 0.0 -1.0 2 4;
+	% Position data from load foot1L for a load foot1L relative to ankle
+	0.0 0.0 0.0 2 1
 ];
 
 % Mass values

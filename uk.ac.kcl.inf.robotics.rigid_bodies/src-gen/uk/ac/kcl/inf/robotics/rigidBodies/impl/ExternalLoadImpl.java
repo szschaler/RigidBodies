@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
@@ -24,7 +23,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ExternalLoadImpl#getType <em>Type</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ExternalLoadImpl#getBody <em>Body</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ExternalLoadImpl#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
@@ -52,16 +50,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
    * @ordered
    */
   protected LoadType type = TYPE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBody()
-   * @generated
-   * @ordered
-   */
-  protected BodyReference body;
 
   /**
    * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
@@ -122,54 +110,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
    * <!-- end-user-doc -->
    * @generated
    */
-  public BodyReference getBody()
-  {
-    return body;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBody(BodyReference newBody, NotificationChain msgs)
-  {
-    BodyReference oldBody = body;
-    body = newBody;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.EXTERNAL_LOAD__BODY, oldBody, newBody);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBody(BodyReference newBody)
-  {
-    if (newBody != body)
-    {
-      NotificationChain msgs = null;
-      if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.EXTERNAL_LOAD__BODY, null, msgs);
-      if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.EXTERNAL_LOAD__BODY, null, msgs);
-      msgs = basicSetBody(newBody, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.EXTERNAL_LOAD__BODY, newBody, newBody));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Matrix getPosition()
   {
     return position;
@@ -223,8 +163,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.EXTERNAL_LOAD__BODY:
-        return basicSetBody(null, msgs);
       case RigidBodiesPackage.EXTERNAL_LOAD__POSITION:
         return basicSetPosition(null, msgs);
     }
@@ -243,8 +181,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
     {
       case RigidBodiesPackage.EXTERNAL_LOAD__TYPE:
         return getType();
-      case RigidBodiesPackage.EXTERNAL_LOAD__BODY:
-        return getBody();
       case RigidBodiesPackage.EXTERNAL_LOAD__POSITION:
         return getPosition();
     }
@@ -263,9 +199,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
     {
       case RigidBodiesPackage.EXTERNAL_LOAD__TYPE:
         setType((LoadType)newValue);
-        return;
-      case RigidBodiesPackage.EXTERNAL_LOAD__BODY:
-        setBody((BodyReference)newValue);
         return;
       case RigidBodiesPackage.EXTERNAL_LOAD__POSITION:
         setPosition((Matrix)newValue);
@@ -287,9 +220,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
       case RigidBodiesPackage.EXTERNAL_LOAD__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RigidBodiesPackage.EXTERNAL_LOAD__BODY:
-        setBody((BodyReference)null);
-        return;
       case RigidBodiesPackage.EXTERNAL_LOAD__POSITION:
         setPosition((Matrix)null);
         return;
@@ -309,8 +239,6 @@ public class ExternalLoadImpl extends ConnectiveImpl implements ExternalLoad
     {
       case RigidBodiesPackage.EXTERNAL_LOAD__TYPE:
         return type != TYPE_EDEFAULT;
-      case RigidBodiesPackage.EXTERNAL_LOAD__BODY:
-        return body != null;
       case RigidBodiesPackage.EXTERNAL_LOAD__POSITION:
         return position != null;
     }

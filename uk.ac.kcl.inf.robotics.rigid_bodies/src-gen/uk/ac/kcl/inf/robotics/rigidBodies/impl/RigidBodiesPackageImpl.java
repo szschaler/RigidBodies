@@ -459,6 +459,16 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getConnective_Body1()
+  {
+    return (EReference)connectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBody()
   {
     return bodyEClass;
@@ -579,7 +589,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_Body1()
+  public EReference getJoint_RelTrans1()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(2);
   }
@@ -589,7 +599,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_RelTrans1()
+  public EReference getJoint_Body2()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(3);
   }
@@ -599,7 +609,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_Body2()
+  public EReference getJoint_SpringCoeff()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(4);
   }
@@ -609,7 +619,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_SpringCoeff()
+  public EReference getJoint_SpringInit()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(5);
   }
@@ -619,7 +629,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_SpringInit()
+  public EReference getJoint_DampViscous()
   {
     return (EReference)jointEClass.getEStructuralFeatures().get(6);
   }
@@ -629,19 +639,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJoint_DampViscous()
-  {
-    return (EReference)jointEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getJoint_DampCoulomb()
   {
-    return (EReference)jointEClass.getEStructuralFeatures().get(8);
+    return (EReference)jointEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -819,7 +819,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstraint_Body1()
+  public EReference getConstraint_RelTrans1()
   {
     return (EReference)constraintEClass.getEStructuralFeatures().get(1);
   }
@@ -829,7 +829,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstraint_RelTrans1()
+  public EReference getConstraint_Body2()
   {
     return (EReference)constraintEClass.getEStructuralFeatures().get(2);
   }
@@ -839,19 +839,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstraint_Body2()
-  {
-    return (EReference)constraintEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getConstraint_RelTrans2()
   {
-    return (EReference)constraintEClass.getEStructuralFeatures().get(4);
+    return (EReference)constraintEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -879,19 +869,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExternalLoad_Body()
-  {
-    return (EReference)externalLoadEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getExternalLoad_Position()
   {
-    return (EReference)externalLoadEClass.getEStructuralFeatures().get(2);
+    return (EReference)externalLoadEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1193,6 +1173,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEAttribute(systemElementEClass, SYSTEM_ELEMENT__NAME);
 
     connectiveEClass = createEClass(CONNECTIVE);
+    createEReference(connectiveEClass, CONNECTIVE__BODY1);
 
     bodyEClass = createEClass(BODY);
     createEReference(bodyEClass, BODY__MASS);
@@ -1209,7 +1190,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     jointEClass = createEClass(JOINT);
     createEReference(jointEClass, JOINT__TYPE);
     createEAttribute(jointEClass, JOINT__IS_START);
-    createEReference(jointEClass, JOINT__BODY1);
     createEReference(jointEClass, JOINT__REL_TRANS1);
     createEReference(jointEClass, JOINT__BODY2);
     createEReference(jointEClass, JOINT__SPRING_COEFF);
@@ -1239,14 +1219,12 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     constraintEClass = createEClass(CONSTRAINT);
     createEAttribute(constraintEClass, CONSTRAINT__TYPE);
-    createEReference(constraintEClass, CONSTRAINT__BODY1);
     createEReference(constraintEClass, CONSTRAINT__REL_TRANS1);
     createEReference(constraintEClass, CONSTRAINT__BODY2);
     createEReference(constraintEClass, CONSTRAINT__REL_TRANS2);
 
     externalLoadEClass = createEClass(EXTERNAL_LOAD);
     createEAttribute(externalLoadEClass, EXTERNAL_LOAD__TYPE);
-    createEReference(externalLoadEClass, EXTERNAL_LOAD__BODY);
     createEReference(externalLoadEClass, EXTERNAL_LOAD__POSITION);
 
     matrixEClass = createEClass(MATRIX);
@@ -1350,6 +1328,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEAttribute(getSystemElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SystemElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(connectiveEClass, Connective.class, "Connective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConnective_Body1(), this.getBodyReference(), null, "body1", null, 0, 1, Connective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBody_Mass(), this.getMass(), null, "mass", null, 0, 1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1366,7 +1345,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getJoint_Type(), this.getJointType(), null, "type", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJoint_IsStart(), ecorePackage.getEBoolean(), "isStart", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getJoint_Body1(), this.getBodyReference(), null, "body1", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_RelTrans1(), this.getRelativeTransformation(), null, "relTrans1", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_Body2(), this.getBodyReference(), null, "body2", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJoint_SpringCoeff(), this.getExpression(), null, "springCoeff", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1396,14 +1374,12 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstraint_Type(), this.getConstraintType(), "type", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConstraint_Body1(), this.getBodyReference(), null, "body1", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_RelTrans1(), this.getRelativeTransformation(), null, "relTrans1", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Body2(), this.getBodyReference(), null, "body2", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_RelTrans2(), this.getRelativeTransformation(), null, "relTrans2", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(externalLoadEClass, ExternalLoad.class, "ExternalLoad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExternalLoad_Type(), this.getLoadType(), "type", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExternalLoad_Body(), this.getBodyReference(), null, "body", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExternalLoad_Position(), this.getMatrix(), null, "position", null, 0, 1, ExternalLoad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(matrixEClass, Matrix.class, "Matrix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

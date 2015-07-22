@@ -83,6 +83,8 @@ class ConnectiveTreeBuilder {
 	List<Pair<Integer, Pair<String, Integer>>> lcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>
 	List<Pair<String, BaseMatrix>> constraintPositions = new LinkedList<Pair<String, BaseMatrix>>
 	List<Pair<Integer, Pair<String, Integer>>> constraintLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>
+	List<Pair<String, BaseMatrix>> loadPositions = new LinkedList<Pair<String, BaseMatrix>>
+	List<Pair<Integer, Pair<String, Integer>>> loadLcCodeColumns = new LinkedList<Pair<Integer, Pair<String, Integer>>>
 	
 	new (System s) {
 		this.system = s
@@ -113,7 +115,7 @@ class ConnectiveTreeBuilder {
 				idx.set (0, idx.get(0) + 1)
 				var index = idx.get(0)
 				
-				getJointFanOut(curJoint.body2.ref).forEach[j |
+				getConnectiveFanOut(curJoint.body2.ref).forEach[j |
 						var child = generateConnectiveTree(j, connectiveList, bodyList, idx)
 						if (child != null) { 
 							nextTreeLayer.add (child)
@@ -133,10 +135,10 @@ class ConnectiveTreeBuilder {
 	}
 
 	/**
-	 * Find all Joints that connect from the given body in the given system.
+	 * Find all Connectives that connect from the given body in the given system.
 	 */
-	private def getJointFanOut(Body b) {
-		system.elements.filter(Joint).filter[j | j.body1.ref == b]
+	private def getConnectiveFanOut(Body b) {
+		system.elements.filter(Connective).filter[j | j.body1.ref == b]
 	}
 	
 	// Traverse the connective tree and extract the various matrices required for matlab code 
@@ -154,33 +156,30 @@ class ConnectiveTreeBuilder {
 	}
 	
 	private def visit (ConnectiveTree ct, ConnectiveTree parent) {
+		var Pair<String, Integer> parentDesc 
+		if (parent != null) {
+			parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to ' + parent.connective.name, parent.idx)
+		} else {
+			parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to base', 0)
+		}
+		
 		if (ct.isJoint) {
 			val Body bTgt = (ct.connective as Joint).body2.ref
 			val Mass mTgt = bTgt.mass
 			massValues.add (new Pair (bTgt.name, mTgt.value))
-			inertias.add (new Pair(bTgt.name, mTgt.inertia.getMatrix))
-			positions.add (new Pair("body " + bTgt.name, mTgt.position.getMatrix))
-			var Pair<String, Integer> parentDesc 
-			if (parent != null) {
-				parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to ' + parent.connective.name, parent.idx)
-			} else {
-				parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to base', 0)
-			}
+			inertias.add (new Pair(bTgt.name, mTgt.inertia.matrix))
+			positions.add (new Pair("body " + bTgt.name, mTgt.position.matrix))
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
 		} else if (ct.isConstraint) {
 			// TODO: This seems wrong: How is the position of a constraint joint determined?
 			val Body bTgt = (ct.connective as Joint).body1.ref
 			val Mass mTgt = bTgt.mass
-			constraintPositions.add (new Pair("body " + bTgt.name, mTgt.position.getMatrix))
-			var Pair<String, Integer> parentDesc 
-			if (parent != null) {
-				parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to ' + parent.connective.name, parent.idx)
-			} else {
-				parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to base', 0)
-			}
-			constraintLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
+			constraintPositions.add (new Pair("body " + bTgt.name, mTgt.position.matrix))
+			constraintLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (1, parentDesc))
 		} else {
-			// TODO: Deal with external loads
+			val load = ct.connective as ExternalLoad
+			loadPositions.add (new Pair ("load " + load.name, load.position.matrix))			
+			loadLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (2, parentDesc))
 		}
 	}
 	
@@ -201,4 +200,8 @@ class ConnectiveTreeBuilder {
 	def getConstraintPositions() { constraintPositions }
 	
 	def getConstraintLcCodeColumns() { constraintLcCodeColumns }
+
+	def getLoadPositions() { loadPositions }
+	
+	def getLoadLcCodeColumns() { loadLcCodeColumns }
 }
