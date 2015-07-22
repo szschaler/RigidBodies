@@ -16,6 +16,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
@@ -35,6 +36,13 @@ public class ConnectiveTreeBuilder {
     private boolean isConstraint;
     
     private List<ConnectiveTreeBuilder.ConnectiveTree> children;
+    
+    public ConnectiveTree(final ExternalLoad load) {
+      this.connective = load;
+      this.idx = (-1);
+      this.isConstraint = false;
+      this.children = null;
+    }
     
     public ConnectiveTree(final Connective c, final int idx) {
       this(c, idx, false);
@@ -69,6 +77,20 @@ public class ConnectiveTreeBuilder {
     
     public boolean isConstraint() {
       return this.isConstraint;
+    }
+    
+    public boolean isLoad() {
+      return (this.connective instanceof ExternalLoad);
+    }
+    
+    public boolean isJoint() {
+      boolean _and = false;
+      if (!(this.connective instanceof Joint)) {
+        _and = false;
+      } else {
+        _and = (!this.isConstraint);
+      }
+      return _and;
     }
   }
   
@@ -149,6 +171,10 @@ public class ConnectiveTreeBuilder {
           return new ConnectiveTreeBuilder.ConnectiveTree(start, index, nextTreeLayer);
         }
       }
+    } else {
+      if ((start instanceof ExternalLoad)) {
+        return new ConnectiveTreeBuilder.ConnectiveTree(((ExternalLoad) start));
+      }
     }
     return null;
   }
@@ -201,9 +227,10 @@ public class ConnectiveTreeBuilder {
     }
   }
   
-  private boolean visit(final ConnectiveTreeBuilder.ConnectiveTree ct, final ConnectiveTreeBuilder.ConnectiveTree parent) {
-    boolean _xifexpression = false;
-    if ((!ct.isConstraint)) {
+  private Boolean visit(final ConnectiveTreeBuilder.ConnectiveTree ct, final ConnectiveTreeBuilder.ConnectiveTree parent) {
+    Boolean _xifexpression = null;
+    boolean _isJoint = ct.isJoint();
+    if (_isJoint) {
       boolean _xblockexpression = false;
       {
         BodyReference _body2 = ((Joint) ct.connective).getBody2();
@@ -242,38 +269,44 @@ public class ConnectiveTreeBuilder {
         Pair<Integer, Pair<String, Integer>> _pair_5 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
         _xblockexpression = this.lcCodeColumns.add(_pair_5);
       }
-      _xifexpression = _xblockexpression;
+      _xifexpression = Boolean.valueOf(_xblockexpression);
     } else {
-      boolean _xblockexpression_1 = false;
-      {
-        BodyReference _body1 = ((Joint) ct.connective).getBody1();
-        final Body bTgt = _body1.getRef();
-        final Mass mTgt = bTgt.getMass();
-        String _name = bTgt.getName();
-        String _plus = ("body " + _name);
-        Matrix _position = mTgt.getPosition();
-        BaseMatrix _matrix = this.getMatrix(_position);
-        Pair<String, BaseMatrix> _pair = new Pair<String, BaseMatrix>(_plus, _matrix);
-        this.constraintPositions.add(_pair);
-        Pair<String, Integer> parentDesc = null;
-        boolean _notEquals = (!Objects.equal(parent, null));
-        if (_notEquals) {
-          String _name_1 = ct.connective.getName();
-          String _plus_1 = (_name_1 + " relative to ");
-          String _name_2 = parent.connective.getName();
-          String _plus_2 = (_plus_1 + _name_2);
-          Pair<String, Integer> _pair_1 = new Pair<String, Integer>(_plus_2, Integer.valueOf(parent.idx));
-          parentDesc = _pair_1;
-        } else {
-          String _name_3 = ct.connective.getName();
-          String _plus_3 = (_name_3 + " relative to base");
-          Pair<String, Integer> _pair_2 = new Pair<String, Integer>(_plus_3, Integer.valueOf(0));
-          parentDesc = _pair_2;
+      Boolean _xifexpression_1 = null;
+      if (ct.isConstraint) {
+        boolean _xblockexpression_1 = false;
+        {
+          BodyReference _body1 = ((Joint) ct.connective).getBody1();
+          final Body bTgt = _body1.getRef();
+          final Mass mTgt = bTgt.getMass();
+          String _name = bTgt.getName();
+          String _plus = ("body " + _name);
+          Matrix _position = mTgt.getPosition();
+          BaseMatrix _matrix = this.getMatrix(_position);
+          Pair<String, BaseMatrix> _pair = new Pair<String, BaseMatrix>(_plus, _matrix);
+          this.constraintPositions.add(_pair);
+          Pair<String, Integer> parentDesc = null;
+          boolean _notEquals = (!Objects.equal(parent, null));
+          if (_notEquals) {
+            String _name_1 = ct.connective.getName();
+            String _plus_1 = (_name_1 + " relative to ");
+            String _name_2 = parent.connective.getName();
+            String _plus_2 = (_plus_1 + _name_2);
+            Pair<String, Integer> _pair_1 = new Pair<String, Integer>(_plus_2, Integer.valueOf(parent.idx));
+            parentDesc = _pair_1;
+          } else {
+            String _name_3 = ct.connective.getName();
+            String _plus_3 = (_name_3 + " relative to base");
+            Pair<String, Integer> _pair_2 = new Pair<String, Integer>(_plus_3, Integer.valueOf(0));
+            parentDesc = _pair_2;
+          }
+          Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
+          _xblockexpression_1 = this.constraintLcCodeColumns.add(_pair_3);
         }
-        Pair<Integer, Pair<String, Integer>> _pair_3 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
-        _xblockexpression_1 = this.constraintLcCodeColumns.add(_pair_3);
+        _xifexpression_1 = Boolean.valueOf(_xblockexpression_1);
+      } else {
+        _xifexpression_1 = null;
       }
-      _xifexpression = _xblockexpression_1;
+      _xifexpression = _xifexpression_1;
     }
     return _xifexpression;
   }

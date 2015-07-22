@@ -25,6 +25,7 @@ lc = [
 	% Position data from body hand2 for a joint shoulder2 relative to hip2
 	0.0 0.0 -0.5 0 5
 	% Position data from body shank2 for a constraint foot2J relative to knee2
+	% TODO: Check with Hadi that we're using the correct position data here.
 	0.0 0.0 -0.5 0 4
 ];
 

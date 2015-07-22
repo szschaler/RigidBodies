@@ -11,6 +11,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.System
+import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad
 
 /**
  * Build up a joint tree representation of a given connective
@@ -21,6 +22,13 @@ class ConnectiveTreeBuilder {
 		int   idx
 		boolean isConstraint
 		List<ConnectiveTree> children
+		
+		new (ExternalLoad load) {
+			this.connective = load
+			this.idx = -1
+			this.isConstraint = false
+			this.children = null
+		}
 		
 		new (Connective c, int idx) {
 			this (c, idx, false)
@@ -56,6 +64,14 @@ class ConnectiveTreeBuilder {
 		def isConstraint() {
 			isConstraint
 		}
+		
+		def isLoad() {
+			connective instanceof ExternalLoad
+		}
+		
+		def isJoint() {
+			(connective instanceof Joint) && !isConstraint
+		}
 	} 
 	
 	System system
@@ -76,7 +92,7 @@ class ConnectiveTreeBuilder {
 		traverseTree()
 	}
 	
-	private def ConnectiveTreeBuilder.ConnectiveTree generateConnectiveTree (Connective start, List<Connective> connectiveList, List<Body> bodyList, int[] idx) {
+	private def ConnectiveTree generateConnectiveTree (Connective start, List<Connective> connectiveList, List<Body> bodyList, int[] idx) {
 		if (start instanceof Joint) {
 			val curJoint = start as Joint
 			
@@ -106,6 +122,8 @@ class ConnectiveTreeBuilder {
 				
 				return new ConnectiveTree (start, index, nextTreeLayer)
 			}
+		} else if (start instanceof ExternalLoad) {
+			return new ConnectiveTree (start as ExternalLoad)
 		}
 	}
 	
@@ -136,7 +154,7 @@ class ConnectiveTreeBuilder {
 	}
 	
 	private def visit (ConnectiveTree ct, ConnectiveTree parent) {
-		if (!ct.isConstraint) {
+		if (ct.isJoint) {
 			val Body bTgt = (ct.connective as Joint).body2.ref
 			val Mass mTgt = bTgt.mass
 			massValues.add (new Pair (bTgt.name, mTgt.value))
@@ -149,7 +167,7 @@ class ConnectiveTreeBuilder {
 				parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to base', 0)
 			}
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
-		} else {
+		} else if (ct.isConstraint) {
 			// TODO: This seems wrong: How is the position of a constraint joint determined?
 			val Body bTgt = (ct.connective as Joint).body1.ref
 			val Mass mTgt = bTgt.mass
@@ -161,6 +179,8 @@ class ConnectiveTreeBuilder {
 				parentDesc = new Pair<String, Integer>(ct.connective.name + ' relative to base', 0)
 			}
 			constraintLcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
+		} else {
+			// TODO: Deal with external loads
 		}
 	}
 	
