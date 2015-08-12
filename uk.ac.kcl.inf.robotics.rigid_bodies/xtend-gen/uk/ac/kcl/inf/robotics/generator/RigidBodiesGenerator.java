@@ -204,7 +204,10 @@ public class RigidBodiesGenerator implements IGenerator {
         String _key = _get.getKey();
         _builder.append(_key, "");
         _builder.newLineIfNotEmpty();
-        _builder.append("j (:, :, ");
+        _builder.append("j (");
+        CharSequence _generateRotationRowNumForState = RigidBodiesGenerator.this.generateRotationRowNumForState(ctb, (i).intValue());
+        _builder.append(_generateRotationRowNumForState, "");
+        _builder.append(", :, ");
         _builder.append(((i).intValue() + 1), "");
         _builder.append(") = [");
         _builder.newLineIfNotEmpty();
@@ -353,6 +356,59 @@ public class RigidBodiesGenerator implements IGenerator {
     return _builder;
   }
   
+  public CharSequence generateRotationRowNumForState(final ConnectiveTreeBuilder ctb, final int idx) {
+    CharSequence _xblockexpression = null;
+    {
+      final int rowNum = this.getRowNumForState(ctb, idx);
+      CharSequence _xifexpression = null;
+      if ((rowNum > 1)) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("1:");
+        _builder.append(rowNum, "");
+        _xifexpression = _builder;
+      } else {
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("1");
+        _xifexpression = _builder_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public int getRowNumForState(final ConnectiveTreeBuilder ctb, final int idx) {
+    int _xblockexpression = (int) 0;
+    {
+      List<Pair<String, List<JointMovement>>> _states = ctb.getStates();
+      Pair<String, List<JointMovement>> _get = _states.get(idx);
+      final List<JointMovement> statesList = _get.getValue();
+      List<Pair<String, RelativeTransformation>> _jointTransformations = ctb.getJointTransformations();
+      final Pair<String, RelativeTransformation> transformation = _jointTransformations.get(idx);
+      int curLen = 0;
+      boolean _notEquals = (!Objects.equal(statesList, null));
+      if (_notEquals) {
+        int _size = statesList.size();
+        curLen = _size;
+      }
+      boolean _notEquals_1 = (!Objects.equal(transformation, null));
+      if (_notEquals_1) {
+        int _curLen = curLen;
+        RelativeTransformation _value = transformation.getValue();
+        Reorientation _reorient = _value.getReorient();
+        int _size_1 = this.size(_reorient);
+        curLen = (_curLen + _size_1);
+        RelativeTransformation _value_1 = transformation.getValue();
+        Matrix _position = _value_1.getPosition();
+        boolean _isAllZero = this.isAllZero(_position);
+        if (_isAllZero) {
+          curLen--;
+        }
+      }
+      _xblockexpression = curLen;
+    }
+    return _xblockexpression;
+  }
+  
   public Integer getMaxJRows(final ConnectiveTreeBuilder ctb) {
     List<Pair<String, List<JointMovement>>> _states = ctb.getStates();
     int _size = _states.size();
@@ -360,30 +416,8 @@ public class RigidBodiesGenerator implements IGenerator {
     final Function2<Integer, Integer, Integer> _function = new Function2<Integer, Integer, Integer>() {
       @Override
       public Integer apply(final Integer acc, final Integer idx) {
-        int _xblockexpression = (int) 0;
-        {
-          List<Pair<String, List<JointMovement>>> _states = ctb.getStates();
-          Pair<String, List<JointMovement>> _get = _states.get((idx).intValue());
-          final List<JointMovement> statesList = _get.getValue();
-          List<Pair<String, RelativeTransformation>> _jointTransformations = ctb.getJointTransformations();
-          final Pair<String, RelativeTransformation> transformation = _jointTransformations.get((idx).intValue());
-          int curLen = 0;
-          boolean _notEquals = (!Objects.equal(statesList, null));
-          if (_notEquals) {
-            int _size = statesList.size();
-            curLen = _size;
-          }
-          boolean _notEquals_1 = (!Objects.equal(transformation, null));
-          if (_notEquals_1) {
-            int _curLen = curLen;
-            RelativeTransformation _value = transformation.getValue();
-            Reorientation _reorient = _value.getReorient();
-            int _size_1 = RigidBodiesGenerator.this.size(_reorient);
-            curLen = (_curLen + _size_1);
-          }
-          _xblockexpression = Math.max((acc).intValue(), curLen);
-        }
-        return Integer.valueOf(_xblockexpression);
+        int _rowNumForState = RigidBodiesGenerator.this.getRowNumForState(ctb, (idx).intValue());
+        return Integer.valueOf(Math.max((acc).intValue(), _rowNumForState));
       }
     };
     return IterableExtensions.<Integer, Integer>fold(_doubleDotLessThan, Integer.valueOf(1), _function);

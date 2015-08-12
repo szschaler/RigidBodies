@@ -76,7 +76,7 @@ class RigidBodiesGenerator implements IGenerator {
 		j = sym (zeros («ctb.getMaxJRows», 5, «ctb.states.size»));
 		«(0..<ctb.states.size).join ('\n', [ i | '''
 				% Joint rotations for «ctb.states.get(i).key»
-				j (:, :, «i + 1») = [
+				j («ctb.generateRotationRowNumForState(i)», :, «i + 1») = [
 					«if (ctb.jointTransformations.get(i) != null) { ctb.jointTransformations.get(i).value.render }»
 					«if (ctb.states.get(i).value != null) {
 						ctb.states.get(i).value.join (';\n', [jm | jm.render ])
@@ -111,16 +111,26 @@ class RigidBodiesGenerator implements IGenerator {
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
 	
+	def generateRotationRowNumForState (ConnectiveTreeBuilder ctb, int idx) {
+		val rowNum = ctb.getRowNumForState (idx)
+		if (rowNum > 1) '''1:«rowNum»'''
+		else '''1'''
+	}
+	
+	def getRowNumForState (ConnectiveTreeBuilder ctb, int idx) {
+		val statesList = ctb.states.get(idx).value
+		val transformation = ctb.jointTransformations.get(idx)
+		var curLen = 0
+		if (statesList != null) { curLen = statesList.size }
+		if (transformation != null) { 
+			curLen += transformation.value.reorient.size
+			if (transformation.value.position.isAllZero) { curLen-- }
+		}
+		curLen
+	}
+	
 	def getMaxJRows (ConnectiveTreeBuilder ctb) {
-		(0..<ctb.states.size).fold(1, [acc, idx |
-				val statesList = ctb.states.get(idx).value
-				val transformation = ctb.jointTransformations.get(idx)
-				var curLen = 0
-				if (statesList != null) { curLen = statesList.size }
-				if (transformation != null) { curLen += transformation.value.reorient.size }
-				
-				Math.max (acc, curLen)
-			])	
+		(0..<ctb.states.size).fold(1, [acc, idx | Math.max (acc, ctb.getRowNumForState(idx)) ])	
 	}
 	
 	def generateLCContents (ConnectiveTreeBuilder ctb) {
