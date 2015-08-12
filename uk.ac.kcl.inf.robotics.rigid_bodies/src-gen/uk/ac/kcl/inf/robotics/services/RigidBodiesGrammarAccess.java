@@ -2109,7 +2109,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// TODO Simplify format, possibly turn into a DataType rule...
 	/// *returns ecore::EDouble* / terminal REAL:
-	//	"0".."9"+ "." "0".."9"+ (("e" | "E") ("+" | "-") "0".."9"* "." "0".."9"+)?;
+	//	"0".."9"+ "." "0".."9"+ (("e" | "E") ("+" | "-") "0".."9"+)?;
 	public TerminalRule getREALRule() {
 		return tREAL;
 	} 

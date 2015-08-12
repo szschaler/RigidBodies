@@ -3,6 +3,8 @@
  */
 package uk.ac.kcl.inf.robotics.generator
 
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
@@ -34,12 +36,13 @@ class RigidBodiesGenerator implements IGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.allContents.filter(Model).head
 		resource.allContents.filter(System).forEach [ s |
-			fsa.generateFile ('''«s.name».m''', generate (model.world, new ConnectiveTreeBuilder (s)))
+			fsa.generateFile('''«s.name».m''', generate(model.world, new ConnectiveTreeBuilder(s)))
 		]
 	}
-	
-	def generate(Environment world, 
-		         ConnectiveTreeBuilder ctb) '''
+
+	def generate(Environment world,
+		ConnectiveTreeBuilder ctb
+	) '''
 		% EOM Simulation:
 		clc
 		clear all
@@ -49,7 +52,7 @@ class RigidBodiesGenerator implements IGenerator {
 		g = [«world.gravity.renderValues (', ')»];
 		
 		% Inputs
-
+		
 		% Locations
 		lc = [
 			«(0..<ctb.positions.size).join (';\n', [ i | '''
@@ -63,11 +66,11 @@ class RigidBodiesGenerator implements IGenerator {
 					% Position data from «ctb.loadPositions.get(i).key» for a load «ctb.loadLcCodeColumns.get(i).value.key»
 					«ctb.loadPositions.get(i).value.renderValues (' ')» «ctb.loadLcCodeColumns.get(i).key» «ctb.loadLcCodeColumns.get(i).value.value»'''])»
 		];
-
+		
 		% Mass values
 		m = [
 			« // Generate masses vector
-				ctb.masses.join (',\n', [m | '''
+		ctb.masses.join (',\n', [m | '''
 					% «m.key»
 					«m.value.render»'''])»];
 		
@@ -125,62 +128,62 @@ class RigidBodiesGenerator implements IGenerator {
 		% animation
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
-	
-	def dispatch CharSequence render (RelativeTransformation rt) 
-		'''0 0 «rt.position.renderValues(' ')»;
+
+	def dispatch CharSequence render(RelativeTransformation rt) '''0 0 «rt.position.renderValues(' ')»;
 		   «rt.reorient.render»'''
-		   
-	def dispatch int size (ReorientRef rr) {
+
+	def dispatch int size(ReorientRef rr) {
 		rr.ref.size
 	}
-	
-	def dispatch int size (Reorientation r) {
+
+	def dispatch int size(Reorientation r) {
 		r.exp.size
 	}
-	
-	def dispatch int size (BasicReorientExpression bre) {
+
+	def dispatch int size(BasicReorientExpression bre) {
 		bre.axis.size + 1
 	}
 
-	def dispatch CharSequence render (ReorientRef rr) {
+	def dispatch CharSequence render(ReorientRef rr) {
 		rr.ref.render
 	}
-	
-	def dispatch CharSequence render (Reorientation r) {
+
+	def dispatch CharSequence render(Reorientation r) {
 		r.exp.render
 	}
-	
-	def dispatch CharSequence render (BasicReorientExpression bre) {
-		(0..<bre.axis.size).join (';\n', [idx | 
-				'''«bre.axis.get(idx).render» «bre.value.get(idx).render» 0 0 0'''
-			])
-	}
-	
-	def dispatch CharSequence render (Planar p) '''0 0 «if (p.axis == AXIS.X) 'inf' else '0'» «if (p.axis == AXIS.Y) 'inf' else '0'» «if (p.axis == AXIS.Z) 'inf'else '0'»'''
-	
-	def dispatch CharSequence render (Revolute r) 
-		'''«r.axis.render» inf 0 0 0'''
 
-	def dispatch CharSequence render (AXIS a) {
+	def dispatch CharSequence render(BasicReorientExpression bre) {
+		(0 ..< bre.axis.size).join(';\n', [ idx |
+			'''«bre.axis.get(idx).render» «bre.value.get(idx).render» 0 0 0'''
+		])
+	}
+
+	def dispatch CharSequence render(
+		Planar p
+	) '''0 0 «if (p.axis == AXIS.X) 'inf' else '0'» «if (p.axis == AXIS.Y) 'inf' else '0'» «if (p.axis == AXIS.Z) 'inf'else '0'»'''
+
+	def dispatch CharSequence render(Revolute r) '''«r.axis.render» inf 0 0 0'''
+
+	def dispatch CharSequence render(AXIS a) {
 		switch (a) {
 			case AXIS.X: '1'
 			case AXIS.Y: '2'
 			case AXIS.Z: '3'
 		}
-	} 
-	
-	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
-		mr.matrix.renderValues (sep)
 	}
-	
+
+	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
+		mr.matrix.renderValues(sep)
+	}
+
 	def dispatch CharSequence renderValues(BaseMatrix bm, CharSequence sep) {
 		bm.values.join(sep, [v|v.render])
 	}
-	
-	def dispatch CharSequence renderValues (BaseMatrix bm, int rowLength) {
-		(0..<bm.values.size / rowLength).join (';\n', [y | 
-				(0..<rowLength).join (' ', [ x | bm.values.get(y * rowLength + x).render ])
-			])
+
+	def dispatch CharSequence renderValues(BaseMatrix bm, int rowLength) {
+		(0 ..< bm.values.size / rowLength).join(';\n', [ y |
+			(0 ..< rowLength).join(' ', [x|bm.values.get(y * rowLength + x).render])
+		])
 	}
 
 	def dispatch CharSequence render(AddExp e) {
@@ -193,14 +196,15 @@ class RigidBodiesGenerator implements IGenerator {
 
 	def dispatch CharSequence render(ParenthesisedExp pe) '''(«pe.exp.render»)'''
 
-	def dispatch CharSequence render(NumberLiteral literal) '''«if (literal.isNeg) {'''-'''}»«literal.value»'''
+	def dispatch CharSequence render(
+		NumberLiteral literal) '''«if (literal.isNeg) {'''-'''}»«literal.value»'''
 
 	def dispatch CharSequence render(
 		ConstantOrFunctionCallExp cofce
 	) '''«cofce.label»«if (cofce.param.size > 0) {'''(«cofce.param.join (',', [p | p.render])»)'''}»'''
-	
+
 	// I know this is silly, but Xtend is a bit too cautious when dealing with final variables...
 	private static class IntHolder {
 		public int value = 1
-	} 
+	}
 }

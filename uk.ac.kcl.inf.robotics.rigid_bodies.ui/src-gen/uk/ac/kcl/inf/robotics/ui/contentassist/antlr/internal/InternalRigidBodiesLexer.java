@@ -1103,8 +1103,8 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_REAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:11: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )* '.' ( '0' .. '9' )+ )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )* '.' ( '0' .. '9' )+ )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:11: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )?
             {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:13: ( '0' .. '9' )+
             int cnt1=0;
@@ -1167,16 +1167,16 @@ public class InternalRigidBodiesLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:41: ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )* '.' ( '0' .. '9' )+ )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:41: ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA5_0=='E'||LA5_0=='e') ) {
-                alt5=1;
+            if ( (LA4_0=='E'||LA4_0=='e') ) {
+                alt4=1;
             }
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:42: ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )* '.' ( '0' .. '9' )+
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:42: ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -1196,7 +1196,8 @@ public class InternalRigidBodiesLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:62: ( '0' .. '9' )*
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:62: ( '0' .. '9' )+
+                    int cnt3=0;
                     loop3:
                     do {
                         int alt3=2;
@@ -1217,39 +1218,12 @@ public class InternalRigidBodiesLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop3;
-                        }
-                    } while (true);
-
-                    match('.'); 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:78: ( '0' .. '9' )+
-                    int cnt4=0;
-                    loop4:
-                    do {
-                        int alt4=2;
-                        int LA4_0 = input.LA(1);
-
-                        if ( ((LA4_0>='0' && LA4_0<='9')) ) {
-                            alt4=1;
-                        }
-
-
-                        switch (alt4) {
-                    	case 1 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7341:79: '0' .. '9'
-                    	    {
-                    	    matchRange('0','9'); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt4 >= 1 ) break loop4;
+                    	    if ( cnt3 >= 1 ) break loop3;
                                 EarlyExitException eee =
-                                    new EarlyExitException(4, input);
+                                    new EarlyExitException(3, input);
                                 throw eee;
                         }
-                        cnt4++;
+                        cnt3++;
                     } while (true);
 
 
@@ -1278,13 +1252,13 @@ public class InternalRigidBodiesLexer extends Lexer {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7343:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7343:11: ( '^' )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA6_0=='^') ) {
-                alt6=1;
+            if ( (LA5_0=='^') ) {
+                alt5=1;
             }
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
                     // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7343:11: '^'
                     {
@@ -1305,17 +1279,17 @@ public class InternalRigidBodiesLexer extends Lexer {
                 throw mse;}
 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7343:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            loop7:
+            loop6:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( ((LA7_0>='0' && LA7_0<='9')||(LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
-                    alt7=1;
+                if ( ((LA6_0>='0' && LA6_0<='9')||(LA6_0>='A' && LA6_0<='Z')||LA6_0=='_'||(LA6_0>='a' && LA6_0<='z')) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt6) {
             	case 1 :
             	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:
             	    {
@@ -1333,7 +1307,7 @@ public class InternalRigidBodiesLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop6;
                 }
             } while (true);
 
@@ -1357,18 +1331,18 @@ public class InternalRigidBodiesLexer extends Lexer {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7345:12: ( '0' .. '9' )+
             {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7345:12: ( '0' .. '9' )+
-            int cnt8=0;
-            loop8:
+            int cnt7=0;
+            loop7:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA8_0>='0' && LA8_0<='9')) ) {
-                    alt8=1;
+                if ( ((LA7_0>='0' && LA7_0<='9')) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt7) {
             	case 1 :
             	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7345:13: '0' .. '9'
             	    {
@@ -1378,12 +1352,12 @@ public class InternalRigidBodiesLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt8 >= 1 ) break loop8;
+            	    if ( cnt7 >= 1 ) break loop7;
                         EarlyExitException eee =
-                            new EarlyExitException(8, input);
+                            new EarlyExitException(7, input);
                         throw eee;
                 }
-                cnt8++;
+                cnt7++;
             } while (true);
 
 
@@ -1406,41 +1380,41 @@ public class InternalRigidBodiesLexer extends Lexer {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA11_0=='\"') ) {
-                alt11=1;
+            if ( (LA10_0=='\"') ) {
+                alt10=1;
             }
-            else if ( (LA11_0=='\'') ) {
-                alt11=2;
+            else if ( (LA10_0=='\'') ) {
+                alt10=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
                     // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
                     // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop9:
+                    loop8:
                     do {
-                        int alt9=3;
-                        int LA9_0 = input.LA(1);
+                        int alt8=3;
+                        int LA8_0 = input.LA(1);
 
-                        if ( (LA9_0=='\\') ) {
-                            alt9=1;
+                        if ( (LA8_0=='\\') ) {
+                            alt8=1;
                         }
-                        else if ( ((LA9_0>='\u0000' && LA9_0<='!')||(LA9_0>='#' && LA9_0<='[')||(LA9_0>=']' && LA9_0<='\uFFFF')) ) {
-                            alt9=2;
+                        else if ( ((LA8_0>='\u0000' && LA8_0<='!')||(LA8_0>='#' && LA8_0<='[')||(LA8_0>=']' && LA8_0<='\uFFFF')) ) {
+                            alt8=2;
                         }
 
 
-                        switch (alt9) {
+                        switch (alt8) {
                     	case 1 :
                     	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:21: '\\\\' .
                     	    {
@@ -1466,7 +1440,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop9;
+                    	    break loop8;
                         }
                     } while (true);
 
@@ -1479,20 +1453,20 @@ public class InternalRigidBodiesLexer extends Lexer {
                     {
                     match('\''); 
                     // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop10:
+                    loop9:
                     do {
-                        int alt10=3;
-                        int LA10_0 = input.LA(1);
+                        int alt9=3;
+                        int LA9_0 = input.LA(1);
 
-                        if ( (LA10_0=='\\') ) {
-                            alt10=1;
+                        if ( (LA9_0=='\\') ) {
+                            alt9=1;
                         }
-                        else if ( ((LA10_0>='\u0000' && LA10_0<='&')||(LA10_0>='(' && LA10_0<='[')||(LA10_0>=']' && LA10_0<='\uFFFF')) ) {
-                            alt10=2;
+                        else if ( ((LA9_0>='\u0000' && LA9_0<='&')||(LA9_0>='(' && LA9_0<='[')||(LA9_0>=']' && LA9_0<='\uFFFF')) ) {
+                            alt9=2;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt9) {
                     	case 1 :
                     	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7347:54: '\\\\' .
                     	    {
@@ -1518,7 +1492,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop9;
                         }
                     } while (true);
 
@@ -1551,29 +1525,29 @@ public class InternalRigidBodiesLexer extends Lexer {
             match("/*"); 
 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7349:24: ( options {greedy=false; } : . )*
-            loop12:
+            loop11:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA12_0=='*') ) {
-                    int LA12_1 = input.LA(2);
+                if ( (LA11_0=='*') ) {
+                    int LA11_1 = input.LA(2);
 
-                    if ( (LA12_1=='/') ) {
-                        alt12=2;
+                    if ( (LA11_1=='/') ) {
+                        alt11=2;
                     }
-                    else if ( ((LA12_1>='\u0000' && LA12_1<='.')||(LA12_1>='0' && LA12_1<='\uFFFF')) ) {
-                        alt12=1;
+                    else if ( ((LA11_1>='\u0000' && LA11_1<='.')||(LA11_1>='0' && LA11_1<='\uFFFF')) ) {
+                        alt11=1;
                     }
 
 
                 }
-                else if ( ((LA12_0>='\u0000' && LA12_0<=')')||(LA12_0>='+' && LA12_0<='\uFFFF')) ) {
-                    alt12=1;
+                else if ( ((LA11_0>='\u0000' && LA11_0<=')')||(LA11_0>='+' && LA11_0<='\uFFFF')) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt11) {
             	case 1 :
             	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7349:52: .
             	    {
@@ -1583,7 +1557,7 @@ public class InternalRigidBodiesLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop11;
                 }
             } while (true);
 
@@ -1611,17 +1585,17 @@ public class InternalRigidBodiesLexer extends Lexer {
             match("//"); 
 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7351:24: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop13:
+            loop12:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( ((LA13_0>='\u0000' && LA13_0<='\t')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\uFFFF')) ) {
-                    alt13=1;
+                if ( ((LA12_0>='\u0000' && LA12_0<='\t')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\uFFFF')) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt12) {
             	case 1 :
             	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7351:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
@@ -1639,29 +1613,29 @@ public class InternalRigidBodiesLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop12;
                 }
             } while (true);
 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7351:40: ( ( '\\r' )? '\\n' )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA15_0=='\n'||LA15_0=='\r') ) {
-                alt15=1;
+            if ( (LA14_0=='\n'||LA14_0=='\r') ) {
+                alt14=1;
             }
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
                     // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7351:41: ( '\\r' )? '\\n'
                     {
                     // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7351:41: ( '\\r' )?
-                    int alt14=2;
-                    int LA14_0 = input.LA(1);
+                    int alt13=2;
+                    int LA13_0 = input.LA(1);
 
-                    if ( (LA14_0=='\r') ) {
-                        alt14=1;
+                    if ( (LA13_0=='\r') ) {
+                        alt13=1;
                     }
-                    switch (alt14) {
+                    switch (alt13) {
                         case 1 :
                             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7351:41: '\\r'
                             {
@@ -1699,18 +1673,18 @@ public class InternalRigidBodiesLexer extends Lexer {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7353:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:7353:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt16=0;
-            loop16:
+            int cnt15=0;
+            loop15:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {
-                    alt16=1;
+                if ( ((LA15_0>='\t' && LA15_0<='\n')||LA15_0=='\r'||LA15_0==' ') ) {
+                    alt15=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt15) {
             	case 1 :
             	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:
             	    {
@@ -1728,12 +1702,12 @@ public class InternalRigidBodiesLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt16 >= 1 ) break loop16;
+            	    if ( cnt15 >= 1 ) break loop15;
                         EarlyExitException eee =
-                            new EarlyExitException(16, input);
+                            new EarlyExitException(15, input);
                         throw eee;
                 }
-                cnt16++;
+                cnt15++;
             } while (true);
 
 
@@ -1769,9 +1743,9 @@ public class InternalRigidBodiesLexer extends Lexer {
 
     public void mTokens() throws RecognitionException {
         // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt17=57;
-        alt17 = dfa17.predict(input);
-        switch (alt17) {
+        int alt16=57;
+        alt16 = dfa16.predict(input);
+        switch (alt16) {
             case 1 :
                 // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:10: T__12
                 {
@@ -2177,8 +2151,8 @@ public class InternalRigidBodiesLexer extends Lexer {
     }
 
 
-    protected DFA17 dfa17 = new DFA17(this);
-    static final String DFA17_eotS =
+    protected DFA16 dfa16 = new DFA16(this);
+    static final String DFA16_eotS =
         "\4\uffff\1\55\1\56\1\60\1\61\5\57\2\uffff\6\57\1\uffff\3\57\3\uffff"+
         "\3\57\2\uffff\1\126\1\47\1\uffff\2\47\14\uffff\12\57\2\uffff\13"+
         "\57\1\uffff\1\57\1\163\2\57\3\uffff\3\57\3\uffff\1\126\3\uffff\27"+
@@ -2192,9 +2166,9 @@ public class InternalRigidBodiesLexer extends Lexer {
         "\1\u0101\3\57\1\u0105\1\57\1\uffff\3\57\1\u010a\4\uffff\3\57\1\uffff"+
         "\3\57\1\u0111\1\uffff\2\57\1\u0114\1\u0115\1\57\1\u0117\1\uffff"+
         "\1\u0118\1\u0119\2\uffff\1\57\3\uffff\1\57\1\u011c\1\uffff";
-    static final String DFA17_eofS =
+    static final String DFA16_eofS =
         "\u011d\uffff";
-    static final String DFA17_minS =
+    static final String DFA16_minS =
         "\1\0\3\uffff\1\52\3\60\1\145\1\141\2\157\1\151\2\uffff\1\160\2"+
         "\141\1\154\1\156\1\157\1\uffff\1\156\1\145\1\141\3\uffff\1\157\1"+
         "\170\1\157\2\uffff\1\56\1\101\1\uffff\2\0\14\uffff\1\157\1\141\2"+
@@ -2218,7 +2192,7 @@ public class InternalRigidBodiesLexer extends Lexer {
         "\1\165\1\155\1\164\1\uffff\1\154\1\164\1\146\1\60\1\uffff\1\163"+
         "\1\142\2\60\1\151\1\60\1\uffff\2\60\2\uffff\1\157\3\uffff\1\156"+
         "\1\60\1\uffff";
-    static final String DFA17_maxS =
+    static final String DFA16_maxS =
         "\1\uffff\3\uffff\1\57\3\172\1\162\1\145\1\157\1\171\1\157\2\uffff"+
         "\1\171\1\157\1\141\1\157\1\156\1\157\1\uffff\1\164\1\145\1\141\3"+
         "\uffff\1\157\1\170\1\157\2\uffff\1\71\1\172\1\uffff\2\uffff\14\uffff"+
@@ -2243,7 +2217,7 @@ public class InternalRigidBodiesLexer extends Lexer {
         "\1\155\1\164\1\uffff\1\154\1\164\1\146\1\172\1\uffff\1\163\1\142"+
         "\2\172\1\151\1\172\1\uffff\2\172\2\uffff\1\157\3\uffff\1\156\1\172"+
         "\1\uffff";
-    static final String DFA17_acceptS =
+    static final String DFA16_acceptS =
         "\1\uffff\1\1\1\2\1\3\11\uffff\1\15\1\17\6\uffff\1\27\3\uffff\1"+
         "\43\1\46\1\47\3\uffff\1\55\1\56\2\uffff\1\63\2\uffff\1\70\1\71\1"+
         "\1\1\2\1\3\1\66\1\67\1\4\1\5\1\63\1\6\1\7\12\uffff\1\15\1\17\13"+
@@ -2255,9 +2229,9 @@ public class InternalRigidBodiesLexer extends Lexer {
         "\1\25\10\uffff\1\11\4\uffff\1\24\1\34\1\44\1\50\3\uffff\1\52\4\uffff"+
         "\1\42\6\uffff\1\37\2\uffff\1\51\1\10\1\uffff\1\36\1\40\1\41\2\uffff"+
         "\1\45";
-    static final String DFA17_specialS =
-        "\1\0\43\uffff\1\2\1\1\u00f7\uffff}>";
-    static final String[] DFA17_transitionS = {
+    static final String DFA16_specialS =
+        "\1\1\43\uffff\1\0\1\2\u00f7\uffff}>";
+    static final String[] DFA16_transitionS = {
             "\11\47\2\46\2\47\1\46\22\47\1\46\1\47\1\44\4\47\1\45\1\31\1"+
             "\33\1\3\1\1\1\32\1\2\1\47\1\4\12\41\1\25\6\47\32\43\1\37\1\47"+
             "\1\40\1\42\1\43\1\47\1\26\1\20\1\34\1\30\1\35\1\12\1\10\1\43"+
@@ -2549,34 +2523,34 @@ public class InternalRigidBodiesLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA17_eot = DFA.unpackEncodedString(DFA17_eotS);
-    static final short[] DFA17_eof = DFA.unpackEncodedString(DFA17_eofS);
-    static final char[] DFA17_min = DFA.unpackEncodedStringToUnsignedChars(DFA17_minS);
-    static final char[] DFA17_max = DFA.unpackEncodedStringToUnsignedChars(DFA17_maxS);
-    static final short[] DFA17_accept = DFA.unpackEncodedString(DFA17_acceptS);
-    static final short[] DFA17_special = DFA.unpackEncodedString(DFA17_specialS);
-    static final short[][] DFA17_transition;
+    static final short[] DFA16_eot = DFA.unpackEncodedString(DFA16_eotS);
+    static final short[] DFA16_eof = DFA.unpackEncodedString(DFA16_eofS);
+    static final char[] DFA16_min = DFA.unpackEncodedStringToUnsignedChars(DFA16_minS);
+    static final char[] DFA16_max = DFA.unpackEncodedStringToUnsignedChars(DFA16_maxS);
+    static final short[] DFA16_accept = DFA.unpackEncodedString(DFA16_acceptS);
+    static final short[] DFA16_special = DFA.unpackEncodedString(DFA16_specialS);
+    static final short[][] DFA16_transition;
 
     static {
-        int numStates = DFA17_transitionS.length;
-        DFA17_transition = new short[numStates][];
+        int numStates = DFA16_transitionS.length;
+        DFA16_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA17_transition[i] = DFA.unpackEncodedString(DFA17_transitionS[i]);
+            DFA16_transition[i] = DFA.unpackEncodedString(DFA16_transitionS[i]);
         }
     }
 
-    class DFA17 extends DFA {
+    class DFA16 extends DFA {
 
-        public DFA17(BaseRecognizer recognizer) {
+        public DFA16(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 17;
-            this.eot = DFA17_eot;
-            this.eof = DFA17_eof;
-            this.min = DFA17_min;
-            this.max = DFA17_max;
-            this.accept = DFA17_accept;
-            this.special = DFA17_special;
-            this.transition = DFA17_transition;
+            this.decisionNumber = 16;
+            this.eot = DFA16_eot;
+            this.eof = DFA16_eof;
+            this.min = DFA16_min;
+            this.max = DFA16_max;
+            this.accept = DFA16_accept;
+            this.special = DFA16_special;
+            this.transition = DFA16_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
@@ -2586,104 +2560,104 @@ public class InternalRigidBodiesLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA17_0 = input.LA(1);
+                        int LA16_36 = input.LA(1);
 
                         s = -1;
-                        if ( (LA17_0=='+') ) {s = 1;}
-
-                        else if ( (LA17_0=='-') ) {s = 2;}
-
-                        else if ( (LA17_0=='*') ) {s = 3;}
-
-                        else if ( (LA17_0=='/') ) {s = 4;}
-
-                        else if ( (LA17_0=='x') ) {s = 5;}
-
-                        else if ( (LA17_0=='y') ) {s = 6;}
-
-                        else if ( (LA17_0=='z') ) {s = 7;}
-
-                        else if ( (LA17_0=='g') ) {s = 8;}
-
-                        else if ( (LA17_0=='v') ) {s = 9;}
-
-                        else if ( (LA17_0=='f') ) {s = 10;}
-
-                        else if ( (LA17_0=='t') ) {s = 11;}
-
-                        else if ( (LA17_0=='w') ) {s = 12;}
-
-                        else if ( (LA17_0=='{') ) {s = 13;}
-
-                        else if ( (LA17_0=='}') ) {s = 14;}
-
-                        else if ( (LA17_0=='s') ) {s = 15;}
-
-                        else if ( (LA17_0=='b') ) {s = 16;}
-
-                        else if ( (LA17_0=='m') ) {s = 17;}
-
-                        else if ( (LA17_0=='p') ) {s = 18;}
-
-                        else if ( (LA17_0=='i') ) {s = 19;}
-
-                        else if ( (LA17_0=='j') ) {s = 20;}
-
-                        else if ( (LA17_0==':') ) {s = 21;}
-
-                        else if ( (LA17_0=='a') ) {s = 22;}
-
-                        else if ( (LA17_0=='r') ) {s = 23;}
-
-                        else if ( (LA17_0=='d') ) {s = 24;}
-
-                        else if ( (LA17_0=='(') ) {s = 25;}
-
-                        else if ( (LA17_0==',') ) {s = 26;}
-
-                        else if ( (LA17_0==')') ) {s = 27;}
-
-                        else if ( (LA17_0=='c') ) {s = 28;}
-
-                        else if ( (LA17_0=='e') ) {s = 29;}
-
-                        else if ( (LA17_0=='l') ) {s = 30;}
-
-                        else if ( (LA17_0=='[') ) {s = 31;}
-
-                        else if ( (LA17_0==']') ) {s = 32;}
-
-                        else if ( ((LA17_0>='0' && LA17_0<='9')) ) {s = 33;}
-
-                        else if ( (LA17_0=='^') ) {s = 34;}
-
-                        else if ( ((LA17_0>='A' && LA17_0<='Z')||LA17_0=='_'||LA17_0=='h'||LA17_0=='k'||(LA17_0>='n' && LA17_0<='o')||LA17_0=='q'||LA17_0=='u') ) {s = 35;}
-
-                        else if ( (LA17_0=='\"') ) {s = 36;}
-
-                        else if ( (LA17_0=='\'') ) {s = 37;}
-
-                        else if ( ((LA17_0>='\t' && LA17_0<='\n')||LA17_0=='\r'||LA17_0==' ') ) {s = 38;}
-
-                        else if ( ((LA17_0>='\u0000' && LA17_0<='\b')||(LA17_0>='\u000B' && LA17_0<='\f')||(LA17_0>='\u000E' && LA17_0<='\u001F')||LA17_0=='!'||(LA17_0>='#' && LA17_0<='&')||LA17_0=='.'||(LA17_0>=';' && LA17_0<='@')||LA17_0=='\\'||LA17_0=='`'||LA17_0=='|'||(LA17_0>='~' && LA17_0<='\uFFFF')) ) {s = 39;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA17_37 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA17_37>='\u0000' && LA17_37<='\uFFFF')) ) {s = 89;}
+                        if ( ((LA16_36>='\u0000' && LA16_36<='\uFFFF')) ) {s = 89;}
 
                         else s = 39;
 
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA17_36 = input.LA(1);
+                    case 1 : 
+                        int LA16_0 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA17_36>='\u0000' && LA17_36<='\uFFFF')) ) {s = 89;}
+                        if ( (LA16_0=='+') ) {s = 1;}
+
+                        else if ( (LA16_0=='-') ) {s = 2;}
+
+                        else if ( (LA16_0=='*') ) {s = 3;}
+
+                        else if ( (LA16_0=='/') ) {s = 4;}
+
+                        else if ( (LA16_0=='x') ) {s = 5;}
+
+                        else if ( (LA16_0=='y') ) {s = 6;}
+
+                        else if ( (LA16_0=='z') ) {s = 7;}
+
+                        else if ( (LA16_0=='g') ) {s = 8;}
+
+                        else if ( (LA16_0=='v') ) {s = 9;}
+
+                        else if ( (LA16_0=='f') ) {s = 10;}
+
+                        else if ( (LA16_0=='t') ) {s = 11;}
+
+                        else if ( (LA16_0=='w') ) {s = 12;}
+
+                        else if ( (LA16_0=='{') ) {s = 13;}
+
+                        else if ( (LA16_0=='}') ) {s = 14;}
+
+                        else if ( (LA16_0=='s') ) {s = 15;}
+
+                        else if ( (LA16_0=='b') ) {s = 16;}
+
+                        else if ( (LA16_0=='m') ) {s = 17;}
+
+                        else if ( (LA16_0=='p') ) {s = 18;}
+
+                        else if ( (LA16_0=='i') ) {s = 19;}
+
+                        else if ( (LA16_0=='j') ) {s = 20;}
+
+                        else if ( (LA16_0==':') ) {s = 21;}
+
+                        else if ( (LA16_0=='a') ) {s = 22;}
+
+                        else if ( (LA16_0=='r') ) {s = 23;}
+
+                        else if ( (LA16_0=='d') ) {s = 24;}
+
+                        else if ( (LA16_0=='(') ) {s = 25;}
+
+                        else if ( (LA16_0==',') ) {s = 26;}
+
+                        else if ( (LA16_0==')') ) {s = 27;}
+
+                        else if ( (LA16_0=='c') ) {s = 28;}
+
+                        else if ( (LA16_0=='e') ) {s = 29;}
+
+                        else if ( (LA16_0=='l') ) {s = 30;}
+
+                        else if ( (LA16_0=='[') ) {s = 31;}
+
+                        else if ( (LA16_0==']') ) {s = 32;}
+
+                        else if ( ((LA16_0>='0' && LA16_0<='9')) ) {s = 33;}
+
+                        else if ( (LA16_0=='^') ) {s = 34;}
+
+                        else if ( ((LA16_0>='A' && LA16_0<='Z')||LA16_0=='_'||LA16_0=='h'||LA16_0=='k'||(LA16_0>='n' && LA16_0<='o')||LA16_0=='q'||LA16_0=='u') ) {s = 35;}
+
+                        else if ( (LA16_0=='\"') ) {s = 36;}
+
+                        else if ( (LA16_0=='\'') ) {s = 37;}
+
+                        else if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {s = 38;}
+
+                        else if ( ((LA16_0>='\u0000' && LA16_0<='\b')||(LA16_0>='\u000B' && LA16_0<='\f')||(LA16_0>='\u000E' && LA16_0<='\u001F')||LA16_0=='!'||(LA16_0>='#' && LA16_0<='&')||LA16_0=='.'||(LA16_0>=';' && LA16_0<='@')||LA16_0=='\\'||LA16_0=='`'||LA16_0=='|'||(LA16_0>='~' && LA16_0<='\uFFFF')) ) {s = 39;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA16_37 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA16_37>='\u0000' && LA16_37<='\uFFFF')) ) {s = 89;}
 
                         else s = 39;
 
@@ -2691,7 +2665,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 17, _s, input);
+                new NoViableAltException(getDescription(), 16, _s, input);
             error(nvae);
             throw nvae;
         }
