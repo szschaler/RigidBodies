@@ -25,9 +25,9 @@ system DynamicWalker {
 			value 1.0
 			position [0.0, 0.0, 0.5]
 			// So these are actually 4x3 matrices
-			inertia matrix DefaultInertia [1.0e-3.0, 0.0,      0.0,
-					                       0.0,      1.0e-3.0, 0.0,
-				                           0.0,      0.0,      1.0e-3.0]
+			inertia matrix DefaultInertia [1.0e-3, 0.0,    0.0,
+					                       0.0,    1.0e-3, 0.0,
+				                           0.0,    0.0,    1.0e-3]
 		}
 	}
 	
@@ -61,9 +61,9 @@ system DynamicWalker {
 		mass {
 			value 1.5
 			position [0.0, 0.0, 0.5]
-			inertia [2.0e-3.0, 0.0,      0.0,
-					 0.0,      2.0e-3.0, 0.0,
-					 0.0,      0.0,      2.0e-3.0]
+			inertia [2.0e-3, 0.0,    0.0,
+					 0.0,    2.0e-3, 0.0,
+					 0.0,    0.0,    2.0e-3]
 		}
 	}
 	
