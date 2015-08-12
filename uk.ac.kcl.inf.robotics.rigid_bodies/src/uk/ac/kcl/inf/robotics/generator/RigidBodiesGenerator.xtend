@@ -3,6 +3,7 @@
  */
 package uk.ac.kcl.inf.robotics.generator
 
+import java.util.regex.Pattern
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
@@ -72,15 +73,7 @@ class RigidBodiesGenerator implements IGenerator {
 			'''])»
 		
 		% Joint specifications
-		j = sym (zeros («(0..<ctb.states.size).fold(1, [acc, idx |
-								val statesList = ctb.states.get(idx).value
-								val transformation = ctb.jointTransformations.get(idx)
-								var curLen = 0  
-								if (statesList != null) { curLen = statesList.size }
-								if (transformation != null) { curLen += transformation.value.reorient.size } 
-								
-								Math.max (acc, curLen)
-							])», 5, «ctb.states.size»));
+		j = sym (zeros («ctb.getMaxJRows», 5, «ctb.states.size»));
 		«(0..<ctb.states.size).join ('\n', [ i | '''
 				% Joint rotations for «ctb.states.get(i).key»
 				j (:, :, «i + 1») = [
@@ -117,7 +110,19 @@ class RigidBodiesGenerator implements IGenerator {
 		% animation
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
-
+	
+	def getMaxJRows (ConnectiveTreeBuilder ctb) {
+		(0..<ctb.states.size).fold(1, [acc, idx |
+				val statesList = ctb.states.get(idx).value
+				val transformation = ctb.jointTransformations.get(idx)
+				var curLen = 0
+				if (statesList != null) { curLen = statesList.size }
+				if (transformation != null) { curLen += transformation.value.reorient.size }
+				
+				Math.max (acc, curLen)
+			])	
+	}
+	
 	def generateLCContents (ConnectiveTreeBuilder ctb) {
 		val positionEntries = (0..<ctb.positions.size).join (';\n', [ i | '''
 				% Position data from «ctb.positions.get(i).key» for a joint «ctb.lcCodeColumns.get(i).value.key»
@@ -136,8 +141,9 @@ class RigidBodiesGenerator implements IGenerator {
 		return positionEntries + posSemicolon + constraintPositionEntries + consSemicolon + loadPositionEntries + loadSemicolon
 	}
 
-	def dispatch CharSequence render(RelativeTransformation rt) '''0 0 «rt.position.renderValues(' ')»;
-		   «rt.reorient.render»'''
+	def dispatch CharSequence render(RelativeTransformation rt) '''
+		«if (!rt.position.isAllZero) {'''0 0 «rt.position.renderValues(' ')»;
+		                              '''}»«rt.reorient.render»'''
 
 	def dispatch int size(ReorientRef rr) {
 		rr.ref.size
@@ -178,6 +184,23 @@ class RigidBodiesGenerator implements IGenerator {
 			case AXIS.Z: '3'
 		}
 	}
+
+	def dispatch boolean isAllZero (MatrixRef mr) {
+		mr.matrix.isAllZero
+	}
+	
+	def dispatch boolean isAllZero(BaseMatrix bm) {
+		bm.values.forall[v | v.isZero]
+	}
+
+	// TODO: Should probably do constant folding etc.
+	def dispatch boolean isZero (AddExp ae) { false }
+	def dispatch boolean isZero (MultExp me) { false }
+	def dispatch boolean isZero (ParenthesisedExp pe) { pe.exp.isZero }
+	def dispatch boolean isZero (ConstantOrFunctionCallExp cofce) { false }
+	
+	private static final Pattern pZeroLiteral = Pattern.compile ("\\A0+\\.0+([eE][+-]?\\d*)?\\Z")
+	def dispatch boolean isZero (NumberLiteral nl) { pZeroLiteral.matcher (nl.value).matches }
 
 	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
 		mr.matrix.renderValues(sep)
