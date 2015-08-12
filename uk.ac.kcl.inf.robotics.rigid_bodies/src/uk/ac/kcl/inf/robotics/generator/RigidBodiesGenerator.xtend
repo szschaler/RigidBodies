@@ -78,7 +78,7 @@ class RigidBodiesGenerator implements IGenerator {
 		I = sym (zeros (3, 3, «ctb.inertias.size»));
 		«(0..<ctb.inertias.size).join ('\n', [idx | '''
 				% Inertia for body «ctb.inertias.get(idx).key»
-				I (:, :, «idx») = [
+				I (:, :, «idx + 1») = [
 					«ctb.inertias.get(idx).value.renderValues (3)»];
 			'''])»
 		

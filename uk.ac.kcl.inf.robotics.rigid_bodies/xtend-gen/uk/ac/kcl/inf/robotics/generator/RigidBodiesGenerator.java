@@ -284,7 +284,7 @@ public class RigidBodiesGenerator implements IGenerator {
         _builder.append(_key, "");
         _builder.newLineIfNotEmpty();
         _builder.append("I (:, :, ");
-        _builder.append(idx, "");
+        _builder.append(((idx).intValue() + 1), "");
         _builder.append(") = [");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
