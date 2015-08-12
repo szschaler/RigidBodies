@@ -3,8 +3,6 @@
  */
 package uk.ac.kcl.inf.robotics.generator
 
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
@@ -55,16 +53,7 @@ class RigidBodiesGenerator implements IGenerator {
 		
 		% Locations
 		lc = [
-			«(0..<ctb.positions.size).join (';\n', [ i | '''
-					% Position data from «ctb.positions.get(i).key» for a joint «ctb.lcCodeColumns.get(i).value.key»
-					«ctb.positions.get(i).value.renderValues (' ')» «ctb.lcCodeColumns.get(i).key» «ctb.lcCodeColumns.get(i).value.value»'''])»
-			«(0..<ctb.constraintPositions.size).join (';\n', [ i | '''
-					% Position data from «ctb.constraintPositions.get(i).key» for a constraint «ctb.constraintLcCodeColumns.get(i).value.key»
-					% TODO: Check with Hadi that we're using the correct position data here.
-					«ctb.constraintPositions.get(i).value.renderValues (' ')» «ctb.constraintLcCodeColumns.get(i).key» «ctb.constraintLcCodeColumns.get(i).value.value»'''])»
-			«(0..<ctb.loadPositions.size).join (';\n', [ i | '''
-					% Position data from «ctb.loadPositions.get(i).key» for a load «ctb.loadLcCodeColumns.get(i).value.key»
-					«ctb.loadPositions.get(i).value.renderValues (' ')» «ctb.loadLcCodeColumns.get(i).key» «ctb.loadLcCodeColumns.get(i).value.value»'''])»
+			«ctb.generateLCContents»
 		];
 		
 		% Mass values
@@ -128,6 +117,24 @@ class RigidBodiesGenerator implements IGenerator {
 		% animation
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
+
+	def generateLCContents (ConnectiveTreeBuilder ctb) {
+		val positionEntries = (0..<ctb.positions.size).join (';\n', [ i | '''
+				% Position data from «ctb.positions.get(i).key» for a joint «ctb.lcCodeColumns.get(i).value.key»
+				«ctb.positions.get(i).value.renderValues (' ')» «ctb.lcCodeColumns.get(i).key» «ctb.lcCodeColumns.get(i).value.value»'''])
+		val posSemicolon = if (ctb.positions.size > 0) { ";\n" } else { "" }
+		val constraintPositionEntries = (0..<ctb.constraintPositions.size).join (';\n', [ i | '''
+				% Position data from «ctb.constraintPositions.get(i).key» for a constraint «ctb.constraintLcCodeColumns.get(i).value.key»
+				% TODO: Check with Hadi that we're using the correct position data here.
+				«ctb.constraintPositions.get(i).value.renderValues (' ')» «ctb.constraintLcCodeColumns.get(i).key» «ctb.constraintLcCodeColumns.get(i).value.value»'''])
+		val consSemicolon = if (ctb.constraintPositions.size > 0) { ";\n" } else { "" }
+		val loadPositionEntries = (0..<ctb.loadPositions.size).join (';\n', [ i | '''
+				% Position data from «ctb.loadPositions.get(i).key» for a load «ctb.loadLcCodeColumns.get(i).value.key»
+				«ctb.loadPositions.get(i).value.renderValues (' ')» «ctb.loadLcCodeColumns.get(i).key» «ctb.loadLcCodeColumns.get(i).value.value»'''])
+		val loadSemicolon = if (ctb.loadPositions.size > 0) { ";\n" } else { "" }
+				
+		return positionEntries + posSemicolon + constraintPositionEntries + consSemicolon + loadPositionEntries + loadSemicolon
+	}
 
 	def dispatch CharSequence render(RelativeTransformation rt) '''0 0 «rt.position.renderValues(' ')»;
 		   «rt.reorient.render»'''
