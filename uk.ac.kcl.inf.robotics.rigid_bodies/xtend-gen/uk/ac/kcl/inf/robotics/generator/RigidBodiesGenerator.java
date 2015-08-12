@@ -680,7 +680,6 @@ public class RigidBodiesGenerator implements IGenerator {
     Expression _left = e.getLeft();
     CharSequence _render = this.render(_left);
     _builder.append(_render, "");
-    _builder.append(" ");
     EList<String> _op = e.getOp();
     int _size = _op.size();
     ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
@@ -691,7 +690,6 @@ public class RigidBodiesGenerator implements IGenerator {
         EList<String> _op = e.getOp();
         String _get = _op.get((idx).intValue());
         _builder.append(_get, "");
-        _builder.append(" ");
         EList<Expression> _right = e.getRight();
         Expression _get_1 = _right.get((idx).intValue());
         CharSequence _render = RigidBodiesGenerator.this.render(_get_1);
@@ -699,7 +697,7 @@ public class RigidBodiesGenerator implements IGenerator {
         return _builder.toString();
       }
     };
-    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, " ", _function);
+    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, "", _function);
     _builder.append(_join, "");
     return _builder;
   }
@@ -709,7 +707,6 @@ public class RigidBodiesGenerator implements IGenerator {
     Expression _left = e.getLeft();
     CharSequence _render = this.render(_left);
     _builder.append(_render, "");
-    _builder.append(" ");
     EList<String> _op = e.getOp();
     int _size = _op.size();
     ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
@@ -720,7 +717,6 @@ public class RigidBodiesGenerator implements IGenerator {
         EList<String> _op = e.getOp();
         String _get = _op.get((idx).intValue());
         _builder.append(_get, "");
-        _builder.append(" ");
         EList<Expression> _right = e.getRight();
         Expression _get_1 = _right.get((idx).intValue());
         CharSequence _render = RigidBodiesGenerator.this.render(_get_1);
@@ -728,7 +724,7 @@ public class RigidBodiesGenerator implements IGenerator {
         return _builder.toString();
       }
     };
-    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, " ", _function);
+    String _join = IterableExtensions.<Integer>join(_doubleDotLessThan, "", _function);
     _builder.append(_join, "");
     return _builder;
   }
@@ -762,7 +758,6 @@ public class RigidBodiesGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String _label = cofce.getLabel();
     _builder.append(_label, "");
-    _builder.append(" ");
     CharSequence _xifexpression = null;
     EList<Expression> _param = cofce.getParam();
     int _size = _param.size();
@@ -777,7 +772,7 @@ public class RigidBodiesGenerator implements IGenerator {
           return RigidBodiesGenerator.this.render(p);
         }
       };
-      String _join = IterableExtensions.<Expression>join(_param_1, ", ", _function);
+      String _join = IterableExtensions.<Expression>join(_param_1, ",", _function);
       _builder_1.append(_join, "");
       _builder_1.append(")");
       _xifexpression = _builder_1;

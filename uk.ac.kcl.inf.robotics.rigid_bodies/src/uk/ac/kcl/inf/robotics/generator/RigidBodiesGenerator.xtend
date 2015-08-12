@@ -184,12 +184,12 @@ class RigidBodiesGenerator implements IGenerator {
 	}
 
 	def dispatch CharSequence render(AddExp e) {
-		'''«e.left.render» «(0..<e.op.size).join (' ', [idx | '''«e.op.get (idx)» «e.right.get(idx).render»'''])»'''
+		'''«e.left.render»«(0..<e.op.size).join ('', [idx | '''«e.op.get (idx)»«e.right.get(idx).render»'''])»'''
 	}
 
 	def dispatch CharSequence render(
 		MultExp e
-	) '''«e.left.render» «(0..<e.op.size).join (' ', [idx | '''«e.op.get (idx)» «e.right.get(idx).render»'''])»'''
+	) '''«e.left.render»«(0..<e.op.size).join ('', [idx | '''«e.op.get (idx)»«e.right.get(idx).render»'''])»'''
 
 	def dispatch CharSequence render(ParenthesisedExp pe) '''(«pe.exp.render»)'''
 
@@ -197,7 +197,7 @@ class RigidBodiesGenerator implements IGenerator {
 
 	def dispatch CharSequence render(
 		ConstantOrFunctionCallExp cofce
-	) '''«cofce.label» «if (cofce.param.size > 0) {'''(«cofce.param.join (', ', [p | p.render])»)'''}»'''
+	) '''«cofce.label»«if (cofce.param.size > 0) {'''(«cofce.param.join (',', [p | p.render])»)'''}»'''
 	
 	// I know this is silly, but Xtend is a bit too cautious when dealing with final variables...
 	private static class IntHolder {
