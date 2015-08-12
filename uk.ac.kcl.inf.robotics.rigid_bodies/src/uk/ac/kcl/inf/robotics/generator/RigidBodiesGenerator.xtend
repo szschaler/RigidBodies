@@ -46,7 +46,7 @@ class RigidBodiesGenerator implements IGenerator {
 		close all
 		
 		% Gravity vector
-		g = [«world.gravity.renderValues (', ')»]
+		g = [«world.gravity.renderValues (', ')»];
 		
 		% Inputs
 
@@ -88,7 +88,7 @@ class RigidBodiesGenerator implements IGenerator {
 								if (transformation != null) { curLen += transformation.value.reorient.size } 
 								
 								Math.max (acc, curLen)
-							])», 5, «ctb.states.size»))
+							])», 5, «ctb.states.size»));
 		«(0..<ctb.states.size).join ('\n', [ i | '''
 				% Joint rotations for «ctb.states.get(i).key»
 				j (:, :, «i + 1») = [

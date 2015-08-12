@@ -96,7 +96,7 @@ public class RigidBodiesGenerator implements IGenerator {
     Matrix _gravity = world.getGravity();
     CharSequence _renderValues = this.renderValues(_gravity, ", ");
     _builder.append(_renderValues, "");
-    _builder.append("]");
+    _builder.append("];");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("% Inputs");
@@ -343,7 +343,7 @@ public class RigidBodiesGenerator implements IGenerator {
     List<Pair<String, List<JointMovement>>> _states_1 = ctb.getStates();
     int _size_6 = _states_1.size();
     _builder.append(_size_6, "");
-    _builder.append("))");
+    _builder.append("));");
     _builder.newLineIfNotEmpty();
     List<Pair<String, List<JointMovement>>> _states_2 = ctb.getStates();
     int _size_7 = _states_2.size();
