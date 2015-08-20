@@ -11,8 +11,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Planar</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

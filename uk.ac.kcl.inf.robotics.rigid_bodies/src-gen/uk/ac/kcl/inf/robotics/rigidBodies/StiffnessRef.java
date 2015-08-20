@@ -10,10 +10,10 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef#getRef <em>Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getStiffnessRef()
  * @model

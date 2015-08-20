@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation#getPosition <em>Position</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation#getReorient <em>Reorient</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getRelativeTransformation()
  * @model

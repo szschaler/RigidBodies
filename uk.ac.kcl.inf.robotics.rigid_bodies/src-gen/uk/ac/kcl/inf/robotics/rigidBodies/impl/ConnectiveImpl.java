@@ -20,10 +20,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConnectiveImpl#getBody1 <em>Body1</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

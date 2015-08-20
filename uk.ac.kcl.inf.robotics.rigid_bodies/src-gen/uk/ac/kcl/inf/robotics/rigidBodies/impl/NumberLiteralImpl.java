@@ -17,11 +17,11 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.NumberLiteralImpl#isNeg <em>Neg</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.NumberLiteralImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -22,13 +22,13 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#isIsStart <em>Is Start</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody2 <em>Body2</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

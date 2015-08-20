@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getValue <em>Value</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getPosition <em>Position</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Mass#getInertia <em>Inertia</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getMass()
  * @model

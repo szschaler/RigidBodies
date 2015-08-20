@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression#getAxis <em>Axis</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBasicReorientExpression()
  * @model

@@ -339,7 +339,7 @@
             point="org.eclipse.ui.ide.markerResolution">
         <markerResolutionGenerator
             class="uk.ac.kcl.inf.robotics.ui.RigidBodiesExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="uk.ac.kcl.inf.robotics.ui.rigidbodies.check.fast">
+            markerType="uk.ac.kcl.inf.robotics.rigid_bodies.ui.rigidbodies.check.fast">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -347,7 +347,7 @@
         </markerResolutionGenerator>
         <markerResolutionGenerator
             class="uk.ac.kcl.inf.robotics.ui.RigidBodiesExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="uk.ac.kcl.inf.robotics.ui.rigidbodies.check.normal">
+            markerType="uk.ac.kcl.inf.robotics.rigid_bodies.ui.rigidbodies.check.normal">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -355,7 +355,7 @@
         </markerResolutionGenerator>
         <markerResolutionGenerator
             class="uk.ac.kcl.inf.robotics.ui.RigidBodiesExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="uk.ac.kcl.inf.robotics.ui.rigidbodies.check.expensive">
+            markerType="uk.ac.kcl.inf.robotics.rigid_bodies.ui.rigidbodies.check.expensive">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">

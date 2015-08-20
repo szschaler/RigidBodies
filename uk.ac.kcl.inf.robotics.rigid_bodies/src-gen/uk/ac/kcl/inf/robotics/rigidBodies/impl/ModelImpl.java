@@ -29,12 +29,12 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getDefs <em>Defs</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getWorld <em>World</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getBodies <em>Bodies</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

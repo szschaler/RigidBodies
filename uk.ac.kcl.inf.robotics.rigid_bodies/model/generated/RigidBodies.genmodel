@@ -4,7 +4,7 @@
     editorDirectory="/uk.ac.kcl.inf.robotics.rigid_bodies.editor/src" modelPluginID="uk.ac.kcl.inf.robotics.rigid_bodies"
     forceOverwrite="true" modelName="RigidBodies" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="uk.ac.kcl.inf.robotics.rigid_bodies.edit"
-    editorPluginID="uk.ac.kcl.inf.robotics.rigid_bodies.editor" runtimeVersion="2.10">
+    editorPluginID="uk.ac.kcl.inf.robotics.rigid_bodies.editor" runtimeVersion="2.11">
   <genPackages prefix="RigidBodies" basePackage="uk.ac.kcl.inf.robotics" disposableProviderFactory="true"
       fileExtensions="rbody" ecorePackage="RigidBodies.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="RigidBodies.ecore#//AXIS">

@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
@@ -186,9 +186,9 @@ public class ConnectiveTreeBuilder {
           BodyReference _body2_3 = curJoint.getBody2();
           Body _ref_2 = _body2_3.getRef();
           Iterable<Connective> _connectiveFanOut = this.getConnectiveFanOut(_ref_2);
-          final Procedure1<Connective> _function = new Procedure1<Connective>() {
+          final Consumer<Connective> _function = new Consumer<Connective>() {
             @Override
-            public void apply(final Connective j) {
+            public void accept(final Connective j) {
               ConnectiveTreeBuilder.ConnectiveTree child = ConnectiveTreeBuilder.this.generateConnectiveTree(j, connectiveList, bodyList, idx);
               boolean _notEquals = (!Objects.equal(child, null));
               if (_notEquals) {
@@ -196,7 +196,7 @@ public class ConnectiveTreeBuilder {
               }
             }
           };
-          IterableExtensions.<Connective>forEach(_connectiveFanOut, _function);
+          _connectiveFanOut.forEach(_function);
           return new ConnectiveTreeBuilder.ConnectiveTree(start, index, nextTreeLayer);
         }
       }
@@ -246,13 +246,13 @@ public class ConnectiveTreeBuilder {
     this.visit(ct, parent);
     boolean _notEquals = (!Objects.equal(ct.children, null));
     if (_notEquals) {
-      final Procedure1<ConnectiveTreeBuilder.ConnectiveTree> _function = new Procedure1<ConnectiveTreeBuilder.ConnectiveTree>() {
+      final Consumer<ConnectiveTreeBuilder.ConnectiveTree> _function = new Consumer<ConnectiveTreeBuilder.ConnectiveTree>() {
         @Override
-        public void apply(final ConnectiveTreeBuilder.ConnectiveTree c) {
+        public void accept(final ConnectiveTreeBuilder.ConnectiveTree c) {
           ConnectiveTreeBuilder.this.traverse(c, ct);
         }
       };
-      IterableExtensions.<ConnectiveTreeBuilder.ConnectiveTree>forEach(ct.children, _function);
+      ct.children.forEach(_function);
     }
   }
   
@@ -391,14 +391,14 @@ public class ConnectiveTreeBuilder {
     List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_left);
     lResult.addAll(_stiffnessList);
     EList<JointTypeExpression> _right = ajt.getRight();
-    final Procedure1<JointTypeExpression> _function = new Procedure1<JointTypeExpression>() {
+    final Consumer<JointTypeExpression> _function = new Consumer<JointTypeExpression>() {
       @Override
-      public void apply(final JointTypeExpression jte) {
+      public void accept(final JointTypeExpression jte) {
         List<BaseStiffnessExp> _stiffnessList = ConnectiveTreeBuilder.this.toStiffnessList(jte);
         lResult.addAll(_stiffnessList);
       }
     };
-    IterableExtensions.<JointTypeExpression>forEach(_right, _function);
+    _right.forEach(_function);
     return lResult;
   }
   
@@ -434,14 +434,14 @@ public class ConnectiveTreeBuilder {
     List<JointMovement> _stateList = this.toStateList(_left);
     lResult.addAll(_stateList);
     EList<JointTypeExpression> _right = ajt.getRight();
-    final Procedure1<JointTypeExpression> _function = new Procedure1<JointTypeExpression>() {
+    final Consumer<JointTypeExpression> _function = new Consumer<JointTypeExpression>() {
       @Override
-      public void apply(final JointTypeExpression jte) {
+      public void accept(final JointTypeExpression jte) {
         List<JointMovement> _stateList = ConnectiveTreeBuilder.this.toStateList(jte);
         lResult.addAll(_stateList);
       }
     };
-    IterableExtensions.<JointTypeExpression>forEach(_right, _function);
+    _right.forEach(_function);
     return lResult;
   }
   
@@ -531,13 +531,13 @@ public class ConnectiveTreeBuilder {
       int _size_1 = this.allTransformations.size();
       int _minus = (_size - _size_1);
       ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _minus, true);
-      final Procedure1<Integer> _function = new Procedure1<Integer>() {
+      final Consumer<Integer> _function = new Consumer<Integer>() {
         @Override
-        public void apply(final Integer it) {
+        public void accept(final Integer it) {
           ConnectiveTreeBuilder.this.allTransformations.add(null);
         }
       };
-      IterableExtensions.<Integer>forEach(_doubleDotLessThan, _function);
+      _doubleDotLessThan.forEach(_function);
     }
     return this.allTransformations;
   }

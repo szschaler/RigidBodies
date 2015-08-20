@@ -20,13 +20,13 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BaseStiffnessExpImpl#getSpringCoeff <em>Spring Coeff</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BaseStiffnessExpImpl#getSpringInit <em>Spring Init</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BaseStiffnessExpImpl#getDampViscous <em>Damp Viscous</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BaseStiffnessExpImpl#getDampCoulomb <em>Damp Coulomb</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

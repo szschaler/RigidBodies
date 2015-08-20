@@ -4,12 +4,12 @@
 package uk.ac.kcl.inf.robotics.validation;
 
 import com.google.common.collect.Iterables;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
@@ -38,15 +38,15 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     int _size = IterableExtensions.size(startJoints);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
-      final Procedure1<Joint> _function_1 = new Procedure1<Joint>() {
+      final Consumer<Joint> _function_1 = new Consumer<Joint>() {
         @Override
-        public void apply(final Joint j) {
+        public void accept(final Joint j) {
           RigidBodiesValidator.this.warning("There can only be one start joint for each system", j, 
             RigidBodiesPackage.Literals.JOINT__IS_START, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, 
             RigidBodiesValidator.TOO_MANY_START_JOINTS);
         }
       };
-      IterableExtensions.<Joint>forEach(startJoints, _function_1);
+      startJoints.forEach(_function_1);
     }
   }
 }

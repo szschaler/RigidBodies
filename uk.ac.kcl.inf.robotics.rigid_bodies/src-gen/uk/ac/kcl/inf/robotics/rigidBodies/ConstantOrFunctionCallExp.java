@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp#getLabel <em>Label</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp#getParam <em>Param</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConstantOrFunctionCallExp()
  * @model

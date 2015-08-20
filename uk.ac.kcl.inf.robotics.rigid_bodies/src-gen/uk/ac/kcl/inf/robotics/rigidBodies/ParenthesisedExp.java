@@ -10,10 +10,10 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.ParenthesisedExp#getExp <em>Exp</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getParenthesisedExp()
  * @model

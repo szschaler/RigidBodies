@@ -10,11 +10,11 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral#isNeg <em>Neg</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getNumberLiteral()
  * @model

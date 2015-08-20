@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getLeft <em>Left</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getOp <em>Op</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.AddExp#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getAddExp()
  * @model

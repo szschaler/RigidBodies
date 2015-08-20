@@ -21,11 +21,11 @@ import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BasicJointTypeImpl#getType <em>Type</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BasicJointTypeImpl#getStiffness <em>Stiffness</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -22,11 +22,11 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.RelativeTransformationImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.RelativeTransformationImpl#getReorient <em>Reorient</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

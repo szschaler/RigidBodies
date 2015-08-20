@@ -10,13 +10,13 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp#getSpringCoeff <em>Spring Coeff</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp#getSpringInit <em>Spring Init</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp#getDampViscous <em>Damp Viscous</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp#getDampCoulomb <em>Damp Coulomb</em>}</li>
  * </ul>
- * </p>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBaseStiffnessExp()
  * @model
