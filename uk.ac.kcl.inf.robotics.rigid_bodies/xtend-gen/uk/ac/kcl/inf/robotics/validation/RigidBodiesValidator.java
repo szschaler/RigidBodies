@@ -3,14 +3,20 @@
  */
 package uk.ac.kcl.inf.robotics.validation;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 import uk.ac.kcl.inf.robotics.validation.AbstractRigidBodiesValidator;
@@ -47,6 +53,49 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
         }
       };
       startJoints.forEach(_function_1);
+    }
+  }
+  
+  public final static String NEW_OUTSIDE_REPEAT = "newOutsideRepeat";
+  
+  public final static String LAST_OUTSIDE_REPEAT = "lastOutsideRepeat";
+  
+  @Check
+  public void checkUseOfNewAndLast(final BodyReference br) {
+    boolean _or = false;
+    boolean _isNew = br.isNew();
+    if (_isNew) {
+      _or = true;
+    } else {
+      boolean _and = false;
+      boolean _isLast = br.isLast();
+      if (!_isLast) {
+        _and = false;
+      } else {
+        Body _ref = br.getRef();
+        boolean _equals = Objects.equal(_ref, null);
+        _and = _equals;
+      }
+      _or = _and;
+    }
+    if (_or) {
+      EObject container = br;
+      while (((!(container instanceof Model)) && (!(container instanceof BodyRepetition)))) {
+        EObject _eContainer = container.eContainer();
+        container = _eContainer;
+      }
+      if ((container instanceof Model)) {
+        boolean _isNew_1 = br.isNew();
+        if (_isNew_1) {
+          this.error("new is only a valid body reference within a repeat expression.", br, 
+            RigidBodiesPackage.Literals.BODY_REFERENCE__NEW, 
+            ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.NEW_OUTSIDE_REPEAT);
+        } else {
+          this.error("last must provide a body reference outside a repeat expression.", br, 
+            RigidBodiesPackage.Literals.BODY_REFERENCE__LAST, 
+            ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.LAST_OUTSIDE_REPEAT);
+        }
+      }
     }
   }
 }

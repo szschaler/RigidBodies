@@ -3,10 +3,15 @@
  */
 package uk.ac.kcl.inf.robotics.validation
 
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.validation.Check
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint
-import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 import org.eclipse.xtext.validation.ValidationMessageAcceptor
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference
+import uk.ac.kcl.inf.robotics.rigidBodies.Joint
+import uk.ac.kcl.inf.robotics.rigidBodies.Model
+import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
+import uk.ac.kcl.inf.robotics.rigidBodies.System
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition
 
 /**
  * This class contains custom validation rules. 
@@ -28,16 +33,42 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 	public static val TOO_MANY_START_JOINTS = "tooManyStartJoints"
 
 	@Check
-	def checkOnlyOneStartJoint(uk.ac.kcl.inf.robotics.rigidBodies.System s) {
+	def checkOnlyOneStartJoint(System s) {
 		var startJoints = s.elements.filter(Joint).filter[j|j.isIsStart]
 		if (startJoints.size > 1) {
-			startJoints.forEach [j |
+			startJoints.forEach [ j |
 				warning('There can only be one start joint for each system', j,
 					RigidBodiesPackage.Literals.JOINT__IS_START, ValidationMessageAcceptor.INSIGNIFICANT_INDEX,
 					TOO_MANY_START_JOINTS)
 				]
+			}
+		}
+
+		// TODO Check for multiple base references without an explicit start hint
+		public static val NEW_OUTSIDE_REPEAT = "newOutsideRepeat"
+		public static val LAST_OUTSIDE_REPEAT = "lastOutsideRepeat"
+
+		@Check
+		def checkUseOfNewAndLast(BodyReference br) {
+			if (br.^new || (br.last && (br.ref == null))) {
+				// Reference to the new body (or the generic last body) is only allowed in a repeat expression
+				var EObject container = br
+				while (!(container instanceof Model) && !(container instanceof BodyRepetition)) {
+					container = container.eContainer
+				}
+				if (container instanceof Model) {
+					// We didn't find a containing repeat expression
+					if (br.^new) {
+						error('new is only a valid body reference within a repeat expression.', br,
+							RigidBodiesPackage.Literals.BODY_REFERENCE__NEW,
+							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NEW_OUTSIDE_REPEAT)
+					} else {
+						error('last must provide a body reference outside a repeat expression.', br,
+							RigidBodiesPackage.Literals.BODY_REFERENCE__LAST,
+							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, LAST_OUTSIDE_REPEAT)
+
+					}
+				}
+			}
 		}
 	}
-	
-	// TODO Check for multiple base references without an explicit start hint
-}
