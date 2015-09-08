@@ -254,15 +254,23 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cBaseAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final Keyword cBaseBaseKeyword_0_0 = (Keyword)cBaseAssignment_0.eContents().get(0);
-		private final Assignment cRefAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final CrossReference cRefBodyCrossReference_1_0 = (CrossReference)cRefAssignment_1.eContents().get(0);
-		private final RuleCall cRefBodyIDTerminalRuleCall_1_0_1 = (RuleCall)cRefBodyCrossReference_1_0.eContents().get(1);
+		private final Assignment cNewAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cNewNewKeyword_1_0 = (Keyword)cNewAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cLastAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cLastLastKeyword_2_0_0 = (Keyword)cLastAssignment_2_0.eContents().get(0);
+		private final Assignment cRefAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cRefBodyCrossReference_2_1_0 = (CrossReference)cRefAssignment_2_1.eContents().get(0);
+		private final RuleCall cRefBodyIDTerminalRuleCall_2_1_0_1 = (RuleCall)cRefBodyCrossReference_2_1_0.eContents().get(1);
+		private final Assignment cRefAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final CrossReference cRefBodyCrossReference_3_0 = (CrossReference)cRefAssignment_3.eContents().get(0);
+		private final RuleCall cRefBodyIDTerminalRuleCall_3_0_1 = (RuleCall)cRefBodyCrossReference_3_0.eContents().get(1);
 		
 		//BodyReference:
-		//	base?="base" | ref=[Body];
+		//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body];
 		@Override public ParserRule getRule() { return rule; }
 
-		//base?="base" | ref=[Body]
+		//base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body]
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//base?="base"
@@ -271,14 +279,38 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"base"
 		public Keyword getBaseBaseKeyword_0_0() { return cBaseBaseKeyword_0_0; }
 
-		//ref=[Body]
-		public Assignment getRefAssignment_1() { return cRefAssignment_1; }
+		//new?="new"
+		public Assignment getNewAssignment_1() { return cNewAssignment_1; }
+
+		//"new"
+		public Keyword getNewNewKeyword_1_0() { return cNewNewKeyword_1_0; }
+
+		//last?="last" ref=[Body]?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//last?="last"
+		public Assignment getLastAssignment_2_0() { return cLastAssignment_2_0; }
+
+		//"last"
+		public Keyword getLastLastKeyword_2_0_0() { return cLastLastKeyword_2_0_0; }
+
+		//ref=[Body]?
+		public Assignment getRefAssignment_2_1() { return cRefAssignment_2_1; }
 
 		//[Body]
-		public CrossReference getRefBodyCrossReference_1_0() { return cRefBodyCrossReference_1_0; }
+		public CrossReference getRefBodyCrossReference_2_1_0() { return cRefBodyCrossReference_2_1_0; }
 
 		//ID
-		public RuleCall getRefBodyIDTerminalRuleCall_1_0_1() { return cRefBodyIDTerminalRuleCall_1_0_1; }
+		public RuleCall getRefBodyIDTerminalRuleCall_2_1_0_1() { return cRefBodyIDTerminalRuleCall_2_1_0_1; }
+
+		//ref=[Body]
+		public Assignment getRefAssignment_3() { return cRefAssignment_3; }
+
+		//[Body]
+		public CrossReference getRefBodyCrossReference_3_0() { return cRefBodyCrossReference_3_0; }
+
+		//ID
+		public RuleCall getRefBodyIDTerminalRuleCall_3_0_1() { return cRefBodyIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class BodyRepetitionElements extends AbstractParserRuleElementFinder {
@@ -1831,7 +1863,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BodyReference:
-	//	base?="base" | ref=[Body];
+	//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body];
 	public BodyReferenceElements getBodyReferenceAccess() {
 		return pBodyReference;
 	}

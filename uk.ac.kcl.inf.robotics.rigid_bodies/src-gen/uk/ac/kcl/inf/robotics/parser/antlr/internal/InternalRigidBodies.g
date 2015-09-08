@@ -514,14 +514,59 @@ ruleBodyReference returns [EObject current=null]
 )
     |(
 (
+		lv_new_1_0=	'new' 
+    {
+        newLeafNode(lv_new_1_0, grammarAccess.getBodyReferenceAccess().getNewNewKeyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBodyReferenceRule());
+	        }
+       		setWithLastConsumed($current, "new", true, "new");
+	    }
+
+)
+)
+    |((
+(
+		lv_last_2_0=	'last' 
+    {
+        newLeafNode(lv_last_2_0, grammarAccess.getBodyReferenceAccess().getLastLastKeyword_2_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBodyReferenceRule());
+	        }
+       		setWithLastConsumed($current, "last", true, "last");
+	    }
+
+)
+)(
+(
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getBodyReferenceRule());
 	        }
         }
-	otherlv_1=RULE_ID
+	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getBodyReferenceAccess().getRefBodyCrossReference_1_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getBodyReferenceAccess().getRefBodyCrossReference_2_1_0()); 
+	}
+
+)
+)?)
+    |(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBodyReferenceRule());
+	        }
+        }
+	otherlv_4=RULE_ID
+	{
+		newLeafNode(otherlv_4, grammarAccess.getBodyReferenceAccess().getRefBodyCrossReference_3_0()); 
 	}
 
 )

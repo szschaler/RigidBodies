@@ -48,8 +48,10 @@ Body:
 ;
 
 BodyReference:
-	base?='base' |
-	ref=[Body]
+	  base?='base' 
+	| new?='new'
+	| last?='last' (ref=[Body])?
+	| ref=[Body]
 ;
 
 BodyRepetition:

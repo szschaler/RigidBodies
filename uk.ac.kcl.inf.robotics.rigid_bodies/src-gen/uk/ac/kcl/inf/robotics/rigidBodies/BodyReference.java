@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isBase <em>Base</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isNew <em>New</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isLast <em>Last</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getRef <em>Ref</em>}</li>
  * </ul>
  *
@@ -48,6 +50,58 @@ public interface BodyReference extends EObject
    * @generated
    */
   void setBase(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>New</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>New</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>New</em>' attribute.
+   * @see #setNew(boolean)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBodyReference_New()
+   * @model
+   * @generated
+   */
+  boolean isNew();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isNew <em>New</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>New</em>' attribute.
+   * @see #isNew()
+   * @generated
+   */
+  void setNew(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Last</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Last</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Last</em>' attribute.
+   * @see #setLast(boolean)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBodyReference_Last()
+   * @model
+   * @generated
+   */
+  boolean isLast();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isLast <em>Last</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Last</em>' attribute.
+   * @see #isLast()
+   * @generated
+   */
+  void setLast(boolean value);
 
   /**
    * Returns the value of the '<em><b>Ref</b></em>' reference.

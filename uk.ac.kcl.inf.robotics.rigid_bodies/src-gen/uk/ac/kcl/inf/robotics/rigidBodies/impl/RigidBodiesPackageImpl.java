@@ -615,9 +615,29 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getBodyReference_New()
+  {
+    return (EAttribute)bodyReferenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBodyReference_Last()
+  {
+    return (EAttribute)bodyReferenceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getBodyReference_Ref()
   {
-    return (EReference)bodyReferenceEClass.getEStructuralFeatures().get(1);
+    return (EReference)bodyReferenceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1487,6 +1507,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     bodyReferenceEClass = createEClass(BODY_REFERENCE);
     createEAttribute(bodyReferenceEClass, BODY_REFERENCE__BASE);
+    createEAttribute(bodyReferenceEClass, BODY_REFERENCE__NEW);
+    createEAttribute(bodyReferenceEClass, BODY_REFERENCE__LAST);
     createEReference(bodyReferenceEClass, BODY_REFERENCE__REF);
 
     bodyRepetitionEClass = createEClass(BODY_REPETITION);
@@ -1686,6 +1708,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(bodyReferenceEClass, BodyReference.class, "BodyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBodyReference_Base(), ecorePackage.getEBoolean(), "base", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBodyReference_New(), ecorePackage.getEBoolean(), "new", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBodyReference_Last(), ecorePackage.getEBoolean(), "last", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBodyReference_Ref(), this.getBody(), null, "ref", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bodyRepetitionEClass, BodyRepetition.class, "BodyRepetition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -46,6 +46,8 @@
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//BodyReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//BodyReference/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//BodyReference/new"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//BodyReference/last"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BodyReference/ref"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//BodyRepetition">

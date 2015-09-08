@@ -309,13 +309,31 @@ public interface RigidBodiesPackage extends EPackage
   int BODY_REFERENCE__BASE = 0;
 
   /**
+   * The feature id for the '<em><b>New</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_REFERENCE__NEW = 1;
+
+  /**
+   * The feature id for the '<em><b>Last</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_REFERENCE__LAST = 2;
+
+  /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BODY_REFERENCE__REF = 1;
+  int BODY_REFERENCE__REF = 3;
 
   /**
    * The number of structural features of the '<em>Body Reference</em>' class.
@@ -324,7 +342,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BODY_REFERENCE_FEATURE_COUNT = 2;
+  int BODY_REFERENCE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyRepetitionImpl <em>Body Repetition</em>}' class.
@@ -1671,6 +1689,28 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getBodyReference_Base();
 
   /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isNew <em>New</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>New</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isNew()
+   * @see #getBodyReference()
+   * @generated
+   */
+  EAttribute getBodyReference_New();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isLast <em>Last</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Last</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isLast()
+   * @see #getBodyReference()
+   * @generated
+   */
+  EAttribute getBodyReference_Last();
+
+  /**
    * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2737,6 +2777,22 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EAttribute BODY_REFERENCE__BASE = eINSTANCE.getBodyReference_Base();
+
+    /**
+     * The meta object literal for the '<em><b>New</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BODY_REFERENCE__NEW = eINSTANCE.getBodyReference_New();
+
+    /**
+     * The meta object literal for the '<em><b>Last</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BODY_REFERENCE__LAST = eINSTANCE.getBodyReference_Last();
 
     /**
      * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
