@@ -24,6 +24,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -78,6 +79,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.BODY_REFERENCE:
 				sequence_BodyReference(context, (BodyReference) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BODY_REPETITION:
+				sequence_BodyRepetition(context, (BodyRepetition) semanticObject); 
 				return; 
 			case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP:
 				sequence_ConstantOrFunctionCallExp(context, (ConstantOrFunctionCallExp) semanticObject); 
@@ -218,12 +222,21 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (number=INT body=[Body|ID] connectionExp+=Connective+)
+	 */
+	protected void sequence_BodyRepetition(EObject context, BodyRepetition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID mass=Mass)
 	 */
 	protected void sequence_Body(EObject context, Body semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY__NAME));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY__MASS) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY__MASS));
 		}
@@ -257,8 +270,8 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_Constraint(EObject context, Constraint semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__TYPE) == ValueTransient.YES)
@@ -304,8 +317,8 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_ExternalLoad(EObject context, ExternalLoad semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.SYSTEM_ELEMENT__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__TYPE) == ValueTransient.YES)

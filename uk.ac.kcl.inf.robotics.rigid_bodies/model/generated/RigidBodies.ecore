@@ -22,19 +22,25 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//SystemElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Connective" eSuperTypes="#//SystemElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body1" eType="#//BodyReference"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body" eSuperTypes="#//SystemElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mass" eType="#//Mass" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BodyReference">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Body"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BodyRepetition" eSuperTypes="#//SystemElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionExp" upperBound="-1"
+        eType="#//Connective" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"

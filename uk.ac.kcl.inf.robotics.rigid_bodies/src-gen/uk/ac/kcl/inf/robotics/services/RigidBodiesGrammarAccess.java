@@ -163,12 +163,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBodyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cConnectiveParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBodyRepetitionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//SystemElement:
-		//	Body | Connective;
+		//	Body | Connective | BodyRepetition;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Body | Connective
+		//Body | Connective | BodyRepetition
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Body
@@ -176,6 +177,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Connective
 		public RuleCall getConnectiveParserRuleCall_1() { return cConnectiveParserRuleCall_1; }
+
+		//BodyRepetition
+		public RuleCall getBodyRepetitionParserRuleCall_2() { return cBodyRepetitionParserRuleCall_2; }
 	}
 
 	public class ConnectiveElements extends AbstractParserRuleElementFinder {
@@ -275,6 +279,62 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getRefBodyIDTerminalRuleCall_1_0_1() { return cRefBodyIDTerminalRuleCall_1_0_1; }
+	}
+
+	public class BodyRepetitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BodyRepetition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRepeatKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNumberAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNumberINTTerminalRuleCall_1_0 = (RuleCall)cNumberAssignment_1.eContents().get(0);
+		private final Keyword cOfKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cBodyAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cBodyBodyCrossReference_3_0 = (CrossReference)cBodyAssignment_3.eContents().get(0);
+		private final RuleCall cBodyBodyIDTerminalRuleCall_3_0_1 = (RuleCall)cBodyBodyCrossReference_3_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cConnectionExpAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cConnectionExpConnectiveParserRuleCall_5_0 = (RuleCall)cConnectionExpAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//BodyRepetition:
+		//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=Connective+ "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"repeat" number=INT "of" body=[Body] "{" connectionExp+=Connective+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"repeat"
+		public Keyword getRepeatKeyword_0() { return cRepeatKeyword_0; }
+
+		//number=INT
+		public Assignment getNumberAssignment_1() { return cNumberAssignment_1; }
+
+		//INT
+		public RuleCall getNumberINTTerminalRuleCall_1_0() { return cNumberINTTerminalRuleCall_1_0; }
+
+		//"of"
+		public Keyword getOfKeyword_2() { return cOfKeyword_2; }
+
+		//body=[Body]
+		public Assignment getBodyAssignment_3() { return cBodyAssignment_3; }
+
+		//[Body]
+		public CrossReference getBodyBodyCrossReference_3_0() { return cBodyBodyCrossReference_3_0; }
+
+		//ID
+		public RuleCall getBodyBodyIDTerminalRuleCall_3_0_1() { return cBodyBodyIDTerminalRuleCall_3_0_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+
+		//connectionExp+=Connective+
+		public Assignment getConnectionExpAssignment_5() { return cConnectionExpAssignment_5; }
+
+		//Connective
+		public RuleCall getConnectionExpConnectiveParserRuleCall_5_0() { return cConnectionExpConnectiveParserRuleCall_5_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class MassElements extends AbstractParserRuleElementFinder {
@@ -1583,6 +1643,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConnectiveElements pConnective;
 	private final BodyElements pBody;
 	private final BodyReferenceElements pBodyReference;
+	private final BodyRepetitionElements pBodyRepetition;
 	private final MassElements pMass;
 	private final JointElements pJoint;
 	private final JointTypeElements pJointType;
@@ -1634,6 +1695,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pConnective = new ConnectiveElements();
 		this.pBody = new BodyElements();
 		this.pBodyReference = new BodyReferenceElements();
+		this.pBodyRepetition = new BodyRepetitionElements();
 		this.pMass = new MassElements();
 		this.pJoint = new JointElements();
 		this.pJointType = new JointTypeElements();
@@ -1738,7 +1800,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SystemElement:
-	//	Body | Connective;
+	//	Body | Connective | BodyRepetition;
 	public SystemElementElements getSystemElementAccess() {
 		return pSystemElement;
 	}
@@ -1776,6 +1838,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getBodyReferenceRule() {
 		return getBodyReferenceAccess().getRule();
+	}
+
+	//BodyRepetition:
+	//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=Connective+ "}";
+	public BodyRepetitionElements getBodyRepetitionAccess() {
+		return pBodyRepetition;
+	}
+	
+	public ParserRule getBodyRepetitionRule() {
+		return getBodyRepetitionAccess().getRule();
 	}
 
 	//Mass:

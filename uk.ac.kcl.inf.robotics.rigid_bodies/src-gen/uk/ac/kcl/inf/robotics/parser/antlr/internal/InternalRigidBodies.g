@@ -346,6 +346,16 @@ ruleSystemElement returns [EObject current=null]
         $current = $this_Connective_1.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getSystemElementAccess().getBodyRepetitionParserRuleCall_2()); 
+    }
+    this_BodyRepetition_2=ruleBodyRepetition
+    { 
+        $current = $this_BodyRepetition_2.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -516,6 +526,92 @@ ruleBodyReference returns [EObject current=null]
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleBodyRepetition
+entryRuleBodyRepetition returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBodyRepetitionRule()); }
+	 iv_ruleBodyRepetition=ruleBodyRepetition 
+	 { $current=$iv_ruleBodyRepetition.current; } 
+	 EOF 
+;
+
+// Rule BodyRepetition
+ruleBodyRepetition returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='repeat' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getBodyRepetitionAccess().getRepeatKeyword_0());
+    }
+(
+(
+		lv_number_1_0=RULE_INT
+		{
+			newLeafNode(lv_number_1_0, grammarAccess.getBodyRepetitionAccess().getNumberINTTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBodyRepetitionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"number",
+        		lv_number_1_0, 
+        		"INT");
+	    }
+
+)
+)	otherlv_2='of' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getBodyRepetitionAccess().getOfKeyword_2());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBodyRepetitionRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getBodyRepetitionAccess().getBodyBodyCrossReference_3_0()); 
+	}
+
+)
+)	otherlv_4='{' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getBodyRepetitionAccess().getLeftCurlyBracketKeyword_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBodyRepetitionAccess().getConnectionExpConnectiveParserRuleCall_5_0()); 
+	    }
+		lv_connectionExp_5_0=ruleConnective		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBodyRepetitionRule());
+	        }
+       		add(
+       			$current, 
+       			"connectionExp",
+        		lv_connectionExp_5_0, 
+        		"Connective");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getBodyRepetitionAccess().getRightCurlyBracketKeyword_6());
+    }
+)
 ;
 
 

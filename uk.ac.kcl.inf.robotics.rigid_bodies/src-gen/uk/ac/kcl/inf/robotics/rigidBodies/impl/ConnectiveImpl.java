@@ -22,6 +22,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConnectiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConnectiveImpl#getBody1 <em>Body1</em>}</li>
  * </ul>
  *
@@ -29,6 +30,26 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  */
 public class ConnectiveImpl extends SystemElementImpl implements Connective
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getBody1() <em>Body1</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -58,6 +79,29 @@ public class ConnectiveImpl extends SystemElementImpl implements Connective
   protected EClass eStaticClass()
   {
     return RigidBodiesPackage.Literals.CONNECTIVE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONNECTIVE__NAME, oldName, name));
   }
 
   /**
@@ -134,6 +178,8 @@ public class ConnectiveImpl extends SystemElementImpl implements Connective
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.CONNECTIVE__NAME:
+        return getName();
       case RigidBodiesPackage.CONNECTIVE__BODY1:
         return getBody1();
     }
@@ -150,6 +196,9 @@ public class ConnectiveImpl extends SystemElementImpl implements Connective
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.CONNECTIVE__NAME:
+        setName((String)newValue);
+        return;
       case RigidBodiesPackage.CONNECTIVE__BODY1:
         setBody1((BodyReference)newValue);
         return;
@@ -167,6 +216,9 @@ public class ConnectiveImpl extends SystemElementImpl implements Connective
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.CONNECTIVE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case RigidBodiesPackage.CONNECTIVE__BODY1:
         setBody1((BodyReference)null);
         return;
@@ -184,10 +236,29 @@ public class ConnectiveImpl extends SystemElementImpl implements Connective
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.CONNECTIVE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RigidBodiesPackage.CONNECTIVE__BODY1:
         return body1 != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ConnectiveImpl

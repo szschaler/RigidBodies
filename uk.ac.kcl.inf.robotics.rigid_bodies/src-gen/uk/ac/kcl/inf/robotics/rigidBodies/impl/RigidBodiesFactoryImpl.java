@@ -20,6 +20,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -113,6 +114,7 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
       case RigidBodiesPackage.BODY_REFERENCE: return createBodyReference();
+      case RigidBodiesPackage.BODY_REPETITION: return createBodyRepetition();
       case RigidBodiesPackage.MASS: return createMass();
       case RigidBodiesPackage.JOINT: return createJoint();
       case RigidBodiesPackage.JOINT_TYPE: return createJointType();
@@ -275,6 +277,17 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     BodyReferenceImpl bodyReference = new BodyReferenceImpl();
     return bodyReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BodyRepetition createBodyRepetition()
+  {
+    BodyRepetitionImpl bodyRepetition = new BodyRepetitionImpl();
+    return bodyRepetition;
   }
 
   /**

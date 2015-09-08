@@ -18,6 +18,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -114,6 +115,13 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass bodyReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bodyRepetitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -527,16 +535,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSystemElement_Name()
-  {
-    return (EAttribute)systemElementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getConnective()
   {
     return connectiveEClass;
@@ -547,9 +545,19 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getConnective_Name()
+  {
+    return (EAttribute)connectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getConnective_Body1()
   {
-    return (EReference)connectiveEClass.getEStructuralFeatures().get(0);
+    return (EReference)connectiveEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -567,9 +575,19 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getBody_Name()
+  {
+    return (EAttribute)bodyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getBody_Mass()
   {
-    return (EReference)bodyEClass.getEStructuralFeatures().get(0);
+    return (EReference)bodyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -600,6 +618,46 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
   public EReference getBodyReference_Ref()
   {
     return (EReference)bodyReferenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBodyRepetition()
+  {
+    return bodyRepetitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBodyRepetition_Number()
+  {
+    return (EAttribute)bodyRepetitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBodyRepetition_Body()
+  {
+    return (EReference)bodyRepetitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBodyRepetition_ConnectionExp()
+  {
+    return (EReference)bodyRepetitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1418,17 +1476,23 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEReference(systemEClass, SYSTEM__ELEMENTS);
 
     systemElementEClass = createEClass(SYSTEM_ELEMENT);
-    createEAttribute(systemElementEClass, SYSTEM_ELEMENT__NAME);
 
     connectiveEClass = createEClass(CONNECTIVE);
+    createEAttribute(connectiveEClass, CONNECTIVE__NAME);
     createEReference(connectiveEClass, CONNECTIVE__BODY1);
 
     bodyEClass = createEClass(BODY);
+    createEAttribute(bodyEClass, BODY__NAME);
     createEReference(bodyEClass, BODY__MASS);
 
     bodyReferenceEClass = createEClass(BODY_REFERENCE);
     createEAttribute(bodyReferenceEClass, BODY_REFERENCE__BASE);
     createEReference(bodyReferenceEClass, BODY_REFERENCE__REF);
+
+    bodyRepetitionEClass = createEClass(BODY_REPETITION);
+    createEAttribute(bodyRepetitionEClass, BODY_REPETITION__NUMBER);
+    createEReference(bodyRepetitionEClass, BODY_REPETITION__BODY);
+    createEReference(bodyRepetitionEClass, BODY_REPETITION__CONNECTION_EXP);
 
     massEClass = createEClass(MASS);
     createEReference(massEClass, MASS__VALUE);
@@ -1570,6 +1634,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     // Add supertypes to classes
     connectiveEClass.getESuperTypes().add(this.getSystemElement());
     bodyEClass.getESuperTypes().add(this.getSystemElement());
+    bodyRepetitionEClass.getESuperTypes().add(this.getSystemElement());
     jointEClass.getESuperTypes().add(this.getConnective());
     jointTypeEClass.getESuperTypes().add(this.getInitialDefinition());
     jointTypeReferenceEClass.getESuperTypes().add(this.getJointTypeExpression());
@@ -1610,17 +1675,23 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEReference(getSystem_Elements(), this.getSystemElement(), null, "elements", null, 0, -1, uk.ac.kcl.inf.robotics.rigidBodies.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemElementEClass, SystemElement.class, "SystemElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSystemElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SystemElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(connectiveEClass, Connective.class, "Connective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConnective_Name(), ecorePackage.getEString(), "name", null, 0, 1, Connective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnective_Body1(), this.getBodyReference(), null, "body1", null, 0, 1, Connective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBody_Name(), ecorePackage.getEString(), "name", null, 0, 1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBody_Mass(), this.getMass(), null, "mass", null, 0, 1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bodyReferenceEClass, BodyReference.class, "BodyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBodyReference_Base(), ecorePackage.getEBoolean(), "base", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBodyReference_Ref(), this.getBody(), null, "ref", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bodyRepetitionEClass, BodyRepetition.class, "BodyRepetition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBodyRepetition_Number(), ecorePackage.getEInt(), "number", null, 0, 1, BodyRepetition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBodyRepetition_Body(), this.getBody(), null, "body", null, 0, 1, BodyRepetition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBodyRepetition_ConnectionExp(), this.getConnective(), null, "connectionExp", null, 0, -1, BodyRepetition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(massEClass, Mass.class, "Mass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMass_Value(), this.getExpression(), null, "value", null, 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -30,7 +30,8 @@ System:
 
 SystemElement:
 	Body |
-	Connective
+	Connective |
+	BodyRepetition
 ;
 
 Connective:
@@ -49,6 +50,12 @@ Body:
 BodyReference:
 	base?='base' |
 	ref=[Body]
+;
+
+BodyRepetition:
+	"repeat" number=INT "of" body=[Body] "{"
+		connectionExp += Connective+ 
+	"}"
 ;
 
 Mass:

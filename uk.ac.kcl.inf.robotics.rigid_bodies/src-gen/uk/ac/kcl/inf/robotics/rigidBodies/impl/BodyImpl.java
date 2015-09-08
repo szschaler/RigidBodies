@@ -22,6 +22,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyImpl#getName <em>Name</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyImpl#getMass <em>Mass</em>}</li>
  * </ul>
  *
@@ -29,6 +30,26 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  */
 public class BodyImpl extends SystemElementImpl implements Body
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getMass() <em>Mass</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -58,6 +79,29 @@ public class BodyImpl extends SystemElementImpl implements Body
   protected EClass eStaticClass()
   {
     return RigidBodiesPackage.Literals.BODY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY__NAME, oldName, name));
   }
 
   /**
@@ -134,6 +178,8 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.BODY__NAME:
+        return getName();
       case RigidBodiesPackage.BODY__MASS:
         return getMass();
     }
@@ -150,6 +196,9 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.BODY__NAME:
+        setName((String)newValue);
+        return;
       case RigidBodiesPackage.BODY__MASS:
         setMass((Mass)newValue);
         return;
@@ -167,6 +216,9 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.BODY__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case RigidBodiesPackage.BODY__MASS:
         setMass((Mass)null);
         return;
@@ -184,10 +236,29 @@ public class BodyImpl extends SystemElementImpl implements Body
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.BODY__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RigidBodiesPackage.BODY__MASS:
         return mass != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //BodyImpl

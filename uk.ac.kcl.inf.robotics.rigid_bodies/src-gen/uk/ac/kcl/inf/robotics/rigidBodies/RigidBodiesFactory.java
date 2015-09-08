@@ -95,6 +95,15 @@ public interface RigidBodiesFactory extends EFactory
   BodyReference createBodyReference();
 
   /**
+   * Returns a new object of class '<em>Body Repetition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Body Repetition</em>'.
+   * @generated
+   */
+  BodyRepetition createBodyRepetition();
+
+  /**
    * Returns a new object of class '<em>Mass</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

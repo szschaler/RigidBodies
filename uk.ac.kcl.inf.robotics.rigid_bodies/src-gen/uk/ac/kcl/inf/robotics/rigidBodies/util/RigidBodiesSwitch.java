@@ -15,6 +15,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -163,6 +164,14 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         BodyReference bodyReference = (BodyReference)theEObject;
         T result = caseBodyReference(bodyReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.BODY_REPETITION:
+      {
+        BodyRepetition bodyRepetition = (BodyRepetition)theEObject;
+        T result = caseBodyRepetition(bodyRepetition);
+        if (result == null) result = caseSystemElement(bodyRepetition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -522,6 +531,22 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBodyReference(BodyReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Body Repetition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Body Repetition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBodyRepetition(BodyRepetition object)
   {
     return null;
   }
