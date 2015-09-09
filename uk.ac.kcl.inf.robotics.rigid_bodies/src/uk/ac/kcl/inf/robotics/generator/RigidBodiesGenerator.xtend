@@ -35,11 +35,13 @@ class RigidBodiesGenerator implements IGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.allContents.filter(Model).head
 		resource.allContents.filter(System).forEach [ s |
-			fsa.generateFile('''«s.name».m''', generate(model.world, new ConnectiveTreeBuilder(s)))
+			fsa.generateFile('''«s.name».m''',
+				generate(model.world, new ConnectiveTreeBuilder(new SystemUnroller(s).unrolledSystem)))
 		]
 	}
 
-	def generate(Environment world,
+	def generate(
+		Environment world,
 		ConnectiveTreeBuilder ctb
 	) '''
 		% EOM Simulation:
@@ -110,49 +112,71 @@ class RigidBodiesGenerator implements IGenerator {
 		% animation
 		AnimEOM ( t , z , rj , qf , uf );
 	'''
-	
-	def generateRotationRowNumForState (ConnectiveTreeBuilder ctb, int idx) {
-		val rowNum = ctb.getRowNumForState (idx)
-		if (rowNum > 1) '''1:«rowNum»'''
-		else '''1'''
+
+	def generateRotationRowNumForState(ConnectiveTreeBuilder ctb, int idx) {
+		val rowNum = ctb.getRowNumForState(idx)
+		if (rowNum > 1) '''1:«rowNum»''' else '''1'''
 	}
-	
-	def getRowNumForState (ConnectiveTreeBuilder ctb, int idx) {
+
+	def getRowNumForState(ConnectiveTreeBuilder ctb, int idx) {
 		val statesList = ctb.states.get(idx).value
 		val transformation = ctb.jointTransformations.get(idx)
 		var curLen = 0
-		if (statesList != null) { curLen = statesList.size }
-		if (transformation != null) { 
+		if (statesList != null) {
+			curLen = statesList.size
+		}
+		if (transformation != null) {
 			curLen += transformation.value.reorient.size
-			if (transformation.value.position.isAllZero) { curLen-- }
+			if (transformation.value.position.isAllZero) {
+				curLen--
+			}
 		}
 		curLen
 	}
-	
-	def getMaxJRows (ConnectiveTreeBuilder ctb) {
-		(0..<ctb.states.size).fold(1, [acc, idx | Math.max (acc, ctb.getRowNumForState(idx)) ])	
+
+	def getMaxJRows(ConnectiveTreeBuilder ctb) {
+		(0 ..< ctb.states.size).fold(1, [acc, idx|Math.max(acc, ctb.getRowNumForState(idx))])
 	}
-	
-	def generateLCContents (ConnectiveTreeBuilder ctb) {
-		val positionEntries = (0..<ctb.positions.size).join (';\n', [ i | '''
-				% Position data from «ctb.positions.get(i).key» for a joint «ctb.lcCodeColumns.get(i).value.key»
-				«ctb.positions.get(i).value.renderValues (' ')» «ctb.lcCodeColumns.get(i).key» «ctb.lcCodeColumns.get(i).value.value»'''])
-		val posSemicolon = if (ctb.positions.size > 0) { ";\n" } else { "" }
-		val constraintPositionEntries = (0..<ctb.constraintPositions.size).join (';\n', [ i | '''
-				% Position data from «ctb.constraintPositions.get(i).key» for a constraint «ctb.constraintLcCodeColumns.get(i).value.key»
-				% TODO: Check with Hadi that we're using the correct position data here.
-				«ctb.constraintPositions.get(i).value.renderValues (' ')» «ctb.constraintLcCodeColumns.get(i).key» «ctb.constraintLcCodeColumns.get(i).value.value»'''])
-		val consSemicolon = if (ctb.constraintPositions.size > 0) { ";\n" } else { "" }
-		val loadPositionEntries = (0..<ctb.loadPositions.size).join (';\n', [ i | '''
-				% Position data from «ctb.loadPositions.get(i).key» for a load «ctb.loadLcCodeColumns.get(i).value.key»
-				«ctb.loadPositions.get(i).value.renderValues (' ')» «ctb.loadLcCodeColumns.get(i).key» «ctb.loadLcCodeColumns.get(i).value.value»'''])
-		val loadSemicolon = if (ctb.loadPositions.size > 0) { ";\n" } else { "" }
-				
-		return positionEntries + posSemicolon + constraintPositionEntries + consSemicolon + loadPositionEntries + loadSemicolon
+
+	def generateLCContents(ConnectiveTreeBuilder ctb) {
+		val positionEntries = (0 ..< ctb.positions.size).join(';\n', [ i |
+			'''
+			% Position data from «ctb.positions.get(i).key» for a joint «ctb.lcCodeColumns.get(i).value.key»
+			«ctb.positions.get(i).value.renderValues (' ')» «ctb.lcCodeColumns.get(i).key» «ctb.lcCodeColumns.get(i).value.value»'''
+		])
+		val posSemicolon = if (ctb.positions.size > 0) {
+				";\n"
+			} else {
+				""
+			}
+		val constraintPositionEntries = (0 ..< ctb.constraintPositions.size).join(';\n', [ i |
+			'''
+			% Position data from «ctb.constraintPositions.get(i).key» for a constraint «ctb.constraintLcCodeColumns.get(i).value.key»
+			% TODO: Check with Hadi that we're using the correct position data here.
+			«ctb.constraintPositions.get(i).value.renderValues (' ')» «ctb.constraintLcCodeColumns.get(i).key» «ctb.constraintLcCodeColumns.get(i).value.value»'''
+		])
+		val consSemicolon = if (ctb.constraintPositions.size > 0) {
+				";\n"
+			} else {
+				""
+			}
+		val loadPositionEntries = (0 ..< ctb.loadPositions.size).join(';\n', [ i |
+			'''
+			% Position data from «ctb.loadPositions.get(i).key» for a load «ctb.loadLcCodeColumns.get(i).value.key»
+			«ctb.loadPositions.get(i).value.renderValues (' ')» «ctb.loadLcCodeColumns.get(i).key» «ctb.loadLcCodeColumns.get(i).value.value»'''
+		])
+		val loadSemicolon = if (ctb.loadPositions.size > 0) {
+				";\n"
+			} else {
+				""
+			}
+
+		return positionEntries + posSemicolon + constraintPositionEntries + consSemicolon + loadPositionEntries +
+			loadSemicolon
 	}
 
 	def dispatch CharSequence render(RelativeTransformation rt) '''
-		«if (!rt.position.isAllZero) {'''0 0 «rt.position.renderValues(' ')»;
+	«if (!rt.position.isAllZero) {'''0 0 «rt.position.renderValues(' ')»;
 		                              '''}»«rt.reorient.render»'''
 
 	def dispatch int size(ReorientRef rr) {
@@ -195,22 +219,26 @@ class RigidBodiesGenerator implements IGenerator {
 		}
 	}
 
-	def dispatch boolean isAllZero (MatrixRef mr) {
+	def dispatch boolean isAllZero(MatrixRef mr) {
 		mr.matrix.isAllZero
 	}
-	
+
 	def dispatch boolean isAllZero(BaseMatrix bm) {
-		bm.values.forall[v | v.isZero]
+		bm.values.forall[v|v.isZero]
 	}
 
 	// TODO: Should probably do constant folding etc.
-	def dispatch boolean isZero (AddExp ae) { false }
-	def dispatch boolean isZero (MultExp me) { false }
-	def dispatch boolean isZero (ParenthesisedExp pe) { pe.exp.isZero }
-	def dispatch boolean isZero (ConstantOrFunctionCallExp cofce) { false }
-	
-	private static final Pattern pZeroLiteral = Pattern.compile ("\\A0+\\.0+([eE][+-]?\\d*)?\\Z")
-	def dispatch boolean isZero (NumberLiteral nl) { pZeroLiteral.matcher (nl.value).matches }
+	def dispatch boolean isZero(AddExp ae) { false }
+
+	def dispatch boolean isZero(MultExp me) { false }
+
+	def dispatch boolean isZero(ParenthesisedExp pe) { pe.exp.isZero }
+
+	def dispatch boolean isZero(ConstantOrFunctionCallExp cofce) { false }
+
+	private static final Pattern pZeroLiteral = Pattern.compile("\\A0+\\.0+([eE][+-]?\\d*)?\\Z")
+
+	def dispatch boolean isZero(NumberLiteral nl) { pZeroLiteral.matcher(nl.value).matches }
 
 	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
 		mr.matrix.renderValues(sep)
@@ -236,8 +264,7 @@ class RigidBodiesGenerator implements IGenerator {
 
 	def dispatch CharSequence render(ParenthesisedExp pe) '''(«pe.exp.render»)'''
 
-	def dispatch CharSequence render(
-		NumberLiteral literal) '''«if (literal.isNeg) {'''-'''}»«literal.value»'''
+	def dispatch CharSequence render(NumberLiteral literal) '''«if (literal.isNeg) {'''-'''}»«literal.value»'''
 
 	def dispatch CharSequence render(
 		ConstantOrFunctionCallExp cofce

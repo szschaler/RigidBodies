@@ -25,6 +25,7 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import uk.ac.kcl.inf.robotics.generator.ConnectiveTreeBuilder;
+import uk.ac.kcl.inf.robotics.generator.SystemUnroller;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
@@ -73,7 +74,9 @@ public class RigidBodiesGenerator implements IGenerator {
         _builder.append(_name, "");
         _builder.append(".m");
         Environment _world = model.getWorld();
-        ConnectiveTreeBuilder _connectiveTreeBuilder = new ConnectiveTreeBuilder(s);
+        SystemUnroller _systemUnroller = new SystemUnroller(s);
+        uk.ac.kcl.inf.robotics.rigidBodies.System _unrolledSystem = _systemUnroller.getUnrolledSystem();
+        ConnectiveTreeBuilder _connectiveTreeBuilder = new ConnectiveTreeBuilder(_unrolledSystem);
         CharSequence _generate = RigidBodiesGenerator.this.generate(_world, _connectiveTreeBuilder);
         fsa.generateFile(_builder.toString(), _generate);
       }

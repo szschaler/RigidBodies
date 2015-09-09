@@ -74,4 +74,6 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NO_NEW_IN_REPEAT)
 			}
 		}
+		
+		// TODO: Check body reference in repetition is not a new or last reference
 	}
