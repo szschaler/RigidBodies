@@ -137,54 +137,64 @@ j (1, :, 10) = [
 	0 0 0 0 0];
 
 % Stiffness data
-jkd = sym (zeros (3, 2, 10));
+jkd = sym (zeros (4, 2, 10));
 % Stiffness values for joint ankle
 jkd (1, :, 1) = [ 5.0 5.0 ];
 jkd (2, 1, 1) = 5.0;
 jkd (3, 1, 1) = 5.0;
+jkd (4, 1, 1) = -3;
 
 % Stiffness values for joint knee1
 jkd (1, :, 2) = [ 5.0 5.0 ];
 jkd (2, 1, 2) = 5.0;
 jkd (3, 1, 2) = 5.0;
+jkd (4, 1, 2) = -3;
 
 % Stiffness values for joint hip1
 jkd (1, :, 3) = [ 5.0 5.0 ];
 jkd (2, 1, 3) = 5.0;
 jkd (3, 1, 3) = 5.0;
+jkd (4, 1, 3) = -3;
 
 % Stiffness values for joint knee2
 jkd (1, :, 4) = [ 5.0 5.0 ];
 jkd (2, 1, 4) = 5.0;
 jkd (3, 1, 4) = 5.0;
+jkd (4, 1, 4) = -3;
 
 % Stiffness values for joint hip2
 jkd (1, :, 5) = [ 5.0 5.0 ];
 jkd (2, 1, 5) = 5.0;
 jkd (3, 1, 5) = 5.0;
+jkd (4, 1, 5) = -3;
 
 jkd (1, :, 6) = [ 5.0 5.0 ];
 jkd (2, 1, 6) = 5.0;
 jkd (3, 1, 6) = 5.0;
+jkd (4, 1, 6) = -3;
 
 jkd (1, :, 7) = [ 5.0 5.0 ];
 jkd (2, 1, 7) = 5.0;
 jkd (3, 1, 7) = 5.0;
+jkd (4, 1, 7) = -3;
 
 % Stiffness values for joint shoulder1
 jkd (1, :, 8) = [ 5.0 5.0 ];
 jkd (2, 1, 8) = 5.0;
 jkd (3, 1, 8) = 5.0;
+jkd (4, 1, 8) = -3;
 
 % Stiffness values for joint shoulder2
 jkd (1, :, 9) = [ 5.0 5.0 ];
 jkd (2, 1, 9) = 5.0;
 jkd (3, 1, 9) = 5.0;
+jkd (4, 1, 9) = -3;
 
 % Stiffness values for constraint joint foot2J
 jkd (1, :, 10) = [ 5.0 5.0 ];
 jkd (2, 1, 10) = 5.0;
 jkd (3, 1, 10) = 5.0;
+jkd (4, 1, 10) = -3;
 
 % Run program -- Should this really be generated?
 

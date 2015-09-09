@@ -1,0 +1,45 @@
+// A series of 8 scales attached on a helical spring
+
+stiffness DefaultStiffness {
+	springCoeff 0.0
+	springInit 0.0
+	dampViscous 0.1
+	dampCoulomb 0.0
+}
+
+joint type XRevolve revolute x with DefaultStiffness
+
+world {
+	gravity [0.0, 0.0, -9.81]
+}
+
+system EightScaleSpring {
+	body scale {
+		mass {
+			value 1.0
+			position [0.5, 0.0, -0.5]
+			inertia [1.0e-3, 0.0,    0.0,
+					 0.0,    1.0e-3, 0.0,
+				     0.0,    0.0,    1.0e-3]
+		}
+	}
+
+	joint hing1 : XRevolve start
+		between base (with relative transformation matrix Origin [0.0, 0.0, 1.0], reorient NoReorient ())
+		and scale
+
+
+	// Repeat another 7 copies
+	repeat 7 of scale {
+		joint hing2 : XRevolve
+			between last (with relative transformation matrix Origin [1.0, 0.0, -1.0], reorient YReorient ((y, pi/2.0)))
+			and new
+
+		// Symmetry constraint: all joints move in sync. It should put jkd(4,1,this joint number) = joint base number;	
+		constraint allJointsMoveEqually: hing2 moves like hing1
+	}
+
+	// Add an external load at tip of final scale
+	external load tip : force
+		at last scale (with relative transformation matrix Tip [1.0, 0.0, -1.0])
+}
