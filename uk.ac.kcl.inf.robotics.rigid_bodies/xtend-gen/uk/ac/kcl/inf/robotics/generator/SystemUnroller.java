@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
@@ -101,8 +102,8 @@ public class SystemUnroller {
     EObject _copy = copier.copy(b);
     final Body bodyDuplicate = ((Body) _copy);
     String _name = b.getName();
-    String _plus = (_name + Integer.valueOf(idx));
-    bodyDuplicate.setName(_plus);
+    String _makeUnique = this.makeUnique(_name, idx);
+    bodyDuplicate.setName(_makeUnique);
     return bodyDuplicate;
   }
   
@@ -114,8 +115,8 @@ public class SystemUnroller {
     EObject _copy = copier.copy(j);
     final Joint jointDuplicate = ((Joint) _copy);
     String _name = j.getName();
-    String _plus = (_name + Integer.valueOf(idx));
-    jointDuplicate.setName(_plus);
+    String _makeUnique = this.makeUnique(_name, idx);
+    jointDuplicate.setName(_makeUnique);
     BodyReference _body1 = jointDuplicate.getBody1();
     this.adjustImplicitReferences(_body1, newBody, lastBody);
     BodyReference _body2 = jointDuplicate.getBody2();
@@ -127,8 +128,8 @@ public class SystemUnroller {
     EObject _copy = copier.copy(c);
     final Constraint constraintDuplicate = ((Constraint) _copy);
     String _name = c.getName();
-    String _plus = (_name + Integer.valueOf(idx));
-    constraintDuplicate.setName(_plus);
+    String _makeUnique = this.makeUnique(_name, idx);
+    constraintDuplicate.setName(_makeUnique);
     BodyReference _body1 = constraintDuplicate.getBody1();
     this.adjustImplicitReferences(_body1, newBody, lastBody);
     BodyReference _body2 = constraintDuplicate.getBody2();
@@ -140,8 +141,8 @@ public class SystemUnroller {
     EObject _copy = copier.copy(el);
     final ExternalLoad loadDuplicate = ((ExternalLoad) _copy);
     String _name = el.getName();
-    String _plus = (_name + Integer.valueOf(idx));
-    loadDuplicate.setName(_plus);
+    String _makeUnique = this.makeUnique(_name, idx);
+    loadDuplicate.setName(_makeUnique);
     BodyReference _body1 = loadDuplicate.getBody1();
     this.adjustImplicitReferences(_body1, newBody, lastBody);
     return loadDuplicate;
@@ -151,8 +152,8 @@ public class SystemUnroller {
     EObject _copy = copier.copy(jc);
     final JointConstraint jcDuplicate = ((JointConstraint) _copy);
     String _name = jc.getName();
-    String _plus = (_name + Integer.valueOf(idx));
-    jcDuplicate.setName(_plus);
+    String _makeUnique = this.makeUnique(_name, idx);
+    jcDuplicate.setName(_makeUnique);
     return jcDuplicate;
   }
   
@@ -222,6 +223,14 @@ public class SystemUnroller {
         throw new IllegalStateException("Created null body reference!");
       }
     }
+  }
+  
+  private String makeUnique(final String name, final int idx) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(name, "");
+    _builder.append("_");
+    _builder.append(idx, "");
+    return _builder.toString();
   }
   
   public uk.ac.kcl.inf.robotics.rigidBodies.System getUnrolledSystem() {

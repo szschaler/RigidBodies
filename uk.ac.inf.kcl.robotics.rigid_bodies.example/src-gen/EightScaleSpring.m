@@ -12,21 +12,21 @@ g = [0.0, 0.0, -9.81];
 lc = [
 	% Position data from body scale for a joint hing1 relative to base
 	0.5 0.0 -0.5 0 0;
-	% Position data from body scale1 for a joint hing21 relative to hing1
+	% Position data from body scale_1 for a joint hing2_1 relative to hing1
 	0.5 0.0 -0.5 0 1;
-	% Position data from body scale2 for a joint hing22 relative to hing21
+	% Position data from body scale_2 for a joint hing2_2 relative to hing2_1
 	0.5 0.0 -0.5 0 2;
-	% Position data from body scale3 for a joint hing23 relative to hing22
+	% Position data from body scale_3 for a joint hing2_3 relative to hing2_2
 	0.5 0.0 -0.5 0 3;
-	% Position data from body scale4 for a joint hing24 relative to hing23
+	% Position data from body scale_4 for a joint hing2_4 relative to hing2_3
 	0.5 0.0 -0.5 0 4;
-	% Position data from body scale5 for a joint hing25 relative to hing24
+	% Position data from body scale_5 for a joint hing2_5 relative to hing2_4
 	0.5 0.0 -0.5 0 5;
-	% Position data from body scale6 for a joint hing26 relative to hing25
+	% Position data from body scale_6 for a joint hing2_6 relative to hing2_5
 	0.5 0.0 -0.5 0 6;
-	% Position data from body scale7 for a joint hing27 relative to hing26
+	% Position data from body scale_7 for a joint hing2_7 relative to hing2_6
 	0.5 0.0 -0.5 0 7;
-	% Position data from load tip for a load tip relative to hing27
+	% Position data from load tip for a load tip relative to hing2_7
 	1.0 0.0 -1.0 2 8;
 ];
 
@@ -34,19 +34,19 @@ lc = [
 m = [
 	% scale
 	1.0,
-	% scale1
+	% scale_1
 	1.0,
-	% scale2
+	% scale_2
 	1.0,
-	% scale3
+	% scale_3
 	1.0,
-	% scale4
+	% scale_4
 	1.0,
-	% scale5
+	% scale_5
 	1.0,
-	% scale6
+	% scale_6
 	1.0,
-	% scale7
+	% scale_7
 	1.0];
 
 % Inertia values
@@ -57,43 +57,43 @@ I (:, :, 1) = [
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale1
+% Inertia for body scale_1
 I (:, :, 2) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale2
+% Inertia for body scale_2
 I (:, :, 3) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale3
+% Inertia for body scale_3
 I (:, :, 4) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale4
+% Inertia for body scale_4
 I (:, :, 5) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale5
+% Inertia for body scale_5
 I (:, :, 6) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale6
+% Inertia for body scale_6
 I (:, :, 7) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
 	0.0 0.0 1.0e-3];
 
-% Inertia for body scale7
+% Inertia for body scale_7
 I (:, :, 8) = [
 	1.0e-3 0.0 0.0;
 	0.0 1.0e-3 0.0;
@@ -105,37 +105,37 @@ j = sym (zeros (3, 5, 9));
 j (1:2, :, 1) = [
 	0 0 0.0 0.0 1.0;
 	1 inf 0 0 0];
-% Joint rotations for joint hing21
+% Joint rotations for joint hing2_1
 j (1:3, :, 2) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
 	1 inf 0 0 0];
-% Joint rotations for joint hing22
+% Joint rotations for joint hing2_2
 j (1:3, :, 3) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
 	1 inf 0 0 0];
-% Joint rotations for joint hing23
+% Joint rotations for joint hing2_3
 j (1:3, :, 4) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
 	1 inf 0 0 0];
-% Joint rotations for joint hing24
+% Joint rotations for joint hing2_4
 j (1:3, :, 5) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
 	1 inf 0 0 0];
-% Joint rotations for joint hing25
+% Joint rotations for joint hing2_5
 j (1:3, :, 6) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
 	1 inf 0 0 0];
-% Joint rotations for joint hing26
+% Joint rotations for joint hing2_6
 j (1:3, :, 7) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
 	1 inf 0 0 0];
-% Joint rotations for joint hing27
+% Joint rotations for joint hing2_7
 j (1:3, :, 8) = [
 	0 0 1.0 0.0 -1.0;
 	2 pi/2.0 0 0 0
@@ -152,43 +152,43 @@ jkd (2, 1, 1) = 0.1;
 jkd (3, 1, 1) = 0.0;
 jkd (4, 1, 1) = 0;
 
-% Stiffness values for joint hing21
+% Stiffness values for joint hing2_1
 jkd (1, :, 2) = [ 0.0 0.0 ];
 jkd (2, 1, 2) = 0.1;
 jkd (3, 1, 2) = 0.0;
 jkd (4, 1, 2) = 1;
 
-% Stiffness values for joint hing22
+% Stiffness values for joint hing2_2
 jkd (1, :, 3) = [ 0.0 0.0 ];
 jkd (2, 1, 3) = 0.1;
 jkd (3, 1, 3) = 0.0;
 jkd (4, 1, 3) = 1;
 
-% Stiffness values for joint hing23
+% Stiffness values for joint hing2_3
 jkd (1, :, 4) = [ 0.0 0.0 ];
 jkd (2, 1, 4) = 0.1;
 jkd (3, 1, 4) = 0.0;
 jkd (4, 1, 4) = 1;
 
-% Stiffness values for joint hing24
+% Stiffness values for joint hing2_4
 jkd (1, :, 5) = [ 0.0 0.0 ];
 jkd (2, 1, 5) = 0.1;
 jkd (3, 1, 5) = 0.0;
 jkd (4, 1, 5) = 1;
 
-% Stiffness values for joint hing25
+% Stiffness values for joint hing2_5
 jkd (1, :, 6) = [ 0.0 0.0 ];
 jkd (2, 1, 6) = 0.1;
 jkd (3, 1, 6) = 0.0;
 jkd (4, 1, 6) = 1;
 
-% Stiffness values for joint hing26
+% Stiffness values for joint hing2_6
 jkd (1, :, 7) = [ 0.0 0.0 ];
 jkd (2, 1, 7) = 0.1;
 jkd (3, 1, 7) = 0.0;
 jkd (4, 1, 7) = 1;
 
-% Stiffness values for joint hing27
+% Stiffness values for joint hing2_7
 jkd (1, :, 8) = [ 0.0 0.0 ];
 jkd (2, 1, 8) = 0.1;
 jkd (3, 1, 8) = 0.0;
