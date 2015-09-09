@@ -19,8 +19,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
-import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
-import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
@@ -61,8 +59,9 @@ public class SystemUnroller {
         final Consumer<Integer> _function = new Consumer<Integer>() {
           @Override
           public void accept(final Integer idx) {
+            final EcoreUtil.Copier copier = new EcoreUtil.Copier();
             Body _body = br.getBody();
-            final Body newBody = SystemUnroller.this.duplicateBody(_body, (idx).intValue());
+            final Body newBody = SystemUnroller.this.duplicateBody(_body, (idx).intValue(), copier);
             EList<SystemElement> _connectionExp = br.getConnectionExp();
             final Consumer<SystemElement> _function = new Consumer<SystemElement>() {
               @Override
@@ -71,11 +70,12 @@ public class SystemUnroller {
                 Body _body = br.getBody();
                 String _name = _body.getName();
                 Body _get = currentLasts.get(_name);
-                SystemElement _duplicate = SystemUnroller.this.duplicate(e, (idx).intValue(), newBody, _get);
+                SystemElement _duplicate = SystemUnroller.this.duplicate(e, (idx).intValue(), newBody, _get, copier);
                 _elements.add(_duplicate);
               }
             };
             _connectionExp.forEach(_function);
+            copier.copyReferences();
             Body _body_1 = br.getBody();
             String _name = _body_1.getName();
             currentLasts.put(_name, newBody);
@@ -97,14 +97,12 @@ public class SystemUnroller {
     _elements_1.forEach(_function_1);
   }
   
-  private Body duplicateBody(final Body b, final int idx) {
-    final Body bodyDuplicate = RigidBodiesFactory.eINSTANCE.createBody();
+  private Body duplicateBody(final Body b, final int idx, final EcoreUtil.Copier copier) {
+    EObject _copy = copier.copy(b);
+    final Body bodyDuplicate = ((Body) _copy);
     String _name = b.getName();
     String _plus = (_name + Integer.valueOf(idx));
     bodyDuplicate.setName(_plus);
-    Mass _mass = b.getMass();
-    Mass _copy = EcoreUtil.<Mass>copy(_mass);
-    bodyDuplicate.setMass(_copy);
     return bodyDuplicate;
   }
   
@@ -112,8 +110,9 @@ public class SystemUnroller {
    * These dispatch methods duplicate the given element of a repetition, adjust its name based on the given idx and adjust
    * and (implicit) last or new references based on the two bodies given.
    */
-  private SystemElement _duplicate(final Joint j, final int idx, final Body newBody, final Body lastBody) {
-    final Joint jointDuplicate = EcoreUtil.<Joint>copy(j);
+  private SystemElement _duplicate(final Joint j, final int idx, final Body newBody, final Body lastBody, final EcoreUtil.Copier copier) {
+    EObject _copy = copier.copy(j);
+    final Joint jointDuplicate = ((Joint) _copy);
     String _name = j.getName();
     String _plus = (_name + Integer.valueOf(idx));
     jointDuplicate.setName(_plus);
@@ -124,8 +123,9 @@ public class SystemUnroller {
     return jointDuplicate;
   }
   
-  private SystemElement _duplicate(final Constraint c, final int idx, final Body newBody, final Body lastBody) {
-    final Constraint constraintDuplicate = EcoreUtil.<Constraint>copy(c);
+  private SystemElement _duplicate(final Constraint c, final int idx, final Body newBody, final Body lastBody, final EcoreUtil.Copier copier) {
+    EObject _copy = copier.copy(c);
+    final Constraint constraintDuplicate = ((Constraint) _copy);
     String _name = c.getName();
     String _plus = (_name + Integer.valueOf(idx));
     constraintDuplicate.setName(_plus);
@@ -136,8 +136,9 @@ public class SystemUnroller {
     return constraintDuplicate;
   }
   
-  private SystemElement _duplicate(final ExternalLoad el, final int idx, final Body newBody, final Body lastBody) {
-    final ExternalLoad loadDuplicate = EcoreUtil.<ExternalLoad>copy(el);
+  private SystemElement _duplicate(final ExternalLoad el, final int idx, final Body newBody, final Body lastBody, final EcoreUtil.Copier copier) {
+    EObject _copy = copier.copy(el);
+    final ExternalLoad loadDuplicate = ((ExternalLoad) _copy);
     String _name = el.getName();
     String _plus = (_name + Integer.valueOf(idx));
     loadDuplicate.setName(_plus);
@@ -146,8 +147,9 @@ public class SystemUnroller {
     return loadDuplicate;
   }
   
-  private SystemElement _duplicate(final JointConstraint jc, final int idx, final Body newBody, final Body lastBody) {
-    final JointConstraint jcDuplicate = EcoreUtil.<JointConstraint>copy(jc);
+  private SystemElement _duplicate(final JointConstraint jc, final int idx, final Body newBody, final Body lastBody, final EcoreUtil.Copier copier) {
+    EObject _copy = copier.copy(jc);
+    final JointConstraint jcDuplicate = ((JointConstraint) _copy);
     String _name = jc.getName();
     String _plus = (_name + Integer.valueOf(idx));
     jcDuplicate.setName(_plus);
@@ -226,18 +228,18 @@ public class SystemUnroller {
     return this.system;
   }
   
-  private SystemElement duplicate(final SystemElement c, final int idx, final Body newBody, final Body lastBody) {
+  private SystemElement duplicate(final SystemElement c, final int idx, final Body newBody, final Body lastBody, final EcoreUtil.Copier copier) {
     if (c instanceof Constraint) {
-      return _duplicate((Constraint)c, idx, newBody, lastBody);
+      return _duplicate((Constraint)c, idx, newBody, lastBody, copier);
     } else if (c instanceof ExternalLoad) {
-      return _duplicate((ExternalLoad)c, idx, newBody, lastBody);
+      return _duplicate((ExternalLoad)c, idx, newBody, lastBody, copier);
     } else if (c instanceof Joint) {
-      return _duplicate((Joint)c, idx, newBody, lastBody);
+      return _duplicate((Joint)c, idx, newBody, lastBody, copier);
     } else if (c instanceof JointConstraint) {
-      return _duplicate((JointConstraint)c, idx, newBody, lastBody);
+      return _duplicate((JointConstraint)c, idx, newBody, lastBody, copier);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(c, idx, newBody, lastBody).toString());
+        Arrays.<Object>asList(c, idx, newBody, lastBody, copier).toString());
     }
   }
   

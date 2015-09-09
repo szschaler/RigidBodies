@@ -4,12 +4,16 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
@@ -22,6 +26,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
@@ -35,7 +40,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
- * Build up a joint tree representation of a given connective
+ * Build up a joint tree representation of a given connective. This assumes the given system to have been unrolled first using @{SystemUnroller}.
  */
 @SuppressWarnings("all")
 public class ConnectiveTreeBuilder {
@@ -105,6 +110,149 @@ public class ConnectiveTreeBuilder {
     }
   }
   
+  /**
+   * Adapted from original xtext class, which stupidly had a package-private constructor...
+   */
+  public static class Triple<S1 extends Object, S2 extends Object, S3 extends Object> {
+    private final S1 s1;
+    
+    private final S2 s2;
+    
+    private final S3 s3;
+    
+    public Triple(final S1 first, final S2 second, final S3 third) {
+      this.s1 = first;
+      this.s2 = second;
+      this.s3 = third;
+    }
+    
+    public S1 getFirst() {
+      return this.s1;
+    }
+    
+    public S2 getSecond() {
+      return this.s2;
+    }
+    
+    public S3 getThird() {
+      return this.s3;
+    }
+    
+    @Override
+    public boolean equals(final Object other) {
+      boolean _equals = Objects.equal(other, null);
+      if (_equals) {
+        return false;
+      }
+      boolean _equals_1 = Objects.equal(other, this);
+      if (_equals_1) {
+        return true;
+      }
+      if ((other instanceof ConnectiveTreeBuilder.Triple<?, ?, ?>)) {
+        final ConnectiveTreeBuilder.Triple<?, ?, ?> r = ((ConnectiveTreeBuilder.Triple<?, ?, ?>) other);
+        boolean _and = false;
+        boolean _and_1 = false;
+        boolean _xifexpression = false;
+        S1 _first = this.getFirst();
+        boolean _equals_2 = Objects.equal(_first, null);
+        if (_equals_2) {
+          Object _first_1 = r.getFirst();
+          _xifexpression = Objects.equal(_first_1, null);
+        } else {
+          S1 _first_2 = this.getFirst();
+          Object _first_3 = r.getFirst();
+          _xifexpression = _first_2.equals(_first_3);
+        }
+        if (!_xifexpression) {
+          _and_1 = false;
+        } else {
+          boolean _xifexpression_1 = false;
+          S2 _second = this.getSecond();
+          boolean _equals_3 = Objects.equal(_second, null);
+          if (_equals_3) {
+            Object _second_1 = r.getSecond();
+            _xifexpression_1 = Objects.equal(_second_1, null);
+          } else {
+            S2 _second_2 = this.getSecond();
+            Object _second_3 = r.getSecond();
+            _xifexpression_1 = _second_2.equals(_second_3);
+          }
+          _and_1 = _xifexpression_1;
+        }
+        if (!_and_1) {
+          _and = false;
+        } else {
+          boolean _xifexpression_2 = false;
+          S3 _third = this.getThird();
+          boolean _equals_4 = Objects.equal(_third, null);
+          if (_equals_4) {
+            Object _third_1 = r.getThird();
+            _xifexpression_2 = Objects.equal(_third_1, null);
+          } else {
+            S3 _third_2 = this.getThird();
+            Object _third_3 = r.getThird();
+            _xifexpression_2 = _third_2.equals(_third_3);
+          }
+          _and = _xifexpression_2;
+        }
+        return _and;
+      }
+      return false;
+    }
+    
+    @Override
+    public int hashCode() {
+      int _xifexpression = (int) 0;
+      S1 _first = this.getFirst();
+      boolean _equals = Objects.equal(_first, null);
+      if (_equals) {
+        _xifexpression = 0;
+      } else {
+        S1 _first_1 = this.getFirst();
+        _xifexpression = _first_1.hashCode();
+      }
+      int _multiply = (3 * _xifexpression);
+      int _xifexpression_1 = (int) 0;
+      S2 _second = this.getSecond();
+      boolean _equals_1 = Objects.equal(_second, null);
+      if (_equals_1) {
+        _xifexpression_1 = 0;
+      } else {
+        S2 _second_1 = this.getSecond();
+        _xifexpression_1 = _second_1.hashCode();
+      }
+      int _multiply_1 = (11 * _xifexpression_1);
+      int _plus = (_multiply + _multiply_1);
+      int _xifexpression_2 = (int) 0;
+      S3 _third = this.getThird();
+      boolean _equals_2 = Objects.equal(_third, null);
+      if (_equals_2) {
+        _xifexpression_2 = 0;
+      } else {
+        S3 _third_1 = this.getThird();
+        _xifexpression_2 = _third_1.hashCode();
+      }
+      int _multiply_2 = (17 * _xifexpression_2);
+      return (_plus + _multiply_2);
+    }
+    
+    @Override
+    public String toString() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Triple(");
+      S1 _first = this.getFirst();
+      _builder.append(_first, "");
+      _builder.append(", ");
+      S2 _second = this.getSecond();
+      _builder.append(_second, "");
+      _builder.append(", ");
+      S3 _third = this.getThird();
+      _builder.append(_third, "");
+      _builder.append(")");
+      return _builder.toString();
+    }
+  }
+  
   private uk.ac.kcl.inf.robotics.rigidBodies.System system;
   
   private ConnectiveTreeBuilder.ConnectiveTree ctRoot;
@@ -135,7 +283,7 @@ public class ConnectiveTreeBuilder {
   
   private List<Pair<String, RelativeTransformation>> constraintTransformations = new LinkedList<Pair<String, RelativeTransformation>>();
   
-  private List<Pair<String, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>>();
+  private List<Pair<Joint, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<Joint, List<BaseStiffnessExp>>>();
   
   private List<Pair<String, List<BaseStiffnessExp>>> constraintStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>>();
   
@@ -307,17 +455,15 @@ public class ConnectiveTreeBuilder {
           List<JointMovement> _stateList = this.toStateList(_exp);
           Pair<String, List<JointMovement>> _pair_6 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
           this.jointStates.add(_pair_6);
-          String _name_7 = joint.getName();
-          String _plus_5 = ("joint " + _name_7);
           JointType _type_1 = joint.getType();
           JointTypeExpression _exp_1 = _type_1.getExp();
           List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_exp_1);
-          Pair<String, List<BaseStiffnessExp>> _pair_7 = new Pair<String, List<BaseStiffnessExp>>(_plus_5, _stiffnessList);
+          Pair<Joint, List<BaseStiffnessExp>> _pair_7 = new Pair<Joint, List<BaseStiffnessExp>>(joint, _stiffnessList);
           this.jointStiffnesses.add(_pair_7);
-          String _name_8 = joint.getName();
-          String _plus_6 = ("joint" + _name_8);
+          String _name_7 = joint.getName();
+          String _plus_5 = ("joint" + _name_7);
           RelativeTransformation _relTrans1 = joint.getRelTrans1();
-          Pair<String, RelativeTransformation> _pair_8 = new Pair<String, RelativeTransformation>(_plus_6, _relTrans1);
+          Pair<String, RelativeTransformation> _pair_8 = new Pair<String, RelativeTransformation>(_plus_5, _relTrans1);
           _xblockexpression_1 = this.jointTransformations.add(_pair_8);
         }
         _xifexpression = _xblockexpression_1;
@@ -542,16 +688,86 @@ public class ConnectiveTreeBuilder {
     return this.allTransformations;
   }
   
-  private List<Pair<String, List<BaseStiffnessExp>>> allStiffnesses = null;
+  private List<ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint>> allStiffnesses = null;
   
-  public List<Pair<String, List<BaseStiffnessExp>>> getStiffnesses() {
+  public List<ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint>> getStiffnesses() {
     boolean _equals = Objects.equal(this.allStiffnesses, null);
     if (_equals) {
-      LinkedList<Pair<String, List<BaseStiffnessExp>>> _linkedList = new LinkedList<Pair<String, List<BaseStiffnessExp>>>(this.jointStiffnesses);
+      final Map<Joint, Joint> syncConstraints = this.getSyncConstraints();
+      LinkedList<ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint>> _linkedList = new LinkedList<ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint>>();
       this.allStiffnesses = _linkedList;
-      this.allStiffnesses.addAll(this.constraintStiffnesses);
+      final Consumer<Pair<Joint, List<BaseStiffnessExp>>> _function = new Consumer<Pair<Joint, List<BaseStiffnessExp>>>() {
+        @Override
+        public void accept(final Pair<Joint, List<BaseStiffnessExp>> js) {
+          Joint _key = js.getKey();
+          String _name = _key.getName();
+          String _plus = ("joint " + _name);
+          List<BaseStiffnessExp> _value = js.getValue();
+          Joint _key_1 = js.getKey();
+          Joint _get = syncConstraints.get(_key_1);
+          ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint> _triple = new ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint>(_plus, _value, _get);
+          ConnectiveTreeBuilder.this.allStiffnesses.add(_triple);
+        }
+      };
+      this.jointStiffnesses.forEach(_function);
+      final Consumer<Pair<String, List<BaseStiffnessExp>>> _function_1 = new Consumer<Pair<String, List<BaseStiffnessExp>>>() {
+        @Override
+        public void accept(final Pair<String, List<BaseStiffnessExp>> cs) {
+          String _key = cs.getKey();
+          List<BaseStiffnessExp> _value = cs.getValue();
+          ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint> _triple = new ConnectiveTreeBuilder.Triple<String, List<BaseStiffnessExp>, Joint>(_key, _value, null);
+          ConnectiveTreeBuilder.this.allStiffnesses.add(_triple);
+        }
+      };
+      this.constraintStiffnesses.forEach(_function_1);
     }
     return this.allStiffnesses;
+  }
+  
+  private HashMap<Joint, Joint> getSyncConstraints() {
+    EList<SystemElement> _elements = this.system.getElements();
+    Iterable<JointConstraint> _filter = Iterables.<JointConstraint>filter(_elements, JointConstraint.class);
+    HashMap<Joint, Joint> _hashMap = new HashMap<Joint, Joint>();
+    final Function2<HashMap<Joint, Joint>, JointConstraint, HashMap<Joint, Joint>> _function = new Function2<HashMap<Joint, Joint>, JointConstraint, HashMap<Joint, Joint>>() {
+      @Override
+      public HashMap<Joint, Joint> apply(final HashMap<Joint, Joint> mp, final JointConstraint jc) {
+        Joint _joint1 = jc.getJoint1();
+        Joint _joint2 = jc.getJoint2();
+        mp.put(_joint1, _joint2);
+        return mp;
+      }
+    };
+    return IterableExtensions.<JointConstraint, HashMap<Joint, Joint>>fold(_filter, _hashMap, _function);
+  }
+  
+  /**
+   * Traverse the connective tree to find the index of the given joint
+   */
+  public int findIndexFor(final Joint j) {
+    return this.findIndexFor(this.ctRoot, j);
+  }
+  
+  public int findIndexFor(final ConnectiveTreeBuilder.ConnectiveTree ct, final Joint j) {
+    Integer _xifexpression = null;
+    boolean _equals = Objects.equal(ct.connective, j);
+    if (_equals) {
+      _xifexpression = Integer.valueOf(ct.idx);
+    } else {
+      final Function2<Integer, ConnectiveTreeBuilder.ConnectiveTree, Integer> _function = new Function2<Integer, ConnectiveTreeBuilder.ConnectiveTree, Integer>() {
+        @Override
+        public Integer apply(final Integer acc, final ConnectiveTreeBuilder.ConnectiveTree ch) {
+          Integer _xifexpression = null;
+          if (((acc).intValue() == (-1))) {
+            _xifexpression = Integer.valueOf(ConnectiveTreeBuilder.this.findIndexFor(ch, j));
+          } else {
+            _xifexpression = acc;
+          }
+          return _xifexpression;
+        }
+      };
+      _xifexpression = IterableExtensions.<ConnectiveTreeBuilder.ConnectiveTree, Integer>fold(ct.children, Integer.valueOf((-1)), _function);
+    }
+    return (_xifexpression).intValue();
   }
   
   private List<BaseStiffnessExp> toStiffnessList(final JointTypeExpression ajt) {

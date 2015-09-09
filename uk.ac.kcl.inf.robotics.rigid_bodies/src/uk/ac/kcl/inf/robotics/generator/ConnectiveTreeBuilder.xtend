@@ -1,8 +1,10 @@
 package uk.ac.kcl.inf.robotics.generator
 
 import java.util.ArrayList
+import java.util.HashMap
 import java.util.LinkedList
 import java.util.List
+import java.util.Map
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp
@@ -12,6 +14,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Connective
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint
+import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint
 import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass
@@ -21,7 +24,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef
 import uk.ac.kcl.inf.robotics.rigidBodies.System
 
 /**
- * Build up a joint tree representation of a given connective
+ * Build up a joint tree representation of a given connective. This assumes the given system to have been unrolled first using @{SystemUnroller}. 
  */
 class ConnectiveTreeBuilder {
 	public static class ConnectiveTree {
@@ -103,7 +106,8 @@ class ConnectiveTreeBuilder {
 	List<Pair<String, RelativeTransformation>> jointTransformations = new LinkedList<Pair<String, RelativeTransformation>>
 	List<Pair<String, RelativeTransformation>> constraintTransformations = new LinkedList<Pair<String, RelativeTransformation>>
 	
-	List<Pair<String, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> 
+	//List<Pair<String, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> 
+	List<Pair<Joint, List<BaseStiffnessExp>>> jointStiffnesses = new LinkedList<Pair<Joint, List<BaseStiffnessExp>>> 
 	List<Pair<String, List<BaseStiffnessExp>>> constraintStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> 
 	
 	new (System s) {
@@ -195,7 +199,8 @@ class ConnectiveTreeBuilder {
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
 			
 			jointStates.add (new Pair ("joint " + joint.name, joint.type.exp.toStateList))
-			jointStiffnesses.add (new Pair ("joint " + joint.name, joint.type.exp.toStiffnessList))
+			//jointStiffnesses.add (new Pair ("joint " + joint.name, joint.type.exp.toStiffnessList))
+			jointStiffnesses.add (new Pair (joint, joint.type.exp.toStiffnessList))
 
 			jointTransformations.add (new Pair ("joint" + joint.name, joint.relTrans1))			
 		} else if (ct.isConstraint) {
@@ -328,14 +333,95 @@ class ConnectiveTreeBuilder {
 		return allTransformations
 	}
 	
-	List<Pair<String, List<BaseStiffnessExp>>> allStiffnesses = null 
+	/**
+	 * Adapted from original xtext class, which stupidly had a package-private constructor...
+	 */
+	public static class Triple<S1, S2, S3> {
+		private final S1 s1
+		private final S2 s2
+		private final S3 s3
+
+		public new(S1 first, S2 second, S3 third) {
+			s1 = first
+			s2 = second
+			s3 = third
+		}
+
+		def getFirst() { s1 }
+		def getSecond() { s2 }
+		def getThird() { s3 }
+		
+		override boolean equals(Object other) {
+			if (other == null) return false
+			
+			if (other == this) return true
+			
+			if (other instanceof Triple<?,?,?>) {
+				val Triple<?,?,?> r = other as Triple<?,?,?>
+
+				return (if (first==null) { r.first==null } else { first.equals(r.first) }) &&
+				       (if (second==null) { r.second==null} else { second.equals(r.second)}) &&
+				       (if (third==null) { r.third==null} else { third.equals(r.third)})
+			}
+			
+			return false
+		}
+		
+		override int hashCode() {
+			return 3  * (if (first == null) { 0 } else { first.hashCode }) +
+				   11 * (if (second == null) { 0 } else { second.hashCode }) +  
+				   17 * (if (third == null) { 0 } else { third.hashCode })
+		}
+		
+		override String toString() '''Triple(«first», «second», «third»)'''	
+	}
+	
+	
+	//List<Pair<String, List<BaseStiffnessExp>>> allStiffnesses = null
+	// Each entry has Trace Info, Stiffness Data List, optionally a Joint with which it moves in sync 
+	List<Triple<String, List<BaseStiffnessExp>, Joint>> allStiffnesses = null 
 	
 	def getStiffnesses() {
 		if (allStiffnesses == null) {
-			allStiffnesses = new LinkedList<Pair<String, List<BaseStiffnessExp>>> (jointStiffnesses)
-			allStiffnesses.addAll (constraintStiffnesses)
+			val Map<Joint, Joint> syncConstraints = syncConstraints
+			
+			allStiffnesses = new LinkedList<Triple<String, List<BaseStiffnessExp>, Joint>>
+			jointStiffnesses.forEach[js |
+				allStiffnesses.add (new Triple<String, List<BaseStiffnessExp>, Joint>("joint " + js.key.name, js.value, syncConstraints.get(js.key)))
+			]
+			constraintStiffnesses.forEach[cs |
+				allStiffnesses.add (new Triple<String, List<BaseStiffnessExp>, Joint>(cs.key, cs.value, null))
+			]
 		}
 		
 		return allStiffnesses
 	}
+	
+	private def getSyncConstraints() {
+		system.elements.filter(JointConstraint).fold(new HashMap<Joint, Joint>, [mp, jc | 
+			mp.put (jc.joint1, jc.joint2)
+			return mp
+		])
+	}
+	
+	/**
+	 * Traverse the connective tree to find the index of the given joint
+	 */
+	def findIndexFor (Joint j) {
+		ctRoot.findIndexFor (j)
+	}
+	
+	def int findIndexFor (ConnectiveTree ct, Joint j) {
+		if (ct.connective == j) {
+			ct.idx
+		} else {
+			ct.children.fold(-1, [acc, ch |
+				if (acc == -1) {
+					ch.findIndexFor (j)
+				} else {
+					acc
+				}
+			])
+		}
+	}	
 }

@@ -1,8 +1,6 @@
 package uk.ac.kcl.inf.robotics.generator
 
 import java.util.HashMap
-import java.util.LinkedList
-import java.util.List
 import java.util.Map
 import org.eclipse.emf.ecore.util.EcoreUtil
 import uk.ac.kcl.inf.robotics.rigidBodies.Body
@@ -42,18 +40,23 @@ class SystemUnroller {
 			if (!currentLasts.containsKey(br.body.name)) {
 				currentLasts.put(br.body.name, br.body)
 			}
-
+			
 			// 2. Unroll loop, creating copies of the loop body as we go
 			(1 .. br.number).forEach [ idx |
-				val newBody = br.body.duplicateBody(idx)
+				// We need to use an explicitly constructed copier object so that references to duplicated elements are re-routed correctly
+				val EcoreUtil.Copier copier = new EcoreUtil.Copier()
+
+				val newBody = br.body.duplicateBody(idx, copier)
 
 				br.connectionExp.forEach [ e |
-					system.elements.add(e.duplicate(idx, newBody, currentLasts.get(br.body.name)))
+					system.elements.add(e.duplicate(idx, newBody, currentLasts.get(br.body.name), copier))
 				]
+
+				copier.copyReferences
 
 				currentLasts.put(br.body.name, newBody)
 			]
-
+			
 			// 3. Remove body repetition from system elements
 			system.elements.remove(br)
 		]
@@ -63,11 +66,10 @@ class SystemUnroller {
 	}
 
 	// Create a duplicate of the given body. Name this duplicate using the name of the given body and appending the given idx.
-	private def Body duplicateBody(Body b, int idx) {
-		val bodyDuplicate = RigidBodiesFactory.eINSTANCE.createBody
+	private def Body duplicateBody(Body b, int idx, EcoreUtil.Copier copier) {
+		val bodyDuplicate = copier.copy (b) as Body
 
 		bodyDuplicate.name = b.name + idx
-		bodyDuplicate.mass = EcoreUtil.copy(b.mass)
 
 		return bodyDuplicate
 	}
@@ -76,8 +78,8 @@ class SystemUnroller {
 	 * These dispatch methods duplicate the given element of a repetition, adjust its name based on the given idx and adjust 
 	 * and (implicit) last or new references based on the two bodies given.
 	 */
-	private dispatch def duplicate(Joint j, int idx, Body newBody, Body lastBody) {
-		val jointDuplicate =  EcoreUtil.copy(j)
+	private dispatch def duplicate(Joint j, int idx, Body newBody, Body lastBody, EcoreUtil.Copier copier) {
+		val jointDuplicate =  copier.copy(j) as Joint
 		
 		jointDuplicate.name = j.name + idx
 		jointDuplicate.body1.adjustImplicitReferences (newBody, lastBody)
@@ -86,8 +88,8 @@ class SystemUnroller {
 		return jointDuplicate
 	}
 	
-	private dispatch def duplicate (Constraint c, int idx, Body newBody, Body lastBody) {
-		val constraintDuplicate = EcoreUtil.copy (c)
+	private dispatch def duplicate (Constraint c, int idx, Body newBody, Body lastBody, EcoreUtil.Copier copier) {
+		val constraintDuplicate = copier.copy (c) as Constraint
 		
 		constraintDuplicate.name = c.name + idx
 		constraintDuplicate.body1.adjustImplicitReferences (newBody, lastBody)
@@ -96,8 +98,8 @@ class SystemUnroller {
 		return constraintDuplicate
 	}
 	
-	private dispatch def duplicate (ExternalLoad el, int idx, Body newBody, Body lastBody) {
-		val loadDuplicate = EcoreUtil.copy (el)
+	private dispatch def duplicate (ExternalLoad el, int idx, Body newBody, Body lastBody, EcoreUtil.Copier copier) {
+		val loadDuplicate = copier.copy (el) as ExternalLoad
 		
 		loadDuplicate.name = el.name + idx
 		loadDuplicate.body1.adjustImplicitReferences (newBody, lastBody)
@@ -105,8 +107,8 @@ class SystemUnroller {
 		return loadDuplicate
 	}
 	
-	private dispatch def duplicate (JointConstraint jc, int idx, Body newBody, Body lastBody) {
-		val jcDuplicate = EcoreUtil.copy (jc)
+	private dispatch def duplicate (JointConstraint jc, int idx, Body newBody, Body lastBody, EcoreUtil.Copier copier) {
+		val jcDuplicate = copier.copy (jc) as JointConstraint
 		
 		jcDuplicate.name = jc.name + idx
 		

@@ -87,14 +87,15 @@ class RigidBodiesGenerator implements IGenerator {
 					 }»];'''])»
 		
 		% Stiffness data
-		jkd = sym (zeros (3, 2, «ctb.stiffnesses.fold (0, [acc, s | acc + s.value.size ])»));
+		jkd = sym (zeros (4, 2, «ctb.stiffnesses.fold (0, [acc, s | acc + s.second.size ])»));
 		«val i = new IntHolder»
 		«ctb.stiffnesses.join('\n', [stiff | '''
-				% Stiffness values for «stiff.key»
-				«stiff.value.join ('\n', [s | '''
+				% Stiffness values for «stiff.first»
+				«stiff.second.join ('\n', [s | '''
 					jkd (1, :, «i.value») = [ «s.springCoeff.render» «s.springInit.render» ];
 					jkd (2, 1, «i.value») = «s.dampViscous.render»;
-					jkd (3, 1, «i.value++») = «s.dampCoulomb.render»;
+					jkd (3, 1, «i.value») = «s.dampCoulomb.render»;
+					jkd (4, 1, «i.value++») = «if (stiff.third != null) { ctb.findIndexFor (stiff.third) } else { 0 }»;
 					'''])»
 			'''])»
 		
