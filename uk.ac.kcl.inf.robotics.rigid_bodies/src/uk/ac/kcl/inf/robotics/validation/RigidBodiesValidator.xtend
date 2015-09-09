@@ -45,6 +45,8 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 		}
 
 		// TODO Check for multiple base references without an explicit start hint
+		
+		
 		public static val NEW_OUTSIDE_REPEAT = "newOutsideRepeat"
 		public static val LAST_OUTSIDE_REPEAT = "lastOutsideRepeat"
 
@@ -69,6 +71,17 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 
 					}
 				}
+			}
+		}
+		
+		public static val NO_NEW_IN_REPEAT = "noNewInRepeat"
+		
+		@Check
+		def repeatBodyMustContainJointDefinition (BodyRepetition br) {
+			if (! br.connectionExp.filter(Joint).exists[j | j.body1.^new || j.body2.^new]) {
+				error('Repeat expression must contain at least one joint referencing the new body.', br,
+						RigidBodiesPackage.Literals.BODY_REPETITION__CONNECTION_EXP,
+						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NO_NEW_IN_REPEAT)
 			}
 		}
 	}

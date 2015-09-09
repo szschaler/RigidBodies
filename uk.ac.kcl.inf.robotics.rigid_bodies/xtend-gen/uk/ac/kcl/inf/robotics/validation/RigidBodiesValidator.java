@@ -98,4 +98,35 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
       }
     }
   }
+  
+  public final static String NO_NEW_IN_REPEAT = "noNewInRepeat";
+  
+  @Check
+  public void repeatBodyMustContainJointDefinition(final BodyRepetition br) {
+    EList<SystemElement> _connectionExp = br.getConnectionExp();
+    Iterable<Joint> _filter = Iterables.<Joint>filter(_connectionExp, Joint.class);
+    final Function1<Joint, Boolean> _function = new Function1<Joint, Boolean>() {
+      @Override
+      public Boolean apply(final Joint j) {
+        boolean _or = false;
+        BodyReference _body1 = j.getBody1();
+        boolean _isNew = _body1.isNew();
+        if (_isNew) {
+          _or = true;
+        } else {
+          BodyReference _body2 = j.getBody2();
+          boolean _isNew_1 = _body2.isNew();
+          _or = _isNew_1;
+        }
+        return Boolean.valueOf(_or);
+      }
+    };
+    boolean _exists = IterableExtensions.<Joint>exists(_filter, _function);
+    boolean _not = (!_exists);
+    if (_not) {
+      this.error("Repeat expression must contain at least one joint referencing the new body.", br, 
+        RigidBodiesPackage.Literals.BODY_REPETITION__CONNECTION_EXP, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.NO_NEW_IN_REPEAT);
+    }
+  }
 }
