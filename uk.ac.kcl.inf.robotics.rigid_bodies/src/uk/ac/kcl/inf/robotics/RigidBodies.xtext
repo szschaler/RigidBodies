@@ -153,6 +153,11 @@ BasicReorientExpression:
 ;
 
 Constraint:
+	  BodyConstraint
+	| JointConstraint
+;
+
+BodyConstraint:
 	'constraint' name=ID ':' type = ConstraintType
 		'between' body1 = BodyReference relTrans1 = RelativeTransformation
 		'and' body2 = BodyReference relTrans2 = RelativeTransformation
@@ -161,6 +166,10 @@ Constraint:
 enum ConstraintType:
 	GEOMETRICAL = 'geometrical' |
 	VELOCITY = 'velocity'
+;
+
+JointConstraint:
+	'constraint' name=ID ':' joint1=[Joint] 'moves' 'like' joint2=[Joint]
 ;
 
 ExternalLoad:

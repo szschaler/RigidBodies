@@ -19,6 +19,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -30,6 +31,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
@@ -133,6 +135,8 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.REORIENT_REF: return createReorientRef();
       case RigidBodiesPackage.BASIC_REORIENT_EXPRESSION: return createBasicReorientExpression();
       case RigidBodiesPackage.CONSTRAINT: return createConstraint();
+      case RigidBodiesPackage.BODY_CONSTRAINT: return createBodyConstraint();
+      case RigidBodiesPackage.JOINT_CONSTRAINT: return createJointConstraint();
       case RigidBodiesPackage.EXTERNAL_LOAD: return createExternalLoad();
       case RigidBodiesPackage.MATRIX: return createMatrix();
       case RigidBodiesPackage.BASE_MATRIX: return createBaseMatrix();
@@ -486,6 +490,28 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     ConstraintImpl constraint = new ConstraintImpl();
     return constraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BodyConstraint createBodyConstraint()
+  {
+    BodyConstraintImpl bodyConstraint = new BodyConstraintImpl();
+    return bodyConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JointConstraint createJointConstraint()
+  {
+    JointConstraintImpl jointConstraint = new JointConstraintImpl();
+    return jointConstraint;
   }
 
   /**

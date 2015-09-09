@@ -10,60 +10,50 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Joint</b></em>'.
+ * An implementation of the model object '<em><b>Body Constraint</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getType <em>Type</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#isIsStart <em>Is Start</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody1 <em>Body1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointImpl#getBody2 <em>Body2</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyConstraintImpl#getType <em>Type</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyConstraintImpl#getBody1 <em>Body1</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyConstraintImpl#getRelTrans1 <em>Rel Trans1</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyConstraintImpl#getBody2 <em>Body2</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyConstraintImpl#getRelTrans2 <em>Rel Trans2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class JointImpl extends ConnectiveImpl implements Joint
+public class BodyConstraintImpl extends ConstraintImpl implements BodyConstraint
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected JointType type;
+  protected static final ConstraintType TYPE_EDEFAULT = ConstraintType.GEOMETRICAL;
 
   /**
-   * The default value of the '{@link #isIsStart() <em>Is Start</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsStart()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final boolean IS_START_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isIsStart() <em>Is Start</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isIsStart()
-   * @generated
-   * @ordered
-   */
-  protected boolean isStart = IS_START_EDEFAULT;
+  protected ConstraintType type = TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getBody1() <em>Body1</em>}' containment reference.
@@ -96,11 +86,21 @@ public class JointImpl extends ConnectiveImpl implements Joint
   protected BodyReference body2;
 
   /**
+   * The cached value of the '{@link #getRelTrans2() <em>Rel Trans2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRelTrans2()
+   * @generated
+   * @ordered
+   */
+  protected RelativeTransformation relTrans2;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JointImpl()
+  protected BodyConstraintImpl()
   {
     super();
   }
@@ -113,7 +113,7 @@ public class JointImpl extends ConnectiveImpl implements Joint
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.JOINT;
+    return RigidBodiesPackage.Literals.BODY_CONSTRAINT;
   }
 
   /**
@@ -121,7 +121,7 @@ public class JointImpl extends ConnectiveImpl implements Joint
    * <!-- end-user-doc -->
    * @generated
    */
-  public JointType getType()
+  public ConstraintType getType()
   {
     return type;
   }
@@ -131,60 +131,12 @@ public class JointImpl extends ConnectiveImpl implements Joint
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(JointType newType, NotificationChain msgs)
+  public void setType(ConstraintType newType)
   {
-    JointType oldType = type;
-    type = newType;
+    ConstraintType oldType = type;
+    type = newType == null ? TYPE_EDEFAULT : newType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(JointType newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__TYPE, newType, newType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isIsStart()
-  {
-    return isStart;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIsStart(boolean newIsStart)
-  {
-    boolean oldIsStart = isStart;
-    isStart = newIsStart;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__IS_START, oldIsStart, isStart));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__TYPE, oldType, type));
   }
 
   /**
@@ -208,7 +160,7 @@ public class JointImpl extends ConnectiveImpl implements Joint
     body1 = newBody1;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY1, oldBody1, newBody1);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__BODY1, oldBody1, newBody1);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -225,14 +177,14 @@ public class JointImpl extends ConnectiveImpl implements Joint
     {
       NotificationChain msgs = null;
       if (body1 != null)
-        msgs = ((InternalEObject)body1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__BODY1, null, msgs);
+        msgs = ((InternalEObject)body1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__BODY1, null, msgs);
       if (newBody1 != null)
-        msgs = ((InternalEObject)newBody1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__BODY1, null, msgs);
+        msgs = ((InternalEObject)newBody1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__BODY1, null, msgs);
       msgs = basicSetBody1(newBody1, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY1, newBody1, newBody1));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__BODY1, newBody1, newBody1));
   }
 
   /**
@@ -256,7 +208,7 @@ public class JointImpl extends ConnectiveImpl implements Joint
     relTrans1 = newRelTrans1;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__REL_TRANS1, oldRelTrans1, newRelTrans1);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1, oldRelTrans1, newRelTrans1);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -273,14 +225,14 @@ public class JointImpl extends ConnectiveImpl implements Joint
     {
       NotificationChain msgs = null;
       if (relTrans1 != null)
-        msgs = ((InternalEObject)relTrans1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__REL_TRANS1, null, msgs);
+        msgs = ((InternalEObject)relTrans1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1, null, msgs);
       if (newRelTrans1 != null)
-        msgs = ((InternalEObject)newRelTrans1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__REL_TRANS1, null, msgs);
+        msgs = ((InternalEObject)newRelTrans1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1, null, msgs);
       msgs = basicSetRelTrans1(newRelTrans1, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__REL_TRANS1, newRelTrans1, newRelTrans1));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1, newRelTrans1, newRelTrans1));
   }
 
   /**
@@ -304,7 +256,7 @@ public class JointImpl extends ConnectiveImpl implements Joint
     body2 = newBody2;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY2, oldBody2, newBody2);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__BODY2, oldBody2, newBody2);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -321,14 +273,62 @@ public class JointImpl extends ConnectiveImpl implements Joint
     {
       NotificationChain msgs = null;
       if (body2 != null)
-        msgs = ((InternalEObject)body2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__BODY2, null, msgs);
+        msgs = ((InternalEObject)body2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__BODY2, null, msgs);
       if (newBody2 != null)
-        msgs = ((InternalEObject)newBody2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.JOINT__BODY2, null, msgs);
+        msgs = ((InternalEObject)newBody2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__BODY2, null, msgs);
       msgs = basicSetBody2(newBody2, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT__BODY2, newBody2, newBody2));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__BODY2, newBody2, newBody2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RelativeTransformation getRelTrans2()
+  {
+    return relTrans2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRelTrans2(RelativeTransformation newRelTrans2, NotificationChain msgs)
+  {
+    RelativeTransformation oldRelTrans2 = relTrans2;
+    relTrans2 = newRelTrans2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2, oldRelTrans2, newRelTrans2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRelTrans2(RelativeTransformation newRelTrans2)
+  {
+    if (newRelTrans2 != relTrans2)
+    {
+      NotificationChain msgs = null;
+      if (relTrans2 != null)
+        msgs = ((InternalEObject)relTrans2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2, null, msgs);
+      if (newRelTrans2 != null)
+        msgs = ((InternalEObject)newRelTrans2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2, null, msgs);
+      msgs = basicSetRelTrans2(newRelTrans2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2, newRelTrans2, newRelTrans2));
   }
 
   /**
@@ -341,14 +341,14 @@ public class JointImpl extends ConnectiveImpl implements Joint
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT__TYPE:
-        return basicSetType(null, msgs);
-      case RigidBodiesPackage.JOINT__BODY1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY1:
         return basicSetBody1(null, msgs);
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1:
         return basicSetRelTrans1(null, msgs);
-      case RigidBodiesPackage.JOINT__BODY2:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY2:
         return basicSetBody2(null, msgs);
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2:
+        return basicSetRelTrans2(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -363,16 +363,16 @@ public class JointImpl extends ConnectiveImpl implements Joint
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT__TYPE:
+      case RigidBodiesPackage.BODY_CONSTRAINT__TYPE:
         return getType();
-      case RigidBodiesPackage.JOINT__IS_START:
-        return isIsStart();
-      case RigidBodiesPackage.JOINT__BODY1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY1:
         return getBody1();
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1:
         return getRelTrans1();
-      case RigidBodiesPackage.JOINT__BODY2:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY2:
         return getBody2();
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2:
+        return getRelTrans2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -387,20 +387,20 @@ public class JointImpl extends ConnectiveImpl implements Joint
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT__TYPE:
-        setType((JointType)newValue);
+      case RigidBodiesPackage.BODY_CONSTRAINT__TYPE:
+        setType((ConstraintType)newValue);
         return;
-      case RigidBodiesPackage.JOINT__IS_START:
-        setIsStart((Boolean)newValue);
-        return;
-      case RigidBodiesPackage.JOINT__BODY1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY1:
         setBody1((BodyReference)newValue);
         return;
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1:
         setRelTrans1((RelativeTransformation)newValue);
         return;
-      case RigidBodiesPackage.JOINT__BODY2:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY2:
         setBody2((BodyReference)newValue);
+        return;
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2:
+        setRelTrans2((RelativeTransformation)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -416,20 +416,20 @@ public class JointImpl extends ConnectiveImpl implements Joint
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT__TYPE:
-        setType((JointType)null);
+      case RigidBodiesPackage.BODY_CONSTRAINT__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
-      case RigidBodiesPackage.JOINT__IS_START:
-        setIsStart(IS_START_EDEFAULT);
-        return;
-      case RigidBodiesPackage.JOINT__BODY1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY1:
         setBody1((BodyReference)null);
         return;
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1:
         setRelTrans1((RelativeTransformation)null);
         return;
-      case RigidBodiesPackage.JOINT__BODY2:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY2:
         setBody2((BodyReference)null);
+        return;
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2:
+        setRelTrans2((RelativeTransformation)null);
         return;
     }
     super.eUnset(featureID);
@@ -445,16 +445,16 @@ public class JointImpl extends ConnectiveImpl implements Joint
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.JOINT__TYPE:
-        return type != null;
-      case RigidBodiesPackage.JOINT__IS_START:
-        return isStart != IS_START_EDEFAULT;
-      case RigidBodiesPackage.JOINT__BODY1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__TYPE:
+        return type != TYPE_EDEFAULT;
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY1:
         return body1 != null;
-      case RigidBodiesPackage.JOINT__REL_TRANS1:
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS1:
         return relTrans1 != null;
-      case RigidBodiesPackage.JOINT__BODY2:
+      case RigidBodiesPackage.BODY_CONSTRAINT__BODY2:
         return body2 != null;
+      case RigidBodiesPackage.BODY_CONSTRAINT__REL_TRANS2:
+        return relTrans2 != null;
     }
     return super.eIsSet(featureID);
   }
@@ -470,10 +470,10 @@ public class JointImpl extends ConnectiveImpl implements Joint
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (isStart: ");
-    result.append(isStart);
+    result.append(" (type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }
 
-} //JointImpl
+} //BodyConstraintImpl

@@ -14,6 +14,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
@@ -24,6 +25,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
@@ -312,6 +314,26 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         T result = caseConstraint(constraint);
         if (result == null) result = caseConnective(constraint);
         if (result == null) result = caseSystemElement(constraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.BODY_CONSTRAINT:
+      {
+        BodyConstraint bodyConstraint = (BodyConstraint)theEObject;
+        T result = caseBodyConstraint(bodyConstraint);
+        if (result == null) result = caseConstraint(bodyConstraint);
+        if (result == null) result = caseConnective(bodyConstraint);
+        if (result == null) result = caseSystemElement(bodyConstraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.JOINT_CONSTRAINT:
+      {
+        JointConstraint jointConstraint = (JointConstraint)theEObject;
+        T result = caseJointConstraint(jointConstraint);
+        if (result == null) result = caseConstraint(jointConstraint);
+        if (result == null) result = caseConnective(jointConstraint);
+        if (result == null) result = caseSystemElement(jointConstraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -835,6 +857,38 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConstraint(Constraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Body Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Body Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBodyConstraint(BodyConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Joint Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Joint Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJointConstraint(JointConstraint object)
   {
     return null;
   }

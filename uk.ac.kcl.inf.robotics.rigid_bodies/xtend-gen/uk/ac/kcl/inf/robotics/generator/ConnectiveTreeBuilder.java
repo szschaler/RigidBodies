@@ -225,17 +225,10 @@ public class ConnectiveTreeBuilder {
    * Find all Connectives that connect from the given body in the given system.
    */
   private Iterable<Connective> getConnectiveFanOut(final Body b) {
-    EList<SystemElement> _elements = this.system.getElements();
-    Iterable<Connective> _filter = Iterables.<Connective>filter(_elements, Connective.class);
-    final Function1<Connective, Boolean> _function = new Function1<Connective, Boolean>() {
-      @Override
-      public Boolean apply(final Connective j) {
-        BodyReference _body1 = j.getBody1();
-        Body _ref = _body1.getRef();
-        return Boolean.valueOf(Objects.equal(_ref, b));
-      }
-    };
-    return IterableExtensions.<Connective>filter(_filter, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method body1 is undefined for the type ConnectiveTreeBuilder"
+      + "\nref cannot be resolved"
+      + "\n== cannot be resolved");
   }
   
   private void traverseTree() {
