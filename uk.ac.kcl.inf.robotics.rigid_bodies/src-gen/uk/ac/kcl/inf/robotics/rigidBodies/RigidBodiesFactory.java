@@ -266,15 +266,6 @@ public interface RigidBodiesFactory extends EFactory
   Constraint createConstraint();
 
   /**
-   * Returns a new object of class '<em>Body Constraint</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Body Constraint</em>'.
-   * @generated
-   */
-  BodyConstraint createBodyConstraint();
-
-  /**
    * Returns a new object of class '<em>Joint Constraint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

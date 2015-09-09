@@ -23,10 +23,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
-import uk.ac.kcl.inf.robotics.rigidBodies.BodyConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
@@ -78,9 +78,6 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.BODY:
 				sequence_Body(context, (Body) semanticObject); 
 				return; 
-			case RigidBodiesPackage.BODY_CONSTRAINT:
-				sequence_BodyConstraint(context, (BodyConstraint) semanticObject); 
-				return; 
 			case RigidBodiesPackage.BODY_REFERENCE:
 				sequence_BodyReference(context, (BodyReference) semanticObject); 
 				return; 
@@ -89,6 +86,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP:
 				sequence_ConstantOrFunctionCallExp(context, (ConstantOrFunctionCallExp) semanticObject); 
+				return; 
+			case RigidBodiesPackage.CONSTRAINT:
+				sequence_Constraint(context, (Constraint) semanticObject); 
 				return; 
 			case RigidBodiesPackage.ENVIRONMENT:
 				sequence_Environment(context, (Environment) semanticObject); 
@@ -217,44 +217,6 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         type=ConstraintType 
-	 *         body1=BodyReference 
-	 *         relTrans1=RelativeTransformation 
-	 *         body2=BodyReference 
-	 *         relTrans2=RelativeTransformation
-	 *     )
-	 */
-	protected void sequence_BodyConstraint(EObject context, BodyConstraint semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__TYPE));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__BODY1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__BODY1));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__REL_TRANS1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__REL_TRANS1));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__BODY2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__BODY2));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__REL_TRANS2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BODY_CONSTRAINT__REL_TRANS2));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getBodyConstraintAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBodyConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getBodyConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0(), semanticObject.getBody1());
-		feeder.accept(grammarAccess.getBodyConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0(), semanticObject.getRelTrans1());
-		feeder.accept(grammarAccess.getBodyConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0(), semanticObject.getBody2());
-		feeder.accept(grammarAccess.getBodyConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0(), semanticObject.getRelTrans2());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (base?='base' | new?='new' | (last?='last' ref=[Body|ID]?) | ref=[Body|ID])
 	 */
 	protected void sequence_BodyReference(EObject context, BodyReference semanticObject) {
@@ -264,7 +226,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (number=INT body=[Body|ID] connectionExp+=Connective+)
+	 *     (number=INT body=[Body|ID] (connectionExp+=Connective | connectionExp+=JointConstraint)+)
 	 */
 	protected void sequence_BodyRepetition(EObject context, BodyRepetition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -301,6 +263,44 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         type=ConstraintType 
+	 *         body1=BodyReference 
+	 *         relTrans1=RelativeTransformation 
+	 *         body2=BodyReference 
+	 *         relTrans2=RelativeTransformation
+	 *     )
+	 */
+	protected void sequence_Constraint(EObject context, Constraint semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__TYPE));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__REL_TRANS1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__REL_TRANS1));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__BODY2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__BODY2));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__REL_TRANS2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONSTRAINT__REL_TRANS2));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0(), semanticObject.getBody1());
+		feeder.accept(grammarAccess.getConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0(), semanticObject.getRelTrans1());
+		feeder.accept(grammarAccess.getConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0(), semanticObject.getBody2());
+		feeder.accept(grammarAccess.getConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0(), semanticObject.getRelTrans2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     gravity=Matrix
 	 */
 	protected void sequence_Environment(EObject context, Environment semanticObject) {
@@ -323,10 +323,10 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__BODY1));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__TYPE));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__BODY1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__BODY1));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__POSITION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.EXTERNAL_LOAD__POSITION));
 		}
@@ -346,8 +346,8 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_JointConstraint(EObject context, JointConstraint semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONNECTIVE__NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT_CONSTRAINT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT_CONSTRAINT__NAME));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT_CONSTRAINT__JOINT1) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.JOINT_CONSTRAINT__JOINT1));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.JOINT_CONSTRAINT__JOINT2) == ValueTransient.YES)

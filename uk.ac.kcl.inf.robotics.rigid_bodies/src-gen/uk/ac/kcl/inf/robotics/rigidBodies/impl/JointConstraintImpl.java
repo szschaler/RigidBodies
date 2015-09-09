@@ -21,14 +21,35 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointConstraintImpl#getName <em>Name</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointConstraintImpl#getJoint1 <em>Joint1</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.JointConstraintImpl#getJoint2 <em>Joint2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class JointConstraintImpl extends ConstraintImpl implements JointConstraint
+public class JointConstraintImpl extends SystemElementImpl implements JointConstraint
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getJoint1() <em>Joint1</em>}' reference.
    * <!-- begin-user-doc -->
@@ -68,6 +89,29 @@ public class JointConstraintImpl extends ConstraintImpl implements JointConstrai
   protected EClass eStaticClass()
   {
     return RigidBodiesPackage.Literals.JOINT_CONSTRAINT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.JOINT_CONSTRAINT__NAME, oldName, name));
   }
 
   /**
@@ -166,6 +210,8 @@ public class JointConstraintImpl extends ConstraintImpl implements JointConstrai
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.JOINT_CONSTRAINT__NAME:
+        return getName();
       case RigidBodiesPackage.JOINT_CONSTRAINT__JOINT1:
         if (resolve) return getJoint1();
         return basicGetJoint1();
@@ -186,6 +232,9 @@ public class JointConstraintImpl extends ConstraintImpl implements JointConstrai
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.JOINT_CONSTRAINT__NAME:
+        setName((String)newValue);
+        return;
       case RigidBodiesPackage.JOINT_CONSTRAINT__JOINT1:
         setJoint1((Joint)newValue);
         return;
@@ -206,6 +255,9 @@ public class JointConstraintImpl extends ConstraintImpl implements JointConstrai
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.JOINT_CONSTRAINT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case RigidBodiesPackage.JOINT_CONSTRAINT__JOINT1:
         setJoint1((Joint)null);
         return;
@@ -226,12 +278,31 @@ public class JointConstraintImpl extends ConstraintImpl implements JointConstrai
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.JOINT_CONSTRAINT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RigidBodiesPackage.JOINT_CONSTRAINT__JOINT1:
         return joint1 != null;
       case RigidBodiesPackage.JOINT_CONSTRAINT__JOINT2:
         return joint2 != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //JointConstraintImpl

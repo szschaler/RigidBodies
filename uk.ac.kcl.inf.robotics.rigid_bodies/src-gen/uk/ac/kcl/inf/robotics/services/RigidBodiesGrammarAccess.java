@@ -164,12 +164,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cConnectiveParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cBodyRepetitionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cJointConstraintParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//SystemElement:
-		//	Body | Connective | BodyRepetition;
+		//	Body | Connective | BodyRepetition | JointConstraint;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Body | Connective | BodyRepetition
+		//Body | Connective | BodyRepetition | JointConstraint
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Body
@@ -180,6 +181,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//BodyRepetition
 		public RuleCall getBodyRepetitionParserRuleCall_2() { return cBodyRepetitionParserRuleCall_2; }
+
+		//JointConstraint
+		public RuleCall getJointConstraintParserRuleCall_3() { return cJointConstraintParserRuleCall_3; }
 	}
 
 	public class ConnectiveElements extends AbstractParserRuleElementFinder {
@@ -325,14 +329,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyBodyIDTerminalRuleCall_3_0_1 = (RuleCall)cBodyBodyCrossReference_3_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cConnectionExpAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cConnectionExpConnectiveParserRuleCall_5_0 = (RuleCall)cConnectionExpAssignment_5.eContents().get(0);
+		private final Alternatives cConnectionExpAlternatives_5_0 = (Alternatives)cConnectionExpAssignment_5.eContents().get(0);
+		private final RuleCall cConnectionExpConnectiveParserRuleCall_5_0_0 = (RuleCall)cConnectionExpAlternatives_5_0.eContents().get(0);
+		private final RuleCall cConnectionExpJointConstraintParserRuleCall_5_0_1 = (RuleCall)cConnectionExpAlternatives_5_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//BodyRepetition:
-		//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=Connective+ "}";
+		//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=(Connective | JointConstraint)+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"repeat" number=INT "of" body=[Body] "{" connectionExp+=Connective+ "}"
+		//"repeat" number=INT "of" body=[Body] "{" connectionExp+=(Connective | JointConstraint)+ "}"
 		public Group getGroup() { return cGroup; }
 
 		//"repeat"
@@ -359,11 +365,17 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
-		//connectionExp+=Connective+
+		//connectionExp+=(Connective | JointConstraint)+
 		public Assignment getConnectionExpAssignment_5() { return cConnectionExpAssignment_5; }
 
+		//Connective | JointConstraint
+		public Alternatives getConnectionExpAlternatives_5_0() { return cConnectionExpAlternatives_5_0; }
+
 		//Connective
-		public RuleCall getConnectionExpConnectiveParserRuleCall_5_0() { return cConnectionExpConnectiveParserRuleCall_5_0; }
+		public RuleCall getConnectionExpConnectiveParserRuleCall_5_0_0() { return cConnectionExpConnectiveParserRuleCall_5_0_0; }
+
+		//JointConstraint
+		public RuleCall getConnectionExpJointConstraintParserRuleCall_5_0_1() { return cConnectionExpJointConstraintParserRuleCall_5_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -1083,26 +1095,6 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Constraint");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cBodyConstraintParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cJointConstraintParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Constraint:
-		//	BodyConstraint | JointConstraint;
-		@Override public ParserRule getRule() { return rule; }
-
-		//BodyConstraint | JointConstraint
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//BodyConstraint
-		public RuleCall getBodyConstraintParserRuleCall_0() { return cBodyConstraintParserRuleCall_0; }
-
-		//JointConstraint
-		public RuleCall getJointConstraintParserRuleCall_1() { return cJointConstraintParserRuleCall_1; }
-	}
-
-	public class BodyConstraintElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BodyConstraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1121,7 +1113,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRelTrans2Assignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_9_0 = (RuleCall)cRelTrans2Assignment_9.eContents().get(0);
 		
-		//BodyConstraint:
+		//Constraint:
 		//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
 		//	body2=BodyReference relTrans2=RelativeTransformation;
 		@Override public ParserRule getRule() { return rule; }
@@ -1776,7 +1768,6 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ReorientRefElements pReorientRef;
 	private final BasicReorientExpressionElements pBasicReorientExpression;
 	private final ConstraintElements pConstraint;
-	private final BodyConstraintElements pBodyConstraint;
 	private final ConstraintTypeElements unknownRuleConstraintType;
 	private final JointConstraintElements pJointConstraint;
 	private final ExternalLoadElements pExternalLoad;
@@ -1830,7 +1821,6 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pReorientRef = new ReorientRefElements();
 		this.pBasicReorientExpression = new BasicReorientExpressionElements();
 		this.pConstraint = new ConstraintElements();
-		this.pBodyConstraint = new BodyConstraintElements();
 		this.unknownRuleConstraintType = new ConstraintTypeElements();
 		this.pJointConstraint = new JointConstraintElements();
 		this.pExternalLoad = new ExternalLoadElements();
@@ -1916,7 +1906,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SystemElement:
-	//	Body | Connective | BodyRepetition;
+	//	Body | Connective | BodyRepetition | JointConstraint;
 	public SystemElementElements getSystemElementAccess() {
 		return pSystemElement;
 	}
@@ -1957,7 +1947,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BodyRepetition:
-	//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=Connective+ "}";
+	//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=(Connective | JointConstraint)+ "}";
 	public BodyRepetitionElements getBodyRepetitionAccess() {
 		return pBodyRepetition;
 	}
@@ -2163,24 +2153,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Constraint:
-	//	BodyConstraint | JointConstraint;
+	//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+	//	body2=BodyReference relTrans2=RelativeTransformation;
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
 	}
 	
 	public ParserRule getConstraintRule() {
 		return getConstraintAccess().getRule();
-	}
-
-	//BodyConstraint:
-	//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
-	//	body2=BodyReference relTrans2=RelativeTransformation;
-	public BodyConstraintElements getBodyConstraintAccess() {
-		return pBodyConstraint;
-	}
-	
-	public ParserRule getBodyConstraintRule() {
-		return getBodyConstraintAccess().getRule();
 	}
 
 	//enum ConstraintType:

@@ -31,7 +31,8 @@ System:
 SystemElement:
 	Body |
 	Connective |
-	BodyRepetition
+	BodyRepetition |
+	JointConstraint
 ;
 
 Connective:
@@ -56,7 +57,7 @@ BodyReference:
 
 BodyRepetition:
 	"repeat" number=INT "of" body=[Body] "{"
-		connectionExp += Connective+ 
+		connectionExp += (Connective | JointConstraint)+ 
 	"}"
 ;
 
@@ -153,11 +154,6 @@ BasicReorientExpression:
 ;
 
 Constraint:
-	  BodyConstraint
-	| JointConstraint
-;
-
-BodyConstraint:
 	'constraint' name=ID ':' type = ConstraintType
 		'between' body1 = BodyReference relTrans1 = RelativeTransformation
 		'and' body2 = BodyReference relTrans2 = RelativeTransformation

@@ -78,7 +78,7 @@ public interface BodyRepetition extends SystemElement
 
   /**
    * Returns the value of the '<em><b>Connection Exp</b></em>' containment reference list.
-   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.Connective}.
+   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.SystemElement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Connection Exp</em>' containment reference list isn't clear,
@@ -90,6 +90,6 @@ public interface BodyRepetition extends SystemElement
    * @model containment="true"
    * @generated
    */
-  EList<Connective> getConnectionExp();
+  EList<SystemElement> getConnectionExp();
 
 } // BodyRepetition

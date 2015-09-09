@@ -38,6 +38,7 @@
     <genClasses ecoreClass="RigidBodies.ecore#//SystemElement"/>
     <genClasses ecoreClass="RigidBodies.ecore#//Connective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Connective/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Connective/body1"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//Body">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Body/name"/>
@@ -62,7 +63,6 @@
     <genClasses ecoreClass="RigidBodies.ecore#//Joint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Joint/isStart"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/body1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/relTrans1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Joint/body2"/>
     </genClasses>
@@ -108,21 +108,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//BasicReorientExpression/axis"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BasicReorientExpression/value"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//Constraint"/>
-    <genClasses ecoreClass="RigidBodies.ecore#//BodyConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//BodyConstraint/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BodyConstraint/body1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BodyConstraint/relTrans1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BodyConstraint/body2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BodyConstraint/relTrans2"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Constraint/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Constraint/relTrans1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Constraint/body2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Constraint/relTrans2"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//JointConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//JointConstraint/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//JointConstraint/joint1"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//JointConstraint/joint2"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//ExternalLoad">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//ExternalLoad/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/body1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ExternalLoad/position"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//Matrix"/>

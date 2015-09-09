@@ -356,6 +356,16 @@ ruleSystemElement returns [EObject current=null]
         $current = $this_BodyRepetition_2.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getSystemElementAccess().getJointConstraintParserRuleCall_3()); 
+    }
+    this_JointConstraint_3=ruleJointConstraint
+    { 
+        $current = $this_JointConstraint_3.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -636,20 +646,38 @@ ruleBodyRepetition returns [EObject current=null]
     }
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getBodyRepetitionAccess().getConnectionExpConnectiveParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getBodyRepetitionAccess().getConnectionExpConnectiveParserRuleCall_5_0_0()); 
 	    }
-		lv_connectionExp_5_0=ruleConnective		{
+		lv_connectionExp_5_1=ruleConnective		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBodyRepetitionRule());
 	        }
        		add(
        			$current, 
        			"connectionExp",
-        		lv_connectionExp_5_0, 
+        		lv_connectionExp_5_1, 
         		"Connective");
 	        afterParserOrEnumRuleCall();
 	    }
+
+    |		{ 
+	        newCompositeNode(grammarAccess.getBodyRepetitionAccess().getConnectionExpJointConstraintParserRuleCall_5_0_1()); 
+	    }
+		lv_connectionExp_5_2=ruleJointConstraint		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBodyRepetitionRule());
+	        }
+       		add(
+       			$current, 
+       			"connectionExp",
+        		lv_connectionExp_5_2, 
+        		"JointConstraint");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 
 )
 )+	otherlv_6='}' 
@@ -1866,59 +1894,19 @@ ruleConstraint returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
-    { 
-        newCompositeNode(grammarAccess.getConstraintAccess().getBodyConstraintParserRuleCall_0()); 
-    }
-    this_BodyConstraint_0=ruleBodyConstraint
-    { 
-        $current = $this_BodyConstraint_0.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getConstraintAccess().getJointConstraintParserRuleCall_1()); 
-    }
-    this_JointConstraint_1=ruleJointConstraint
-    { 
-        $current = $this_JointConstraint_1.current; 
-        afterParserOrEnumRuleCall();
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleBodyConstraint
-entryRuleBodyConstraint returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getBodyConstraintRule()); }
-	 iv_ruleBodyConstraint=ruleBodyConstraint 
-	 { $current=$iv_ruleBodyConstraint.current; } 
-	 EOF 
-;
-
-// Rule BodyConstraint
-ruleBodyConstraint returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
 (	otherlv_0='constraint' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getBodyConstraintAccess().getConstraintKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConstraintKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getBodyConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getBodyConstraintRule());
+	            $current = createModelElement(grammarAccess.getConstraintRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1930,16 +1918,16 @@ ruleBodyConstraint returns [EObject current=null]
 )
 )	otherlv_2=':' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getBodyConstraintAccess().getColonKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getColonKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBodyConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getConstraintAccess().getTypeConstraintTypeEnumRuleCall_3_0()); 
 	    }
 		lv_type_3_0=ruleConstraintType		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBodyConstraintRule());
+	            $current = createModelElementForParent(grammarAccess.getConstraintRule());
 	        }
        		set(
        			$current, 
@@ -1952,16 +1940,16 @@ ruleBodyConstraint returns [EObject current=null]
 )
 )	otherlv_4='between' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getBodyConstraintAccess().getBetweenKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getBetweenKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBodyConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getConstraintAccess().getBody1BodyReferenceParserRuleCall_5_0()); 
 	    }
 		lv_body1_5_0=ruleBodyReference		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBodyConstraintRule());
+	            $current = createModelElementForParent(grammarAccess.getConstraintRule());
 	        }
        		set(
        			$current, 
@@ -1975,11 +1963,11 @@ ruleBodyConstraint returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBodyConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getConstraintAccess().getRelTrans1RelativeTransformationParserRuleCall_6_0()); 
 	    }
 		lv_relTrans1_6_0=ruleRelativeTransformation		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBodyConstraintRule());
+	            $current = createModelElementForParent(grammarAccess.getConstraintRule());
 	        }
        		set(
        			$current, 
@@ -1992,16 +1980,16 @@ ruleBodyConstraint returns [EObject current=null]
 )
 )	otherlv_7='and' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getBodyConstraintAccess().getAndKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getConstraintAccess().getAndKeyword_7());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBodyConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getConstraintAccess().getBody2BodyReferenceParserRuleCall_8_0()); 
 	    }
 		lv_body2_8_0=ruleBodyReference		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBodyConstraintRule());
+	            $current = createModelElementForParent(grammarAccess.getConstraintRule());
 	        }
        		set(
        			$current, 
@@ -2015,11 +2003,11 @@ ruleBodyConstraint returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBodyConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getConstraintAccess().getRelTrans2RelativeTransformationParserRuleCall_9_0()); 
 	    }
 		lv_relTrans2_9_0=ruleRelativeTransformation		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBodyConstraintRule());
+	            $current = createModelElementForParent(grammarAccess.getConstraintRule());
 	        }
        		set(
        			$current, 

@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
-import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public class BodyRepetitionImpl extends SystemElementImpl implements BodyRepetit
    * @generated
    * @ordered
    */
-  protected EList<Connective> connectionExp;
+  protected EList<SystemElement> connectionExp;
 
   /**
    * <!-- begin-user-doc -->
@@ -171,11 +171,11 @@ public class BodyRepetitionImpl extends SystemElementImpl implements BodyRepetit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Connective> getConnectionExp()
+  public EList<SystemElement> getConnectionExp()
   {
     if (connectionExp == null)
     {
-      connectionExp = new EObjectContainmentEList<Connective>(Connective.class, this, RigidBodiesPackage.BODY_REPETITION__CONNECTION_EXP);
+      connectionExp = new EObjectContainmentEList<SystemElement>(SystemElement.class, this, RigidBodiesPackage.BODY_REPETITION__CONNECTION_EXP);
     }
     return connectionExp;
   }
@@ -236,7 +236,7 @@ public class BodyRepetitionImpl extends SystemElementImpl implements BodyRepetit
         return;
       case RigidBodiesPackage.BODY_REPETITION__CONNECTION_EXP:
         getConnectionExp().clear();
-        getConnectionExp().addAll((Collection<? extends Connective>)newValue);
+        getConnectionExp().addAll((Collection<? extends SystemElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
