@@ -31,49 +31,45 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 					RigidBodiesPackage.Literals.JOINT__IS_START, ValidationMessageAcceptor.INSIGNIFICANT_INDEX,
 					TOO_MANY_START_JOINTS)
 				]
-			}
 		}
-
-		// TODO Check for multiple base references without an explicit start hint
-		
-		
-		public static val NEW_OUTSIDE_REPEAT = "newOutsideRepeat"
-		public static val LAST_OUTSIDE_REPEAT = "lastOutsideRepeat"
-
-		@Check
-		def checkUseOfNewAndLast(BodyReference br) {
-			if (br.^new || (br.last && (br.ref == null))) {
-				// Reference to the new body (or the generic last body) is only allowed in a repeat expression
-				var EObject container = br
-				while (!(container instanceof Model) && !(container instanceof BodyRepetition)) {
-					container = container.eContainer
-				}
-				if (container instanceof Model) {
-					// We didn't find a containing repeat expression
-					if (br.^new) {
-						error('new is only a valid body reference within a repeat expression.', br,
-							RigidBodiesPackage.Literals.BODY_REFERENCE__NEW,
-							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NEW_OUTSIDE_REPEAT)
-					} else {
-						error('last must provide a body reference outside a repeat expression.', br,
-							RigidBodiesPackage.Literals.BODY_REFERENCE__LAST,
-							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, LAST_OUTSIDE_REPEAT)
-
-					}
-				}
-			}
-		}
-		
-		public static val NO_NEW_IN_REPEAT = "noNewInRepeat"
-		
-		@Check
-		def repeatBodyMustContainJointDefinition (BodyRepetition br) {
-			if (! br.connectionExp.filter(Joint).exists[j | j.body1.^new || j.body2.^new]) {
-				error('Repeat expression must contain at least one joint referencing the new body.', br,
-						RigidBodiesPackage.Literals.BODY_REPETITION__CONNECTION_EXP,
-						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NO_NEW_IN_REPEAT)
-			}
-		}
-		
-		// TODO: Check body reference in repetition is not a new or last reference
 	}
+	
+	// TODO Check for multiple base references without an explicit start hint
+	public static val NEW_OUTSIDE_REPEAT = "newOutsideRepeat"
+	public static val LAST_OUTSIDE_REPEAT = "lastOutsideRepeat"
+
+	@Check
+	def checkUseOfNewAndLast(BodyReference br) {
+		if (br.^new || (br.last && (br.ref == null))) {
+			// Reference to the new body (or the generic last body) is only allowed in a repeat expression
+			var EObject container = br
+			while (!(container instanceof Model) && !(container instanceof BodyRepetition)) {
+				container = container.eContainer
+			}
+			if (container instanceof Model) {
+				// We didn't find a containing repeat expression
+				if (br.^new) {
+					error('new is only a valid body reference within a repeat expression.', br,
+						RigidBodiesPackage.Literals.BODY_REFERENCE__NEW,
+						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NEW_OUTSIDE_REPEAT)
+				} else {
+					error('last must provide a body reference outside a repeat expression.', br,
+						RigidBodiesPackage.Literals.BODY_REFERENCE__LAST,
+						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, LAST_OUTSIDE_REPEAT)
+
+				}
+			}
+		}
+	}
+
+	public static val NO_NEW_IN_REPEAT = "noNewInRepeat"
+
+	@Check
+	def repeatBodyMustContainJointDefinition(BodyRepetition br) {
+		if (! br.connectionExp.filter(Joint).exists[j|j.body1.^new || j.body2.^new]) {
+			error('Repeat expression must contain at least one joint referencing the new body.', br,
+				RigidBodiesPackage.Literals.BODY_REPETITION__CONNECTION_EXP,
+				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NO_NEW_IN_REPEAT)
+		}
+	}
+}
