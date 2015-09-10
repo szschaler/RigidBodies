@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: uk.ac.kcl.inf.robotics.rigid_bodies
-Bundle-Vendor: My Company
+Bundle-Vendor: King's College London, Department of Informatics
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: uk.ac.kcl.inf.robotics.rigid_bodies; singleton:=true
 Bundle-ActivationPolicy: lazy
