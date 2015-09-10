@@ -6,12 +6,17 @@ package uk.ac.kcl.inf.robotics.validation
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.ValidationMessageAcceptor
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition
+import uk.ac.kcl.inf.robotics.rigidBodies.Environment
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint
+import uk.ac.kcl.inf.robotics.rigidBodies.Mass
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.Model
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 import uk.ac.kcl.inf.robotics.rigidBodies.System
-import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
 
 /**
  * This class contains custom validation rules. 
@@ -71,5 +76,52 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 				RigidBodiesPackage.Literals.BODY_REPETITION__CONNECTION_EXP,
 				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, NO_NEW_IN_REPEAT)
 		}
+	}
+
+	public static val GRAVITY_NO_3D = "gravityNo3D"
+
+	@Check
+	def gravityMustBe3D(Environment e) {
+		if (e.gravity.length != 3) {
+			error('Gravity must be a 3D vector.', e,
+				RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY,
+				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, GRAVITY_NO_3D)
+		}
+	}
+	
+	public static val MASS_POS_NO_3D = "massPosNo3D"
+	public static val MASS_INERTIA_NO_9D = "massInertiaNo9D"
+
+	@Check
+	def massVectorSizes(Mass m) {
+		if (m.position.length != 3) {
+			error('Mass position must be a 3D vector.', m,
+				RigidBodiesPackage.Literals.MASS__POSITION,
+				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, MASS_POS_NO_3D)
+		}
+		if (m.inertia.length != 9) {
+			error('Mass inertia must be a 3 by 3 matrix.', m,
+				RigidBodiesPackage.Literals.MASS__INERTIA,
+				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, MASS_INERTIA_NO_9D)
+		}
+	}
+
+	public static val RELTRANS_POS_NO_3D = "relTransPosNo3D"
+
+	@Check
+	def relTransPosMustBe3D(RelativeTransformation rt) {
+		if (rt.position.length != 3) {
+			error('Relative transformation position must be a 3D vector.', rt,
+				RigidBodiesPackage.Literals.RELATIVE_TRANSFORMATION__POSITION,
+				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RELTRANS_POS_NO_3D)
+		}
+	}
+	
+	def dispatch int getLength (BaseMatrix matrix) {
+		matrix.values.length
+	}
+	
+	def dispatch int getLength (MatrixRef mr) {
+		mr.matrix.length
 	}
 }

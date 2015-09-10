@@ -5,18 +5,27 @@ package uk.ac.kcl.inf.robotics.validation;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import java.util.Arrays;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
+import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 import uk.ac.kcl.inf.robotics.validation.AbstractRigidBodiesValidator;
@@ -127,6 +136,79 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
       this.error("Repeat expression must contain at least one joint referencing the new body.", br, 
         RigidBodiesPackage.Literals.BODY_REPETITION__CONNECTION_EXP, 
         ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.NO_NEW_IN_REPEAT);
+    }
+  }
+  
+  public final static String GRAVITY_NO_3D = "gravityNo3D";
+  
+  @Check
+  public void gravityMustBe3D(final Environment e) {
+    Matrix _gravity = e.getGravity();
+    int _length = this.getLength(_gravity);
+    boolean _notEquals = (_length != 3);
+    if (_notEquals) {
+      this.error("Gravity must be a 3D vector.", e, 
+        RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.GRAVITY_NO_3D);
+    }
+  }
+  
+  public final static String MASS_POS_NO_3D = "massPosNo3D";
+  
+  public final static String MASS_INERTIA_NO_9D = "massInertiaNo9D";
+  
+  @Check
+  public void massVectorSizes(final Mass m) {
+    Matrix _position = m.getPosition();
+    int _length = this.getLength(_position);
+    boolean _notEquals = (_length != 3);
+    if (_notEquals) {
+      this.error("Mass position must be a 3D vector.", m, 
+        RigidBodiesPackage.Literals.MASS__POSITION, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.MASS_POS_NO_3D);
+    }
+    Matrix _inertia = m.getInertia();
+    int _length_1 = this.getLength(_inertia);
+    boolean _notEquals_1 = (_length_1 != 9);
+    if (_notEquals_1) {
+      this.error("Mass inertia must be a 3 by 3 matrix.", m, 
+        RigidBodiesPackage.Literals.MASS__INERTIA, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.MASS_INERTIA_NO_9D);
+    }
+  }
+  
+  public final static String RELTRANS_POS_NO_3D = "relTransPosNo3D";
+  
+  @Check
+  public void relTransPosMustBe3D(final RelativeTransformation rt) {
+    Matrix _position = rt.getPosition();
+    int _length = this.getLength(_position);
+    boolean _notEquals = (_length != 3);
+    if (_notEquals) {
+      this.error("Relative transformation position must be a 3D vector.", rt, 
+        RigidBodiesPackage.Literals.RELATIVE_TRANSFORMATION__POSITION, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.RELTRANS_POS_NO_3D);
+    }
+  }
+  
+  protected int _getLength(final BaseMatrix matrix) {
+    EList<Expression> _values = matrix.getValues();
+    return ((Object[])Conversions.unwrapArray(_values, Object.class)).length;
+  }
+  
+  protected int _getLength(final MatrixRef mr) {
+    BaseMatrix _matrix = mr.getMatrix();
+    return this.getLength(_matrix);
+  }
+  
+  public int getLength(final Matrix matrix) {
+    if (matrix instanceof BaseMatrix) {
+      return _getLength((BaseMatrix)matrix);
+    } else if (matrix instanceof MatrixRef) {
+      return _getLength((MatrixRef)matrix);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(matrix).toString());
     }
   }
 }

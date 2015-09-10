@@ -18,7 +18,7 @@ InitialDefinition:
 	
 Environment:
 	'world' '{'
-		'gravity' gravity=Matrix // TODO Check it's actually a three-element vector 
+		'gravity' gravity=Matrix
 	'}'
 ;
 
@@ -64,8 +64,8 @@ BodyRepetition:
 Mass:
 	'mass' '{' 
 		'value' value = AddExp
-		'position' position = Matrix // TODO Check it's actually a three-element vector
-		'inertia' inertia = Matrix // TODO Check it's actually a three-by-four matrix
+		'position' position = Matrix
+		'inertia' inertia = Matrix
 	'}'
 ;
 
@@ -133,7 +133,7 @@ enum AXIS:
 ;
 
 RelativeTransformation:
-	'(' 'with' 'relative' 'transformation' position=Matrix /* TODO This is a 3D vector */ ',' reorient=Reorientation ')'
+	'(' 'with' 'relative' 'transformation' position=Matrix ',' reorient=Reorientation ')'
 ;
 
 Reorientation:
