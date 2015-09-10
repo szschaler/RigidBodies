@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <bundle id="uk.ac.kcl.inf.robotics.rigid_bodies" version="1.0.0.qualifier">
+      <category name="uk.ac.kcl.inf.robotics"/>
+   </bundle>
+   <bundle id="uk.ac.kcl.inf.robotics.rigid_bodies.ui" version="1.0.0.qualifier">
+      <category name="uk.ac.kcl.inf.robotics"/>
+   </bundle>
+   <category-def name="uk.ac.kcl.inf.robotics" label="Robotics DSL">
+      <description>
+         Plugins for robotics DSL
+      </description>
+   </category-def>
+</site>

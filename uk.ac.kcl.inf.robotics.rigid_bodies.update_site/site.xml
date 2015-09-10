@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/uk.ac.kcl.inf.robotics.rigid_bodies.sdk_1.0.0.201509101122.jar" id="uk.ac.kcl.inf.robotics.rigid_bodies.sdk" version="1.0.0.201509101122">
+      <category name="uk.ac.kcl.inf.robotics"/>
+   </feature>
+   <category-def name="uk.ac.kcl.inf.robotics" label="Robotics DSL"/>
+</site>
