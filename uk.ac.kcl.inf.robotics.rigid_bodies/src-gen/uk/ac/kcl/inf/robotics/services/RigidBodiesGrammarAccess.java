@@ -89,12 +89,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Environment:
-		//	"world" "{" "gravity" gravity= // TODO Check it's actually a three-element vector 
-		//	Matrix "}";
+		//	"world" "{" "gravity" gravity=Matrix "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"world" "{" "gravity" gravity= // TODO Check it's actually a three-element vector 
-		//Matrix "}"
+		//"world" "{" "gravity" gravity=Matrix "}"
 		public Group getGroup() { return cGroup; }
 
 		//"world"
@@ -106,11 +104,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"gravity"
 		public Keyword getGravityKeyword_2() { return cGravityKeyword_2; }
 
-		//gravity= // TODO Check it's actually a three-element vector 
-		//Matrix
+		//gravity=Matrix
 		public Assignment getGravityAssignment_3() { return cGravityAssignment_3; }
 
-		//// TODO Check it's actually a three-element vector 
 		//Matrix
 		public RuleCall getGravityMatrixParserRuleCall_3_0() { return cGravityMatrixParserRuleCall_3_0; }
 
@@ -266,15 +262,21 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRefAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cRefBodyCrossReference_2_1_0 = (CrossReference)cRefAssignment_2_1.eContents().get(0);
 		private final RuleCall cRefBodyIDTerminalRuleCall_2_1_0_1 = (RuleCall)cRefBodyCrossReference_2_1_0.eContents().get(1);
-		private final Assignment cRefAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final CrossReference cRefBodyCrossReference_3_0 = (CrossReference)cRefAssignment_3.eContents().get(0);
-		private final RuleCall cRefBodyIDTerminalRuleCall_3_0_1 = (RuleCall)cRefBodyCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Assignment cRefAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final CrossReference cRefBodyCrossReference_3_0_0 = (CrossReference)cRefAssignment_3_0.eContents().get(0);
+		private final RuleCall cRefBodyIDTerminalRuleCall_3_0_0_1 = (RuleCall)cRefBodyCrossReference_3_0_0.eContents().get(1);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cIdxAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cIdxINTTerminalRuleCall_3_1_1_0 = (RuleCall)cIdxAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
 		
 		//BodyReference:
-		//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body];
+		//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body] ("[" idx=INT "]")?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body]
+		//base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body] ("[" idx=INT "]")?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//base?="base"
@@ -307,14 +309,32 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRefBodyIDTerminalRuleCall_2_1_0_1() { return cRefBodyIDTerminalRuleCall_2_1_0_1; }
 
+		//ref=[Body] ("[" idx=INT "]")?
+		public Group getGroup_3() { return cGroup_3; }
+
 		//ref=[Body]
-		public Assignment getRefAssignment_3() { return cRefAssignment_3; }
+		public Assignment getRefAssignment_3_0() { return cRefAssignment_3_0; }
 
 		//[Body]
-		public CrossReference getRefBodyCrossReference_3_0() { return cRefBodyCrossReference_3_0; }
+		public CrossReference getRefBodyCrossReference_3_0_0() { return cRefBodyCrossReference_3_0_0; }
 
 		//ID
-		public RuleCall getRefBodyIDTerminalRuleCall_3_0_1() { return cRefBodyIDTerminalRuleCall_3_0_1; }
+		public RuleCall getRefBodyIDTerminalRuleCall_3_0_0_1() { return cRefBodyIDTerminalRuleCall_3_0_0_1; }
+
+		//("[" idx=INT "]")?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_3_1_0() { return cLeftSquareBracketKeyword_3_1_0; }
+
+		//idx=INT
+		public Assignment getIdxAssignment_3_1_1() { return cIdxAssignment_3_1_1; }
+
+		//INT
+		public RuleCall getIdxINTTerminalRuleCall_3_1_1_0() { return cIdxINTTerminalRuleCall_3_1_1_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_3_1_2() { return cRightSquareBracketKeyword_3_1_2; }
 	}
 
 	public class BodyRepetitionElements extends AbstractParserRuleElementFinder {
@@ -398,14 +418,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Mass:
-		//	"mass" "{" "value" value=AddExp "position" position= // TODO Check it's actually a three-element vector
-		//	Matrix "inertia" inertia= // TODO Check it's actually a three-by-four matrix
-		//	Matrix "}";
+		//	"mass" "{" "value" value=AddExp "position" position=Matrix "inertia" inertia=Matrix "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"mass" "{" "value" value=AddExp "position" position= // TODO Check it's actually a three-element vector
-		//Matrix "inertia" inertia= // TODO Check it's actually a three-by-four matrix
-		//Matrix "}"
+		//"mass" "{" "value" value=AddExp "position" position=Matrix "inertia" inertia=Matrix "}"
 		public Group getGroup() { return cGroup; }
 
 		//"mass"
@@ -426,22 +442,18 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"position"
 		public Keyword getPositionKeyword_4() { return cPositionKeyword_4; }
 
-		//position= // TODO Check it's actually a three-element vector
-		//Matrix
+		//position=Matrix
 		public Assignment getPositionAssignment_5() { return cPositionAssignment_5; }
 
-		//// TODO Check it's actually a three-element vector
 		//Matrix
 		public RuleCall getPositionMatrixParserRuleCall_5_0() { return cPositionMatrixParserRuleCall_5_0; }
 
 		//"inertia"
 		public Keyword getInertiaKeyword_6() { return cInertiaKeyword_6; }
 
-		//inertia= // TODO Check it's actually a three-by-four matrix
-		//Matrix
+		//inertia=Matrix
 		public Assignment getInertiaAssignment_7() { return cInertiaAssignment_7; }
 
-		//// TODO Check it's actually a three-by-four matrix
 		//Matrix
 		public RuleCall getInertiaMatrixParserRuleCall_7_0() { return cInertiaMatrixParserRuleCall_7_0; }
 
@@ -887,10 +899,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//RelativeTransformation:
-		//	"(" "with" "relative" "transformation" position=Matrix / * TODO This is a 3D vector * / "," reorient=Reorientation ")";
+		//	"(" "with" "relative" "transformation" position=Matrix "," reorient=Reorientation ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" "with" "relative" "transformation" position=Matrix / * TODO This is a 3D vector * / "," reorient=Reorientation ")"
+		//"(" "with" "relative" "transformation" position=Matrix "," reorient=Reorientation ")"
 		public Group getGroup() { return cGroup; }
 
 		//"("
@@ -911,7 +923,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Matrix
 		public RuleCall getPositionMatrixParserRuleCall_4_0() { return cPositionMatrixParserRuleCall_4_0; }
 
-		/// * TODO This is a 3D vector * / ","
+		//","
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
 
 		//reorient=Reorientation
@@ -1885,8 +1897,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Environment:
-	//	"world" "{" "gravity" gravity= // TODO Check it's actually a three-element vector 
-	//	Matrix "}";
+	//	"world" "{" "gravity" gravity=Matrix "}";
 	public EnvironmentElements getEnvironmentAccess() {
 		return pEnvironment;
 	}
@@ -1937,7 +1948,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BodyReference:
-	//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body];
+	//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body] ("[" idx=INT "]")?;
 	public BodyReferenceElements getBodyReferenceAccess() {
 		return pBodyReference;
 	}
@@ -1957,9 +1968,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Mass:
-	//	"mass" "{" "value" value=AddExp "position" position= // TODO Check it's actually a three-element vector
-	//	Matrix "inertia" inertia= // TODO Check it's actually a three-by-four matrix
-	//	Matrix "}";
+	//	"mass" "{" "value" value=AddExp "position" position=Matrix "inertia" inertia=Matrix "}";
 	public MassElements getMassAccess() {
 		return pMass;
 	}
@@ -2102,7 +2111,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelativeTransformation:
-	//	"(" "with" "relative" "transformation" position=Matrix / * TODO This is a 3D vector * / "," reorient=Reorientation ")";
+	//	"(" "with" "relative" "transformation" position=Matrix "," reorient=Reorientation ")";
 	public RelativeTransformationElements getRelativeTransformationAccess() {
 		return pRelativeTransformation;
 	}

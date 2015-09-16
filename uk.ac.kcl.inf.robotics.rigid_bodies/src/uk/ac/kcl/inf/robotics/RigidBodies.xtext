@@ -52,7 +52,7 @@ BodyReference:
 	  base?='base' 
 	| new?='new'
 	| last?='last' (ref=[Body])?
-	| ref=[Body]
+	| ref=[Body] ('[' idx=INT ']')?
 ;
 
 BodyRepetition:

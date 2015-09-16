@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isNew <em>New</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#isLast <em>Last</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getRef <em>Ref</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getIdx <em>Idx</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBodyReference()
@@ -128,5 +129,31 @@ public interface BodyReference extends EObject
    * @generated
    */
   void setRef(Body value);
+
+  /**
+   * Returns the value of the '<em><b>Idx</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Idx</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Idx</em>' attribute.
+   * @see #setIdx(int)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getBodyReference_Idx()
+   * @model
+   * @generated
+   */
+  int getIdx();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getIdx <em>Idx</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Idx</em>' attribute.
+   * @see #getIdx()
+   * @generated
+   */
+  void setIdx(int value);
 
 } // BodyReference

@@ -26,6 +26,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl#isNew <em>New</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl#isLast <em>Last</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyReferenceImpl#getIdx <em>Idx</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +102,26 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
    * @ordered
    */
   protected Body ref;
+
+  /**
+   * The default value of the '{@link #getIdx() <em>Idx</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdx()
+   * @generated
+   * @ordered
+   */
+  protected static final int IDX_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getIdx() <em>Idx</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdx()
+   * @generated
+   * @ordered
+   */
+  protected int idx = IDX_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -240,6 +261,29 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getIdx()
+  {
+    return idx;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdx(int newIdx)
+  {
+    int oldIdx = idx;
+    idx = newIdx;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.BODY_REFERENCE__IDX, oldIdx, idx));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -254,6 +298,8 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
       case RigidBodiesPackage.BODY_REFERENCE__REF:
         if (resolve) return getRef();
         return basicGetRef();
+      case RigidBodiesPackage.BODY_REFERENCE__IDX:
+        return getIdx();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -279,6 +325,9 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
         return;
       case RigidBodiesPackage.BODY_REFERENCE__REF:
         setRef((Body)newValue);
+        return;
+      case RigidBodiesPackage.BODY_REFERENCE__IDX:
+        setIdx((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -306,6 +355,9 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
       case RigidBodiesPackage.BODY_REFERENCE__REF:
         setRef((Body)null);
         return;
+      case RigidBodiesPackage.BODY_REFERENCE__IDX:
+        setIdx(IDX_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -328,6 +380,8 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
         return last != LAST_EDEFAULT;
       case RigidBodiesPackage.BODY_REFERENCE__REF:
         return ref != null;
+      case RigidBodiesPackage.BODY_REFERENCE__IDX:
+        return idx != IDX_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -349,6 +403,8 @@ public class BodyReferenceImpl extends MinimalEObjectImpl.Container implements B
     result.append(new_);
     result.append(", last: ");
     result.append(last);
+    result.append(", idx: ");
+    result.append(idx);
     result.append(')');
     return result.toString();
   }

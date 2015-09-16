@@ -58,6 +58,8 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemAccess().getGroup(), "rule__System__Group__0");
 					put(grammarAccess.getBodyAccess().getGroup(), "rule__Body__Group__0");
 					put(grammarAccess.getBodyReferenceAccess().getGroup_2(), "rule__BodyReference__Group_2__0");
+					put(grammarAccess.getBodyReferenceAccess().getGroup_3(), "rule__BodyReference__Group_3__0");
+					put(grammarAccess.getBodyReferenceAccess().getGroup_3_1(), "rule__BodyReference__Group_3_1__0");
 					put(grammarAccess.getBodyRepetitionAccess().getGroup(), "rule__BodyRepetition__Group__0");
 					put(grammarAccess.getMassAccess().getGroup(), "rule__Mass__Group__0");
 					put(grammarAccess.getJointAccess().getGroup(), "rule__Joint__Group__0");
@@ -103,7 +105,8 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBodyReferenceAccess().getNewAssignment_1(), "rule__BodyReference__NewAssignment_1");
 					put(grammarAccess.getBodyReferenceAccess().getLastAssignment_2_0(), "rule__BodyReference__LastAssignment_2_0");
 					put(grammarAccess.getBodyReferenceAccess().getRefAssignment_2_1(), "rule__BodyReference__RefAssignment_2_1");
-					put(grammarAccess.getBodyReferenceAccess().getRefAssignment_3(), "rule__BodyReference__RefAssignment_3");
+					put(grammarAccess.getBodyReferenceAccess().getRefAssignment_3_0(), "rule__BodyReference__RefAssignment_3_0");
+					put(grammarAccess.getBodyReferenceAccess().getIdxAssignment_3_1_1(), "rule__BodyReference__IdxAssignment_3_1_1");
 					put(grammarAccess.getBodyRepetitionAccess().getNumberAssignment_1(), "rule__BodyRepetition__NumberAssignment_1");
 					put(grammarAccess.getBodyRepetitionAccess().getBodyAssignment_3(), "rule__BodyRepetition__BodyAssignment_3");
 					put(grammarAccess.getBodyRepetitionAccess().getConnectionExpAssignment_5(), "rule__BodyRepetition__ConnectionExpAssignment_5");

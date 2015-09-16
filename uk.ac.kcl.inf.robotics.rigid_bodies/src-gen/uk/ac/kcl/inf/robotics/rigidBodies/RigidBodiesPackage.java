@@ -336,13 +336,22 @@ public interface RigidBodiesPackage extends EPackage
   int BODY_REFERENCE__REF = 3;
 
   /**
+   * The feature id for the '<em><b>Idx</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_REFERENCE__IDX = 4;
+
+  /**
    * The number of structural features of the '<em>Body Reference</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BODY_REFERENCE_FEATURE_COUNT = 4;
+  int BODY_REFERENCE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyRepetitionImpl <em>Body Repetition</em>}' class.
@@ -1768,6 +1777,17 @@ public interface RigidBodiesPackage extends EPackage
   EReference getBodyReference_Ref();
 
   /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getIdx <em>Idx</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Idx</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BodyReference#getIdx()
+   * @see #getBodyReference()
+   * @generated
+   */
+  EAttribute getBodyReference_Idx();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition <em>Body Repetition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2890,6 +2910,14 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EReference BODY_REFERENCE__REF = eINSTANCE.getBodyReference_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Idx</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BODY_REFERENCE__IDX = eINSTANCE.getBodyReference_Idx();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.BodyRepetitionImpl <em>Body Repetition</em>}' class.

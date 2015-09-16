@@ -217,7 +217,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (base?='base' | new?='new' | (last?='last' ref=[Body|ID]?) | ref=[Body|ID])
+	 *     (base?='base' | new?='new' | (last?='last' ref=[Body|ID]?) | (ref=[Body|ID] idx=INT?))
 	 */
 	protected void sequence_BodyReference(EObject context, BodyReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

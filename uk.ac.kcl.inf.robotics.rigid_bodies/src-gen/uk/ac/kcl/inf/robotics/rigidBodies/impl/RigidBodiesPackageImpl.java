@@ -653,6 +653,16 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getBodyReference_Idx()
+  {
+    return (EAttribute)bodyReferenceEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBodyRepetition()
   {
     return bodyRepetitionEClass;
@@ -1558,6 +1568,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEAttribute(bodyReferenceEClass, BODY_REFERENCE__NEW);
     createEAttribute(bodyReferenceEClass, BODY_REFERENCE__LAST);
     createEReference(bodyReferenceEClass, BODY_REFERENCE__REF);
+    createEAttribute(bodyReferenceEClass, BODY_REFERENCE__IDX);
 
     bodyRepetitionEClass = createEClass(BODY_REPETITION);
     createEAttribute(bodyRepetitionEClass, BODY_REPETITION__NUMBER);
@@ -1765,6 +1776,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEAttribute(getBodyReference_New(), ecorePackage.getEBoolean(), "new", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBodyReference_Last(), ecorePackage.getEBoolean(), "last", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBodyReference_Ref(), this.getBody(), null, "ref", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBodyReference_Idx(), ecorePackage.getEInt(), "idx", null, 0, 1, BodyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bodyRepetitionEClass, BodyRepetition.class, "BodyRepetition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBodyRepetition_Number(), ecorePackage.getEInt(), "number", null, 0, 1, BodyRepetition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

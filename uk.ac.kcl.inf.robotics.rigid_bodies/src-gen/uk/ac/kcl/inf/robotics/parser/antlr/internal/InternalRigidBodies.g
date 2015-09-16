@@ -567,7 +567,7 @@ ruleBodyReference returns [EObject current=null]
 
 )
 )?)
-    |(
+    |((
 (
 		{
 			if ($current==null) {
@@ -576,11 +576,37 @@ ruleBodyReference returns [EObject current=null]
         }
 	otherlv_4=RULE_ID
 	{
-		newLeafNode(otherlv_4, grammarAccess.getBodyReferenceAccess().getRefBodyCrossReference_3_0()); 
+		newLeafNode(otherlv_4, grammarAccess.getBodyReferenceAccess().getRefBodyCrossReference_3_0_0()); 
 	}
 
 )
-))
+)(	otherlv_5='[' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getBodyReferenceAccess().getLeftSquareBracketKeyword_3_1_0());
+    }
+(
+(
+		lv_idx_6_0=RULE_INT
+		{
+			newLeafNode(lv_idx_6_0, grammarAccess.getBodyReferenceAccess().getIdxINTTerminalRuleCall_3_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBodyReferenceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"idx",
+        		lv_idx_6_0, 
+        		"INT");
+	    }
+
+)
+)	otherlv_7=']' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getBodyReferenceAccess().getRightSquareBracketKeyword_3_1_2());
+    }
+)?))
 ;
 
 
