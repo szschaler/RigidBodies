@@ -14,9 +14,9 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
 import uk.ac.kcl.inf.robotics.rigidBodies.Model
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 import uk.ac.kcl.inf.robotics.rigidBodies.System
-import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
 
 /**
  * This class contains custom validation rules. 
@@ -38,7 +38,7 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 				]
 		}
 	}
-	
+
 	// TODO Check for multiple base references without an explicit start hint
 	public static val NEW_OUTSIDE_REPEAT = "newOutsideRepeat"
 	public static val LAST_OUTSIDE_REPEAT = "lastOutsideRepeat"
@@ -83,25 +83,22 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 	@Check
 	def gravityMustBe3D(Environment e) {
 		if (e.gravity.length != 3) {
-			error('Gravity must be a 3D vector.', e,
-				RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY,
+			error('Gravity must be a 3D vector.', e, RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY,
 				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, GRAVITY_NO_3D)
 		}
 	}
-	
+
 	public static val MASS_POS_NO_3D = "massPosNo3D"
 	public static val MASS_INERTIA_NO_9D = "massInertiaNo9D"
 
 	@Check
 	def massVectorSizes(Mass m) {
 		if (m.position.length != 3) {
-			error('Mass position must be a 3D vector.', m,
-				RigidBodiesPackage.Literals.MASS__POSITION,
+			error('Mass position must be a 3D vector.', m, RigidBodiesPackage.Literals.MASS__POSITION,
 				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, MASS_POS_NO_3D)
 		}
 		if (m.inertia.length != 9) {
-			error('Mass inertia must be a 3 by 3 matrix.', m,
-				RigidBodiesPackage.Literals.MASS__INERTIA,
+			error('Mass inertia must be a 3 by 3 matrix.', m, RigidBodiesPackage.Literals.MASS__INERTIA,
 				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, MASS_INERTIA_NO_9D)
 		}
 	}
@@ -116,12 +113,62 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 				ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RELTRANS_POS_NO_3D)
 		}
 	}
-	
-	def dispatch int getLength (BaseMatrix matrix) {
+
+	def dispatch int getLength(BaseMatrix matrix) {
 		matrix.values.length
 	}
-	
-	def dispatch int getLength (MatrixRef mr) {
+
+	def dispatch int getLength(MatrixRef mr) {
 		mr.matrix.length
+	}
+
+	public static val BODY_REF_WO_CONTEXT = "bodyRefWoContext"
+	public static val BODY_REF_BAD_REF = "bodyRefBadRef"
+	public static val BODY_REF_NO_REPETITION = "bodyRefNoRepetition"
+	
+	@Check
+	def isValidIndexedBodyReference(BodyReference br) {
+		if (!br.^new && !br.last && !br.base) {
+			if (br.idx > 0) {
+				// TODO: Find containing system and check that this contains a body reference referring to the same body.
+				var EObject container = br.containerForIndexing
+
+				if (container == null) {
+					error('Indexed body reference must be in a repetition or system.', br,
+						RigidBodiesPackage.Literals.BODY_REFERENCE__REF,
+						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, BODY_REF_WO_CONTEXT)
+				} else if (container instanceof BodyRepetition) {
+					if (br.ref == (container as BodyRepetition).body) {
+						error('Cannot put in an indexed reference to body being repeated.', br,
+							RigidBodiesPackage.Literals.BODY_REFERENCE__REF,
+							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, BODY_REF_BAD_REF)
+					}
+					
+					container = container.containerForIndexing
+				}
+				
+				if (container == null) {
+					error('Indexed body reference must be in a repetition or system.', br,
+						RigidBodiesPackage.Literals.BODY_REFERENCE__REF,
+						ValidationMessageAcceptor.INSIGNIFICANT_INDEX, BODY_REF_WO_CONTEXT)
+				} else if (container instanceof System) {
+					// Really, there should be no repetition here any more, so only need to check for System
+					if (!(container as System).elements.filter(BodyRepetition).exists[brep | brep.body == br.ref]) {
+						error('Indexed body reference must reference a repeated body.', br,
+							RigidBodiesPackage.Literals.BODY_REFERENCE__REF,
+							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, BODY_REF_NO_REPETITION)
+					}
+				}
+			}
+		}
+	}
+
+	private def EObject getContainerForIndexing(EObject eo) {
+		var EObject container = eo.eContainer
+		while ((container != null) && !((container instanceof System) || (container instanceof BodyRepetition))) {
+			container = container.eContainer
+		}
+
+		return container
 	}
 }

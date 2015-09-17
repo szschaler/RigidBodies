@@ -147,8 +147,7 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     int _length = this.getLength(_gravity);
     boolean _notEquals = (_length != 3);
     if (_notEquals) {
-      this.error("Gravity must be a 3D vector.", e, 
-        RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY, 
+      this.error("Gravity must be a 3D vector.", e, RigidBodiesPackage.Literals.ENVIRONMENT__GRAVITY, 
         ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.GRAVITY_NO_3D);
     }
   }
@@ -163,16 +162,14 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     int _length = this.getLength(_position);
     boolean _notEquals = (_length != 3);
     if (_notEquals) {
-      this.error("Mass position must be a 3D vector.", m, 
-        RigidBodiesPackage.Literals.MASS__POSITION, 
+      this.error("Mass position must be a 3D vector.", m, RigidBodiesPackage.Literals.MASS__POSITION, 
         ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.MASS_POS_NO_3D);
     }
     Matrix _inertia = m.getInertia();
     int _length_1 = this.getLength(_inertia);
     boolean _notEquals_1 = (_length_1 != 9);
     if (_notEquals_1) {
-      this.error("Mass inertia must be a 3 by 3 matrix.", m, 
-        RigidBodiesPackage.Literals.MASS__INERTIA, 
+      this.error("Mass inertia must be a 3 by 3 matrix.", m, RigidBodiesPackage.Literals.MASS__INERTIA, 
         ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.MASS_INERTIA_NO_9D);
     }
   }
@@ -199,6 +196,95 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
   protected int _getLength(final MatrixRef mr) {
     BaseMatrix _matrix = mr.getMatrix();
     return this.getLength(_matrix);
+  }
+  
+  public final static String BODY_REF_WO_CONTEXT = "bodyRefWoContext";
+  
+  public final static String BODY_REF_BAD_REF = "bodyRefBadRef";
+  
+  public final static String BODY_REF_NO_REPETITION = "bodyRefNoRepetition";
+  
+  @Check
+  public void isValidIndexedBodyReference(final BodyReference br) {
+    boolean _and = false;
+    boolean _and_1 = false;
+    boolean _isNew = br.isNew();
+    boolean _not = (!_isNew);
+    if (!_not) {
+      _and_1 = false;
+    } else {
+      boolean _isLast = br.isLast();
+      boolean _not_1 = (!_isLast);
+      _and_1 = _not_1;
+    }
+    if (!_and_1) {
+      _and = false;
+    } else {
+      boolean _isBase = br.isBase();
+      boolean _not_2 = (!_isBase);
+      _and = _not_2;
+    }
+    if (_and) {
+      int _idx = br.getIdx();
+      boolean _greaterThan = (_idx > 0);
+      if (_greaterThan) {
+        EObject container = this.getContainerForIndexing(br);
+        boolean _equals = Objects.equal(container, null);
+        if (_equals) {
+          this.error("Indexed body reference must be in a repetition or system.", br, 
+            RigidBodiesPackage.Literals.BODY_REFERENCE__REF, 
+            ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.BODY_REF_WO_CONTEXT);
+        } else {
+          if ((container instanceof BodyRepetition)) {
+            Body _ref = br.getRef();
+            Body _body = ((BodyRepetition) container).getBody();
+            boolean _equals_1 = Objects.equal(_ref, _body);
+            if (_equals_1) {
+              this.error("Cannot put in an indexed reference to body being repeated.", br, 
+                RigidBodiesPackage.Literals.BODY_REFERENCE__REF, 
+                ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.BODY_REF_BAD_REF);
+            }
+            EObject _containerForIndexing = this.getContainerForIndexing(container);
+            container = _containerForIndexing;
+          }
+        }
+        boolean _equals_2 = Objects.equal(container, null);
+        if (_equals_2) {
+          this.error("Indexed body reference must be in a repetition or system.", br, 
+            RigidBodiesPackage.Literals.BODY_REFERENCE__REF, 
+            ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.BODY_REF_WO_CONTEXT);
+        } else {
+          if ((container instanceof uk.ac.kcl.inf.robotics.rigidBodies.System)) {
+            EList<SystemElement> _elements = ((uk.ac.kcl.inf.robotics.rigidBodies.System) container).getElements();
+            Iterable<BodyRepetition> _filter = Iterables.<BodyRepetition>filter(_elements, BodyRepetition.class);
+            final Function1<BodyRepetition, Boolean> _function = new Function1<BodyRepetition, Boolean>() {
+              @Override
+              public Boolean apply(final BodyRepetition brep) {
+                Body _body = brep.getBody();
+                Body _ref = br.getRef();
+                return Boolean.valueOf(Objects.equal(_body, _ref));
+              }
+            };
+            boolean _exists = IterableExtensions.<BodyRepetition>exists(_filter, _function);
+            boolean _not_3 = (!_exists);
+            if (_not_3) {
+              this.error("Indexed body reference must reference a repeated body.", br, 
+                RigidBodiesPackage.Literals.BODY_REFERENCE__REF, 
+                ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.BODY_REF_NO_REPETITION);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  private EObject getContainerForIndexing(final EObject eo) {
+    EObject container = eo.eContainer();
+    while (((!Objects.equal(container, null)) && (!((container instanceof uk.ac.kcl.inf.robotics.rigidBodies.System) || (container instanceof BodyRepetition))))) {
+      EObject _eContainer = container.eContainer();
+      container = _eContainer;
+    }
+    return container;
   }
   
   public int getLength(final Matrix matrix) {
