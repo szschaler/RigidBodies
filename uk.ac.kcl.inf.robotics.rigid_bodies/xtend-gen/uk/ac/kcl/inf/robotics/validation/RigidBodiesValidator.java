@@ -13,6 +13,7 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
@@ -204,6 +205,8 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
   
   public final static String BODY_REF_NO_REPETITION = "bodyRefNoRepetition";
   
+  public final static String BODY_REF_TOO_FEW_REPETITIONS = "bodyRefTooFewRepetitions";
+  
   @Check
   public void isValidIndexedBodyReference(final BodyReference br) {
     boolean _and = false;
@@ -271,6 +274,33 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
               this.error("Indexed body reference must reference a repeated body.", br, 
                 RigidBodiesPackage.Literals.BODY_REFERENCE__REF, 
                 ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.BODY_REF_NO_REPETITION);
+            } else {
+              EList<SystemElement> _elements_1 = ((uk.ac.kcl.inf.robotics.rigidBodies.System) container).getElements();
+              Iterable<BodyRepetition> _filter_1 = Iterables.<BodyRepetition>filter(_elements_1, BodyRepetition.class);
+              final Function1<BodyRepetition, Boolean> _function_1 = new Function1<BodyRepetition, Boolean>() {
+                @Override
+                public Boolean apply(final BodyRepetition brep) {
+                  Body _body = brep.getBody();
+                  Body _ref = br.getRef();
+                  return Boolean.valueOf(Objects.equal(_body, _ref));
+                }
+              };
+              Iterable<BodyRepetition> _filter_2 = IterableExtensions.<BodyRepetition>filter(_filter_1, _function_1);
+              final Function2<Integer, BodyRepetition, Integer> _function_2 = new Function2<Integer, BodyRepetition, Integer>() {
+                @Override
+                public Integer apply(final Integer acc, final BodyRepetition brep) {
+                  int _number = brep.getNumber();
+                  return Integer.valueOf(((acc).intValue() + _number));
+                }
+              };
+              Integer _fold = IterableExtensions.<BodyRepetition, Integer>fold(_filter_2, Integer.valueOf(0), _function_2);
+              int _idx_1 = br.getIdx();
+              boolean _lessThan = ((_fold).intValue() < _idx_1);
+              if (_lessThan) {
+                this.error("Indexed body reference cannot use index higher than sum of repetition counts.", br, 
+                  RigidBodiesPackage.Literals.BODY_REFERENCE__REF, 
+                  ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.BODY_REF_TOO_FEW_REPETITIONS);
+              }
             }
           }
         }

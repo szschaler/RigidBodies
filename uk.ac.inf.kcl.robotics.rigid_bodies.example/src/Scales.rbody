@@ -41,5 +41,5 @@ system EightScaleSpring {
 
 	// Add an external load at tip of final scale
 	external load tip : force
-		at last scale (with relative transformation matrix Tip [1.0, 0.0, -1.0])
+		at last scale /*[7]*/ (with relative transformation matrix Tip [1.0, 0.0, -1.0])
 }

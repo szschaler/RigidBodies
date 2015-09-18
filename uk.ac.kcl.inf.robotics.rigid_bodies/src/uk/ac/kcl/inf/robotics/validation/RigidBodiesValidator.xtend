@@ -125,12 +125,12 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 	public static val BODY_REF_WO_CONTEXT = "bodyRefWoContext"
 	public static val BODY_REF_BAD_REF = "bodyRefBadRef"
 	public static val BODY_REF_NO_REPETITION = "bodyRefNoRepetition"
+	public static val BODY_REF_TOO_FEW_REPETITIONS = "bodyRefTooFewRepetitions"
 	
 	@Check
 	def isValidIndexedBodyReference(BodyReference br) {
 		if (!br.^new && !br.last && !br.base) {
 			if (br.idx > 0) {
-				// TODO: Find containing system and check that this contains a body reference referring to the same body.
 				var EObject container = br.containerForIndexing
 
 				if (container == null) {
@@ -157,6 +157,10 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 						error('Indexed body reference must reference a repeated body.', br,
 							RigidBodiesPackage.Literals.BODY_REFERENCE__REF,
 							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, BODY_REF_NO_REPETITION)
+					} else if ((container as System).elements.filter(BodyRepetition).filter[brep | brep.body == br.ref].fold (0, [acc, brep | acc + brep.number]) < br.idx) {
+						error('Indexed body reference cannot use index higher than sum of repetition counts.', br,
+							RigidBodiesPackage.Literals.BODY_REFERENCE__REF,
+							ValidationMessageAcceptor.INSIGNIFICANT_INDEX, BODY_REF_TOO_FEW_REPETITIONS)
 					}
 				}
 			}
