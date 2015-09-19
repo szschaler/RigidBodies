@@ -49,9 +49,12 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.State;
+import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,6 +91,27 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass systemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass systemInstantiationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -463,6 +487,16 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getModel_States()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInitialDefinition()
   {
     return initialDefinitionEClass;
@@ -526,6 +560,86 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
   public EReference getSystem_Elements()
   {
     return (EReference)systemEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStateDef()
+  {
+    return stateDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStateDef_Instances()
+  {
+    return (EReference)stateDefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStateDef_States()
+  {
+    return (EReference)stateDefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSystemInstantiation()
+  {
+    return systemInstantiationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSystemInstantiation_System()
+  {
+    return (EReference)systemInstantiationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSystemInstantiation_Name()
+  {
+    return (EAttribute)systemInstantiationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getState()
+  {
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getState_Name()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1542,6 +1656,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     createEReference(modelEClass, MODEL__DEFS);
     createEReference(modelEClass, MODEL__WORLD);
     createEReference(modelEClass, MODEL__BODIES);
+    createEReference(modelEClass, MODEL__STATES);
 
     initialDefinitionEClass = createEClass(INITIAL_DEFINITION);
     createEAttribute(initialDefinitionEClass, INITIAL_DEFINITION__NAME);
@@ -1552,6 +1667,17 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     systemEClass = createEClass(SYSTEM);
     createEAttribute(systemEClass, SYSTEM__NAME);
     createEReference(systemEClass, SYSTEM__ELEMENTS);
+
+    stateDefEClass = createEClass(STATE_DEF);
+    createEReference(stateDefEClass, STATE_DEF__INSTANCES);
+    createEReference(stateDefEClass, STATE_DEF__STATES);
+
+    systemInstantiationEClass = createEClass(SYSTEM_INSTANTIATION);
+    createEReference(systemInstantiationEClass, SYSTEM_INSTANTIATION__SYSTEM);
+    createEAttribute(systemInstantiationEClass, SYSTEM_INSTANTIATION__NAME);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__NAME);
 
     systemElementEClass = createEClass(SYSTEM_ELEMENT);
 
@@ -1750,6 +1876,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEReference(getModel_Defs(), this.getInitialDefinition(), null, "defs", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_World(), this.getEnvironment(), null, "world", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Bodies(), this.getSystem(), null, "bodies", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_States(), this.getStateDef(), null, "states", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initialDefinitionEClass, InitialDefinition.class, "InitialDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInitialDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, InitialDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1760,6 +1887,17 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEClass(systemEClass, uk.ac.kcl.inf.robotics.rigidBodies.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, uk.ac.kcl.inf.robotics.rigidBodies.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystem_Elements(), this.getSystemElement(), null, "elements", null, 0, -1, uk.ac.kcl.inf.robotics.rigidBodies.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateDefEClass, StateDef.class, "StateDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStateDef_Instances(), this.getSystemInstantiation(), null, "instances", null, 0, -1, StateDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStateDef_States(), this.getState(), null, "states", null, 0, -1, StateDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(systemInstantiationEClass, SystemInstantiation.class, "SystemInstantiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSystemInstantiation_System(), this.getSystem(), null, "system", null, 0, 1, SystemInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSystemInstantiation_Name(), ecorePackage.getEString(), "name", null, 0, 1, SystemInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemElementEClass, SystemElement.class, "SystemElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

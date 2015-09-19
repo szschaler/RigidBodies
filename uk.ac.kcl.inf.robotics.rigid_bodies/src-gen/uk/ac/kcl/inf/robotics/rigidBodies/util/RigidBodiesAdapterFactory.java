@@ -45,9 +45,12 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.State;
+import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,6 +134,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSystem(uk.ac.kcl.inf.robotics.rigidBodies.System object)
       {
         return createSystemAdapter();
+      }
+      @Override
+      public Adapter caseStateDef(StateDef object)
+      {
+        return createStateDefAdapter();
+      }
+      @Override
+      public Adapter caseSystemInstantiation(SystemInstantiation object)
+      {
+        return createSystemInstantiationAdapter();
+      }
+      @Override
+      public Adapter caseState(State object)
+      {
+        return createStateAdapter();
       }
       @Override
       public Adapter caseSystemElement(SystemElement object)
@@ -385,6 +403,51 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSystemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.StateDef <em>State Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.StateDef
+   * @generated
+   */
+  public Adapter createStateDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation <em>System Instantiation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation
+   * @generated
+   */
+  public Adapter createSystemInstantiationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.State
+   * @generated
+   */
+  public Adapter createStateAdapter()
   {
     return null;
   }

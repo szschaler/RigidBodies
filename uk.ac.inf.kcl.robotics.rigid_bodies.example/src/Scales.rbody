@@ -43,3 +43,14 @@ system EightScaleSpring {
 	external load tip : force
 		at last scale /*[5]*/ (with relative transformation matrix Tip [1.0, 0.0, -1.0])
 }
+
+// Define different configurations of the spring
+states {
+	// Instantiate one spring
+	instantiate EightScaleSpring as spring
+	
+	// Define different states, one for each configuration.
+	normal{
+		// For the moment, we only define the default state, which uses the spring as defined above without any variations.
+	}
+}

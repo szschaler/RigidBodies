@@ -22,6 +22,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +35,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getDefs <em>Defs</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getWorld <em>World</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getBodies <em>Bodies</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ModelImpl#getStates <em>States</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +71,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<uk.ac.kcl.inf.robotics.rigidBodies.System> bodies;
+
+  /**
+   * The cached value of the '{@link #getStates() <em>States</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStates()
+   * @generated
+   * @ordered
+   */
+  protected StateDef states;
 
   /**
    * <!-- begin-user-doc -->
@@ -172,6 +184,54 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public StateDef getStates()
+  {
+    return states;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStates(StateDef newStates, NotificationChain msgs)
+  {
+    StateDef oldStates = states;
+    states = newStates;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.MODEL__STATES, oldStates, newStates);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStates(StateDef newStates)
+  {
+    if (newStates != states)
+    {
+      NotificationChain msgs = null;
+      if (states != null)
+        msgs = ((InternalEObject)states).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.MODEL__STATES, null, msgs);
+      if (newStates != null)
+        msgs = ((InternalEObject)newStates).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RigidBodiesPackage.MODEL__STATES, null, msgs);
+      msgs = basicSetStates(newStates, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.MODEL__STATES, newStates, newStates));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -183,6 +243,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetWorld(null, msgs);
       case RigidBodiesPackage.MODEL__BODIES:
         return ((InternalEList<?>)getBodies()).basicRemove(otherEnd, msgs);
+      case RigidBodiesPackage.MODEL__STATES:
+        return basicSetStates(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -203,6 +265,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getWorld();
       case RigidBodiesPackage.MODEL__BODIES:
         return getBodies();
+      case RigidBodiesPackage.MODEL__STATES:
+        return getStates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -229,6 +293,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getBodies().clear();
         getBodies().addAll((Collection<? extends uk.ac.kcl.inf.robotics.rigidBodies.System>)newValue);
         return;
+      case RigidBodiesPackage.MODEL__STATES:
+        setStates((StateDef)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -252,6 +319,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RigidBodiesPackage.MODEL__BODIES:
         getBodies().clear();
         return;
+      case RigidBodiesPackage.MODEL__STATES:
+        setStates((StateDef)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -272,6 +342,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return world != null;
       case RigidBodiesPackage.MODEL__BODIES:
         return bodies != null && !bodies.isEmpty();
+      case RigidBodiesPackage.MODEL__STATES:
+        return states != null;
     }
     return super.eIsSet(featureID);
   }

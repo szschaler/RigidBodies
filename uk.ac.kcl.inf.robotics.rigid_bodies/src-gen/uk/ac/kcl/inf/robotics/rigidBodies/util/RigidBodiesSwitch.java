@@ -43,9 +43,12 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.State;
+import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,6 +138,27 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         uk.ac.kcl.inf.robotics.rigidBodies.System system = (uk.ac.kcl.inf.robotics.rigidBodies.System)theEObject;
         T result = caseSystem(system);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.STATE_DEF:
+      {
+        StateDef stateDef = (StateDef)theEObject;
+        T result = caseStateDef(stateDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.SYSTEM_INSTANTIATION:
+      {
+        SystemInstantiation systemInstantiation = (SystemInstantiation)theEObject;
+        T result = caseSystemInstantiation(systemInstantiation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.STATE:
+      {
+        State state = (State)theEObject;
+        T result = caseState(state);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -476,6 +500,54 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSystem(uk.ac.kcl.inf.robotics.rigidBodies.System object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateDef(StateDef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>System Instantiation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>System Instantiation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSystemInstantiation(SystemInstantiation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
   {
     return null;
   }

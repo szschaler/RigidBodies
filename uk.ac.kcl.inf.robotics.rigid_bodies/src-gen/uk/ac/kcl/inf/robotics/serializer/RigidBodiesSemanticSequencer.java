@@ -45,7 +45,10 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.State;
+import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 import uk.ac.kcl.inf.robotics.services.RigidBodiesGrammarAccess;
 
 @SuppressWarnings("all")
@@ -141,11 +144,20 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.REVOLUTE:
 				sequence_Revolute(context, (Revolute) semanticObject); 
 				return; 
+			case RigidBodiesPackage.STATE:
+				sequence_State(context, (State) semanticObject); 
+				return; 
+			case RigidBodiesPackage.STATE_DEF:
+				sequence_StateDef(context, (StateDef) semanticObject); 
+				return; 
 			case RigidBodiesPackage.STIFFNESS_REF:
 				sequence_StiffnessRef(context, (StiffnessRef) semanticObject); 
 				return; 
 			case RigidBodiesPackage.SYSTEM:
 				sequence_System(context, (uk.ac.kcl.inf.robotics.rigidBodies.System) semanticObject); 
+				return; 
+			case RigidBodiesPackage.SYSTEM_INSTANTIATION:
+				sequence_SystemInstantiation(context, (SystemInstantiation) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -443,7 +455,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (defs+=InitialDefinition* world=Environment bodies+=System+)
+	 *     (defs+=InitialDefinition* world=Environment bodies+=System+ states=StateDef)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -562,6 +574,31 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (instances+=SystemInstantiation+ states+=State+)
+	 */
+	protected void sequence_StateDef(EObject context, StateDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_State(EObject context, State semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.STATE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.STATE__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     ref=[BaseStiffnessExp|ID]
 	 */
 	protected void sequence_StiffnessRef(EObject context, StiffnessRef semanticObject) {
@@ -572,6 +609,25 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getStiffnessRefAccess().getRefBaseStiffnessExpIDTerminalRuleCall_0_1(), semanticObject.getRef());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (system=[System|ID] name=ID)
+	 */
+	protected void sequence_SystemInstantiation(EObject context, SystemInstantiation semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.SYSTEM_INSTANTIATION__SYSTEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.SYSTEM_INSTANTIATION__SYSTEM));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.SYSTEM_INSTANTIATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.SYSTEM_INSTANTIATION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSystemInstantiationAccess().getSystemSystemIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
+		feeder.accept(grammarAccess.getSystemInstantiationAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

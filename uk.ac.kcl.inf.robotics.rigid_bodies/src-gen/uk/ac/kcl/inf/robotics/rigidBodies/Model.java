@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getDefs <em>Defs</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getWorld <em>World</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getBodies <em>Bodies</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getStates <em>States</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel()
@@ -83,5 +84,31 @@ public interface Model extends EObject
    * @generated
    */
   EList<uk.ac.kcl.inf.robotics.rigidBodies.System> getBodies();
+
+  /**
+   * Returns the value of the '<em><b>States</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>States</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>States</em>' containment reference.
+   * @see #setStates(StateDef)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_States()
+   * @model containment="true"
+   * @generated
+   */
+  StateDef getStates();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getStates <em>States</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>States</em>' containment reference.
+   * @see #getStates()
+   * @generated
+   */
+  void setStates(StateDef value);
 
 } // Model

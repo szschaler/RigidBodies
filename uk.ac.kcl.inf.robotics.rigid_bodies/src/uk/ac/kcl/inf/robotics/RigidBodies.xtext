@@ -8,6 +8,8 @@ Model:
 	defs += InitialDefinition*
 	world = Environment
 	bodies += System+
+	
+	states = StateDef
 ;
 	
 InitialDefinition:
@@ -25,6 +27,23 @@ Environment:
 System:
 	'system' name=ID '{'
 		elements += SystemElement+
+	'}'
+;
+
+StateDef:
+	'states' '{'
+		instances += SystemInstantiation+
+		states += State+
+	'}'
+;
+
+SystemInstantiation:
+	'instantiate' system = [System] 'as' name=ID
+;
+
+State:
+	name=ID '{'
+		// TODO Define syntax for specifying how joints etc. are locked
 	'}'
 ;
 

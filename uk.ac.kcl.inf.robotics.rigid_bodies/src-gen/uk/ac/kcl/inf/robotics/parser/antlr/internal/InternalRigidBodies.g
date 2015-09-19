@@ -132,7 +132,25 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)+)
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModelAccess().getStatesStateDefParserRuleCall_3_0()); 
+	    }
+		lv_states_3_0=ruleStateDef		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		set(
+       			$current, 
+       			"states",
+        		lv_states_3_0, 
+        		"StateDef");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -305,6 +323,182 @@ ruleSystem returns [EObject current=null]
 )+	otherlv_4='}' 
     {
     	newLeafNode(otherlv_4, grammarAccess.getSystemAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleStateDef
+entryRuleStateDef returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getStateDefRule()); }
+	 iv_ruleStateDef=ruleStateDef 
+	 { $current=$iv_ruleStateDef.current; } 
+	 EOF 
+;
+
+// Rule StateDef
+ruleStateDef returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='states' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getStateDefAccess().getStatesKeyword_0());
+    }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getStateDefAccess().getLeftCurlyBracketKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStateDefAccess().getInstancesSystemInstantiationParserRuleCall_2_0()); 
+	    }
+		lv_instances_2_0=ruleSystemInstantiation		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStateDefRule());
+	        }
+       		add(
+       			$current, 
+       			"instances",
+        		lv_instances_2_0, 
+        		"SystemInstantiation");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStateDefAccess().getStatesStateParserRuleCall_3_0()); 
+	    }
+		lv_states_3_0=ruleState		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStateDefRule());
+	        }
+       		add(
+       			$current, 
+       			"states",
+        		lv_states_3_0, 
+        		"State");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_4='}' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getStateDefAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleSystemInstantiation
+entryRuleSystemInstantiation returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSystemInstantiationRule()); }
+	 iv_ruleSystemInstantiation=ruleSystemInstantiation 
+	 { $current=$iv_ruleSystemInstantiation.current; } 
+	 EOF 
+;
+
+// Rule SystemInstantiation
+ruleSystemInstantiation returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='instantiate' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSystemInstantiationAccess().getInstantiateKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSystemInstantiationRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getSystemInstantiationAccess().getSystemSystemCrossReference_1_0()); 
+	}
+
+)
+)	otherlv_2='as' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getSystemInstantiationAccess().getAsKeyword_2());
+    }
+(
+(
+		lv_name_3_0=RULE_ID
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getSystemInstantiationAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSystemInstantiationRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_3_0, 
+        		"ID");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleState
+entryRuleState returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getStateRule()); }
+	 iv_ruleState=ruleState 
+	 { $current=$iv_ruleState.current; } 
+	 EOF 
+;
+
+// Rule State
+ruleState returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_name_0_0=RULE_ID
+		{
+			newLeafNode(lv_name_0_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStateRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='}' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_2());
     }
 )
 ;

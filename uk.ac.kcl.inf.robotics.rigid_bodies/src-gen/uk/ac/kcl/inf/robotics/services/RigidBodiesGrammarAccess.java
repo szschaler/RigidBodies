@@ -27,12 +27,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWorldEnvironmentParserRuleCall_1_0 = (RuleCall)cWorldAssignment_1.eContents().get(0);
 		private final Assignment cBodiesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBodiesSystemParserRuleCall_2_0 = (RuleCall)cBodiesAssignment_2.eContents().get(0);
+		private final Assignment cStatesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatesStateDefParserRuleCall_3_0 = (RuleCall)cStatesAssignment_3.eContents().get(0);
 		
 		//Model:
-		//	defs+=InitialDefinition* world=Environment bodies+=System+;
+		//	defs+=InitialDefinition* world=Environment bodies+=System+ states=StateDef;
 		@Override public ParserRule getRule() { return rule; }
 
-		//defs+=InitialDefinition* world=Environment bodies+=System+
+		//defs+=InitialDefinition* world=Environment bodies+=System+ states=StateDef
 		public Group getGroup() { return cGroup; }
 
 		//defs+=InitialDefinition*
@@ -52,6 +54,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//System
 		public RuleCall getBodiesSystemParserRuleCall_2_0() { return cBodiesSystemParserRuleCall_2_0; }
+
+		//states=StateDef
+		public Assignment getStatesAssignment_3() { return cStatesAssignment_3; }
+
+		//StateDef
+		public RuleCall getStatesStateDefParserRuleCall_3_0() { return cStatesStateDefParserRuleCall_3_0; }
 	}
 
 	public class InitialDefinitionElements extends AbstractParserRuleElementFinder {
@@ -152,6 +160,117 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class StateDefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StateDef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStatesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cInstancesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInstancesSystemInstantiationParserRuleCall_2_0 = (RuleCall)cInstancesAssignment_2.eContents().get(0);
+		private final Assignment cStatesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatesStateParserRuleCall_3_0 = (RuleCall)cStatesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//StateDef:
+		//	"states" "{" instances+=SystemInstantiation+ states+=State+ "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"states" "{" instances+=SystemInstantiation+ states+=State+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"states"
+		public Keyword getStatesKeyword_0() { return cStatesKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//instances+=SystemInstantiation+
+		public Assignment getInstancesAssignment_2() { return cInstancesAssignment_2; }
+
+		//SystemInstantiation
+		public RuleCall getInstancesSystemInstantiationParserRuleCall_2_0() { return cInstancesSystemInstantiationParserRuleCall_2_0; }
+
+		//states+=State+
+		public Assignment getStatesAssignment_3() { return cStatesAssignment_3; }
+
+		//State
+		public RuleCall getStatesStateParserRuleCall_3_0() { return cStatesStateParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class SystemInstantiationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SystemInstantiation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInstantiateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSystemSystemCrossReference_1_0 = (CrossReference)cSystemAssignment_1.eContents().get(0);
+		private final RuleCall cSystemSystemIDTerminalRuleCall_1_0_1 = (RuleCall)cSystemSystemCrossReference_1_0.eContents().get(1);
+		private final Keyword cAsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		
+		//SystemInstantiation:
+		//	"instantiate" system=[System] "as" name=ID;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"instantiate" system=[System] "as" name=ID
+		public Group getGroup() { return cGroup; }
+
+		//"instantiate"
+		public Keyword getInstantiateKeyword_0() { return cInstantiateKeyword_0; }
+
+		//system=[System]
+		public Assignment getSystemAssignment_1() { return cSystemAssignment_1; }
+
+		//[System]
+		public CrossReference getSystemSystemCrossReference_1_0() { return cSystemSystemCrossReference_1_0; }
+
+		//ID
+		public RuleCall getSystemSystemIDTerminalRuleCall_1_0_1() { return cSystemSystemIDTerminalRuleCall_1_0_1; }
+
+		//"as"
+		public Keyword getAsKeyword_2() { return cAsKeyword_2; }
+
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+	}
+
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "State");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//State:
+		//	name=ID "{" // TODO Define syntax for specifying how joints etc. are locked
+		//	"}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//name=ID "{" // TODO Define syntax for specifying how joints etc. are locked
+		//"}"
+		public Group getGroup() { return cGroup; }
+
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//// TODO Define syntax for specifying how joints etc. are locked
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
 
 	public class SystemElementElements extends AbstractParserRuleElementFinder {
@@ -1755,6 +1874,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final InitialDefinitionElements pInitialDefinition;
 	private final EnvironmentElements pEnvironment;
 	private final SystemElements pSystem;
+	private final StateDefElements pStateDef;
+	private final SystemInstantiationElements pSystemInstantiation;
+	private final StateElements pState;
 	private final SystemElementElements pSystemElement;
 	private final ConnectiveElements pConnective;
 	private final BodyElements pBody;
@@ -1808,6 +1930,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pInitialDefinition = new InitialDefinitionElements();
 		this.pEnvironment = new EnvironmentElements();
 		this.pSystem = new SystemElements();
+		this.pStateDef = new StateDefElements();
+		this.pSystemInstantiation = new SystemInstantiationElements();
+		this.pState = new StateElements();
 		this.pSystemElement = new SystemElementElements();
 		this.pConnective = new ConnectiveElements();
 		this.pBody = new BodyElements();
@@ -1877,7 +2002,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	defs+=InitialDefinition* world=Environment bodies+=System+;
+	//	defs+=InitialDefinition* world=Environment bodies+=System+ states=StateDef;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -1914,6 +2039,37 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSystemRule() {
 		return getSystemAccess().getRule();
+	}
+
+	//StateDef:
+	//	"states" "{" instances+=SystemInstantiation+ states+=State+ "}";
+	public StateDefElements getStateDefAccess() {
+		return pStateDef;
+	}
+	
+	public ParserRule getStateDefRule() {
+		return getStateDefAccess().getRule();
+	}
+
+	//SystemInstantiation:
+	//	"instantiate" system=[System] "as" name=ID;
+	public SystemInstantiationElements getSystemInstantiationAccess() {
+		return pSystemInstantiation;
+	}
+	
+	public ParserRule getSystemInstantiationRule() {
+		return getSystemInstantiationAccess().getRule();
+	}
+
+	//State:
+	//	name=ID "{" // TODO Define syntax for specifying how joints etc. are locked
+	//	"}";
+	public StateElements getStateAccess() {
+		return pState;
+	}
+	
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
 	}
 
 	//SystemElement:

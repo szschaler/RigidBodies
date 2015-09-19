@@ -51,9 +51,12 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
+import uk.ac.kcl.inf.robotics.rigidBodies.State;
+import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,6 +114,9 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.INITIAL_DEFINITION: return createInitialDefinition();
       case RigidBodiesPackage.ENVIRONMENT: return createEnvironment();
       case RigidBodiesPackage.SYSTEM: return createSystem();
+      case RigidBodiesPackage.STATE_DEF: return createStateDef();
+      case RigidBodiesPackage.SYSTEM_INSTANTIATION: return createSystemInstantiation();
+      case RigidBodiesPackage.STATE: return createState();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
       case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
@@ -235,6 +241,39 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     SystemImpl system = new SystemImpl();
     return system;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StateDef createStateDef()
+  {
+    StateDefImpl stateDef = new StateDefImpl();
+    return stateDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SystemInstantiation createSystemInstantiation()
+  {
+    SystemInstantiationImpl systemInstantiation = new SystemInstantiationImpl();
+    return systemInstantiation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public State createState()
+  {
+    StateImpl state = new StateImpl();
+    return state;
   }
 
   /**
