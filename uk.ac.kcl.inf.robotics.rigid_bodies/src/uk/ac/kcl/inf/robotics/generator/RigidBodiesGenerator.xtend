@@ -34,6 +34,7 @@ class RigidBodiesGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.allContents.filter(Model).head
+		// TODO Really need to generate one file for each state, using the instantiated systems...
 		resource.allContents.filter(System).forEach [ s |
 			fsa.generateFile('''«s.name».m''',
 				generate(model.world, new ConnectiveTreeBuilder(new SystemUnroller(s).unrolledSystem)))
