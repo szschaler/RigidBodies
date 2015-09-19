@@ -1,6 +1,8 @@
 package uk.ac.kcl.inf.robotics.generator
 
+import java.util.ArrayList
 import java.util.HashMap
+import java.util.List
 import java.util.Map
 import org.eclipse.emf.ecore.util.EcoreUtil
 import uk.ac.kcl.inf.robotics.rigidBodies.Body
@@ -14,7 +16,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.System
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement
 
 /**
- * Unroll's any repeat statements in the system and resolves new and last references as it goes along
+ * Unroll's any repeat statements in the system and resolves new and last references as it goes along. Also resolves indexed references.
  */
 class SystemUnroller {
 
@@ -27,17 +29,19 @@ class SystemUnroller {
 	}
 
 	/**
-	 * The actual unrolling process. At the end of this, the system no longer contains any body repetitions or references to new or last bodies.
+	 * The actual unrolling process. At the end of this, the system no longer contains any body repetitions or references to new or last bodies or indexed references.
 	 */
 	private def unroll() {
-		// 1. Unroll repetitions, keeping track of last bodies as we go
-		val Map<String, Body> currentLasts = new HashMap<String, Body>
+		// 1. Unroll repetitions, keeping track of duplicated bodies as we go
+		val Map<String, List<Body>> duplicatedBodies = new HashMap<String, List<Body>>
 
 		// Note we need to say toList below to make a copy of the original list and avoid concurrent modification.
 		system.elements.filter(BodyRepetition).toList.forEach [ br |
 			// 1. Conditionally initialise last body pointer for the referenced body
-			if (!currentLasts.containsKey(br.body.name)) {
-				currentLasts.put(br.body.name, br.body)
+			if (!duplicatedBodies.containsKey(br.body.name)) {
+				val List<Body> l = new ArrayList<Body>
+				l.add (br.body)
+				duplicatedBodies.put(br.body.name, l)
 			}
 
 			// 2. Unroll loop, creating copies of the loop body as we go
@@ -48,20 +52,20 @@ class SystemUnroller {
 				val newBody = br.body.duplicateBody(idx, copier)
 
 				br.connectionExp.forEach [ e |
-					system.elements.add(e.duplicate(idx, newBody, currentLasts.get(br.body.name), copier))
+					system.elements.add(e.duplicate(idx, newBody, duplicatedBodies.get(br.body.name).last, copier))
 				]
 
 				copier.copyReferences
 
-				currentLasts.put(br.body.name, newBody)
+				duplicatedBodies.get(br.body.name).add (newBody)
 			]
 
 			// 3. Remove body repetition from system elements
 			system.elements.remove(br)
 		]
 
-		// 2. Resolve explicit last references
-		system.elements.forEach[e|e.resolveExplicitLastReferences(currentLasts)]
+		// 2. Resolve explicit last references and indexed references
+		system.elements.forEach[e|e.resolveExplicitLastAndIndexedReferences(duplicatedBodies)]
 	}
 
 	// Create a duplicate of the given body. Name this duplicate using the name of the given body and appending the given idx.
@@ -124,31 +128,34 @@ class SystemUnroller {
 		}
 	}
 
-	private dispatch def void resolveExplicitLastReferences(SystemElement se, Map<String, Body> currentLasts) {}
+	private dispatch def void resolveExplicitLastAndIndexedReferences(SystemElement se, Map<String, List<Body>> duplicatedBodies) {}
 
-	private dispatch def void resolveExplicitLastReferences(Joint j, Map<String, Body> currentLasts) {
-		j.body1.resolveExplicitLastReferences(currentLasts)
-		j.body2.resolveExplicitLastReferences(currentLasts)
+	private dispatch def void resolveExplicitLastAndIndexedReferences(Joint j, Map<String, List<Body>> duplicatedBodies) {
+		j.body1.resolveExplicitLastAndIndexedReferences(duplicatedBodies)
+		j.body2.resolveExplicitLastAndIndexedReferences(duplicatedBodies)
 	}
 
-	private dispatch def void resolveExplicitLastReferences(Constraint c, Map<String, Body> currentLasts) {
-		c.body1.resolveExplicitLastReferences(currentLasts)
-		c.body2.resolveExplicitLastReferences(currentLasts)
+	private dispatch def void resolveExplicitLastAndIndexedReferences(Constraint c, Map<String, List<Body>> duplicatedBodies) {
+		c.body1.resolveExplicitLastAndIndexedReferences(duplicatedBodies)
+		c.body2.resolveExplicitLastAndIndexedReferences(duplicatedBodies)
 	}
 
-	private dispatch def void resolveExplicitLastReferences(ExternalLoad el, Map<String, Body> currentLasts) {
-		el.body1.resolveExplicitLastReferences(currentLasts)
+	private dispatch def void resolveExplicitLastAndIndexedReferences(ExternalLoad el, Map<String, List<Body>> duplicatedBodies) {
+		el.body1.resolveExplicitLastAndIndexedReferences(duplicatedBodies)
 	}
 
-	private dispatch def void resolveExplicitLastReferences(BodyReference br, Map<String, Body> currentLasts) {
+	private dispatch def void resolveExplicitLastAndIndexedReferences(BodyReference br, Map<String, List<Body>> duplicatedBodies) {
 		if (br.last && (br.ref != null)) {
 			br.last = false
-			br.ref = currentLasts.get(br.ref.name)
+			br.ref = duplicatedBodies.get(br.ref.name).last
 
 			if (br.ref == null) {
 				// TODO: Emit error message!
 				throw new IllegalStateException("Created null body reference!")
 			}
+		} else if (!br.last && !br.^new && !br.base && (br.idx > 0)) {
+			br.ref = duplicatedBodies.get(br.ref.name).get(br.idx)
+			br.idx = 0
 		}
 	}
 

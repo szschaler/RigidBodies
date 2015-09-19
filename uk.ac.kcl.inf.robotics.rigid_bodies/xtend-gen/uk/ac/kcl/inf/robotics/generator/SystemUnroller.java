@@ -2,6 +2,7 @@ package uk.ac.kcl.inf.robotics.generator;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +24,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 
 /**
- * Unroll's any repeat statements in the system and resolves new and last references as it goes along
+ * Unroll's any repeat statements in the system and resolves new and last references as it goes along. Also resolves indexed references.
  */
 @SuppressWarnings("all")
 public class SystemUnroller {
@@ -35,10 +36,10 @@ public class SystemUnroller {
   }
   
   /**
-   * The actual unrolling process. At the end of this, the system no longer contains any body repetitions or references to new or last bodies.
+   * The actual unrolling process. At the end of this, the system no longer contains any body repetitions or references to new or last bodies or indexed references.
    */
   private void unroll() {
-    final Map<String, Body> currentLasts = new HashMap<String, Body>();
+    final Map<String, List<Body>> duplicatedBodies = new HashMap<String, List<Body>>();
     EList<SystemElement> _elements = this.system.getElements();
     Iterable<BodyRepetition> _filter = Iterables.<BodyRepetition>filter(_elements, BodyRepetition.class);
     List<BodyRepetition> _list = IterableExtensions.<BodyRepetition>toList(_filter);
@@ -47,13 +48,15 @@ public class SystemUnroller {
       public void accept(final BodyRepetition br) {
         Body _body = br.getBody();
         String _name = _body.getName();
-        boolean _containsKey = currentLasts.containsKey(_name);
+        boolean _containsKey = duplicatedBodies.containsKey(_name);
         boolean _not = (!_containsKey);
         if (_not) {
+          final List<Body> l = new ArrayList<Body>();
           Body _body_1 = br.getBody();
-          String _name_1 = _body_1.getName();
+          l.add(_body_1);
           Body _body_2 = br.getBody();
-          currentLasts.put(_name_1, _body_2);
+          String _name_1 = _body_2.getName();
+          duplicatedBodies.put(_name_1, l);
         }
         int _number = br.getNumber();
         IntegerRange _upTo = new IntegerRange(1, _number);
@@ -70,8 +73,9 @@ public class SystemUnroller {
                 EList<SystemElement> _elements = SystemUnroller.this.system.getElements();
                 Body _body = br.getBody();
                 String _name = _body.getName();
-                Body _get = currentLasts.get(_name);
-                SystemElement _duplicate = SystemUnroller.this.duplicate(e, (idx).intValue(), newBody, _get, copier);
+                List<Body> _get = duplicatedBodies.get(_name);
+                Body _last = IterableExtensions.<Body>last(_get);
+                SystemElement _duplicate = SystemUnroller.this.duplicate(e, (idx).intValue(), newBody, _last, copier);
                 _elements.add(_duplicate);
               }
             };
@@ -79,7 +83,8 @@ public class SystemUnroller {
             copier.copyReferences();
             Body _body_1 = br.getBody();
             String _name = _body_1.getName();
-            currentLasts.put(_name, newBody);
+            List<Body> _get = duplicatedBodies.get(_name);
+            _get.add(newBody);
           }
         };
         _upTo.forEach(_function);
@@ -92,7 +97,7 @@ public class SystemUnroller {
     final Consumer<SystemElement> _function_1 = new Consumer<SystemElement>() {
       @Override
       public void accept(final SystemElement e) {
-        SystemUnroller.this.resolveExplicitLastReferences(e, currentLasts);
+        SystemUnroller.this.resolveExplicitLastAndIndexedReferences(e, duplicatedBodies);
       }
     };
     _elements_1.forEach(_function_1);
@@ -179,29 +184,29 @@ public class SystemUnroller {
     }
   }
   
-  private void _resolveExplicitLastReferences(final SystemElement se, final Map<String, Body> currentLasts) {
+  private void _resolveExplicitLastAndIndexedReferences(final SystemElement se, final Map<String, List<Body>> duplicatedBodies) {
   }
   
-  private void _resolveExplicitLastReferences(final Joint j, final Map<String, Body> currentLasts) {
+  private void _resolveExplicitLastAndIndexedReferences(final Joint j, final Map<String, List<Body>> duplicatedBodies) {
     BodyReference _body1 = j.getBody1();
-    this.resolveExplicitLastReferences(_body1, currentLasts);
+    this.resolveExplicitLastAndIndexedReferences(_body1, duplicatedBodies);
     BodyReference _body2 = j.getBody2();
-    this.resolveExplicitLastReferences(_body2, currentLasts);
+    this.resolveExplicitLastAndIndexedReferences(_body2, duplicatedBodies);
   }
   
-  private void _resolveExplicitLastReferences(final Constraint c, final Map<String, Body> currentLasts) {
+  private void _resolveExplicitLastAndIndexedReferences(final Constraint c, final Map<String, List<Body>> duplicatedBodies) {
     BodyReference _body1 = c.getBody1();
-    this.resolveExplicitLastReferences(_body1, currentLasts);
+    this.resolveExplicitLastAndIndexedReferences(_body1, duplicatedBodies);
     BodyReference _body2 = c.getBody2();
-    this.resolveExplicitLastReferences(_body2, currentLasts);
+    this.resolveExplicitLastAndIndexedReferences(_body2, duplicatedBodies);
   }
   
-  private void _resolveExplicitLastReferences(final ExternalLoad el, final Map<String, Body> currentLasts) {
+  private void _resolveExplicitLastAndIndexedReferences(final ExternalLoad el, final Map<String, List<Body>> duplicatedBodies) {
     BodyReference _body1 = el.getBody1();
-    this.resolveExplicitLastReferences(_body1, currentLasts);
+    this.resolveExplicitLastAndIndexedReferences(_body1, duplicatedBodies);
   }
   
-  private void _resolveExplicitLastReferences(final BodyReference br, final Map<String, Body> currentLasts) {
+  private void _resolveExplicitLastAndIndexedReferences(final BodyReference br, final Map<String, List<Body>> duplicatedBodies) {
     boolean _and = false;
     boolean _isLast = br.isLast();
     if (!_isLast) {
@@ -215,12 +220,49 @@ public class SystemUnroller {
       br.setLast(false);
       Body _ref_1 = br.getRef();
       String _name = _ref_1.getName();
-      Body _get = currentLasts.get(_name);
-      br.setRef(_get);
+      List<Body> _get = duplicatedBodies.get(_name);
+      Body _last = IterableExtensions.<Body>last(_get);
+      br.setRef(_last);
       Body _ref_2 = br.getRef();
       boolean _equals = Objects.equal(_ref_2, null);
       if (_equals) {
         throw new IllegalStateException("Created null body reference!");
+      }
+    } else {
+      boolean _and_1 = false;
+      boolean _and_2 = false;
+      boolean _and_3 = false;
+      boolean _isLast_1 = br.isLast();
+      boolean _not = (!_isLast_1);
+      if (!_not) {
+        _and_3 = false;
+      } else {
+        boolean _isNew = br.isNew();
+        boolean _not_1 = (!_isNew);
+        _and_3 = _not_1;
+      }
+      if (!_and_3) {
+        _and_2 = false;
+      } else {
+        boolean _isBase = br.isBase();
+        boolean _not_2 = (!_isBase);
+        _and_2 = _not_2;
+      }
+      if (!_and_2) {
+        _and_1 = false;
+      } else {
+        int _idx = br.getIdx();
+        boolean _greaterThan = (_idx > 0);
+        _and_1 = _greaterThan;
+      }
+      if (_and_1) {
+        Body _ref_3 = br.getRef();
+        String _name_1 = _ref_3.getName();
+        List<Body> _get_1 = duplicatedBodies.get(_name_1);
+        int _idx_1 = br.getIdx();
+        Body _get_2 = _get_1.get(_idx_1);
+        br.setRef(_get_2);
+        br.setIdx(0);
       }
     }
   }
@@ -252,25 +294,25 @@ public class SystemUnroller {
     }
   }
   
-  private void resolveExplicitLastReferences(final EObject c, final Map<String, Body> currentLasts) {
+  private void resolveExplicitLastAndIndexedReferences(final EObject c, final Map<String, List<Body>> duplicatedBodies) {
     if (c instanceof Constraint) {
-      _resolveExplicitLastReferences((Constraint)c, currentLasts);
+      _resolveExplicitLastAndIndexedReferences((Constraint)c, duplicatedBodies);
       return;
     } else if (c instanceof ExternalLoad) {
-      _resolveExplicitLastReferences((ExternalLoad)c, currentLasts);
+      _resolveExplicitLastAndIndexedReferences((ExternalLoad)c, duplicatedBodies);
       return;
     } else if (c instanceof Joint) {
-      _resolveExplicitLastReferences((Joint)c, currentLasts);
+      _resolveExplicitLastAndIndexedReferences((Joint)c, duplicatedBodies);
       return;
     } else if (c instanceof BodyReference) {
-      _resolveExplicitLastReferences((BodyReference)c, currentLasts);
+      _resolveExplicitLastAndIndexedReferences((BodyReference)c, duplicatedBodies);
       return;
     } else if (c instanceof SystemElement) {
-      _resolveExplicitLastReferences((SystemElement)c, currentLasts);
+      _resolveExplicitLastAndIndexedReferences((SystemElement)c, duplicatedBodies);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(c, currentLasts).toString());
+        Arrays.<Object>asList(c, duplicatedBodies).toString());
     }
   }
 }
