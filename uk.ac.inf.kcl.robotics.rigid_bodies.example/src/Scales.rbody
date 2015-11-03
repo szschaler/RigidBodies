@@ -49,7 +49,7 @@ configurations {
 	// Instantiate one spring
 	instantiate EightScaleSpring as spring
 	
-	// Define different states, one for each configuration.
+	// Define different configurations.
 	normal{
 		// For the moment, we only define the default state, which uses the spring as defined above without any variations.
 	}

@@ -8,6 +8,7 @@ import com.google.common.collect.Iterators;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.eclipse.emf.common.util.EList;
@@ -22,8 +23,8 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import uk.ac.kcl.inf.robotics.generator.ConnectiveTreeBuilder;
 import uk.ac.kcl.inf.robotics.generator.SystemUnroller;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
@@ -31,6 +32,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
@@ -48,6 +51,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
+import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * Generates code from your model files on save.
@@ -65,24 +69,46 @@ public class RigidBodiesGenerator implements IGenerator {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterator<Model> _filter = Iterators.<Model>filter(_allContents, Model.class);
     final Model model = IteratorExtensions.<Model>head(_filter);
-    TreeIterator<EObject> _allContents_1 = resource.getAllContents();
-    Iterator<uk.ac.kcl.inf.robotics.rigidBodies.System> _filter_1 = Iterators.<uk.ac.kcl.inf.robotics.rigidBodies.System>filter(_allContents_1, uk.ac.kcl.inf.robotics.rigidBodies.System.class);
-    final Procedure1<uk.ac.kcl.inf.robotics.rigidBodies.System> _function = new Procedure1<uk.ac.kcl.inf.robotics.rigidBodies.System>() {
+    ConfigurationDef _configuration = model.getConfiguration();
+    EList<SystemInstantiation> _instances = _configuration.getInstances();
+    final Function1<SystemInstantiation, Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>> _function = new Function1<SystemInstantiation, Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>>() {
       @Override
-      public void apply(final uk.ac.kcl.inf.robotics.rigidBodies.System s) {
+      public Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System> apply(final SystemInstantiation si) {
+        String _name = si.getName();
+        uk.ac.kcl.inf.robotics.rigidBodies.System _system = si.getSystem();
+        SystemUnroller _systemUnroller = new SystemUnroller(_system);
+        uk.ac.kcl.inf.robotics.rigidBodies.System _unrolledSystem = _systemUnroller.getUnrolledSystem();
+        return new Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>(_name, _unrolledSystem);
+      }
+    };
+    final List<Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>> unrolledSystems = ListExtensions.<SystemInstantiation, Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>>map(_instances, _function);
+    int _size = unrolledSystems.size();
+    boolean _greaterThan = (_size > 1);
+    if (_greaterThan) {
+      throw new UnsupportedOperationException("Not currently supporting configurations with more than one system instantiation yet.");
+    }
+    ConfigurationDef _configuration_1 = model.getConfiguration();
+    EList<Configuration> _configs = _configuration_1.getConfigs();
+    final Consumer<Configuration> _function_1 = new Consumer<Configuration>() {
+      @Override
+      public void accept(final Configuration c) {
         StringConcatenation _builder = new StringConcatenation();
-        String _name = s.getName();
+        Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System> _head = IterableExtensions.<Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>>head(unrolledSystems);
+        String _key = _head.getKey();
+        _builder.append(_key, "");
+        _builder.append("_");
+        String _name = c.getName();
         _builder.append(_name, "");
         _builder.append(".m");
         Environment _world = model.getWorld();
-        SystemUnroller _systemUnroller = new SystemUnroller(s);
-        uk.ac.kcl.inf.robotics.rigidBodies.System _unrolledSystem = _systemUnroller.getUnrolledSystem();
-        ConnectiveTreeBuilder _connectiveTreeBuilder = new ConnectiveTreeBuilder(_unrolledSystem);
+        Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System> _head_1 = IterableExtensions.<Pair<String, uk.ac.kcl.inf.robotics.rigidBodies.System>>head(unrolledSystems);
+        uk.ac.kcl.inf.robotics.rigidBodies.System _value = _head_1.getValue();
+        ConnectiveTreeBuilder _connectiveTreeBuilder = new ConnectiveTreeBuilder(_value);
         CharSequence _generate = RigidBodiesGenerator.this.generate(_world, _connectiveTreeBuilder);
         fsa.generateFile(_builder.toString(), _generate);
       }
     };
-    IteratorExtensions.<uk.ac.kcl.inf.robotics.rigidBodies.System>forEach(_filter_1, _function);
+    _configs.forEach(_function_1);
   }
   
   public CharSequence generate(final Environment world, final ConnectiveTreeBuilder ctb) {

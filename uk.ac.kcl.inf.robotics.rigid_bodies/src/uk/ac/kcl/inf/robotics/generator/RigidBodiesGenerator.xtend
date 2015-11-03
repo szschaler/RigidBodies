@@ -34,10 +34,19 @@ class RigidBodiesGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.allContents.filter(Model).head
-		// TODO Really need to generate one file for each state, using the instantiated systems...
-		resource.allContents.filter(System).forEach [ s |
-			fsa.generateFile('''«s.name».m''',
-				generate(model.world, new ConnectiveTreeBuilder(new SystemUnroller(s).unrolledSystem)))
+		
+		val unrolledSystems = model.configuration.instances.map[si | new Pair<String,System>(si.name, new SystemUnroller(si.system).unrolledSystem)]
+		if (unrolledSystems.size > 1) {
+			// TODO Deal with multiple system instances being defined in a system configuration
+			throw new UnsupportedOperationException ("Not currently supporting configurations with more than one system instantiation yet.")
+		}
+		
+		model.configuration.configs.forEach[c |
+			fsa.generateFile('''«unrolledSystems.head.key»_«c.name».m''',
+				generate(model.world, new ConnectiveTreeBuilder(
+					// TODO Pre-process the system definition to apply any locks etc. 
+					unrolledSystems.head.value
+				)))
 		]
 	}
 
