@@ -45,7 +45,7 @@ system EightScaleSpring {
 }
 
 // Define different configurations of the spring
-states {
+configurations {
 	// Instantiate one spring
 	instantiate EightScaleSpring as spring
 	
