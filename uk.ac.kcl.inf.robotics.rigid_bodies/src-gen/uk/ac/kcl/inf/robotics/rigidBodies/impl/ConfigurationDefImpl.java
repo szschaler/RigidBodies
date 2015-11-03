@@ -16,26 +16,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.State;
-import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>State Def</b></em>'.
+ * An implementation of the model object '<em><b>Configuration Def</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateDefImpl#getInstances <em>Instances</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateDefImpl#getStates <em>States</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationDefImpl#getInstances <em>Instances</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationDefImpl#getConfigs <em>Configs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StateDefImpl extends MinimalEObjectImpl.Container implements StateDef
+public class ConfigurationDefImpl extends MinimalEObjectImpl.Container implements ConfigurationDef
 {
   /**
    * The cached value of the '{@link #getInstances() <em>Instances</em>}' containment reference list.
@@ -48,21 +48,21 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   protected EList<SystemInstantiation> instances;
 
   /**
-   * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
+   * The cached value of the '{@link #getConfigs() <em>Configs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStates()
+   * @see #getConfigs()
    * @generated
    * @ordered
    */
-  protected EList<State> states;
+  protected EList<Configuration> configs;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StateDefImpl()
+  protected ConfigurationDefImpl()
   {
     super();
   }
@@ -75,7 +75,7 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.STATE_DEF;
+    return RigidBodiesPackage.Literals.CONFIGURATION_DEF;
   }
 
   /**
@@ -87,7 +87,7 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   {
     if (instances == null)
     {
-      instances = new EObjectContainmentEList<SystemInstantiation>(SystemInstantiation.class, this, RigidBodiesPackage.STATE_DEF__INSTANCES);
+      instances = new EObjectContainmentEList<SystemInstantiation>(SystemInstantiation.class, this, RigidBodiesPackage.CONFIGURATION_DEF__INSTANCES);
     }
     return instances;
   }
@@ -97,13 +97,13 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<State> getStates()
+  public EList<Configuration> getConfigs()
   {
-    if (states == null)
+    if (configs == null)
     {
-      states = new EObjectContainmentEList<State>(State.class, this, RigidBodiesPackage.STATE_DEF__STATES);
+      configs = new EObjectContainmentEList<Configuration>(Configuration.class, this, RigidBodiesPackage.CONFIGURATION_DEF__CONFIGS);
     }
-    return states;
+    return configs;
   }
 
   /**
@@ -116,10 +116,10 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE_DEF__INSTANCES:
+      case RigidBodiesPackage.CONFIGURATION_DEF__INSTANCES:
         return ((InternalEList<?>)getInstances()).basicRemove(otherEnd, msgs);
-      case RigidBodiesPackage.STATE_DEF__STATES:
-        return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+      case RigidBodiesPackage.CONFIGURATION_DEF__CONFIGS:
+        return ((InternalEList<?>)getConfigs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -134,10 +134,10 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE_DEF__INSTANCES:
+      case RigidBodiesPackage.CONFIGURATION_DEF__INSTANCES:
         return getInstances();
-      case RigidBodiesPackage.STATE_DEF__STATES:
-        return getStates();
+      case RigidBodiesPackage.CONFIGURATION_DEF__CONFIGS:
+        return getConfigs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,13 +153,13 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE_DEF__INSTANCES:
+      case RigidBodiesPackage.CONFIGURATION_DEF__INSTANCES:
         getInstances().clear();
         getInstances().addAll((Collection<? extends SystemInstantiation>)newValue);
         return;
-      case RigidBodiesPackage.STATE_DEF__STATES:
-        getStates().clear();
-        getStates().addAll((Collection<? extends State>)newValue);
+      case RigidBodiesPackage.CONFIGURATION_DEF__CONFIGS:
+        getConfigs().clear();
+        getConfigs().addAll((Collection<? extends Configuration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -175,11 +175,11 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE_DEF__INSTANCES:
+      case RigidBodiesPackage.CONFIGURATION_DEF__INSTANCES:
         getInstances().clear();
         return;
-      case RigidBodiesPackage.STATE_DEF__STATES:
-        getStates().clear();
+      case RigidBodiesPackage.CONFIGURATION_DEF__CONFIGS:
+        getConfigs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -195,12 +195,12 @@ public class StateDefImpl extends MinimalEObjectImpl.Container implements StateD
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE_DEF__INSTANCES:
+      case RigidBodiesPackage.CONFIGURATION_DEF__INSTANCES:
         return instances != null && !instances.isEmpty();
-      case RigidBodiesPackage.STATE_DEF__STATES:
-        return states != null && !states.isEmpty();
+      case RigidBodiesPackage.CONFIGURATION_DEF__CONFIGS:
+        return configs != null && !configs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //StateDefImpl
+} //ConfigurationDefImpl

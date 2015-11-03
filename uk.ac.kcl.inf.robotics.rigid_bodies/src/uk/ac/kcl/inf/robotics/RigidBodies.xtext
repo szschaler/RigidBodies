@@ -9,7 +9,7 @@ Model:
 	world = Environment
 	bodies += System+
 	
-	states = StateDef
+	configuration = ConfigurationDef
 ;
 	
 InitialDefinition:
@@ -30,10 +30,10 @@ System:
 	'}'
 ;
 
-StateDef:
-	'states' '{'
+ConfigurationDef:
+	'configurations' '{'
 		instances += SystemInstantiation+
-		states += State+
+		configs += Configuration+
 	'}'
 ;
 
@@ -41,7 +41,7 @@ SystemInstantiation:
 	'instantiate' system = [System] 'as' name=ID
 ;
 
-State:
+Configuration:
 	name=ID '{'
 		// TODO Define syntax for specifying how joints etc. are locked
 	'}'

@@ -24,7 +24,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Model/defs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Model/world"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Model/bodies"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Model/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Model/configuration"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//InitialDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//InitialDefinition/name"/>
@@ -36,16 +36,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//System/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//System/elements"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//StateDef">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//StateDef/instances"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//StateDef/states"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//ConfigurationDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ConfigurationDef/instances"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ConfigurationDef/configs"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//SystemInstantiation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//SystemInstantiation/system"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//SystemInstantiation/name"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//State">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//State/name"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Configuration/name"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//SystemElement"/>
     <genClasses ecoreClass="RigidBodies.ecore#//Connective">

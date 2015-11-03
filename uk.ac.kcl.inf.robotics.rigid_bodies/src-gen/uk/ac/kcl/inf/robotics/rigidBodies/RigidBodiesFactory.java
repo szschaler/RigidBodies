@@ -59,13 +59,13 @@ public interface RigidBodiesFactory extends EFactory
   System createSystem();
 
   /**
-   * Returns a new object of class '<em>State Def</em>'.
+   * Returns a new object of class '<em>Configuration Def</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State Def</em>'.
+   * @return a new object of class '<em>Configuration Def</em>'.
    * @generated
    */
-  StateDef createStateDef();
+  ConfigurationDef createConfigurationDef();
 
   /**
    * Returns a new object of class '<em>System Instantiation</em>'.
@@ -77,13 +77,13 @@ public interface RigidBodiesFactory extends EFactory
   SystemInstantiation createSystemInstantiation();
 
   /**
-   * Returns a new object of class '<em>State</em>'.
+   * Returns a new object of class '<em>Configuration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State</em>'.
+   * @return a new object of class '<em>Configuration</em>'.
    * @generated
    */
-  State createState();
+  Configuration createConfiguration();
 
   /**
    * Returns a new object of class '<em>System Element</em>'.

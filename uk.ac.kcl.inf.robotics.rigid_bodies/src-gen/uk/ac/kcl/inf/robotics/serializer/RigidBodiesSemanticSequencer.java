@@ -25,6 +25,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
@@ -45,8 +47,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.State;
-import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 import uk.ac.kcl.inf.robotics.services.RigidBodiesGrammarAccess;
@@ -86,6 +86,12 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.BODY_REPETITION:
 				sequence_BodyRepetition(context, (BodyRepetition) semanticObject); 
+				return; 
+			case RigidBodiesPackage.CONFIGURATION:
+				sequence_Configuration(context, (Configuration) semanticObject); 
+				return; 
+			case RigidBodiesPackage.CONFIGURATION_DEF:
+				sequence_ConfigurationDef(context, (ConfigurationDef) semanticObject); 
 				return; 
 			case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP:
 				sequence_ConstantOrFunctionCallExp(context, (ConstantOrFunctionCallExp) semanticObject); 
@@ -143,12 +149,6 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.REVOLUTE:
 				sequence_Revolute(context, (Revolute) semanticObject); 
-				return; 
-			case RigidBodiesPackage.STATE:
-				sequence_State(context, (State) semanticObject); 
-				return; 
-			case RigidBodiesPackage.STATE_DEF:
-				sequence_StateDef(context, (StateDef) semanticObject); 
 				return; 
 			case RigidBodiesPackage.STIFFNESS_REF:
 				sequence_StiffnessRef(context, (StiffnessRef) semanticObject); 
@@ -260,6 +260,31 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getBodyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getBodyAccess().getMassMassParserRuleCall_3_0(), semanticObject.getMass());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (instances+=SystemInstantiation+ configs+=Configuration+)
+	 */
+	protected void sequence_ConfigurationDef(EObject context, ConfigurationDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Configuration(EObject context, Configuration semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getConfigurationAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -455,7 +480,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (defs+=InitialDefinition* world=Environment bodies+=System+ states=StateDef)
+	 *     (defs+=InitialDefinition* world=Environment bodies+=System+ configuration=ConfigurationDef)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -568,31 +593,6 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getRevoluteAccess().getAxisAXISEnumRuleCall_1_0(), semanticObject.getAxis());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (instances+=SystemInstantiation+ states+=State+)
-	 */
-	protected void sequence_StateDef(EObject context, StateDef semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_State(EObject context, State semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.STATE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.STATE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

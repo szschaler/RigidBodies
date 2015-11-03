@@ -21,6 +21,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -51,8 +53,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.State;
-import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
@@ -114,9 +114,9 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.INITIAL_DEFINITION: return createInitialDefinition();
       case RigidBodiesPackage.ENVIRONMENT: return createEnvironment();
       case RigidBodiesPackage.SYSTEM: return createSystem();
-      case RigidBodiesPackage.STATE_DEF: return createStateDef();
+      case RigidBodiesPackage.CONFIGURATION_DEF: return createConfigurationDef();
       case RigidBodiesPackage.SYSTEM_INSTANTIATION: return createSystemInstantiation();
-      case RigidBodiesPackage.STATE: return createState();
+      case RigidBodiesPackage.CONFIGURATION: return createConfiguration();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
       case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
@@ -248,10 +248,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateDef createStateDef()
+  public ConfigurationDef createConfigurationDef()
   {
-    StateDefImpl stateDef = new StateDefImpl();
-    return stateDef;
+    ConfigurationDefImpl configurationDef = new ConfigurationDefImpl();
+    return configurationDef;
   }
 
   /**
@@ -270,10 +270,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public State createState()
+  public Configuration createConfiguration()
   {
-    StateImpl state = new StateImpl();
-    return state;
+    ConfigurationImpl configuration = new ConfigurationImpl();
+    return configuration;
   }
 
   /**

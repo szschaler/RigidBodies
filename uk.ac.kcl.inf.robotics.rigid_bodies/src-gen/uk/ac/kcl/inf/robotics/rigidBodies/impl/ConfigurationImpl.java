@@ -9,23 +9,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.State;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>State</b></em>'.
+ * An implementation of the model object '<em><b>Configuration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateImpl#getName <em>Name</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StateImpl extends MinimalEObjectImpl.Container implements State
+public class ConfigurationImpl extends MinimalEObjectImpl.Container implements Configuration
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -52,7 +52,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StateImpl()
+  protected ConfigurationImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.STATE;
+    return RigidBodiesPackage.Literals.CONFIGURATION;
   }
 
   /**
@@ -88,7 +88,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.STATE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONFIGURATION__NAME, oldName, name));
   }
 
   /**
@@ -101,7 +101,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE__NAME:
+      case RigidBodiesPackage.CONFIGURATION__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE__NAME:
+      case RigidBodiesPackage.CONFIGURATION__NAME:
         setName((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE__NAME:
+      case RigidBodiesPackage.CONFIGURATION__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.STATE__NAME:
+      case RigidBodiesPackage.CONFIGURATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -174,4 +174,4 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     return result.toString();
   }
 
-} //StateImpl
+} //ConfigurationImpl

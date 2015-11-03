@@ -16,6 +16,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -43,8 +45,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.State;
-import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
@@ -141,10 +141,10 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.STATE_DEF:
+      case RigidBodiesPackage.CONFIGURATION_DEF:
       {
-        StateDef stateDef = (StateDef)theEObject;
-        T result = caseStateDef(stateDef);
+        ConfigurationDef configurationDef = (ConfigurationDef)theEObject;
+        T result = caseConfigurationDef(configurationDef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -155,10 +155,10 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.STATE:
+      case RigidBodiesPackage.CONFIGURATION:
       {
-        State state = (State)theEObject;
-        T result = caseState(state);
+        Configuration configuration = (Configuration)theEObject;
+        T result = caseConfiguration(configuration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -505,17 +505,17 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>State Def</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Configuration Def</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State Def</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Configuration Def</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStateDef(StateDef object)
+  public T caseConfigurationDef(ConfigurationDef object)
   {
     return null;
   }
@@ -537,17 +537,17 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseState(State object)
+  public T caseConfiguration(Configuration object)
   {
     return null;
   }

@@ -95,13 +95,13 @@ public interface RigidBodiesPackage extends EPackage
   int MODEL__BODIES = 2;
 
   /**
-   * The feature id for the '<em><b>States</b></em>' containment reference.
+   * The feature id for the '<em><b>Configuration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__STATES = 3;
+  int MODEL__CONFIGURATION = 3;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -206,14 +206,14 @@ public interface RigidBodiesPackage extends EPackage
   int SYSTEM_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateDefImpl <em>State Def</em>}' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationDefImpl <em>Configuration Def</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.StateDefImpl
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getStateDef()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationDefImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConfigurationDef()
    * @generated
    */
-  int STATE_DEF = 4;
+  int CONFIGURATION_DEF = 4;
 
   /**
    * The feature id for the '<em><b>Instances</b></em>' containment reference list.
@@ -222,25 +222,25 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_DEF__INSTANCES = 0;
+  int CONFIGURATION_DEF__INSTANCES = 0;
 
   /**
-   * The feature id for the '<em><b>States</b></em>' containment reference list.
+   * The feature id for the '<em><b>Configs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_DEF__STATES = 1;
+  int CONFIGURATION_DEF__CONFIGS = 1;
 
   /**
-   * The number of structural features of the '<em>State Def</em>' class.
+   * The number of structural features of the '<em>Configuration Def</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_DEF_FEATURE_COUNT = 2;
+  int CONFIGURATION_DEF_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemInstantiationImpl <em>System Instantiation</em>}' class.
@@ -280,14 +280,14 @@ public interface RigidBodiesPackage extends EPackage
   int SYSTEM_INSTANTIATION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateImpl <em>State</em>}' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationImpl <em>Configuration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.StateImpl
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getState()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConfiguration()
    * @generated
    */
-  int STATE = 6;
+  int CONFIGURATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -296,16 +296,16 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__NAME = 0;
+  int CONFIGURATION__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>State</em>' class.
+   * The number of structural features of the '<em>Configuration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_FEATURE_COUNT = 1;
+  int CONFIGURATION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemElementImpl <em>System Element</em>}' class.
@@ -1686,15 +1686,15 @@ public interface RigidBodiesPackage extends EPackage
   EReference getModel_Bodies();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getStates <em>States</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getConfiguration <em>Configuration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>States</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.Model#getStates()
+   * @return the meta object for the containment reference '<em>Configuration</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Model#getConfiguration()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_States();
+  EReference getModel_Configuration();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.InitialDefinition <em>Initial Definition</em>}'.
@@ -1771,36 +1771,36 @@ public interface RigidBodiesPackage extends EPackage
   EReference getSystem_Elements();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.StateDef <em>State Def</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef <em>Configuration Def</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>State Def</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.StateDef
+   * @return the meta object for class '<em>Configuration Def</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef
    * @generated
    */
-  EClass getStateDef();
+  EClass getConfigurationDef();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.StateDef#getInstances <em>Instances</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef#getInstances <em>Instances</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Instances</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.StateDef#getInstances()
-   * @see #getStateDef()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef#getInstances()
+   * @see #getConfigurationDef()
    * @generated
    */
-  EReference getStateDef_Instances();
+  EReference getConfigurationDef_Instances();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.StateDef#getStates <em>States</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef#getConfigs <em>Configs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>States</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.StateDef#getStates()
-   * @see #getStateDef()
+   * @return the meta object for the containment reference list '<em>Configs</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef#getConfigs()
+   * @see #getConfigurationDef()
    * @generated
    */
-  EReference getStateDef_States();
+  EReference getConfigurationDef_Configs();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation <em>System Instantiation</em>}'.
@@ -1835,25 +1835,25 @@ public interface RigidBodiesPackage extends EPackage
   EAttribute getSystemInstantiation_Name();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.State <em>State</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration <em>Configuration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>State</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.State
+   * @return the meta object for class '<em>Configuration</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Configuration
    * @generated
    */
-  EClass getState();
+  EClass getConfiguration();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.State#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.State#getName()
-   * @see #getState()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Configuration#getName()
+   * @see #getConfiguration()
    * @generated
    */
-  EAttribute getState_Name();
+  EAttribute getConfiguration_Name();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.SystemElement <em>System Element</em>}'.
@@ -2953,12 +2953,12 @@ public interface RigidBodiesPackage extends EPackage
     EReference MODEL__BODIES = eINSTANCE.getModel_Bodies();
 
     /**
-     * The meta object literal for the '<em><b>States</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Configuration</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__STATES = eINSTANCE.getModel_States();
+    EReference MODEL__CONFIGURATION = eINSTANCE.getModel_Configuration();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.InitialDefinitionImpl <em>Initial Definition</em>}' class.
@@ -3023,14 +3023,14 @@ public interface RigidBodiesPackage extends EPackage
     EReference SYSTEM__ELEMENTS = eINSTANCE.getSystem_Elements();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateDefImpl <em>State Def</em>}' class.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationDefImpl <em>Configuration Def</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.StateDefImpl
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getStateDef()
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationDefImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConfigurationDef()
      * @generated
      */
-    EClass STATE_DEF = eINSTANCE.getStateDef();
+    EClass CONFIGURATION_DEF = eINSTANCE.getConfigurationDef();
 
     /**
      * The meta object literal for the '<em><b>Instances</b></em>' containment reference list feature.
@@ -3038,15 +3038,15 @@ public interface RigidBodiesPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATE_DEF__INSTANCES = eINSTANCE.getStateDef_Instances();
+    EReference CONFIGURATION_DEF__INSTANCES = eINSTANCE.getConfigurationDef_Instances();
 
     /**
-     * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Configs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATE_DEF__STATES = eINSTANCE.getStateDef_States();
+    EReference CONFIGURATION_DEF__CONFIGS = eINSTANCE.getConfigurationDef_Configs();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemInstantiationImpl <em>System Instantiation</em>}' class.
@@ -3075,14 +3075,14 @@ public interface RigidBodiesPackage extends EPackage
     EAttribute SYSTEM_INSTANTIATION__NAME = eINSTANCE.getSystemInstantiation_Name();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.StateImpl <em>State</em>}' class.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationImpl <em>Configuration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.StateImpl
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getState()
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConfiguration()
      * @generated
      */
-    EClass STATE = eINSTANCE.getState();
+    EClass CONFIGURATION = eINSTANCE.getConfiguration();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3090,7 +3090,7 @@ public interface RigidBodiesPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATE__NAME = eINSTANCE.getState_Name();
+    EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemElementImpl <em>System Element</em>}' class.

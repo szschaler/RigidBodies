@@ -18,6 +18,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
+import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -45,8 +47,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.State;
-import uk.ac.kcl.inf.robotics.rigidBodies.StateDef;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.StiffnessRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
@@ -136,9 +136,9 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createSystemAdapter();
       }
       @Override
-      public Adapter caseStateDef(StateDef object)
+      public Adapter caseConfigurationDef(ConfigurationDef object)
       {
-        return createStateDefAdapter();
+        return createConfigurationDefAdapter();
       }
       @Override
       public Adapter caseSystemInstantiation(SystemInstantiation object)
@@ -146,9 +146,9 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createSystemInstantiationAdapter();
       }
       @Override
-      public Adapter caseState(State object)
+      public Adapter caseConfiguration(Configuration object)
       {
-        return createStateAdapter();
+        return createConfigurationAdapter();
       }
       @Override
       public Adapter caseSystemElement(SystemElement object)
@@ -408,16 +408,16 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.StateDef <em>State Def</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef <em>Configuration Def</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.StateDef
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef
    * @generated
    */
-  public Adapter createStateDefAdapter()
+  public Adapter createConfigurationDefAdapter()
   {
     return null;
   }
@@ -438,16 +438,16 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.State <em>State</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration <em>Configuration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.State
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.Configuration
    * @generated
    */
-  public Adapter createStateAdapter()
+  public Adapter createConfigurationAdapter()
   {
     return null;
   }

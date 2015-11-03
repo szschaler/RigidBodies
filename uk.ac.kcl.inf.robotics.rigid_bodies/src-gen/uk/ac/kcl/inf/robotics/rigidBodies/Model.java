@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getDefs <em>Defs</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getWorld <em>World</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getBodies <em>Bodies</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getStates <em>States</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel()
@@ -86,29 +86,29 @@ public interface Model extends EObject
   EList<uk.ac.kcl.inf.robotics.rigidBodies.System> getBodies();
 
   /**
-   * Returns the value of the '<em><b>States</b></em>' containment reference.
+   * Returns the value of the '<em><b>Configuration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>States</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Configuration</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>States</em>' containment reference.
-   * @see #setStates(StateDef)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_States()
+   * @return the value of the '<em>Configuration</em>' containment reference.
+   * @see #setConfiguration(ConfigurationDef)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getModel_Configuration()
    * @model containment="true"
    * @generated
    */
-  StateDef getStates();
+  ConfigurationDef getConfiguration();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getStates <em>States</em>}' containment reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Model#getConfiguration <em>Configuration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>States</em>' containment reference.
-   * @see #getStates()
+   * @param value the new value of the '<em>Configuration</em>' containment reference.
+   * @see #getConfiguration()
    * @generated
    */
-  void setStates(StateDef value);
+  void setConfiguration(ConfigurationDef value);
 
 } // Model

@@ -14,6 +14,7 @@
 'base'=66
 'between'=42
 'body'=31
+'configurations'=28
 'constraint'=59
 'dampCoulomb'=51
 'dampViscous'=50
@@ -41,7 +42,6 @@
 'springCoeff'=48
 'springInit'=49
 'start'=69
-'states'=28
 'stiffness'=52
 'system'=27
 'torque'=22

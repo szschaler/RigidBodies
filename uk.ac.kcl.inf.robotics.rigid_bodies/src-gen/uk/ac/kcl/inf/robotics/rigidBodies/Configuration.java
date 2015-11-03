@@ -6,21 +6,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>State</b></em>'.
+ * A representation of the model object '<em><b>Configuration</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.State#getName <em>Name</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getState()
+ * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConfiguration()
  * @model
  * @generated
  */
-public interface State extends EObject
+public interface Configuration extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -32,14 +32,14 @@ public interface State extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getState_Name()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConfiguration_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.State#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -48,4 +48,4 @@ public interface State extends EObject
    */
   void setName(String value);
 
-} // State
+} // Configuration
