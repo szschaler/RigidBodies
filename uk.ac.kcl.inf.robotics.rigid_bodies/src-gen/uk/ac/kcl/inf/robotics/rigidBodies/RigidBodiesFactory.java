@@ -86,6 +86,24 @@ public interface RigidBodiesFactory extends EFactory
   Configuration createConfiguration();
 
   /**
+   * Returns a new object of class '<em>Configuration Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Configuration Statement</em>'.
+   * @generated
+   */
+  ConfigurationStatement createConfigurationStatement();
+
+  /**
+   * Returns a new object of class '<em>Lock Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Lock Statement</em>'.
+   * @generated
+   */
+  LockStatement createLockStatement();
+
+  /**
    * Returns a new object of class '<em>System Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -2,6 +2,8 @@
  */
 package uk.ac.kcl.inf.robotics.rigidBodies;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration#getName <em>Name</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.Configuration#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConfiguration()
@@ -47,5 +50,21 @@ public interface Configuration extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+   * The list contents are of type {@link uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statements</em>' containment reference list.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getConfiguration_Statements()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ConfigurationStatement> getStatements();
 
 } // Configuration

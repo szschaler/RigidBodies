@@ -59,6 +59,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConfigurationDefAccess().getGroup(), "rule__ConfigurationDef__Group__0");
 					put(grammarAccess.getSystemInstantiationAccess().getGroup(), "rule__SystemInstantiation__Group__0");
 					put(grammarAccess.getConfigurationAccess().getGroup(), "rule__Configuration__Group__0");
+					put(grammarAccess.getLockStatementAccess().getGroup(), "rule__LockStatement__Group__0");
 					put(grammarAccess.getBodyAccess().getGroup(), "rule__Body__Group__0");
 					put(grammarAccess.getBodyReferenceAccess().getGroup_2(), "rule__BodyReference__Group_2__0");
 					put(grammarAccess.getBodyReferenceAccess().getGroup_3(), "rule__BodyReference__Group_3__0");
@@ -108,6 +109,9 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemInstantiationAccess().getSystemAssignment_1(), "rule__SystemInstantiation__SystemAssignment_1");
 					put(grammarAccess.getSystemInstantiationAccess().getNameAssignment_3(), "rule__SystemInstantiation__NameAssignment_3");
 					put(grammarAccess.getConfigurationAccess().getNameAssignment_0(), "rule__Configuration__NameAssignment_0");
+					put(grammarAccess.getConfigurationAccess().getStatementsAssignment_2(), "rule__Configuration__StatementsAssignment_2");
+					put(grammarAccess.getLockStatementAccess().getSysNameAssignment_1(), "rule__LockStatement__SysNameAssignment_1");
+					put(grammarAccess.getLockStatementAccess().getJointAssignment_3(), "rule__LockStatement__JointAssignment_3");
 					put(grammarAccess.getBodyAccess().getNameAssignment_1(), "rule__Body__NameAssignment_1");
 					put(grammarAccess.getBodyAccess().getMassAssignment_3(), "rule__Body__MassAssignment_3");
 					put(grammarAccess.getBodyReferenceAccess().getBaseAssignment_0(), "rule__BodyReference__BaseAssignment_0");

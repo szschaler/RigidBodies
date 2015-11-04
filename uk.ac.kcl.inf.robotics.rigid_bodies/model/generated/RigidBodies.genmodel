@@ -46,6 +46,12 @@
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Configuration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Configuration/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//ConfigurationStatement"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockStatement/sysName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockStatement/joint"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//SystemElement"/>
     <genClasses ecoreClass="RigidBodies.ecore#//Connective">

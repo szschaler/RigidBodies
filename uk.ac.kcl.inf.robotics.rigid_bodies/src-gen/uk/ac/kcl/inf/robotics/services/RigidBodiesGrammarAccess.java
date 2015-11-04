@@ -248,15 +248,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStatementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStatementsConfigurationStatementParserRuleCall_2_0 = (RuleCall)cStatementsAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Configuration:
-		//	name=ID "{" // TODO Define syntax for specifying how joints etc. are locked
-		//	"}";
+		//	name=ID "{" statements+=ConfigurationStatement* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=ID "{" // TODO Define syntax for specifying how joints etc. are locked
-		//"}"
+		//name=ID "{" statements+=ConfigurationStatement* "}"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -268,9 +268,77 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//// TODO Define syntax for specifying how joints etc. are locked
+		//statements+=ConfigurationStatement*
+		public Assignment getStatementsAssignment_2() { return cStatementsAssignment_2; }
+
+		//ConfigurationStatement
+		public RuleCall getStatementsConfigurationStatementParserRuleCall_2_0() { return cStatementsConfigurationStatementParserRuleCall_2_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+
+	public class ConfigurationStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConfigurationStatement");
+		private final RuleCall cLockStatementParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//ConfigurationStatement: // TODO Other types of configuration statements?
+		//	LockStatement;
+		@Override public ParserRule getRule() { return rule; }
+
+		//// TODO Other types of configuration statements?
+		//LockStatement
+		public RuleCall getLockStatementParserRuleCall() { return cLockStatementParserRuleCall; }
+	}
+
+	public class LockStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLockKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSysNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSysNameSystemInstantiationCrossReference_1_0 = (CrossReference)cSysNameAssignment_1.eContents().get(0);
+		private final RuleCall cSysNameSystemInstantiationIDTerminalRuleCall_1_0_1 = (RuleCall)cSysNameSystemInstantiationCrossReference_1_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cJointAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cJointJointCrossReference_3_0 = (CrossReference)cJointAssignment_3.eContents().get(0);
+		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
+		
+		//LockStatement: // TODO Handle repeated joints
+		//	"lock" sysName=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
+		//	[Joint];
+		@Override public ParserRule getRule() { return rule; }
+
+		//// TODO Handle repeated joints
+		//"lock" sysName=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
+		//[Joint]
+		public Group getGroup() { return cGroup; }
+
+		//// TODO Handle repeated joints
+		//"lock"
+		public Keyword getLockKeyword_0() { return cLockKeyword_0; }
+
+		//sysName=[SystemInstantiation]
+		public Assignment getSysNameAssignment_1() { return cSysNameAssignment_1; }
+
+		//[SystemInstantiation]
+		public CrossReference getSysNameSystemInstantiationCrossReference_1_0() { return cSysNameSystemInstantiationCrossReference_1_0; }
+
+		//ID
+		public RuleCall getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSysNameSystemInstantiationIDTerminalRuleCall_1_0_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+
+		//joint= // TODO how to reference specific degrees of freedom in a robust way?
+		//[Joint]
+		public Assignment getJointAssignment_3() { return cJointAssignment_3; }
+
+		//// TODO how to reference specific degrees of freedom in a robust way?
+		//[Joint]
+		public CrossReference getJointJointCrossReference_3_0() { return cJointJointCrossReference_3_0; }
+
+		//ID
+		public RuleCall getJointJointIDTerminalRuleCall_3_0_1() { return cJointJointIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class SystemElementElements extends AbstractParserRuleElementFinder {
@@ -1877,6 +1945,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConfigurationDefElements pConfigurationDef;
 	private final SystemInstantiationElements pSystemInstantiation;
 	private final ConfigurationElements pConfiguration;
+	private final ConfigurationStatementElements pConfigurationStatement;
+	private final LockStatementElements pLockStatement;
 	private final SystemElementElements pSystemElement;
 	private final ConnectiveElements pConnective;
 	private final BodyElements pBody;
@@ -1933,6 +2003,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pConfigurationDef = new ConfigurationDefElements();
 		this.pSystemInstantiation = new SystemInstantiationElements();
 		this.pConfiguration = new ConfigurationElements();
+		this.pConfigurationStatement = new ConfigurationStatementElements();
+		this.pLockStatement = new LockStatementElements();
 		this.pSystemElement = new SystemElementElements();
 		this.pConnective = new ConnectiveElements();
 		this.pBody = new BodyElements();
@@ -2062,14 +2134,34 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Configuration:
-	//	name=ID "{" // TODO Define syntax for specifying how joints etc. are locked
-	//	"}";
+	//	name=ID "{" statements+=ConfigurationStatement* "}";
 	public ConfigurationElements getConfigurationAccess() {
 		return pConfiguration;
 	}
 	
 	public ParserRule getConfigurationRule() {
 		return getConfigurationAccess().getRule();
+	}
+
+	//ConfigurationStatement: // TODO Other types of configuration statements?
+	//	LockStatement;
+	public ConfigurationStatementElements getConfigurationStatementAccess() {
+		return pConfigurationStatement;
+	}
+	
+	public ParserRule getConfigurationStatementRule() {
+		return getConfigurationStatementAccess().getRule();
+	}
+
+	//LockStatement: // TODO Handle repeated joints
+	//	"lock" sysName=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
+	//	[Joint];
+	public LockStatementElements getLockStatementAccess() {
+		return pLockStatement;
+	}
+	
+	public ParserRule getLockStatementRule() {
+		return getLockStatementAccess().getRule();
 	}
 
 	//SystemElement:

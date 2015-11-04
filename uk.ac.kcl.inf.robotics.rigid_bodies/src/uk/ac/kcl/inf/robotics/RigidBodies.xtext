@@ -43,8 +43,18 @@ SystemInstantiation:
 
 Configuration:
 	name=ID '{'
-		// TODO Define syntax for specifying how joints etc. are locked
+		statements += ConfigurationStatement*
 	'}'
+;
+
+ConfigurationStatement:
+	// TODO Other types of configuration statements?
+	LockStatement
+;
+
+LockStatement:
+	// TODO Handle repeated joints
+	'lock' sysName=[SystemInstantiation] '.' joint=[Joint] // TODO how to reference specific degrees of freedom in a robust way?
 ;
 
 SystemElement:

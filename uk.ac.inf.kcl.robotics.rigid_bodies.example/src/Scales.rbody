@@ -50,7 +50,12 @@ configurations {
 	instantiate EightScaleSpring as spring
 	
 	// Define different configurations.
-	normal{
-		// For the moment, we only define the default state, which uses the spring as defined above without any variations.
+	normal {
+		// Default configuration, which uses the spring as defined above without any variations.
+	}
+	
+	locked {
+		// In this configuration, all joints inside the spring are locked
+		lock spring.hing1 // Note that because of the symmetry constraint, this locks the entire spring
 	}
 }

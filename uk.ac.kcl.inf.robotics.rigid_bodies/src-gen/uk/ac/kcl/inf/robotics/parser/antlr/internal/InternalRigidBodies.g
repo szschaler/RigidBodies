@@ -496,11 +496,114 @@ ruleConfiguration returns [EObject current=null]
     {
     	newLeafNode(otherlv_1, grammarAccess.getConfigurationAccess().getLeftCurlyBracketKeyword_1());
     }
-	otherlv_2='}' 
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConfigurationAccess().getStatementsConfigurationStatementParserRuleCall_2_0()); 
+	    }
+		lv_statements_2_0=ruleConfigurationStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConfigurationRule());
+	        }
+       		add(
+       			$current, 
+       			"statements",
+        		lv_statements_2_0, 
+        		"ConfigurationStatement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_3='}' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_3());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleConfigurationStatement
+entryRuleConfigurationStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConfigurationStatementRule()); }
+	 iv_ruleConfigurationStatement=ruleConfigurationStatement 
+	 { $current=$iv_ruleConfigurationStatement.current; } 
+	 EOF 
+;
+
+// Rule ConfigurationStatement
+ruleConfigurationStatement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+
+    { 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockStatementParserRuleCall()); 
+    }
+    this_LockStatement_0=ruleLockStatement
+    { 
+        $current = $this_LockStatement_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+;
+
+
+
+
+
+// Entry rule entryRuleLockStatement
+entryRuleLockStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLockStatementRule()); }
+	 iv_ruleLockStatement=ruleLockStatement 
+	 { $current=$iv_ruleLockStatement.current; } 
+	 EOF 
+;
+
+// Rule LockStatement
+ruleLockStatement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='lock' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getLockStatementAccess().getLockKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLockStatementRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); 
+	}
+
+)
+)	otherlv_2='.' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getLockStatementAccess().getFullStopKeyword_2());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLockStatementRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getLockStatementAccess().getJointJointCrossReference_3_0()); 
+	}
+
+)
+))
 ;
 
 

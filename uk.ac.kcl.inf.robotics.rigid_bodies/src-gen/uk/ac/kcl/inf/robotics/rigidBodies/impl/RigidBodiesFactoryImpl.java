@@ -23,6 +23,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationDef;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
@@ -38,6 +39,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -117,6 +119,8 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.CONFIGURATION_DEF: return createConfigurationDef();
       case RigidBodiesPackage.SYSTEM_INSTANTIATION: return createSystemInstantiation();
       case RigidBodiesPackage.CONFIGURATION: return createConfiguration();
+      case RigidBodiesPackage.CONFIGURATION_STATEMENT: return createConfigurationStatement();
+      case RigidBodiesPackage.LOCK_STATEMENT: return createLockStatement();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
       case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
@@ -274,6 +278,28 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     ConfigurationImpl configuration = new ConfigurationImpl();
     return configuration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConfigurationStatement createConfigurationStatement()
+  {
+    ConfigurationStatementImpl configurationStatement = new ConfigurationStatementImpl();
+    return configurationStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockStatement createLockStatement()
+  {
+    LockStatementImpl lockStatement = new LockStatementImpl();
+    return lockStatement;
   }
 
   /**
