@@ -22,7 +22,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl#getSysName <em>Sys Name</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl#getSystem <em>System</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl#getJoint <em>Joint</em>}</li>
  * </ul>
  *
@@ -31,14 +31,14 @@ import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 public class LockStatementImpl extends ConfigurationStatementImpl implements LockStatement
 {
   /**
-   * The cached value of the '{@link #getSysName() <em>Sys Name</em>}' reference.
+   * The cached value of the '{@link #getSystem() <em>System</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSysName()
+   * @see #getSystem()
    * @generated
    * @ordered
    */
-  protected SystemInstantiation sysName;
+  protected SystemInstantiation system;
 
   /**
    * The cached value of the '{@link #getJoint() <em>Joint</em>}' reference.
@@ -76,19 +76,19 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
    * <!-- end-user-doc -->
    * @generated
    */
-  public SystemInstantiation getSysName()
+  public SystemInstantiation getSystem()
   {
-    if (sysName != null && sysName.eIsProxy())
+    if (system != null && system.eIsProxy())
     {
-      InternalEObject oldSysName = (InternalEObject)sysName;
-      sysName = (SystemInstantiation)eResolveProxy(oldSysName);
-      if (sysName != oldSysName)
+      InternalEObject oldSystem = (InternalEObject)system;
+      system = (SystemInstantiation)eResolveProxy(oldSystem);
+      if (system != oldSystem)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_STATEMENT__SYS_NAME, oldSysName, sysName));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_STATEMENT__SYSTEM, oldSystem, system));
       }
     }
-    return sysName;
+    return system;
   }
 
   /**
@@ -96,9 +96,9 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
    * <!-- end-user-doc -->
    * @generated
    */
-  public SystemInstantiation basicGetSysName()
+  public SystemInstantiation basicGetSystem()
   {
-    return sysName;
+    return system;
   }
 
   /**
@@ -106,12 +106,12 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSysName(SystemInstantiation newSysName)
+  public void setSystem(SystemInstantiation newSystem)
   {
-    SystemInstantiation oldSysName = sysName;
-    sysName = newSysName;
+    SystemInstantiation oldSystem = system;
+    system = newSystem;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_STATEMENT__SYS_NAME, oldSysName, sysName));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_STATEMENT__SYSTEM, oldSystem, system));
   }
 
   /**
@@ -167,9 +167,9 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYS_NAME:
-        if (resolve) return getSysName();
-        return basicGetSysName();
+      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+        if (resolve) return getSystem();
+        return basicGetSystem();
       case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
         if (resolve) return getJoint();
         return basicGetJoint();
@@ -187,8 +187,8 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYS_NAME:
-        setSysName((SystemInstantiation)newValue);
+      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+        setSystem((SystemInstantiation)newValue);
         return;
       case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
         setJoint((Joint)newValue);
@@ -207,8 +207,8 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYS_NAME:
-        setSysName((SystemInstantiation)null);
+      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+        setSystem((SystemInstantiation)null);
         return;
       case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
         setJoint((Joint)null);
@@ -227,8 +227,8 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYS_NAME:
-        return sysName != null;
+      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+        return system != null;
       case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
         return joint != null;
     }

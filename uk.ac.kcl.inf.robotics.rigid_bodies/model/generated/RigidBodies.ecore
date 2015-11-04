@@ -41,7 +41,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationStatement"/>
   <eClassifiers xsi:type="ecore:EClass" name="LockStatement" eSuperTypes="#//ConfigurationStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sysName" eType="#//SystemInstantiation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//SystemInstantiation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemElement"/>

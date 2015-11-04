@@ -693,7 +693,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLockStatement_SysName()
+  public EReference getLockStatement_System()
   {
     return (EReference)lockStatementEClass.getEStructuralFeatures().get(0);
   }
@@ -1749,7 +1749,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     configurationStatementEClass = createEClass(CONFIGURATION_STATEMENT);
 
     lockStatementEClass = createEClass(LOCK_STATEMENT);
-    createEReference(lockStatementEClass, LOCK_STATEMENT__SYS_NAME);
+    createEReference(lockStatementEClass, LOCK_STATEMENT__SYSTEM);
     createEReference(lockStatementEClass, LOCK_STATEMENT__JOINT);
 
     systemElementEClass = createEClass(SYSTEM_ELEMENT);
@@ -1977,7 +1977,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEClass(configurationStatementEClass, ConfigurationStatement.class, "ConfigurationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(lockStatementEClass, LockStatement.class, "LockStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLockStatement_SysName(), this.getSystemInstantiation(), null, "sysName", null, 0, 1, LockStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLockStatement_System(), this.getSystemInstantiation(), null, "system", null, 0, 1, LockStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLockStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, LockStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemElementEClass, SystemElement.class, "SystemElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

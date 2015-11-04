@@ -2699,9 +2699,9 @@ rule__LockStatement__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getSysNameAssignment_1()); }
-(rule__LockStatement__SysNameAssignment_1)
-{ after(grammarAccess.getLockStatementAccess().getSysNameAssignment_1()); }
+{ before(grammarAccess.getLockStatementAccess().getSystemAssignment_1()); }
+(rule__LockStatement__SystemAssignment_1)
+{ after(grammarAccess.getLockStatementAccess().getSystemAssignment_1()); }
 )
 
 ;
@@ -8001,18 +8001,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__SysNameAssignment_1
+rule__LockStatement__SystemAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); }
+{ before(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); }
 (
-{ before(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1()); }
+{ before(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); }
 )
-{ after(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); }
+{ after(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); }
 )
 
 ;

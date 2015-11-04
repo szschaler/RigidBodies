@@ -1466,7 +1466,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
                     
             otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLockStatement1253); 
 
-            		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); 
+            		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
             	
 
             }

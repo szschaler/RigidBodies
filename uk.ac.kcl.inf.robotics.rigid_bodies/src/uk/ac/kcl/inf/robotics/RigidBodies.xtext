@@ -54,7 +54,7 @@ ConfigurationStatement:
 
 LockStatement:
 	// TODO Handle repeated joints
-	'lock' sysName=[SystemInstantiation] '.' joint=[Joint] // TODO how to reference specific degrees of freedom in a robust way?
+	'lock' system=[SystemInstantiation] '.' joint=[Joint] // TODO how to reference specific degrees of freedom in a robust way?
 ;
 
 SystemElement:

@@ -582,7 +582,7 @@ ruleLockStatement returns [EObject current=null]
         }
 	otherlv_1=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); 
+		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
 	}
 
 )

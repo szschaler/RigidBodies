@@ -110,7 +110,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemInstantiationAccess().getNameAssignment_3(), "rule__SystemInstantiation__NameAssignment_3");
 					put(grammarAccess.getConfigurationAccess().getNameAssignment_0(), "rule__Configuration__NameAssignment_0");
 					put(grammarAccess.getConfigurationAccess().getStatementsAssignment_2(), "rule__Configuration__StatementsAssignment_2");
-					put(grammarAccess.getLockStatementAccess().getSysNameAssignment_1(), "rule__LockStatement__SysNameAssignment_1");
+					put(grammarAccess.getLockStatementAccess().getSystemAssignment_1(), "rule__LockStatement__SystemAssignment_1");
 					put(grammarAccess.getLockStatementAccess().getJointAssignment_3(), "rule__LockStatement__JointAssignment_3");
 					put(grammarAccess.getBodyAccess().getNameAssignment_1(), "rule__Body__NameAssignment_1");
 					put(grammarAccess.getBodyAccess().getMassAssignment_3(), "rule__Body__MassAssignment_3");

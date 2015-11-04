@@ -3,6 +3,7 @@
  */
 package uk.ac.kcl.inf.robotics.scoping
 
+import java.util.LinkedList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -11,37 +12,50 @@ import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
+import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType
+import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
+import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition
 
 /**
  * This class contains custom scoping description.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
- *
+ * 
  */
 class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
 		var Class<? extends EObject> class = null
 		if ((reference == RigidBodiesPackage.Literals.MATRIX_REF__MATRIX)) {
 			class = BaseMatrix
-		}
-		else if ((reference == RigidBodiesPackage.Literals.JOINT_TYPE_REFERENCE__REF)) {
+		} else if ((reference == RigidBodiesPackage.Literals.JOINT_TYPE_REFERENCE__REF)) {
 			class = JointType
-		}
-		else if ((reference == RigidBodiesPackage.Literals.REORIENT_REF__REF)) {
+		} else if ((reference == RigidBodiesPackage.Literals.REORIENT_REF__REF)) {
 			class = Reorientation
 		}
-		
+
 		if (class != null) {
 			var EObject rootElement = EcoreUtil2.getRootContainer(context);
-            var List<? extends EObject> candidates = EcoreUtil2.getAllContentsOfType(rootElement, class);
-            return Scopes.scopeFor(candidates);
-		}
-		else {
+			var List<? extends EObject> candidates = EcoreUtil2.getAllContentsOfType(rootElement, class);
+			return Scopes.scopeFor(candidates);
+		} else {
 			return super.getScope(context, reference);
-		} 
-      }
+		}
+	}
+
+	def IScope scope_LockStatement_joint(LockStatement ls, EReference reference) {
+		Scopes.scopeFor(
+			ls.system.system.elements.filter[elt|(elt instanceof Joint) || (elt instanceof BodyRepetition)].fold(
+				new LinkedList<Joint>, [ lAcc, elt |
+					if (elt instanceof Joint) {
+						lAcc.add(elt as Joint)
+					} else {
+						lAcc.addAll((elt as BodyRepetition).connectionExp.filter(Joint))
+					}
+					return lAcc
+				]))
+	}
 }

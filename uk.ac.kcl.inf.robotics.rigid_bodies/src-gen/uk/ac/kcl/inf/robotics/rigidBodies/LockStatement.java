@@ -12,7 +12,7 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSysName <em>Sys Name</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem <em>System</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getJoint <em>Joint</em>}</li>
  * </ul>
  *
@@ -23,30 +23,30 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
 public interface LockStatement extends ConfigurationStatement
 {
   /**
-   * Returns the value of the '<em><b>Sys Name</b></em>' reference.
+   * Returns the value of the '<em><b>System</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Sys Name</em>' reference isn't clear,
+   * If the meaning of the '<em>System</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sys Name</em>' reference.
-   * @see #setSysName(SystemInstantiation)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockStatement_SysName()
+   * @return the value of the '<em>System</em>' reference.
+   * @see #setSystem(SystemInstantiation)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockStatement_System()
    * @model
    * @generated
    */
-  SystemInstantiation getSysName();
+  SystemInstantiation getSystem();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSysName <em>Sys Name</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem <em>System</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sys Name</em>' reference.
-   * @see #getSysName()
+   * @param value the new value of the '<em>System</em>' reference.
+   * @see #getSystem()
    * @generated
    */
-  void setSysName(SystemInstantiation value);
+  void setSystem(SystemInstantiation value);
 
   /**
    * Returns the value of the '<em><b>Joint</b></em>' reference.

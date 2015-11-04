@@ -7676,31 +7676,31 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__LockStatement__Group__1__Impl"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2696:1: rule__LockStatement__Group__1__Impl : ( ( rule__LockStatement__SysNameAssignment_1 ) ) ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2696:1: rule__LockStatement__Group__1__Impl : ( ( rule__LockStatement__SystemAssignment_1 ) ) ;
     public final void rule__LockStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2700:1: ( ( ( rule__LockStatement__SysNameAssignment_1 ) ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2701:1: ( ( rule__LockStatement__SysNameAssignment_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2700:1: ( ( ( rule__LockStatement__SystemAssignment_1 ) ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2701:1: ( ( rule__LockStatement__SystemAssignment_1 ) )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2701:1: ( ( rule__LockStatement__SysNameAssignment_1 ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2702:1: ( rule__LockStatement__SysNameAssignment_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2701:1: ( ( rule__LockStatement__SystemAssignment_1 ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2702:1: ( rule__LockStatement__SystemAssignment_1 )
             {
-             before(grammarAccess.getLockStatementAccess().getSysNameAssignment_1()); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2703:1: ( rule__LockStatement__SysNameAssignment_1 )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2703:2: rule__LockStatement__SysNameAssignment_1
+             before(grammarAccess.getLockStatementAccess().getSystemAssignment_1()); 
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2703:1: ( rule__LockStatement__SystemAssignment_1 )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:2703:2: rule__LockStatement__SystemAssignment_1
             {
-            pushFollow(FOLLOW_rule__LockStatement__SysNameAssignment_1_in_rule__LockStatement__Group__1__Impl5625);
-            rule__LockStatement__SysNameAssignment_1();
+            pushFollow(FOLLOW_rule__LockStatement__SystemAssignment_1_in_rule__LockStatement__Group__1__Impl5625);
+            rule__LockStatement__SystemAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getLockStatementAccess().getSysNameAssignment_1()); 
+             after(grammarAccess.getLockStatementAccess().getSystemAssignment_1()); 
 
             }
 
@@ -21110,9 +21110,9 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Configuration__StatementsAssignment_2"
 
 
-    // $ANTLR start "rule__LockStatement__SysNameAssignment_1"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:8004:1: rule__LockStatement__SysNameAssignment_1 : ( ( RULE_ID ) ) ;
-    public final void rule__LockStatement__SysNameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__LockStatement__SystemAssignment_1"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:8004:1: rule__LockStatement__SystemAssignment_1 : ( ( RULE_ID ) ) ;
+    public final void rule__LockStatement__SystemAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -21123,17 +21123,17 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:8009:1: ( ( RULE_ID ) )
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:8010:1: ( RULE_ID )
             {
-             before(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); 
+             before(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:8011:1: ( RULE_ID )
             // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:8012:1: RULE_ID
             {
-             before(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LockStatement__SysNameAssignment_116069); 
-             after(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1()); 
+             before(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LockStatement__SystemAssignment_116069); 
+             after(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); 
 
             }
 
-             after(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationCrossReference_1_0()); 
+             after(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
 
             }
 
@@ -21152,7 +21152,7 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__LockStatement__SysNameAssignment_1"
+    // $ANTLR end "rule__LockStatement__SystemAssignment_1"
 
 
     // $ANTLR start "rule__LockStatement__JointAssignment_3"
@@ -24355,7 +24355,7 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_31_in_rule__LockStatement__Group__0__Impl5564 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LockStatement__Group__1__Impl_in_rule__LockStatement__Group__15595 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_rule__LockStatement__Group__2_in_rule__LockStatement__Group__15598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LockStatement__SysNameAssignment_1_in_rule__LockStatement__Group__1__Impl5625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LockStatement__SystemAssignment_1_in_rule__LockStatement__Group__1__Impl5625 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LockStatement__Group__2__Impl_in_rule__LockStatement__Group__25655 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__LockStatement__Group__3_in_rule__LockStatement__Group__25658 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_32_in_rule__LockStatement__Group__2__Impl5686 = new BitSet(new long[]{0x0000000000000002L});
@@ -24808,7 +24808,7 @@ public class InternalRigidBodiesParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_RULE_ID_in_rule__SystemInstantiation__NameAssignment_315972 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Configuration__NameAssignment_016003 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConfigurationStatement_in_rule__Configuration__StatementsAssignment_216034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LockStatement__SysNameAssignment_116069 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LockStatement__SystemAssignment_116069 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__LockStatement__JointAssignment_316108 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Body__NameAssignment_116143 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMass_in_rule__Body__MassAssignment_316174 = new BitSet(new long[]{0x0000000000000002L});

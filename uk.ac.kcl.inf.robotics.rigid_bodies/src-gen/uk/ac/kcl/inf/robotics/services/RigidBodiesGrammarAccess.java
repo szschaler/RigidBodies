@@ -295,21 +295,21 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLockKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cSysNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cSysNameSystemInstantiationCrossReference_1_0 = (CrossReference)cSysNameAssignment_1.eContents().get(0);
-		private final RuleCall cSysNameSystemInstantiationIDTerminalRuleCall_1_0_1 = (RuleCall)cSysNameSystemInstantiationCrossReference_1_0.eContents().get(1);
+		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSystemSystemInstantiationCrossReference_1_0 = (CrossReference)cSystemAssignment_1.eContents().get(0);
+		private final RuleCall cSystemSystemInstantiationIDTerminalRuleCall_1_0_1 = (RuleCall)cSystemSystemInstantiationCrossReference_1_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cJointAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cJointJointCrossReference_3_0 = (CrossReference)cJointAssignment_3.eContents().get(0);
 		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
 		
 		//LockStatement: // TODO Handle repeated joints
-		//	"lock" sysName=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
+		//	"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
 		//	[Joint];
 		@Override public ParserRule getRule() { return rule; }
 
 		//// TODO Handle repeated joints
-		//"lock" sysName=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
+		//"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
 		//[Joint]
 		public Group getGroup() { return cGroup; }
 
@@ -317,14 +317,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"lock"
 		public Keyword getLockKeyword_0() { return cLockKeyword_0; }
 
-		//sysName=[SystemInstantiation]
-		public Assignment getSysNameAssignment_1() { return cSysNameAssignment_1; }
+		//system=[SystemInstantiation]
+		public Assignment getSystemAssignment_1() { return cSystemAssignment_1; }
 
 		//[SystemInstantiation]
-		public CrossReference getSysNameSystemInstantiationCrossReference_1_0() { return cSysNameSystemInstantiationCrossReference_1_0; }
+		public CrossReference getSystemSystemInstantiationCrossReference_1_0() { return cSystemSystemInstantiationCrossReference_1_0; }
 
 		//ID
-		public RuleCall getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSysNameSystemInstantiationIDTerminalRuleCall_1_0_1; }
+		public RuleCall getSystemSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSystemSystemInstantiationIDTerminalRuleCall_1_0_1; }
 
 		//"."
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
@@ -2154,7 +2154,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LockStatement: // TODO Handle repeated joints
-	//	"lock" sysName=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
+	//	"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
 	//	[Joint];
 	public LockStatementElements getLockStatementAccess() {
 		return pLockStatement;

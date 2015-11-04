@@ -439,18 +439,18 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (sysName=[SystemInstantiation|ID] joint=[Joint|ID])
+	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID])
 	 */
 	protected void sequence_LockStatement(EObject context, LockStatement semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__SYS_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__SYS_NAME));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__SYSTEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__SYSTEM));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__JOINT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__JOINT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLockStatementAccess().getSysNameSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSysName());
+		feeder.accept(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
 		feeder.accept(grammarAccess.getLockStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
 		feeder.finish();
 	}

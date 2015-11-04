@@ -346,13 +346,13 @@ public interface RigidBodiesPackage extends EPackage
   int LOCK_STATEMENT = 8;
 
   /**
-   * The feature id for the '<em><b>Sys Name</b></em>' reference.
+   * The feature id for the '<em><b>System</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCK_STATEMENT__SYS_NAME = CONFIGURATION_STATEMENT_FEATURE_COUNT + 0;
+  int LOCK_STATEMENT__SYSTEM = CONFIGURATION_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Joint</b></em>' reference.
@@ -1952,15 +1952,15 @@ public interface RigidBodiesPackage extends EPackage
   EClass getLockStatement();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSysName <em>Sys Name</em>}'.
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem <em>System</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Sys Name</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSysName()
+   * @return the meta object for the reference '<em>System</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem()
    * @see #getLockStatement()
    * @generated
    */
-  EReference getLockStatement_SysName();
+  EReference getLockStatement_System();
 
   /**
    * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getJoint <em>Joint</em>}'.
@@ -3239,12 +3239,12 @@ public interface RigidBodiesPackage extends EPackage
     EClass LOCK_STATEMENT = eINSTANCE.getLockStatement();
 
     /**
-     * The meta object literal for the '<em><b>Sys Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>System</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOCK_STATEMENT__SYS_NAME = eINSTANCE.getLockStatement_SysName();
+    EReference LOCK_STATEMENT__SYSTEM = eINSTANCE.getLockStatement_System();
 
     /**
      * The meta object literal for the '<em><b>Joint</b></em>' reference feature.
