@@ -44,8 +44,7 @@ class RigidBodiesGenerator implements IGenerator {
 		model.configuration.configs.forEach[c |
 			fsa.generateFile('''«unrolledSystems.head.key»_«c.name».m''',
 				generate(model.world, new ConnectiveTreeBuilder(
-					// TODO Pre-process the system definition to apply any locks etc. 
-					unrolledSystems.head.value
+					new ConfigurationInterpreter (c, unrolledSystems).configuredSystem
 				)))
 		]
 	}
