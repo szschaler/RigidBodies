@@ -123,3 +123,11 @@ system DynamicWalker {
 	external load foot2L : force
 		at shank2 (with relative transformation OOM1)
 }
+
+configurations {
+	instantiate DynamicWalker as walker
+	
+	normal {
+		
+	}
+}
