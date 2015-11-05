@@ -28,7 +28,6 @@ system EightScaleSpring {
 		between base (with relative transformation matrix Origin [0.0, 0.0, 1.0], reorient NoReorient ())
 		and scale
 
-
 	// Repeat another 7 copies
 	repeat 7 of scale {
 		joint hing2 : XRevolve
