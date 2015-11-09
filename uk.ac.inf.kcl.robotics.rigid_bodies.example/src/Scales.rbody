@@ -25,13 +25,13 @@ system EightScaleSpring {
 	}
 
 	joint hing1 : XRevolve start
-		between base (with relative transformation matrix Origin [0.0, 0.0, 1.0], reorient NoReorient ())
+		between base (with relative transformation [0.0, 0.0, 1.0], reorient NoReorient ())
 		and scale
 
 	// Repeat another 7 copies
 	repeat 7 of scale {
 		joint hing2 : XRevolve
-			between last (with relative transformation matrix Origin [1.0, 0.0, -1.0], reorient YReorient ((y, pi/2.0)))
+			between last (with relative transformation [1.0, 0.0, -1.0], reorient YReorient ((y, pi/2.0)))
 			and new
 
 		// Symmetry constraint: all joints move in sync. It should put jkd(4,1,this joint number) = joint base number;	
@@ -40,7 +40,7 @@ system EightScaleSpring {
 
 	// Add an external load at tip of final scale
 	external load tip : force
-		at last scale /*[5]*/ (with relative transformation matrix Tip [1.0, 0.0, -1.0])
+		at last scale /*[5]*/ (with relative transformation [1.0, 0.0, -1.0])
 }
 
 // Define different configurations of the spring
@@ -56,5 +56,7 @@ configurations {
 	locked {
 		// In this configuration, all joints inside the spring are locked
 		lock spring.hing1 // Note that because of the symmetry constraint, this locks the entire spring
+			to rotation [pi / 2.0, 0.0, 0.0]
+			   translation [0.0, 0.0, 0.0]
 	}
 }

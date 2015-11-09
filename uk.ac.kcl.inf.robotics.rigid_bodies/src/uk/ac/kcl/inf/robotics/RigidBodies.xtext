@@ -57,6 +57,8 @@ ConfigurationStatement:
 LockJointStatement:
 	// TODO Handle repeated joints
 	'lock' system=[SystemInstantiation] '.' joint=[Joint] 
+		'to' 'rotation' rotation=Matrix /* 3D vector */
+		     'translation' translation=Matrix /* 3D vector */
 ;
 
 SystemElement:

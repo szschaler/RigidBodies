@@ -2747,6 +2747,7 @@ rule__LockJointStatement__Group__3
     }
 :
 	rule__LockJointStatement__Group__3__Impl
+	rule__LockJointStatement__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2767,6 +2768,166 @@ rule__LockJointStatement__Group__3__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__LockJointStatement__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LockJointStatement__Group__4__Impl
+	rule__LockJointStatement__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getToKeyword_4()); }
+
+	'to' 
+
+{ after(grammarAccess.getLockJointStatementAccess().getToKeyword_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LockJointStatement__Group__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LockJointStatement__Group__5__Impl
+	rule__LockJointStatement__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__Group__5__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getRotationKeyword_5()); }
+
+	'rotation' 
+
+{ after(grammarAccess.getLockJointStatementAccess().getRotationKeyword_5()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LockJointStatement__Group__6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LockJointStatement__Group__6__Impl
+	rule__LockJointStatement__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__Group__6__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getRotationAssignment_6()); }
+(rule__LockJointStatement__RotationAssignment_6)
+{ after(grammarAccess.getLockJointStatementAccess().getRotationAssignment_6()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LockJointStatement__Group__7
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LockJointStatement__Group__7__Impl
+	rule__LockJointStatement__Group__8
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__Group__7__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getTranslationKeyword_7()); }
+
+	'translation' 
+
+{ after(grammarAccess.getLockJointStatementAccess().getTranslationKeyword_7()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__LockJointStatement__Group__8
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__LockJointStatement__Group__8__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__Group__8__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getTranslationAssignment_8()); }
+(rule__LockJointStatement__TranslationAssignment_8)
+{ after(grammarAccess.getLockJointStatementAccess().getTranslationAssignment_8()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8032,6 +8193,36 @@ rule__LockJointStatement__JointAssignment_3
 	RULE_ID{ after(grammarAccess.getLockJointStatementAccess().getJointJointIDTerminalRuleCall_3_0_1()); }
 )
 { after(grammarAccess.getLockJointStatementAccess().getJointJointCrossReference_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__RotationAssignment_6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getRotationMatrixParserRuleCall_6_0()); }
+	ruleMatrix{ after(grammarAccess.getLockJointStatementAccess().getRotationMatrixParserRuleCall_6_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LockJointStatement__TranslationAssignment_8
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLockJointStatementAccess().getTranslationMatrixParserRuleCall_8_0()); }
+	ruleMatrix{ after(grammarAccess.getLockJointStatementAccess().getTranslationMatrixParserRuleCall_8_0()); }
 )
 
 ;

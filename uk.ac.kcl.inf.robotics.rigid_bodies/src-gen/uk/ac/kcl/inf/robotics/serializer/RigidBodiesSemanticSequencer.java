@@ -439,7 +439,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID])
+	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID] rotation=Matrix translation=Matrix)
 	 */
 	protected void sequence_LockJointStatement(EObject context, LockJointStatement semanticObject) {
 		if(errorAcceptor != null) {
@@ -447,11 +447,17 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__SYSTEM));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__JOINT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__JOINT));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__ROTATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__ROTATION));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__TRANSLATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__TRANSLATION));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
 		feeder.accept(grammarAccess.getLockJointStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
+		feeder.accept(grammarAccess.getLockJointStatementAccess().getRotationMatrixParserRuleCall_6_0(), semanticObject.getRotation());
+		feeder.accept(grammarAccess.getLockJointStatementAccess().getTranslationMatrixParserRuleCall_8_0(), semanticObject.getTranslation());
 		feeder.finish();
 	}
 	

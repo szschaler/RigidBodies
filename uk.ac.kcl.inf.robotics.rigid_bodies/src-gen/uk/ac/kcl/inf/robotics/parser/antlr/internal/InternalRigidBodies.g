@@ -603,6 +603,54 @@ ruleLockJointStatement returns [EObject current=null]
 	}
 
 )
+)	otherlv_4='to' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getLockJointStatementAccess().getToKeyword_4());
+    }
+	otherlv_5='rotation' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getLockJointStatementAccess().getRotationKeyword_5());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockJointStatementAccess().getRotationMatrixParserRuleCall_6_0()); 
+	    }
+		lv_rotation_6_0=ruleMatrix		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockJointStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"rotation",
+        		lv_rotation_6_0, 
+        		"Matrix");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_7='translation' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getLockJointStatementAccess().getTranslationKeyword_7());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockJointStatementAccess().getTranslationMatrixParserRuleCall_8_0()); 
+	    }
+		lv_translation_8_0=ruleMatrix		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockJointStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"translation",
+        		lv_translation_8_0, 
+        		"Matrix");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 ))
 ;
 

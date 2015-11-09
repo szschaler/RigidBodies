@@ -62,7 +62,7 @@ public class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
     }
   }
   
-  public IScope scope_LockStatement_joint(final LockJointStatement ls, final EReference reference) {
+  public IScope scope_LockJointStatement_joint(final LockJointStatement ls, final EReference reference) {
     SystemInstantiation _system = ls.getSystem();
     uk.ac.kcl.inf.robotics.rigidBodies.System _system_1 = _system.getSystem();
     EList<SystemElement> _elements = _system_1.getElements();

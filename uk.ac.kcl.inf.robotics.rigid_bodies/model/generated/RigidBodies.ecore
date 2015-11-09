@@ -43,6 +43,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="LockJointStatement" eSuperTypes="#//ConfigurationStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//SystemInstantiation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rotation" eType="#//Matrix"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="translation" eType="#//Matrix"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Connective" eSuperTypes="#//SystemElement">

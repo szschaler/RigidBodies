@@ -364,13 +364,31 @@ public interface RigidBodiesPackage extends EPackage
   int LOCK_JOINT_STATEMENT__JOINT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Rotation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCK_JOINT_STATEMENT__ROTATION = CONFIGURATION_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Translation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCK_JOINT_STATEMENT__TRANSLATION = CONFIGURATION_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Lock Joint Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCK_JOINT_STATEMENT_FEATURE_COUNT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 2;
+  int LOCK_JOINT_STATEMENT_FEATURE_COUNT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemElementImpl <em>System Element</em>}' class.
@@ -1974,6 +1992,28 @@ public interface RigidBodiesPackage extends EPackage
   EReference getLockJointStatement_Joint();
 
   /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getRotation <em>Rotation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rotation</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getRotation()
+   * @see #getLockJointStatement()
+   * @generated
+   */
+  EReference getLockJointStatement_Rotation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getTranslation <em>Translation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Translation</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getTranslation()
+   * @see #getLockJointStatement()
+   * @generated
+   */
+  EReference getLockJointStatement_Translation();
+
+  /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.SystemElement <em>System Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3253,6 +3293,22 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EReference LOCK_JOINT_STATEMENT__JOINT = eINSTANCE.getLockJointStatement_Joint();
+
+    /**
+     * The meta object literal for the '<em><b>Rotation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCK_JOINT_STATEMENT__ROTATION = eINSTANCE.getLockJointStatement_Rotation();
+
+    /**
+     * The meta object literal for the '<em><b>Translation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCK_JOINT_STATEMENT__TRANSLATION = eINSTANCE.getLockJointStatement_Translation();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemElementImpl <em>System Element</em>}' class.

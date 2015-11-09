@@ -713,6 +713,26 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getLockJointStatement_Rotation()
+  {
+    return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLockJointStatement_Translation()
+  {
+    return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSystemElement()
   {
     return systemElementEClass;
@@ -1751,6 +1771,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     lockJointStatementEClass = createEClass(LOCK_JOINT_STATEMENT);
     createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__SYSTEM);
     createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__JOINT);
+    createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__ROTATION);
+    createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__TRANSLATION);
 
     systemElementEClass = createEClass(SYSTEM_ELEMENT);
 
@@ -1979,6 +2001,8 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEClass(lockJointStatementEClass, LockJointStatement.class, "LockJointStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLockJointStatement_System(), this.getSystemInstantiation(), null, "system", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLockJointStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLockJointStatement_Rotation(), this.getMatrix(), null, "rotation", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLockJointStatement_Translation(), this.getMatrix(), null, "translation", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemElementEClass, SystemElement.class, "SystemElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

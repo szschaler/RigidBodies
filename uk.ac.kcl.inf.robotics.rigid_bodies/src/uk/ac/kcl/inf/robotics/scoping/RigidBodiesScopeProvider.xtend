@@ -46,7 +46,7 @@ class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
 		}
 	}
 
-	def IScope scope_LockStatement_joint(LockJointStatement ls, EReference reference) {
+	def IScope scope_LockJointStatement_joint(LockJointStatement ls, EReference reference) {
 		Scopes.scopeFor(
 			ls.system.system.elements.filter[elt|(elt instanceof Joint) || (elt instanceof BodyRepetition)].fold(
 				new LinkedList<Joint>, [ lAcc, elt |

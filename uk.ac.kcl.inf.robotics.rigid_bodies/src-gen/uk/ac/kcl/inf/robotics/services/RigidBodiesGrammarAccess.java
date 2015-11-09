@@ -282,6 +282,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConfigurationStatement");
 		private final RuleCall cLockJointStatementParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
+		//// TODO how to reference specific degrees of freedom in a robust way?
 		//ConfigurationStatement: // TODO Other types of configuration statements?
 		//	LockJointStatement;
 		@Override public ParserRule getRule() { return rule; }
@@ -302,15 +303,22 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cJointAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cJointJointCrossReference_3_0 = (CrossReference)cJointAssignment_3.eContents().get(0);
 		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
+		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cRotationKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cRotationAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cRotationMatrixParserRuleCall_6_0 = (RuleCall)cRotationAssignment_6.eContents().get(0);
+		private final Keyword cTranslationKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cTranslationAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cTranslationMatrixParserRuleCall_8_0 = (RuleCall)cTranslationAssignment_8.eContents().get(0);
 		
 		//LockJointStatement: // TODO Handle repeated joints
-		//	"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
-		//	[Joint];
+		//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" "rotation" rotation= / * 3D vector * / Matrix "translation"
+		//	translation= / * 3D vector * / Matrix;
 		@Override public ParserRule getRule() { return rule; }
 
 		//// TODO Handle repeated joints
-		//"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
-		//[Joint]
+		//"lock" system=[SystemInstantiation] "." joint=[Joint] "to" "rotation" rotation= / * 3D vector * / Matrix "translation"
+		//translation= / * 3D vector * / Matrix
 		public Group getGroup() { return cGroup; }
 
 		//// TODO Handle repeated joints
@@ -329,16 +337,35 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"."
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 
-		//joint= // TODO how to reference specific degrees of freedom in a robust way?
-		//[Joint]
+		//joint=[Joint]
 		public Assignment getJointAssignment_3() { return cJointAssignment_3; }
 
-		//// TODO how to reference specific degrees of freedom in a robust way?
 		//[Joint]
 		public CrossReference getJointJointCrossReference_3_0() { return cJointJointCrossReference_3_0; }
 
 		//ID
 		public RuleCall getJointJointIDTerminalRuleCall_3_0_1() { return cJointJointIDTerminalRuleCall_3_0_1; }
+
+		//"to"
+		public Keyword getToKeyword_4() { return cToKeyword_4; }
+
+		//"rotation"
+		public Keyword getRotationKeyword_5() { return cRotationKeyword_5; }
+
+		//rotation= / * 3D vector * / Matrix
+		public Assignment getRotationAssignment_6() { return cRotationAssignment_6; }
+
+		/// * 3D vector * / Matrix
+		public RuleCall getRotationMatrixParserRuleCall_6_0() { return cRotationMatrixParserRuleCall_6_0; }
+
+		//"translation"
+		public Keyword getTranslationKeyword_7() { return cTranslationKeyword_7; }
+
+		//translation= / * 3D vector * / Matrix
+		public Assignment getTranslationAssignment_8() { return cTranslationAssignment_8; }
+
+		/// * 3D vector * / Matrix
+		public RuleCall getTranslationMatrixParserRuleCall_8_0() { return cTranslationMatrixParserRuleCall_8_0; }
 	}
 
 	public class SystemElementElements extends AbstractParserRuleElementFinder {
@@ -2143,6 +2170,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getConfigurationAccess().getRule();
 	}
 
+	//// TODO how to reference specific degrees of freedom in a robust way?
 	//ConfigurationStatement: // TODO Other types of configuration statements?
 	//	LockJointStatement;
 	public ConfigurationStatementElements getConfigurationStatementAccess() {
@@ -2154,8 +2182,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LockJointStatement: // TODO Handle repeated joints
-	//	"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
-	//	[Joint];
+	//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" "rotation" rotation= / * 3D vector * / Matrix "translation"
+	//	translation= / * 3D vector * / Matrix;
 	public LockJointStatementElements getLockJointStatementAccess() {
 		return pLockJointStatement;
 	}

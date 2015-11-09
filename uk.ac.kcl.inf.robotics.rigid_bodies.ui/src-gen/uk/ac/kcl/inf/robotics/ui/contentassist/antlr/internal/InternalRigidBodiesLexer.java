@@ -56,6 +56,7 @@ public class InternalRigidBodiesLexer extends Lexer {
     public static final int T__65=65;
     public static final int T__70=70;
     public static final int T__71=71;
+    public static final int T__72=72;
     public static final int RULE_STRING=7;
     public static final int RULE_SL_COMMENT=9;
     public static final int T__37=37;
@@ -65,8 +66,10 @@ public class InternalRigidBodiesLexer extends Lexer {
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
+    public static final int T__73=73;
     public static final int EOF=-1;
     public static final int T__30=30;
+    public static final int T__74=74;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int RULE_WS=10;
@@ -531,10 +534,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:32:7: ( 'body' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:32:9: 'body'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:32:7: ( 'to' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:32:9: 'to'
             {
-            match("body"); 
+            match("to"); 
 
 
             }
@@ -552,10 +555,11 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:33:7: ( '[' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:33:9: '['
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:33:7: ( 'rotation' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:33:9: 'rotation'
             {
-            match('['); 
+            match("rotation"); 
+
 
             }
 
@@ -572,10 +576,11 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:34:7: ( ']' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:34:9: ']'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:34:7: ( 'translation' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:34:9: 'translation'
             {
-            match(']'); 
+            match("translation"); 
+
 
             }
 
@@ -592,10 +597,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:35:7: ( 'repeat' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:35:9: 'repeat'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:35:7: ( 'body' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:35:9: 'body'
             {
-            match("repeat"); 
+            match("body"); 
 
 
             }
@@ -613,11 +618,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:36:7: ( 'of' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:36:9: 'of'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:36:7: ( '[' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:36:9: '['
             {
-            match("of"); 
-
+            match('['); 
 
             }
 
@@ -634,11 +638,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:37:7: ( 'mass' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:37:9: 'mass'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:37:7: ( ']' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:37:9: ']'
             {
-            match("mass"); 
-
+            match(']'); 
 
             }
 
@@ -655,10 +658,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:38:7: ( 'value' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:38:9: 'value'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:38:7: ( 'repeat' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:38:9: 'repeat'
             {
-            match("value"); 
+            match("repeat"); 
 
 
             }
@@ -676,10 +679,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:39:7: ( 'position' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:39:9: 'position'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:39:7: ( 'of' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:39:9: 'of'
             {
-            match("position"); 
+            match("of"); 
 
 
             }
@@ -697,10 +700,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:40:7: ( 'inertia' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:40:9: 'inertia'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:40:7: ( 'mass' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:40:9: 'mass'
             {
-            match("inertia"); 
+            match("mass"); 
 
 
             }
@@ -718,10 +721,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:41:7: ( 'joint' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:41:9: 'joint'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:41:7: ( 'value' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:41:9: 'value'
             {
-            match("joint"); 
+            match("value"); 
 
 
             }
@@ -739,10 +742,11 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:42:7: ( ':' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:42:9: ':'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:42:7: ( 'position' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:42:9: 'position'
             {
-            match(':'); 
+            match("position"); 
+
 
             }
 
@@ -759,10 +763,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:43:7: ( 'between' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:43:9: 'between'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:43:7: ( 'inertia' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:43:9: 'inertia'
             {
-            match("between"); 
+            match("inertia"); 
 
 
             }
@@ -780,10 +784,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:44:7: ( 'and' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:44:9: 'and'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:44:7: ( 'joint' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:44:9: 'joint'
             {
-            match("and"); 
+            match("joint"); 
 
 
             }
@@ -801,11 +805,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:45:7: ( 'type' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:45:9: 'type'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:45:7: ( ':' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:45:9: ':'
             {
-            match("type"); 
-
+            match(':'); 
 
             }
 
@@ -822,10 +825,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:46:7: ( 'with' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:46:9: 'with'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:46:7: ( 'between' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:46:9: 'between'
             {
-            match("with"); 
+            match("between"); 
 
 
             }
@@ -843,10 +846,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:47:7: ( 'revolute' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:47:9: 'revolute'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:47:7: ( 'and' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:47:9: 'and'
             {
-            match("revolute"); 
+            match("and"); 
 
 
             }
@@ -864,10 +867,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:48:7: ( 'planar' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:48:9: 'planar'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:48:7: ( 'type' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:48:9: 'type'
             {
-            match("planar"); 
+            match("type"); 
 
 
             }
@@ -885,10 +888,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:49:7: ( 'springCoeff' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:49:9: 'springCoeff'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:49:7: ( 'with' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:49:9: 'with'
             {
-            match("springCoeff"); 
+            match("with"); 
 
 
             }
@@ -906,10 +909,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:50:7: ( 'springInit' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:50:9: 'springInit'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:50:7: ( 'revolute' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:50:9: 'revolute'
             {
-            match("springInit"); 
+            match("revolute"); 
 
 
             }
@@ -927,10 +930,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:51:7: ( 'dampViscous' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:51:9: 'dampViscous'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:51:7: ( 'planar' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:51:9: 'planar'
             {
-            match("dampViscous"); 
+            match("planar"); 
 
 
             }
@@ -948,10 +951,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:52:7: ( 'dampCoulomb' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:52:9: 'dampCoulomb'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:52:7: ( 'springCoeff' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:52:9: 'springCoeff'
             {
-            match("dampCoulomb"); 
+            match("springCoeff"); 
 
 
             }
@@ -969,10 +972,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:53:7: ( 'stiffness' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:53:9: 'stiffness'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:53:7: ( 'springInit' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:53:9: 'springInit'
             {
-            match("stiffness"); 
+            match("springInit"); 
 
 
             }
@@ -990,10 +993,11 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:54:7: ( '(' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:54:9: '('
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:54:7: ( 'dampViscous' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:54:9: 'dampViscous'
             {
-            match('('); 
+            match("dampViscous"); 
+
 
             }
 
@@ -1010,10 +1014,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:55:7: ( 'relative' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:55:9: 'relative'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:55:7: ( 'dampCoulomb' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:55:9: 'dampCoulomb'
             {
-            match("relative"); 
+            match("dampCoulomb"); 
 
 
             }
@@ -1031,10 +1035,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:56:7: ( 'transformation' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:56:9: 'transformation'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:56:7: ( 'stiffness' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:56:9: 'stiffness'
             {
-            match("transformation"); 
+            match("stiffness"); 
 
 
             }
@@ -1052,10 +1056,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:57:7: ( ',' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:57:9: ','
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:57:7: ( '(' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:57:9: '('
             {
-            match(','); 
+            match('('); 
 
             }
 
@@ -1072,10 +1076,11 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:58:7: ( ')' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:58:9: ')'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:58:7: ( 'relative' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:58:9: 'relative'
             {
-            match(')'); 
+            match("relative"); 
+
 
             }
 
@@ -1092,10 +1097,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:59:7: ( 'reorient' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:59:9: 'reorient'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:59:7: ( 'transformation' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:59:9: 'transformation'
             {
-            match("reorient"); 
+            match("transformation"); 
 
 
             }
@@ -1113,11 +1118,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:60:7: ( 'constraint' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:60:9: 'constraint'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:60:7: ( ',' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:60:9: ','
             {
-            match("constraint"); 
-
+            match(','); 
 
             }
 
@@ -1134,11 +1138,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:61:7: ( 'moves' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:61:9: 'moves'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:61:7: ( ')' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:61:9: ')'
             {
-            match("moves"); 
-
+            match(')'); 
 
             }
 
@@ -1155,10 +1158,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:62:7: ( 'like' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:62:9: 'like'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:62:7: ( 'reorient' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:62:9: 'reorient'
             {
-            match("like"); 
+            match("reorient"); 
 
 
             }
@@ -1176,10 +1179,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:63:7: ( 'external' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:63:9: 'external'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:63:7: ( 'constraint' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:63:9: 'constraint'
             {
-            match("external"); 
+            match("constraint"); 
 
 
             }
@@ -1197,10 +1200,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:64:7: ( 'load' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:64:9: 'load'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:64:7: ( 'moves' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:64:9: 'moves'
             {
-            match("load"); 
+            match("moves"); 
 
 
             }
@@ -1218,10 +1221,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:65:7: ( 'at' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:65:9: 'at'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:65:7: ( 'like' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:65:9: 'like'
             {
-            match("at"); 
+            match("like"); 
 
 
             }
@@ -1239,10 +1242,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:66:7: ( 'matrix' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:66:9: 'matrix'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:66:7: ( 'external' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:66:9: 'external'
             {
-            match("matrix"); 
+            match("external"); 
 
 
             }
@@ -1260,10 +1263,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:67:7: ( 'base' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:67:9: 'base'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:67:7: ( 'load' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:67:9: 'load'
             {
-            match("base"); 
+            match("load"); 
 
 
             }
@@ -1281,10 +1284,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:68:7: ( 'new' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:68:9: 'new'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:68:7: ( 'at' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:68:9: 'at'
             {
-            match("new"); 
+            match("at"); 
 
 
             }
@@ -1302,10 +1305,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:69:7: ( 'last' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:69:9: 'last'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:69:7: ( 'matrix' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:69:9: 'matrix'
             {
-            match("last"); 
+            match("matrix"); 
 
 
             }
@@ -1323,10 +1326,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:70:7: ( 'start' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:70:9: 'start'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:70:7: ( 'base' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:70:9: 'base'
             {
-            match("start"); 
+            match("base"); 
 
 
             }
@@ -1339,15 +1342,78 @@ public class InternalRigidBodiesLexer extends Lexer {
     }
     // $ANTLR end "T__71"
 
+    // $ANTLR start "T__72"
+    public final void mT__72() throws RecognitionException {
+        try {
+            int _type = T__72;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:71:7: ( 'new' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:71:9: 'new'
+            {
+            match("new"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__72"
+
+    // $ANTLR start "T__73"
+    public final void mT__73() throws RecognitionException {
+        try {
+            int _type = T__73;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:72:7: ( 'last' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:72:9: 'last'
+            {
+            match("last"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__73"
+
+    // $ANTLR start "T__74"
+    public final void mT__74() throws RecognitionException {
+        try {
+            int _type = T__74;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:73:7: ( 'start' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:73:9: 'start'
+            {
+            match("start"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__74"
+
     // $ANTLR start "RULE_REAL"
     public final void mRULE_REAL() throws RecognitionException {
         try {
             int _type = RULE_REAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:11: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:11: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )?
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:13: ( '0' .. '9' )+
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:13: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -1361,7 +1427,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:14: '0' .. '9'
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:14: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1378,7 +1444,7 @@ public class InternalRigidBodiesLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:29: ( '0' .. '9' )+
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:29: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -1392,7 +1458,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:30: '0' .. '9'
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:30: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1408,7 +1474,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:41: ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:41: ( ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+ )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1417,7 +1483,7 @@ public class InternalRigidBodiesLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:42: ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:42: ( 'e' | 'E' ) ( '+' | '-' ) ( '0' .. '9' )+
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -1437,7 +1503,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:62: ( '0' .. '9' )+
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:62: ( '0' .. '9' )+
                     int cnt3=0;
                     loop3:
                     do {
@@ -1451,7 +1517,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9172:63: '0' .. '9'
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9363:63: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1489,10 +1555,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9174:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9174:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9365:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9365:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9174:11: ( '^' )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9365:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1501,7 +1567,7 @@ public class InternalRigidBodiesLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9174:11: '^'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9365:11: '^'
                     {
                     match('^'); 
 
@@ -1519,7 +1585,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9174:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9365:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -1568,10 +1634,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9176:10: ( ( '0' .. '9' )+ )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9176:12: ( '0' .. '9' )+
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9367:10: ( ( '0' .. '9' )+ )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9367:12: ( '0' .. '9' )+
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9176:12: ( '0' .. '9' )+
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9367:12: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -1585,7 +1651,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9176:13: '0' .. '9'
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9367:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1617,10 +1683,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1638,10 +1704,10 @@ public class InternalRigidBodiesLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -1657,7 +1723,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:21: '\\\\' .
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1665,7 +1731,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1690,10 +1756,10 @@ public class InternalRigidBodiesLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -1709,7 +1775,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:54: '\\\\' .
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1717,7 +1783,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9178:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9369:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1760,12 +1826,12 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9180:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9180:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9371:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9371:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9180:24: ( options {greedy=false; } : . )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9371:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -1790,7 +1856,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9180:52: .
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9371:52: .
             	    {
             	    matchAny(); 
 
@@ -1820,12 +1886,12 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -1838,7 +1904,7 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1858,7 +1924,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                 }
             } while (true);
 
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:40: ( ( '\\r' )? '\\n' )?
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1867,9 +1933,9 @@ public class InternalRigidBodiesLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:41: ( '\\r' )? '\\n'
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:41: ( '\\r' )? '\\n'
                     {
-                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:41: ( '\\r' )?
+                    // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1878,7 +1944,7 @@ public class InternalRigidBodiesLexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9182:41: '\\r'
+                            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9373:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1910,10 +1976,10 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9184:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9184:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9375:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9375:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9184:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9375:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -1967,8 +2033,8 @@ public class InternalRigidBodiesLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9186:16: ( . )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9186:18: .
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9377:16: ( . )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:9377:18: .
             {
             matchAny(); 
 
@@ -1983,8 +2049,8 @@ public class InternalRigidBodiesLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt16=68;
+        // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt16=71;
         alt16 = dfa16.predict(input);
         switch (alt16) {
             case 1 :
@@ -2408,56 +2474,77 @@ public class InternalRigidBodiesLexer extends Lexer {
                 }
                 break;
             case 61 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:370: RULE_REAL
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:370: T__72
+                {
+                mT__72(); 
+
+                }
+                break;
+            case 62 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:376: T__73
+                {
+                mT__73(); 
+
+                }
+                break;
+            case 63 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:382: T__74
+                {
+                mT__74(); 
+
+                }
+                break;
+            case 64 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:388: RULE_REAL
                 {
                 mRULE_REAL(); 
 
                 }
                 break;
-            case 62 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:380: RULE_ID
+            case 65 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:398: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 63 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:388: RULE_INT
+            case 66 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:406: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 64 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:397: RULE_STRING
+            case 67 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:415: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 65 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:409: RULE_ML_COMMENT
+            case 68 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:427: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 66 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:425: RULE_SL_COMMENT
+            case 69 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:443: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 67 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:441: RULE_WS
+            case 70 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:459: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 68 :
-                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:449: RULE_ANY_OTHER
+            case 71 :
+                // ../uk.ac.kcl.inf.robotics.rigid_bodies.ui/src-gen/uk/ac/kcl/inf/robotics/ui/contentassist/antlr/internal/InternalRigidBodies.g:1:467: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2471,114 +2558,118 @@ public class InternalRigidBodiesLexer extends Lexer {
 
     protected DFA16 dfa16 = new DFA16(this);
     static final String DFA16_eotS =
-        "\4\uffff\1\60\1\62\1\63\1\64\5\61\2\uffff\5\61\1\uffff\1\61\2\uffff"+
-        "\5\61\1\uffff\1\61\3\uffff\2\61\1\140\1\52\1\uffff\2\52\14\uffff"+
-        "\12\61\2\uffff\5\61\1\166\1\61\1\170\3\61\1\uffff\3\61\2\uffff\1"+
-        "\61\1\u0084\5\61\1\uffff\1\61\3\uffff\2\61\1\uffff\1\140\3\uffff"+
-        "\21\61\1\uffff\1\u00a0\1\uffff\13\61\1\uffff\10\61\1\u00b4\6\61"+
-        "\1\u00bb\2\61\1\u00be\10\61\1\uffff\1\u00c7\1\u00c8\1\u00c9\1\u00ca"+
-        "\1\u00cb\1\61\1\u00cd\4\61\1\u00d2\7\61\1\uffff\3\61\1\u00de\1\u00df"+
-        "\1\61\1\uffff\1\61\1\u00e2\1\uffff\3\61\1\u00e6\4\61\5\uffff\1\61"+
-        "\1\uffff\4\61\1\uffff\1\61\1\u00f1\2\61\1\u00f4\6\61\2\uffff\1\u00fb"+
-        "\1\61\1\uffff\1\u00fd\2\61\1\uffff\5\61\1\u0106\3\61\1\u010a\1\uffff"+
-        "\1\61\1\u010c\1\uffff\4\61\1\u0111\1\61\1\uffff\1\61\1\uffff\6\61"+
-        "\1\u011a\1\u011b\1\uffff\3\61\1\uffff\1\61\1\uffff\4\61\1\uffff"+
-        "\1\u0124\7\61\2\uffff\1\u012c\1\u012d\1\u012e\1\u012f\2\61\1\u0132"+
-        "\1\61\1\uffff\3\61\1\u0137\3\61\4\uffff\2\61\1\uffff\3\61\1\u0140"+
-        "\1\uffff\1\61\1\u0142\3\61\1\u0146\1\61\1\u0148\1\uffff\1\61\1\uffff"+
-        "\1\u014a\1\u014b\1\u014c\1\uffff\1\61\1\uffff\1\61\3\uffff\2\61"+
-        "\1\u0151\1\u0152\2\uffff";
+        "\4\uffff\1\60\1\61\1\63\1\64\5\62\2\uffff\5\62\1\uffff\2\62\2\uffff"+
+        "\4\62\1\uffff\1\62\3\uffff\2\62\1\141\1\52\1\uffff\2\52\14\uffff"+
+        "\5\62\1\154\4\62\2\uffff\5\62\1\170\1\62\1\172\3\62\1\uffff\5\62"+
+        "\2\uffff\1\u0087\5\62\1\uffff\1\62\3\uffff\2\62\1\uffff\1\141\3"+
+        "\uffff\6\62\1\uffff\13\62\1\uffff\1\u00a3\1\uffff\14\62\1\uffff"+
+        "\10\62\1\u00b8\7\62\1\u00c0\1\62\1\u00c2\10\62\1\uffff\1\u00cb\1"+
+        "\u00cc\1\u00cd\1\u00ce\5\62\1\u00d4\1\62\1\u00d6\1\u00d7\7\62\1"+
+        "\uffff\3\62\1\u00e3\1\u00e4\2\62\1\uffff\1\u00e8\1\uffff\3\62\1"+
+        "\u00ec\4\62\4\uffff\5\62\1\uffff\1\62\2\uffff\1\62\1\u00f8\2\62"+
+        "\1\u00fb\6\62\2\uffff\1\u0102\2\62\1\uffff\1\u0105\2\62\1\uffff"+
+        "\5\62\1\u010e\4\62\1\u0113\1\uffff\1\62\1\u0115\1\uffff\4\62\1\u011a"+
+        "\1\62\1\uffff\2\62\1\uffff\6\62\1\u0124\1\62\1\uffff\3\62\1\u0129"+
+        "\1\uffff\1\62\1\uffff\4\62\1\uffff\1\u012f\10\62\1\uffff\1\u0138"+
+        "\1\u0139\1\u013a\1\u013b\1\uffff\1\u013c\2\62\1\u013f\1\62\1\uffff"+
+        "\4\62\1\u0145\3\62\5\uffff\2\62\1\uffff\4\62\1\u014f\1\uffff\1\62"+
+        "\1\u0151\3\62\1\u0155\1\u0156\1\62\1\u0158\1\uffff\1\62\1\uffff"+
+        "\1\u015a\1\u015b\1\u015c\2\uffff\1\62\1\uffff\1\62\3\uffff\2\62"+
+        "\1\u0161\1\u0162\2\uffff";
     static final String DFA16_eofS =
-        "\u0153\uffff";
+        "\u0163\uffff";
     static final String DFA16_minS =
         "\1\0\3\uffff\1\52\3\60\1\145\1\141\2\157\1\151\2\uffff\1\160\1"+
-        "\157\2\156\1\141\1\uffff\1\141\2\uffff\1\145\1\146\1\141\1\154\1"+
+        "\157\2\156\1\141\1\uffff\1\145\1\141\2\uffff\1\146\1\141\1\154\1"+
         "\157\1\uffff\1\141\3\uffff\1\170\1\145\1\56\1\101\1\uffff\2\0\14"+
-        "\uffff\1\157\1\141\2\154\2\162\1\160\1\141\1\162\1\164\2\uffff\1"+
-        "\163\1\162\1\141\1\156\1\145\1\60\1\144\1\60\1\141\1\153\1\163\1"+
-        "\uffff\1\144\1\164\1\163\2\uffff\1\154\1\60\1\163\1\166\1\163\1"+
-        "\141\1\151\1\uffff\1\155\3\uffff\1\164\1\167\1\uffff\1\56\3\uffff"+
-        "\1\155\1\166\1\157\1\165\1\143\1\161\1\145\1\156\1\154\1\150\1\164"+
-        "\1\151\1\146\1\162\1\146\1\164\1\162\1\uffff\1\60\1\uffff\1\153"+
-        "\1\144\1\145\1\164\1\171\1\167\2\145\1\157\1\141\1\162\1\uffff\1"+
-        "\163\1\162\1\145\1\151\2\156\1\160\1\145\1\60\1\145\1\151\1\143"+
-        "\2\145\1\165\1\60\1\163\1\144\1\60\1\145\1\156\1\146\1\164\1\151"+
-        "\1\164\1\141\1\164\1\uffff\5\60\1\145\1\60\1\141\1\154\1\164\1\151"+
-        "\1\60\1\151\1\163\1\164\1\141\1\164\1\103\1\162\1\uffff\2\164\1"+
-        "\151\2\60\1\145\1\uffff\1\146\1\60\1\uffff\1\155\1\147\1\156\1\60"+
-        "\1\147\1\162\1\156\1\151\5\uffff\1\145\1\uffff\1\164\1\165\1\151"+
-        "\1\145\1\uffff\1\170\1\60\1\151\1\162\1\60\1\151\1\157\1\156\1\162"+
-        "\1\171\1\164\2\uffff\1\60\1\157\1\uffff\1\60\1\103\1\145\1\uffff"+
-        "\1\165\1\141\1\164\1\141\1\156\1\60\1\164\1\166\1\156\1\60\1\uffff"+
-        "\1\157\1\60\1\uffff\1\163\1\165\1\141\1\151\1\60\1\171\1\uffff\1"+
-        "\162\1\uffff\1\157\1\156\1\163\1\162\2\151\2\60\1\uffff\2\145\1"+
-        "\164\1\uffff\1\156\1\uffff\1\143\2\154\1\143\1\uffff\1\60\1\155"+
-        "\1\145\1\151\1\163\1\141\1\156\1\141\2\uffff\4\60\2\157\1\60\1\141"+
-        "\1\uffff\1\141\1\146\1\164\1\60\3\164\4\uffff\1\165\1\155\1\uffff"+
-        "\1\154\1\164\1\146\1\60\1\uffff\1\151\1\60\1\145\1\163\1\142\1\60"+
-        "\1\151\1\60\1\uffff\1\157\1\uffff\3\60\1\uffff\1\157\1\uffff\1\156"+
-        "\3\uffff\1\156\1\163\2\60\2\uffff";
+        "\uffff\1\157\1\141\2\154\1\162\1\60\1\141\1\160\1\162\1\164\2\uffff"+
+        "\1\163\1\162\1\141\1\156\1\145\1\60\1\144\1\60\1\141\1\153\1\163"+
+        "\1\uffff\1\164\1\154\1\144\1\164\1\163\2\uffff\1\60\1\163\1\166"+
+        "\1\163\1\141\1\151\1\uffff\1\155\3\uffff\1\164\1\167\1\uffff\1\56"+
+        "\3\uffff\1\155\1\166\1\157\1\165\1\143\1\161\1\uffff\1\156\1\145"+
+        "\1\154\1\150\1\164\1\151\1\146\1\162\1\146\1\164\1\162\1\uffff\1"+
+        "\60\1\uffff\1\153\1\144\1\145\1\164\1\141\1\145\1\157\1\141\1\162"+
+        "\1\171\1\167\1\145\1\uffff\1\163\1\162\1\145\1\151\2\156\1\160\1"+
+        "\145\1\60\1\145\1\151\1\143\2\145\1\165\1\163\1\60\1\144\1\60\1"+
+        "\145\1\156\1\146\1\164\1\151\1\164\1\141\1\164\1\uffff\4\60\1\164"+
+        "\1\141\1\154\1\164\1\151\1\60\1\145\2\60\1\151\1\163\1\164\1\141"+
+        "\1\164\1\103\1\162\1\uffff\2\164\1\151\2\60\1\145\1\146\1\uffff"+
+        "\1\60\1\uffff\1\155\1\147\1\156\1\60\1\147\1\162\1\156\1\151\4\uffff"+
+        "\1\151\1\164\1\165\1\151\1\145\1\uffff\1\145\2\uffff\1\170\1\60"+
+        "\1\151\1\162\1\60\1\151\1\157\1\156\1\162\1\171\1\164\2\uffff\1"+
+        "\60\1\141\1\157\1\uffff\1\60\1\103\1\145\1\uffff\1\165\1\141\1\164"+
+        "\1\141\1\157\1\60\1\164\1\166\2\156\1\60\1\uffff\1\157\1\60\1\uffff"+
+        "\1\163\1\165\1\141\1\151\1\60\1\171\1\uffff\1\164\1\162\1\uffff"+
+        "\1\157\1\156\1\163\1\162\2\151\1\60\1\156\1\uffff\2\145\1\164\1"+
+        "\60\1\uffff\1\156\1\uffff\1\143\2\154\1\143\1\uffff\1\60\1\151\1"+
+        "\155\1\145\1\151\1\163\1\141\1\156\1\141\1\uffff\4\60\1\uffff\1"+
+        "\60\2\157\1\60\1\141\1\uffff\1\157\1\141\1\146\1\164\1\60\3\164"+
+        "\5\uffff\1\165\1\155\1\uffff\1\154\1\156\1\164\1\146\1\60\1\uffff"+
+        "\1\151\1\60\1\145\1\163\1\142\2\60\1\151\1\60\1\uffff\1\157\1\uffff"+
+        "\3\60\2\uffff\1\157\1\uffff\1\156\3\uffff\1\156\1\163\2\60\2\uffff";
     static final String DFA16_maxS =
         "\1\uffff\3\uffff\1\57\3\172\1\162\1\145\1\157\1\171\1\157\2\uffff"+
-        "\1\171\1\157\1\156\1\164\1\157\1\uffff\1\157\2\uffff\1\145\1\146"+
-        "\3\157\1\uffff\1\141\3\uffff\1\170\1\145\1\71\1\172\1\uffff\2\uffff"+
-        "\14\uffff\1\157\1\141\2\154\2\162\1\160\1\141\1\162\1\164\2\uffff"+
+        "\1\171\1\157\1\156\1\164\1\157\1\uffff\2\157\2\uffff\1\146\3\157"+
+        "\1\uffff\1\141\3\uffff\1\170\1\145\1\71\1\172\1\uffff\2\uffff\14"+
+        "\uffff\1\157\1\141\2\154\1\162\1\172\1\141\1\160\1\162\1\164\2\uffff"+
         "\1\163\1\162\1\151\1\156\1\163\1\172\1\144\1\172\1\143\1\153\1\163"+
-        "\1\uffff\1\144\1\164\1\163\2\uffff\1\166\1\172\1\164\1\166\1\163"+
-        "\1\141\1\151\1\uffff\1\155\3\uffff\1\164\1\167\1\uffff\1\71\3\uffff"+
-        "\1\155\1\166\1\157\1\165\1\143\1\161\1\145\1\156\1\154\1\150\1\164"+
-        "\1\151\1\146\1\162\1\163\1\164\1\162\1\uffff\1\172\1\uffff\1\153"+
-        "\1\144\1\145\1\164\1\171\1\167\2\145\1\157\1\141\1\162\1\uffff\1"+
-        "\163\1\162\1\145\1\151\2\156\1\160\1\145\1\172\1\145\1\151\1\143"+
-        "\2\145\1\165\1\172\1\163\1\144\1\172\1\145\1\156\1\146\1\164\1\151"+
-        "\1\164\1\141\1\164\1\uffff\5\172\1\145\1\172\1\141\1\154\1\164\1"+
-        "\151\1\172\1\151\1\163\1\164\1\141\1\164\1\126\1\162\1\uffff\2\164"+
-        "\1\151\2\172\1\145\1\uffff\1\146\1\172\1\uffff\1\155\1\147\1\156"+
-        "\1\172\1\147\1\162\1\156\1\151\5\uffff\1\145\1\uffff\1\164\1\165"+
-        "\1\151\1\145\1\uffff\1\170\1\172\1\151\1\162\1\172\1\151\1\157\1"+
-        "\156\1\162\1\171\1\164\2\uffff\1\172\1\157\1\uffff\1\172\1\111\1"+
-        "\145\1\uffff\1\165\1\141\1\164\1\141\1\156\1\172\1\164\1\166\1\156"+
-        "\1\172\1\uffff\1\157\1\172\1\uffff\1\163\1\165\1\141\1\151\1\172"+
-        "\1\171\1\uffff\1\162\1\uffff\1\157\1\156\1\163\1\162\2\151\2\172"+
-        "\1\uffff\2\145\1\164\1\uffff\1\156\1\uffff\1\143\2\154\1\143\1\uffff"+
-        "\1\172\1\155\1\145\1\151\1\163\1\141\1\156\1\141\2\uffff\4\172\2"+
-        "\157\1\172\1\141\1\uffff\1\141\1\146\1\164\1\172\3\164\4\uffff\1"+
-        "\165\1\155\1\uffff\1\154\1\164\1\146\1\172\1\uffff\1\151\1\172\1"+
-        "\145\1\163\1\142\1\172\1\151\1\172\1\uffff\1\157\1\uffff\3\172\1"+
-        "\uffff\1\157\1\uffff\1\156\3\uffff\1\156\1\163\2\172\2\uffff";
+        "\1\uffff\1\164\1\166\1\144\1\164\1\163\2\uffff\1\172\1\164\1\166"+
+        "\1\163\1\141\1\151\1\uffff\1\155\3\uffff\1\164\1\167\1\uffff\1\71"+
+        "\3\uffff\1\155\1\166\1\157\1\165\1\143\1\161\1\uffff\1\156\1\145"+
+        "\1\154\1\150\1\164\1\151\1\146\1\162\1\163\1\164\1\162\1\uffff\1"+
+        "\172\1\uffff\1\153\1\144\1\145\1\164\1\141\1\145\1\157\1\141\1\162"+
+        "\1\171\1\167\1\145\1\uffff\1\163\1\162\1\145\1\151\2\156\1\160\1"+
+        "\145\1\172\1\145\1\151\1\143\2\145\1\165\1\163\1\172\1\144\1\172"+
+        "\1\145\1\156\1\146\1\164\1\151\1\164\1\141\1\164\1\uffff\4\172\1"+
+        "\164\1\141\1\154\1\164\1\151\1\172\1\145\2\172\1\151\1\163\1\164"+
+        "\1\141\1\164\1\126\1\162\1\uffff\2\164\1\151\2\172\1\145\1\154\1"+
+        "\uffff\1\172\1\uffff\1\155\1\147\1\156\1\172\1\147\1\162\1\156\1"+
+        "\151\4\uffff\1\151\1\164\1\165\1\151\1\145\1\uffff\1\145\2\uffff"+
+        "\1\170\1\172\1\151\1\162\1\172\1\151\1\157\1\156\1\162\1\171\1\164"+
+        "\2\uffff\1\172\1\141\1\157\1\uffff\1\172\1\111\1\145\1\uffff\1\165"+
+        "\1\141\1\164\1\141\1\157\1\172\1\164\1\166\2\156\1\172\1\uffff\1"+
+        "\157\1\172\1\uffff\1\163\1\165\1\141\1\151\1\172\1\171\1\uffff\1"+
+        "\164\1\162\1\uffff\1\157\1\156\1\163\1\162\2\151\1\172\1\156\1\uffff"+
+        "\2\145\1\164\1\172\1\uffff\1\156\1\uffff\1\143\2\154\1\143\1\uffff"+
+        "\1\172\1\151\1\155\1\145\1\151\1\163\1\141\1\156\1\141\1\uffff\4"+
+        "\172\1\uffff\1\172\2\157\1\172\1\141\1\uffff\1\157\1\141\1\146\1"+
+        "\164\1\172\3\164\5\uffff\1\165\1\155\1\uffff\1\154\1\156\1\164\1"+
+        "\146\1\172\1\uffff\1\151\1\172\1\145\1\163\1\142\2\172\1\151\1\172"+
+        "\1\uffff\1\157\1\uffff\3\172\2\uffff\1\157\1\uffff\1\156\3\uffff"+
+        "\1\156\1\163\2\172\2\uffff";
     static final String DFA16_acceptS =
-        "\1\uffff\1\1\1\2\1\3\11\uffff\1\15\1\17\5\uffff\1\25\1\uffff\1"+
-        "\27\1\30\5\uffff\1\40\1\uffff\1\54\1\57\1\60\4\uffff\1\76\2\uffff"+
-        "\1\103\1\104\1\1\1\2\1\3\1\101\1\102\1\4\1\76\1\5\1\6\1\7\12\uffff"+
-        "\1\15\1\17\13\uffff\1\25\3\uffff\1\27\1\30\7\uffff\1\40\1\uffff"+
-        "\1\54\1\57\1\60\2\uffff\1\77\1\uffff\1\75\1\100\1\103\21\uffff\1"+
-        "\23\1\uffff\1\67\13\uffff\1\32\33\uffff\1\42\23\uffff\1\72\6\uffff"+
-        "\1\43\2\uffff\1\44\10\uffff\1\24\1\66\1\64\1\73\1\26\1\uffff\1\71"+
-        "\4\uffff\1\33\13\uffff\1\34\1\12\2\uffff\1\14\3\uffff\1\74\12\uffff"+
-        "\1\63\2\uffff\1\37\6\uffff\1\13\1\uffff\1\20\10\uffff\1\31\3\uffff"+
-        "\1\70\1\uffff\1\46\4\uffff\1\16\10\uffff\1\36\1\41\10\uffff\1\11"+
-        "\7\uffff\1\45\1\55\1\61\1\35\2\uffff\1\65\4\uffff\1\53\10\uffff"+
-        "\1\50\1\uffff\1\62\3\uffff\1\10\1\uffff\1\47\1\uffff\1\22\1\51\1"+
-        "\52\4\uffff\1\56\1\21";
+        "\1\uffff\1\1\1\2\1\3\11\uffff\1\15\1\17\5\uffff\1\25\2\uffff\1"+
+        "\32\1\33\4\uffff\1\43\1\uffff\1\57\1\62\1\63\4\uffff\1\101\2\uffff"+
+        "\1\106\1\107\1\1\1\2\1\3\1\104\1\105\1\4\1\5\1\101\1\6\1\7\12\uffff"+
+        "\1\15\1\17\13\uffff\1\25\5\uffff\1\32\1\33\6\uffff\1\43\1\uffff"+
+        "\1\57\1\62\1\63\2\uffff\1\102\1\uffff\1\100\1\103\1\106\6\uffff"+
+        "\1\26\13\uffff\1\23\1\uffff\1\72\14\uffff\1\35\33\uffff\1\45\24"+
+        "\uffff\1\75\7\uffff\1\46\1\uffff\1\47\10\uffff\1\24\1\71\1\67\1"+
+        "\76\5\uffff\1\31\1\uffff\1\74\1\36\13\uffff\1\37\1\12\3\uffff\1"+
+        "\14\3\uffff\1\77\13\uffff\1\66\2\uffff\1\42\6\uffff\1\13\2\uffff"+
+        "\1\20\10\uffff\1\34\4\uffff\1\73\1\uffff\1\51\4\uffff\1\16\11\uffff"+
+        "\1\41\4\uffff\1\44\5\uffff\1\11\10\uffff\1\27\1\50\1\60\1\64\1\40"+
+        "\2\uffff\1\70\5\uffff\1\56\11\uffff\1\53\1\uffff\1\65\3\uffff\1"+
+        "\10\1\30\1\uffff\1\52\1\uffff\1\22\1\54\1\55\4\uffff\1\61\1\21";
     static final String DFA16_specialS =
-        "\1\1\46\uffff\1\0\1\2\u012a\uffff}>";
+        "\1\0\46\uffff\1\1\1\2\u013a\uffff}>";
     static final String[] DFA16_transitionS = {
             "\11\52\2\51\2\52\1\51\22\52\1\51\1\52\1\47\4\52\1\50\1\37\1"+
-            "\41\1\3\1\1\1\40\1\2\1\24\1\4\12\44\1\35\6\52\32\46\1\26\1\52"+
-            "\1\27\1\45\1\46\1\52\1\22\1\25\1\20\1\36\1\42\1\12\1\10\1\46"+
-            "\1\21\1\34\1\46\1\23\1\32\1\43\1\31\1\33\1\46\1\30\1\17\1\13"+
+            "\41\1\3\1\1\1\40\1\2\1\24\1\4\12\44\1\35\6\52\32\46\1\27\1\52"+
+            "\1\30\1\45\1\46\1\52\1\22\1\26\1\20\1\36\1\42\1\12\1\10\1\46"+
+            "\1\21\1\34\1\46\1\23\1\32\1\43\1\31\1\33\1\46\1\25\1\17\1\13"+
             "\1\46\1\11\1\14\1\5\1\6\1\7\1\15\1\52\1\16\uff82\52",
             "",
             "",
             "",
             "\1\56\4\uffff\1\57",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\65\14\uffff\1\66",
             "\1\70\3\uffff\1\67",
             "\1\71",
-            "\1\72\2\uffff\1\74\6\uffff\1\73",
+            "\1\72\2\uffff\1\73\6\uffff\1\74",
             "\1\76\5\uffff\1\75",
             "",
             "",
@@ -2588,29 +2679,26 @@ public class InternalRigidBodiesLexer extends Lexer {
             "\1\107\4\uffff\1\106\1\110",
             "\1\113\7\uffff\1\112\5\uffff\1\111",
             "",
-            "\1\117\3\uffff\1\116\11\uffff\1\115",
+            "\1\116\11\uffff\1\115",
+            "\1\121\3\uffff\1\120\11\uffff\1\117",
             "",
             "",
-            "\1\122",
-            "\1\123",
-            "\1\124\15\uffff\1\125",
-            "\1\127\2\uffff\1\126",
-            "\1\130",
+            "\1\124",
+            "\1\125\15\uffff\1\126",
+            "\1\130\2\uffff\1\127",
+            "\1\131",
             "",
-            "\1\132",
-            "",
+            "\1\133",
             "",
             "",
-            "\1\136",
+            "",
             "\1\137",
-            "\1\142\1\uffff\12\141",
-            "\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\140",
+            "\1\143\1\uffff\12\142",
+            "\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "\0\143",
-            "\0\143",
-            "",
-            "",
-            "",
+            "\0\144",
+            "\0\144",
             "",
             "",
             "",
@@ -2620,77 +2708,79 @@ public class InternalRigidBodiesLexer extends Lexer {
             "",
             "",
             "",
-            "\1\145",
+            "",
+            "",
+            "",
             "\1\146",
             "\1\147",
             "\1\150",
             "\1\151",
             "\1\152",
-            "\1\153",
-            "\1\154",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\21\62\1\153\10\62",
             "\1\155",
             "\1\156",
-            "",
-            "",
             "\1\157",
             "\1\160",
-            "\1\162\7\uffff\1\161",
-            "\1\163",
-            "\1\165\15\uffff\1\164",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\167",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\172\1\uffff\1\171",
-            "\1\173",
-            "\1\174",
             "",
+            "",
+            "\1\161",
+            "\1\162",
+            "\1\164\7\uffff\1\163",
+            "\1\165",
+            "\1\167\15\uffff\1\166",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\171",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\174\1\uffff\1\173",
             "\1\175",
             "\1\176",
+            "",
             "\1\177",
-            "",
-            "",
             "\1\u0082\2\uffff\1\u0083\1\u0080\5\uffff\1\u0081",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0085\1\u0086",
-            "\1\u0087",
-            "\1\u0088",
-            "\1\u0089",
+            "\1\u0084",
+            "\1\u0085",
+            "\1\u0086",
+            "",
+            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0088\1\u0089",
             "\1\u008a",
-            "",
             "\1\u008b",
-            "",
-            "",
-            "",
             "\1\u008c",
             "\1\u008d",
             "",
-            "\1\142\1\uffff\12\141",
-            "",
-            "",
-            "",
             "\1\u008e",
+            "",
+            "",
+            "",
             "\1\u008f",
             "\1\u0090",
+            "",
+            "\1\143\1\uffff\12\142",
+            "",
+            "",
+            "",
             "\1\u0091",
             "\1\u0092",
             "\1\u0093",
             "\1\u0094",
             "\1\u0095",
             "\1\u0096",
+            "",
             "\1\u0097",
             "\1\u0098",
             "\1\u0099",
             "\1\u009a",
             "\1\u009b",
-            "\1\u009c\14\uffff\1\u009d",
+            "\1\u009c",
+            "\1\u009d",
             "\1\u009e",
-            "\1\u009f",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u009f\14\uffff\1\u00a0",
             "\1\u00a1",
             "\1\u00a2",
-            "\1\u00a3",
+            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
             "\1\u00a4",
             "\1\u00a5",
             "\1\u00a6",
@@ -2699,211 +2789,228 @@ public class InternalRigidBodiesLexer extends Lexer {
             "\1\u00a9",
             "\1\u00aa",
             "\1\u00ab",
-            "",
             "\1\u00ac",
             "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
+            "",
             "\1\u00b0",
             "\1\u00b1",
             "\1\u00b2",
             "\1\u00b3",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u00b4",
             "\1\u00b5",
             "\1\u00b6",
             "\1\u00b7",
-            "\1\u00b8",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00b9",
             "\1\u00ba",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u00bb",
             "\1\u00bc",
             "\1\u00bd",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u00be",
             "\1\u00bf",
-            "\1\u00c0",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00c1",
-            "\1\u00c2",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00c3",
             "\1\u00c4",
             "\1\u00c5",
             "\1\u00c6",
+            "\1\u00c7",
+            "\1\u00c8",
+            "\1\u00c9",
+            "\1\u00ca",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u00cc",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u00ce",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00cf",
             "\1\u00d0",
             "\1\u00d1",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u00d2",
             "\1\u00d3",
-            "\1\u00d4",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00d5",
-            "\1\u00d6",
-            "\1\u00d7",
-            "\1\u00d9\22\uffff\1\u00d8",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u00d8",
+            "\1\u00d9",
             "\1\u00da",
-            "",
             "\1\u00db",
             "\1\u00dc",
-            "\1\u00dd",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u00de\22\uffff\1\u00dd",
+            "\1\u00df",
+            "",
             "\1\u00e0",
-            "",
             "\1\u00e1",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
-            "\1\u00e3",
-            "\1\u00e4",
+            "\1\u00e2",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00e5",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u00e7",
-            "\1\u00e8",
+            "\1\u00e7\5\uffff\1\u00e6",
+            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
             "\1\u00e9",
             "\1\u00ea",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u00eb",
-            "",
-            "\1\u00ec",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00ed",
             "\1\u00ee",
             "\1\u00ef",
-            "",
             "\1\u00f0",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "",
+            "",
+            "",
+            "",
+            "\1\u00f1",
             "\1\u00f2",
             "\1\u00f3",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u00f4",
             "\1\u00f5",
+            "",
             "\1\u00f6",
+            "",
+            "",
             "\1\u00f7",
-            "\1\u00f8",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00f9",
             "\1\u00fa",
-            "",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u00fc",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u00fe\5\uffff\1\u00ff",
+            "\1\u00fd",
+            "\1\u00fe",
+            "\1\u00ff",
             "\1\u0100",
-            "",
             "\1\u0101",
-            "\1\u0102",
+            "",
+            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0103",
             "\1\u0104",
-            "\1\u0105",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0107",
+            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0106\5\uffff\1\u0107",
             "\1\u0108",
+            "",
             "\1\u0109",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u010a",
             "\1\u010b",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u010c",
             "\1\u010d",
-            "\1\u010e",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u010f",
             "\1\u0110",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0111",
             "\1\u0112",
-            "",
-            "\1\u0113",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             "\1\u0114",
-            "\1\u0115",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
             "\1\u0116",
             "\1\u0117",
             "\1\u0118",
             "\1\u0119",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u011b",
             "",
             "\1\u011c",
             "\1\u011d",
+            "",
             "\1\u011e",
-            "",
             "\1\u011f",
-            "",
             "\1\u0120",
             "\1\u0121",
             "\1\u0122",
             "\1\u0123",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0125",
+            "",
             "\1\u0126",
             "\1\u0127",
             "\1\u0128",
-            "\1\u0129",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
             "\1\u012a",
+            "",
             "\1\u012b",
+            "\1\u012c",
+            "\1\u012d",
+            "\1\u012e",
             "",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u0130",
             "\1\u0131",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0132",
             "\1\u0133",
-            "",
             "\1\u0134",
             "\1\u0135",
             "\1\u0136",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0138",
-            "\1\u0139",
-            "\1\u013a",
+            "\1\u0137",
             "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "",
-            "",
-            "\1\u013b",
-            "\1\u013c",
-            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "\1\u013d",
             "\1\u013e",
-            "\1\u013f",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0140",
             "",
             "\1\u0141",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0142",
             "\1\u0143",
             "\1\u0144",
-            "\1\u0145",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0146",
             "\1\u0147",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0148",
+            "",
+            "",
+            "",
+            "",
             "",
             "\1\u0149",
+            "\1\u014a",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u014b",
+            "\1\u014c",
             "\1\u014d",
-            "",
             "\1\u014e",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
-            "",
-            "",
-            "\1\u014f",
             "\1\u0150",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0152",
+            "\1\u0153",
+            "\1\u0154",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\u0157",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
+            "\1\u0159",
+            "",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "",
+            "",
+            "\1\u015d",
+            "",
+            "\1\u015e",
+            "",
+            "",
+            "",
+            "\1\u015f",
+            "\1\u0160",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
+            "\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",
             "",
             ""
     };
@@ -2938,23 +3045,13 @@ public class InternalRigidBodiesLexer extends Lexer {
             this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA16_39 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA16_39>='\u0000' && LA16_39<='\uFFFF')) ) {s = 99;}
-
-                        else s = 42;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA16_0 = input.LA(1);
 
                         s = -1;
@@ -2998,13 +3095,13 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                         else if ( (LA16_0=='.') ) {s = 20;}
 
-                        else if ( (LA16_0=='b') ) {s = 21;}
+                        else if ( (LA16_0=='r') ) {s = 21;}
 
-                        else if ( (LA16_0=='[') ) {s = 22;}
+                        else if ( (LA16_0=='b') ) {s = 22;}
 
-                        else if ( (LA16_0==']') ) {s = 23;}
+                        else if ( (LA16_0=='[') ) {s = 23;}
 
-                        else if ( (LA16_0=='r') ) {s = 24;}
+                        else if ( (LA16_0==']') ) {s = 24;}
 
                         else if ( (LA16_0=='o') ) {s = 25;}
 
@@ -3044,11 +3141,21 @@ public class InternalRigidBodiesLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
+                    case 1 : 
+                        int LA16_39 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA16_39>='\u0000' && LA16_39<='\uFFFF')) ) {s = 100;}
+
+                        else s = 42;
+
+                        if ( s>=0 ) return s;
+                        break;
                     case 2 : 
                         int LA16_40 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA16_40>='\u0000' && LA16_40<='\uFFFF')) ) {s = 99;}
+                        if ( ((LA16_40>='\u0000' && LA16_40<='\uFFFF')) ) {s = 100;}
 
                         else s = 42;
 
