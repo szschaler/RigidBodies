@@ -5,22 +5,22 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Lock Statement</b></em>'.
+ * A representation of the model object '<em><b>Lock Joint Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem <em>System</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getJoint <em>Joint</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getSystem <em>System</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getJoint <em>Joint</em>}</li>
  * </ul>
  *
- * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockStatement()
+ * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockJointStatement()
  * @model
  * @generated
  */
-public interface LockStatement extends ConfigurationStatement
+public interface LockJointStatement extends ConfigurationStatement
 {
   /**
    * Returns the value of the '<em><b>System</b></em>' reference.
@@ -32,14 +32,14 @@ public interface LockStatement extends ConfigurationStatement
    * <!-- end-user-doc -->
    * @return the value of the '<em>System</em>' reference.
    * @see #setSystem(SystemInstantiation)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockStatement_System()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockJointStatement_System()
    * @model
    * @generated
    */
   SystemInstantiation getSystem();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem <em>System</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getSystem <em>System</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>System</em>' reference.
@@ -58,14 +58,14 @@ public interface LockStatement extends ConfigurationStatement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Joint</em>' reference.
    * @see #setJoint(Joint)
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockStatement_Joint()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockJointStatement_Joint()
    * @model
    * @generated
    */
   Joint getJoint();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getJoint <em>Joint</em>}' reference.
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getJoint <em>Joint</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Joint</em>' reference.
@@ -74,4 +74,4 @@ public interface LockStatement extends ConfigurationStatement
    */
   void setJoint(Joint value);
 
-} // LockStatement
+} // LockJointStatement

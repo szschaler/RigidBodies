@@ -95,13 +95,13 @@ public interface RigidBodiesFactory extends EFactory
   ConfigurationStatement createConfigurationStatement();
 
   /**
-   * Returns a new object of class '<em>Lock Statement</em>'.
+   * Returns a new object of class '<em>Lock Joint Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Lock Statement</em>'.
+   * @return a new object of class '<em>Lock Joint Statement</em>'.
    * @generated
    */
-  LockStatement createLockStatement();
+  LockJointStatement createLockJointStatement();
 
   /**
    * Returns a new object of class '<em>System Element</em>'.

@@ -34,7 +34,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -158,9 +158,9 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
         return createConfigurationStatementAdapter();
       }
       @Override
-      public Adapter caseLockStatement(LockStatement object)
+      public Adapter caseLockJointStatement(LockJointStatement object)
       {
-        return createLockStatementAdapter();
+        return createLockJointStatementAdapter();
       }
       @Override
       public Adapter caseSystemElement(SystemElement object)
@@ -480,16 +480,16 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement <em>Lock Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement <em>Lock Joint Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockStatement
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement
    * @generated
    */
-  public Adapter createLockStatementAdapter()
+  public Adapter createLockJointStatementAdapter()
   {
     return null;
   }

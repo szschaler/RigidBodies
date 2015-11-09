@@ -39,7 +39,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -120,7 +120,7 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.SYSTEM_INSTANTIATION: return createSystemInstantiation();
       case RigidBodiesPackage.CONFIGURATION: return createConfiguration();
       case RigidBodiesPackage.CONFIGURATION_STATEMENT: return createConfigurationStatement();
-      case RigidBodiesPackage.LOCK_STATEMENT: return createLockStatement();
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT: return createLockJointStatement();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
       case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
@@ -296,10 +296,10 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
    * <!-- end-user-doc -->
    * @generated
    */
-  public LockStatement createLockStatement()
+  public LockJointStatement createLockJointStatement()
   {
-    LockStatementImpl lockStatement = new LockStatementImpl();
-    return lockStatement;
+    LockJointStatementImpl lockJointStatement = new LockJointStatementImpl();
+    return lockJointStatement;
   }
 
   /**

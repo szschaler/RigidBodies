@@ -37,7 +37,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -127,7 +127,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass lockStatementEClass = null;
+  private EClass lockJointStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -683,9 +683,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getLockStatement()
+  public EClass getLockJointStatement()
   {
-    return lockStatementEClass;
+    return lockJointStatementEClass;
   }
 
   /**
@@ -693,9 +693,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLockStatement_System()
+  public EReference getLockJointStatement_System()
   {
-    return (EReference)lockStatementEClass.getEStructuralFeatures().get(0);
+    return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -703,9 +703,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLockStatement_Joint()
+  public EReference getLockJointStatement_Joint()
   {
-    return (EReference)lockStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1748,9 +1748,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     configurationStatementEClass = createEClass(CONFIGURATION_STATEMENT);
 
-    lockStatementEClass = createEClass(LOCK_STATEMENT);
-    createEReference(lockStatementEClass, LOCK_STATEMENT__SYSTEM);
-    createEReference(lockStatementEClass, LOCK_STATEMENT__JOINT);
+    lockJointStatementEClass = createEClass(LOCK_JOINT_STATEMENT);
+    createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__SYSTEM);
+    createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__JOINT);
 
     systemElementEClass = createEClass(SYSTEM_ELEMENT);
 
@@ -1917,7 +1917,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    lockStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
+    lockJointStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
     connectiveEClass.getESuperTypes().add(this.getSystemElement());
     bodyEClass.getESuperTypes().add(this.getSystemElement());
     bodyRepetitionEClass.getESuperTypes().add(this.getSystemElement());
@@ -1976,9 +1976,9 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(configurationStatementEClass, ConfigurationStatement.class, "ConfigurationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(lockStatementEClass, LockStatement.class, "LockStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLockStatement_System(), this.getSystemInstantiation(), null, "system", null, 0, 1, LockStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLockStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, LockStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(lockJointStatementEClass, LockJointStatement.class, "LockJointStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLockJointStatement_System(), this.getSystemInstantiation(), null, "system", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLockJointStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemElementEClass, SystemElement.class, "SystemElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

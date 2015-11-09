@@ -268,9 +268,9 @@ ruleConfigurationStatement
     }
 	:
 (
-{ before(grammarAccess.getConfigurationStatementAccess().getLockStatementParserRuleCall()); }
-	ruleLockStatement
-{ after(grammarAccess.getConfigurationStatementAccess().getLockStatementParserRuleCall()); }
+{ before(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall()); }
+	ruleLockJointStatement
+{ after(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall()); }
 )
 
 ;
@@ -280,25 +280,25 @@ finally {
 
 
 
-// Entry rule entryRuleLockStatement
-entryRuleLockStatement 
+// Entry rule entryRuleLockJointStatement
+entryRuleLockJointStatement 
 :
-{ before(grammarAccess.getLockStatementRule()); }
-	 ruleLockStatement
-{ after(grammarAccess.getLockStatementRule()); } 
+{ before(grammarAccess.getLockJointStatementRule()); }
+	 ruleLockJointStatement
+{ after(grammarAccess.getLockJointStatementRule()); } 
 	 EOF 
 ;
 
-// Rule LockStatement
-ruleLockStatement
+// Rule LockJointStatement
+ruleLockJointStatement
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
-{ before(grammarAccess.getLockStatementAccess().getGroup()); }
-(rule__LockStatement__Group__0)
-{ after(grammarAccess.getLockStatementAccess().getGroup()); }
+{ before(grammarAccess.getLockJointStatementAccess().getGroup()); }
+(rule__LockJointStatement__Group__0)
+{ after(grammarAccess.getLockJointStatementAccess().getGroup()); }
 )
 
 ;
@@ -2650,29 +2650,29 @@ finally {
 
 
 
-rule__LockStatement__Group__0
+rule__LockJointStatement__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__LockStatement__Group__0__Impl
-	rule__LockStatement__Group__1
+	rule__LockJointStatement__Group__0__Impl
+	rule__LockJointStatement__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__Group__0__Impl
+rule__LockJointStatement__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getLockKeyword_0()); }
+{ before(grammarAccess.getLockJointStatementAccess().getLockKeyword_0()); }
 
 	'lock' 
 
-{ after(grammarAccess.getLockStatementAccess().getLockKeyword_0()); }
+{ after(grammarAccess.getLockJointStatementAccess().getLockKeyword_0()); }
 )
 
 ;
@@ -2681,27 +2681,27 @@ finally {
 }
 
 
-rule__LockStatement__Group__1
+rule__LockJointStatement__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__LockStatement__Group__1__Impl
-	rule__LockStatement__Group__2
+	rule__LockJointStatement__Group__1__Impl
+	rule__LockJointStatement__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__Group__1__Impl
+rule__LockJointStatement__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getSystemAssignment_1()); }
-(rule__LockStatement__SystemAssignment_1)
-{ after(grammarAccess.getLockStatementAccess().getSystemAssignment_1()); }
+{ before(grammarAccess.getLockJointStatementAccess().getSystemAssignment_1()); }
+(rule__LockJointStatement__SystemAssignment_1)
+{ after(grammarAccess.getLockJointStatementAccess().getSystemAssignment_1()); }
 )
 
 ;
@@ -2710,29 +2710,29 @@ finally {
 }
 
 
-rule__LockStatement__Group__2
+rule__LockJointStatement__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__LockStatement__Group__2__Impl
-	rule__LockStatement__Group__3
+	rule__LockJointStatement__Group__2__Impl
+	rule__LockJointStatement__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__Group__2__Impl
+rule__LockJointStatement__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getFullStopKeyword_2()); }
+{ before(grammarAccess.getLockJointStatementAccess().getFullStopKeyword_2()); }
 
 	'.' 
 
-{ after(grammarAccess.getLockStatementAccess().getFullStopKeyword_2()); }
+{ after(grammarAccess.getLockJointStatementAccess().getFullStopKeyword_2()); }
 )
 
 ;
@@ -2741,26 +2741,26 @@ finally {
 }
 
 
-rule__LockStatement__Group__3
+rule__LockJointStatement__Group__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__LockStatement__Group__3__Impl
+	rule__LockJointStatement__Group__3__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__Group__3__Impl
+rule__LockJointStatement__Group__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getJointAssignment_3()); }
-(rule__LockStatement__JointAssignment_3)
-{ after(grammarAccess.getLockStatementAccess().getJointAssignment_3()); }
+{ before(grammarAccess.getLockJointStatementAccess().getJointAssignment_3()); }
+(rule__LockJointStatement__JointAssignment_3)
+{ after(grammarAccess.getLockJointStatementAccess().getJointAssignment_3()); }
 )
 
 ;
@@ -8001,18 +8001,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__SystemAssignment_1
+rule__LockJointStatement__SystemAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); }
+{ before(grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); }
 (
-{ before(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); }
+{ before(grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1()); }
 )
-{ after(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); }
+{ after(grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); }
 )
 
 ;
@@ -8020,18 +8020,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LockStatement__JointAssignment_3
+rule__LockJointStatement__JointAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLockStatementAccess().getJointJointCrossReference_3_0()); }
+{ before(grammarAccess.getLockJointStatementAccess().getJointJointCrossReference_3_0()); }
 (
-{ before(grammarAccess.getLockStatementAccess().getJointJointIDTerminalRuleCall_3_0_1()); }
-	RULE_ID{ after(grammarAccess.getLockStatementAccess().getJointJointIDTerminalRuleCall_3_0_1()); }
+{ before(grammarAccess.getLockJointStatementAccess().getJointJointIDTerminalRuleCall_3_0_1()); }
+	RULE_ID{ after(grammarAccess.getLockJointStatementAccess().getJointJointIDTerminalRuleCall_3_0_1()); }
 )
-{ after(grammarAccess.getLockStatementAccess().getJointJointCrossReference_3_0()); }
+{ after(grammarAccess.getLockJointStatementAccess().getJointJointCrossReference_3_0()); }
 )
 
 ;

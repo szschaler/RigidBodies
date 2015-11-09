@@ -1352,29 +1352,29 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConfigurationStatement"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:538:1: ruleConfigurationStatement returns [EObject current=null] : this_LockStatement_0= ruleLockStatement ;
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:538:1: ruleConfigurationStatement returns [EObject current=null] : this_LockJointStatement_0= ruleLockJointStatement ;
     public final EObject ruleConfigurationStatement() throws RecognitionException {
         EObject current = null;
 
-        EObject this_LockStatement_0 = null;
+        EObject this_LockJointStatement_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:541:28: (this_LockStatement_0= ruleLockStatement )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:543:5: this_LockStatement_0= ruleLockStatement
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:541:28: (this_LockJointStatement_0= ruleLockJointStatement )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:543:5: this_LockJointStatement_0= ruleLockJointStatement
             {
              
-                    newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockStatementParserRuleCall()); 
+                    newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall()); 
                 
-            pushFollow(FOLLOW_ruleLockStatement_in_ruleConfigurationStatement1152);
-            this_LockStatement_0=ruleLockStatement();
+            pushFollow(FOLLOW_ruleLockJointStatement_in_ruleConfigurationStatement1152);
+            this_LockJointStatement_0=ruleLockJointStatement();
 
             state._fsp--;
 
              
-                    current = this_LockStatement_0; 
+                    current = this_LockJointStatement_0; 
                     afterParserOrEnumRuleCall();
                 
 
@@ -1394,26 +1394,26 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleConfigurationStatement"
 
 
-    // $ANTLR start "entryRuleLockStatement"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:559:1: entryRuleLockStatement returns [EObject current=null] : iv_ruleLockStatement= ruleLockStatement EOF ;
-    public final EObject entryRuleLockStatement() throws RecognitionException {
+    // $ANTLR start "entryRuleLockJointStatement"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:559:1: entryRuleLockJointStatement returns [EObject current=null] : iv_ruleLockJointStatement= ruleLockJointStatement EOF ;
+    public final EObject entryRuleLockJointStatement() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleLockStatement = null;
+        EObject iv_ruleLockJointStatement = null;
 
 
         try {
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:560:2: (iv_ruleLockStatement= ruleLockStatement EOF )
-            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:561:2: iv_ruleLockStatement= ruleLockStatement EOF
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:560:2: (iv_ruleLockJointStatement= ruleLockJointStatement EOF )
+            // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:561:2: iv_ruleLockJointStatement= ruleLockJointStatement EOF
             {
-             newCompositeNode(grammarAccess.getLockStatementRule()); 
-            pushFollow(FOLLOW_ruleLockStatement_in_entryRuleLockStatement1186);
-            iv_ruleLockStatement=ruleLockStatement();
+             newCompositeNode(grammarAccess.getLockJointStatementRule()); 
+            pushFollow(FOLLOW_ruleLockJointStatement_in_entryRuleLockJointStatement1186);
+            iv_ruleLockJointStatement=ruleLockJointStatement();
 
             state._fsp--;
 
-             current =iv_ruleLockStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLockStatement1196); 
+             current =iv_ruleLockJointStatement; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLockJointStatement1196); 
 
             }
 
@@ -1427,12 +1427,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleLockStatement"
+    // $ANTLR end "entryRuleLockJointStatement"
 
 
-    // $ANTLR start "ruleLockStatement"
-    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:568:1: ruleLockStatement returns [EObject current=null] : (otherlv_0= 'lock' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) ;
-    public final EObject ruleLockStatement() throws RecognitionException {
+    // $ANTLR start "ruleLockJointStatement"
+    // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:568:1: ruleLockJointStatement returns [EObject current=null] : (otherlv_0= 'lock' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) ;
+    public final EObject ruleLockJointStatement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1449,9 +1449,9 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:572:1: (otherlv_0= 'lock' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )
             // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:572:3: otherlv_0= 'lock' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,20,FOLLOW_20_in_ruleLockStatement1233); 
+            otherlv_0=(Token)match(input,20,FOLLOW_20_in_ruleLockJointStatement1233); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getLockStatementAccess().getLockKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getLockJointStatementAccess().getLockKeyword_0());
                 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:576:1: ( (otherlv_1= RULE_ID ) )
             // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:577:1: (otherlv_1= RULE_ID )
@@ -1461,12 +1461,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             {
 
             			if (current==null) {
-            	            current = createModelElement(grammarAccess.getLockStatementRule());
+            	            current = createModelElement(grammarAccess.getLockJointStatementRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLockStatement1253); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLockJointStatement1253); 
 
-            		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
+            		newLeafNode(otherlv_1, grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
             	
 
             }
@@ -1474,9 +1474,9 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleLockStatement1265); 
+            otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleLockJointStatement1265); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getLockStatementAccess().getFullStopKeyword_2());
+                	newLeafNode(otherlv_2, grammarAccess.getLockJointStatementAccess().getFullStopKeyword_2());
                 
             // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:593:1: ( (otherlv_3= RULE_ID ) )
             // ../uk.ac.kcl.inf.robotics.rigid_bodies/src-gen/uk/ac/kcl/inf/robotics/parser/antlr/internal/InternalRigidBodies.g:594:1: (otherlv_3= RULE_ID )
@@ -1486,12 +1486,12 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
             {
 
             			if (current==null) {
-            	            current = createModelElement(grammarAccess.getLockStatementRule());
+            	            current = createModelElement(grammarAccess.getLockJointStatementRule());
             	        }
                     
-            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLockStatement1285); 
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLockJointStatement1285); 
 
-            		newLeafNode(otherlv_3, grammarAccess.getLockStatementAccess().getJointJointCrossReference_3_0()); 
+            		newLeafNode(otherlv_3, grammarAccess.getLockJointStatementAccess().getJointJointCrossReference_3_0()); 
             	
 
             }
@@ -1516,7 +1516,7 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleLockStatement"
+    // $ANTLR end "ruleLockJointStatement"
 
 
     // $ANTLR start "entryRuleSystemElement"
@@ -7962,13 +7962,13 @@ public class InternalRigidBodiesParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15_in_ruleConfiguration1060 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConfigurationStatement_in_entryRuleConfigurationStatement1096 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleConfigurationStatement1106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLockStatement_in_ruleConfigurationStatement1152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLockStatement_in_entryRuleLockStatement1186 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLockStatement1196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleLockStatement1233 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleLockStatement1253 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleLockStatement1265 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleLockStatement1285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLockJointStatement_in_ruleConfigurationStatement1152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLockJointStatement_in_entryRuleLockJointStatement1186 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLockJointStatement1196 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_ruleLockJointStatement1233 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLockJointStatement1253 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleLockJointStatement1265 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLockJointStatement1285 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSystemElement_in_entryRuleSystemElement1321 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSystemElement1331 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBody_in_ruleSystemElement1378 = new BitSet(new long[]{0x0000000000000002L});

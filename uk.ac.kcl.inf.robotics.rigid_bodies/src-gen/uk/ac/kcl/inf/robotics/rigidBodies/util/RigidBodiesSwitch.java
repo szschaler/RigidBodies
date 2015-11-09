@@ -32,7 +32,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -171,11 +171,11 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.LOCK_STATEMENT:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT:
       {
-        LockStatement lockStatement = (LockStatement)theEObject;
-        T result = caseLockStatement(lockStatement);
-        if (result == null) result = caseConfigurationStatement(lockStatement);
+        LockJointStatement lockJointStatement = (LockJointStatement)theEObject;
+        T result = caseLockJointStatement(lockJointStatement);
+        if (result == null) result = caseConfigurationStatement(lockJointStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -586,17 +586,17 @@ public class RigidBodiesSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Lock Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Lock Joint Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Lock Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Lock Joint Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLockStatement(LockStatement object)
+  public T caseLockJointStatement(LockJointStatement object)
   {
     return null;
   }

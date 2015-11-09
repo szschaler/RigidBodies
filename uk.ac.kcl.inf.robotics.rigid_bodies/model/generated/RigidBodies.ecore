@@ -40,7 +40,7 @@
         eType="#//ConfigurationStatement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationStatement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LockStatement" eSuperTypes="#//ConfigurationStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="LockJointStatement" eSuperTypes="#//ConfigurationStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//SystemInstantiation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
   </eClassifiers>

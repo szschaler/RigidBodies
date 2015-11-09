@@ -541,11 +541,11 @@ ruleConfigurationStatement returns [EObject current=null]
     @after { leaveRule(); }:
 
     { 
-        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockStatementParserRuleCall()); 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall()); 
     }
-    this_LockStatement_0=ruleLockStatement
+    this_LockJointStatement_0=ruleLockJointStatement
     { 
-        $current = $this_LockStatement_0.current; 
+        $current = $this_LockJointStatement_0.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -555,51 +555,51 @@ ruleConfigurationStatement returns [EObject current=null]
 
 
 
-// Entry rule entryRuleLockStatement
-entryRuleLockStatement returns [EObject current=null] 
+// Entry rule entryRuleLockJointStatement
+entryRuleLockJointStatement returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getLockStatementRule()); }
-	 iv_ruleLockStatement=ruleLockStatement 
-	 { $current=$iv_ruleLockStatement.current; } 
+	{ newCompositeNode(grammarAccess.getLockJointStatementRule()); }
+	 iv_ruleLockJointStatement=ruleLockJointStatement 
+	 { $current=$iv_ruleLockJointStatement.current; } 
 	 EOF 
 ;
 
-// Rule LockStatement
-ruleLockStatement returns [EObject current=null] 
+// Rule LockJointStatement
+ruleLockJointStatement returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (	otherlv_0='lock' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getLockStatementAccess().getLockKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getLockJointStatementAccess().getLockKeyword_0());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLockStatementRule());
+	            $current = createModelElement(grammarAccess.getLockJointStatementRule());
 	        }
         }
 	otherlv_1=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getLockStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
+		newLeafNode(otherlv_1, grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
 	}
 
 )
 )	otherlv_2='.' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getLockStatementAccess().getFullStopKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getLockJointStatementAccess().getFullStopKeyword_2());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLockStatementRule());
+	            $current = createModelElement(grammarAccess.getLockJointStatementRule());
 	        }
         }
 	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_3, grammarAccess.getLockStatementAccess().getJointJointCrossReference_3_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getLockJointStatementAccess().getJointJointCrossReference_3_0()); 
 	}
 
 )

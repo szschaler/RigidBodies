@@ -21,7 +21,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
@@ -62,7 +62,7 @@ public class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
     }
   }
   
-  public IScope scope_LockStatement_joint(final LockStatement ls, final EReference reference) {
+  public IScope scope_LockStatement_joint(final LockJointStatement ls, final EReference reference) {
     SystemInstantiation _system = ls.getSystem();
     uk.ac.kcl.inf.robotics.rigidBodies.System _system_1 = _system.getSystem();
     EList<SystemElement> _elements = _system_1.getElements();

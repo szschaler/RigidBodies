@@ -336,14 +336,14 @@ public interface RigidBodiesPackage extends EPackage
   int CONFIGURATION_STATEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl <em>Lock Statement</em>}' class.
+   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl <em>Lock Joint Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockStatement()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockJointStatement()
    * @generated
    */
-  int LOCK_STATEMENT = 8;
+  int LOCK_JOINT_STATEMENT = 8;
 
   /**
    * The feature id for the '<em><b>System</b></em>' reference.
@@ -352,7 +352,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCK_STATEMENT__SYSTEM = CONFIGURATION_STATEMENT_FEATURE_COUNT + 0;
+  int LOCK_JOINT_STATEMENT__SYSTEM = CONFIGURATION_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Joint</b></em>' reference.
@@ -361,16 +361,16 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCK_STATEMENT__JOINT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 1;
+  int LOCK_JOINT_STATEMENT__JOINT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Lock Statement</em>' class.
+   * The number of structural features of the '<em>Lock Joint Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCK_STATEMENT_FEATURE_COUNT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 2;
+  int LOCK_JOINT_STATEMENT_FEATURE_COUNT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemElementImpl <em>System Element</em>}' class.
@@ -1942,36 +1942,36 @@ public interface RigidBodiesPackage extends EPackage
   EClass getConfigurationStatement();
 
   /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement <em>Lock Statement</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement <em>Lock Joint Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Lock Statement</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockStatement
+   * @return the meta object for class '<em>Lock Joint Statement</em>'.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement
    * @generated
    */
-  EClass getLockStatement();
+  EClass getLockJointStatement();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem <em>System</em>}'.
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getSystem <em>System</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>System</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getSystem()
-   * @see #getLockStatement()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getSystem()
+   * @see #getLockJointStatement()
    * @generated
    */
-  EReference getLockStatement_System();
+  EReference getLockJointStatement_System();
 
   /**
-   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getJoint <em>Joint</em>}'.
+   * Returns the meta object for the reference '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getJoint <em>Joint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Joint</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockStatement#getJoint()
-   * @see #getLockStatement()
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getJoint()
+   * @see #getLockJointStatement()
    * @generated
    */
-  EReference getLockStatement_Joint();
+  EReference getLockJointStatement_Joint();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.SystemElement <em>System Element</em>}'.
@@ -3229,14 +3229,14 @@ public interface RigidBodiesPackage extends EPackage
     EClass CONFIGURATION_STATEMENT = eINSTANCE.getConfigurationStatement();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl <em>Lock Statement</em>}' class.
+     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl <em>Lock Joint Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockStatement()
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl
+     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockJointStatement()
      * @generated
      */
-    EClass LOCK_STATEMENT = eINSTANCE.getLockStatement();
+    EClass LOCK_JOINT_STATEMENT = eINSTANCE.getLockJointStatement();
 
     /**
      * The meta object literal for the '<em><b>System</b></em>' reference feature.
@@ -3244,7 +3244,7 @@ public interface RigidBodiesPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOCK_STATEMENT__SYSTEM = eINSTANCE.getLockStatement_System();
+    EReference LOCK_JOINT_STATEMENT__SYSTEM = eINSTANCE.getLockJointStatement_System();
 
     /**
      * The meta object literal for the '<em><b>Joint</b></em>' reference feature.
@@ -3252,7 +3252,7 @@ public interface RigidBodiesPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOCK_STATEMENT__JOINT = eINSTANCE.getLockStatement_Joint();
+    EReference LOCK_JOINT_STATEMENT__JOINT = eINSTANCE.getLockJointStatement_Joint();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.SystemElementImpl <em>System Element</em>}' class.

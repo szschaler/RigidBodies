@@ -12,7 +12,7 @@ import org.eclipse.xtext.xbase.lib.Pair;
 import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 
 @SuppressWarnings("all")
 public class ConfigurationInterpreter {
@@ -57,7 +57,7 @@ public class ConfigurationInterpreter {
     return null;
   }
   
-  private Object _doConfigure(final LockStatement ls, final EcoreUtil.Copier copier) {
+  private Object _doConfigure(final LockJointStatement ls, final EcoreUtil.Copier copier) {
     Joint _joint = ls.getJoint();
     EObject _get = copier.get(_joint);
     final Joint jointToModify = ((Joint) _get);
@@ -65,8 +65,8 @@ public class ConfigurationInterpreter {
   }
   
   private Object doConfigure(final ConfigurationStatement ls, final EcoreUtil.Copier copier) {
-    if (ls instanceof LockStatement) {
-      return _doConfigure((LockStatement)ls, copier);
+    if (ls instanceof LockJointStatement) {
+      return _doConfigure((LockJointStatement)ls, copier);
     } else if (ls != null) {
       return _doConfigure(ls, copier);
     } else {

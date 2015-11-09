@@ -49,12 +49,14 @@ Configuration:
 
 ConfigurationStatement:
 	// TODO Other types of configuration statements?
-	LockStatement
+	LockJointStatement
+	
+	// TODO how to reference specific degrees of freedom in a robust way?
 ;
 
-LockStatement:
+LockJointStatement:
 	// TODO Handle repeated joints
-	'lock' system=[SystemInstantiation] '.' joint=[Joint] // TODO how to reference specific degrees of freedom in a robust way?
+	'lock' system=[SystemInstantiation] '.' joint=[Joint] 
 ;
 
 SystemElement:

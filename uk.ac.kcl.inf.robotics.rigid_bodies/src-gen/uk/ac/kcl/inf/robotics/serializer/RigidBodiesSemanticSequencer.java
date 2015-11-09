@@ -35,7 +35,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
@@ -118,8 +118,8 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.JOINT_TYPE_REFERENCE:
 				sequence_JointTypeReference(context, (JointTypeReference) semanticObject); 
 				return; 
-			case RigidBodiesPackage.LOCK_STATEMENT:
-				sequence_LockStatement(context, (LockStatement) semanticObject); 
+			case RigidBodiesPackage.LOCK_JOINT_STATEMENT:
+				sequence_LockJointStatement(context, (LockJointStatement) semanticObject); 
 				return; 
 			case RigidBodiesPackage.MASS:
 				sequence_Mass(context, (Mass) semanticObject); 
@@ -441,17 +441,17 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID])
 	 */
-	protected void sequence_LockStatement(EObject context, LockStatement semanticObject) {
+	protected void sequence_LockJointStatement(EObject context, LockJointStatement semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__SYSTEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__SYSTEM));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__JOINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_STATEMENT__JOINT));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__SYSTEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__SYSTEM));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__JOINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__JOINT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLockStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
-		feeder.accept(grammarAccess.getLockStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
+		feeder.accept(grammarAccess.getLockJointStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
+		feeder.accept(grammarAccess.getLockJointStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
 		feeder.finish();
 	}
 	

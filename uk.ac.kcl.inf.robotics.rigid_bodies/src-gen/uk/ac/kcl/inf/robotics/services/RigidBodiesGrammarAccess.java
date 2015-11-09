@@ -280,19 +280,19 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ConfigurationStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConfigurationStatement");
-		private final RuleCall cLockStatementParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final RuleCall cLockJointStatementParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//ConfigurationStatement: // TODO Other types of configuration statements?
-		//	LockStatement;
+		//	LockJointStatement;
 		@Override public ParserRule getRule() { return rule; }
 
 		//// TODO Other types of configuration statements?
-		//LockStatement
-		public RuleCall getLockStatementParserRuleCall() { return cLockStatementParserRuleCall; }
+		//LockJointStatement
+		public RuleCall getLockJointStatementParserRuleCall() { return cLockJointStatementParserRuleCall; }
 	}
 
-	public class LockStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockStatement");
+	public class LockJointStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockJointStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLockKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -303,7 +303,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cJointJointCrossReference_3_0 = (CrossReference)cJointAssignment_3.eContents().get(0);
 		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
 		
-		//LockStatement: // TODO Handle repeated joints
+		//LockJointStatement: // TODO Handle repeated joints
 		//	"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
 		//	[Joint];
 		@Override public ParserRule getRule() { return rule; }
@@ -1946,7 +1946,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final SystemInstantiationElements pSystemInstantiation;
 	private final ConfigurationElements pConfiguration;
 	private final ConfigurationStatementElements pConfigurationStatement;
-	private final LockStatementElements pLockStatement;
+	private final LockJointStatementElements pLockJointStatement;
 	private final SystemElementElements pSystemElement;
 	private final ConnectiveElements pConnective;
 	private final BodyElements pBody;
@@ -2004,7 +2004,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSystemInstantiation = new SystemInstantiationElements();
 		this.pConfiguration = new ConfigurationElements();
 		this.pConfigurationStatement = new ConfigurationStatementElements();
-		this.pLockStatement = new LockStatementElements();
+		this.pLockJointStatement = new LockJointStatementElements();
 		this.pSystemElement = new SystemElementElements();
 		this.pConnective = new ConnectiveElements();
 		this.pBody = new BodyElements();
@@ -2144,7 +2144,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConfigurationStatement: // TODO Other types of configuration statements?
-	//	LockStatement;
+	//	LockJointStatement;
 	public ConfigurationStatementElements getConfigurationStatementAccess() {
 		return pConfigurationStatement;
 	}
@@ -2153,15 +2153,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getConfigurationStatementAccess().getRule();
 	}
 
-	//LockStatement: // TODO Handle repeated joints
+	//LockJointStatement: // TODO Handle repeated joints
 	//	"lock" system=[SystemInstantiation] "." joint= // TODO how to reference specific degrees of freedom in a robust way?
 	//	[Joint];
-	public LockStatementElements getLockStatementAccess() {
-		return pLockStatement;
+	public LockJointStatementElements getLockJointStatementAccess() {
+		return pLockJointStatement;
 	}
 	
-	public ParserRule getLockStatementRule() {
-		return getLockStatementAccess().getRule();
+	public ParserRule getLockJointStatementRule() {
+		return getLockJointStatementAccess().getRule();
 	}
 
 	//SystemElement:

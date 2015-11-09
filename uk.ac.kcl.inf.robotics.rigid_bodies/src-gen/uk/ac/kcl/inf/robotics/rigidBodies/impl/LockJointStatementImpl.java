@@ -10,25 +10,25 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Lock Statement</b></em>'.
+ * An implementation of the model object '<em><b>Lock Joint Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl#getSystem <em>System</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockStatementImpl#getJoint <em>Joint</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl#getSystem <em>System</em>}</li>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl#getJoint <em>Joint</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LockStatementImpl extends ConfigurationStatementImpl implements LockStatement
+public class LockJointStatementImpl extends ConfigurationStatementImpl implements LockJointStatement
 {
   /**
    * The cached value of the '{@link #getSystem() <em>System</em>}' reference.
@@ -55,7 +55,7 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LockStatementImpl()
+  protected LockJointStatementImpl()
   {
     super();
   }
@@ -68,7 +68,7 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   @Override
   protected EClass eStaticClass()
   {
-    return RigidBodiesPackage.Literals.LOCK_STATEMENT;
+    return RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT;
   }
 
   /**
@@ -85,7 +85,7 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
       if (system != oldSystem)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_STATEMENT__SYSTEM, oldSystem, system));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM, oldSystem, system));
       }
     }
     return system;
@@ -111,7 +111,7 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
     SystemInstantiation oldSystem = system;
     system = newSystem;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_STATEMENT__SYSTEM, oldSystem, system));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM, oldSystem, system));
   }
 
   /**
@@ -128,7 +128,7 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
       if (joint != oldJoint)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_STATEMENT__JOINT, oldJoint, joint));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT, oldJoint, joint));
       }
     }
     return joint;
@@ -154,7 +154,7 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
     Joint oldJoint = joint;
     joint = newJoint;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_STATEMENT__JOINT, oldJoint, joint));
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT, oldJoint, joint));
   }
 
   /**
@@ -167,10 +167,10 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
         if (resolve) return getSystem();
         return basicGetSystem();
-      case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
         if (resolve) return getJoint();
         return basicGetJoint();
     }
@@ -187,10 +187,10 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
         setSystem((SystemInstantiation)newValue);
         return;
-      case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
         setJoint((Joint)newValue);
         return;
     }
@@ -207,10 +207,10 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
         setSystem((SystemInstantiation)null);
         return;
-      case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
         setJoint((Joint)null);
         return;
     }
@@ -227,12 +227,12 @@ public class LockStatementImpl extends ConfigurationStatementImpl implements Loc
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_STATEMENT__SYSTEM:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
         return system != null;
-      case RigidBodiesPackage.LOCK_STATEMENT__JOINT:
+      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
         return joint != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //LockStatementImpl
+} //LockJointStatementImpl

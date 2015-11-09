@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import uk.ac.kcl.inf.robotics.rigidBodies.Configuration
 import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint
-import uk.ac.kcl.inf.robotics.rigidBodies.LockStatement
+import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement
 import uk.ac.kcl.inf.robotics.rigidBodies.System
 
 class ConfigurationInterpreter {
@@ -38,7 +38,7 @@ class ConfigurationInterpreter {
 	
 	private dispatch def doConfigure (ConfigurationStatement ls, EcoreUtil.Copier copier) {}
 	
-	private dispatch def doConfigure (LockStatement ls, EcoreUtil.Copier copier) {
+	private dispatch def doConfigure (LockJointStatement ls, EcoreUtil.Copier copier) {
 		val Joint jointToModify = copier.get (ls.joint) as Joint 
 		
 		// TODO How do I actually express a completely locked joint? What's the right joint type?
