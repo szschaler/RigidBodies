@@ -29,6 +29,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
+import uk.ac.kcl.inf.robotics.util.ExpressionHelper;
 
 @SuppressWarnings("all")
 public class ConfigurationInterpreter {
@@ -112,7 +113,8 @@ public class ConfigurationInterpreter {
           addExp.setLeft(_copy_1);
           EList<String> _op = addExp.getOp();
           _op.add("+");
-          posElements[(idx).intValue()] = addExp;
+          Expression _foldConstants = ExpressionHelper.foldConstants(addExp);
+          posElements[(idx).intValue()] = _foldConstants;
         }
       };
       IterableExtensions.<Expression>forEach(_elements_1, _function);
@@ -136,21 +138,24 @@ public class ConfigurationInterpreter {
     EList<Expression> _value = amendedReorient.getValue();
     List<Expression> _elements = this.elements(mRotation);
     Expression _get = _elements.get(0);
-    Expression _copy = EcoreUtil.<Expression>copy(_get);
+    Expression _foldConstants = ExpressionHelper.foldConstants(_get);
+    Expression _copy = EcoreUtil.<Expression>copy(_foldConstants);
     _value.add(_copy);
     EList<AXIS> _axis_1 = amendedReorient.getAxis();
     _axis_1.add(AXIS.Y);
     EList<Expression> _value_1 = amendedReorient.getValue();
     List<Expression> _elements_1 = this.elements(mRotation);
     Expression _get_1 = _elements_1.get(1);
-    Expression _copy_1 = EcoreUtil.<Expression>copy(_get_1);
+    Expression _foldConstants_1 = ExpressionHelper.foldConstants(_get_1);
+    Expression _copy_1 = EcoreUtil.<Expression>copy(_foldConstants_1);
     _value_1.add(_copy_1);
     EList<AXIS> _axis_2 = amendedReorient.getAxis();
     _axis_2.add(AXIS.Z);
     EList<Expression> _value_2 = amendedReorient.getValue();
     List<Expression> _elements_2 = this.elements(mRotation);
     Expression _get_2 = _elements_2.get(2);
-    Expression _copy_2 = EcoreUtil.<Expression>copy(_get_2);
+    Expression _foldConstants_2 = ExpressionHelper.foldConstants(_get_2);
+    Expression _copy_2 = EcoreUtil.<Expression>copy(_foldConstants_2);
     _value_2.add(_copy_2);
     Reorientation _reorient_1 = relTrans.getReorient();
     _reorient_1.setExp(amendedReorient);

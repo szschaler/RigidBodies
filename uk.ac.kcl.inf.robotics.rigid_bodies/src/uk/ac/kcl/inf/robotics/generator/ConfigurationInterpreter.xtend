@@ -1,6 +1,7 @@
 package uk.ac.kcl.inf.robotics.generator
 
 import java.util.List
+
 import org.eclipse.emf.ecore.util.EcoreUtil
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression
@@ -16,6 +17,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory
 import uk.ac.kcl.inf.robotics.rigidBodies.System
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS
+
+import static extension uk.ac.kcl.inf.robotics.util.ExpressionHelper.*
 
 class ConfigurationInterpreter {
 	
@@ -67,7 +70,7 @@ class ConfigurationInterpreter {
 			addExp.right.add(EcoreUtil.copy (exp))
 			addExp.left = EcoreUtil.copy (mTranslation.elements.get(idx))
 			addExp.op.add("+")
-			posElements.set(idx, addExp)
+			posElements.set(idx, addExp.foldConstants)
 		]
 		relTrans.position.elements.clear
 		relTrans.position.elements.addAll (posElements)		
@@ -78,12 +81,13 @@ class ConfigurationInterpreter {
 		// Keep the original elements
 		relTrans.reorient.exp.addAllElementsTo (amendedReorient)
 		// Add elements as described by the rotation matrix
+		// TODO Check we're not adding zero rotations
 		amendedReorient.axis.add (AXIS.X)
-		amendedReorient.value.add (EcoreUtil.copy (mRotation.elements.get(0)))
+		amendedReorient.value.add (EcoreUtil.copy (mRotation.elements.get(0).foldConstants))
 		amendedReorient.axis.add (AXIS.Y)
-		amendedReorient.value.add (EcoreUtil.copy (mRotation.elements.get(1)))
+		amendedReorient.value.add (EcoreUtil.copy (mRotation.elements.get(1).foldConstants))
 		amendedReorient.axis.add (AXIS.Z)
-		amendedReorient.value.add (EcoreUtil.copy (mRotation.elements.get(2)))
+		amendedReorient.value.add (EcoreUtil.copy (mRotation.elements.get(2).foldConstants))
 		
 		relTrans.reorient.exp = amendedReorient		
 	}
