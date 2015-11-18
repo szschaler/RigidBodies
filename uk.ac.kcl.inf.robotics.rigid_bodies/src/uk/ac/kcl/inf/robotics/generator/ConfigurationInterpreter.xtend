@@ -51,7 +51,7 @@ class ConfigurationInterpreter {
 		val Joint jointToModify = copier.get (ls.joint) as Joint 
 		
 		jointToModify.relTrans1.setFixed (ls.translation, ls.rotation)
-		//jointToModify.type = null  // TODO: Need to adjust generator to deal with this.		
+		jointToModify.type = null  // TODO: Need to adjust generator to deal with this.		
 	}
 	
 	private def setFixed (RelativeTransformation relTrans, Matrix mTranslation, Matrix mRotation) {

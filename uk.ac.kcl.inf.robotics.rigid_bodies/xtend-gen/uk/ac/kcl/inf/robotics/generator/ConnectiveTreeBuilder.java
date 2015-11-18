@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
@@ -448,23 +449,36 @@ public class ConnectiveTreeBuilder {
           this.positions.add(_pair_4);
           Pair<Integer, Pair<String, Integer>> _pair_5 = new Pair<Integer, Pair<String, Integer>>(Integer.valueOf(0), parentDesc);
           this.lcCodeColumns.add(_pair_5);
-          String _name_6 = joint.getName();
-          String _plus_4 = ("joint " + _name_6);
           JointType _type = joint.getType();
-          JointTypeExpression _exp = _type.getExp();
-          List<JointMovement> _stateList = this.toStateList(_exp);
-          Pair<String, List<JointMovement>> _pair_6 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
-          this.jointStates.add(_pair_6);
-          JointType _type_1 = joint.getType();
-          JointTypeExpression _exp_1 = _type_1.getExp();
-          List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_exp_1);
-          Pair<Joint, List<BaseStiffnessExp>> _pair_7 = new Pair<Joint, List<BaseStiffnessExp>>(joint, _stiffnessList);
-          this.jointStiffnesses.add(_pair_7);
-          String _name_7 = joint.getName();
-          String _plus_5 = ("joint" + _name_7);
+          boolean _notEquals_1 = (!Objects.equal(_type, null));
+          if (_notEquals_1) {
+            String _name_6 = joint.getName();
+            String _plus_4 = ("joint " + _name_6);
+            JointType _type_1 = joint.getType();
+            JointTypeExpression _exp = _type_1.getExp();
+            List<JointMovement> _stateList = this.toStateList(_exp);
+            Pair<String, List<JointMovement>> _pair_6 = new Pair<String, List<JointMovement>>(_plus_4, _stateList);
+            this.jointStates.add(_pair_6);
+            JointType _type_2 = joint.getType();
+            JointTypeExpression _exp_1 = _type_2.getExp();
+            List<BaseStiffnessExp> _stiffnessList = this.toStiffnessList(_exp_1);
+            Pair<Joint, List<BaseStiffnessExp>> _pair_7 = new Pair<Joint, List<BaseStiffnessExp>>(joint, _stiffnessList);
+            this.jointStiffnesses.add(_pair_7);
+          } else {
+            String _name_7 = joint.getName();
+            String _plus_5 = ("joint " + _name_7);
+            List<JointMovement> _emptyList = CollectionLiterals.<JointMovement>emptyList();
+            Pair<String, List<JointMovement>> _pair_8 = new Pair<String, List<JointMovement>>(_plus_5, _emptyList);
+            this.jointStates.add(_pair_8);
+            List<BaseStiffnessExp> _emptyList_1 = CollectionLiterals.<BaseStiffnessExp>emptyList();
+            Pair<Joint, List<BaseStiffnessExp>> _pair_9 = new Pair<Joint, List<BaseStiffnessExp>>(joint, _emptyList_1);
+            this.jointStiffnesses.add(_pair_9);
+          }
+          String _name_8 = joint.getName();
+          String _plus_6 = ("joint" + _name_8);
           RelativeTransformation _relTrans1 = joint.getRelTrans1();
-          Pair<String, RelativeTransformation> _pair_8 = new Pair<String, RelativeTransformation>(_plus_5, _relTrans1);
-          _xblockexpression_1 = this.jointTransformations.add(_pair_8);
+          Pair<String, RelativeTransformation> _pair_10 = new Pair<String, RelativeTransformation>(_plus_6, _relTrans1);
+          _xblockexpression_1 = this.jointTransformations.add(_pair_10);
         }
         _xifexpression = _xblockexpression_1;
       } else {

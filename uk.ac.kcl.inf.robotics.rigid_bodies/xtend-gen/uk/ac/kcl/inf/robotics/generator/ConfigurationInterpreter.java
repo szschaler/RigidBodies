@@ -81,6 +81,7 @@ public class ConfigurationInterpreter {
     Matrix _translation = ls.getTranslation();
     Matrix _rotation = ls.getRotation();
     this.setFixed(_relTrans1, _translation, _rotation);
+    jointToModify.setType(null);
     return null;
   }
   

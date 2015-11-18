@@ -198,9 +198,14 @@ class ConnectiveTreeBuilder {
 			positions.add (new Pair("body " + bTgt.name, mTgt.position.matrix))
 			lcCodeColumns.add (new Pair<Integer, Pair<String, Integer>> (0, parentDesc))
 			
-			jointStates.add (new Pair ("joint " + joint.name, joint.type.exp.toStateList))
-			//jointStiffnesses.add (new Pair ("joint " + joint.name, joint.type.exp.toStiffnessList))
-			jointStiffnesses.add (new Pair (joint, joint.type.exp.toStiffnessList))
+			if (joint.type != null) {
+				jointStates.add (new Pair ("joint " + joint.name, joint.type.exp.toStateList))
+				//jointStiffnesses.add (new Pair ("joint " + joint.name, joint.type.exp.toStiffnessList))
+				jointStiffnesses.add (new Pair (joint, joint.type.exp.toStiffnessList))
+			} else {
+				jointStates.add (new Pair ("joint " + joint.name, emptyList))
+				jointStiffnesses.add (new Pair (joint, emptyList))				
+			}
 
 			jointTransformations.add (new Pair ("joint" + joint.name, joint.relTrans1))			
 		} else if (ct.isConstraint) {

@@ -100,14 +100,14 @@ I (:, :, 8) = [
 	0.0 0.0 1.0e-3];
 
 % Joint specifications
-j = sym (zeros (5, 5, 9));
+j = sym (zeros (4, 5, 9));
 % Joint rotations for joint hing1
-j (1:5, :, 1) = [
+j (1:4, :, 1) = [
 	0 0 1.0+0.0 1.0+0.0 1.0+1.0;
 	1 pi/2.0 0 0 0;
 	2 0.0 0 0 0;
 	3 0.0 0 0 0
-	1 inf 0 0 0];
+	];
 % Joint rotations for joint hing2_1
 j (1:3, :, 2) = [
 	0 0 1.0 0.0 -1.0;
@@ -148,54 +148,50 @@ j (1, :, 9) = [
 	0 0 0 0 0];
 
 % Stiffness data
-jkd = sym (zeros (4, 2, 8));
+jkd = sym (zeros (4, 2, 7));
 % Stiffness values for joint hing1
+
+% Stiffness values for joint hing2_1
 jkd (1, :, 1) = [ 0.0 0.0 ];
 jkd (2, 1, 1) = 0.1;
 jkd (3, 1, 1) = 0.0;
-jkd (4, 1, 1) = 0;
+jkd (4, 1, 1) = 1;
 
-% Stiffness values for joint hing2_1
+% Stiffness values for joint hing2_2
 jkd (1, :, 2) = [ 0.0 0.0 ];
 jkd (2, 1, 2) = 0.1;
 jkd (3, 1, 2) = 0.0;
 jkd (4, 1, 2) = 1;
 
-% Stiffness values for joint hing2_2
+% Stiffness values for joint hing2_3
 jkd (1, :, 3) = [ 0.0 0.0 ];
 jkd (2, 1, 3) = 0.1;
 jkd (3, 1, 3) = 0.0;
 jkd (4, 1, 3) = 1;
 
-% Stiffness values for joint hing2_3
+% Stiffness values for joint hing2_4
 jkd (1, :, 4) = [ 0.0 0.0 ];
 jkd (2, 1, 4) = 0.1;
 jkd (3, 1, 4) = 0.0;
 jkd (4, 1, 4) = 1;
 
-% Stiffness values for joint hing2_4
+% Stiffness values for joint hing2_5
 jkd (1, :, 5) = [ 0.0 0.0 ];
 jkd (2, 1, 5) = 0.1;
 jkd (3, 1, 5) = 0.0;
 jkd (4, 1, 5) = 1;
 
-% Stiffness values for joint hing2_5
+% Stiffness values for joint hing2_6
 jkd (1, :, 6) = [ 0.0 0.0 ];
 jkd (2, 1, 6) = 0.1;
 jkd (3, 1, 6) = 0.0;
 jkd (4, 1, 6) = 1;
 
-% Stiffness values for joint hing2_6
+% Stiffness values for joint hing2_7
 jkd (1, :, 7) = [ 0.0 0.0 ];
 jkd (2, 1, 7) = 0.1;
 jkd (3, 1, 7) = 0.0;
 jkd (4, 1, 7) = 1;
-
-% Stiffness values for joint hing2_7
-jkd (1, :, 8) = [ 0.0 0.0 ];
-jkd (2, 1, 8) = 0.1;
-jkd (3, 1, 8) = 0.0;
-jkd (4, 1, 8) = 1;
 
 % Run program -- Should this really be generated?
 
