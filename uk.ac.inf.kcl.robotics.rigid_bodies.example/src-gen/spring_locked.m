@@ -100,10 +100,13 @@ I (:, :, 8) = [
 	0.0 0.0 1.0e-3];
 
 % Joint specifications
-j = sym (zeros (3, 5, 9));
+j = sym (zeros (5, 5, 9));
 % Joint rotations for joint hing1
-j (1:2, :, 1) = [
-	0 0 0.0 0.0 1.0;
+j (1:5, :, 1) = [
+	0 0 1.0+0.0 1.0+0.0 1.0+1.0;
+	1 pi/2.0 0 0 0;
+	2 0.0 0 0 0;
+	3 0.0 0 0 0
 	1 inf 0 0 0];
 % Joint rotations for joint hing2_1
 j (1:3, :, 2) = [

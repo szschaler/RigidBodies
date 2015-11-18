@@ -57,6 +57,6 @@ configurations {
 		// In this configuration, all joints inside the spring are locked
 		lock spring.hing1 // Note that because of the symmetry constraint, this locks the entire spring
 			to rotation [pi / 2.0, 0.0, 0.0]
-			   translation [0.0, 0.0, 0.0]
+			   translation [1.0, 1.0, 1.0]
 	}
 }

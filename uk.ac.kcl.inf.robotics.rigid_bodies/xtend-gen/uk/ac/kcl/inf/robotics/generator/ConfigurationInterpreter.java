@@ -7,12 +7,28 @@ import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
+import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
+import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
+import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 
 @SuppressWarnings("all")
 public class ConfigurationInterpreter {
@@ -61,7 +77,117 @@ public class ConfigurationInterpreter {
     Joint _joint = ls.getJoint();
     EObject _get = copier.get(_joint);
     final Joint jointToModify = ((Joint) _get);
+    RelativeTransformation _relTrans1 = jointToModify.getRelTrans1();
+    Matrix _translation = ls.getTranslation();
+    Matrix _rotation = ls.getRotation();
+    this.setFixed(_relTrans1, _translation, _rotation);
     return null;
+  }
+  
+  private void setFixed(final RelativeTransformation relTrans, final Matrix mTranslation, final Matrix mRotation) {
+    this.fixTranslation(relTrans, mTranslation);
+    this.fixRotation(relTrans, mRotation);
+  }
+  
+  private boolean fixTranslation(final RelativeTransformation relTrans, final Matrix mTranslation) {
+    boolean _xblockexpression = false;
+    {
+      Matrix _position = relTrans.getPosition();
+      List<Expression> _elements = this.elements(_position);
+      int _size = _elements.size();
+      final Expression[] posElements = new Expression[_size];
+      Matrix _position_1 = relTrans.getPosition();
+      List<Expression> _elements_1 = this.elements(_position_1);
+      final Procedure2<Expression, Integer> _function = new Procedure2<Expression, Integer>() {
+        @Override
+        public void apply(final Expression exp, final Integer idx) {
+          final AddExp addExp = RigidBodiesFactory.eINSTANCE.createAddExp();
+          EList<Expression> _right = addExp.getRight();
+          Expression _copy = EcoreUtil.<Expression>copy(exp);
+          _right.add(_copy);
+          List<Expression> _elements = ConfigurationInterpreter.this.elements(mTranslation);
+          Expression _get = _elements.get((idx).intValue());
+          Expression _copy_1 = EcoreUtil.<Expression>copy(_get);
+          addExp.setLeft(_copy_1);
+          EList<String> _op = addExp.getOp();
+          _op.add("+");
+          posElements[(idx).intValue()] = addExp;
+        }
+      };
+      IterableExtensions.<Expression>forEach(_elements_1, _function);
+      Matrix _position_2 = relTrans.getPosition();
+      List<Expression> _elements_2 = this.elements(_position_2);
+      _elements_2.clear();
+      Matrix _position_3 = relTrans.getPosition();
+      List<Expression> _elements_3 = this.elements(_position_3);
+      _xblockexpression = CollectionExtensions.<Expression>addAll(_elements_3, posElements);
+    }
+    return _xblockexpression;
+  }
+  
+  private void fixRotation(final RelativeTransformation relTrans, final Matrix mRotation) {
+    final BasicReorientExpression amendedReorient = RigidBodiesFactory.eINSTANCE.createBasicReorientExpression();
+    Reorientation _reorient = relTrans.getReorient();
+    ReorientExpression _exp = _reorient.getExp();
+    this.addAllElementsTo(_exp, amendedReorient);
+    EList<AXIS> _axis = amendedReorient.getAxis();
+    _axis.add(AXIS.X);
+    EList<Expression> _value = amendedReorient.getValue();
+    List<Expression> _elements = this.elements(mRotation);
+    Expression _get = _elements.get(0);
+    Expression _copy = EcoreUtil.<Expression>copy(_get);
+    _value.add(_copy);
+    EList<AXIS> _axis_1 = amendedReorient.getAxis();
+    _axis_1.add(AXIS.Y);
+    EList<Expression> _value_1 = amendedReorient.getValue();
+    List<Expression> _elements_1 = this.elements(mRotation);
+    Expression _get_1 = _elements_1.get(1);
+    Expression _copy_1 = EcoreUtil.<Expression>copy(_get_1);
+    _value_1.add(_copy_1);
+    EList<AXIS> _axis_2 = amendedReorient.getAxis();
+    _axis_2.add(AXIS.Z);
+    EList<Expression> _value_2 = amendedReorient.getValue();
+    List<Expression> _elements_2 = this.elements(mRotation);
+    Expression _get_2 = _elements_2.get(2);
+    Expression _copy_2 = EcoreUtil.<Expression>copy(_get_2);
+    _value_2.add(_copy_2);
+    Reorientation _reorient_1 = relTrans.getReorient();
+    _reorient_1.setExp(amendedReorient);
+  }
+  
+  private void _addAllElementsTo(final ReorientRef rrSrc, final BasicReorientExpression breTgt) {
+    Reorientation _ref = rrSrc.getRef();
+    ReorientExpression _exp = _ref.getExp();
+    this.addAllElementsTo(_exp, breTgt);
+  }
+  
+  private void _addAllElementsTo(final BasicReorientExpression breSrc, final BasicReorientExpression breTgt) {
+    EList<AXIS> _axis = breTgt.getAxis();
+    EList<AXIS> _axis_1 = breSrc.getAxis();
+    _axis.addAll(_axis_1);
+    EList<Expression> _value = breTgt.getValue();
+    EList<Expression> _value_1 = breSrc.getValue();
+    final Function1<Expression, Expression> _function = new Function1<Expression, Expression>() {
+      @Override
+      public Expression apply(final Expression exp) {
+        return EcoreUtil.<Expression>copy(exp);
+      }
+    };
+    List<Expression> _map = ListExtensions.<Expression, Expression>map(_value_1, _function);
+    _value.addAll(_map);
+  }
+  
+  private List<Expression> _elements(final Matrix m) {
+    return null;
+  }
+  
+  private List<Expression> _elements(final BaseMatrix bm) {
+    return bm.getValues();
+  }
+  
+  private List<Expression> _elements(final MatrixRef mr) {
+    BaseMatrix _matrix = mr.getMatrix();
+    return this.elements(_matrix);
   }
   
   private Object doConfigure(final ConfigurationStatement ls, final EcoreUtil.Copier copier) {
@@ -72,6 +198,32 @@ public class ConfigurationInterpreter {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(ls, copier).toString());
+    }
+  }
+  
+  private void addAllElementsTo(final ReorientExpression breSrc, final BasicReorientExpression breTgt) {
+    if (breSrc instanceof BasicReorientExpression) {
+      _addAllElementsTo((BasicReorientExpression)breSrc, breTgt);
+      return;
+    } else if (breSrc instanceof ReorientRef) {
+      _addAllElementsTo((ReorientRef)breSrc, breTgt);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(breSrc, breTgt).toString());
+    }
+  }
+  
+  private List<Expression> elements(final Matrix bm) {
+    if (bm instanceof BaseMatrix) {
+      return _elements((BaseMatrix)bm);
+    } else if (bm instanceof MatrixRef) {
+      return _elements((MatrixRef)bm);
+    } else if (bm != null) {
+      return _elements(bm);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(bm).toString());
     }
   }
 }
