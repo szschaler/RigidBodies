@@ -1,5 +1,6 @@
 package uk.ac.kcl.inf.robotics.util
 
+import org.eclipse.emf.ecore.util.EcoreUtil
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression
@@ -16,7 +17,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory
 class ExpressionHelper {
 
 	/**
-	 * A somewhat simplistic constant folder.
+	 * A somewhat simplistic constant folder. Note that every call to foldConstants will always return a new expression object so that containment relationships are not damaged.
 	 */
 	static dispatch def Expression foldConstants(Expression exp) { return exp; }
 
@@ -44,7 +45,7 @@ class ExpressionHelper {
 
 			rExp
 		])
-		
+
 		if ((tentativeResult.right != null) && (!tentativeResult.right.empty)) {
 			return tentativeResult
 		} else {
@@ -76,38 +77,40 @@ class ExpressionHelper {
 
 			rExp
 		])
-		
+
 		if ((tentativeResult.right != null) && (!tentativeResult.right.empty)) {
 			return tentativeResult
 		} else {
 			return tentativeResult.left
 		}
 	}
-	
-	static dispatch def Expression foldConstants (ParenthesisedExp pe) {
+
+	static dispatch def Expression foldConstants(ParenthesisedExp pe) {
 		val foldedInner = pe.exp.foldConstants
-		
+
 		if (foldedInner instanceof NumberLiteral) {
 			return foldedInner
 		} else {
 			val result = RigidBodiesFactory.eINSTANCE.createParenthesisedExp
-			
+
 			result.exp = foldedInner
-			
+
 			return result
 		}
 	}
-	
-	static dispatch def Expression foldConstants (ConstantOrFunctionCallExp cofce) {
+
+	static dispatch def Expression foldConstants(ConstantOrFunctionCallExp cofce) {
 		val result = RigidBodiesFactory.eINSTANCE.createConstantOrFunctionCallExp
-		
+
 		result.label = cofce.label
-		result.param.addAll (cofce.param.map[p | p.foldConstants])
-		
+		result.param.addAll(cofce.param.map[p|p.foldConstants])
+
 		return result
 	}
-	
-	static dispatch def Expression foldConstants (NumberLiteral nl) { return nl }
+
+	static dispatch def Expression foldConstants(NumberLiteral nl) { 
+		return EcoreUtil.copy (nl)
+	}
 
 	static private def NumberLiteral foldBasicOp(String op, NumberLiteral nl1, NumberLiteral nl2) {
 		val num1 = nl1.parse
@@ -130,13 +133,37 @@ class ExpressionHelper {
 			return basicValue
 		}
 	}
-	
-	static private def unparse (Double dValue) {
+
+	static private def unparse(Double dValue) {
 		val result = RigidBodiesFactory.eINSTANCE.createNumberLiteral
-		
+
 		result.neg = dValue < 0.0d
 		result.value = Double.toString(Math.abs(dValue))
-		
+
 		return result
 	}
+
+	static def dispatch boolean isZero(AddExp ae) {
+		val foldedExp = ae.foldConstants
+		if (foldedExp instanceof NumberLiteral) {
+			foldedExp.isZero
+		} else {
+			false
+		}
+	}
+
+	static def dispatch boolean isZero(MultExp me) {
+		val foldedExp = me.foldConstants
+		if (foldedExp instanceof NumberLiteral) {
+			foldedExp.isZero
+		} else {
+			false
+		}
+	}
+
+	static def dispatch boolean isZero(ParenthesisedExp pe) { pe.exp.isZero }
+
+	static def dispatch boolean isZero(ConstantOrFunctionCallExp cofce) { false }
+
+	static def dispatch boolean isZero(NumberLiteral nl) { nl.parse == 0.0d }
 }

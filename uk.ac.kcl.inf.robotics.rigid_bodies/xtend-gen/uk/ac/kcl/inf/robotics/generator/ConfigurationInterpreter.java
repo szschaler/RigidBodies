@@ -24,7 +24,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
-import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
@@ -106,16 +105,16 @@ public class ConfigurationInterpreter {
         public void apply(final Expression exp, final Integer idx) {
           final AddExp addExp = RigidBodiesFactory.eINSTANCE.createAddExp();
           EList<Expression> _right = addExp.getRight();
-          Expression _foldConstants = ExpressionHelper.foldConstants(exp);
-          _right.add(_foldConstants);
+          Expression _copy = EcoreUtil.<Expression>copy(exp);
+          _right.add(_copy);
           List<Expression> _elements = ConfigurationInterpreter.this.elements(mTranslation);
           Expression _get = _elements.get((idx).intValue());
-          Expression _foldConstants_1 = ExpressionHelper.foldConstants(_get);
-          addExp.setLeft(_foldConstants_1);
+          Expression _copy_1 = EcoreUtil.<Expression>copy(_get);
+          addExp.setLeft(_copy_1);
           EList<String> _op = addExp.getOp();
           _op.add("+");
-          Expression _foldConstants_2 = ExpressionHelper.foldConstants(addExp);
-          posElements[(idx).intValue()] = _foldConstants_2;
+          Expression _foldConstants = ExpressionHelper.foldConstants(addExp);
+          posElements[(idx).intValue()] = _foldConstants;
         }
       };
       IterableExtensions.<Expression>forEach(_elements_1, _function);
@@ -149,15 +148,9 @@ public class ConfigurationInterpreter {
   
   private void addConstantReorient(final BasicReorientExpression bre, final AXIS axis, final Expression exp) {
     final Expression foldedExp = ExpressionHelper.foldConstants(exp);
-    boolean _or = false;
-    if ((!(foldedExp instanceof NumberLiteral))) {
-      _or = true;
-    } else {
-      double _parse = ExpressionHelper.parse(((NumberLiteral) foldedExp));
-      boolean _notEquals = (_parse != 0.0);
-      _or = _notEquals;
-    }
-    if (_or) {
+    boolean _isZero = ExpressionHelper.isZero(foldedExp);
+    boolean _not = (!_isZero);
+    if (_not) {
       EList<AXIS> _axis = bre.getAxis();
       _axis.add(axis);
       EList<Expression> _value = bre.getValue();

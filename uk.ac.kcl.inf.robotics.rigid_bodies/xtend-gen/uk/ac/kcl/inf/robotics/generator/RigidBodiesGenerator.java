@@ -9,8 +9,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -53,6 +51,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
+import uk.ac.kcl.inf.robotics.util.ExpressionHelper;
 
 /**
  * Generates code from your model files on save.
@@ -769,35 +768,10 @@ public class RigidBodiesGenerator implements IGenerator {
     final Function1<Expression, Boolean> _function = new Function1<Expression, Boolean>() {
       @Override
       public Boolean apply(final Expression v) {
-        return Boolean.valueOf(RigidBodiesGenerator.this.isZero(v));
+        return Boolean.valueOf(ExpressionHelper.isZero(v));
       }
     };
     return IterableExtensions.<Expression>forall(_values, _function);
-  }
-  
-  protected boolean _isZero(final AddExp ae) {
-    return false;
-  }
-  
-  protected boolean _isZero(final MultExp me) {
-    return false;
-  }
-  
-  protected boolean _isZero(final ParenthesisedExp pe) {
-    Expression _exp = pe.getExp();
-    return this.isZero(_exp);
-  }
-  
-  protected boolean _isZero(final ConstantOrFunctionCallExp cofce) {
-    return false;
-  }
-  
-  private final static Pattern pZeroLiteral = Pattern.compile("\\A0+\\.0+([eE][+-]?\\d*)?\\Z");
-  
-  protected boolean _isZero(final NumberLiteral nl) {
-    String _value = nl.getValue();
-    Matcher _matcher = RigidBodiesGenerator.pZeroLiteral.matcher(_value);
-    return _matcher.matches();
   }
   
   protected CharSequence _renderValues(final MatrixRef mr, final CharSequence sep) {
@@ -997,23 +971,6 @@ public class RigidBodiesGenerator implements IGenerator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(bm).toString());
-    }
-  }
-  
-  public boolean isZero(final Expression ae) {
-    if (ae instanceof AddExp) {
-      return _isZero((AddExp)ae);
-    } else if (ae instanceof ConstantOrFunctionCallExp) {
-      return _isZero((ConstantOrFunctionCallExp)ae);
-    } else if (ae instanceof MultExp) {
-      return _isZero((MultExp)ae);
-    } else if (ae instanceof NumberLiteral) {
-      return _isZero((NumberLiteral)ae);
-    } else if (ae instanceof ParenthesisedExp) {
-      return _isZero((ParenthesisedExp)ae);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(ae).toString());
     }
   }
   

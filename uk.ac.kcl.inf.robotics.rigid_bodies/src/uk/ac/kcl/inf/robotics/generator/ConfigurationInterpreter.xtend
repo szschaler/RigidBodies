@@ -12,7 +12,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef
-import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory
@@ -67,8 +66,8 @@ class ConfigurationInterpreter {
 
 		relTrans.position.elements.forEach [ exp, idx |
 			val addExp = RigidBodiesFactory.eINSTANCE.createAddExp
-			addExp.right.add(exp.foldConstants)
-			addExp.left = mTranslation.elements.get(idx).foldConstants
+			addExp.right.add(EcoreUtil.copy(exp))
+			addExp.left = EcoreUtil.copy (mTranslation.elements.get(idx))
 			addExp.op.add("+")
 			posElements.set(idx, addExp.foldConstants)
 		]
@@ -90,7 +89,7 @@ class ConfigurationInterpreter {
 
 	private def void addConstantReorient(BasicReorientExpression bre, AXIS axis, Expression exp) {
 		val foldedExp = exp.foldConstants
-		if ((!(foldedExp instanceof NumberLiteral)) || ((foldedExp as NumberLiteral).parse != 0.0)) {
+		if (! foldedExp.isZero) {
 			bre.axis.add(axis)
 			bre.value.add(foldedExp)
 		}

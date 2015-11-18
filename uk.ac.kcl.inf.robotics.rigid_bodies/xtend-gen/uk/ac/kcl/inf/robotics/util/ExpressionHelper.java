@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
@@ -25,7 +26,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 @SuppressWarnings("all")
 public class ExpressionHelper {
   /**
-   * A somewhat simplistic constant folder.
+   * A somewhat simplistic constant folder. Note that every call to foldConstants will always return a new expression object so that containment relationships are not damaged.
    */
   protected static Expression _foldConstants(final Expression exp) {
     return exp;
@@ -223,7 +224,7 @@ public class ExpressionHelper {
   }
   
   protected static Expression _foldConstants(final NumberLiteral nl) {
-    return nl;
+    return EcoreUtil.<NumberLiteral>copy(nl);
   }
   
   private static NumberLiteral foldBasicOp(final String op, final NumberLiteral nl1, final NumberLiteral nl2) {
@@ -263,6 +264,50 @@ public class ExpressionHelper {
     return result;
   }
   
+  protected static boolean _isZero(final AddExp ae) {
+    boolean _xblockexpression = false;
+    {
+      final Expression foldedExp = ExpressionHelper.foldConstants(ae);
+      boolean _xifexpression = false;
+      if ((foldedExp instanceof NumberLiteral)) {
+        _xifexpression = ExpressionHelper.isZero(foldedExp);
+      } else {
+        _xifexpression = false;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  protected static boolean _isZero(final MultExp me) {
+    boolean _xblockexpression = false;
+    {
+      final Expression foldedExp = ExpressionHelper.foldConstants(me);
+      boolean _xifexpression = false;
+      if ((foldedExp instanceof NumberLiteral)) {
+        _xifexpression = ExpressionHelper.isZero(foldedExp);
+      } else {
+        _xifexpression = false;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  protected static boolean _isZero(final ParenthesisedExp pe) {
+    Expression _exp = pe.getExp();
+    return ExpressionHelper.isZero(_exp);
+  }
+  
+  protected static boolean _isZero(final ConstantOrFunctionCallExp cofce) {
+    return false;
+  }
+  
+  protected static boolean _isZero(final NumberLiteral nl) {
+    double _parse = ExpressionHelper.parse(nl);
+    return (_parse == 0.0d);
+  }
+  
   public static Expression foldConstants(final Expression exp) {
     if (exp instanceof AddExp) {
       return _foldConstants((AddExp)exp);
@@ -279,6 +324,23 @@ public class ExpressionHelper {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(exp).toString());
+    }
+  }
+  
+  public static boolean isZero(final Expression ae) {
+    if (ae instanceof AddExp) {
+      return _isZero((AddExp)ae);
+    } else if (ae instanceof ConstantOrFunctionCallExp) {
+      return _isZero((ConstantOrFunctionCallExp)ae);
+    } else if (ae instanceof MultExp) {
+      return _isZero((MultExp)ae);
+    } else if (ae instanceof NumberLiteral) {
+      return _isZero((NumberLiteral)ae);
+    } else if (ae instanceof ParenthesisedExp) {
+      return _isZero((ParenthesisedExp)ae);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(ae).toString());
     }
   }
 }

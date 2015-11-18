@@ -3,7 +3,6 @@
  */
 package uk.ac.kcl.inf.robotics.generator
 
-import java.util.regex.Pattern
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
@@ -24,6 +23,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute
 import uk.ac.kcl.inf.robotics.rigidBodies.System
+
+import static extension uk.ac.kcl.inf.robotics.util.ExpressionHelper.*
 
 /**
  * Generates code from your model files on save.
@@ -236,19 +237,6 @@ class RigidBodiesGenerator implements IGenerator {
 	def dispatch boolean isAllZero(BaseMatrix bm) {
 		bm.values.forall[v|v.isZero]
 	}
-
-	// TODO: Should probably do constant folding etc.
-	def dispatch boolean isZero(AddExp ae) { false }
-
-	def dispatch boolean isZero(MultExp me) { false }
-
-	def dispatch boolean isZero(ParenthesisedExp pe) { pe.exp.isZero }
-
-	def dispatch boolean isZero(ConstantOrFunctionCallExp cofce) { false }
-
-	private static final Pattern pZeroLiteral = Pattern.compile("\\A0+\\.0+([eE][+-]?\\d*)?\\Z")
-
-	def dispatch boolean isZero(NumberLiteral nl) { pZeroLiteral.matcher(nl.value).matches }
 
 	def dispatch CharSequence renderValues(MatrixRef mr, CharSequence sep) {
 		mr.matrix.renderValues(sep)
