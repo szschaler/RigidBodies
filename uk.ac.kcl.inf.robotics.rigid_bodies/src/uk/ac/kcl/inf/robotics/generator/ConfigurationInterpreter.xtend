@@ -54,7 +54,7 @@ class ConfigurationInterpreter {
 		val Joint jointToModify = copier.get(ls.joint) as Joint
 
 		jointToModify.relTrans1.setFixed(ls.translation, ls.rotation)
-		jointToModify.type = null // TODO: Need to adjust generator to deal with this.		
+		jointToModify.type = null		
 	}
 
 	private def setFixed(RelativeTransformation relTrans, Matrix mTranslation, Matrix mRotation) {
@@ -67,8 +67,8 @@ class ConfigurationInterpreter {
 
 		relTrans.position.elements.forEach [ exp, idx |
 			val addExp = RigidBodiesFactory.eINSTANCE.createAddExp
-			addExp.right.add(EcoreUtil.copy(exp))
-			addExp.left = EcoreUtil.copy(mTranslation.elements.get(idx))
+			addExp.right.add(exp.foldConstants)
+			addExp.left = mTranslation.elements.get(idx).foldConstants
 			addExp.op.add("+")
 			posElements.set(idx, addExp.foldConstants)
 		]

@@ -106,16 +106,16 @@ public class ConfigurationInterpreter {
         public void apply(final Expression exp, final Integer idx) {
           final AddExp addExp = RigidBodiesFactory.eINSTANCE.createAddExp();
           EList<Expression> _right = addExp.getRight();
-          Expression _copy = EcoreUtil.<Expression>copy(exp);
-          _right.add(_copy);
+          Expression _foldConstants = ExpressionHelper.foldConstants(exp);
+          _right.add(_foldConstants);
           List<Expression> _elements = ConfigurationInterpreter.this.elements(mTranslation);
           Expression _get = _elements.get((idx).intValue());
-          Expression _copy_1 = EcoreUtil.<Expression>copy(_get);
-          addExp.setLeft(_copy_1);
+          Expression _foldConstants_1 = ExpressionHelper.foldConstants(_get);
+          addExp.setLeft(_foldConstants_1);
           EList<String> _op = addExp.getOp();
           _op.add("+");
-          Expression _foldConstants = ExpressionHelper.foldConstants(addExp);
-          posElements[(idx).intValue()] = _foldConstants;
+          Expression _foldConstants_2 = ExpressionHelper.foldConstants(addExp);
+          posElements[(idx).intValue()] = _foldConstants_2;
         }
       };
       IterableExtensions.<Expression>forEach(_elements_1, _function);
