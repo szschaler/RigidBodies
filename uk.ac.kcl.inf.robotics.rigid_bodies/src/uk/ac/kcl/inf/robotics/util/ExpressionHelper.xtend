@@ -122,7 +122,7 @@ class ExpressionHelper {
 		}
 	}
 
-	static private def parse(NumberLiteral nl) {
+	static def parse(NumberLiteral nl) {
 		val basicValue = Double.parseDouble(nl.value)
 		if (nl.neg) {
 			return -basicValue

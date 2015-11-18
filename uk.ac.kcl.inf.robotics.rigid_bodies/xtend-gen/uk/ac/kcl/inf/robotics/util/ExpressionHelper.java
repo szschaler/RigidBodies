@@ -243,7 +243,7 @@ public class ExpressionHelper {
     }
   }
   
-  private static double parse(final NumberLiteral nl) {
+  public static double parse(final NumberLiteral nl) {
     String _value = nl.getValue();
     final double basicValue = Double.parseDouble(_value);
     boolean _isNeg = nl.isNeg();

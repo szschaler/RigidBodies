@@ -24,6 +24,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
+import uk.ac.kcl.inf.robotics.rigidBodies.NumberLiteral;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
@@ -133,32 +134,35 @@ public class ConfigurationInterpreter {
     Reorientation _reorient = relTrans.getReorient();
     ReorientExpression _exp = _reorient.getExp();
     this.addAllElementsTo(_exp, amendedReorient);
-    EList<AXIS> _axis = amendedReorient.getAxis();
-    _axis.add(AXIS.X);
-    EList<Expression> _value = amendedReorient.getValue();
     List<Expression> _elements = this.elements(mRotation);
     Expression _get = _elements.get(0);
-    Expression _foldConstants = ExpressionHelper.foldConstants(_get);
-    Expression _copy = EcoreUtil.<Expression>copy(_foldConstants);
-    _value.add(_copy);
-    EList<AXIS> _axis_1 = amendedReorient.getAxis();
-    _axis_1.add(AXIS.Y);
-    EList<Expression> _value_1 = amendedReorient.getValue();
+    this.addConstantReorient(amendedReorient, AXIS.X, _get);
     List<Expression> _elements_1 = this.elements(mRotation);
     Expression _get_1 = _elements_1.get(1);
-    Expression _foldConstants_1 = ExpressionHelper.foldConstants(_get_1);
-    Expression _copy_1 = EcoreUtil.<Expression>copy(_foldConstants_1);
-    _value_1.add(_copy_1);
-    EList<AXIS> _axis_2 = amendedReorient.getAxis();
-    _axis_2.add(AXIS.Z);
-    EList<Expression> _value_2 = amendedReorient.getValue();
+    this.addConstantReorient(amendedReorient, AXIS.Y, _get_1);
     List<Expression> _elements_2 = this.elements(mRotation);
     Expression _get_2 = _elements_2.get(2);
-    Expression _foldConstants_2 = ExpressionHelper.foldConstants(_get_2);
-    Expression _copy_2 = EcoreUtil.<Expression>copy(_foldConstants_2);
-    _value_2.add(_copy_2);
+    this.addConstantReorient(amendedReorient, AXIS.Z, _get_2);
     Reorientation _reorient_1 = relTrans.getReorient();
     _reorient_1.setExp(amendedReorient);
+  }
+  
+  private void addConstantReorient(final BasicReorientExpression bre, final AXIS axis, final Expression exp) {
+    final Expression foldedExp = ExpressionHelper.foldConstants(exp);
+    boolean _or = false;
+    if ((!(foldedExp instanceof NumberLiteral))) {
+      _or = true;
+    } else {
+      double _parse = ExpressionHelper.parse(((NumberLiteral) foldedExp));
+      boolean _notEquals = (_parse != 0.0);
+      _or = _notEquals;
+    }
+    if (_or) {
+      EList<AXIS> _axis = bre.getAxis();
+      _axis.add(axis);
+      EList<Expression> _value = bre.getValue();
+      _value.add(foldedExp);
+    }
   }
   
   private void _addAllElementsTo(final ReorientRef rrSrc, final BasicReorientExpression breTgt) {
