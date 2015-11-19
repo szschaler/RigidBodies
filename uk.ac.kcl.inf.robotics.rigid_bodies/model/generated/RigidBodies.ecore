@@ -39,15 +39,34 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="#//ConfigurationStatement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationStatement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LockJointStatement" eSuperTypes="#//ConfigurationStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//SystemInstantiation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LockJointStatement" eSuperTypes="#//ConfigurationStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rotation" eType="#//Matrix"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="translation" eType="#//Matrix"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LockDoFStatement" eSuperTypes="#//ConfigurationStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lockedType" eType="#//LockedJointType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LockedJointType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LockedJointTypeExpression" eSuperTypes="#//LockedJointType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeepUnlockedJointType" eSuperTypes="#//LockedJointTypeExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicLockedJointType" eSuperTypes="#//LockedJointTypeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//LockedJointMovement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LockedJointMovement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//AXIS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LockedRevolute" eSuperTypes="#//LockedJointMovement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LockedPlanar" eSuperTypes="#//LockedJointMovement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SystemElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Connective" eSuperTypes="#//SystemElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -195,6 +214,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="NumberLiteral" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="neg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditiveLockedJointType" eSuperTypes="#//LockedJointTypeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LockedJointTypeExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
+        eType="#//LockedJointTypeExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdditiveJointType" eSuperTypes="#//JointTypeExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//JointTypeExpression"

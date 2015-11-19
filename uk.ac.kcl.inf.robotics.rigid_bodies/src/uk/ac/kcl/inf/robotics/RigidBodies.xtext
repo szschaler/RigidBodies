@@ -49,7 +49,8 @@ Configuration:
 
 ConfigurationStatement:
 	// TODO Other types of configuration statements?
-	LockJointStatement
+	LockJointStatement |
+	LockDoFStatement
 	
 	// TODO how to reference specific degrees of freedom in a robust way?
 ;
@@ -59,6 +60,44 @@ LockJointStatement:
 	'lock' system=[SystemInstantiation] '.' joint=[Joint] 
 		'to' 'rotation' rotation=Matrix /* 3D vector */
 		     'translation' translation=Matrix /* 3D vector */
+;
+
+LockDoFStatement:
+	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' lockedType = LockedJointType 
+;
+
+LockedJointType:
+	AdditiveLockedJointType
+;
+
+AdditiveLockedJointType returns LockedJointTypeExpression:
+	PrimaryLockedJointType ('+' {AdditiveLockedJointType.left = current} right += PrimaryLockedJointType)*
+;
+
+PrimaryLockedJointType returns LockedJointTypeExpression:
+	KeepUnlockedJointType |
+	BasicLockedJointType
+;
+
+KeepUnlockedJointType:
+	'keep' 'flexible' {KeepUnlockedJointType}
+;
+
+BasicLockedJointType:
+	type = LockedJointMovement
+;
+
+LockedJointMovement:
+	LockedRevolute | 
+	LockedPlanar
+;
+
+LockedRevolute:
+	'revolute' axis=AXIS '=' exp=AddExp
+;
+
+LockedPlanar:
+	'planar' axis=AXIS '=' exp=AddExp
 ;
 
 SystemElement:

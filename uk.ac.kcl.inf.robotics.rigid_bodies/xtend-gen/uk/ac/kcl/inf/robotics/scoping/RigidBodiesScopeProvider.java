@@ -19,9 +19,9 @@ import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
@@ -62,8 +62,8 @@ public class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
     }
   }
   
-  public IScope scope_LockJointStatement_joint(final LockJointStatement ls, final EReference reference) {
-    SystemInstantiation _system = ls.getSystem();
+  public IScope scope_ConfigurationStatement_joint(final ConfigurationStatement cs, final EReference reference) {
+    SystemInstantiation _system = cs.getSystem();
     uk.ac.kcl.inf.robotics.rigidBodies.System _system_1 = _system.getSystem();
     EList<SystemElement> _elements = _system_1.getElements();
     final Function1<SystemElement, Boolean> _function = new Function1<SystemElement, Boolean>() {

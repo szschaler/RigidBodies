@@ -10,11 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
-import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +22,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl#getSystem <em>System</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl#getJoint <em>Joint</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl#getRotation <em>Rotation</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockJointStatementImpl#getTranslation <em>Translation</em>}</li>
  * </ul>
@@ -34,26 +30,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
  */
 public class LockJointStatementImpl extends ConfigurationStatementImpl implements LockJointStatement
 {
-  /**
-   * The cached value of the '{@link #getSystem() <em>System</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSystem()
-   * @generated
-   * @ordered
-   */
-  protected SystemInstantiation system;
-
-  /**
-   * The cached value of the '{@link #getJoint() <em>Joint</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getJoint()
-   * @generated
-   * @ordered
-   */
-  protected Joint joint;
-
   /**
    * The cached value of the '{@link #getRotation() <em>Rotation</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -93,92 +69,6 @@ public class LockJointStatementImpl extends ConfigurationStatementImpl implement
   protected EClass eStaticClass()
   {
     return RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SystemInstantiation getSystem()
-  {
-    if (system != null && system.eIsProxy())
-    {
-      InternalEObject oldSystem = (InternalEObject)system;
-      system = (SystemInstantiation)eResolveProxy(oldSystem);
-      if (system != oldSystem)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM, oldSystem, system));
-      }
-    }
-    return system;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SystemInstantiation basicGetSystem()
-  {
-    return system;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSystem(SystemInstantiation newSystem)
-  {
-    SystemInstantiation oldSystem = system;
-    system = newSystem;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM, oldSystem, system));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Joint getJoint()
-  {
-    if (joint != null && joint.eIsProxy())
-    {
-      InternalEObject oldJoint = (InternalEObject)joint;
-      joint = (Joint)eResolveProxy(oldJoint);
-      if (joint != oldJoint)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT, oldJoint, joint));
-      }
-    }
-    return joint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Joint basicGetJoint()
-  {
-    return joint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setJoint(Joint newJoint)
-  {
-    Joint oldJoint = joint;
-    joint = newJoint;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT, oldJoint, joint));
   }
 
   /**
@@ -305,12 +195,6 @@ public class LockJointStatementImpl extends ConfigurationStatementImpl implement
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
-        if (resolve) return getSystem();
-        return basicGetSystem();
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
-        if (resolve) return getJoint();
-        return basicGetJoint();
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT__ROTATION:
         return getRotation();
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT__TRANSLATION:
@@ -329,12 +213,6 @@ public class LockJointStatementImpl extends ConfigurationStatementImpl implement
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
-        setSystem((SystemInstantiation)newValue);
-        return;
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
-        setJoint((Joint)newValue);
-        return;
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT__ROTATION:
         setRotation((Matrix)newValue);
         return;
@@ -355,12 +233,6 @@ public class LockJointStatementImpl extends ConfigurationStatementImpl implement
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
-        setSystem((SystemInstantiation)null);
-        return;
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
-        setJoint((Joint)null);
-        return;
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT__ROTATION:
         setRotation((Matrix)null);
         return;
@@ -381,10 +253,6 @@ public class LockJointStatementImpl extends ConfigurationStatementImpl implement
   {
     switch (featureID)
     {
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__SYSTEM:
-        return system != null;
-      case RigidBodiesPackage.LOCK_JOINT_STATEMENT__JOINT:
-        return joint != null;
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT__ROTATION:
         return rotation != null;
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT__TRANSLATION:

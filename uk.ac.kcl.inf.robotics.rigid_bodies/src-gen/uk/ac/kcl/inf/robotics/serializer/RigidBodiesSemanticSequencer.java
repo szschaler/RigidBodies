@@ -18,9 +18,11 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
@@ -35,7 +37,11 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointConstraint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
@@ -67,6 +73,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.ADDITIVE_JOINT_TYPE:
 				sequence_AdditiveJointType(context, (AdditiveJointType) semanticObject); 
 				return; 
+			case RigidBodiesPackage.ADDITIVE_LOCKED_JOINT_TYPE:
+				sequence_AdditiveLockedJointType(context, (AdditiveLockedJointType) semanticObject); 
+				return; 
 			case RigidBodiesPackage.BASE_MATRIX:
 				sequence_BaseMatrix(context, (BaseMatrix) semanticObject); 
 				return; 
@@ -75,6 +84,9 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case RigidBodiesPackage.BASIC_JOINT_TYPE:
 				sequence_BasicJointType(context, (BasicJointType) semanticObject); 
+				return; 
+			case RigidBodiesPackage.BASIC_LOCKED_JOINT_TYPE:
+				sequence_BasicLockedJointType(context, (BasicLockedJointType) semanticObject); 
 				return; 
 			case RigidBodiesPackage.BASIC_REORIENT_EXPRESSION:
 				sequence_BasicReorientExpression(context, (BasicReorientExpression) semanticObject); 
@@ -118,8 +130,20 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case RigidBodiesPackage.JOINT_TYPE_REFERENCE:
 				sequence_JointTypeReference(context, (JointTypeReference) semanticObject); 
 				return; 
+			case RigidBodiesPackage.KEEP_UNLOCKED_JOINT_TYPE:
+				sequence_KeepUnlockedJointType(context, (KeepUnlockedJointType) semanticObject); 
+				return; 
+			case RigidBodiesPackage.LOCK_DO_FSTATEMENT:
+				sequence_LockDoFStatement(context, (LockDoFStatement) semanticObject); 
+				return; 
 			case RigidBodiesPackage.LOCK_JOINT_STATEMENT:
 				sequence_LockJointStatement(context, (LockJointStatement) semanticObject); 
+				return; 
+			case RigidBodiesPackage.LOCKED_PLANAR:
+				sequence_LockedPlanar(context, (LockedPlanar) semanticObject); 
+				return; 
+			case RigidBodiesPackage.LOCKED_REVOLUTE:
+				sequence_LockedRevolute(context, (LockedRevolute) semanticObject); 
 				return; 
 			case RigidBodiesPackage.MASS:
 				sequence_Mass(context, (Mass) semanticObject); 
@@ -187,6 +211,15 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (left=AdditiveLockedJointType_AdditiveLockedJointType_1_1 right+=PrimaryLockedJointType)
+	 */
+	protected void sequence_AdditiveLockedJointType(EObject context, AdditiveLockedJointType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID? values+=AddExp values+=AddExp*)
 	 */
 	protected void sequence_BaseMatrix(EObject context, BaseMatrix semanticObject) {
@@ -218,6 +251,22 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getBasicJointTypeAccess().getTypeJointMovementParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getBasicJointTypeAccess().getStiffnessStiffnessExpParserRuleCall_2_0(), semanticObject.getStiffness());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     type=LockedJointMovement
+	 */
+	protected void sequence_BasicLockedJointType(EObject context, BasicLockedJointType semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.BASIC_LOCKED_JOINT_TYPE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.BASIC_LOCKED_JOINT_TYPE__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBasicLockedJointTypeAccess().getTypeLockedJointMovementParserRuleCall_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -439,14 +488,45 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     {KeepUnlockedJointType}
+	 */
+	protected void sequence_KeepUnlockedJointType(EObject context, KeepUnlockedJointType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID] lockedType=LockedJointType)
+	 */
+	protected void sequence_LockDoFStatement(EObject context, LockDoFStatement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__SYSTEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__SYSTEM));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__JOINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__JOINT));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_DO_FSTATEMENT__LOCKED_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_DO_FSTATEMENT__LOCKED_TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLockDoFStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
+		feeder.accept(grammarAccess.getLockDoFStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
+		feeder.accept(grammarAccess.getLockDoFStatementAccess().getLockedTypeLockedJointTypeParserRuleCall_5_0(), semanticObject.getLockedType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID] rotation=Matrix translation=Matrix)
 	 */
 	protected void sequence_LockJointStatement(EObject context, LockJointStatement semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__SYSTEM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__SYSTEM));
-			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__JOINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__JOINT));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__SYSTEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__SYSTEM));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__JOINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.CONFIGURATION_STATEMENT__JOINT));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__ROTATION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__ROTATION));
 			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCK_JOINT_STATEMENT__TRANSLATION) == ValueTransient.YES)
@@ -458,6 +538,44 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		feeder.accept(grammarAccess.getLockJointStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
 		feeder.accept(grammarAccess.getLockJointStatementAccess().getRotationMatrixParserRuleCall_6_0(), semanticObject.getRotation());
 		feeder.accept(grammarAccess.getLockJointStatementAccess().getTranslationMatrixParserRuleCall_8_0(), semanticObject.getTranslation());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (axis=AXIS exp=AddExp)
+	 */
+	protected void sequence_LockedPlanar(EObject context, LockedPlanar semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__AXIS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__AXIS));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__EXP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLockedPlanarAccess().getAxisAXISEnumRuleCall_1_0(), semanticObject.getAxis());
+		feeder.accept(grammarAccess.getLockedPlanarAccess().getExpAddExpParserRuleCall_3_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (axis=AXIS exp=AddExp)
+	 */
+	protected void sequence_LockedRevolute(EObject context, LockedRevolute semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__AXIS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__AXIS));
+			if(transientValues.isValueTransient(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RigidBodiesPackage.Literals.LOCKED_JOINT_MOVEMENT__EXP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLockedRevoluteAccess().getAxisAXISEnumRuleCall_1_0(), semanticObject.getAxis());
+		feeder.accept(grammarAccess.getLockedRevoluteAccess().getExpAddExpParserRuleCall_3_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	

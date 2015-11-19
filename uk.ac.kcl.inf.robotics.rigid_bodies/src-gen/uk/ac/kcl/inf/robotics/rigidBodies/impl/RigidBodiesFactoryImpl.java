@@ -14,9 +14,11 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
@@ -38,8 +40,15 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -121,6 +130,14 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.CONFIGURATION: return createConfiguration();
       case RigidBodiesPackage.CONFIGURATION_STATEMENT: return createConfigurationStatement();
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT: return createLockJointStatement();
+      case RigidBodiesPackage.LOCK_DO_FSTATEMENT: return createLockDoFStatement();
+      case RigidBodiesPackage.LOCKED_JOINT_TYPE: return createLockedJointType();
+      case RigidBodiesPackage.LOCKED_JOINT_TYPE_EXPRESSION: return createLockedJointTypeExpression();
+      case RigidBodiesPackage.KEEP_UNLOCKED_JOINT_TYPE: return createKeepUnlockedJointType();
+      case RigidBodiesPackage.BASIC_LOCKED_JOINT_TYPE: return createBasicLockedJointType();
+      case RigidBodiesPackage.LOCKED_JOINT_MOVEMENT: return createLockedJointMovement();
+      case RigidBodiesPackage.LOCKED_REVOLUTE: return createLockedRevolute();
+      case RigidBodiesPackage.LOCKED_PLANAR: return createLockedPlanar();
       case RigidBodiesPackage.SYSTEM_ELEMENT: return createSystemElement();
       case RigidBodiesPackage.CONNECTIVE: return createConnective();
       case RigidBodiesPackage.BODY: return createBody();
@@ -153,6 +170,7 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.PARENTHESISED_EXP: return createParenthesisedExp();
       case RigidBodiesPackage.CONSTANT_OR_FUNCTION_CALL_EXP: return createConstantOrFunctionCallExp();
       case RigidBodiesPackage.NUMBER_LITERAL: return createNumberLiteral();
+      case RigidBodiesPackage.ADDITIVE_LOCKED_JOINT_TYPE: return createAdditiveLockedJointType();
       case RigidBodiesPackage.ADDITIVE_JOINT_TYPE: return createAdditiveJointType();
       case RigidBodiesPackage.ADD_EXP: return createAddExp();
       case RigidBodiesPackage.MULT_EXP: return createMultExp();
@@ -300,6 +318,94 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     LockJointStatementImpl lockJointStatement = new LockJointStatementImpl();
     return lockJointStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockDoFStatement createLockDoFStatement()
+  {
+    LockDoFStatementImpl lockDoFStatement = new LockDoFStatementImpl();
+    return lockDoFStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockedJointType createLockedJointType()
+  {
+    LockedJointTypeImpl lockedJointType = new LockedJointTypeImpl();
+    return lockedJointType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockedJointTypeExpression createLockedJointTypeExpression()
+  {
+    LockedJointTypeExpressionImpl lockedJointTypeExpression = new LockedJointTypeExpressionImpl();
+    return lockedJointTypeExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public KeepUnlockedJointType createKeepUnlockedJointType()
+  {
+    KeepUnlockedJointTypeImpl keepUnlockedJointType = new KeepUnlockedJointTypeImpl();
+    return keepUnlockedJointType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BasicLockedJointType createBasicLockedJointType()
+  {
+    BasicLockedJointTypeImpl basicLockedJointType = new BasicLockedJointTypeImpl();
+    return basicLockedJointType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockedJointMovement createLockedJointMovement()
+  {
+    LockedJointMovementImpl lockedJointMovement = new LockedJointMovementImpl();
+    return lockedJointMovement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockedRevolute createLockedRevolute()
+  {
+    LockedRevoluteImpl lockedRevolute = new LockedRevoluteImpl();
+    return lockedRevolute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LockedPlanar createLockedPlanar()
+  {
+    LockedPlanarImpl lockedPlanar = new LockedPlanarImpl();
+    return lockedPlanar;
   }
 
   /**
@@ -652,6 +758,17 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
     return numberLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AdditiveLockedJointType createAdditiveLockedJointType()
+  {
+    AdditiveLockedJointTypeImpl additiveLockedJointType = new AdditiveLockedJointTypeImpl();
+    return additiveLockedJointType;
   }
 
   /**

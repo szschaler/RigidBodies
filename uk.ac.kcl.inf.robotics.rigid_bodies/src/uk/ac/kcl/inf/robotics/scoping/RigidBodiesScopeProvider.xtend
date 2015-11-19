@@ -13,9 +13,9 @@ import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition
+import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType
-import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 
@@ -45,10 +45,10 @@ class RigidBodiesScopeProvider extends AbstractDeclarativeScopeProvider {
 			return super.getScope(context, reference);
 		}
 	}
-
-	def IScope scope_LockJointStatement_joint(LockJointStatement ls, EReference reference) {
+	
+	def IScope scope_ConfigurationStatement_joint(ConfigurationStatement cs, EReference reference) {
 		Scopes.scopeFor(
-			ls.system.system.elements.filter[elt|(elt instanceof Joint) || (elt instanceof BodyRepetition)].fold(
+			cs.system.system.elements.filter[elt|(elt instanceof Joint) || (elt instanceof BodyRepetition)].fold(
 				new LinkedList<Joint>, [ lAcc, elt |
 					if (elt instanceof Joint) {
 						lAcc.add(elt as Joint)

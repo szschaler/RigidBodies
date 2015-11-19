@@ -59,4 +59,9 @@ configurations {
 			to rotation [pi / 2.0, 0.0, 0.0]
 			   translation [1.0, 1.0, 1.0]
 	}
+	
+	locked_alternate {
+		lock spring.hing1 
+			to revolute x = pi/3.0
+	}
 }

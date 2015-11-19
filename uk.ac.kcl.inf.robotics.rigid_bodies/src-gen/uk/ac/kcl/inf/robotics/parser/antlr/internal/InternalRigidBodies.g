@@ -539,9 +539,9 @@ ruleConfigurationStatement returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
+(
     { 
-        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall()); 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall_0()); 
     }
     this_LockJointStatement_0=ruleLockJointStatement
     { 
@@ -549,6 +549,16 @@ ruleConfigurationStatement returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
+    |
+    { 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockDoFStatementParserRuleCall_1()); 
+    }
+    this_LockDoFStatement_1=ruleLockDoFStatement
+    { 
+        $current = $this_LockDoFStatement_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 
@@ -647,6 +657,455 @@ ruleLockJointStatement returns [EObject current=null]
        			"translation",
         		lv_translation_8_0, 
         		"Matrix");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleLockDoFStatement
+entryRuleLockDoFStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLockDoFStatementRule()); }
+	 iv_ruleLockDoFStatement=ruleLockDoFStatement 
+	 { $current=$iv_ruleLockDoFStatement.current; } 
+	 EOF 
+;
+
+// Rule LockDoFStatement
+ruleLockDoFStatement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='lock' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getLockDoFStatementAccess().getLockKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLockDoFStatementRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getLockDoFStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
+	}
+
+)
+)	otherlv_2='.' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getLockDoFStatementAccess().getFullStopKeyword_2());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLockDoFStatementRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getLockDoFStatementAccess().getJointJointCrossReference_3_0()); 
+	}
+
+)
+)	otherlv_4='to' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getLockDoFStatementAccess().getToKeyword_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockDoFStatementAccess().getLockedTypeLockedJointTypeParserRuleCall_5_0()); 
+	    }
+		lv_lockedType_5_0=ruleLockedJointType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockDoFStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"lockedType",
+        		lv_lockedType_5_0, 
+        		"LockedJointType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleLockedJointType
+entryRuleLockedJointType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLockedJointTypeRule()); }
+	 iv_ruleLockedJointType=ruleLockedJointType 
+	 { $current=$iv_ruleLockedJointType.current; } 
+	 EOF 
+;
+
+// Rule LockedJointType
+ruleLockedJointType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+
+    { 
+        newCompositeNode(grammarAccess.getLockedJointTypeAccess().getAdditiveLockedJointTypeParserRuleCall()); 
+    }
+    this_AdditiveLockedJointType_0=ruleAdditiveLockedJointType
+    { 
+        $current = $this_AdditiveLockedJointType_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+;
+
+
+
+
+
+// Entry rule entryRuleAdditiveLockedJointType
+entryRuleAdditiveLockedJointType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAdditiveLockedJointTypeRule()); }
+	 iv_ruleAdditiveLockedJointType=ruleAdditiveLockedJointType 
+	 { $current=$iv_ruleAdditiveLockedJointType.current; } 
+	 EOF 
+;
+
+// Rule AdditiveLockedJointType
+ruleAdditiveLockedJointType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getAdditiveLockedJointTypeAccess().getPrimaryLockedJointTypeParserRuleCall_0()); 
+    }
+    this_PrimaryLockedJointType_0=rulePrimaryLockedJointType
+    { 
+        $current = $this_PrimaryLockedJointType_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+(	otherlv_1='+' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getAdditiveLockedJointTypeAccess().getPlusSignKeyword_1_0());
+    }
+(
+    {
+        $current = forceCreateModelElementAndSet(
+            grammarAccess.getAdditiveLockedJointTypeAccess().getAdditiveLockedJointTypeLeftAction_1_1(),
+            $current);
+    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAdditiveLockedJointTypeAccess().getRightPrimaryLockedJointTypeParserRuleCall_1_2_0()); 
+	    }
+		lv_right_3_0=rulePrimaryLockedJointType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAdditiveLockedJointTypeRule());
+	        }
+       		add(
+       			$current, 
+       			"right",
+        		lv_right_3_0, 
+        		"PrimaryLockedJointType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*)
+;
+
+
+
+
+
+// Entry rule entryRulePrimaryLockedJointType
+entryRulePrimaryLockedJointType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPrimaryLockedJointTypeRule()); }
+	 iv_rulePrimaryLockedJointType=rulePrimaryLockedJointType 
+	 { $current=$iv_rulePrimaryLockedJointType.current; } 
+	 EOF 
+;
+
+// Rule PrimaryLockedJointType
+rulePrimaryLockedJointType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getPrimaryLockedJointTypeAccess().getKeepUnlockedJointTypeParserRuleCall_0()); 
+    }
+    this_KeepUnlockedJointType_0=ruleKeepUnlockedJointType
+    { 
+        $current = $this_KeepUnlockedJointType_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getPrimaryLockedJointTypeAccess().getBasicLockedJointTypeParserRuleCall_1()); 
+    }
+    this_BasicLockedJointType_1=ruleBasicLockedJointType
+    { 
+        $current = $this_BasicLockedJointType_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleKeepUnlockedJointType
+entryRuleKeepUnlockedJointType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getKeepUnlockedJointTypeRule()); }
+	 iv_ruleKeepUnlockedJointType=ruleKeepUnlockedJointType 
+	 { $current=$iv_ruleKeepUnlockedJointType.current; } 
+	 EOF 
+;
+
+// Rule KeepUnlockedJointType
+ruleKeepUnlockedJointType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='keep' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getKeepUnlockedJointTypeAccess().getKeepKeyword_0());
+    }
+	otherlv_1='flexible' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getKeepUnlockedJointTypeAccess().getFlexibleKeyword_1());
+    }
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getKeepUnlockedJointTypeAccess().getKeepUnlockedJointTypeAction_2(),
+            $current);
+    }
+))
+;
+
+
+
+
+
+// Entry rule entryRuleBasicLockedJointType
+entryRuleBasicLockedJointType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBasicLockedJointTypeRule()); }
+	 iv_ruleBasicLockedJointType=ruleBasicLockedJointType 
+	 { $current=$iv_ruleBasicLockedJointType.current; } 
+	 EOF 
+;
+
+// Rule BasicLockedJointType
+ruleBasicLockedJointType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBasicLockedJointTypeAccess().getTypeLockedJointMovementParserRuleCall_0()); 
+	    }
+		lv_type_0_0=ruleLockedJointMovement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBasicLockedJointTypeRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_0_0, 
+        		"LockedJointMovement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+;
+
+
+
+
+
+// Entry rule entryRuleLockedJointMovement
+entryRuleLockedJointMovement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLockedJointMovementRule()); }
+	 iv_ruleLockedJointMovement=ruleLockedJointMovement 
+	 { $current=$iv_ruleLockedJointMovement.current; } 
+	 EOF 
+;
+
+// Rule LockedJointMovement
+ruleLockedJointMovement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getLockedJointMovementAccess().getLockedRevoluteParserRuleCall_0()); 
+    }
+    this_LockedRevolute_0=ruleLockedRevolute
+    { 
+        $current = $this_LockedRevolute_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getLockedJointMovementAccess().getLockedPlanarParserRuleCall_1()); 
+    }
+    this_LockedPlanar_1=ruleLockedPlanar
+    { 
+        $current = $this_LockedPlanar_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleLockedRevolute
+entryRuleLockedRevolute returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLockedRevoluteRule()); }
+	 iv_ruleLockedRevolute=ruleLockedRevolute 
+	 { $current=$iv_ruleLockedRevolute.current; } 
+	 EOF 
+;
+
+// Rule LockedRevolute
+ruleLockedRevolute returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='revolute' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getLockedRevoluteAccess().getRevoluteKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockedRevoluteAccess().getAxisAXISEnumRuleCall_1_0()); 
+	    }
+		lv_axis_1_0=ruleAXIS		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockedRevoluteRule());
+	        }
+       		set(
+       			$current, 
+       			"axis",
+        		lv_axis_1_0, 
+        		"AXIS");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='=' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getLockedRevoluteAccess().getEqualsSignKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockedRevoluteAccess().getExpAddExpParserRuleCall_3_0()); 
+	    }
+		lv_exp_3_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockedRevoluteRule());
+	        }
+       		set(
+       			$current, 
+       			"exp",
+        		lv_exp_3_0, 
+        		"AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleLockedPlanar
+entryRuleLockedPlanar returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLockedPlanarRule()); }
+	 iv_ruleLockedPlanar=ruleLockedPlanar 
+	 { $current=$iv_ruleLockedPlanar.current; } 
+	 EOF 
+;
+
+// Rule LockedPlanar
+ruleLockedPlanar returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='planar' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getLockedPlanarAccess().getPlanarKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockedPlanarAccess().getAxisAXISEnumRuleCall_1_0()); 
+	    }
+		lv_axis_1_0=ruleAXIS		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockedPlanarRule());
+	        }
+       		set(
+       			$current, 
+       			"axis",
+        		lv_axis_1_0, 
+        		"AXIS");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='=' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getLockedPlanarAccess().getEqualsSignKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLockedPlanarAccess().getExpAddExpParserRuleCall_3_0()); 
+	    }
+		lv_exp_3_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLockedPlanarRule());
+	        }
+       		set(
+       			$current, 
+       			"exp",
+        		lv_exp_3_0, 
+        		"AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 

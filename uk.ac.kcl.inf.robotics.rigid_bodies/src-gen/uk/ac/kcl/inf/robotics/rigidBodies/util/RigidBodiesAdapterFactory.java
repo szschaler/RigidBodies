@@ -11,9 +11,11 @@ import org.eclipse.emf.ecore.EObject;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseStiffnessExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
@@ -34,7 +36,14 @@ import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
@@ -161,6 +170,46 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLockJointStatement(LockJointStatement object)
       {
         return createLockJointStatementAdapter();
+      }
+      @Override
+      public Adapter caseLockDoFStatement(LockDoFStatement object)
+      {
+        return createLockDoFStatementAdapter();
+      }
+      @Override
+      public Adapter caseLockedJointType(LockedJointType object)
+      {
+        return createLockedJointTypeAdapter();
+      }
+      @Override
+      public Adapter caseLockedJointTypeExpression(LockedJointTypeExpression object)
+      {
+        return createLockedJointTypeExpressionAdapter();
+      }
+      @Override
+      public Adapter caseKeepUnlockedJointType(KeepUnlockedJointType object)
+      {
+        return createKeepUnlockedJointTypeAdapter();
+      }
+      @Override
+      public Adapter caseBasicLockedJointType(BasicLockedJointType object)
+      {
+        return createBasicLockedJointTypeAdapter();
+      }
+      @Override
+      public Adapter caseLockedJointMovement(LockedJointMovement object)
+      {
+        return createLockedJointMovementAdapter();
+      }
+      @Override
+      public Adapter caseLockedRevolute(LockedRevolute object)
+      {
+        return createLockedRevoluteAdapter();
+      }
+      @Override
+      public Adapter caseLockedPlanar(LockedPlanar object)
+      {
+        return createLockedPlanarAdapter();
       }
       @Override
       public Adapter caseSystemElement(SystemElement object)
@@ -321,6 +370,11 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNumberLiteral(NumberLiteral object)
       {
         return createNumberLiteralAdapter();
+      }
+      @Override
+      public Adapter caseAdditiveLockedJointType(AdditiveLockedJointType object)
+      {
+        return createAdditiveLockedJointTypeAdapter();
       }
       @Override
       public Adapter caseAdditiveJointType(AdditiveJointType object)
@@ -490,6 +544,126 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLockJointStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement <em>Lock Do FStatement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement
+   * @generated
+   */
+  public Adapter createLockDoFStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType <em>Locked Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType
+   * @generated
+   */
+  public Adapter createLockedJointTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression <em>Locked Joint Type Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression
+   * @generated
+   */
+  public Adapter createLockedJointTypeExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType <em>Keep Unlocked Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType
+   * @generated
+   */
+  public Adapter createKeepUnlockedJointTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType <em>Basic Locked Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType
+   * @generated
+   */
+  public Adapter createBasicLockedJointTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement <em>Locked Joint Movement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement
+   * @generated
+   */
+  public Adapter createLockedJointMovementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute <em>Locked Revolute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute
+   * @generated
+   */
+  public Adapter createLockedRevoluteAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar <em>Locked Planar</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar
+   * @generated
+   */
+  public Adapter createLockedPlanarAdapter()
   {
     return null;
   }
@@ -970,6 +1144,21 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumberLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType <em>Additive Locked Joint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType
+   * @generated
+   */
+  public Adapter createAdditiveLockedJointTypeAdapter()
   {
     return null;
   }

@@ -104,6 +104,78 @@ public interface RigidBodiesFactory extends EFactory
   LockJointStatement createLockJointStatement();
 
   /**
+   * Returns a new object of class '<em>Lock Do FStatement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Lock Do FStatement</em>'.
+   * @generated
+   */
+  LockDoFStatement createLockDoFStatement();
+
+  /**
+   * Returns a new object of class '<em>Locked Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Locked Joint Type</em>'.
+   * @generated
+   */
+  LockedJointType createLockedJointType();
+
+  /**
+   * Returns a new object of class '<em>Locked Joint Type Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Locked Joint Type Expression</em>'.
+   * @generated
+   */
+  LockedJointTypeExpression createLockedJointTypeExpression();
+
+  /**
+   * Returns a new object of class '<em>Keep Unlocked Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Keep Unlocked Joint Type</em>'.
+   * @generated
+   */
+  KeepUnlockedJointType createKeepUnlockedJointType();
+
+  /**
+   * Returns a new object of class '<em>Basic Locked Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic Locked Joint Type</em>'.
+   * @generated
+   */
+  BasicLockedJointType createBasicLockedJointType();
+
+  /**
+   * Returns a new object of class '<em>Locked Joint Movement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Locked Joint Movement</em>'.
+   * @generated
+   */
+  LockedJointMovement createLockedJointMovement();
+
+  /**
+   * Returns a new object of class '<em>Locked Revolute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Locked Revolute</em>'.
+   * @generated
+   */
+  LockedRevolute createLockedRevolute();
+
+  /**
+   * Returns a new object of class '<em>Locked Planar</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Locked Planar</em>'.
+   * @generated
+   */
+  LockedPlanar createLockedPlanar();
+
+  /**
    * Returns a new object of class '<em>System Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -390,6 +462,15 @@ public interface RigidBodiesFactory extends EFactory
    * @generated
    */
   NumberLiteral createNumberLiteral();
+
+  /**
+   * Returns a new object of class '<em>Additive Locked Joint Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Additive Locked Joint Type</em>'.
+   * @generated
+   */
+  AdditiveLockedJointType createAdditiveLockedJointType();
 
   /**
    * Returns a new object of class '<em>Additive Joint Type</em>'.

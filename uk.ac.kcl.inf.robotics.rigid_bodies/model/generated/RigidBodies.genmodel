@@ -48,13 +48,29 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Configuration/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//Configuration/statements"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//ConfigurationStatement"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//ConfigurationStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ConfigurationStatement/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//ConfigurationStatement/joint"/>
+    </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//LockJointStatement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockJointStatement/system"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockJointStatement/joint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockJointStatement/rotation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockJointStatement/translation"/>
     </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockDoFStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockDoFStatement/lockedType"/>
+    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockedJointType"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockedJointTypeExpression"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//KeepUnlockedJointType"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//BasicLockedJointType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//BasicLockedJointType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockedJointMovement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//LockedJointMovement/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockedJointMovement/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockedRevolute"/>
+    <genClasses ecoreClass="RigidBodies.ecore#//LockedPlanar"/>
     <genClasses ecoreClass="RigidBodies.ecore#//SystemElement"/>
     <genClasses ecoreClass="RigidBodies.ecore#//Connective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//Connective/name"/>
@@ -162,6 +178,10 @@
     <genClasses ecoreClass="RigidBodies.ecore#//NumberLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//NumberLiteral/neg"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RigidBodies.ecore#//NumberLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="RigidBodies.ecore#//AdditiveLockedJointType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//AdditiveLockedJointType/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//AdditiveLockedJointType/right"/>
     </genClasses>
     <genClasses ecoreClass="RigidBodies.ecore#//AdditiveJointType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//AdditiveJointType/left"/>

@@ -38,6 +38,9 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getInitialDefinitionAccess().getAlternatives(), "rule__InitialDefinition__Alternatives");
+					put(grammarAccess.getConfigurationStatementAccess().getAlternatives(), "rule__ConfigurationStatement__Alternatives");
+					put(grammarAccess.getPrimaryLockedJointTypeAccess().getAlternatives(), "rule__PrimaryLockedJointType__Alternatives");
+					put(grammarAccess.getLockedJointMovementAccess().getAlternatives(), "rule__LockedJointMovement__Alternatives");
 					put(grammarAccess.getSystemElementAccess().getAlternatives(), "rule__SystemElement__Alternatives");
 					put(grammarAccess.getConnectiveAccess().getAlternatives(), "rule__Connective__Alternatives");
 					put(grammarAccess.getBodyReferenceAccess().getAlternatives(), "rule__BodyReference__Alternatives");
@@ -60,6 +63,12 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemInstantiationAccess().getGroup(), "rule__SystemInstantiation__Group__0");
 					put(grammarAccess.getConfigurationAccess().getGroup(), "rule__Configuration__Group__0");
 					put(grammarAccess.getLockJointStatementAccess().getGroup(), "rule__LockJointStatement__Group__0");
+					put(grammarAccess.getLockDoFStatementAccess().getGroup(), "rule__LockDoFStatement__Group__0");
+					put(grammarAccess.getAdditiveLockedJointTypeAccess().getGroup(), "rule__AdditiveLockedJointType__Group__0");
+					put(grammarAccess.getAdditiveLockedJointTypeAccess().getGroup_1(), "rule__AdditiveLockedJointType__Group_1__0");
+					put(grammarAccess.getKeepUnlockedJointTypeAccess().getGroup(), "rule__KeepUnlockedJointType__Group__0");
+					put(grammarAccess.getLockedRevoluteAccess().getGroup(), "rule__LockedRevolute__Group__0");
+					put(grammarAccess.getLockedPlanarAccess().getGroup(), "rule__LockedPlanar__Group__0");
 					put(grammarAccess.getBodyAccess().getGroup(), "rule__Body__Group__0");
 					put(grammarAccess.getBodyReferenceAccess().getGroup_2(), "rule__BodyReference__Group_2__0");
 					put(grammarAccess.getBodyReferenceAccess().getGroup_3(), "rule__BodyReference__Group_3__0");
@@ -114,6 +123,15 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLockJointStatementAccess().getJointAssignment_3(), "rule__LockJointStatement__JointAssignment_3");
 					put(grammarAccess.getLockJointStatementAccess().getRotationAssignment_6(), "rule__LockJointStatement__RotationAssignment_6");
 					put(grammarAccess.getLockJointStatementAccess().getTranslationAssignment_8(), "rule__LockJointStatement__TranslationAssignment_8");
+					put(grammarAccess.getLockDoFStatementAccess().getSystemAssignment_1(), "rule__LockDoFStatement__SystemAssignment_1");
+					put(grammarAccess.getLockDoFStatementAccess().getJointAssignment_3(), "rule__LockDoFStatement__JointAssignment_3");
+					put(grammarAccess.getLockDoFStatementAccess().getLockedTypeAssignment_5(), "rule__LockDoFStatement__LockedTypeAssignment_5");
+					put(grammarAccess.getAdditiveLockedJointTypeAccess().getRightAssignment_1_2(), "rule__AdditiveLockedJointType__RightAssignment_1_2");
+					put(grammarAccess.getBasicLockedJointTypeAccess().getTypeAssignment(), "rule__BasicLockedJointType__TypeAssignment");
+					put(grammarAccess.getLockedRevoluteAccess().getAxisAssignment_1(), "rule__LockedRevolute__AxisAssignment_1");
+					put(grammarAccess.getLockedRevoluteAccess().getExpAssignment_3(), "rule__LockedRevolute__ExpAssignment_3");
+					put(grammarAccess.getLockedPlanarAccess().getAxisAssignment_1(), "rule__LockedPlanar__AxisAssignment_1");
+					put(grammarAccess.getLockedPlanarAccess().getExpAssignment_3(), "rule__LockedPlanar__ExpAssignment_3");
 					put(grammarAccess.getBodyAccess().getNameAssignment_1(), "rule__Body__NameAssignment_1");
 					put(grammarAccess.getBodyAccess().getMassAssignment_3(), "rule__Body__MassAssignment_3");
 					put(grammarAccess.getBodyReferenceAccess().getBaseAssignment_0(), "rule__BodyReference__BaseAssignment_0");

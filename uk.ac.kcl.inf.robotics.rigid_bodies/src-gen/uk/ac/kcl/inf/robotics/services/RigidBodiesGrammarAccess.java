@@ -280,16 +280,25 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ConfigurationStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConfigurationStatement");
-		private final RuleCall cLockJointStatementParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLockJointStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLockDoFStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//// TODO how to reference specific degrees of freedom in a robust way?
 		//ConfigurationStatement: // TODO Other types of configuration statements?
-		//	LockJointStatement;
+		//	LockJointStatement | LockDoFStatement;
 		@Override public ParserRule getRule() { return rule; }
 
 		//// TODO Other types of configuration statements?
+		//LockJointStatement | LockDoFStatement
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//// TODO Other types of configuration statements?
 		//LockJointStatement
-		public RuleCall getLockJointStatementParserRuleCall() { return cLockJointStatementParserRuleCall; }
+		public RuleCall getLockJointStatementParserRuleCall_0() { return cLockJointStatementParserRuleCall_0; }
+
+		//LockDoFStatement
+		public RuleCall getLockDoFStatementParserRuleCall_1() { return cLockDoFStatementParserRuleCall_1; }
 	}
 
 	public class LockJointStatementElements extends AbstractParserRuleElementFinder {
@@ -366,6 +375,262 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 		/// * 3D vector * / Matrix
 		public RuleCall getTranslationMatrixParserRuleCall_8_0() { return cTranslationMatrixParserRuleCall_8_0; }
+	}
+
+	public class LockDoFStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockDoFStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLockKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSystemSystemInstantiationCrossReference_1_0 = (CrossReference)cSystemAssignment_1.eContents().get(0);
+		private final RuleCall cSystemSystemInstantiationIDTerminalRuleCall_1_0_1 = (RuleCall)cSystemSystemInstantiationCrossReference_1_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cJointAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cJointJointCrossReference_3_0 = (CrossReference)cJointAssignment_3.eContents().get(0);
+		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
+		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLockedTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cLockedTypeLockedJointTypeParserRuleCall_5_0 = (RuleCall)cLockedTypeAssignment_5.eContents().get(0);
+		
+		//LockDoFStatement:
+		//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=LockedJointType;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=LockedJointType
+		public Group getGroup() { return cGroup; }
+
+		//"lock"
+		public Keyword getLockKeyword_0() { return cLockKeyword_0; }
+
+		//system=[SystemInstantiation]
+		public Assignment getSystemAssignment_1() { return cSystemAssignment_1; }
+
+		//[SystemInstantiation]
+		public CrossReference getSystemSystemInstantiationCrossReference_1_0() { return cSystemSystemInstantiationCrossReference_1_0; }
+
+		//ID
+		public RuleCall getSystemSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSystemSystemInstantiationIDTerminalRuleCall_1_0_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+
+		//joint=[Joint]
+		public Assignment getJointAssignment_3() { return cJointAssignment_3; }
+
+		//[Joint]
+		public CrossReference getJointJointCrossReference_3_0() { return cJointJointCrossReference_3_0; }
+
+		//ID
+		public RuleCall getJointJointIDTerminalRuleCall_3_0_1() { return cJointJointIDTerminalRuleCall_3_0_1; }
+
+		//"to"
+		public Keyword getToKeyword_4() { return cToKeyword_4; }
+
+		//lockedType=LockedJointType
+		public Assignment getLockedTypeAssignment_5() { return cLockedTypeAssignment_5; }
+
+		//LockedJointType
+		public RuleCall getLockedTypeLockedJointTypeParserRuleCall_5_0() { return cLockedTypeLockedJointTypeParserRuleCall_5_0; }
+	}
+
+	public class LockedJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedJointType");
+		private final RuleCall cAdditiveLockedJointTypeParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//LockedJointType:
+		//	AdditiveLockedJointType;
+		@Override public ParserRule getRule() { return rule; }
+
+		//AdditiveLockedJointType
+		public RuleCall getAdditiveLockedJointTypeParserRuleCall() { return cAdditiveLockedJointTypeParserRuleCall; }
+	}
+
+	public class AdditiveLockedJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AdditiveLockedJointType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPrimaryLockedJointTypeParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cPlusSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Action cAdditiveLockedJointTypeLeftAction_1_1 = (Action)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightPrimaryLockedJointTypeParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//AdditiveLockedJointType returns LockedJointTypeExpression:
+		//	PrimaryLockedJointType ("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*;
+		@Override public ParserRule getRule() { return rule; }
+
+		//PrimaryLockedJointType ("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
+		public Group getGroup() { return cGroup; }
+
+		//PrimaryLockedJointType
+		public RuleCall getPrimaryLockedJointTypeParserRuleCall_0() { return cPrimaryLockedJointTypeParserRuleCall_0; }
+
+		//("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_1_0() { return cPlusSignKeyword_1_0; }
+
+		//{AdditiveLockedJointType.left=current}
+		public Action getAdditiveLockedJointTypeLeftAction_1_1() { return cAdditiveLockedJointTypeLeftAction_1_1; }
+
+		//right+=PrimaryLockedJointType
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+
+		//PrimaryLockedJointType
+		public RuleCall getRightPrimaryLockedJointTypeParserRuleCall_1_2_0() { return cRightPrimaryLockedJointTypeParserRuleCall_1_2_0; }
+	}
+
+	public class PrimaryLockedJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrimaryLockedJointType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cKeepUnlockedJointTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBasicLockedJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PrimaryLockedJointType returns LockedJointTypeExpression:
+		//	KeepUnlockedJointType | BasicLockedJointType;
+		@Override public ParserRule getRule() { return rule; }
+
+		//KeepUnlockedJointType | BasicLockedJointType
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//KeepUnlockedJointType
+		public RuleCall getKeepUnlockedJointTypeParserRuleCall_0() { return cKeepUnlockedJointTypeParserRuleCall_0; }
+
+		//BasicLockedJointType
+		public RuleCall getBasicLockedJointTypeParserRuleCall_1() { return cBasicLockedJointTypeParserRuleCall_1; }
+	}
+
+	public class KeepUnlockedJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "KeepUnlockedJointType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cKeepKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFlexibleKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Action cKeepUnlockedJointTypeAction_2 = (Action)cGroup.eContents().get(2);
+		
+		//KeepUnlockedJointType:
+		//	"keep" "flexible" {KeepUnlockedJointType};
+		@Override public ParserRule getRule() { return rule; }
+
+		//"keep" "flexible" {KeepUnlockedJointType}
+		public Group getGroup() { return cGroup; }
+
+		//"keep"
+		public Keyword getKeepKeyword_0() { return cKeepKeyword_0; }
+
+		//"flexible"
+		public Keyword getFlexibleKeyword_1() { return cFlexibleKeyword_1; }
+
+		//{KeepUnlockedJointType}
+		public Action getKeepUnlockedJointTypeAction_2() { return cKeepUnlockedJointTypeAction_2; }
+	}
+
+	public class BasicLockedJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicLockedJointType");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTypeLockedJointMovementParserRuleCall_0 = (RuleCall)cTypeAssignment.eContents().get(0);
+		
+		//BasicLockedJointType:
+		//	type=LockedJointMovement;
+		@Override public ParserRule getRule() { return rule; }
+
+		//type=LockedJointMovement
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+
+		//LockedJointMovement
+		public RuleCall getTypeLockedJointMovementParserRuleCall_0() { return cTypeLockedJointMovementParserRuleCall_0; }
+	}
+
+	public class LockedJointMovementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedJointMovement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLockedRevoluteParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLockedPlanarParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//LockedJointMovement:
+		//	LockedRevolute | LockedPlanar;
+		@Override public ParserRule getRule() { return rule; }
+
+		//LockedRevolute | LockedPlanar
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//LockedRevolute
+		public RuleCall getLockedRevoluteParserRuleCall_0() { return cLockedRevoluteParserRuleCall_0; }
+
+		//LockedPlanar
+		public RuleCall getLockedPlanarParserRuleCall_1() { return cLockedPlanarParserRuleCall_1; }
+	}
+
+	public class LockedRevoluteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedRevolute");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRevoluteKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAxisAXISEnumRuleCall_1_0 = (RuleCall)cAxisAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExpAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpAddExpParserRuleCall_3_0 = (RuleCall)cExpAssignment_3.eContents().get(0);
+		
+		//LockedRevolute:
+		//	"revolute" axis=AXIS "=" exp=AddExp;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"revolute" axis=AXIS "=" exp=AddExp
+		public Group getGroup() { return cGroup; }
+
+		//"revolute"
+		public Keyword getRevoluteKeyword_0() { return cRevoluteKeyword_0; }
+
+		//axis=AXIS
+		public Assignment getAxisAssignment_1() { return cAxisAssignment_1; }
+
+		//AXIS
+		public RuleCall getAxisAXISEnumRuleCall_1_0() { return cAxisAXISEnumRuleCall_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//exp=AddExp
+		public Assignment getExpAssignment_3() { return cExpAssignment_3; }
+
+		//AddExp
+		public RuleCall getExpAddExpParserRuleCall_3_0() { return cExpAddExpParserRuleCall_3_0; }
+	}
+
+	public class LockedPlanarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedPlanar");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPlanarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAxisAXISEnumRuleCall_1_0 = (RuleCall)cAxisAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExpAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpAddExpParserRuleCall_3_0 = (RuleCall)cExpAssignment_3.eContents().get(0);
+		
+		//LockedPlanar:
+		//	"planar" axis=AXIS "=" exp=AddExp;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"planar" axis=AXIS "=" exp=AddExp
+		public Group getGroup() { return cGroup; }
+
+		//"planar"
+		public Keyword getPlanarKeyword_0() { return cPlanarKeyword_0; }
+
+		//axis=AXIS
+		public Assignment getAxisAssignment_1() { return cAxisAssignment_1; }
+
+		//AXIS
+		public RuleCall getAxisAXISEnumRuleCall_1_0() { return cAxisAXISEnumRuleCall_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//exp=AddExp
+		public Assignment getExpAssignment_3() { return cExpAssignment_3; }
+
+		//AddExp
+		public RuleCall getExpAddExpParserRuleCall_3_0() { return cExpAddExpParserRuleCall_3_0; }
 	}
 
 	public class SystemElementElements extends AbstractParserRuleElementFinder {
@@ -1974,6 +2239,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConfigurationElements pConfiguration;
 	private final ConfigurationStatementElements pConfigurationStatement;
 	private final LockJointStatementElements pLockJointStatement;
+	private final LockDoFStatementElements pLockDoFStatement;
+	private final LockedJointTypeElements pLockedJointType;
+	private final AdditiveLockedJointTypeElements pAdditiveLockedJointType;
+	private final PrimaryLockedJointTypeElements pPrimaryLockedJointType;
+	private final KeepUnlockedJointTypeElements pKeepUnlockedJointType;
+	private final BasicLockedJointTypeElements pBasicLockedJointType;
+	private final LockedJointMovementElements pLockedJointMovement;
+	private final LockedRevoluteElements pLockedRevolute;
+	private final LockedPlanarElements pLockedPlanar;
 	private final SystemElementElements pSystemElement;
 	private final ConnectiveElements pConnective;
 	private final BodyElements pBody;
@@ -2032,6 +2306,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pConfiguration = new ConfigurationElements();
 		this.pConfigurationStatement = new ConfigurationStatementElements();
 		this.pLockJointStatement = new LockJointStatementElements();
+		this.pLockDoFStatement = new LockDoFStatementElements();
+		this.pLockedJointType = new LockedJointTypeElements();
+		this.pAdditiveLockedJointType = new AdditiveLockedJointTypeElements();
+		this.pPrimaryLockedJointType = new PrimaryLockedJointTypeElements();
+		this.pKeepUnlockedJointType = new KeepUnlockedJointTypeElements();
+		this.pBasicLockedJointType = new BasicLockedJointTypeElements();
+		this.pLockedJointMovement = new LockedJointMovementElements();
+		this.pLockedRevolute = new LockedRevoluteElements();
+		this.pLockedPlanar = new LockedPlanarElements();
 		this.pSystemElement = new SystemElementElements();
 		this.pConnective = new ConnectiveElements();
 		this.pBody = new BodyElements();
@@ -2172,7 +2455,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// TODO how to reference specific degrees of freedom in a robust way?
 	//ConfigurationStatement: // TODO Other types of configuration statements?
-	//	LockJointStatement;
+	//	LockJointStatement | LockDoFStatement;
 	public ConfigurationStatementElements getConfigurationStatementAccess() {
 		return pConfigurationStatement;
 	}
@@ -2190,6 +2473,96 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLockJointStatementRule() {
 		return getLockJointStatementAccess().getRule();
+	}
+
+	//LockDoFStatement:
+	//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=LockedJointType;
+	public LockDoFStatementElements getLockDoFStatementAccess() {
+		return pLockDoFStatement;
+	}
+	
+	public ParserRule getLockDoFStatementRule() {
+		return getLockDoFStatementAccess().getRule();
+	}
+
+	//LockedJointType:
+	//	AdditiveLockedJointType;
+	public LockedJointTypeElements getLockedJointTypeAccess() {
+		return pLockedJointType;
+	}
+	
+	public ParserRule getLockedJointTypeRule() {
+		return getLockedJointTypeAccess().getRule();
+	}
+
+	//AdditiveLockedJointType returns LockedJointTypeExpression:
+	//	PrimaryLockedJointType ("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*;
+	public AdditiveLockedJointTypeElements getAdditiveLockedJointTypeAccess() {
+		return pAdditiveLockedJointType;
+	}
+	
+	public ParserRule getAdditiveLockedJointTypeRule() {
+		return getAdditiveLockedJointTypeAccess().getRule();
+	}
+
+	//PrimaryLockedJointType returns LockedJointTypeExpression:
+	//	KeepUnlockedJointType | BasicLockedJointType;
+	public PrimaryLockedJointTypeElements getPrimaryLockedJointTypeAccess() {
+		return pPrimaryLockedJointType;
+	}
+	
+	public ParserRule getPrimaryLockedJointTypeRule() {
+		return getPrimaryLockedJointTypeAccess().getRule();
+	}
+
+	//KeepUnlockedJointType:
+	//	"keep" "flexible" {KeepUnlockedJointType};
+	public KeepUnlockedJointTypeElements getKeepUnlockedJointTypeAccess() {
+		return pKeepUnlockedJointType;
+	}
+	
+	public ParserRule getKeepUnlockedJointTypeRule() {
+		return getKeepUnlockedJointTypeAccess().getRule();
+	}
+
+	//BasicLockedJointType:
+	//	type=LockedJointMovement;
+	public BasicLockedJointTypeElements getBasicLockedJointTypeAccess() {
+		return pBasicLockedJointType;
+	}
+	
+	public ParserRule getBasicLockedJointTypeRule() {
+		return getBasicLockedJointTypeAccess().getRule();
+	}
+
+	//LockedJointMovement:
+	//	LockedRevolute | LockedPlanar;
+	public LockedJointMovementElements getLockedJointMovementAccess() {
+		return pLockedJointMovement;
+	}
+	
+	public ParserRule getLockedJointMovementRule() {
+		return getLockedJointMovementAccess().getRule();
+	}
+
+	//LockedRevolute:
+	//	"revolute" axis=AXIS "=" exp=AddExp;
+	public LockedRevoluteElements getLockedRevoluteAccess() {
+		return pLockedRevolute;
+	}
+	
+	public ParserRule getLockedRevoluteRule() {
+		return getLockedRevoluteAccess().getRule();
+	}
+
+	//LockedPlanar:
+	//	"planar" axis=AXIS "=" exp=AddExp;
+	public LockedPlanarElements getLockedPlanarAccess() {
+		return pLockedPlanar;
+	}
+	
+	public ParserRule getLockedPlanarRule() {
+		return getLockedPlanarAccess().getRule();
 	}
 
 	//SystemElement:
