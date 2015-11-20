@@ -49,6 +49,8 @@ class ConfigurationInterpreter {
 
 	private dispatch def doConfigure(ConfigurationStatement ls, EcoreUtil.Copier copier) {}
 
+	// TODO Add support for LockDoFStatement
+
 	private dispatch def doConfigure(LockJointStatement ls, EcoreUtil.Copier copier) {
 		val Joint jointToModify = copier.get(ls.joint) as Joint
 
