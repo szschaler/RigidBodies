@@ -390,13 +390,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cJointJointIDTerminalRuleCall_3_0_1 = (RuleCall)cJointJointCrossReference_3_0.eContents().get(1);
 		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cLockedTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cLockedTypeLockedJointTypeParserRuleCall_5_0 = (RuleCall)cLockedTypeAssignment_5.eContents().get(0);
+		private final RuleCall cLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0 = (RuleCall)cLockedTypeAssignment_5.eContents().get(0);
 		
 		//LockDoFStatement:
-		//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=LockedJointType;
+		//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=AdditiveLockedJointType;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=LockedJointType
+		//"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=AdditiveLockedJointType
 		public Group getGroup() { return cGroup; }
 
 		//"lock"
@@ -426,23 +426,11 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//"to"
 		public Keyword getToKeyword_4() { return cToKeyword_4; }
 
-		//lockedType=LockedJointType
+		//lockedType=AdditiveLockedJointType
 		public Assignment getLockedTypeAssignment_5() { return cLockedTypeAssignment_5; }
 
-		//LockedJointType
-		public RuleCall getLockedTypeLockedJointTypeParserRuleCall_5_0() { return cLockedTypeLockedJointTypeParserRuleCall_5_0; }
-	}
-
-	public class LockedJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedJointType");
-		private final RuleCall cAdditiveLockedJointTypeParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//LockedJointType:
-		//	AdditiveLockedJointType;
-		@Override public ParserRule getRule() { return rule; }
-
 		//AdditiveLockedJointType
-		public RuleCall getAdditiveLockedJointTypeParserRuleCall() { return cAdditiveLockedJointTypeParserRuleCall; }
+		public RuleCall getLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0() { return cLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0; }
 	}
 
 	public class AdditiveLockedJointTypeElements extends AbstractParserRuleElementFinder {
@@ -2240,7 +2228,6 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConfigurationStatementElements pConfigurationStatement;
 	private final LockJointStatementElements pLockJointStatement;
 	private final LockDoFStatementElements pLockDoFStatement;
-	private final LockedJointTypeElements pLockedJointType;
 	private final AdditiveLockedJointTypeElements pAdditiveLockedJointType;
 	private final PrimaryLockedJointTypeElements pPrimaryLockedJointType;
 	private final KeepUnlockedJointTypeElements pKeepUnlockedJointType;
@@ -2307,7 +2294,6 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pConfigurationStatement = new ConfigurationStatementElements();
 		this.pLockJointStatement = new LockJointStatementElements();
 		this.pLockDoFStatement = new LockDoFStatementElements();
-		this.pLockedJointType = new LockedJointTypeElements();
 		this.pAdditiveLockedJointType = new AdditiveLockedJointTypeElements();
 		this.pPrimaryLockedJointType = new PrimaryLockedJointTypeElements();
 		this.pKeepUnlockedJointType = new KeepUnlockedJointTypeElements();
@@ -2476,23 +2462,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LockDoFStatement:
-	//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=LockedJointType;
+	//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=AdditiveLockedJointType;
 	public LockDoFStatementElements getLockDoFStatementAccess() {
 		return pLockDoFStatement;
 	}
 	
 	public ParserRule getLockDoFStatementRule() {
 		return getLockDoFStatementAccess().getRule();
-	}
-
-	//LockedJointType:
-	//	AdditiveLockedJointType;
-	public LockedJointTypeElements getLockedJointTypeAccess() {
-		return pLockedJointType;
-	}
-	
-	public ParserRule getLockedJointTypeRule() {
-		return getLockedJointTypeAccess().getRule();
 	}
 
 	//AdditiveLockedJointType returns LockedJointTypeExpression:

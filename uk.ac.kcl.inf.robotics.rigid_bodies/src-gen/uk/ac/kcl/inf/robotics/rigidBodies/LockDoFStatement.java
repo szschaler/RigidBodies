@@ -30,12 +30,12 @@ public interface LockDoFStatement extends ConfigurationStatement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Locked Type</em>' containment reference.
-   * @see #setLockedType(LockedJointType)
+   * @see #setLockedType(LockedJointTypeExpression)
    * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockDoFStatement_LockedType()
    * @model containment="true"
    * @generated
    */
-  LockedJointType getLockedType();
+  LockedJointTypeExpression getLockedType();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement#getLockedType <em>Locked Type</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface LockDoFStatement extends ConfigurationStatement
    * @see #getLockedType()
    * @generated
    */
-  void setLockedType(LockedJointType value);
+  void setLockedType(LockedJointTypeExpression value);
 
 } // LockDoFStatement

@@ -723,9 +723,9 @@ ruleLockDoFStatement returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getLockDoFStatementAccess().getLockedTypeLockedJointTypeParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getLockDoFStatementAccess().getLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0()); 
 	    }
-		lv_lockedType_5_0=ruleLockedJointType		{
+		lv_lockedType_5_0=ruleAdditiveLockedJointType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLockDoFStatementRule());
 	        }
@@ -733,42 +733,12 @@ ruleLockDoFStatement returns [EObject current=null]
        			$current, 
        			"lockedType",
         		lv_lockedType_5_0, 
-        		"LockedJointType");
+        		"AdditiveLockedJointType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 ))
-;
-
-
-
-
-
-// Entry rule entryRuleLockedJointType
-entryRuleLockedJointType returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getLockedJointTypeRule()); }
-	 iv_ruleLockedJointType=ruleLockedJointType 
-	 { $current=$iv_ruleLockedJointType.current; } 
-	 EOF 
-;
-
-// Rule LockedJointType
-ruleLockedJointType returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-
-    { 
-        newCompositeNode(grammarAccess.getLockedJointTypeAccess().getAdditiveLockedJointTypeParserRuleCall()); 
-    }
-    this_AdditiveLockedJointType_0=ruleAdditiveLockedJointType
-    { 
-        $current = $this_AdditiveLockedJointType_0.current; 
-        afterParserOrEnumRuleCall();
-    }
-
 ;
 
 

@@ -59,7 +59,6 @@
     <genClasses ecoreClass="RigidBodies.ecore#//LockDoFStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RigidBodies.ecore#//LockDoFStatement/lockedType"/>
     </genClasses>
-    <genClasses ecoreClass="RigidBodies.ecore#//LockedJointType"/>
     <genClasses ecoreClass="RigidBodies.ecore#//LockedJointTypeExpression"/>
     <genClasses ecoreClass="RigidBodies.ecore#//KeepUnlockedJointType"/>
     <genClasses ecoreClass="RigidBodies.ecore#//BasicLockedJointType">

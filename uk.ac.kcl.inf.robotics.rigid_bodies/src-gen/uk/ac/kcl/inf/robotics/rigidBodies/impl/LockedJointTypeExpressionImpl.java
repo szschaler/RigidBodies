@@ -4,6 +4,8 @@ package uk.ac.kcl.inf.robotics.rigidBodies.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
@@ -14,7 +16,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  *
  * @generated
  */
-public class LockedJointTypeExpressionImpl extends LockedJointTypeImpl implements LockedJointTypeExpression
+public class LockedJointTypeExpressionImpl extends MinimalEObjectImpl.Container implements LockedJointTypeExpression
 {
   /**
    * <!-- begin-user-doc -->

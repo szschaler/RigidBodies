@@ -2,6 +2,7 @@
  */
 package uk.ac.kcl.inf.robotics.rigidBodies;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,6 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * @model
  * @generated
  */
-public interface LockedJointTypeExpression extends LockedJointType
+public interface LockedJointTypeExpression extends EObject
 {
 } // LockedJointTypeExpression

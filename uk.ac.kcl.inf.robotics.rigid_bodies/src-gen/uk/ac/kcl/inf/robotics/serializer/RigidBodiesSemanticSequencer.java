@@ -497,7 +497,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID] lockedType=LockedJointType)
+	 *     (system=[SystemInstantiation|ID] joint=[Joint|ID] lockedType=AdditiveLockedJointType)
 	 */
 	protected void sequence_LockDoFStatement(EObject context, LockDoFStatement semanticObject) {
 		if(errorAcceptor != null) {
@@ -512,7 +512,7 @@ public class RigidBodiesSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getLockDoFStatementAccess().getSystemSystemInstantiationIDTerminalRuleCall_1_0_1(), semanticObject.getSystem());
 		feeder.accept(grammarAccess.getLockDoFStatementAccess().getJointJointIDTerminalRuleCall_3_0_1(), semanticObject.getJoint());
-		feeder.accept(grammarAccess.getLockDoFStatementAccess().getLockedTypeLockedJointTypeParserRuleCall_5_0(), semanticObject.getLockedType());
+		feeder.accept(grammarAccess.getLockDoFStatementAccess().getLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0(), semanticObject.getLockedType());
 		feeder.finish();
 	}
 	

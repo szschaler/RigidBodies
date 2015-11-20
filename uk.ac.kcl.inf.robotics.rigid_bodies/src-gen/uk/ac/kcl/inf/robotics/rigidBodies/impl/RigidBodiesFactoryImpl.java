@@ -45,7 +45,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
@@ -131,7 +130,6 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.CONFIGURATION_STATEMENT: return createConfigurationStatement();
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT: return createLockJointStatement();
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT: return createLockDoFStatement();
-      case RigidBodiesPackage.LOCKED_JOINT_TYPE: return createLockedJointType();
       case RigidBodiesPackage.LOCKED_JOINT_TYPE_EXPRESSION: return createLockedJointTypeExpression();
       case RigidBodiesPackage.KEEP_UNLOCKED_JOINT_TYPE: return createKeepUnlockedJointType();
       case RigidBodiesPackage.BASIC_LOCKED_JOINT_TYPE: return createBasicLockedJointType();
@@ -329,17 +327,6 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     LockDoFStatementImpl lockDoFStatement = new LockDoFStatementImpl();
     return lockDoFStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LockedJointType createLockedJointType()
-  {
-    LockedJointTypeImpl lockedJointType = new LockedJointTypeImpl();
-    return lockedJointType;
   }
 
   /**

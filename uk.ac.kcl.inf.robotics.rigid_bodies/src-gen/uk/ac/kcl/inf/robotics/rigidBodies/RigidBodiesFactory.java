@@ -113,15 +113,6 @@ public interface RigidBodiesFactory extends EFactory
   LockDoFStatement createLockDoFStatement();
 
   /**
-   * Returns a new object of class '<em>Locked Joint Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Locked Joint Type</em>'.
-   * @generated
-   */
-  LockedJointType createLockedJointType();
-
-  /**
    * Returns a new object of class '<em>Locked Joint Type Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

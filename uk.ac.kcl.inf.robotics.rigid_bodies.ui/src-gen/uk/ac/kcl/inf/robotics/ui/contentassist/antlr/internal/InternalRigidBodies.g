@@ -336,34 +336,6 @@ finally {
 
 
 
-// Entry rule entryRuleLockedJointType
-entryRuleLockedJointType 
-:
-{ before(grammarAccess.getLockedJointTypeRule()); }
-	 ruleLockedJointType
-{ after(grammarAccess.getLockedJointTypeRule()); } 
-	 EOF 
-;
-
-// Rule LockedJointType
-ruleLockedJointType
-    @init {
-		int stackSize = keepStackSize();
-    }
-	:
-(
-{ before(grammarAccess.getLockedJointTypeAccess().getAdditiveLockedJointTypeParserRuleCall()); }
-	ruleAdditiveLockedJointType
-{ after(grammarAccess.getLockedJointTypeAccess().getAdditiveLockedJointTypeParserRuleCall()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleAdditiveLockedJointType
 entryRuleAdditiveLockedJointType 
 :
@@ -9292,8 +9264,8 @@ rule__LockDoFStatement__LockedTypeAssignment_5
     }
 :
 (
-{ before(grammarAccess.getLockDoFStatementAccess().getLockedTypeLockedJointTypeParserRuleCall_5_0()); }
-	ruleLockedJointType{ after(grammarAccess.getLockDoFStatementAccess().getLockedTypeLockedJointTypeParserRuleCall_5_0()); }
+{ before(grammarAccess.getLockDoFStatementAccess().getLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0()); }
+	ruleAdditiveLockedJointType{ after(grammarAccess.getLockDoFStatementAccess().getLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0()); }
 )
 
 ;

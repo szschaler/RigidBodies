@@ -50,11 +50,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LockDoFStatement" eSuperTypes="#//ConfigurationStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lockedType" eType="#//LockedJointType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lockedType" eType="#//LockedJointTypeExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LockedJointType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LockedJointTypeExpression" eSuperTypes="#//LockedJointType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LockedJointTypeExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="KeepUnlockedJointType" eSuperTypes="#//LockedJointTypeExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BasicLockedJointType" eSuperTypes="#//LockedJointTypeExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//LockedJointMovement"

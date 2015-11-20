@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 
 /**
@@ -37,7 +37,7 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
    * @generated
    * @ordered
    */
-  protected LockedJointType lockedType;
+  protected LockedJointTypeExpression lockedType;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public LockedJointType getLockedType()
+  public LockedJointTypeExpression getLockedType()
   {
     return lockedType;
   }
@@ -75,9 +75,9 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLockedType(LockedJointType newLockedType, NotificationChain msgs)
+  public NotificationChain basicSetLockedType(LockedJointTypeExpression newLockedType, NotificationChain msgs)
   {
-    LockedJointType oldLockedType = lockedType;
+    LockedJointTypeExpression oldLockedType = lockedType;
     lockedType = newLockedType;
     if (eNotificationRequired())
     {
@@ -92,7 +92,7 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLockedType(LockedJointType newLockedType)
+  public void setLockedType(LockedJointTypeExpression newLockedType)
   {
     if (newLockedType != lockedType)
     {
@@ -151,7 +151,7 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
     switch (featureID)
     {
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT__LOCKED_TYPE:
-        setLockedType((LockedJointType)newValue);
+        setLockedType((LockedJointTypeExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +168,7 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
     switch (featureID)
     {
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT__LOCKED_TYPE:
-        setLockedType((LockedJointType)null);
+        setLockedType((LockedJointTypeExpression)null);
         return;
     }
     super.eUnset(featureID);

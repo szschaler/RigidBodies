@@ -38,7 +38,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
@@ -196,18 +195,10 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RigidBodiesPackage.LOCKED_JOINT_TYPE:
-      {
-        LockedJointType lockedJointType = (LockedJointType)theEObject;
-        T result = caseLockedJointType(lockedJointType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RigidBodiesPackage.LOCKED_JOINT_TYPE_EXPRESSION:
       {
         LockedJointTypeExpression lockedJointTypeExpression = (LockedJointTypeExpression)theEObject;
         T result = caseLockedJointTypeExpression(lockedJointTypeExpression);
-        if (result == null) result = caseLockedJointType(lockedJointTypeExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -216,7 +207,6 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         KeepUnlockedJointType keepUnlockedJointType = (KeepUnlockedJointType)theEObject;
         T result = caseKeepUnlockedJointType(keepUnlockedJointType);
         if (result == null) result = caseLockedJointTypeExpression(keepUnlockedJointType);
-        if (result == null) result = caseLockedJointType(keepUnlockedJointType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -225,7 +215,6 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         BasicLockedJointType basicLockedJointType = (BasicLockedJointType)theEObject;
         T result = caseBasicLockedJointType(basicLockedJointType);
         if (result == null) result = caseLockedJointTypeExpression(basicLockedJointType);
-        if (result == null) result = caseLockedJointType(basicLockedJointType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -507,7 +496,6 @@ public class RigidBodiesSwitch<T> extends Switch<T>
         AdditiveLockedJointType additiveLockedJointType = (AdditiveLockedJointType)theEObject;
         T result = caseAdditiveLockedJointType(additiveLockedJointType);
         if (result == null) result = caseLockedJointTypeExpression(additiveLockedJointType);
-        if (result == null) result = caseLockedJointType(additiveLockedJointType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -695,22 +683,6 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLockDoFStatement(LockDoFStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Locked Joint Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Locked Joint Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLockedJointType(LockedJointType object)
   {
     return null;
   }

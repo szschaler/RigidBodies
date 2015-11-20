@@ -455,25 +455,6 @@ public interface RigidBodiesPackage extends EPackage
   int LOCK_DO_FSTATEMENT_FEATURE_COUNT = CONFIGURATION_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockedJointTypeImpl <em>Locked Joint Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.LockedJointTypeImpl
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockedJointType()
-   * @generated
-   */
-  int LOCKED_JOINT_TYPE = 10;
-
-  /**
-   * The number of structural features of the '<em>Locked Joint Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCKED_JOINT_TYPE_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockedJointTypeExpressionImpl <em>Locked Joint Type Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -481,7 +462,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockedJointTypeExpression()
    * @generated
    */
-  int LOCKED_JOINT_TYPE_EXPRESSION = 11;
+  int LOCKED_JOINT_TYPE_EXPRESSION = 10;
 
   /**
    * The number of structural features of the '<em>Locked Joint Type Expression</em>' class.
@@ -490,7 +471,7 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCKED_JOINT_TYPE_EXPRESSION_FEATURE_COUNT = LOCKED_JOINT_TYPE_FEATURE_COUNT + 0;
+  int LOCKED_JOINT_TYPE_EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.KeepUnlockedJointTypeImpl <em>Keep Unlocked Joint Type</em>}' class.
@@ -500,7 +481,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getKeepUnlockedJointType()
    * @generated
    */
-  int KEEP_UNLOCKED_JOINT_TYPE = 12;
+  int KEEP_UNLOCKED_JOINT_TYPE = 11;
 
   /**
    * The number of structural features of the '<em>Keep Unlocked Joint Type</em>' class.
@@ -519,7 +500,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBasicLockedJointType()
    * @generated
    */
-  int BASIC_LOCKED_JOINT_TYPE = 13;
+  int BASIC_LOCKED_JOINT_TYPE = 12;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -547,7 +528,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockedJointMovement()
    * @generated
    */
-  int LOCKED_JOINT_MOVEMENT = 14;
+  int LOCKED_JOINT_MOVEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute.
@@ -584,7 +565,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockedRevolute()
    * @generated
    */
-  int LOCKED_REVOLUTE = 15;
+  int LOCKED_REVOLUTE = 14;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute.
@@ -621,7 +602,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockedPlanar()
    * @generated
    */
-  int LOCKED_PLANAR = 16;
+  int LOCKED_PLANAR = 15;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute.
@@ -658,7 +639,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getSystemElement()
    * @generated
    */
-  int SYSTEM_ELEMENT = 17;
+  int SYSTEM_ELEMENT = 16;
 
   /**
    * The number of structural features of the '<em>System Element</em>' class.
@@ -677,7 +658,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConnective()
    * @generated
    */
-  int CONNECTIVE = 18;
+  int CONNECTIVE = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -714,7 +695,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBody()
    * @generated
    */
-  int BODY = 19;
+  int BODY = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -751,7 +732,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBodyReference()
    * @generated
    */
-  int BODY_REFERENCE = 20;
+  int BODY_REFERENCE = 19;
 
   /**
    * The feature id for the '<em><b>Base</b></em>' attribute.
@@ -815,7 +796,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBodyRepetition()
    * @generated
    */
-  int BODY_REPETITION = 21;
+  int BODY_REPETITION = 20;
 
   /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -861,7 +842,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMass()
    * @generated
    */
-  int MASS = 22;
+  int MASS = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -907,7 +888,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJoint()
    * @generated
    */
-  int JOINT = 23;
+  int JOINT = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -980,7 +961,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointType()
    * @generated
    */
-  int JOINT_TYPE = 24;
+  int JOINT_TYPE = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1017,7 +998,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointTypeExpression()
    * @generated
    */
-  int JOINT_TYPE_EXPRESSION = 25;
+  int JOINT_TYPE_EXPRESSION = 24;
 
   /**
    * The number of structural features of the '<em>Joint Type Expression</em>' class.
@@ -1036,7 +1017,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointTypeReference()
    * @generated
    */
-  int JOINT_TYPE_REFERENCE = 26;
+  int JOINT_TYPE_REFERENCE = 25;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -1064,7 +1045,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBasicJointType()
    * @generated
    */
-  int BASIC_JOINT_TYPE = 27;
+  int BASIC_JOINT_TYPE = 26;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1101,7 +1082,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointMovement()
    * @generated
    */
-  int JOINT_MOVEMENT = 28;
+  int JOINT_MOVEMENT = 27;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute.
@@ -1129,7 +1110,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getRevolute()
    * @generated
    */
-  int REVOLUTE = 29;
+  int REVOLUTE = 28;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute.
@@ -1157,7 +1138,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getPlanar()
    * @generated
    */
-  int PLANAR = 30;
+  int PLANAR = 29;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute.
@@ -1185,7 +1166,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getStiffnessExp()
    * @generated
    */
-  int STIFFNESS_EXP = 31;
+  int STIFFNESS_EXP = 30;
 
   /**
    * The number of structural features of the '<em>Stiffness Exp</em>' class.
@@ -1204,7 +1185,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getStiffnessRef()
    * @generated
    */
-  int STIFFNESS_REF = 32;
+  int STIFFNESS_REF = 31;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -1232,7 +1213,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBaseStiffnessExp()
    * @generated
    */
-  int BASE_STIFFNESS_EXP = 33;
+  int BASE_STIFFNESS_EXP = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1296,7 +1277,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getRelativeTransformation()
    * @generated
    */
-  int RELATIVE_TRANSFORMATION = 34;
+  int RELATIVE_TRANSFORMATION = 33;
 
   /**
    * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -1333,7 +1314,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientation()
    * @generated
    */
-  int REORIENTATION = 35;
+  int REORIENTATION = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1370,7 +1351,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientExpression()
    * @generated
    */
-  int REORIENT_EXPRESSION = 36;
+  int REORIENT_EXPRESSION = 35;
 
   /**
    * The number of structural features of the '<em>Reorient Expression</em>' class.
@@ -1389,7 +1370,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getReorientRef()
    * @generated
    */
-  int REORIENT_REF = 37;
+  int REORIENT_REF = 36;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -1417,7 +1398,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBasicReorientExpression()
    * @generated
    */
-  int BASIC_REORIENT_EXPRESSION = 38;
+  int BASIC_REORIENT_EXPRESSION = 37;
 
   /**
    * The feature id for the '<em><b>Axis</b></em>' attribute list.
@@ -1454,7 +1435,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 39;
+  int CONSTRAINT = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1527,7 +1508,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getJointConstraint()
    * @generated
    */
-  int JOINT_CONSTRAINT = 40;
+  int JOINT_CONSTRAINT = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1573,7 +1554,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getExternalLoad()
    * @generated
    */
-  int EXTERNAL_LOAD = 41;
+  int EXTERNAL_LOAD = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1628,7 +1609,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMatrix()
    * @generated
    */
-  int MATRIX = 42;
+  int MATRIX = 41;
 
   /**
    * The number of structural features of the '<em>Matrix</em>' class.
@@ -1647,7 +1628,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getBaseMatrix()
    * @generated
    */
-  int BASE_MATRIX = 43;
+  int BASE_MATRIX = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1684,7 +1665,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMatrixRef()
    * @generated
    */
-  int MATRIX_REF = 44;
+  int MATRIX_REF = 43;
 
   /**
    * The feature id for the '<em><b>Matrix</b></em>' reference.
@@ -1712,7 +1693,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 45;
+  int EXPRESSION = 44;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1731,7 +1712,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getParenthesisedExp()
    * @generated
    */
-  int PARENTHESISED_EXP = 46;
+  int PARENTHESISED_EXP = 45;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1759,7 +1740,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstantOrFunctionCallExp()
    * @generated
    */
-  int CONSTANT_OR_FUNCTION_CALL_EXP = 47;
+  int CONSTANT_OR_FUNCTION_CALL_EXP = 46;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1796,7 +1777,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 48;
+  int NUMBER_LITERAL = 47;
 
   /**
    * The feature id for the '<em><b>Neg</b></em>' attribute.
@@ -1833,7 +1814,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAdditiveLockedJointType()
    * @generated
    */
-  int ADDITIVE_LOCKED_JOINT_TYPE = 49;
+  int ADDITIVE_LOCKED_JOINT_TYPE = 48;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1870,7 +1851,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAdditiveJointType()
    * @generated
    */
-  int ADDITIVE_JOINT_TYPE = 50;
+  int ADDITIVE_JOINT_TYPE = 49;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1907,7 +1888,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAddExp()
    * @generated
    */
-  int ADD_EXP = 51;
+  int ADD_EXP = 50;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1953,7 +1934,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getMultExp()
    * @generated
    */
-  int MULT_EXP = 52;
+  int MULT_EXP = 51;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1999,7 +1980,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getAXIS()
    * @generated
    */
-  int AXIS = 53;
+  int AXIS = 52;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType <em>Constraint Type</em>}' enum.
@@ -2009,7 +1990,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getConstraintType()
    * @generated
    */
-  int CONSTRAINT_TYPE = 54;
+  int CONSTRAINT_TYPE = 53;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LoadType <em>Load Type</em>}' enum.
@@ -2019,7 +2000,7 @@ public interface RigidBodiesPackage extends EPackage
    * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLoadType()
    * @generated
    */
-  int LOAD_TYPE = 55;
+  int LOAD_TYPE = 54;
 
 
   /**
@@ -2330,16 +2311,6 @@ public interface RigidBodiesPackage extends EPackage
    * @generated
    */
   EReference getLockDoFStatement_LockedType();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType <em>Locked Joint Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Locked Joint Type</em>'.
-   * @see uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType
-   * @generated
-   */
-  EClass getLockedJointType();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression <em>Locked Joint Type Expression</em>}'.
@@ -3780,16 +3751,6 @@ public interface RigidBodiesPackage extends EPackage
      * @generated
      */
     EReference LOCK_DO_FSTATEMENT__LOCKED_TYPE = eINSTANCE.getLockDoFStatement_LockedType();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockedJointTypeImpl <em>Locked Joint Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.LockedJointTypeImpl
-     * @see uk.ac.kcl.inf.robotics.rigidBodies.impl.RigidBodiesPackageImpl#getLockedJointType()
-     * @generated
-     */
-    EClass LOCKED_JOINT_TYPE = eINSTANCE.getLockedJointType();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockedJointTypeExpressionImpl <em>Locked Joint Type Expression</em>}' class.

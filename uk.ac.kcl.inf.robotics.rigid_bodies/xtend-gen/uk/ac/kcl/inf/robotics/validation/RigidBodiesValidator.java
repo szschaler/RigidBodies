@@ -15,18 +15,36 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
+import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.Body;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.BodyRepetition;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
+import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.Mass;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Model;
+import uk.ac.kcl.inf.robotics.rigidBodies.Planar;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
+import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
 import uk.ac.kcl.inf.robotics.validation.AbstractRigidBodiesValidator;
@@ -317,6 +335,111 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     return container;
   }
   
+  public final static String LOCKED_TYPE_NO_MATCH = "LOCKED_TYPE_NO_MATCH";
+  
+  @Check
+  public void isValidLockDoFStatement(final LockDoFStatement ldfs) {
+    LockedJointTypeExpression _lockedType = ldfs.getLockedType();
+    Joint _joint = ldfs.getJoint();
+    JointType _type = _joint.getType();
+    JointTypeExpression _exp = _type.getExp();
+    this.checkIsValidLocking(_lockedType, _exp);
+  }
+  
+  private void _checkIsValidLocking(final AdditiveLockedJointType aljt, final JointTypeExpression exp) {
+    LockedJointTypeExpression _left = aljt.getLeft();
+    JointTypeExpression _get = this.get(exp, 0);
+    this.checkIsValidLocking(_left, _get);
+    EList<LockedJointTypeExpression> _right = aljt.getRight();
+    final Procedure2<LockedJointTypeExpression, Integer> _function = new Procedure2<LockedJointTypeExpression, Integer>() {
+      @Override
+      public void apply(final LockedJointTypeExpression e, final Integer idx) {
+        final JointTypeExpression jt = RigidBodiesValidator.this.get(exp, ((idx).intValue() + 1));
+        boolean _notEquals = (!Objects.equal(jt, null));
+        if (_notEquals) {
+          RigidBodiesValidator.this.checkIsValidLocking(e, jt);
+        } else {
+          RigidBodiesValidator.this.error("No matching element in original joint type", e, null, 
+            ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.LOCKED_TYPE_NO_MATCH);
+        }
+      }
+    };
+    IterableExtensions.<LockedJointTypeExpression>forEach(_right, _function);
+  }
+  
+  private void _checkIsValidLocking(final KeepUnlockedJointType kujt, final JointTypeExpression exp) {
+  }
+  
+  private void _checkIsValidLocking(final BasicLockedJointType bljt, final JointTypeExpression exp) {
+    JointTypeExpression _get = this.get(exp, 0);
+    if ((_get instanceof BasicJointType)) {
+      LockedJointMovement _type = bljt.getType();
+      JointTypeExpression _get_1 = this.get(exp, 0);
+      JointMovement _type_1 = ((BasicJointType) _get_1).getType();
+      this.checkIsValidLocking(_type, _type_1);
+    } else {
+      this.error("No matching element in original joint type", bljt, null, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.LOCKED_TYPE_NO_MATCH);
+    }
+  }
+  
+  private void _checkIsValidLocking(final LockedRevolute lr, final JointMovement jm) {
+    boolean _and = false;
+    if (!(jm instanceof Revolute)) {
+      _and = false;
+    } else {
+      AXIS _axis = lr.getAxis();
+      AXIS _axis_1 = ((Revolute) jm).getAxis();
+      boolean _equals = Objects.equal(_axis, _axis_1);
+      _and = _equals;
+    }
+    boolean _not = (!_and);
+    if (_not) {
+      this.error("No matching element in original joint type", lr, null, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.LOCKED_TYPE_NO_MATCH);
+    }
+  }
+  
+  private void _checkIsValidLocking(final LockedPlanar lp, final JointMovement jm) {
+    boolean _and = false;
+    if (!(jm instanceof Planar)) {
+      _and = false;
+    } else {
+      AXIS _axis = lp.getAxis();
+      AXIS _axis_1 = ((Planar) jm).getAxis();
+      boolean _equals = Objects.equal(_axis, _axis_1);
+      _and = _equals;
+    }
+    boolean _not = (!_and);
+    if (_not) {
+      this.error("No matching element in original joint type", lp, null, 
+        ValidationMessageAcceptor.INSIGNIFICANT_INDEX, RigidBodiesValidator.LOCKED_TYPE_NO_MATCH);
+    }
+  }
+  
+  private JointTypeExpression _get(final JointTypeExpression exp, final int i) {
+    if ((i == 0)) {
+      return exp;
+    } else {
+      return null;
+    }
+  }
+  
+  private JointTypeExpression _get(final AdditiveJointType exp, final int i) {
+    if ((i == 0)) {
+      return exp.getLeft();
+    } else {
+      EList<JointTypeExpression> _right = exp.getRight();
+      return _right.get((i - 1));
+    }
+  }
+  
+  private JointTypeExpression _get(final JointTypeReference exp, final int i) {
+    JointType _ref = exp.getRef();
+    JointTypeExpression _exp = _ref.getExp();
+    return this.get(_exp, i);
+  }
+  
   public int getLength(final Matrix matrix) {
     if (matrix instanceof BaseMatrix) {
       return _getLength((BaseMatrix)matrix);
@@ -325,6 +448,46 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(matrix).toString());
+    }
+  }
+  
+  private void checkIsValidLocking(final EObject aljt, final EObject exp) {
+    if (aljt instanceof AdditiveLockedJointType
+         && exp instanceof JointTypeExpression) {
+      _checkIsValidLocking((AdditiveLockedJointType)aljt, (JointTypeExpression)exp);
+      return;
+    } else if (aljt instanceof BasicLockedJointType
+         && exp instanceof JointTypeExpression) {
+      _checkIsValidLocking((BasicLockedJointType)aljt, (JointTypeExpression)exp);
+      return;
+    } else if (aljt instanceof KeepUnlockedJointType
+         && exp instanceof JointTypeExpression) {
+      _checkIsValidLocking((KeepUnlockedJointType)aljt, (JointTypeExpression)exp);
+      return;
+    } else if (aljt instanceof LockedPlanar
+         && exp instanceof JointMovement) {
+      _checkIsValidLocking((LockedPlanar)aljt, (JointMovement)exp);
+      return;
+    } else if (aljt instanceof LockedRevolute
+         && exp instanceof JointMovement) {
+      _checkIsValidLocking((LockedRevolute)aljt, (JointMovement)exp);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(aljt, exp).toString());
+    }
+  }
+  
+  private JointTypeExpression get(final JointTypeExpression exp, final int i) {
+    if (exp instanceof AdditiveJointType) {
+      return _get((AdditiveJointType)exp, i);
+    } else if (exp instanceof JointTypeReference) {
+      return _get((JointTypeReference)exp, i);
+    } else if (exp != null) {
+      return _get(exp, i);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(exp, i).toString());
     }
   }
 }

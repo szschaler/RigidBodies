@@ -63,11 +63,7 @@ LockJointStatement:
 ;
 
 LockDoFStatement:
-	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' lockedType = LockedJointType 
-;
-
-LockedJointType:
-	AdditiveLockedJointType
+	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' lockedType = AdditiveLockedJointType  
 ;
 
 AdditiveLockedJointType returns LockedJointTypeExpression:

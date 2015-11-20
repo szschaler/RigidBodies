@@ -43,7 +43,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.LoadType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
-import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedPlanar;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedRevolute;
@@ -144,13 +143,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass lockDoFStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass lockedJointTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -818,16 +810,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
   public EReference getLockDoFStatement_LockedType()
   {
     return (EReference)lockDoFStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLockedJointType()
-  {
-    return lockedJointTypeEClass;
   }
 
   /**
@@ -1999,8 +1981,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     lockDoFStatementEClass = createEClass(LOCK_DO_FSTATEMENT);
     createEReference(lockDoFStatementEClass, LOCK_DO_FSTATEMENT__LOCKED_TYPE);
 
-    lockedJointTypeEClass = createEClass(LOCKED_JOINT_TYPE);
-
     lockedJointTypeExpressionEClass = createEClass(LOCKED_JOINT_TYPE_EXPRESSION);
 
     keepUnlockedJointTypeEClass = createEClass(KEEP_UNLOCKED_JOINT_TYPE);
@@ -2187,7 +2167,6 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     // Add supertypes to classes
     lockJointStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
     lockDoFStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
-    lockedJointTypeExpressionEClass.getESuperTypes().add(this.getLockedJointType());
     keepUnlockedJointTypeEClass.getESuperTypes().add(this.getLockedJointTypeExpression());
     basicLockedJointTypeEClass.getESuperTypes().add(this.getLockedJointTypeExpression());
     lockedRevoluteEClass.getESuperTypes().add(this.getLockedJointMovement());
@@ -2258,9 +2237,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     initEReference(getLockJointStatement_Translation(), this.getMatrix(), null, "translation", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lockDoFStatementEClass, LockDoFStatement.class, "LockDoFStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLockDoFStatement_LockedType(), this.getLockedJointType(), null, "lockedType", null, 0, 1, LockDoFStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(lockedJointTypeEClass, LockedJointType.class, "LockedJointType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLockDoFStatement_LockedType(), this.getLockedJointTypeExpression(), null, "lockedType", null, 0, 1, LockDoFStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lockedJointTypeExpressionEClass, LockedJointTypeExpression.class, "LockedJointTypeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
