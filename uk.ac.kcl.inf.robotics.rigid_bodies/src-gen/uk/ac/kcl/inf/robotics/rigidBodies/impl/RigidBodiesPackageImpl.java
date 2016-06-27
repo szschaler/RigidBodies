@@ -27,7 +27,9 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintClause;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType;
+import uk.ac.kcl.inf.robotics.rigidBodies.ControlStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
@@ -129,6 +131,20 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * @generated
    */
   private EClass configurationStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass controlStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constraintClauseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -757,9 +773,109 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConfigurationStatement_Joint()
+  public EClass getControlStatement()
   {
-    return (EReference)configurationStatementEClass.getEStructuralFeatures().get(1);
+    return controlStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControlStatement_Bodyref()
+  {
+    return (EReference)controlStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControlStatement_Relative_transform()
+  {
+    return (EReference)controlStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControlStatement_Constraints()
+  {
+    return (EReference)controlStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControlStatement_P()
+  {
+    return (EReference)controlStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControlStatement_I()
+  {
+    return (EReference)controlStatementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControlStatement_D()
+  {
+    return (EReference)controlStatementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getConstraintClause()
+  {
+    return constraintClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstraintClause_Lhs()
+  {
+    return (EReference)constraintClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConstraintClause_Op()
+  {
+    return (EAttribute)constraintClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstraintClause_Rhs()
+  {
+    return (EReference)constraintClauseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -777,7 +893,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLockJointStatement_Rotation()
+  public EReference getLockJointStatement_Joint()
   {
     return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(0);
   }
@@ -787,9 +903,19 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLockJointStatement_Translation()
+  public EReference getLockJointStatement_Rotation()
   {
     return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLockJointStatement_Translation()
+  {
+    return (EReference)lockJointStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -807,9 +933,19 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLockDoFStatement_LockedType()
+  public EReference getLockDoFStatement_Joint()
   {
     return (EReference)lockDoFStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLockDoFStatement_LockedType()
+  {
+    return (EReference)lockDoFStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1972,13 +2108,27 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     configurationStatementEClass = createEClass(CONFIGURATION_STATEMENT);
     createEReference(configurationStatementEClass, CONFIGURATION_STATEMENT__SYSTEM);
-    createEReference(configurationStatementEClass, CONFIGURATION_STATEMENT__JOINT);
+
+    controlStatementEClass = createEClass(CONTROL_STATEMENT);
+    createEReference(controlStatementEClass, CONTROL_STATEMENT__BODYREF);
+    createEReference(controlStatementEClass, CONTROL_STATEMENT__RELATIVE_TRANSFORM);
+    createEReference(controlStatementEClass, CONTROL_STATEMENT__CONSTRAINTS);
+    createEReference(controlStatementEClass, CONTROL_STATEMENT__P);
+    createEReference(controlStatementEClass, CONTROL_STATEMENT__I);
+    createEReference(controlStatementEClass, CONTROL_STATEMENT__D);
+
+    constraintClauseEClass = createEClass(CONSTRAINT_CLAUSE);
+    createEReference(constraintClauseEClass, CONSTRAINT_CLAUSE__LHS);
+    createEAttribute(constraintClauseEClass, CONSTRAINT_CLAUSE__OP);
+    createEReference(constraintClauseEClass, CONSTRAINT_CLAUSE__RHS);
 
     lockJointStatementEClass = createEClass(LOCK_JOINT_STATEMENT);
+    createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__JOINT);
     createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__ROTATION);
     createEReference(lockJointStatementEClass, LOCK_JOINT_STATEMENT__TRANSLATION);
 
     lockDoFStatementEClass = createEClass(LOCK_DO_FSTATEMENT);
+    createEReference(lockDoFStatementEClass, LOCK_DO_FSTATEMENT__JOINT);
     createEReference(lockDoFStatementEClass, LOCK_DO_FSTATEMENT__LOCKED_TYPE);
 
     lockedJointTypeExpressionEClass = createEClass(LOCKED_JOINT_TYPE_EXPRESSION);
@@ -2165,6 +2315,7 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    controlStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
     lockJointStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
     lockDoFStatementEClass.getESuperTypes().add(this.getConfigurationStatement());
     keepUnlockedJointTypeEClass.getESuperTypes().add(this.getLockedJointTypeExpression());
@@ -2230,13 +2381,27 @@ public class RigidBodiesPackageImpl extends EPackageImpl implements RigidBodiesP
 
     initEClass(configurationStatementEClass, ConfigurationStatement.class, "ConfigurationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConfigurationStatement_System(), this.getSystemInstantiation(), null, "system", null, 0, 1, ConfigurationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConfigurationStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, ConfigurationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(controlStatementEClass, ControlStatement.class, "ControlStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getControlStatement_Bodyref(), this.getBodyReference(), null, "bodyref", null, 0, 1, ControlStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControlStatement_Relative_transform(), this.getRelativeTransformation(), null, "relative_transform", null, 0, 1, ControlStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControlStatement_Constraints(), this.getConstraintClause(), null, "constraints", null, 0, -1, ControlStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControlStatement_P(), this.getExpression(), null, "P", null, 0, 1, ControlStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControlStatement_I(), this.getExpression(), null, "I", null, 0, 1, ControlStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControlStatement_D(), this.getExpression(), null, "D", null, 0, 1, ControlStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constraintClauseEClass, ConstraintClause.class, "ConstraintClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConstraintClause_Lhs(), this.getExpression(), null, "lhs", null, 0, 1, ConstraintClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConstraintClause_Op(), ecorePackage.getEString(), "op", null, 0, 1, ConstraintClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstraintClause_Rhs(), this.getExpression(), null, "rhs", null, 0, 1, ConstraintClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lockJointStatementEClass, LockJointStatement.class, "LockJointStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLockJointStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLockJointStatement_Rotation(), this.getMatrix(), null, "rotation", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLockJointStatement_Translation(), this.getMatrix(), null, "translation", null, 0, 1, LockJointStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lockDoFStatementEClass, LockDoFStatement.class, "LockDoFStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLockDoFStatement_Joint(), this.getJoint(), null, "joint", null, 0, 1, LockDoFStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLockDoFStatement_LockedType(), this.getLockedJointTypeExpression(), null, "lockedType", null, 0, 1, LockDoFStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lockedJointTypeExpressionEClass, LockedJointTypeExpression.class, "LockedJointTypeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

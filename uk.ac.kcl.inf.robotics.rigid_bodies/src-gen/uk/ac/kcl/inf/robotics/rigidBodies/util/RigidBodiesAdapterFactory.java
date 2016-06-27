@@ -26,6 +26,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintClause;
+import uk.ac.kcl.inf.robotics.rigidBodies.ControlStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
@@ -164,6 +166,16 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConfigurationStatement(ConfigurationStatement object)
       {
         return createConfigurationStatementAdapter();
+      }
+      @Override
+      public Adapter caseControlStatement(ControlStatement object)
+      {
+        return createControlStatementAdapter();
+      }
+      @Override
+      public Adapter caseConstraintClause(ConstraintClause object)
+      {
+        return createConstraintClauseAdapter();
       }
       @Override
       public Adapter caseLockJointStatement(LockJointStatement object)
@@ -523,6 +535,36 @@ public class RigidBodiesAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConfigurationStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ControlStatement <em>Control Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ControlStatement
+   * @generated
+   */
+  public Adapter createControlStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.robotics.rigidBodies.ConstraintClause <em>Constraint Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.ConstraintClause
+   * @generated
+   */
+  public Adapter createConstraintClauseAdapter()
   {
     return null;
   }

@@ -49,10 +49,27 @@ Configuration:
 
 ConfigurationStatement:
 	// TODO Other types of configuration statements?
+	ControlStatement |
 	LockJointStatement |
 	LockDoFStatement
 	
 	// TODO how to reference specific degrees of freedom in a robust way?
+;
+
+ControlStatement:
+	'control' system=[SystemInstantiation] '.' bodyref=BodyReference 
+	relative_transform=RelativeTransformation 
+	'to' constraints+=ConstraintClause (',' constraints+=ConstraintClause)*
+	'with' 'gains' '{'
+		// TODO It would be nice to have clean separators between them, but no separator at the end of the list
+		('P' '=' P=AddExp)? 
+		('I' '=' I=AddExp)? 
+		('D' '=' D=AddExp)? 
+	'}'
+;
+
+ConstraintClause:
+	lhs=AddExp op=('='|'>'|'<') rhs=AddExp
 ;
 
 LockJointStatement:
@@ -279,7 +296,7 @@ ParenthesisedExp:
 ;
 
 ConstantOrFunctionCallExp:
-	label=ID ('(' param += AddExp (',' param += AddExp)* ')')?
+	label=(ID|'x'|'y'|'z') ('(' param += AddExp (',' param += AddExp)* ')')?
 ;
 
 NumberLiteral:

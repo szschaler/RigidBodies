@@ -91,7 +91,7 @@ ruleModel returns [EObject current=null]
        			$current, 
        			"defs",
         		lv_defs_0_0, 
-        		"InitialDefinition");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.InitialDefinition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -109,7 +109,7 @@ ruleModel returns [EObject current=null]
        			$current, 
        			"world",
         		lv_world_1_0, 
-        		"Environment");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Environment");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -127,7 +127,7 @@ ruleModel returns [EObject current=null]
        			$current, 
        			"bodies",
         		lv_bodies_2_0, 
-        		"System");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.System");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -145,7 +145,7 @@ ruleModel returns [EObject current=null]
        			$current, 
        			"configuration",
         		lv_configuration_3_0, 
-        		"ConfigurationDef");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.ConfigurationDef");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -246,7 +246,7 @@ ruleEnvironment returns [EObject current=null]
        			$current, 
        			"gravity",
         		lv_gravity_3_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -294,7 +294,7 @@ ruleSystem returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -315,7 +315,7 @@ ruleSystem returns [EObject current=null]
        			$current, 
        			"elements",
         		lv_elements_3_0, 
-        		"SystemElement");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.SystemElement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -366,7 +366,7 @@ ruleConfigurationDef returns [EObject current=null]
        			$current, 
        			"instances",
         		lv_instances_2_0, 
-        		"SystemInstantiation");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.SystemInstantiation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -384,7 +384,7 @@ ruleConfigurationDef returns [EObject current=null]
        			$current, 
        			"configs",
         		lv_configs_3_0, 
-        		"Configuration");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Configuration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -449,7 +449,7 @@ ruleSystemInstantiation returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -488,7 +488,7 @@ ruleConfiguration returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -509,7 +509,7 @@ ruleConfiguration returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_2_0, 
-        		"ConfigurationStatement");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.ConfigurationStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -541,24 +541,349 @@ ruleConfigurationStatement returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getControlStatementParserRuleCall_0()); 
     }
-    this_LockJointStatement_0=ruleLockJointStatement
+    this_ControlStatement_0=ruleControlStatement
     { 
-        $current = $this_LockJointStatement_0.current; 
+        $current = $this_ControlStatement_0.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockDoFStatementParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockJointStatementParserRuleCall_1()); 
     }
-    this_LockDoFStatement_1=ruleLockDoFStatement
+    this_LockJointStatement_1=ruleLockJointStatement
     { 
-        $current = $this_LockDoFStatement_1.current; 
+        $current = $this_LockJointStatement_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getConfigurationStatementAccess().getLockDoFStatementParserRuleCall_2()); 
+    }
+    this_LockDoFStatement_2=ruleLockDoFStatement
+    { 
+        $current = $this_LockDoFStatement_2.current; 
         afterParserOrEnumRuleCall();
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleControlStatement
+entryRuleControlStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getControlStatementRule()); }
+	 iv_ruleControlStatement=ruleControlStatement 
+	 { $current=$iv_ruleControlStatement.current; } 
+	 EOF 
+;
+
+// Rule ControlStatement
+ruleControlStatement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='control' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getControlStatementAccess().getControlKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getControlStatementRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getControlStatementAccess().getSystemSystemInstantiationCrossReference_1_0()); 
+	}
+
+)
+)	otherlv_2='.' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getControlStatementAccess().getFullStopKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getBodyrefBodyReferenceParserRuleCall_3_0()); 
+	    }
+		lv_bodyref_3_0=ruleBodyReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"bodyref",
+        		lv_bodyref_3_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getRelative_transformRelativeTransformationParserRuleCall_4_0()); 
+	    }
+		lv_relative_transform_4_0=ruleRelativeTransformation		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"relative_transform",
+        		lv_relative_transform_4_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.RelativeTransformation");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_5='to' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getControlStatementAccess().getToKeyword_5());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getConstraintsConstraintClauseParserRuleCall_6_0()); 
+	    }
+		lv_constraints_6_0=ruleConstraintClause		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		add(
+       			$current, 
+       			"constraints",
+        		lv_constraints_6_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.ConstraintClause");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_7=',' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getControlStatementAccess().getCommaKeyword_7_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getConstraintsConstraintClauseParserRuleCall_7_1_0()); 
+	    }
+		lv_constraints_8_0=ruleConstraintClause		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		add(
+       			$current, 
+       			"constraints",
+        		lv_constraints_8_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.ConstraintClause");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_9='with' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getControlStatementAccess().getWithKeyword_8());
+    }
+	otherlv_10='gains' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getControlStatementAccess().getGainsKeyword_9());
+    }
+	otherlv_11='{' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getControlStatementAccess().getLeftCurlyBracketKeyword_10());
+    }
+(	otherlv_12='P' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getControlStatementAccess().getPKeyword_11_0());
+    }
+	otherlv_13='=' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getControlStatementAccess().getEqualsSignKeyword_11_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getPAddExpParserRuleCall_11_2_0()); 
+	    }
+		lv_P_14_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"P",
+        		lv_P_14_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_15='I' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getControlStatementAccess().getIKeyword_12_0());
+    }
+	otherlv_16='=' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getControlStatementAccess().getEqualsSignKeyword_12_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getIAddExpParserRuleCall_12_2_0()); 
+	    }
+		lv_I_17_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"I",
+        		lv_I_17_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_18='D' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getControlStatementAccess().getDKeyword_13_0());
+    }
+	otherlv_19='=' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getControlStatementAccess().getEqualsSignKeyword_13_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getControlStatementAccess().getDAddExpParserRuleCall_13_2_0()); 
+	    }
+		lv_D_20_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getControlStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"D",
+        		lv_D_20_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_21='}' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getControlStatementAccess().getRightCurlyBracketKeyword_14());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleConstraintClause
+entryRuleConstraintClause returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConstraintClauseRule()); }
+	 iv_ruleConstraintClause=ruleConstraintClause 
+	 { $current=$iv_ruleConstraintClause.current; } 
+	 EOF 
+;
+
+// Rule ConstraintClause
+ruleConstraintClause returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConstraintClauseAccess().getLhsAddExpParserRuleCall_0_0()); 
+	    }
+		lv_lhs_0_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConstraintClauseRule());
+	        }
+       		set(
+       			$current, 
+       			"lhs",
+        		lv_lhs_0_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+(
+		lv_op_1_1=	'=' 
+    {
+        newLeafNode(lv_op_1_1, grammarAccess.getConstraintClauseAccess().getOpEqualsSignKeyword_1_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintClauseRule());
+	        }
+       		setWithLastConsumed($current, "op", lv_op_1_1, null);
+	    }
+
+    |		lv_op_1_2=	'>' 
+    {
+        newLeafNode(lv_op_1_2, grammarAccess.getConstraintClauseAccess().getOpGreaterThanSignKeyword_1_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintClauseRule());
+	        }
+       		setWithLastConsumed($current, "op", lv_op_1_2, null);
+	    }
+
+    |		lv_op_1_3=	'<' 
+    {
+        newLeafNode(lv_op_1_3, grammarAccess.getConstraintClauseAccess().getOpLessThanSignKeyword_1_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintClauseRule());
+	        }
+       		setWithLastConsumed($current, "op", lv_op_1_3, null);
+	    }
+
+)
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConstraintClauseAccess().getRhsAddExpParserRuleCall_2_0()); 
+	    }
+		lv_rhs_2_0=ruleAddExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConstraintClauseRule());
+	        }
+       		set(
+       			$current, 
+       			"rhs",
+        		lv_rhs_2_0, 
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -634,7 +959,7 @@ ruleLockJointStatement returns [EObject current=null]
        			$current, 
        			"rotation",
         		lv_rotation_6_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -656,7 +981,7 @@ ruleLockJointStatement returns [EObject current=null]
        			$current, 
        			"translation",
         		lv_translation_8_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -733,7 +1058,7 @@ ruleLockDoFStatement returns [EObject current=null]
        			$current, 
        			"lockedType",
         		lv_lockedType_5_0, 
-        		"AdditiveLockedJointType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AdditiveLockedJointType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -791,7 +1116,7 @@ ruleAdditiveLockedJointType returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"PrimaryLockedJointType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.PrimaryLockedJointType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -905,7 +1230,7 @@ ruleBasicLockedJointType returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"LockedJointMovement");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.LockedJointMovement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -988,7 +1313,7 @@ ruleLockedRevolute returns [EObject current=null]
        			$current, 
        			"axis",
         		lv_axis_1_0, 
-        		"AXIS");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1010,7 +1335,7 @@ ruleLockedRevolute returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_3_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1053,7 +1378,7 @@ ruleLockedPlanar returns [EObject current=null]
        			$current, 
        			"axis",
         		lv_axis_1_0, 
-        		"AXIS");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1075,7 +1400,7 @@ ruleLockedPlanar returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_3_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1229,7 +1554,7 @@ ruleBody returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1250,7 +1575,7 @@ ruleBody returns [EObject current=null]
        			$current, 
        			"mass",
         		lv_mass_3_0, 
-        		"Mass");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Mass");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1372,7 +1697,7 @@ ruleBodyReference returns [EObject current=null]
        			$current, 
        			"idx",
         		lv_idx_6_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1419,7 +1744,7 @@ ruleBodyRepetition returns [EObject current=null]
        			$current, 
        			"number",
         		lv_number_1_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1458,7 +1783,7 @@ ruleBodyRepetition returns [EObject current=null]
        			$current, 
        			"connectionExp",
         		lv_connectionExp_5_1, 
-        		"Connective");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Connective");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1473,7 +1798,7 @@ ruleBodyRepetition returns [EObject current=null]
        			$current, 
        			"connectionExp",
         		lv_connectionExp_5_2, 
-        		"JointConstraint");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.JointConstraint");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1530,7 +1855,7 @@ ruleMass returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_3_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1552,7 +1877,7 @@ ruleMass returns [EObject current=null]
        			$current, 
        			"position",
         		lv_position_5_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1574,7 +1899,7 @@ ruleMass returns [EObject current=null]
        			$current, 
        			"inertia",
         		lv_inertia_7_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1622,7 +1947,7 @@ ruleJoint returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1643,7 +1968,7 @@ ruleJoint returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_3_0, 
-        		"JointType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.JointType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1680,7 +2005,7 @@ ruleJoint returns [EObject current=null]
        			$current, 
        			"body1",
         		lv_body1_6_0, 
-        		"BodyReference");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1698,7 +2023,7 @@ ruleJoint returns [EObject current=null]
        			$current, 
        			"relTrans1",
         		lv_relTrans1_7_0, 
-        		"RelativeTransformation");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.RelativeTransformation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1720,7 +2045,7 @@ ruleJoint returns [EObject current=null]
        			$current, 
        			"body2",
         		lv_body2_9_0, 
-        		"BodyReference");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1768,7 +2093,7 @@ ruleJointType returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1785,7 +2110,7 @@ ruleJointType returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_3_0, 
-        		"AdditiveJointType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AdditiveJointType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1843,7 +2168,7 @@ ruleAdditiveJointType returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"PrimaryJointType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.PrimaryJointType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1956,7 +2281,7 @@ ruleBasicJointType returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"JointMovement");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.JointMovement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1978,7 +2303,7 @@ ruleBasicJointType returns [EObject current=null]
        			$current, 
        			"stiffness",
         		lv_stiffness_2_0, 
-        		"StiffnessExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.StiffnessExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2061,7 +2386,7 @@ ruleRevolute returns [EObject current=null]
        			$current, 
        			"axis",
         		lv_axis_1_0, 
-        		"AXIS");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2104,7 +2429,7 @@ rulePlanar returns [EObject current=null]
        			$current, 
        			"axis",
         		lv_axis_1_0, 
-        		"AXIS");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2222,7 +2547,7 @@ ruleBaseStiffnessExp returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2247,7 +2572,7 @@ ruleBaseStiffnessExp returns [EObject current=null]
        			$current, 
        			"springCoeff",
         		lv_springCoeff_4_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2269,7 +2594,7 @@ ruleBaseStiffnessExp returns [EObject current=null]
        			$current, 
        			"springInit",
         		lv_springInit_6_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2291,7 +2616,7 @@ ruleBaseStiffnessExp returns [EObject current=null]
        			$current, 
        			"dampViscous",
         		lv_dampViscous_8_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2313,7 +2638,7 @@ ruleBaseStiffnessExp returns [EObject current=null]
        			$current, 
        			"dampCoulomb",
         		lv_dampCoulomb_10_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2372,7 +2697,7 @@ ruleRelativeTransformation returns [EObject current=null]
        			$current, 
        			"position",
         		lv_position_4_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2394,7 +2719,7 @@ ruleRelativeTransformation returns [EObject current=null]
        			$current, 
        			"reorient",
         		lv_reorient_6_0, 
-        		"Reorientation");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Reorientation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2442,7 +2767,7 @@ ruleReorientation returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2459,7 +2784,7 @@ ruleReorientation returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_2_0, 
-        		"ReorientExpression");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.ReorientExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2586,7 +2911,7 @@ ruleBasicReorientExpression returns [EObject current=null]
        			$current, 
        			"axis",
         		lv_axis_3_0, 
-        		"AXIS");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2608,7 +2933,7 @@ ruleBasicReorientExpression returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_5_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2638,7 +2963,7 @@ ruleBasicReorientExpression returns [EObject current=null]
        			$current, 
        			"axis",
         		lv_axis_9_0, 
-        		"AXIS");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2660,7 +2985,7 @@ ruleBasicReorientExpression returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_11_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2712,7 +3037,7 @@ ruleConstraint returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2733,7 +3058,7 @@ ruleConstraint returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_3_0, 
-        		"ConstraintType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.ConstraintType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2755,7 +3080,7 @@ ruleConstraint returns [EObject current=null]
        			$current, 
        			"body1",
         		lv_body1_5_0, 
-        		"BodyReference");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2773,7 +3098,7 @@ ruleConstraint returns [EObject current=null]
        			$current, 
        			"relTrans1",
         		lv_relTrans1_6_0, 
-        		"RelativeTransformation");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.RelativeTransformation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2795,7 +3120,7 @@ ruleConstraint returns [EObject current=null]
        			$current, 
        			"body2",
         		lv_body2_8_0, 
-        		"BodyReference");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2813,7 +3138,7 @@ ruleConstraint returns [EObject current=null]
        			$current, 
        			"relTrans2",
         		lv_relTrans2_9_0, 
-        		"RelativeTransformation");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.RelativeTransformation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2857,7 +3182,7 @@ ruleJointConstraint returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2942,7 +3267,7 @@ ruleExternalLoad returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2963,7 +3288,7 @@ ruleExternalLoad returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_4_0, 
-        		"LoadType");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.LoadType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2985,7 +3310,7 @@ ruleExternalLoad returns [EObject current=null]
        			$current, 
        			"body1",
         		lv_body1_6_0, 
-        		"BodyReference");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3019,7 +3344,7 @@ ruleExternalLoad returns [EObject current=null]
        			$current, 
        			"position",
         		lv_position_11_0, 
-        		"Matrix");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3107,7 +3432,7 @@ ruleBaseMatrix returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3128,7 +3453,7 @@ ruleBaseMatrix returns [EObject current=null]
        			$current, 
        			"values",
         		lv_values_3_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3150,7 +3475,7 @@ ruleBaseMatrix returns [EObject current=null]
        			$current, 
        			"values",
         		lv_values_5_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3272,7 +3597,7 @@ ruleAddExp returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"MultExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.MultExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3356,7 +3681,7 @@ ruleMultExp returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Primary");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.Primary");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3449,7 +3774,7 @@ ruleParenthesisedExp returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_1_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3481,9 +3806,10 @@ ruleConstantOrFunctionCallExp returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_label_0_0=RULE_ID
+(
+		lv_label_0_1=RULE_ID
 		{
-			newLeafNode(lv_label_0_0, grammarAccess.getConstantOrFunctionCallExpAccess().getLabelIDTerminalRuleCall_0_0()); 
+			newLeafNode(lv_label_0_1, grammarAccess.getConstantOrFunctionCallExpAccess().getLabelIDTerminalRuleCall_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3492,9 +3818,47 @@ ruleConstantOrFunctionCallExp returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"label",
-        		lv_label_0_0, 
-        		"ID");
+        		lv_label_0_1, 
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
+
+    |		lv_label_0_2=	'x' 
+    {
+        newLeafNode(lv_label_0_2, grammarAccess.getConstantOrFunctionCallExpAccess().getLabelXKeyword_0_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstantOrFunctionCallExpRule());
+	        }
+       		setWithLastConsumed($current, "label", lv_label_0_2, null);
+	    }
+
+    |		lv_label_0_3=	'y' 
+    {
+        newLeafNode(lv_label_0_3, grammarAccess.getConstantOrFunctionCallExpAccess().getLabelYKeyword_0_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstantOrFunctionCallExpRule());
+	        }
+       		setWithLastConsumed($current, "label", lv_label_0_3, null);
+	    }
+
+    |		lv_label_0_4=	'z' 
+    {
+        newLeafNode(lv_label_0_4, grammarAccess.getConstantOrFunctionCallExpAccess().getLabelZKeyword_0_0_3());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstantOrFunctionCallExpRule());
+	        }
+       		setWithLastConsumed($current, "label", lv_label_0_4, null);
+	    }
+
+)
 
 )
 )(	otherlv_1='(' 
@@ -3514,7 +3878,7 @@ ruleConstantOrFunctionCallExp returns [EObject current=null]
        			$current, 
        			"param",
         		lv_param_2_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3536,7 +3900,7 @@ ruleConstantOrFunctionCallExp returns [EObject current=null]
        			$current, 
        			"param",
         		lv_param_4_0, 
-        		"AddExp");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3595,7 +3959,7 @@ ruleNumberLiteral returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_1_0, 
-        		"REAL");
+        		"uk.ac.kcl.inf.robotics.RigidBodies.REAL");
 	    }
 
 )

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
-import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
 
@@ -24,7 +23,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.SystemInstantiation;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationStatementImpl#getSystem <em>System</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.ConfigurationStatementImpl#getJoint <em>Joint</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,16 +38,6 @@ public class ConfigurationStatementImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected SystemInstantiation system;
-
-  /**
-   * The cached value of the '{@link #getJoint() <em>Joint</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getJoint()
-   * @generated
-   * @ordered
-   */
-  protected Joint joint;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,49 +108,6 @@ public class ConfigurationStatementImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Joint getJoint()
-  {
-    if (joint != null && joint.eIsProxy())
-    {
-      InternalEObject oldJoint = (InternalEObject)joint;
-      joint = (Joint)eResolveProxy(oldJoint);
-      if (joint != oldJoint)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.CONFIGURATION_STATEMENT__JOINT, oldJoint, joint));
-      }
-    }
-    return joint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Joint basicGetJoint()
-  {
-    return joint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setJoint(Joint newJoint)
-  {
-    Joint oldJoint = joint;
-    joint = newJoint;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.CONFIGURATION_STATEMENT__JOINT, oldJoint, joint));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -171,9 +116,6 @@ public class ConfigurationStatementImpl extends MinimalEObjectImpl.Container imp
       case RigidBodiesPackage.CONFIGURATION_STATEMENT__SYSTEM:
         if (resolve) return getSystem();
         return basicGetSystem();
-      case RigidBodiesPackage.CONFIGURATION_STATEMENT__JOINT:
-        if (resolve) return getJoint();
-        return basicGetJoint();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -190,9 +132,6 @@ public class ConfigurationStatementImpl extends MinimalEObjectImpl.Container imp
     {
       case RigidBodiesPackage.CONFIGURATION_STATEMENT__SYSTEM:
         setSystem((SystemInstantiation)newValue);
-        return;
-      case RigidBodiesPackage.CONFIGURATION_STATEMENT__JOINT:
-        setJoint((Joint)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,9 +150,6 @@ public class ConfigurationStatementImpl extends MinimalEObjectImpl.Container imp
       case RigidBodiesPackage.CONFIGURATION_STATEMENT__SYSTEM:
         setSystem((SystemInstantiation)null);
         return;
-      case RigidBodiesPackage.CONFIGURATION_STATEMENT__JOINT:
-        setJoint((Joint)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -230,8 +166,6 @@ public class ConfigurationStatementImpl extends MinimalEObjectImpl.Container imp
     {
       case RigidBodiesPackage.CONFIGURATION_STATEMENT__SYSTEM:
         return system != null;
-      case RigidBodiesPackage.CONFIGURATION_STATEMENT__JOINT:
-        return joint != null;
     }
     return super.eIsSet(featureID);
   }

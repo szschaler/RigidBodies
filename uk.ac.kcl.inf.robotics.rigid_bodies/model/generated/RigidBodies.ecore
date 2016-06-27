@@ -41,15 +41,37 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//SystemInstantiation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlStatement" eSuperTypes="#//ConfigurationStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bodyref" eType="#//BodyReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relative_transform" eType="#//RelativeTransformation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//ConstraintClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="P" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="I" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="D" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstraintClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LockJointStatement" eSuperTypes="#//ConfigurationStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rotation" eType="#//Matrix"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="translation" eType="#//Matrix"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LockDoFStatement" eSuperTypes="#//ConfigurationStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" eType="#//Joint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lockedType" eType="#//LockedJointTypeExpression"
         containment="true"/>
   </eClassifiers>

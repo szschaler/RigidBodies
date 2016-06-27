@@ -39,6 +39,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getInitialDefinitionAccess().getAlternatives(), "rule__InitialDefinition__Alternatives");
 					put(grammarAccess.getConfigurationStatementAccess().getAlternatives(), "rule__ConfigurationStatement__Alternatives");
+					put(grammarAccess.getConstraintClauseAccess().getOpAlternatives_1_0(), "rule__ConstraintClause__OpAlternatives_1_0");
 					put(grammarAccess.getPrimaryLockedJointTypeAccess().getAlternatives(), "rule__PrimaryLockedJointType__Alternatives");
 					put(grammarAccess.getLockedJointMovementAccess().getAlternatives(), "rule__LockedJointMovement__Alternatives");
 					put(grammarAccess.getSystemElementAccess().getAlternatives(), "rule__SystemElement__Alternatives");
@@ -53,6 +54,7 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddExpAccess().getOpAlternatives_1_1_0(), "rule__AddExp__OpAlternatives_1_1_0");
 					put(grammarAccess.getMultExpAccess().getOpAlternatives_1_1_0(), "rule__MultExp__OpAlternatives_1_1_0");
 					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
+					put(grammarAccess.getConstantOrFunctionCallExpAccess().getLabelAlternatives_0_0(), "rule__ConstantOrFunctionCallExp__LabelAlternatives_0_0");
 					put(grammarAccess.getAXISAccess().getAlternatives(), "rule__AXIS__Alternatives");
 					put(grammarAccess.getConstraintTypeAccess().getAlternatives(), "rule__ConstraintType__Alternatives");
 					put(grammarAccess.getLoadTypeAccess().getAlternatives(), "rule__LoadType__Alternatives");
@@ -62,6 +64,12 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConfigurationDefAccess().getGroup(), "rule__ConfigurationDef__Group__0");
 					put(grammarAccess.getSystemInstantiationAccess().getGroup(), "rule__SystemInstantiation__Group__0");
 					put(grammarAccess.getConfigurationAccess().getGroup(), "rule__Configuration__Group__0");
+					put(grammarAccess.getControlStatementAccess().getGroup(), "rule__ControlStatement__Group__0");
+					put(grammarAccess.getControlStatementAccess().getGroup_7(), "rule__ControlStatement__Group_7__0");
+					put(grammarAccess.getControlStatementAccess().getGroup_11(), "rule__ControlStatement__Group_11__0");
+					put(grammarAccess.getControlStatementAccess().getGroup_12(), "rule__ControlStatement__Group_12__0");
+					put(grammarAccess.getControlStatementAccess().getGroup_13(), "rule__ControlStatement__Group_13__0");
+					put(grammarAccess.getConstraintClauseAccess().getGroup(), "rule__ConstraintClause__Group__0");
 					put(grammarAccess.getLockJointStatementAccess().getGroup(), "rule__LockJointStatement__Group__0");
 					put(grammarAccess.getLockDoFStatementAccess().getGroup(), "rule__LockDoFStatement__Group__0");
 					put(grammarAccess.getAdditiveLockedJointTypeAccess().getGroup(), "rule__AdditiveLockedJointType__Group__0");
@@ -119,6 +127,17 @@ public class RigidBodiesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemInstantiationAccess().getNameAssignment_3(), "rule__SystemInstantiation__NameAssignment_3");
 					put(grammarAccess.getConfigurationAccess().getNameAssignment_0(), "rule__Configuration__NameAssignment_0");
 					put(grammarAccess.getConfigurationAccess().getStatementsAssignment_2(), "rule__Configuration__StatementsAssignment_2");
+					put(grammarAccess.getControlStatementAccess().getSystemAssignment_1(), "rule__ControlStatement__SystemAssignment_1");
+					put(grammarAccess.getControlStatementAccess().getBodyrefAssignment_3(), "rule__ControlStatement__BodyrefAssignment_3");
+					put(grammarAccess.getControlStatementAccess().getRelative_transformAssignment_4(), "rule__ControlStatement__Relative_transformAssignment_4");
+					put(grammarAccess.getControlStatementAccess().getConstraintsAssignment_6(), "rule__ControlStatement__ConstraintsAssignment_6");
+					put(grammarAccess.getControlStatementAccess().getConstraintsAssignment_7_1(), "rule__ControlStatement__ConstraintsAssignment_7_1");
+					put(grammarAccess.getControlStatementAccess().getPAssignment_11_2(), "rule__ControlStatement__PAssignment_11_2");
+					put(grammarAccess.getControlStatementAccess().getIAssignment_12_2(), "rule__ControlStatement__IAssignment_12_2");
+					put(grammarAccess.getControlStatementAccess().getDAssignment_13_2(), "rule__ControlStatement__DAssignment_13_2");
+					put(grammarAccess.getConstraintClauseAccess().getLhsAssignment_0(), "rule__ConstraintClause__LhsAssignment_0");
+					put(grammarAccess.getConstraintClauseAccess().getOpAssignment_1(), "rule__ConstraintClause__OpAssignment_1");
+					put(grammarAccess.getConstraintClauseAccess().getRhsAssignment_2(), "rule__ConstraintClause__RhsAssignment_2");
 					put(grammarAccess.getLockJointStatementAccess().getSystemAssignment_1(), "rule__LockJointStatement__SystemAssignment_1");
 					put(grammarAccess.getLockJointStatementAccess().getJointAssignment_3(), "rule__LockJointStatement__JointAssignment_3");
 					put(grammarAccess.getLockJointStatementAccess().getRotationAssignment_6(), "rule__LockJointStatement__RotationAssignment_6");
