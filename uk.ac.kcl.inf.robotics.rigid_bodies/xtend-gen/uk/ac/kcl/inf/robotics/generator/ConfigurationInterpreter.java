@@ -1,27 +1,40 @@
 package uk.ac.kcl.inf.robotics.generator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
 import uk.ac.kcl.inf.robotics.rigidBodies.AddExp;
+import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.BasicLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicReorientExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Configuration;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
+import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement;
+import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.Matrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.MatrixRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
@@ -30,6 +43,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ReorientRef;
 import uk.ac.kcl.inf.robotics.rigidBodies.Reorientation;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesFactory;
 import uk.ac.kcl.inf.robotics.util.ExpressionHelper;
+import uk.ac.kcl.inf.robotics.util.JointTypeHelper;
 
 @SuppressWarnings("all")
 public class ConfigurationInterpreter {
@@ -72,6 +86,62 @@ public class ConfigurationInterpreter {
   
   private Object _doConfigure(final ConfigurationStatement ls, final EcoreUtil.Copier copier) {
     return null;
+  }
+  
+  private Object _doConfigure(final LockDoFStatement ldfs, final EcoreUtil.Copier copier) {
+    Object _xblockexpression = null;
+    {
+      Joint _joint = ldfs.getJoint();
+      EObject _get = copier.get(_joint);
+      final Joint jointToModify = ((Joint) _get);
+      LockedJointTypeExpression _lockedType = ldfs.getLockedType();
+      JointType _type = jointToModify.getType();
+      JointTypeExpression _exp = _type.getExp();
+      _xblockexpression = this.getLockedTypeFor(_lockedType, _exp);
+    }
+    return _xblockexpression;
+  }
+  
+  private List<JointTypeExpression> _getLockedTypeFor(final AdditiveLockedJointType aljt, final JointTypeExpression exp) {
+    ArrayList<JointTypeExpression> _xblockexpression = null;
+    {
+      final int[] idx = ((int[])Conversions.unwrapArray(Collections.<Integer>unmodifiableSet(CollectionLiterals.<Integer>newHashSet(Integer.valueOf(1))), int.class));
+      EList<LockedJointTypeExpression> _right = aljt.getRight();
+      LockedJointTypeExpression _left = aljt.getLeft();
+      JointTypeExpression _get = JointTypeHelper.get(exp, 0);
+      List<JointTypeExpression> _lockedTypeFor = this.getLockedTypeFor(_left, _get);
+      ArrayList<JointTypeExpression> _arrayList = new ArrayList<JointTypeExpression>(_lockedTypeFor);
+      final Function2<ArrayList<JointTypeExpression>, LockedJointTypeExpression, ArrayList<JointTypeExpression>> _function = new Function2<ArrayList<JointTypeExpression>, LockedJointTypeExpression, ArrayList<JointTypeExpression>>() {
+        @Override
+        public ArrayList<JointTypeExpression> apply(final ArrayList<JointTypeExpression> l, final LockedJointTypeExpression c) {
+          int _get = idx[0];
+          JointTypeExpression _get_1 = JointTypeHelper.get(exp, _get);
+          List<JointTypeExpression> _lockedTypeFor = ConfigurationInterpreter.this.getLockedTypeFor(c, _get_1);
+          l.addAll(_lockedTypeFor);
+          int _get_2 = idx[0];
+          int _plus = (_get_2 + 1);
+          idx[0] = _plus;
+          return l;
+        }
+      };
+      _xblockexpression = IterableExtensions.<LockedJointTypeExpression, ArrayList<JointTypeExpression>>fold(_right, _arrayList, _function);
+    }
+    return _xblockexpression;
+  }
+  
+  private List<JointTypeExpression> _getLockedTypeFor(final KeepUnlockedJointType kujt, final JointTypeExpression exp) {
+    return Collections.<JointTypeExpression>singletonList(exp);
+  }
+  
+  private List<JointTypeExpression> _getLockedTypeFor(final BasicLockedJointType bljt, final JointTypeExpression exp) {
+    Object _xifexpression = null;
+    JointTypeExpression _get = JointTypeHelper.get(exp, 0);
+    if ((_get instanceof BasicJointType)) {
+      _xifexpression = null;
+    } else {
+      _xifexpression = null;
+    }
+    return ((List<JointTypeExpression>)_xifexpression);
   }
   
   private Object _doConfigure(final LockJointStatement ls, final EcoreUtil.Copier copier) {
@@ -193,14 +263,29 @@ public class ConfigurationInterpreter {
     return this.elements(_matrix);
   }
   
-  private Object doConfigure(final ConfigurationStatement ls, final EcoreUtil.Copier copier) {
-    if (ls instanceof LockJointStatement) {
-      return _doConfigure((LockJointStatement)ls, copier);
-    } else if (ls != null) {
-      return _doConfigure(ls, copier);
+  private Object doConfigure(final ConfigurationStatement ldfs, final EcoreUtil.Copier copier) {
+    if (ldfs instanceof LockDoFStatement) {
+      return _doConfigure((LockDoFStatement)ldfs, copier);
+    } else if (ldfs instanceof LockJointStatement) {
+      return _doConfigure((LockJointStatement)ldfs, copier);
+    } else if (ldfs != null) {
+      return _doConfigure(ldfs, copier);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(ls, copier).toString());
+        Arrays.<Object>asList(ldfs, copier).toString());
+    }
+  }
+  
+  private List<JointTypeExpression> getLockedTypeFor(final LockedJointTypeExpression aljt, final JointTypeExpression exp) {
+    if (aljt instanceof AdditiveLockedJointType) {
+      return _getLockedTypeFor((AdditiveLockedJointType)aljt, exp);
+    } else if (aljt instanceof BasicLockedJointType) {
+      return _getLockedTypeFor((BasicLockedJointType)aljt, exp);
+    } else if (aljt instanceof KeepUnlockedJointType) {
+      return _getLockedTypeFor((KeepUnlockedJointType)aljt, exp);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(aljt, exp).toString());
     }
   }
   

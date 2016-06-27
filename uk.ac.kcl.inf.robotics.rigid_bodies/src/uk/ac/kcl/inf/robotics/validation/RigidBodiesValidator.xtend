@@ -6,7 +6,6 @@ package uk.ac.kcl.inf.robotics.validation
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.ValidationMessageAcceptor
-import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType
@@ -29,7 +28,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage
 import uk.ac.kcl.inf.robotics.rigidBodies.System
-import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference
+
+import static extension uk.ac.kcl.inf.robotics.util.JointTypeHelper.*
 
 /**
  * This class contains custom validation rules. 
@@ -236,23 +236,5 @@ class RigidBodiesValidator extends AbstractRigidBodiesValidator {
 				error('No matching element in original joint type', lp, null,
 					ValidationMessageAcceptor.INSIGNIFICANT_INDEX, LOCKED_TYPE_NO_MATCH)
 			}
-		}
-
-		private dispatch def JointTypeExpression get(JointTypeExpression exp, int i) {
-			if (i == 0)
-				return exp
-			else
-				return null
-		}
-
-		private dispatch def JointTypeExpression get(AdditiveJointType exp, int i) {
-			if (i == 0)
-				return exp.left
-			else
-				return exp.right.get(i - 1)
-		}
-		
-		private dispatch def JointTypeExpression get(JointTypeReference exp, int i) {
-			exp.ref.exp.get(i)
 		}
 	}

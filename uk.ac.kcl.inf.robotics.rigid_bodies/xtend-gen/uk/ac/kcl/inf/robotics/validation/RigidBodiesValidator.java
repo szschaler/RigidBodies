@@ -17,7 +17,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
 import uk.ac.kcl.inf.robotics.rigidBodies.AXIS;
-import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.AdditiveLockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.BaseMatrix;
 import uk.ac.kcl.inf.robotics.rigidBodies.BasicJointType;
@@ -31,7 +30,6 @@ import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointMovement;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeExpression;
-import uk.ac.kcl.inf.robotics.rigidBodies.JointTypeReference;
 import uk.ac.kcl.inf.robotics.rigidBodies.KeepUnlockedJointType;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointMovement;
@@ -47,6 +45,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RelativeTransformation;
 import uk.ac.kcl.inf.robotics.rigidBodies.Revolute;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
 import uk.ac.kcl.inf.robotics.rigidBodies.SystemElement;
+import uk.ac.kcl.inf.robotics.util.JointTypeHelper;
 import uk.ac.kcl.inf.robotics.validation.AbstractRigidBodiesValidator;
 
 /**
@@ -348,13 +347,13 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
   
   private void _checkIsValidLocking(final AdditiveLockedJointType aljt, final JointTypeExpression exp) {
     LockedJointTypeExpression _left = aljt.getLeft();
-    JointTypeExpression _get = this.get(exp, 0);
+    JointTypeExpression _get = JointTypeHelper.get(exp, 0);
     this.checkIsValidLocking(_left, _get);
     EList<LockedJointTypeExpression> _right = aljt.getRight();
     final Procedure2<LockedJointTypeExpression, Integer> _function = new Procedure2<LockedJointTypeExpression, Integer>() {
       @Override
       public void apply(final LockedJointTypeExpression e, final Integer idx) {
-        final JointTypeExpression jt = RigidBodiesValidator.this.get(exp, ((idx).intValue() + 1));
+        final JointTypeExpression jt = JointTypeHelper.get(exp, ((idx).intValue() + 1));
         boolean _notEquals = (!Objects.equal(jt, null));
         if (_notEquals) {
           RigidBodiesValidator.this.checkIsValidLocking(e, jt);
@@ -371,10 +370,10 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
   }
   
   private void _checkIsValidLocking(final BasicLockedJointType bljt, final JointTypeExpression exp) {
-    JointTypeExpression _get = this.get(exp, 0);
+    JointTypeExpression _get = JointTypeHelper.get(exp, 0);
     if ((_get instanceof BasicJointType)) {
       LockedJointMovement _type = bljt.getType();
-      JointTypeExpression _get_1 = this.get(exp, 0);
+      JointTypeExpression _get_1 = JointTypeHelper.get(exp, 0);
       JointMovement _type_1 = ((BasicJointType) _get_1).getType();
       this.checkIsValidLocking(_type, _type_1);
     } else {
@@ -417,29 +416,6 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     }
   }
   
-  private JointTypeExpression _get(final JointTypeExpression exp, final int i) {
-    if ((i == 0)) {
-      return exp;
-    } else {
-      return null;
-    }
-  }
-  
-  private JointTypeExpression _get(final AdditiveJointType exp, final int i) {
-    if ((i == 0)) {
-      return exp.getLeft();
-    } else {
-      EList<JointTypeExpression> _right = exp.getRight();
-      return _right.get((i - 1));
-    }
-  }
-  
-  private JointTypeExpression _get(final JointTypeReference exp, final int i) {
-    JointType _ref = exp.getRef();
-    JointTypeExpression _exp = _ref.getExp();
-    return this.get(_exp, i);
-  }
-  
   public int getLength(final Matrix matrix) {
     if (matrix instanceof BaseMatrix) {
       return _getLength((BaseMatrix)matrix);
@@ -475,19 +451,6 @@ public class RigidBodiesValidator extends AbstractRigidBodiesValidator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(aljt, exp).toString());
-    }
-  }
-  
-  private JointTypeExpression get(final JointTypeExpression exp, final int i) {
-    if (exp instanceof AdditiveJointType) {
-      return _get((AdditiveJointType)exp, i);
-    } else if (exp instanceof JointTypeReference) {
-      return _get((JointTypeReference)exp, i);
-    } else if (exp != null) {
-      return _get(exp, i);
-    } else {
-      throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(exp, i).toString());
     }
   }
 }
