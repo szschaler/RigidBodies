@@ -1,0 +1,64 @@
+matrix Inertia [1.0e-3, 0.0,    0.0,
+				0.0,    1.0e-3, 0.0,
+				0.0,    0.0,    1.0e-3]
+				
+stiffness DefaultStiffness {
+	springCoeff 0.0
+	springInit 0.0
+	dampViscous 0.1
+	dampCoulomb 0.0
+}
+
+joint type XYZRevolve revolute x with DefaultStiffness + revolute y with DefaultStiffness + revolute z with DefaultStiffness
+
+world {
+	gravity [0.0, 0.0, -9.81]
+}
+
+system RobotArm {
+	body UpperArm {
+		mass {
+			value 1.0
+			position [0.5, 0.5, 0.5]
+			inertia Inertia
+		}		
+	}
+	
+	body LowerArm {
+		mass {
+			value 1.0
+			position [0.5, 0.5, 0.5]
+			inertia Inertia
+		}
+	}
+	
+	body Finger {
+		mass {
+			value 1.0
+			position [0.5, 0.5, 0.5]
+			inertia Inertia
+		}		
+	}
+	
+	joint Shoulder: XYZRevolve
+		between base (with relative transformation [0.0, 0.0, 1.0], reorient NoReorient ())
+		and UpperArm
+		
+	joint Elbow: XYZRevolve
+		between UpperArm (with relative transformation [0.0, 0.0, 1.0], reorient NoReorient ())
+		and LowerArm
+		
+	joint Wrist: XYZRevolve
+		between LowerArm (with relative transformation [0.0, 0.0, 1.0], reorient NoReorient ())
+		and Finger	
+}
+
+configurations {
+	instantiate RobotArm as arm
+	
+	default {
+		control arm.Finger (with relative transformation [0.0, 0.0, 1.0], reorient NoReorient ()) 
+			to z=7, x+8*y=0, x=t // t is time
+			with gains {P=7, I=6, D=5} // Defaults for non-given bits are 0.0
+	}
+}
