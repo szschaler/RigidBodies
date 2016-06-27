@@ -95,6 +95,24 @@ public interface RigidBodiesFactory extends EFactory
   ConfigurationStatement createConfigurationStatement();
 
   /**
+   * Returns a new object of class '<em>Control Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Control Statement</em>'.
+   * @generated
+   */
+  ControlStatement createControlStatement();
+
+  /**
+   * Returns a new object of class '<em>Constraint Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constraint Clause</em>'.
+   * @generated
+   */
+  ConstraintClause createConstraintClause();
+
+  /**
    * Returns a new object of class '<em>Lock Joint Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

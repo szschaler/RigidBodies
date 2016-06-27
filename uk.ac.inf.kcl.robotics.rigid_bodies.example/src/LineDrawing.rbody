@@ -58,7 +58,7 @@ configurations {
 	
 	default {
 		control arm.Finger (with relative transformation [0.0, 0.0, 1.0], reorient NoReorient ()) 
-			to z=7, x+8*y=0, x=t // t is time
-			with gains {P=7, I=6, D=5} // Defaults for non-given bits are 0.0
+			to z=7.0, x+8.0*y=0.0, x=t // t is time
+			with gains {P=7.0 I=6.0 D=5.0} // Defaults for non-given bits are 0.0
 	}
 }

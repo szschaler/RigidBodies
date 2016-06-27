@@ -12,6 +12,7 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getJoint <em>Joint</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getRotation <em>Rotation</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getTranslation <em>Translation</em>}</li>
  * </ul>
@@ -22,6 +23,32 @@ package uk.ac.kcl.inf.robotics.rigidBodies;
  */
 public interface LockJointStatement extends ConfigurationStatement
 {
+  /**
+   * Returns the value of the '<em><b>Joint</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Joint</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Joint</em>' reference.
+   * @see #setJoint(Joint)
+   * @see uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage#getLockJointStatement_Joint()
+   * @model
+   * @generated
+   */
+  Joint getJoint();
+
+  /**
+   * Sets the value of the '{@link uk.ac.kcl.inf.robotics.rigidBodies.LockJointStatement#getJoint <em>Joint</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Joint</em>' reference.
+   * @see #getJoint()
+   * @generated
+   */
+  void setJoint(Joint value);
+
   /**
    * Returns the value of the '<em><b>Rotation</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -19,7 +19,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDefsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cDefsInitialDefinitionParserRuleCall_0_0 = (RuleCall)cDefsAssignment_0.eContents().get(0);
@@ -31,7 +31,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConfigurationConfigurationDefParserRuleCall_3_0 = (RuleCall)cConfigurationAssignment_3.eContents().get(0);
 		
 		//Model:
-		//	defs+=InitialDefinition* world=Environment bodies+=System+ configuration=ConfigurationDef;
+		//	defs+=InitialDefinition*
+		//	world=Environment
+		//	bodies+=System+
+		//	configuration=ConfigurationDef;
 		@Override public ParserRule getRule() { return rule; }
 
 		//defs+=InitialDefinition* world=Environment bodies+=System+ configuration=ConfigurationDef
@@ -63,7 +66,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class InitialDefinitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InitialDefinition");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.InitialDefinition");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBaseMatrixParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -87,7 +90,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class EnvironmentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Environment");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Environment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cWorldKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -97,19 +100,21 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Environment:
-		//	"world" "{" "gravity" gravity=Matrix "}";
+		//	'world' '{'
+		//	'gravity' gravity=Matrix
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"world" "{" "gravity" gravity=Matrix "}"
+		//'world' '{' 'gravity' gravity=Matrix '}'
 		public Group getGroup() { return cGroup; }
 
-		//"world"
+		//'world'
 		public Keyword getWorldKeyword_0() { return cWorldKeyword_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//"gravity"
+		//'gravity'
 		public Keyword getGravityKeyword_2() { return cGravityKeyword_2; }
 
 		//gravity=Matrix
@@ -118,12 +123,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Matrix
 		public RuleCall getGravityMatrixParserRuleCall_3_0() { return cGravityMatrixParserRuleCall_3_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class SystemElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "System");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.System");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -134,13 +139,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//System:
-		//	"system" name=ID "{" elements+=SystemElement+ "}";
+		//	'system' name=ID '{'
+		//	elements+=SystemElement+
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"system" name=ID "{" elements+=SystemElement+ "}"
+		//'system' name=ID '{' elements+=SystemElement+ '}'
 		public Group getGroup() { return cGroup; }
 
-		//"system"
+		//'system'
 		public Keyword getSystemKeyword_0() { return cSystemKeyword_0; }
 
 		//name=ID
@@ -149,7 +156,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//elements+=SystemElement+
@@ -158,12 +165,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//SystemElement
 		public RuleCall getElementsSystemElementParserRuleCall_3_0() { return cElementsSystemElementParserRuleCall_3_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class ConfigurationDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConfigurationDef");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ConfigurationDef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cConfigurationsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -174,16 +181,19 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ConfigurationDef:
-		//	"configurations" "{" instances+=SystemInstantiation+ configs+=Configuration+ "}";
+		//	'configurations' '{'
+		//	instances+=SystemInstantiation+
+		//	configs+=Configuration+
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"configurations" "{" instances+=SystemInstantiation+ configs+=Configuration+ "}"
+		//'configurations' '{' instances+=SystemInstantiation+ configs+=Configuration+ '}'
 		public Group getGroup() { return cGroup; }
 
-		//"configurations"
+		//'configurations'
 		public Keyword getConfigurationsKeyword_0() { return cConfigurationsKeyword_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//instances+=SystemInstantiation+
@@ -198,12 +208,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Configuration
 		public RuleCall getConfigsConfigurationParserRuleCall_3_0() { return cConfigsConfigurationParserRuleCall_3_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class SystemInstantiationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SystemInstantiation");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.SystemInstantiation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cInstantiateKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -214,13 +224,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		
 		//SystemInstantiation:
-		//	"instantiate" system=[System] "as" name=ID;
+		//	'instantiate' system=[System] 'as' name=ID;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"instantiate" system=[System] "as" name=ID
+		//'instantiate' system=[System] 'as' name=ID
 		public Group getGroup() { return cGroup; }
 
-		//"instantiate"
+		//'instantiate'
 		public Keyword getInstantiateKeyword_0() { return cInstantiateKeyword_0; }
 
 		//system=[System]
@@ -232,7 +242,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSystemSystemIDTerminalRuleCall_1_0_1() { return cSystemSystemIDTerminalRuleCall_1_0_1; }
 
-		//"as"
+		//'as'
 		public Keyword getAsKeyword_2() { return cAsKeyword_2; }
 
 		//name=ID
@@ -243,7 +253,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ConfigurationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Configuration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Configuration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
@@ -253,10 +263,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Configuration:
-		//	name=ID "{" statements+=ConfigurationStatement* "}";
+		//	name=ID '{'
+		//	statements+=ConfigurationStatement*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=ID "{" statements+=ConfigurationStatement* "}"
+		//name=ID '{' statements+=ConfigurationStatement* '}'
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -265,7 +277,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//statements+=ConfigurationStatement*
@@ -274,35 +286,246 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ConfigurationStatement
 		public RuleCall getStatementsConfigurationStatementParserRuleCall_2_0() { return cStatementsConfigurationStatementParserRuleCall_2_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class ConfigurationStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConfigurationStatement");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ConfigurationStatement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cLockJointStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLockDoFStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cControlStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLockJointStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLockDoFStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//// TODO how to reference specific degrees of freedom in a robust way?
-		//ConfigurationStatement: // TODO Other types of configuration statements?
-		//	LockJointStatement | LockDoFStatement;
+		//ConfigurationStatement:
+		//	ControlStatement | LockJointStatement | LockDoFStatement
+		//	// TODO how to reference specific degrees of freedom in a robust way?
+		//;
 		@Override public ParserRule getRule() { return rule; }
 
 		//// TODO Other types of configuration statements?
-		//LockJointStatement | LockDoFStatement
+		//ControlStatement | LockJointStatement | LockDoFStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//// TODO Other types of configuration statements?
+		//ControlStatement
+		public RuleCall getControlStatementParserRuleCall_0() { return cControlStatementParserRuleCall_0; }
+
 		//LockJointStatement
-		public RuleCall getLockJointStatementParserRuleCall_0() { return cLockJointStatementParserRuleCall_0; }
+		public RuleCall getLockJointStatementParserRuleCall_1() { return cLockJointStatementParserRuleCall_1; }
 
 		//LockDoFStatement
-		public RuleCall getLockDoFStatementParserRuleCall_1() { return cLockDoFStatementParserRuleCall_1; }
+		public RuleCall getLockDoFStatementParserRuleCall_2() { return cLockDoFStatementParserRuleCall_2; }
+	}
+
+	public class ControlStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ControlStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cControlKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSystemSystemInstantiationCrossReference_1_0 = (CrossReference)cSystemAssignment_1.eContents().get(0);
+		private final RuleCall cSystemSystemInstantiationIDTerminalRuleCall_1_0_1 = (RuleCall)cSystemSystemInstantiationCrossReference_1_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cBodyrefAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cBodyrefBodyReferenceParserRuleCall_3_0 = (RuleCall)cBodyrefAssignment_3.eContents().get(0);
+		private final Assignment cRelative_transformAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRelative_transformRelativeTransformationParserRuleCall_4_0 = (RuleCall)cRelative_transformAssignment_4.eContents().get(0);
+		private final Keyword cToKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cConstraintsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cConstraintsConstraintClauseParserRuleCall_6_0 = (RuleCall)cConstraintsAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cConstraintsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cConstraintsConstraintClauseParserRuleCall_7_1_0 = (RuleCall)cConstraintsAssignment_7_1.eContents().get(0);
+		private final Keyword cWithKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cGainsKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cLeftCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cPKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
+		private final Assignment cPAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
+		private final RuleCall cPAddExpParserRuleCall_11_2_0 = (RuleCall)cPAssignment_11_2.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cIKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final Assignment cIAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
+		private final RuleCall cIAddExpParserRuleCall_12_2_0 = (RuleCall)cIAssignment_12_2.eContents().get(0);
+		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
+		private final Keyword cDKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
+		private final Assignment cDAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
+		private final RuleCall cDAddExpParserRuleCall_13_2_0 = (RuleCall)cDAssignment_13_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		
+		//ControlStatement:
+		//	'control' system=[SystemInstantiation] '.' bodyref=BodyReference
+		//	relative_transform=RelativeTransformation
+		//	'to' constraints+=ConstraintClause (',' constraints+=ConstraintClause)*
+		//	'with' 'gains' '{' ('P' '=' P=AddExp)? ('I' '=' I=AddExp)? ('D' '=' D=AddExp)?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+
+		//'control' system=[SystemInstantiation] '.' bodyref=BodyReference relative_transform=RelativeTransformation 'to'
+		//constraints+=ConstraintClause (',' constraints+=ConstraintClause)* 'with' 'gains' '{' ('P' '=' P=AddExp)? ('I' '='
+		//I=AddExp)? ('D' '=' D=AddExp)? '}'
+		public Group getGroup() { return cGroup; }
+
+		//'control'
+		public Keyword getControlKeyword_0() { return cControlKeyword_0; }
+
+		//system=[SystemInstantiation]
+		public Assignment getSystemAssignment_1() { return cSystemAssignment_1; }
+
+		//[SystemInstantiation]
+		public CrossReference getSystemSystemInstantiationCrossReference_1_0() { return cSystemSystemInstantiationCrossReference_1_0; }
+
+		//ID
+		public RuleCall getSystemSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSystemSystemInstantiationIDTerminalRuleCall_1_0_1; }
+
+		//'.'
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+
+		//bodyref=BodyReference
+		public Assignment getBodyrefAssignment_3() { return cBodyrefAssignment_3; }
+
+		//BodyReference
+		public RuleCall getBodyrefBodyReferenceParserRuleCall_3_0() { return cBodyrefBodyReferenceParserRuleCall_3_0; }
+
+		//relative_transform=RelativeTransformation
+		public Assignment getRelative_transformAssignment_4() { return cRelative_transformAssignment_4; }
+
+		//RelativeTransformation
+		public RuleCall getRelative_transformRelativeTransformationParserRuleCall_4_0() { return cRelative_transformRelativeTransformationParserRuleCall_4_0; }
+
+		//'to'
+		public Keyword getToKeyword_5() { return cToKeyword_5; }
+
+		//constraints+=ConstraintClause
+		public Assignment getConstraintsAssignment_6() { return cConstraintsAssignment_6; }
+
+		//ConstraintClause
+		public RuleCall getConstraintsConstraintClauseParserRuleCall_6_0() { return cConstraintsConstraintClauseParserRuleCall_6_0; }
+
+		//(',' constraints+=ConstraintClause)*
+		public Group getGroup_7() { return cGroup_7; }
+
+		//','
+		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+
+		//constraints+=ConstraintClause
+		public Assignment getConstraintsAssignment_7_1() { return cConstraintsAssignment_7_1; }
+
+		//ConstraintClause
+		public RuleCall getConstraintsConstraintClauseParserRuleCall_7_1_0() { return cConstraintsConstraintClauseParserRuleCall_7_1_0; }
+
+		//'with'
+		public Keyword getWithKeyword_8() { return cWithKeyword_8; }
+
+		//'gains'
+		public Keyword getGainsKeyword_9() { return cGainsKeyword_9; }
+
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_10() { return cLeftCurlyBracketKeyword_10; }
+
+		//('P' '=' P=AddExp)?
+		public Group getGroup_11() { return cGroup_11; }
+
+		//'P'
+		public Keyword getPKeyword_11_0() { return cPKeyword_11_0; }
+
+		//'='
+		public Keyword getEqualsSignKeyword_11_1() { return cEqualsSignKeyword_11_1; }
+
+		//P=AddExp
+		public Assignment getPAssignment_11_2() { return cPAssignment_11_2; }
+
+		//AddExp
+		public RuleCall getPAddExpParserRuleCall_11_2_0() { return cPAddExpParserRuleCall_11_2_0; }
+
+		//('I' '=' I=AddExp)?
+		public Group getGroup_12() { return cGroup_12; }
+
+		//'I'
+		public Keyword getIKeyword_12_0() { return cIKeyword_12_0; }
+
+		//'='
+		public Keyword getEqualsSignKeyword_12_1() { return cEqualsSignKeyword_12_1; }
+
+		//I=AddExp
+		public Assignment getIAssignment_12_2() { return cIAssignment_12_2; }
+
+		//AddExp
+		public RuleCall getIAddExpParserRuleCall_12_2_0() { return cIAddExpParserRuleCall_12_2_0; }
+
+		//('D' '=' D=AddExp)?
+		public Group getGroup_13() { return cGroup_13; }
+
+		//'D'
+		public Keyword getDKeyword_13_0() { return cDKeyword_13_0; }
+
+		//'='
+		public Keyword getEqualsSignKeyword_13_1() { return cEqualsSignKeyword_13_1; }
+
+		//D=AddExp
+		public Assignment getDAssignment_13_2() { return cDAssignment_13_2; }
+
+		//AddExp
+		public RuleCall getDAddExpParserRuleCall_13_2_0() { return cDAddExpParserRuleCall_13_2_0; }
+
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
+	}
+
+	public class ConstraintClauseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ConstraintClause");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLhsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLhsAddExpParserRuleCall_0_0 = (RuleCall)cLhsAssignment_0.eContents().get(0);
+		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cOpAlternatives_1_0 = (Alternatives)cOpAssignment_1.eContents().get(0);
+		private final Keyword cOpEqualsSignKeyword_1_0_0 = (Keyword)cOpAlternatives_1_0.eContents().get(0);
+		private final Keyword cOpGreaterThanSignKeyword_1_0_1 = (Keyword)cOpAlternatives_1_0.eContents().get(1);
+		private final Keyword cOpLessThanSignKeyword_1_0_2 = (Keyword)cOpAlternatives_1_0.eContents().get(2);
+		private final Assignment cRhsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRhsAddExpParserRuleCall_2_0 = (RuleCall)cRhsAssignment_2.eContents().get(0);
+		
+		//ConstraintClause:
+		//	lhs=AddExp op=('=' | '>' | '<') rhs=AddExp;
+		@Override public ParserRule getRule() { return rule; }
+
+		//lhs=AddExp op=('=' | '>' | '<') rhs=AddExp
+		public Group getGroup() { return cGroup; }
+
+		//lhs=AddExp
+		public Assignment getLhsAssignment_0() { return cLhsAssignment_0; }
+
+		//AddExp
+		public RuleCall getLhsAddExpParserRuleCall_0_0() { return cLhsAddExpParserRuleCall_0_0; }
+
+		//op=('=' | '>' | '<')
+		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
+
+		//('=' | '>' | '<')
+		public Alternatives getOpAlternatives_1_0() { return cOpAlternatives_1_0; }
+
+		//'='
+		public Keyword getOpEqualsSignKeyword_1_0_0() { return cOpEqualsSignKeyword_1_0_0; }
+
+		//'>'
+		public Keyword getOpGreaterThanSignKeyword_1_0_1() { return cOpGreaterThanSignKeyword_1_0_1; }
+
+		//'<'
+		public Keyword getOpLessThanSignKeyword_1_0_2() { return cOpLessThanSignKeyword_1_0_2; }
+
+		//rhs=AddExp
+		public Assignment getRhsAssignment_2() { return cRhsAssignment_2; }
+
+		//AddExp
+		public RuleCall getRhsAddExpParserRuleCall_2_0() { return cRhsAddExpParserRuleCall_2_0; }
 	}
 
 	public class LockJointStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockJointStatement");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.LockJointStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLockKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -321,17 +544,17 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTranslationMatrixParserRuleCall_8_0 = (RuleCall)cTranslationAssignment_8.eContents().get(0);
 		
 		//LockJointStatement: // TODO Handle repeated joints
-		//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" "rotation" rotation= / * 3D vector * / Matrix "translation"
-		//	translation= / * 3D vector * / Matrix;
+		//	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' 'rotation' rotation=Matrix / * 3D vector * / 'translation'
+		//	translation=Matrix / * 3D vector * /;
 		@Override public ParserRule getRule() { return rule; }
 
 		//// TODO Handle repeated joints
-		//"lock" system=[SystemInstantiation] "." joint=[Joint] "to" "rotation" rotation= / * 3D vector * / Matrix "translation"
-		//translation= / * 3D vector * / Matrix
+		//'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' 'rotation' rotation=Matrix / * 3D vector * / 'translation'
+		//translation=Matrix
 		public Group getGroup() { return cGroup; }
 
 		//// TODO Handle repeated joints
-		//"lock"
+		//'lock'
 		public Keyword getLockKeyword_0() { return cLockKeyword_0; }
 
 		//system=[SystemInstantiation]
@@ -343,7 +566,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSystemSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSystemSystemInstantiationIDTerminalRuleCall_1_0_1; }
 
-		//"."
+		//'.'
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 
 		//joint=[Joint]
@@ -355,30 +578,30 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getJointJointIDTerminalRuleCall_3_0_1() { return cJointJointIDTerminalRuleCall_3_0_1; }
 
-		//"to"
+		//'to'
 		public Keyword getToKeyword_4() { return cToKeyword_4; }
 
-		//"rotation"
+		//'rotation'
 		public Keyword getRotationKeyword_5() { return cRotationKeyword_5; }
 
-		//rotation= / * 3D vector * / Matrix
+		//rotation=Matrix
 		public Assignment getRotationAssignment_6() { return cRotationAssignment_6; }
 
-		/// * 3D vector * / Matrix
+		//Matrix
 		public RuleCall getRotationMatrixParserRuleCall_6_0() { return cRotationMatrixParserRuleCall_6_0; }
 
-		//"translation"
+		/// * 3D vector * / 'translation'
 		public Keyword getTranslationKeyword_7() { return cTranslationKeyword_7; }
 
-		//translation= / * 3D vector * / Matrix
+		//translation=Matrix
 		public Assignment getTranslationAssignment_8() { return cTranslationAssignment_8; }
 
-		/// * 3D vector * / Matrix
+		//Matrix
 		public RuleCall getTranslationMatrixParserRuleCall_8_0() { return cTranslationMatrixParserRuleCall_8_0; }
 	}
 
 	public class LockDoFStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockDoFStatement");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.LockDoFStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLockKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cSystemAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -393,13 +616,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLockedTypeAdditiveLockedJointTypeParserRuleCall_5_0 = (RuleCall)cLockedTypeAssignment_5.eContents().get(0);
 		
 		//LockDoFStatement:
-		//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=AdditiveLockedJointType;
+		//	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' lockedType=AdditiveLockedJointType;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=AdditiveLockedJointType
+		//'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' lockedType=AdditiveLockedJointType
 		public Group getGroup() { return cGroup; }
 
-		//"lock"
+		//'lock'
 		public Keyword getLockKeyword_0() { return cLockKeyword_0; }
 
 		//system=[SystemInstantiation]
@@ -411,7 +634,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSystemSystemInstantiationIDTerminalRuleCall_1_0_1() { return cSystemSystemInstantiationIDTerminalRuleCall_1_0_1; }
 
-		//"."
+		//'.'
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 
 		//joint=[Joint]
@@ -423,7 +646,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getJointJointIDTerminalRuleCall_3_0_1() { return cJointJointIDTerminalRuleCall_3_0_1; }
 
-		//"to"
+		//'to'
 		public Keyword getToKeyword_4() { return cToKeyword_4; }
 
 		//lockedType=AdditiveLockedJointType
@@ -434,7 +657,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class AdditiveLockedJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AdditiveLockedJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.AdditiveLockedJointType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cPrimaryLockedJointTypeParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -443,20 +666,20 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightPrimaryLockedJointTypeParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//AdditiveLockedJointType returns LockedJointTypeExpression:
-		//	PrimaryLockedJointType ("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*;
+		//AdditiveLockedJointType LockedJointTypeExpression:
+		//	PrimaryLockedJointType ('+' {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
 		@Override public ParserRule getRule() { return rule; }
 
-		//PrimaryLockedJointType ("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
+		//PrimaryLockedJointType ('+' {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
 		public Group getGroup() { return cGroup; }
 
 		//PrimaryLockedJointType
 		public RuleCall getPrimaryLockedJointTypeParserRuleCall_0() { return cPrimaryLockedJointTypeParserRuleCall_0; }
 
-		//("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
+		//('+' {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//"+"
+		//'+'
 		public Keyword getPlusSignKeyword_1_0() { return cPlusSignKeyword_1_0; }
 
 		//{AdditiveLockedJointType.left=current}
@@ -470,13 +693,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class PrimaryLockedJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrimaryLockedJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.PrimaryLockedJointType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cKeepUnlockedJointTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBasicLockedJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//PrimaryLockedJointType returns LockedJointTypeExpression:
-		//	KeepUnlockedJointType | BasicLockedJointType;
+		//PrimaryLockedJointType LockedJointTypeExpression:
+		//	KeepUnlockedJointType | BasicLockedJointType
 		@Override public ParserRule getRule() { return rule; }
 
 		//KeepUnlockedJointType | BasicLockedJointType
@@ -490,23 +713,23 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class KeepUnlockedJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "KeepUnlockedJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.KeepUnlockedJointType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cKeepKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cFlexibleKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Action cKeepUnlockedJointTypeAction_2 = (Action)cGroup.eContents().get(2);
 		
 		//KeepUnlockedJointType:
-		//	"keep" "flexible" {KeepUnlockedJointType};
+		//	'keep' 'flexible' {KeepUnlockedJointType};
 		@Override public ParserRule getRule() { return rule; }
 
-		//"keep" "flexible" {KeepUnlockedJointType}
+		//'keep' 'flexible' {KeepUnlockedJointType}
 		public Group getGroup() { return cGroup; }
 
-		//"keep"
+		//'keep'
 		public Keyword getKeepKeyword_0() { return cKeepKeyword_0; }
 
-		//"flexible"
+		//'flexible'
 		public Keyword getFlexibleKeyword_1() { return cFlexibleKeyword_1; }
 
 		//{KeepUnlockedJointType}
@@ -514,7 +737,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BasicLockedJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicLockedJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BasicLockedJointType");
 		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cTypeLockedJointMovementParserRuleCall_0 = (RuleCall)cTypeAssignment.eContents().get(0);
 		
@@ -530,7 +753,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class LockedJointMovementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedJointMovement");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.LockedJointMovement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cLockedRevoluteParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLockedPlanarParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -550,7 +773,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class LockedRevoluteElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedRevolute");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.LockedRevolute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRevoluteKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -560,13 +783,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpAddExpParserRuleCall_3_0 = (RuleCall)cExpAssignment_3.eContents().get(0);
 		
 		//LockedRevolute:
-		//	"revolute" axis=AXIS "=" exp=AddExp;
+		//	'revolute' axis=AXIS '=' exp=AddExp;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"revolute" axis=AXIS "=" exp=AddExp
+		//'revolute' axis=AXIS '=' exp=AddExp
 		public Group getGroup() { return cGroup; }
 
-		//"revolute"
+		//'revolute'
 		public Keyword getRevoluteKeyword_0() { return cRevoluteKeyword_0; }
 
 		//axis=AXIS
@@ -575,7 +798,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AXIS
 		public RuleCall getAxisAXISEnumRuleCall_1_0() { return cAxisAXISEnumRuleCall_1_0; }
 
-		//"="
+		//'='
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
 		//exp=AddExp
@@ -586,7 +809,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class LockedPlanarElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LockedPlanar");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.LockedPlanar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPlanarKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -596,13 +819,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpAddExpParserRuleCall_3_0 = (RuleCall)cExpAssignment_3.eContents().get(0);
 		
 		//LockedPlanar:
-		//	"planar" axis=AXIS "=" exp=AddExp;
+		//	'planar' axis=AXIS '=' exp=AddExp;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"planar" axis=AXIS "=" exp=AddExp
+		//'planar' axis=AXIS '=' exp=AddExp
 		public Group getGroup() { return cGroup; }
 
-		//"planar"
+		//'planar'
 		public Keyword getPlanarKeyword_0() { return cPlanarKeyword_0; }
 
 		//axis=AXIS
@@ -611,7 +834,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AXIS
 		public RuleCall getAxisAXISEnumRuleCall_1_0() { return cAxisAXISEnumRuleCall_1_0; }
 
-		//"="
+		//'='
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
 		//exp=AddExp
@@ -622,7 +845,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class SystemElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SystemElement");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.SystemElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBodyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cConnectiveParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -650,7 +873,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ConnectiveElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Connective");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Connective");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cJointParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cConstraintParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -674,7 +897,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BodyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Body");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Body");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cBodyKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -685,15 +908,17 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Body:
-		//	"body" name=ID "{" // frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
-		//	mass=Mass "}";
+		//	'body' name=ID '{'
+		//	// frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
+		//	mass=Mass
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"body" name=ID "{" // frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
-		//mass=Mass "}"
+		//'body' name=ID '{' // frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
+		//mass=Mass '}'
 		public Group getGroup() { return cGroup; }
 
-		//"body"
+		//'body'
 		public Keyword getBodyKeyword_0() { return cBodyKeyword_0; }
 
 		//name=ID
@@ -702,7 +927,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//// frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
@@ -712,12 +937,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Mass
 		public RuleCall getMassMassParserRuleCall_3_0() { return cMassMassParserRuleCall_3_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class BodyReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BodyReference");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BodyReference");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cBaseAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final Keyword cBaseBaseKeyword_0_0 = (Keyword)cBaseAssignment_0.eContents().get(0);
@@ -740,31 +965,34 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
 		
 		//BodyReference:
-		//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body] ("[" idx=INT "]")?;
+		//	base?='base'
+		//	| new?='new'
+		//	| last?='last' ref=[Body]?
+		//	| ref=[Body] ('[' idx=INT ']')?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body] ("[" idx=INT "]")?
+		//base?='base' | new?='new' | last?='last' ref=[Body]? | ref=[Body] ('[' idx=INT ']')?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//base?="base"
+		//base?='base'
 		public Assignment getBaseAssignment_0() { return cBaseAssignment_0; }
 
-		//"base"
+		//'base'
 		public Keyword getBaseBaseKeyword_0_0() { return cBaseBaseKeyword_0_0; }
 
-		//new?="new"
+		//new?='new'
 		public Assignment getNewAssignment_1() { return cNewAssignment_1; }
 
-		//"new"
+		//'new'
 		public Keyword getNewNewKeyword_1_0() { return cNewNewKeyword_1_0; }
 
-		//last?="last" ref=[Body]?
+		//last?='last' ref=[Body]?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//last?="last"
+		//last?='last'
 		public Assignment getLastAssignment_2_0() { return cLastAssignment_2_0; }
 
-		//"last"
+		//'last'
 		public Keyword getLastLastKeyword_2_0_0() { return cLastLastKeyword_2_0_0; }
 
 		//ref=[Body]?
@@ -776,7 +1004,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRefBodyIDTerminalRuleCall_2_1_0_1() { return cRefBodyIDTerminalRuleCall_2_1_0_1; }
 
-		//ref=[Body] ("[" idx=INT "]")?
+		//ref=[Body] ('[' idx=INT ']')?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//ref=[Body]
@@ -788,10 +1016,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRefBodyIDTerminalRuleCall_3_0_0_1() { return cRefBodyIDTerminalRuleCall_3_0_0_1; }
 
-		//("[" idx=INT "]")?
+		//('[' idx=INT ']')?
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
-		//"["
+		//'['
 		public Keyword getLeftSquareBracketKeyword_3_1_0() { return cLeftSquareBracketKeyword_3_1_0; }
 
 		//idx=INT
@@ -800,12 +1028,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getIdxINTTerminalRuleCall_3_1_1_0() { return cIdxINTTerminalRuleCall_3_1_1_0; }
 
-		//"]"
+		//']'
 		public Keyword getRightSquareBracketKeyword_3_1_2() { return cRightSquareBracketKeyword_3_1_2; }
 	}
 
 	public class BodyRepetitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BodyRepetition");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BodyRepetition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRepeatKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNumberAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -822,7 +1050,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//BodyRepetition:
-		//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=(Connective | JointConstraint)+ "}";
+		//	"repeat" number=INT "of" body=[Body] "{"
+		//	connectionExp+=(Connective | JointConstraint)+
+		//	"}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"repeat" number=INT "of" body=[Body] "{" connectionExp+=(Connective | JointConstraint)+ "}"
@@ -855,7 +1085,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//connectionExp+=(Connective | JointConstraint)+
 		public Assignment getConnectionExpAssignment_5() { return cConnectionExpAssignment_5; }
 
-		//Connective | JointConstraint
+		//(Connective | JointConstraint)
 		public Alternatives getConnectionExpAlternatives_5_0() { return cConnectionExpAlternatives_5_0; }
 
 		//Connective
@@ -869,7 +1099,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class MassElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Mass");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Mass");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cMassKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -885,19 +1115,23 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Mass:
-		//	"mass" "{" "value" value=AddExp "position" position=Matrix "inertia" inertia=Matrix "}";
+		//	'mass' '{'
+		//	'value' value=AddExp
+		//	'position' position=Matrix
+		//	'inertia' inertia=Matrix
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"mass" "{" "value" value=AddExp "position" position=Matrix "inertia" inertia=Matrix "}"
+		//'mass' '{' 'value' value=AddExp 'position' position=Matrix 'inertia' inertia=Matrix '}'
 		public Group getGroup() { return cGroup; }
 
-		//"mass"
+		//'mass'
 		public Keyword getMassKeyword_0() { return cMassKeyword_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//"value"
+		//'value'
 		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
 
 		//value=AddExp
@@ -906,7 +1140,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getValueAddExpParserRuleCall_3_0() { return cValueAddExpParserRuleCall_3_0; }
 
-		//"position"
+		//'position'
 		public Keyword getPositionKeyword_4() { return cPositionKeyword_4; }
 
 		//position=Matrix
@@ -915,7 +1149,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Matrix
 		public RuleCall getPositionMatrixParserRuleCall_5_0() { return cPositionMatrixParserRuleCall_5_0; }
 
-		//"inertia"
+		//'inertia'
 		public Keyword getInertiaKeyword_6() { return cInertiaKeyword_6; }
 
 		//inertia=Matrix
@@ -924,12 +1158,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Matrix
 		public RuleCall getInertiaMatrixParserRuleCall_7_0() { return cInertiaMatrixParserRuleCall_7_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class JointElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Joint");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Joint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cJointKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -949,15 +1183,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBody2BodyReferenceParserRuleCall_9_0 = (RuleCall)cBody2Assignment_9.eContents().get(0);
 		
 		//Joint:
-		//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-		//	"and" body2=BodyReference;
+		//	'joint' name=ID ':' type=JointType isStart?='start'?
+		//	'between' body1=BodyReference relTrans1=RelativeTransformation
+		//	'and' body2=BodyReference;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-		//"and" body2=BodyReference
+		//'joint' name=ID ':' type=JointType isStart?='start'? 'between' body1=BodyReference relTrans1=RelativeTransformation
+		//'and' body2=BodyReference
 		public Group getGroup() { return cGroup; }
 
-		//"joint"
+		//'joint'
 		public Keyword getJointKeyword_0() { return cJointKeyword_0; }
 
 		//name=ID
@@ -966,7 +1201,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//type=JointType
@@ -975,13 +1210,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//JointType
 		public RuleCall getTypeJointTypeParserRuleCall_3_0() { return cTypeJointTypeParserRuleCall_3_0; }
 
-		//isStart?="start"?
+		//isStart?='start'?
 		public Assignment getIsStartAssignment_4() { return cIsStartAssignment_4; }
 
-		//"start"
+		//'start'
 		public Keyword getIsStartStartKeyword_4_0() { return cIsStartStartKeyword_4_0; }
 
-		//"between"
+		//'between'
 		public Keyword getBetweenKeyword_5() { return cBetweenKeyword_5; }
 
 		//body1=BodyReference
@@ -996,7 +1231,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//RelativeTransformation
 		public RuleCall getRelTrans1RelativeTransformationParserRuleCall_7_0() { return cRelTrans1RelativeTransformationParserRuleCall_7_0; }
 
-		//"and"
+		//'and'
 		public Keyword getAndKeyword_8() { return cAndKeyword_8; }
 
 		//body2=BodyReference
@@ -1007,7 +1242,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class JointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.JointType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Keyword cJointKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
@@ -1018,19 +1253,19 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpAdditiveJointTypeParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
 		
 		//JointType:
-		//	("joint" "type" name=ID)? exp=AdditiveJointType;
+		//	('joint' 'type' name=ID)? exp=AdditiveJointType;
 		@Override public ParserRule getRule() { return rule; }
 
-		//("joint" "type" name=ID)? exp=AdditiveJointType
+		//('joint' 'type' name=ID)? exp=AdditiveJointType
 		public Group getGroup() { return cGroup; }
 
-		//("joint" "type" name=ID)?
+		//('joint' 'type' name=ID)?
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"joint"
+		//'joint'
 		public Keyword getJointKeyword_0_0() { return cJointKeyword_0_0; }
 
-		//"type"
+		//'type'
 		public Keyword getTypeKeyword_0_1() { return cTypeKeyword_0_1; }
 
 		//name=ID
@@ -1047,7 +1282,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class AdditiveJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AdditiveJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.AdditiveJointType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cPrimaryJointTypeParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1056,20 +1291,20 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightPrimaryJointTypeParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//AdditiveJointType returns JointTypeExpression:
-		//	PrimaryJointType ("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*;
+		//AdditiveJointType JointTypeExpression:
+		//	PrimaryJointType ('+' {AdditiveJointType.left=current} right+=PrimaryJointType)*
 		@Override public ParserRule getRule() { return rule; }
 
-		//PrimaryJointType ("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*
+		//PrimaryJointType ('+' {AdditiveJointType.left=current} right+=PrimaryJointType)*
 		public Group getGroup() { return cGroup; }
 
 		//PrimaryJointType
 		public RuleCall getPrimaryJointTypeParserRuleCall_0() { return cPrimaryJointTypeParserRuleCall_0; }
 
-		//("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*
+		//('+' {AdditiveJointType.left=current} right+=PrimaryJointType)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//"+"
+		//'+'
 		public Keyword getPlusSignKeyword_1_0() { return cPlusSignKeyword_1_0; }
 
 		//{AdditiveJointType.left=current}
@@ -1083,13 +1318,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class PrimaryJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrimaryJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.PrimaryJointType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cJointTypeReferenceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBasicJointTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//PrimaryJointType returns JointTypeExpression:
-		//	JointTypeReference | BasicJointType;
+		//PrimaryJointType JointTypeExpression:
+		//	JointTypeReference | BasicJointType
 		@Override public ParserRule getRule() { return rule; }
 
 		//JointTypeReference | BasicJointType
@@ -1103,7 +1338,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class JointTypeReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointTypeReference");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.JointTypeReference");
 		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cRefJointTypeCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
 		private final RuleCall cRefJointTypeIDTerminalRuleCall_0_1 = (RuleCall)cRefJointTypeCrossReference_0.eContents().get(1);
@@ -1123,7 +1358,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BasicJointTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicJointType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BasicJointType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cTypeJointMovementParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
@@ -1132,10 +1367,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStiffnessStiffnessExpParserRuleCall_2_0 = (RuleCall)cStiffnessAssignment_2.eContents().get(0);
 		
 		//BasicJointType:
-		//	type=JointMovement "with" stiffness=StiffnessExp;
+		//	type=JointMovement 'with' stiffness=StiffnessExp;
 		@Override public ParserRule getRule() { return rule; }
 
-		//type=JointMovement "with" stiffness=StiffnessExp
+		//type=JointMovement 'with' stiffness=StiffnessExp
 		public Group getGroup() { return cGroup; }
 
 		//type=JointMovement
@@ -1144,7 +1379,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//JointMovement
 		public RuleCall getTypeJointMovementParserRuleCall_0_0() { return cTypeJointMovementParserRuleCall_0_0; }
 
-		//"with"
+		//'with'
 		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
 
 		//stiffness=StiffnessExp
@@ -1155,7 +1390,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class JointMovementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointMovement");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.JointMovement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cRevoluteParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cPlanarParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -1175,20 +1410,20 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class RevoluteElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Revolute");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Revolute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRevoluteKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAxisAXISEnumRuleCall_1_0 = (RuleCall)cAxisAssignment_1.eContents().get(0);
 		
 		//Revolute:
-		//	"revolute" axis=AXIS;
+		//	'revolute' axis=AXIS;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"revolute" axis=AXIS
+		//'revolute' axis=AXIS
 		public Group getGroup() { return cGroup; }
 
-		//"revolute"
+		//'revolute'
 		public Keyword getRevoluteKeyword_0() { return cRevoluteKeyword_0; }
 
 		//axis=AXIS
@@ -1199,20 +1434,20 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class PlanarElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Planar");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Planar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPlanarKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAxisAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAxisAXISEnumRuleCall_1_0 = (RuleCall)cAxisAssignment_1.eContents().get(0);
 		
 		//Planar:
-		//	"planar" axis=AXIS;
+		//	'planar' axis=AXIS;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"planar" axis=AXIS
+		//'planar' axis=AXIS
 		public Group getGroup() { return cGroup; }
 
-		//"planar"
+		//'planar'
 		public Keyword getPlanarKeyword_0() { return cPlanarKeyword_0; }
 
 		//axis=AXIS
@@ -1223,7 +1458,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class StiffnessExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StiffnessExp");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.StiffnessExp");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cStiffnessRefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBaseStiffnessExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -1243,7 +1478,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class StiffnessRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StiffnessRef");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.StiffnessRef");
 		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cRefBaseStiffnessExpCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
 		private final RuleCall cRefBaseStiffnessExpIDTerminalRuleCall_0_1 = (RuleCall)cRefBaseStiffnessExpCrossReference_0.eContents().get(1);
@@ -1263,7 +1498,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BaseStiffnessExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseStiffnessExp");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BaseStiffnessExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Keyword cStiffnessKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
@@ -1285,20 +1520,24 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//BaseStiffnessExp:
-		//	("stiffness" name=ID)? "{" // TODO Provide better labels for these in the concrete syntax
-		//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
-		//	dampCoulomb=AddExp "}";
+		//	('stiffness' name=ID)? '{'
+		//	// TODO Provide better labels for these in the concrete syntax
+		//	'springCoeff' springCoeff=AddExp
+		//	'springInit' springInit=AddExp
+		//	'dampViscous' dampViscous=AddExp
+		//	'dampCoulomb' dampCoulomb=AddExp
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//("stiffness" name=ID)? "{" // TODO Provide better labels for these in the concrete syntax
-		//"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
-		//dampCoulomb=AddExp "}"
+		//('stiffness' name=ID)? '{' // TODO Provide better labels for these in the concrete syntax
+		//'springCoeff' springCoeff=AddExp 'springInit' springInit=AddExp 'dampViscous' dampViscous=AddExp 'dampCoulomb'
+		//dampCoulomb=AddExp '}'
 		public Group getGroup() { return cGroup; }
 
-		//("stiffness" name=ID)?
+		//('stiffness' name=ID)?
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"stiffness"
+		//'stiffness'
 		public Keyword getStiffnessKeyword_0_0() { return cStiffnessKeyword_0_0; }
 
 		//name=ID
@@ -1307,11 +1546,11 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//// TODO Provide better labels for these in the concrete syntax
-		//"springCoeff"
+		//'springCoeff'
 		public Keyword getSpringCoeffKeyword_2() { return cSpringCoeffKeyword_2; }
 
 		//springCoeff=AddExp
@@ -1320,7 +1559,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getSpringCoeffAddExpParserRuleCall_3_0() { return cSpringCoeffAddExpParserRuleCall_3_0; }
 
-		//"springInit"
+		//'springInit'
 		public Keyword getSpringInitKeyword_4() { return cSpringInitKeyword_4; }
 
 		//springInit=AddExp
@@ -1329,7 +1568,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getSpringInitAddExpParserRuleCall_5_0() { return cSpringInitAddExpParserRuleCall_5_0; }
 
-		//"dampViscous"
+		//'dampViscous'
 		public Keyword getDampViscousKeyword_6() { return cDampViscousKeyword_6; }
 
 		//dampViscous=AddExp
@@ -1338,7 +1577,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getDampViscousAddExpParserRuleCall_7_0() { return cDampViscousAddExpParserRuleCall_7_0; }
 
-		//"dampCoulomb"
+		//'dampCoulomb'
 		public Keyword getDampCoulombKeyword_8() { return cDampCoulombKeyword_8; }
 
 		//dampCoulomb=AddExp
@@ -1347,12 +1586,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getDampCoulombAddExpParserRuleCall_9_0() { return cDampCoulombAddExpParserRuleCall_9_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class RelativeTransformationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RelativeTransformation");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.RelativeTransformation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -1366,22 +1605,22 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//RelativeTransformation:
-		//	"(" "with" "relative" "transformation" position=Matrix "," reorient=Reorientation ")";
+		//	'(' 'with' 'relative' 'transformation' position=Matrix ',' reorient=Reorientation ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" "with" "relative" "transformation" position=Matrix "," reorient=Reorientation ")"
+		//'(' 'with' 'relative' 'transformation' position=Matrix ',' reorient=Reorientation ')'
 		public Group getGroup() { return cGroup; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 
-		//"with"
+		//'with'
 		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
 
-		//"relative"
+		//'relative'
 		public Keyword getRelativeKeyword_2() { return cRelativeKeyword_2; }
 
-		//"transformation"
+		//'transformation'
 		public Keyword getTransformationKeyword_3() { return cTransformationKeyword_3; }
 
 		//position=Matrix
@@ -1390,7 +1629,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Matrix
 		public RuleCall getPositionMatrixParserRuleCall_4_0() { return cPositionMatrixParserRuleCall_4_0; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
 
 		//reorient=Reorientation
@@ -1399,12 +1638,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Reorientation
 		public RuleCall getReorientReorientationParserRuleCall_6_0() { return cReorientReorientationParserRuleCall_6_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 	}
 
 	public class ReorientationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Reorientation");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Reorientation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Keyword cReorientKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
@@ -1414,16 +1653,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpReorientExpressionParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
 		
 		//Reorientation:
-		//	("reorient" name=ID)? exp=ReorientExpression;
+		//	('reorient' name=ID)? exp=ReorientExpression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//("reorient" name=ID)? exp=ReorientExpression
+		//('reorient' name=ID)? exp=ReorientExpression
 		public Group getGroup() { return cGroup; }
 
-		//("reorient" name=ID)?
+		//('reorient' name=ID)?
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"reorient"
+		//'reorient'
 		public Keyword getReorientKeyword_0_0() { return cReorientKeyword_0_0; }
 
 		//name=ID
@@ -1440,7 +1679,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ReorientExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReorientExpression");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ReorientExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cReorientRefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBasicReorientExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -1460,7 +1699,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ReorientRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReorientRef");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ReorientRef");
 		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cRefReorientationCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
 		private final RuleCall cRefReorientationIDTerminalRuleCall_0_1 = (RuleCall)cRefReorientationCrossReference_0.eContents().get(1);
@@ -1480,7 +1719,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BasicReorientExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicReorientExpression");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BasicReorientExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Action cBasicReorientExpressionAction_1 = (Action)cGroup.eContents().get(1);
@@ -1504,23 +1743,23 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//BasicReorientExpression:
-		//	"(" {BasicReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
-		//	")";
+		//	'(' {BasicReorientExpression} ('(' axis+=AXIS ',' value+=AddExp ')' (',' '(' axis+=AXIS ',' value+=AddExp ')')*)?
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" {BasicReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)? ")"
+		//'(' {BasicReorientExpression} ('(' axis+=AXIS ',' value+=AddExp ')' (',' '(' axis+=AXIS ',' value+=AddExp ')')*)? ')'
 		public Group getGroup() { return cGroup; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 
 		//{BasicReorientExpression}
 		public Action getBasicReorientExpressionAction_1() { return cBasicReorientExpressionAction_1; }
 
-		//("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
+		//('(' axis+=AXIS ',' value+=AddExp ')' (',' '(' axis+=AXIS ',' value+=AddExp ')')*)?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 
 		//axis+=AXIS
@@ -1529,7 +1768,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AXIS
 		public RuleCall getAxisAXISEnumRuleCall_2_1_0() { return cAxisAXISEnumRuleCall_2_1_0; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
 
 		//value+=AddExp
@@ -1538,16 +1777,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getValueAddExpParserRuleCall_2_3_0() { return cValueAddExpParserRuleCall_2_3_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
 
-		//("," "(" axis+=AXIS "," value+=AddExp ")")*
+		//(',' '(' axis+=AXIS ',' value+=AddExp ')')*
 		public Group getGroup_2_5() { return cGroup_2_5; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_2_5_0() { return cCommaKeyword_2_5_0; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_2_5_1() { return cLeftParenthesisKeyword_2_5_1; }
 
 		//axis+=AXIS
@@ -1556,7 +1795,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AXIS
 		public RuleCall getAxisAXISEnumRuleCall_2_5_2_0() { return cAxisAXISEnumRuleCall_2_5_2_0; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_2_5_3() { return cCommaKeyword_2_5_3; }
 
 		//value+=AddExp
@@ -1565,15 +1804,15 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getValueAddExpParserRuleCall_2_5_4_0() { return cValueAddExpParserRuleCall_2_5_4_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_2_5_5() { return cRightParenthesisKeyword_2_5_5; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Constraint");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Constraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1593,15 +1832,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRelTrans2RelativeTransformationParserRuleCall_9_0 = (RuleCall)cRelTrans2Assignment_9.eContents().get(0);
 		
 		//Constraint:
-		//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
-		//	body2=BodyReference relTrans2=RelativeTransformation;
+		//	'constraint' name=ID ':' type=ConstraintType
+		//	'between' body1=BodyReference relTrans1=RelativeTransformation
+		//	'and' body2=BodyReference relTrans2=RelativeTransformation;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
+		//'constraint' name=ID ':' type=ConstraintType 'between' body1=BodyReference relTrans1=RelativeTransformation 'and'
 		//body2=BodyReference relTrans2=RelativeTransformation
 		public Group getGroup() { return cGroup; }
 
-		//"constraint"
+		//'constraint'
 		public Keyword getConstraintKeyword_0() { return cConstraintKeyword_0; }
 
 		//name=ID
@@ -1610,7 +1850,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//type=ConstraintType
@@ -1619,7 +1859,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ConstraintType
 		public RuleCall getTypeConstraintTypeEnumRuleCall_3_0() { return cTypeConstraintTypeEnumRuleCall_3_0; }
 
-		//"between"
+		//'between'
 		public Keyword getBetweenKeyword_4() { return cBetweenKeyword_4; }
 
 		//body1=BodyReference
@@ -1634,7 +1874,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//RelativeTransformation
 		public RuleCall getRelTrans1RelativeTransformationParserRuleCall_6_0() { return cRelTrans1RelativeTransformationParserRuleCall_6_0; }
 
-		//"and"
+		//'and'
 		public Keyword getAndKeyword_7() { return cAndKeyword_7; }
 
 		//body2=BodyReference
@@ -1651,7 +1891,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class JointConstraintElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JointConstraint");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.JointConstraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1667,13 +1907,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cJoint2JointIDTerminalRuleCall_6_0_1 = (RuleCall)cJoint2JointCrossReference_6_0.eContents().get(1);
 		
 		//JointConstraint:
-		//	"constraint" name=ID ":" joint1=[Joint] "moves" "like" joint2=[Joint];
+		//	'constraint' name=ID ':' joint1=[Joint] 'moves' 'like' joint2=[Joint];
 		@Override public ParserRule getRule() { return rule; }
 
-		//"constraint" name=ID ":" joint1=[Joint] "moves" "like" joint2=[Joint]
+		//'constraint' name=ID ':' joint1=[Joint] 'moves' 'like' joint2=[Joint]
 		public Group getGroup() { return cGroup; }
 
-		//"constraint"
+		//'constraint'
 		public Keyword getConstraintKeyword_0() { return cConstraintKeyword_0; }
 
 		//name=ID
@@ -1682,7 +1922,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//joint1=[Joint]
@@ -1694,10 +1934,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getJoint1JointIDTerminalRuleCall_3_0_1() { return cJoint1JointIDTerminalRuleCall_3_0_1; }
 
-		//"moves"
+		//'moves'
 		public Keyword getMovesKeyword_4() { return cMovesKeyword_4; }
 
-		//"like"
+		//'like'
 		public Keyword getLikeKeyword_5() { return cLikeKeyword_5; }
 
 		//joint2=[Joint]
@@ -1711,7 +1951,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ExternalLoadElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExternalLoad");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ExternalLoad");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExternalKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLoadKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -1732,18 +1972,18 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//ExternalLoad:
-		//	"external" "load" name=ID ":" type=LoadType "at" body1=BodyReference "(" "with" "relative" "transformation"
-		//	position=Matrix ")";
+		//	'external' 'load' name=ID ':' type=LoadType
+		//	'at' body1=BodyReference '(' 'with' 'relative' 'transformation' position=Matrix ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"external" "load" name=ID ":" type=LoadType "at" body1=BodyReference "(" "with" "relative" "transformation"
-		//position=Matrix ")"
+		//'external' 'load' name=ID ':' type=LoadType 'at' body1=BodyReference '(' 'with' 'relative' 'transformation'
+		//position=Matrix ')'
 		public Group getGroup() { return cGroup; }
 
-		//"external"
+		//'external'
 		public Keyword getExternalKeyword_0() { return cExternalKeyword_0; }
 
-		//"load"
+		//'load'
 		public Keyword getLoadKeyword_1() { return cLoadKeyword_1; }
 
 		//name=ID
@@ -1752,7 +1992,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 
 		//type=LoadType
@@ -1761,7 +2001,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//LoadType
 		public RuleCall getTypeLoadTypeEnumRuleCall_4_0() { return cTypeLoadTypeEnumRuleCall_4_0; }
 
-		//"at"
+		//'at'
 		public Keyword getAtKeyword_5() { return cAtKeyword_5; }
 
 		//body1=BodyReference
@@ -1770,16 +2010,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//BodyReference
 		public RuleCall getBody1BodyReferenceParserRuleCall_6_0() { return cBody1BodyReferenceParserRuleCall_6_0; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_7() { return cLeftParenthesisKeyword_7; }
 
-		//"with"
+		//'with'
 		public Keyword getWithKeyword_8() { return cWithKeyword_8; }
 
-		//"relative"
+		//'relative'
 		public Keyword getRelativeKeyword_9() { return cRelativeKeyword_9; }
 
-		//"transformation"
+		//'transformation'
 		public Keyword getTransformationKeyword_10() { return cTransformationKeyword_10; }
 
 		//position=Matrix
@@ -1788,12 +2028,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//Matrix
 		public RuleCall getPositionMatrixParserRuleCall_11_0() { return cPositionMatrixParserRuleCall_11_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_12() { return cRightParenthesisKeyword_12; }
 	}
 
 	public class MatrixElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Matrix");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Matrix");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBaseMatrixParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cMatrixRefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -1813,7 +2053,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BaseMatrixElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseMatrix");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.BaseMatrix");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Keyword cMatrixKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
@@ -1829,16 +2069,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//BaseMatrix:
-		//	("matrix" name=ID)? "[" values+=AddExp ("," values+=AddExp)* "]";
+		//	('matrix' name=ID)? '[' values+=AddExp (',' values+=AddExp)* ']';
 		@Override public ParserRule getRule() { return rule; }
 
-		//("matrix" name=ID)? "[" values+=AddExp ("," values+=AddExp)* "]"
+		//('matrix' name=ID)? '[' values+=AddExp (',' values+=AddExp)* ']'
 		public Group getGroup() { return cGroup; }
 
-		//("matrix" name=ID)?
+		//('matrix' name=ID)?
 		public Group getGroup_0() { return cGroup_0; }
 
-		//"matrix"
+		//'matrix'
 		public Keyword getMatrixKeyword_0_0() { return cMatrixKeyword_0_0; }
 
 		//name=ID
@@ -1847,7 +2087,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
 
-		//"["
+		//'['
 		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
 
 		//values+=AddExp
@@ -1856,10 +2096,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getValuesAddExpParserRuleCall_2_0() { return cValuesAddExpParserRuleCall_2_0; }
 
-		//("," values+=AddExp)*
+		//(',' values+=AddExp)*
 		public Group getGroup_3() { return cGroup_3; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
 
 		//values+=AddExp
@@ -1868,12 +2108,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getValuesAddExpParserRuleCall_3_1_0() { return cValuesAddExpParserRuleCall_3_1_0; }
 
-		//"]"
+		//']'
 		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 
 	public class MatrixRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MatrixRef");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.MatrixRef");
 		private final Assignment cMatrixAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cMatrixBaseMatrixCrossReference_0 = (CrossReference)cMatrixAssignment.eContents().get(0);
 		private final RuleCall cMatrixBaseMatrixIDTerminalRuleCall_0_1 = (RuleCall)cMatrixBaseMatrixCrossReference_0.eContents().get(1);
@@ -1893,7 +2133,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class AddExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AddExp");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.AddExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cMultExpParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1905,32 +2145,32 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightMultExpParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//AddExp returns Expression:
-		//	MultExp ({AddExp.left=current} op+=("+" | "-") right+=MultExp)*;
+		//AddExp Expression:
+		//	MultExp ({AddExp.left=current} op+=('+' | '-') right+=MultExp)*
 		@Override public ParserRule getRule() { return rule; }
 
-		//MultExp ({AddExp.left=current} op+=("+" | "-") right+=MultExp)*
+		//MultExp ({AddExp.left=current} op+=('+' | '-') right+=MultExp)*
 		public Group getGroup() { return cGroup; }
 
 		//MultExp
 		public RuleCall getMultExpParserRuleCall_0() { return cMultExpParserRuleCall_0; }
 
-		//({AddExp.left=current} op+=("+" | "-") right+=MultExp)*
+		//({AddExp.left=current} op+=('+' | '-') right+=MultExp)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{AddExp.left=current}
 		public Action getAddExpLeftAction_1_0() { return cAddExpLeftAction_1_0; }
 
-		//op+=("+" | "-")
+		//op+=('+' | '-')
 		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 
-		//"+" | "-"
+		//('+' | '-')
 		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 
-		//"+"
+		//'+'
 		public Keyword getOpPlusSignKeyword_1_1_0_0() { return cOpPlusSignKeyword_1_1_0_0; }
 
-		//"-"
+		//'-'
 		public Keyword getOpHyphenMinusKeyword_1_1_0_1() { return cOpHyphenMinusKeyword_1_1_0_1; }
 
 		//right+=MultExp
@@ -1941,7 +2181,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class MultExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MultExp");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.MultExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cPrimaryParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1953,32 +2193,32 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightPrimaryParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//MultExp returns Expression:
-		//	Primary ({MultExp.left=current} op+=("*" | "/") right+=Primary)*;
+		//MultExp Expression:
+		//	Primary ({MultExp.left=current} op+=('*' | '/') right+=Primary)*
 		@Override public ParserRule getRule() { return rule; }
 
-		//Primary ({MultExp.left=current} op+=("*" | "/") right+=Primary)*
+		//Primary ({MultExp.left=current} op+=('*' | '/') right+=Primary)*
 		public Group getGroup() { return cGroup; }
 
 		//Primary
 		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
 
-		//({MultExp.left=current} op+=("*" | "/") right+=Primary)*
+		//({MultExp.left=current} op+=('*' | '/') right+=Primary)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{MultExp.left=current}
 		public Action getMultExpLeftAction_1_0() { return cMultExpLeftAction_1_0; }
 
-		//op+=("*" | "/")
+		//op+=('*' | '/')
 		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 
-		//"*" | "/"
+		//('*' | '/')
 		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 
-		//"*"
+		//'*'
 		public Keyword getOpAsteriskKeyword_1_1_0_0() { return cOpAsteriskKeyword_1_1_0_0; }
 
-		//"/"
+		//'/'
 		public Keyword getOpSolidusKeyword_1_1_0_1() { return cOpSolidusKeyword_1_1_0_1; }
 
 		//right+=Primary
@@ -1989,14 +2229,14 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class PrimaryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Primary");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cNumberLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cParenthesisedExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cConstantOrFunctionCallExpParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//Primary returns Expression:
-		//	NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp;
+		//Primary Expression:
+		//	NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp
 		@Override public ParserRule getRule() { return rule; }
 
 		//NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp
@@ -2013,7 +2253,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ParenthesisedExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParenthesisedExp");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ParenthesisedExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cExpAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -2022,13 +2262,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// Need to keep this so that we can regenerate parentheses correctly
 		//ParenthesisedExp:
-		//	"(" exp=AddExp ")";
+		//	'(' exp=AddExp ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" exp=AddExp ")"
+		//'(' exp=AddExp ')'
 		public Group getGroup() { return cGroup; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 
 		//exp=AddExp
@@ -2037,15 +2277,19 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getExpAddExpParserRuleCall_1_0() { return cExpAddExpParserRuleCall_1_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
 
 	public class ConstantOrFunctionCallExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConstantOrFunctionCallExp");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ConstantOrFunctionCallExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cLabelAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cLabelIDTerminalRuleCall_0_0 = (RuleCall)cLabelAssignment_0.eContents().get(0);
+		private final Alternatives cLabelAlternatives_0_0 = (Alternatives)cLabelAssignment_0.eContents().get(0);
+		private final RuleCall cLabelIDTerminalRuleCall_0_0_0 = (RuleCall)cLabelAlternatives_0_0.eContents().get(0);
+		private final Keyword cLabelXKeyword_0_0_1 = (Keyword)cLabelAlternatives_0_0.eContents().get(1);
+		private final Keyword cLabelYKeyword_0_0_2 = (Keyword)cLabelAlternatives_0_0.eContents().get(2);
+		private final Keyword cLabelZKeyword_0_0_3 = (Keyword)cLabelAlternatives_0_0.eContents().get(3);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cParamAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -2057,22 +2301,34 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
 		//ConstantOrFunctionCallExp:
-		//	label=ID ("(" param+=AddExp ("," param+=AddExp)* ")")?;
+		//	label=(ID | 'x' | 'y' | 'z') ('(' param+=AddExp (',' param+=AddExp)* ')')?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//label=ID ("(" param+=AddExp ("," param+=AddExp)* ")")?
+		//label=(ID | 'x' | 'y' | 'z') ('(' param+=AddExp (',' param+=AddExp)* ')')?
 		public Group getGroup() { return cGroup; }
 
-		//label=ID
+		//label=(ID | 'x' | 'y' | 'z')
 		public Assignment getLabelAssignment_0() { return cLabelAssignment_0; }
 
-		//ID
-		public RuleCall getLabelIDTerminalRuleCall_0_0() { return cLabelIDTerminalRuleCall_0_0; }
+		//(ID | 'x' | 'y' | 'z')
+		public Alternatives getLabelAlternatives_0_0() { return cLabelAlternatives_0_0; }
 
-		//("(" param+=AddExp ("," param+=AddExp)* ")")?
+		//ID
+		public RuleCall getLabelIDTerminalRuleCall_0_0_0() { return cLabelIDTerminalRuleCall_0_0_0; }
+
+		//'x'
+		public Keyword getLabelXKeyword_0_0_1() { return cLabelXKeyword_0_0_1; }
+
+		//'y'
+		public Keyword getLabelYKeyword_0_0_2() { return cLabelYKeyword_0_0_2; }
+
+		//'z'
+		public Keyword getLabelZKeyword_0_0_3() { return cLabelZKeyword_0_0_3; }
+
+		//('(' param+=AddExp (',' param+=AddExp)* ')')?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
 
 		//param+=AddExp
@@ -2081,10 +2337,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getParamAddExpParserRuleCall_1_1_0() { return cParamAddExpParserRuleCall_1_1_0; }
 
-		//("," param+=AddExp)*
+		//(',' param+=AddExp)*
 		public Group getGroup_1_2() { return cGroup_1_2; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
 
 		//param+=AddExp
@@ -2093,12 +2349,12 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		//AddExp
 		public RuleCall getParamAddExpParserRuleCall_1_2_1_0() { return cParamAddExpParserRuleCall_1_2_1_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 	}
 
 	public class NumberLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberLiteral");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.NumberLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNegAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNegHyphenMinusKeyword_0_0 = (Keyword)cNegAssignment_0.eContents().get(0);
@@ -2106,16 +2362,16 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueREALTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//NumberLiteral:
-		//	neg?="-"? value=REAL;
+		//	neg?='-'? value=REAL;
 		@Override public ParserRule getRule() { return rule; }
 
-		//neg?="-"? value=REAL
+		//neg?='-'? value=REAL
 		public Group getGroup() { return cGroup; }
 
-		//neg?="-"?
+		//neg?='-'?
 		public Assignment getNegAssignment_0() { return cNegAssignment_0; }
 
-		//"-"
+		//'-'
 		public Keyword getNegHyphenMinusKeyword_0_0() { return cNegHyphenMinusKeyword_0_0; }
 
 		//value=REAL
@@ -2127,7 +2383,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	public class AXISElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "AXIS");
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.AXIS");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cXEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cXXKeyword_0_0 = (Keyword)cXEnumLiteralDeclaration_0.eContents().get(0);
@@ -2137,33 +2393,33 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cZZKeyword_2_0 = (Keyword)cZEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum AXIS:
-		//	X="x" | Y="y" | Z="z";
+		//	X='x' | Y='y' | Z='z';
 		public EnumRule getRule() { return rule; }
 
-		//X="x" | Y="y" | Z="z"
+		//X='x' | Y='y' | Z='z'
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//X="x"
+		//X='x'
 		public EnumLiteralDeclaration getXEnumLiteralDeclaration_0() { return cXEnumLiteralDeclaration_0; }
 
-		//"x"
+		//'x'
 		public Keyword getXXKeyword_0_0() { return cXXKeyword_0_0; }
 
-		//Y="y"
+		//Y='y'
 		public EnumLiteralDeclaration getYEnumLiteralDeclaration_1() { return cYEnumLiteralDeclaration_1; }
 
-		//"y"
+		//'y'
 		public Keyword getYYKeyword_1_0() { return cYYKeyword_1_0; }
 
-		//Z="z"
+		//Z='z'
 		public EnumLiteralDeclaration getZEnumLiteralDeclaration_2() { return cZEnumLiteralDeclaration_2; }
 
-		//"z"
+		//'z'
 		public Keyword getZZKeyword_2_0() { return cZZKeyword_2_0; }
 	}
 
 	public class ConstraintTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ConstraintType");
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.ConstraintType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cGEOMETRICALEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cGEOMETRICALGeometricalKeyword_0_0 = (Keyword)cGEOMETRICALEnumLiteralDeclaration_0.eContents().get(0);
@@ -2171,27 +2427,28 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cVELOCITYVelocityKeyword_1_0 = (Keyword)cVELOCITYEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum ConstraintType:
-		//	GEOMETRICAL="geometrical" | VELOCITY="velocity";
+		//	GEOMETRICAL='geometrical' |
+		//	VELOCITY='velocity';
 		public EnumRule getRule() { return rule; }
 
-		//GEOMETRICAL="geometrical" | VELOCITY="velocity"
+		//GEOMETRICAL='geometrical' | VELOCITY='velocity'
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//GEOMETRICAL="geometrical"
+		//GEOMETRICAL='geometrical'
 		public EnumLiteralDeclaration getGEOMETRICALEnumLiteralDeclaration_0() { return cGEOMETRICALEnumLiteralDeclaration_0; }
 
-		//"geometrical"
+		//'geometrical'
 		public Keyword getGEOMETRICALGeometricalKeyword_0_0() { return cGEOMETRICALGeometricalKeyword_0_0; }
 
-		//VELOCITY="velocity"
+		//VELOCITY='velocity'
 		public EnumLiteralDeclaration getVELOCITYEnumLiteralDeclaration_1() { return cVELOCITYEnumLiteralDeclaration_1; }
 
-		//"velocity"
+		//'velocity'
 		public Keyword getVELOCITYVelocityKeyword_1_0() { return cVELOCITYVelocityKeyword_1_0; }
 	}
 
 	public class LoadTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "LoadType");
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.LoadType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cFORCEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cFORCEForceKeyword_0_0 = (Keyword)cFORCEEnumLiteralDeclaration_0.eContents().get(0);
@@ -2199,22 +2456,23 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTORQUETorqueKeyword_1_0 = (Keyword)cTORQUEEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum LoadType:
-		//	FORCE="force" | TORQUE="torque";
+		//	FORCE='force' |
+		//	TORQUE='torque';
 		public EnumRule getRule() { return rule; }
 
-		//FORCE="force" | TORQUE="torque"
+		//FORCE='force' | TORQUE='torque'
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//FORCE="force"
+		//FORCE='force'
 		public EnumLiteralDeclaration getFORCEEnumLiteralDeclaration_0() { return cFORCEEnumLiteralDeclaration_0; }
 
-		//"force"
+		//'force'
 		public Keyword getFORCEForceKeyword_0_0() { return cFORCEForceKeyword_0_0; }
 
-		//TORQUE="torque"
+		//TORQUE='torque'
 		public EnumLiteralDeclaration getTORQUEEnumLiteralDeclaration_1() { return cTORQUEEnumLiteralDeclaration_1; }
 
-		//"torque"
+		//'torque'
 		public Keyword getTORQUETorqueKeyword_1_0() { return cTORQUETorqueKeyword_1_0; }
 	}
 	
@@ -2226,6 +2484,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final SystemInstantiationElements pSystemInstantiation;
 	private final ConfigurationElements pConfiguration;
 	private final ConfigurationStatementElements pConfigurationStatement;
+	private final ControlStatementElements pControlStatement;
+	private final ConstraintClauseElements pConstraintClause;
 	private final LockJointStatementElements pLockJointStatement;
 	private final LockDoFStatementElements pLockDoFStatement;
 	private final AdditiveLockedJointTypeElements pAdditiveLockedJointType;
@@ -2253,17 +2513,17 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	private final StiffnessExpElements pStiffnessExp;
 	private final StiffnessRefElements pStiffnessRef;
 	private final BaseStiffnessExpElements pBaseStiffnessExp;
-	private final AXISElements unknownRuleAXIS;
+	private final AXISElements eAXIS;
 	private final RelativeTransformationElements pRelativeTransformation;
 	private final ReorientationElements pReorientation;
 	private final ReorientExpressionElements pReorientExpression;
 	private final ReorientRefElements pReorientRef;
 	private final BasicReorientExpressionElements pBasicReorientExpression;
 	private final ConstraintElements pConstraint;
-	private final ConstraintTypeElements unknownRuleConstraintType;
+	private final ConstraintTypeElements eConstraintType;
 	private final JointConstraintElements pJointConstraint;
 	private final ExternalLoadElements pExternalLoad;
-	private final LoadTypeElements unknownRuleLoadType;
+	private final LoadTypeElements eLoadType;
 	private final MatrixElements pMatrix;
 	private final BaseMatrixElements pBaseMatrix;
 	private final MatrixRefElements pMatrixRef;
@@ -2292,6 +2552,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSystemInstantiation = new SystemInstantiationElements();
 		this.pConfiguration = new ConfigurationElements();
 		this.pConfigurationStatement = new ConfigurationStatementElements();
+		this.pControlStatement = new ControlStatementElements();
+		this.pConstraintClause = new ConstraintClauseElements();
 		this.pLockJointStatement = new LockJointStatementElements();
 		this.pLockDoFStatement = new LockDoFStatementElements();
 		this.pAdditiveLockedJointType = new AdditiveLockedJointTypeElements();
@@ -2319,17 +2581,17 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStiffnessExp = new StiffnessExpElements();
 		this.pStiffnessRef = new StiffnessRefElements();
 		this.pBaseStiffnessExp = new BaseStiffnessExpElements();
-		this.unknownRuleAXIS = new AXISElements();
+		this.eAXIS = new AXISElements();
 		this.pRelativeTransformation = new RelativeTransformationElements();
 		this.pReorientation = new ReorientationElements();
 		this.pReorientExpression = new ReorientExpressionElements();
 		this.pReorientRef = new ReorientRefElements();
 		this.pBasicReorientExpression = new BasicReorientExpressionElements();
 		this.pConstraint = new ConstraintElements();
-		this.unknownRuleConstraintType = new ConstraintTypeElements();
+		this.eConstraintType = new ConstraintTypeElements();
 		this.pJointConstraint = new JointConstraintElements();
 		this.pExternalLoad = new ExternalLoadElements();
-		this.unknownRuleLoadType = new LoadTypeElements();
+		this.eLoadType = new LoadTypeElements();
 		this.pMatrix = new MatrixElements();
 		this.pBaseMatrix = new BaseMatrixElements();
 		this.pMatrixRef = new MatrixRefElements();
@@ -2339,7 +2601,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pParenthesisedExp = new ParenthesisedExpElements();
 		this.pConstantOrFunctionCallExp = new ConstantOrFunctionCallExpElements();
 		this.pNumberLiteral = new NumberLiteralElements();
-		this.tREAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "REAL");
+		this.tREAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.robotics.RigidBodies.REAL");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2370,7 +2632,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	defs+=InitialDefinition* world=Environment bodies+=System+ configuration=ConfigurationDef;
+	//	defs+=InitialDefinition*
+	//	world=Environment
+	//	bodies+=System+
+	//	configuration=ConfigurationDef;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -2390,7 +2655,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Environment:
-	//	"world" "{" "gravity" gravity=Matrix "}";
+	//	'world' '{'
+	//	'gravity' gravity=Matrix
+	//	'}';
 	public EnvironmentElements getEnvironmentAccess() {
 		return pEnvironment;
 	}
@@ -2400,7 +2667,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//System:
-	//	"system" name=ID "{" elements+=SystemElement+ "}";
+	//	'system' name=ID '{'
+	//	elements+=SystemElement+
+	//	'}';
 	public SystemElements getSystemAccess() {
 		return pSystem;
 	}
@@ -2410,7 +2679,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConfigurationDef:
-	//	"configurations" "{" instances+=SystemInstantiation+ configs+=Configuration+ "}";
+	//	'configurations' '{'
+	//	instances+=SystemInstantiation+
+	//	configs+=Configuration+
+	//	'}';
 	public ConfigurationDefElements getConfigurationDefAccess() {
 		return pConfigurationDef;
 	}
@@ -2420,7 +2692,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SystemInstantiation:
-	//	"instantiate" system=[System] "as" name=ID;
+	//	'instantiate' system=[System] 'as' name=ID;
 	public SystemInstantiationElements getSystemInstantiationAccess() {
 		return pSystemInstantiation;
 	}
@@ -2430,7 +2702,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Configuration:
-	//	name=ID "{" statements+=ConfigurationStatement* "}";
+	//	name=ID '{'
+	//	statements+=ConfigurationStatement*
+	//	'}';
 	public ConfigurationElements getConfigurationAccess() {
 		return pConfiguration;
 	}
@@ -2439,9 +2713,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getConfigurationAccess().getRule();
 	}
 
-	//// TODO how to reference specific degrees of freedom in a robust way?
-	//ConfigurationStatement: // TODO Other types of configuration statements?
-	//	LockJointStatement | LockDoFStatement;
+	//ConfigurationStatement:
+	//	ControlStatement | LockJointStatement | LockDoFStatement
+	//	// TODO how to reference specific degrees of freedom in a robust way?
+	//;
 	public ConfigurationStatementElements getConfigurationStatementAccess() {
 		return pConfigurationStatement;
 	}
@@ -2450,9 +2725,33 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getConfigurationStatementAccess().getRule();
 	}
 
+	//ControlStatement:
+	//	'control' system=[SystemInstantiation] '.' bodyref=BodyReference
+	//	relative_transform=RelativeTransformation
+	//	'to' constraints+=ConstraintClause (',' constraints+=ConstraintClause)*
+	//	'with' 'gains' '{' ('P' '=' P=AddExp)? ('I' '=' I=AddExp)? ('D' '=' D=AddExp)?
+	//	'}';
+	public ControlStatementElements getControlStatementAccess() {
+		return pControlStatement;
+	}
+	
+	public ParserRule getControlStatementRule() {
+		return getControlStatementAccess().getRule();
+	}
+
+	//ConstraintClause:
+	//	lhs=AddExp op=('=' | '>' | '<') rhs=AddExp;
+	public ConstraintClauseElements getConstraintClauseAccess() {
+		return pConstraintClause;
+	}
+	
+	public ParserRule getConstraintClauseRule() {
+		return getConstraintClauseAccess().getRule();
+	}
+
 	//LockJointStatement: // TODO Handle repeated joints
-	//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" "rotation" rotation= / * 3D vector * / Matrix "translation"
-	//	translation= / * 3D vector * / Matrix;
+	//	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' 'rotation' rotation=Matrix / * 3D vector * / 'translation'
+	//	translation=Matrix / * 3D vector * /;
 	public LockJointStatementElements getLockJointStatementAccess() {
 		return pLockJointStatement;
 	}
@@ -2462,7 +2761,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LockDoFStatement:
-	//	"lock" system=[SystemInstantiation] "." joint=[Joint] "to" lockedType=AdditiveLockedJointType;
+	//	'lock' system=[SystemInstantiation] '.' joint=[Joint] 'to' lockedType=AdditiveLockedJointType;
 	public LockDoFStatementElements getLockDoFStatementAccess() {
 		return pLockDoFStatement;
 	}
@@ -2471,8 +2770,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getLockDoFStatementAccess().getRule();
 	}
 
-	//AdditiveLockedJointType returns LockedJointTypeExpression:
-	//	PrimaryLockedJointType ("+" {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*;
+	//AdditiveLockedJointType LockedJointTypeExpression:
+	//	PrimaryLockedJointType ('+' {AdditiveLockedJointType.left=current} right+=PrimaryLockedJointType)*
 	public AdditiveLockedJointTypeElements getAdditiveLockedJointTypeAccess() {
 		return pAdditiveLockedJointType;
 	}
@@ -2481,8 +2780,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getAdditiveLockedJointTypeAccess().getRule();
 	}
 
-	//PrimaryLockedJointType returns LockedJointTypeExpression:
-	//	KeepUnlockedJointType | BasicLockedJointType;
+	//PrimaryLockedJointType LockedJointTypeExpression:
+	//	KeepUnlockedJointType | BasicLockedJointType
 	public PrimaryLockedJointTypeElements getPrimaryLockedJointTypeAccess() {
 		return pPrimaryLockedJointType;
 	}
@@ -2492,7 +2791,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//KeepUnlockedJointType:
-	//	"keep" "flexible" {KeepUnlockedJointType};
+	//	'keep' 'flexible' {KeepUnlockedJointType};
 	public KeepUnlockedJointTypeElements getKeepUnlockedJointTypeAccess() {
 		return pKeepUnlockedJointType;
 	}
@@ -2522,7 +2821,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LockedRevolute:
-	//	"revolute" axis=AXIS "=" exp=AddExp;
+	//	'revolute' axis=AXIS '=' exp=AddExp;
 	public LockedRevoluteElements getLockedRevoluteAccess() {
 		return pLockedRevolute;
 	}
@@ -2532,7 +2831,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LockedPlanar:
-	//	"planar" axis=AXIS "=" exp=AddExp;
+	//	'planar' axis=AXIS '=' exp=AddExp;
 	public LockedPlanarElements getLockedPlanarAccess() {
 		return pLockedPlanar;
 	}
@@ -2562,8 +2861,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Body:
-	//	"body" name=ID "{" // frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
-	//	mass=Mass "}";
+	//	'body' name=ID '{'
+	//	// frame = LocalFrame // We're assuming the local frame is attached to the first joint for this body.
+	//	mass=Mass
+	//	'}';
 	public BodyElements getBodyAccess() {
 		return pBody;
 	}
@@ -2573,7 +2874,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BodyReference:
-	//	base?="base" | new?="new" | last?="last" ref=[Body]? | ref=[Body] ("[" idx=INT "]")?;
+	//	base?='base'
+	//	| new?='new'
+	//	| last?='last' ref=[Body]?
+	//	| ref=[Body] ('[' idx=INT ']')?;
 	public BodyReferenceElements getBodyReferenceAccess() {
 		return pBodyReference;
 	}
@@ -2583,7 +2887,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BodyRepetition:
-	//	"repeat" number=INT "of" body=[Body] "{" connectionExp+=(Connective | JointConstraint)+ "}";
+	//	"repeat" number=INT "of" body=[Body] "{"
+	//	connectionExp+=(Connective | JointConstraint)+
+	//	"}";
 	public BodyRepetitionElements getBodyRepetitionAccess() {
 		return pBodyRepetition;
 	}
@@ -2593,7 +2899,11 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Mass:
-	//	"mass" "{" "value" value=AddExp "position" position=Matrix "inertia" inertia=Matrix "}";
+	//	'mass' '{'
+	//	'value' value=AddExp
+	//	'position' position=Matrix
+	//	'inertia' inertia=Matrix
+	//	'}';
 	public MassElements getMassAccess() {
 		return pMass;
 	}
@@ -2603,8 +2913,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Joint:
-	//	"joint" name=ID ":" type=JointType isStart?="start"? "between" body1=BodyReference relTrans1=RelativeTransformation
-	//	"and" body2=BodyReference;
+	//	'joint' name=ID ':' type=JointType isStart?='start'?
+	//	'between' body1=BodyReference relTrans1=RelativeTransformation
+	//	'and' body2=BodyReference;
 	public JointElements getJointAccess() {
 		return pJoint;
 	}
@@ -2614,7 +2925,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//JointType:
-	//	("joint" "type" name=ID)? exp=AdditiveJointType;
+	//	('joint' 'type' name=ID)? exp=AdditiveJointType;
 	public JointTypeElements getJointTypeAccess() {
 		return pJointType;
 	}
@@ -2623,8 +2934,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getJointTypeAccess().getRule();
 	}
 
-	//AdditiveJointType returns JointTypeExpression:
-	//	PrimaryJointType ("+" {AdditiveJointType.left=current} right+=PrimaryJointType)*;
+	//AdditiveJointType JointTypeExpression:
+	//	PrimaryJointType ('+' {AdditiveJointType.left=current} right+=PrimaryJointType)*
 	public AdditiveJointTypeElements getAdditiveJointTypeAccess() {
 		return pAdditiveJointType;
 	}
@@ -2633,8 +2944,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getAdditiveJointTypeAccess().getRule();
 	}
 
-	//PrimaryJointType returns JointTypeExpression:
-	//	JointTypeReference | BasicJointType;
+	//PrimaryJointType JointTypeExpression:
+	//	JointTypeReference | BasicJointType
 	public PrimaryJointTypeElements getPrimaryJointTypeAccess() {
 		return pPrimaryJointType;
 	}
@@ -2654,7 +2965,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BasicJointType:
-	//	type=JointMovement "with" stiffness=StiffnessExp;
+	//	type=JointMovement 'with' stiffness=StiffnessExp;
 	public BasicJointTypeElements getBasicJointTypeAccess() {
 		return pBasicJointType;
 	}
@@ -2674,7 +2985,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Revolute:
-	//	"revolute" axis=AXIS;
+	//	'revolute' axis=AXIS;
 	public RevoluteElements getRevoluteAccess() {
 		return pRevolute;
 	}
@@ -2684,7 +2995,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Planar:
-	//	"planar" axis=AXIS;
+	//	'planar' axis=AXIS;
 	public PlanarElements getPlanarAccess() {
 		return pPlanar;
 	}
@@ -2714,9 +3025,13 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BaseStiffnessExp:
-	//	("stiffness" name=ID)? "{" // TODO Provide better labels for these in the concrete syntax
-	//	"springCoeff" springCoeff=AddExp "springInit" springInit=AddExp "dampViscous" dampViscous=AddExp "dampCoulomb"
-	//	dampCoulomb=AddExp "}";
+	//	('stiffness' name=ID)? '{'
+	//	// TODO Provide better labels for these in the concrete syntax
+	//	'springCoeff' springCoeff=AddExp
+	//	'springInit' springInit=AddExp
+	//	'dampViscous' dampViscous=AddExp
+	//	'dampCoulomb' dampCoulomb=AddExp
+	//	'}';
 	public BaseStiffnessExpElements getBaseStiffnessExpAccess() {
 		return pBaseStiffnessExp;
 	}
@@ -2726,9 +3041,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum AXIS:
-	//	X="x" | Y="y" | Z="z";
+	//	X='x' | Y='y' | Z='z';
 	public AXISElements getAXISAccess() {
-		return unknownRuleAXIS;
+		return eAXIS;
 	}
 	
 	public EnumRule getAXISRule() {
@@ -2736,7 +3051,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelativeTransformation:
-	//	"(" "with" "relative" "transformation" position=Matrix "," reorient=Reorientation ")";
+	//	'(' 'with' 'relative' 'transformation' position=Matrix ',' reorient=Reorientation ')';
 	public RelativeTransformationElements getRelativeTransformationAccess() {
 		return pRelativeTransformation;
 	}
@@ -2746,7 +3061,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Reorientation:
-	//	("reorient" name=ID)? exp=ReorientExpression;
+	//	('reorient' name=ID)? exp=ReorientExpression;
 	public ReorientationElements getReorientationAccess() {
 		return pReorientation;
 	}
@@ -2776,8 +3091,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BasicReorientExpression:
-	//	"(" {BasicReorientExpression} ("(" axis+=AXIS "," value+=AddExp ")" ("," "(" axis+=AXIS "," value+=AddExp ")")*)?
-	//	")";
+	//	'(' {BasicReorientExpression} ('(' axis+=AXIS ',' value+=AddExp ')' (',' '(' axis+=AXIS ',' value+=AddExp ')')*)?
+	//	')';
 	public BasicReorientExpressionElements getBasicReorientExpressionAccess() {
 		return pBasicReorientExpression;
 	}
@@ -2787,8 +3102,9 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Constraint:
-	//	"constraint" name=ID ":" type=ConstraintType "between" body1=BodyReference relTrans1=RelativeTransformation "and"
-	//	body2=BodyReference relTrans2=RelativeTransformation;
+	//	'constraint' name=ID ':' type=ConstraintType
+	//	'between' body1=BodyReference relTrans1=RelativeTransformation
+	//	'and' body2=BodyReference relTrans2=RelativeTransformation;
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
 	}
@@ -2798,9 +3114,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum ConstraintType:
-	//	GEOMETRICAL="geometrical" | VELOCITY="velocity";
+	//	GEOMETRICAL='geometrical' |
+	//	VELOCITY='velocity';
 	public ConstraintTypeElements getConstraintTypeAccess() {
-		return unknownRuleConstraintType;
+		return eConstraintType;
 	}
 	
 	public EnumRule getConstraintTypeRule() {
@@ -2808,7 +3125,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//JointConstraint:
-	//	"constraint" name=ID ":" joint1=[Joint] "moves" "like" joint2=[Joint];
+	//	'constraint' name=ID ':' joint1=[Joint] 'moves' 'like' joint2=[Joint];
 	public JointConstraintElements getJointConstraintAccess() {
 		return pJointConstraint;
 	}
@@ -2818,8 +3135,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExternalLoad:
-	//	"external" "load" name=ID ":" type=LoadType "at" body1=BodyReference "(" "with" "relative" "transformation"
-	//	position=Matrix ")";
+	//	'external' 'load' name=ID ':' type=LoadType
+	//	'at' body1=BodyReference '(' 'with' 'relative' 'transformation' position=Matrix ')';
 	public ExternalLoadElements getExternalLoadAccess() {
 		return pExternalLoad;
 	}
@@ -2829,9 +3146,10 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum LoadType:
-	//	FORCE="force" | TORQUE="torque";
+	//	FORCE='force' |
+	//	TORQUE='torque';
 	public LoadTypeElements getLoadTypeAccess() {
-		return unknownRuleLoadType;
+		return eLoadType;
 	}
 	
 	public EnumRule getLoadTypeRule() {
@@ -2849,7 +3167,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BaseMatrix:
-	//	("matrix" name=ID)? "[" values+=AddExp ("," values+=AddExp)* "]";
+	//	('matrix' name=ID)? '[' values+=AddExp (',' values+=AddExp)* ']';
 	public BaseMatrixElements getBaseMatrixAccess() {
 		return pBaseMatrix;
 	}
@@ -2868,8 +3186,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getMatrixRefAccess().getRule();
 	}
 
-	//AddExp returns Expression:
-	//	MultExp ({AddExp.left=current} op+=("+" | "-") right+=MultExp)*;
+	//AddExp Expression:
+	//	MultExp ({AddExp.left=current} op+=('+' | '-') right+=MultExp)*
 	public AddExpElements getAddExpAccess() {
 		return pAddExp;
 	}
@@ -2878,8 +3196,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getAddExpAccess().getRule();
 	}
 
-	//MultExp returns Expression:
-	//	Primary ({MultExp.left=current} op+=("*" | "/") right+=Primary)*;
+	//MultExp Expression:
+	//	Primary ({MultExp.left=current} op+=('*' | '/') right+=Primary)*
 	public MultExpElements getMultExpAccess() {
 		return pMultExp;
 	}
@@ -2888,8 +3206,8 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getMultExpAccess().getRule();
 	}
 
-	//Primary returns Expression:
-	//	NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp;
+	//Primary Expression:
+	//	NumberLiteral | ParenthesisedExp | ConstantOrFunctionCallExp
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
@@ -2900,7 +3218,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Need to keep this so that we can regenerate parentheses correctly
 	//ParenthesisedExp:
-	//	"(" exp=AddExp ")";
+	//	'(' exp=AddExp ')';
 	public ParenthesisedExpElements getParenthesisedExpAccess() {
 		return pParenthesisedExp;
 	}
@@ -2910,7 +3228,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstantOrFunctionCallExp:
-	//	label=ID ("(" param+=AddExp ("," param+=AddExp)* ")")?;
+	//	label=(ID | 'x' | 'y' | 'z') ('(' param+=AddExp (',' param+=AddExp)* ')')?;
 	public ConstantOrFunctionCallExpElements getConstantOrFunctionCallExpAccess() {
 		return pConstantOrFunctionCallExp;
 	}
@@ -2920,7 +3238,7 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NumberLiteral:
-	//	neg?="-"? value=REAL;
+	//	neg?='-'? value=REAL;
 	public NumberLiteralElements getNumberLiteralAccess() {
 		return pNumberLiteral;
 	}
@@ -2929,46 +3247,44 @@ public class RigidBodiesGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumberLiteralAccess().getRule();
 	}
 
-	//// TODO Simplify format, possibly turn into a DataType rule...
-	/// *returns ecore::EDouble* / terminal REAL:
-	//	"0".."9"+ "." "0".."9"+ (("e" | "E") ("+" | "-") "0".."9"+)?;
+	//terminal REAL / *returns ecore::EDouble* /:
+	//	'0'..'9'+ '.' '0'..'9'+ (('e' | 'E') ('+' | '-') '0'..'9'+)?;
 	public TerminalRule getREALRule() {
 		return tREAL;
 	} 
 
 	//terminal ID:
-	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
+	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
-	//	"0".."9"+;
+	//	'0'..'9'+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" . / * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\""))* "\"" | "\'" ("\\" .
-	//	/ * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\'"))* "\'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
-	//	"/ *"->"* /";
+	//	'/ *'->'* /';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
-	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
+	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
-	//	(" " | "\t" | "\r" | "\n")+;
+	//	' ' | '\t' | '\r' | '\n'+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 

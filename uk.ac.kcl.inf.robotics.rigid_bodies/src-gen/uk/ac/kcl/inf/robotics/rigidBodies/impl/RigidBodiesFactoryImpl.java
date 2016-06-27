@@ -29,7 +29,9 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintClause;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintType;
+import uk.ac.kcl.inf.robotics.rigidBodies.ControlStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
@@ -128,6 +130,8 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
       case RigidBodiesPackage.SYSTEM_INSTANTIATION: return createSystemInstantiation();
       case RigidBodiesPackage.CONFIGURATION: return createConfiguration();
       case RigidBodiesPackage.CONFIGURATION_STATEMENT: return createConfigurationStatement();
+      case RigidBodiesPackage.CONTROL_STATEMENT: return createControlStatement();
+      case RigidBodiesPackage.CONSTRAINT_CLAUSE: return createConstraintClause();
       case RigidBodiesPackage.LOCK_JOINT_STATEMENT: return createLockJointStatement();
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT: return createLockDoFStatement();
       case RigidBodiesPackage.LOCKED_JOINT_TYPE_EXPRESSION: return createLockedJointTypeExpression();
@@ -305,6 +309,28 @@ public class RigidBodiesFactoryImpl extends EFactoryImpl implements RigidBodiesF
   {
     ConfigurationStatementImpl configurationStatement = new ConfigurationStatementImpl();
     return configurationStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ControlStatement createControlStatement()
+  {
+    ControlStatementImpl controlStatement = new ControlStatementImpl();
+    return controlStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstraintClause createConstraintClause()
+  {
+    ConstraintClauseImpl constraintClause = new ConstraintClauseImpl();
+    return constraintClause;
   }
 
   /**

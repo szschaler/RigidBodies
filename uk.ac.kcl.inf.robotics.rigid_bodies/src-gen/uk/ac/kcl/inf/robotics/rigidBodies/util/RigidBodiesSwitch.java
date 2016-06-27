@@ -24,6 +24,8 @@ import uk.ac.kcl.inf.robotics.rigidBodies.ConfigurationStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Connective;
 import uk.ac.kcl.inf.robotics.rigidBodies.ConstantOrFunctionCallExp;
 import uk.ac.kcl.inf.robotics.rigidBodies.Constraint;
+import uk.ac.kcl.inf.robotics.rigidBodies.ConstraintClause;
+import uk.ac.kcl.inf.robotics.rigidBodies.ControlStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.Environment;
 import uk.ac.kcl.inf.robotics.rigidBodies.Expression;
 import uk.ac.kcl.inf.robotics.rigidBodies.ExternalLoad;
@@ -176,6 +178,21 @@ public class RigidBodiesSwitch<T> extends Switch<T>
       {
         ConfigurationStatement configurationStatement = (ConfigurationStatement)theEObject;
         T result = caseConfigurationStatement(configurationStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.CONTROL_STATEMENT:
+      {
+        ControlStatement controlStatement = (ControlStatement)theEObject;
+        T result = caseControlStatement(controlStatement);
+        if (result == null) result = caseConfigurationStatement(controlStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RigidBodiesPackage.CONSTRAINT_CLAUSE:
+      {
+        ConstraintClause constraintClause = (ConstraintClause)theEObject;
+        T result = caseConstraintClause(constraintClause);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -651,6 +668,38 @@ public class RigidBodiesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConfigurationStatement(ConfigurationStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Control Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Control Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseControlStatement(ControlStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constraint Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constraint Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstraintClause(ConstraintClause object)
   {
     return null;
   }

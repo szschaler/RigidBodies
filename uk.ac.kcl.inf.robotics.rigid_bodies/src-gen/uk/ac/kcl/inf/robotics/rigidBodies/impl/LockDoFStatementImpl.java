@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import uk.ac.kcl.inf.robotics.rigidBodies.Joint;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockDoFStatement;
 import uk.ac.kcl.inf.robotics.rigidBodies.LockedJointTypeExpression;
 import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
@@ -22,6 +23,7 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockDoFStatementImpl#getJoint <em>Joint</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.robotics.rigidBodies.impl.LockDoFStatementImpl#getLockedType <em>Locked Type</em>}</li>
  * </ul>
  *
@@ -29,6 +31,16 @@ import uk.ac.kcl.inf.robotics.rigidBodies.RigidBodiesPackage;
  */
 public class LockDoFStatementImpl extends ConfigurationStatementImpl implements LockDoFStatement
 {
+  /**
+   * The cached value of the '{@link #getJoint() <em>Joint</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getJoint()
+   * @generated
+   * @ordered
+   */
+  protected Joint joint;
+
   /**
    * The cached value of the '{@link #getLockedType() <em>Locked Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -58,6 +70,49 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
   protected EClass eStaticClass()
   {
     return RigidBodiesPackage.Literals.LOCK_DO_FSTATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Joint getJoint()
+  {
+    if (joint != null && joint.eIsProxy())
+    {
+      InternalEObject oldJoint = (InternalEObject)joint;
+      joint = (Joint)eResolveProxy(oldJoint);
+      if (joint != oldJoint)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RigidBodiesPackage.LOCK_DO_FSTATEMENT__JOINT, oldJoint, joint));
+      }
+    }
+    return joint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Joint basicGetJoint()
+  {
+    return joint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setJoint(Joint newJoint)
+  {
+    Joint oldJoint = joint;
+    joint = newJoint;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RigidBodiesPackage.LOCK_DO_FSTATEMENT__JOINT, oldJoint, joint));
   }
 
   /**
@@ -134,6 +189,9 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.LOCK_DO_FSTATEMENT__JOINT:
+        if (resolve) return getJoint();
+        return basicGetJoint();
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT__LOCKED_TYPE:
         return getLockedType();
     }
@@ -150,6 +208,9 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.LOCK_DO_FSTATEMENT__JOINT:
+        setJoint((Joint)newValue);
+        return;
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT__LOCKED_TYPE:
         setLockedType((LockedJointTypeExpression)newValue);
         return;
@@ -167,6 +228,9 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.LOCK_DO_FSTATEMENT__JOINT:
+        setJoint((Joint)null);
+        return;
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT__LOCKED_TYPE:
         setLockedType((LockedJointTypeExpression)null);
         return;
@@ -184,6 +248,8 @@ public class LockDoFStatementImpl extends ConfigurationStatementImpl implements 
   {
     switch (featureID)
     {
+      case RigidBodiesPackage.LOCK_DO_FSTATEMENT__JOINT:
+        return joint != null;
       case RigidBodiesPackage.LOCK_DO_FSTATEMENT__LOCKED_TYPE:
         return lockedType != null;
     }
